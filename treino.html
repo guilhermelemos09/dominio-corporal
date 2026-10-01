@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Domínio Corporal | Gui Lemos</title>
+
+  <!-- PWA & Mobile App Meta Tags -->
+  <link rel="manifest" href="Apoio/manifest.json">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Domínio Corporal">
+  <meta name="theme-color" content="#000000">
+  <link rel="apple-touch-icon" href="https://img.icons8.com/fluency/192/gymnastics.png">
+
+  <!-- Fonte Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Base Preto Puro OLED */
+      --bg: #000000;
+      --card-bg: #0c0c0c;
+      --card-inner: #131313;
+      --border-subtle: #1e1e1e;
+      --border-strong: #2c2c2c;
+      
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+
+      /* Identidade Visual: Verde Neon Hero */
+      --brand-neon: #00ff88;
+      --brand-neon-glow: rgba(0, 255, 136, 0.4);
+      --brand-neon-bg: rgba(0, 255, 136, 0.08);
+
+      /* Cores Funcionais Discretas (Mínimo Estrito) */
+      --sec-aquecimento: #38bdf8;      /* Ativação: Ciano Funcional */
+      --sec-skills: #00ff88;           /* Habilidade: Verde Neon */
+      --sec-forca: #00ff88;            /* Fortalecimento: Verde Neon */
+      --sec-flex: #c084fc;             /* Flexibilidade: Lavanda Suave */
+      --sec-cardio: #fb7185;           /* Cardio: Coral Suave */
+
+      --radius-lg: 14px;
+      --radius-md: 10px;
+      --radius-sm: 6px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      padding: 16px;
+      padding-bottom: 115px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header Domínio Corporal Minimalista */
+    header {
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 18px 20px;
+      margin-bottom: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--brand-neon), transparent);
+    }
+    .brand-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .institution {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+    }
+    .badge-sync {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--brand-neon-bg);
+      color: var(--brand-neon);
+      border: 1px solid rgba(0, 255, 136, 0.3);
+      padding: 3px 9px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+    .badge-sync::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--brand-neon);
+      box-shadow: 0 0 8px var(--brand-neon);
+    }
+    .brand h1 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      margin-bottom: 2px;
+    }
+    .brand-slogan {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--brand-neon);
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+    .brand-subtitle {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+    .brand-subtitle span {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+
+    /* Barra de Progresso Neon */
+    .progress-section {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .progress-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .progress-bar-bg {
+      background: rgba(255, 255, 255, 0.07);
+      height: 7px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      background: linear-gradient(90deg, #059669, var(--brand-neon));
+      height: 100%;
+      width: 0%;
+      border-radius: 10px;
+      box-shadow: 0 0 10px var(--brand-neon-glow);
+      transition: width 0.3s ease;
+    }
+
+    /* Tabs em Preto Fosco */
+    .tabs {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      margin-bottom: 16px;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .tabs::-webkit-scrollbar { display: none; }
+    .tab-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .tab-btn.active {
+      background: var(--brand-neon);
+      color: #000000;
+      border-color: var(--brand-neon);
+      box-shadow: 0 0 14px var(--brand-neon-glow);
+      font-weight: 800;
+    }
+
+    /* Tab Content */
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.25s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ===================================================
+       SISTEMA DOS PILARES (PRETO OLED + VERDE NEON HERO)
+       =================================================== */
+    .section-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border-subtle);
+      border-left: 3.5px solid var(--brand-neon);
+      position: relative;
+    }
+
+    /* 1. Aquecimento / Ativação (Discreto Ciano) */
+    .sec-aquecimento {
+      border-left-color: var(--sec-aquecimento);
+    }
+    .sec-aquecimento .section-badge {
+      background: rgba(56, 189, 248, 0.08);
+      color: var(--sec-aquecimento);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    /* 2. Habilidades / Técnica (Verde Neon) */
+    .sec-skills {
+      border-left-color: var(--brand-neon);
+    }
+    .sec-skills .section-badge {
+      background: var(--brand-neon-bg);
+      color: var(--brand-neon);
+      border: 1px solid rgba(0, 255, 136, 0.3);
+    }
+
+    /* 3. Fortalecimento (Verde Neon) */
+    .sec-forca {
+      border-left-color: var(--brand-neon);
+    }
+    .sec-forca .section-badge {
+      background: var(--brand-neon-bg);
+      color: var(--brand-neon);
+      border: 1px solid rgba(0, 255, 136, 0.3);
+    }
+
+    /* 4. Flexibilidade (Discreto Lavanda) */
+    .sec-flex {
+      border-left-color: var(--sec-flex);
+    }
+    .sec-flex .section-badge {
+      background: rgba(192, 132, 252, 0.08);
+      color: var(--sec-flex);
+      border: 1px solid rgba(192, 132, 252, 0.25);
+    }
+
+    /* 5. Cardio (Discreto Coral) */
+    .sec-cardio {
+      border-left-color: var(--sec-cardio);
+    }
+    .sec-cardio .section-badge {
+      background: rgba(251, 113, 133, 0.08);
+      color: var(--sec-cardio);
+      border: 1px solid rgba(251, 113, 133, 0.25);
+    }
+
+    /* Cabeçalho da Seção */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .section-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-badge {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .section-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+    .time-badge {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+      border: 1px solid var(--border-subtle);
+    }
+
+    /* Cards Internos de Exercício */
+    .exercise-card {
+      background: var(--card-inner);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      transition: all 0.2s ease;
+    }
+    .exercise-card:last-child { margin-bottom: 0; }
+    .exercise-card:hover {
+      border-color: var(--border-strong);
+    }
+
+    .ex-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+    .ex-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.3;
+    }
+    .ex-chips {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .chip {
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-muted);
+    }
+
+    .ex-volume-badge {
+      font-size: 0.76rem;
+      font-weight: 700;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      border: 1px solid var(--border-subtle);
+      padding: 4px 9px;
+      border-radius: 8px;
+      white-space: nowrap;
+    }
+
+    /* Caixa de Dica Biomecânica */
+    .bio-cue {
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin: 10px 0;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    .bio-cue strong { color: #ffffff; }
+
+    /* Barra de Ação do Exercício */
+    .ex-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* Botão de Vídeo Estilo Cyberpunk / Dark Glass */
+    .btn-video {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--brand-neon-bg);
+      border: 1px solid rgba(0, 255, 136, 0.25);
+      color: var(--brand-neon);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .btn-video:active {
+      background: rgba(0, 255, 136, 0.2);
+      border-color: var(--brand-neon);
+      transform: scale(0.97);
+    }
+    .btn-video svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
+    /* Bolinhas de Série em Dark Mode */
+    .sets-container {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .set-pill {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1.5px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.15s ease;
+    }
+    .set-pill:active { transform: scale(0.92); }
+    .set-pill.done {
+      background: var(--brand-neon);
+      color: #000000;
+      border-color: var(--brand-neon);
+      box-shadow: 0 0 14px var(--brand-neon-glow);
+      font-weight: 800;
+    }
+
+    /* Callout Card Dark */
+    .callout-box {
+      border-radius: var(--radius-md);
+      padding: 13px 16px;
+      margin-bottom: 16px;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+    }
+    .callout-box strong { color: #ffffff; }
+    .callout-icon { font-size: 1.15rem; line-height: 1; flex-shrink: 0; margin-top: 1px; }
+
+    /* Cronômetro Flutuante OLED */
+    .timer-dock {
+      position: fixed;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      background: rgba(17, 24, 39, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--border-strong);
+      border-radius: 24px;
+      padding: 10px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7);
+      z-index: 100;
+    }
+    .timer-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .timer-caption {
+      font-size: 0.62rem;
+      font-weight: 800;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .timer-display {
+      font-size: 1.35rem;
+      font-weight: 800;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      color: var(--brand-neon);
+      letter-spacing: -0.02em;
+    }
+    .timer-buttons {
+      display: flex;
+      gap: 6px;
+    }
+    .btn-timer {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 7px 12px;
+      border-radius: 12px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .btn-timer.active {
+      background: var(--brand-neon);
+      color: #000000;
+      border-color: var(--brand-neon);
+      box-shadow: 0 0 12px var(--brand-neon-glow);
+    }
+    .btn-timer-reset {
+      background: rgba(244, 63, 94, 0.15);
+      color: #fb7185;
+      border-color: rgba(244, 63, 94, 0.3);
+    }
+
+    /* Modal de Vídeo Dark */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .modal-overlay.active { display: flex; animation: modalIn 0.25s ease; }
+    @keyframes modalIn { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: scale(1); } }
+
+    .modal-card {
+      background: #111827;
+      border: 1px solid var(--border-strong);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 520px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9);
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 18px;
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .modal-header h3 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+    .btn-close {
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      color: var(--text-muted);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      background: #000;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      border: none;
+    }
+    .modal-body {
+      padding: 16px 18px;
+      font-size: 0.85rem;
+      color: var(--text-main);
+      line-height: 1.55;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Domínio Corporal (Preto OLED & Verde Neon) -->
+  <header>
+    <div class="brand-top">
+      <div class="institution">EEFERP-USP • BIOMECÂNICA DO MOVIMENTO</div>
+      <div style="display: flex; gap: 8px; align-items: center;">
+        <a href="demo_treino_completo.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.7rem; font-weight: 600; background: #111; padding: 3px 9px; border-radius: 20px; border: 1px solid var(--border-subtle);">📋 Ver Modelo Completo</a>
+        <div class="badge-sync">Sincronizado</div>
+      </div>
+    </div>
+    <div class="brand">
+      <h1>DOMÍNIO CORPORAL</h1>
+      <div class="brand-slogan">Desafie a gravidade, domine seu corpo.</div>
+      <div class="brand-subtitle">
+        <span>Gui Lemos</span>
+        <span>Mestrado USP</span>
+        <span>86 kg (Meta 14%)</span>
+        <span>Tirzepatida</span>
+      </div>
+    </div>
+
+    <!-- Barra de Progresso Neon -->
+    <div class="progress-section">
+      <div class="progress-labels">
+        <span>Progresso da Sessão</span>
+        <span id="progressText">17 de 17 séries (100%)</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progressBar" style="width: 100%;"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navegação por Abas -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('quinta')">Hoje (Quinta Dança & Força Insta)</button>
+    <button class="tab-btn" onclick="switchTab('quarta')">Ontem (Quarta EEFERP - Concluído)</button>
+    <button class="tab-btn" onclick="switchTab('semana')">Semana Completa</button>
+    <button class="tab-btn" onclick="switchTab('perfil')">Diretrizes & Menisco</button>
+  </div>
+
+  <!-- ==================== TAB ATIVA: HOJE (QUINTA EEFERP - REGISTRO REAL EXECUTADO) ==================== -->
+  <div id="tab-quinta" class="tab-content active">
+
+    <!-- Checklist & Status Real -->
+    <div class="callout-box">
+      <div class="callout-icon">⚡</div>
+      <div>
+        <strong>Sessão Realizada na EEFERP (12h às 13h) • Registro Real:</strong><br>
+        Você montou intuitivamente uma sessão com altíssima densidade mecânica: potência de puxada e transição na barra, alavanca e vela nas argolas, aceleração terminal de glúteo com elástico e sarcomerogênese do Aquiles. As 17 séries executadas estão registradas abaixo!
+      </div>
+    </div>
+
+    <!-- ==================== BLOCO 1: HABILIDADES & POTÊNCIA GÍMNICA ==================== -->
+    <div class="section-card sec-skills">
+      <div class="section-header">
+        <div class="section-title">Habilidades & Potência de Barra</div>
+        <span class="time-badge">6 séries</span>
+      </div>
+
+      <!-- Ex 1.1: Kip Muscle-Up -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Kip Muscle-Up (BMU) na Barra Fixa</div>
+            <div class="ex-chips">
+              <span class="chip">Potência de Puxada</span>
+              <span class="chip">Transição Dinâmica</span>
+              <span class="chip">Gímnico</span>
+            </div>
+          </div>
+          <div class="ex-volume-badge">3x 3 reps</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Potência Dinâmica:</strong> Puxada balística com transição rápida de cotovelos sobre a barra. Recrutamento explosivo de grande dorsal e peitoral com desaceleração do tríceps no dip.
+        </div>
+        <div class="ex-actions">
+          <div></div>
+          <div class="sets-container">
+            <div class="set-pill done" onclick="toggleSet(this)">1</div>
+            <div class="set-pill done" onclick="toggleSet(this)">2</div>
+            <div class="set-pill done" onclick="toggleSet(this)">3</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 1.2: Oitavas na Barra -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Giro de Oitava na Barra Fixa (Glide Kip / Oitavas Ligadas)</div>
+            <div class="ex-chips">
+              <span class="chip">Ginástica Artística</span>
+              <span class="chip">4x Oitavas Contínuas</span>
+              <span class="chip">Timing & Alavanca Pura</span>
+              <span class="chip">🔥 Vídeo Analisado</span>
+            </div>
+          </div>
+          <div class="ex-volume-badge">4 reps ligadas</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Análise Biomecânica da Execução:</strong> 4 repetições consecutivas com excelente retenção de alavanca com braço reto (*straight-arm press down*). Compressão precisa de pés na barra no retorno pendular e transição veloz de punhos por cima da barra no apoio frontal.
+        </div>
+        <div style="margin: 10px 0;">
+          <video controls playsinline preload="metadata" style="width: 100%; border-radius: 10px; max-height: 320px; background: #000; border: 1px solid var(--border-strong);" src="Midia/WhatsApp Video 2026-10-01 at 15.13.45.mp4"></video>
+          <div style="margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap;">
+            <a href="https://drive.google.com/file/d/1o5mW2GK-qtiffr74zTQOUaQ4PBfOzfxI/view?usp=sharing" target="_blank" class="btn-video" style="text-decoration: none;">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> 📱 Abrir Vídeo no Drive (Celular)
+            </a>
+          </div>
+        </div>
+        <div class="ex-actions">
+          <div></div>
+          <div class="sets-container">
+            <div class="set-pill done" onclick="toggleSet(this)">1</div>
+            <div class="set-pill done" onclick="toggleSet(this)">2</div>
+            <div class="set-pill done" onclick="toggleSet(this)">3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== BLOCO 2: ALAVANCA & CORE GÍMNICO ==================== -->
+    <div class="section-card sec-forca">
+      <div class="section-header">
+        <div class="section-title">Força de Alavanca & Core em Suspensão</div>
+        <span class="time-badge">3 séries</span>
+      </div>
+
+      <!-- Ex 2.1: Ice Cream Makers -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Ice Cream Makers nas Argolas Altas</div>
+            <div class="ex-chips">
+              <span class="chip">Front Lever to Chin-Up</span>
+              <span class="chip">Grande Dorsal & Bíceps</span>
+              <span class="chip">Core Anti-Extensão</span>
+              <span class="chip">🔥 Destaque</span>
+            </div>
+          </div>
+          <div class="ex-volume-badge">2x 6 reps</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Alavanca Horizontal:</strong> Transição fluida entre extensão de ombro em alavanca e flexão concêntrica em cadeia fechada, mantendo o corpo horizontal e o reto abdominal sob tensão isométrica máxima.
+        </div>
+        <div class="ex-actions">
+          <button class="btn-video" onclick="openVideoModal('Ice Cream Makers — Alavanca & Puxada', '<b>Mecânica Chave:</b> Transição contínua entre extensão de ombro em braço esticado (Front Lever) e flexão em cadeia fechada (Chin-Up). Pelve rigorosamente alinhada na horizontal.', 'https://www.youtube.com/embed/5kQWqFz9a5c')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Ver Técnica
+          </button>
+          <div class="sets-container">
+            <div class="set-pill done" onclick="toggleSet(this)">1</div>
+            <div class="set-pill done" onclick="toggleSet(this)">2</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 2.2: Leg Raise pra Vela -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Hanging Leg Raise para Vela nas Argolas (Candlestick Hang)</div>
+            <div class="ex-chips">
+              <span class="chip">Reto Abdominal</span>
+              <span class="chip">Compressão Pélvica</span>
+              <span class="chip">Vela Invertida</span>
+            </div>
+          </div>
+          <div class="ex-volume-badge">1x 6 reps</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Compressão e Alavanca Vertical:</strong> Elevação ativa de pernas com transição vertical em vela nas argolas. Força anti-gravitacional pura de cadeia anterior e depressão escapular.
+        </div>
+        <div class="ex-actions">
+          <div></div>
+          <div class="sets-container">
+            <div class="set-pill done" onclick="toggleSet(this)">1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== BLOCO 3: CADEIA POSTERIOR & AQUILES ==================== -->
+    <div class="section-card sec-forca">
+      <div class="section-header">
+        <div class="section-title">Cadeia Posterior, Glúteos & Resgate de Aquiles</div>
+        <span class="time-badge">8 séries</span>
+      </div>
+
+      <!-- Ex 3.1: Banded KB Swing -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Banded Kettlebell Swing com Elástico (Resistência Acomodada)</div>
+            <div class="ex-chips">
+              <span class="chip">Potência de Glúteo</span>
+              <span class="chip">Resistência Variável</span>
+              <span class="chip">Zero Compressão Menisco</span>
+              <span class="chip">🔥 Fora da Caixa</span>
+            </div>
+          </div>
+          <div class="ex-volume-badge">4x 10 reps</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Aceleração Terminal:</strong> A superband ancorada impõe pico de resistência justamente no ponto de máxima extensão de quadril (*lockout*). Disparo de glúteo máximo sem qualquer cisalhamento patelofemoral ou meniscal.
+        </div>
+        <div class="ex-actions">
+          <div></div>
+          <div class="sets-container">
+            <div class="set-pill done" onclick="toggleSet(this)">1</div>
+            <div class="set-pill done" onclick="toggleSet(this)">2</div>
+            <div class="set-pill done" onclick="toggleSet(this)">3</div>
+            <div class="set-pill done" onclick="toggleSet(this)">4</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 3.2: KB RDL -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Romanian Deadlift (RDL) com Kettlebell</div>
+            <div class="ex-chips">
+              <span class="chip">Hip Hinge</span>
+              <span class="chip">Estiramento de Isquiotibiais</span>
+              <span class="chip">Glúteo Máximo</span>
+            </div>
+          </div>
+          <div class="ex-volume-badge">2x 10 reps</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Dominância de Quadril:</strong> Tíbias verticais, joelhos semifletidos (~20°). Carrega glúteo e posteriores sob tensão passiva sem flexão profunda que pressione o menisco lateral rompido.
+        </div>
+        <div class="ex-actions">
+          <div></div>
+          <div class="sets-container">
+            <div class="set-pill done" onclick="toggleSet(this)">1</div>
+            <div class="set-pill done" onclick="toggleSet(this)">2</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 3.3: Panturrilha / Aquiles -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Elevação de Panturrilha com Pausa Profunda no Fundo</div>
+            <div class="ex-chips">
+              <span class="chip">Sarcomerogênese em Série</span>
+              <span class="chip">Aquiles 8 Anos</span>
+              <span class="chip">Pausa em Dorsiflexão</span>
+            </div>
+          </div>
+          <div class="ex-volume-badge">2x 15 reps</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Protocolo de Resgate:</strong> Pausa profunda no fundo do degrau estirando os fascículos sob carga para estimular a adição de sarcômeros em série no gastrocnêmio e sóleo.
+        </div>
+        <div class="ex-actions">
+          <div></div>
+          <div class="sets-container">
+            <div class="set-pill done" onclick="toggleSet(this)">1</div>
+            <div class="set-pill done" onclick="toggleSet(this)">2</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== TAB: ONTEM (QUARTA EEFERP - REGISTRO TÉCNICO & VÍDEO) ==================== -->
+  <div id="tab-quarta" class="tab-content">
+    
+    <div class="callout-box">
+      <div class="callout-icon">🏆</div>
+      <div>
+        <strong>Análise Técnica da Sessão de Quarta (30/09/2026):</strong><br>
+        • <strong>Bloco de Skills:</strong> Concluído com louvor! Sequência magistral na manjota gravada em vídeo.<br>
+        • <strong>Bloco de Força / Hipertrofia:</strong> Não realizado devido ao tempo curto; todo o volume foi reorganizado e aprimorado na sessão de <strong>Hoje (Quinta)</strong> com os <em>Ice Cream Makers</em>, <em>Dragon Flag</em>, <em>Headbangers</em> e <em>Single-Leg RDL</em>!
+      </div>
+    </div>
+
+    <!-- Card de Análise do Vídeo da Manjota -->
+    <div class="section-card sec-skills">
+      <div class="section-header">
+        <div class="section-title">Análise Biomecânica da Sequência na Manjota (Canes)</div>
+        <span class="time-badge">Vídeo Analisado</span>
+      </div>
+
+      <div style="margin-bottom: 14px;">
+        <video controls playsinline preload="metadata" style="width: 100%; border-radius: 12px; max-height: 380px; background: #000; border: 1px solid var(--border-strong);" src="Midia/WhatsApp Video 2026-10-01 at 11.30.16.mp4"></video>
+        <div style="margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap;">
+          <a href="https://drive.google.com/file/d/1tNgCqQQXc_sA3WCwqryKIRbHE7mK8zZX/view?usp=sharing" target="_blank" class="btn-video" style="text-decoration: none;">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> 📱 Abrir Vídeo no Drive (Celular)
+          </a>
+        </div>
+      </div>
+
+      <div style="font-size: 0.84rem; line-height: 1.6; color: var(--text-muted);">
+        <p style="margin-bottom: 8px;"><strong style="color:#ffffff;">Decomposição Cinemática dos Movimentos:</strong></p>
+        <p style="margin-bottom: 6px;"><strong>1. L-Sit / V-Sit Inicial (00:01):</strong> Bloqueio articular completo de cotovelos e joelhos, flexão plantar rigorosa e depressão escapular ativa. Centro de massa estável entre os canes.</p>
+        <p style="margin-bottom: 6px;"><strong>2. Press to Straddle Handstand (00:03 - 00:05):</strong> Subida em força pura e contínua sem balanço ou salto balístico. Compressão pélvica de iliopsoas e translação precisa dos ombros à frente para criar contrapeso.</p>
+        <p style="margin-bottom: 6px;"><strong>3. Full Handstand Alinhado (00:11 - 00:19):</strong> Fechamento elegante unindo as pernas. Linha axilar aberta, elevação de serrátil e trapézio superior mantendo a vertical neutra por quase 10 segundos.</p>
+        <p style="margin-bottom: 6px;"><strong>4. Descida Excêntrica em Compressão para L-Sit (00:21 - 00:25):</strong> Passagem de pernas em <em>tuck/pike pass</em> controlada em câmera lenta, amortecendo a gravidade e travando no L-Sit no ar sem tocar o chão.</p>
+        <p style="margin-bottom: 6px;"><strong>5. Straddle Elbow Lever / Croc (00:28 - 00:31):</strong> Transição horizontal suave apoiando os cotovelos nos flexores/espinha ilíaca anterior.</p>
+        <p style="margin-bottom: 6px;"><strong style="color: #38bdf8;">6. One-Arm Croc Unilateral (00:32 - 00:39):</strong> O ponto alto do vídeo! Transferência total do centro de gravidade para o cane direito e sustentação com 1 único braço descolando o braço esquerdo por ~7 segundos. Torque anti-rotacional excepcional de oblíquos e quadrado lombar.</p>
+        <p><strong>7. Saída e Aterrissagem (00:41):</strong> Retorno limpo e aterrissagem bípede com total controle motor.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== TAB: SEMANA COMPLETA ==================== -->
+  <div id="tab-semana" class="tab-content">
+    <div class="section-card sec-skills">
+      <div class="section-header">
+        <div class="section-title">📅 Matriz Semanal de Treino Atualizada</div>
+      </div>
+      <div style="font-size: 0.86rem; line-height: 1.8; color: var(--text-main);">
+        <p><strong>• Segunda (28/09):</strong> ✅ CrossFit (WOD Cleans, Squats, Jerks).</p>
+        <p><strong>• Terça (29/09):</strong> ✅ Natação Regenerativa (500m) + Portagem Dinâmica (58kg).</p>
+        <p><strong>• Quarta (30/09):</strong> ✅ EEFERP (Skills na Manjota executadas com nível circense de excelência) • <em>Força reagendada para hoje</em>.</p>
+        <p><strong>• Quinta (01/10 - Executado):</strong> ✅ EEFERP (BMU, Oitavas, Ice Cream Makers, Vela na Argola, Banded KB Swing, KB RDL, Panturrilha) + 18h30 Dança Escola.</p>
+        <p><strong>• Sexta (02/10):</strong> ⚡ Portagem de Força (63kg) + Complexo de Argolas (BMU/RMU strict).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== TAB: DIRETRIZES & REABILITAÇÃO ==================== -->
+  <div id="tab-perfil" class="tab-content">
+    <div class="section-card sec-aquecimento">
+      <div class="section-header">
+        <div class="section-title">🔬 Gestão Biomecânica do Menisco Lateral</div>
+      </div>
+      <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+        <p><strong>A "pedrinha raspando":</strong> Translação posterior do menisco lateral (~9–11mm) associada a pico de compressão em flexão extrema de joelho (&gt;110°) e rotação externa de tíbia.</p>
+        <p style="margin-top:8px;"><strong>Diretrizes:</strong><br>
+        1. Focar sempre em dominância de quadril (RDL, Hip Thrust) mantendo ângulo de tíbia estável.<br>
+        2. Na dança de chão, evitar sentar sobre o calcanhar esquerdo em rotação forçada.<br>
+        3. Alongar TFL e bíceps femoral pós-treino para abrir espaço articular no platô tibial.</p>
+      </div>
+    </div>
+
+    <div class="section-card sec-forca">
+      <div class="section-header">
+        <div class="section-title">🛡️ Reconstrução de Confiança & Histórico Cirúrgico</div>
+      </div>
+      <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+        <p><strong>• Ombro Direito (Supraespinhal + Acrômio operados):</strong> A cirurgia zerou a lesão mecânica, mas o SNC guarda o reflexo de proteção. O balanço para HS na paralela gera desaceleração brusca de alta inércia. Vamos reconstruir isso em aparelhos baixos com frenagem controlada.</p>
+        <p style="margin-top:8px;"><strong>• Tendões de Aquiles Bilaterais (operados há 8 anos):</strong> Exigem tolerância isométrica e excêntrica pesada de sóleo/gastrocnêmio para devolver complacência elástica sem medo de impacto.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cronômetro Flutuante OLED Stealth -->
+  <div class="timer-dock">
+    <div class="timer-info">
+      <span class="timer-caption">Descanso</span>
+      <span class="timer-display" id="timer">01:30</span>
+    </div>
+    <div class="timer-buttons">
+      <button class="btn-timer" onclick="startTimer(60)">60s</button>
+      <button class="btn-timer active" onclick="startTimer(90)">90s</button>
+      <button class="btn-timer" onclick="startTimer(120)">120s</button>
+      <button class="btn-timer btn-timer-reset" onclick="resetTimer()">Reset</button>
+    </div>
+  </div>
+
+  <!-- Modal de Vídeo & Técnica -->
+  <div id="videoModal" class="modal-overlay" onclick="handleOverlayClick(event)">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modalTitle">Demonstração Técnica</h3>
+        <button class="btn-close" onclick="closeVideoModal()">&times;</button>
+      </div>
+      <div class="video-container">
+        <iframe id="videoIframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="modal-body">
+        <p id="modalDesc"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      if (window.event && window.event.currentTarget) {
+        window.event.currentTarget.classList.add('active');
+      } else if (window.event && window.event.target) {
+        window.event.target.classList.add('active');
+      }
+      const target = document.getElementById('tab-' + tabId);
+      if (target) target.classList.add('active');
+      updateProgress();
+    }
+
+    function toggleSet(btn) {
+      btn.classList.toggle('done');
+      if (btn.classList.contains('done') && 'vibrate' in navigator) {
+        navigator.vibrate(35);
+      }
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const activeTab = document.querySelector('.tab-content.active');
+      const allSets = activeTab ? activeTab.querySelectorAll('.set-pill') : document.querySelectorAll('.set-pill');
+      const completedSets = activeTab ? activeTab.querySelectorAll('.set-pill.done') : document.querySelectorAll('.set-pill.done');
+      const total = allSets.length;
+      const completed = completedSets.length;
+      const pct = total > 0 ? Math.round((completed / total) * 100) : 0;
+      
+      const bar = document.getElementById('progressBar');
+      const text = document.getElementById('progressText');
+      if (bar) bar.style.width = pct + '%';
+      if (text) text.innerText = `${completed} de ${total} séries (${pct}%)`;
+    }
+
+    let timerInterval = null;
+    let secondsLeft = 90;
+
+    function formatTime(s) {
+      const mins = Math.floor(s / 60);
+      const secs = s % 60;
+      return String(mins).padStart(2, '0') + ':' + String(secs).padStart(2, '0');
+    }
+
+    function startTimer(s) {
+      clearInterval(timerInterval);
+      secondsLeft = s;
+      document.getElementById('timer').innerText = formatTime(secondsLeft);
+      document.querySelectorAll('.timer-buttons .btn-timer').forEach(b => b.classList.remove('active'));
+      if (event && event.target) event.target.classList.add('active');
+
+      timerInterval = setInterval(() => {
+        secondsLeft--;
+        if (secondsLeft <= 0) {
+          clearInterval(timerInterval);
+          document.getElementById('timer').innerText = "VAI!";
+          if ('vibrate' in navigator) navigator.vibrate([120, 60, 120]);
+        } else {
+          document.getElementById('timer').innerText = formatTime(secondsLeft);
+        }
+      }, 1000);
+    }
+
+    function resetTimer() {
+      clearInterval(timerInterval);
+      document.getElementById('timer').innerText = "01:30";
+    }
+
+    /* Modal de Vídeo */
+    function openVideoModal(title, desc, videoUrl) {
+      document.getElementById('modalTitle').innerText = title;
+      document.getElementById('modalDesc').innerHTML = desc;
+      document.getElementById('videoIframe').src = videoUrl;
+      document.getElementById('videoModal').classList.add('active');
+    }
+
+    function closeVideoModal() {
+      document.getElementById('videoModal').classList.remove('active');
+      document.getElementById('videoIframe').src = '';
+    }
+
+    function handleOverlayClick(e) {
+      if (e.target.id === 'videoModal') {
+        closeVideoModal();
+      }
+    }
+
+    // Inicializa contador de progresso
+    updateProgress();
+
+    // Registra Service Worker (PWA Offline)
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(err => console.log('SW falhou:', err));
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Método Gui | Treino Completo (Versão Branca)</title>
+
+  <!-- PWA Meta Tags -->
+  <link rel="manifest" href="Apoio/manifest.json">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Fonte Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Branco Puro & Tons Neutros Suíços */
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-inner: #f1f5f9;
+      
+      --border-subtle: #e2e8f0;
+      --border-card: #cbd5e1;
+      
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --text-dim: #94a3b8;
+
+      /* Cores de Destaque das Bordas */
+      --color-ativacao: #0284c7;
+      --color-habilidade: #10b981;
+      --color-fortalecimento: #d97706;
+      --color-flexibilidade: #7c3aed;
+      --color-cardio: #e11d48;
+
+      --radius-lg: 14px;
+      --radius-md: 10px;
+      --radius-sm: 6px;
+
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      padding: 16px;
+      padding-bottom: 110px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header Branco Minimalista */
+    header {
+      background: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 18px 20px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+    .brand-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .brand-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+    }
+    .switch-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-main);
+      text-decoration: none;
+      background: #f1f5f9;
+      border: 1px solid var(--border-subtle);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+    .brand h1 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+      margin-bottom: 2px;
+    }
+    .brand p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Barra de Progresso Clean */
+    .progress-section {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .progress-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .progress-bar-bg {
+      background: #e2e8f0;
+      height: 6px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      background: var(--color-habilidade);
+      height: 100%;
+      width: 0%;
+      border-radius: 10px;
+      transition: width 0.3s ease;
+    }
+
+    /* Seções com Fundo Branco e Borda Lateral Elegante */
+    .section-card {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border-subtle);
+      border-left: 4px solid;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .border-ativacao      { border-left-color: var(--color-ativacao); }
+    .border-habilidade    { border-left-color: var(--color-habilidade); }
+    .border-fortalecimento{ border-left-color: var(--color-fortalecimento); }
+    .border-flexibilidade { border-left-color: var(--color-flexibilidade); }
+    .border-cardio        { border-left-color: var(--color-cardio); }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.01em;
+    }
+    .section-time {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: #f1f5f9;
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    /* Card Interno do Exercício */
+    .exercise-card {
+      background: var(--surface-inner);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px 15px;
+      margin-bottom: 10px;
+    }
+    .exercise-card:last-child { margin-bottom: 0; }
+
+    .ex-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 6px;
+    }
+    .ex-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.3;
+    }
+    .ex-chips {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .chip {
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: #ffffff;
+      color: var(--text-muted);
+      border: 1px solid #e2e8f0;
+    }
+
+    .ex-volume {
+      font-size: 0.76rem;
+      font-weight: 700;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      background: #ffffff;
+      color: var(--text-main);
+      border: 1px solid var(--border-subtle);
+      padding: 4px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    /* Caixa de Dica Biomecânica */
+    .bio-cue {
+      background: #ffffff;
+      border-radius: 6px;
+      padding: 9px 12px;
+      margin: 9px 0;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      border: 1px solid var(--border-subtle);
+    }
+    .bio-cue strong { color: var(--text-main); }
+
+    /* Barra de Ação */
+    .ex-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* Botão de Vídeo Minimalista */
+    .btn-video {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ffffff;
+      border: 1px solid var(--border-card);
+      color: var(--text-main);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+    .btn-video:active {
+      background: #f1f5f9;
+      transform: scale(0.97);
+    }
+    .btn-video svg {
+      width: 12px;
+      height: 12px;
+      fill: currentColor;
+    }
+
+    /* Bolinhas de Série Claras com Verde ao Concluir */
+    .sets-container {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .set-pill {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: #ffffff;
+      border: 1px solid var(--border-card);
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.15s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    }
+    .set-pill:active { transform: scale(0.92); }
+    .set-pill.done {
+      background: var(--color-habilidade);
+      color: #ffffff;
+      border-color: var(--color-habilidade);
+      font-weight: 800;
+    }
+
+    /* Cronômetro Flutuante Branco */
+    .timer-dock {
+      position: fixed;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border-card);
+      border-radius: 18px;
+      padding: 10px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+    }
+    .timer-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .timer-caption {
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .timer-display {
+      font-size: 1.3rem;
+      font-weight: 800;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      color: var(--text-main);
+    }
+    .timer-buttons {
+      display: flex;
+      gap: 6px;
+    }
+    .btn-timer {
+      background: #f1f5f9;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-timer.active {
+      background: var(--text-main);
+      color: #ffffff;
+      border-color: var(--text-main);
+    }
+    .btn-timer-reset {
+      background: #fee2e2;
+      color: #ef4444;
+      border-color: #fecaca;
+    }
+
+    /* Modal de Vídeo Branco */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .modal-overlay.active { display: flex; animation: modalIn 0.2s ease; }
+    @keyframes modalIn { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: scale(1); } }
+
+    .modal-card {
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 520px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 18px;
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .modal-header h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .btn-close {
+      background: #e2e8f0;
+      border: none;
+      color: var(--text-muted);
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      background: #000;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      border: none;
+    }
+    .modal-body {
+      padding: 16px 18px;
+      font-size: 0.85rem;
+      color: var(--text-main);
+      line-height: 1.55;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Geral -->
+  <header>
+    <div class="brand-top">
+      <div class="brand-tag">Método Gui • Treinamento</div>
+      <a href="demo_treino_completo.html" class="switch-link">🌙 Ver Versão Preta</a>
+    </div>
+    <div class="brand">
+      <h1>Sessão Completa (Branca)</h1>
+      <p>Demonstração com os 5 tópicos estruturais em fundo claro.</p>
+    </div>
+
+    <!-- Barra de Progresso Clean -->
+    <div class="progress-section">
+      <div class="progress-labels">
+        <span>Séries Concluídas</span>
+        <span id="progressText">0 de 36 séries (0%)</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progressBar"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== 1. ATIVAÇÃO ==================== -->
+  <div class="section-card border-ativacao">
+    <div class="section-header">
+      <div class="section-title">Ativação</div>
+      <span class="section-time">15 min</span>
+    </div>
+
+    <!-- Ex 1.1 -->
+    <div class="exercise-card">
+      <div class="ex-top">
+        <div>
+          <div class="ex-title">Mobilidade de Punho na Manjota</div>
+          <div class="ex-chips">
+            <span class="chip">Flexores</span>
+            <span class="chip">Extensores</span>
+          </div>
+        </div>
+        <div class="ex-volume">2x 10 reps</div>
+      </div>
+      <div class="bio-cue">
+        Círculos lentos e transferências anteroposteriores de carga em pronação e neutro sobre os blocos.
+      </div>
+      <div class="ex-actions">
+        <div></div>
+        <div class="sets-container">
+          <div class="set-pill" onclick="toggleSet(this)">1</div>
+          <div class="set-pill" onclick="toggleSet(this)">2</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ex 1.2 -->
+    <div class="exercise-card">
+      <div class="ex-top">
+        <div>
+          <div class="ex-title">Descompressão Lateral do Joelho & Poplíteo</div>
+          <div class="ex-chips">
+            <span class="chip">Menisco Lateral</span>
+            <span class="chip">Trato Iliotibial</span>
+          </div>
+        </div>
+        <div class="ex-volume">2x 45s / perna</div>
+      </div>
+      <div class="bio-cue">
+        Tração com elástico do bíceps femoral + 10 rotações internas ativas da tíbia (retrai o corno posterior do menisco).
+      </div>
+      <div class="ex-actions">
+        <div></div>
+        <div class="sets-container">
+          <div class="set-pill" onclick="toggleSet(this)">1</div>
+          <div class="set-pill" onclick="toggleSet(this)">2</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ex 1.3 -->
+    <div class="exercise-card">
+      <div class="ex-top">
+        <div>
+          <div class="ex-title">Scapular Push-ups (Serrátil) + Band Pull-aparts</div>
+          <div class="ex-chips">
+            <span class="chip">Serrátil</span>
+            <span class="chip">Manguito</span>
+          </div>
+        </div>
+        <div class="ex-volume">2x 12 reps</div>
+      </div>
+      <div class="bio-cue">
+        Protração máxima em prancha para calibrar a elevação escapular do handstand.
+      </div>
+      <div class="ex-actions">
+        <div></div>
+        <div class="sets-container">
+          <div class="set-pill" onclick="toggleSet(this)">1</div>
+          <div class="set-pill" onclick="toggleSet(this)">2</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 2. HABILIDADE ==================== -->
+  <div class="section-card border-habilidade">
+    <div class="section-header">
+      <div class="section-title">Habilidade</div>
+      <span class="section-time">30 min</span>
+    </div>
+
+    <!-- Ex 2.1: OAHS -->
+    <div class="exercise-card">
+      <div class="ex-top">
+        <div>
+          <div class="ex-title">One-Arm Handstand (OAHS) — Shifts na Manjota</div>
+          <div class="ex-chips">
+            <span class="chip">Equilíbrio Fino</span>
+            <span class="chip">SNC Fresco</span>
+          </div>
+        </div>
+        <div class="ex-volume">5x 15-20s</div>
+      </div>
+      <div class="bio-cue">
+        <strong>Foco:</strong> Shift lateral progressivo na manjota transferindo o peso para a escápula de apoio em elevação máxima.
+      </div>
+      <div class="ex-actions">
+        <button class="btn-video" onclick="openVideoModal('One-Arm Handstand (OAHS)', '<b>Mecânica:</b> Manter a linha axilar fechada e o tronco compacto enquanto a mão oposta flutua suavemente.', 'https://www.youtube.com/embed/5Hj0m-e98_8')">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vídeo / Dicas
+        </button>
+        <div class="sets-container">
+          <div class="set-pill" onclick="toggleSet(this)">1</div>
+          <div class="set-pill" onclick="toggleSet(this)">2</div>
+          <div class="set-pill" onclick="toggleSet(this)">3</div>
+          <div class="set-pill" onclick="toggleSet(this)">4</div>
+          <div class="set-pill" onclick="toggleSet(this)">5</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ex 2.2: HSPU -->
+    <div class="exercise-card">
+      <div class="ex-top">
+        <div>
+          <div class="ex-title">Freestanding HSPU (Mecânica em Tripé)</div>
+          <div class="ex-chips">
+            <span class="chip">Deltoide Anterior</span>
+            <span class="chip">Push & Shrug</span>
+          </div>
+        </div>
+        <div class="ex-volume">5x 1 rep</div>
+      </div>
+      <div class="bio-cue">
+        Descida controlada até o bloco de 5–10 cm. Ao empurrar, empurrar o chão e transladar axilas para trás ao mesmo tempo.
+      </div>
+      <div class="ex-actions">
+        <button class="btn-video" onclick="openVideoModal('Freestanding HSPU', '<b>Mecânica Tripé:</b> Cabeça à frente das mãos formando um triângulo equilátero para garantir o contrapeso das pernas.', 'https://www.youtube.com/embed/D3s1p6d0J60')">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vídeo / Tripé
+        </button>
+        <div class="sets-container">
+          <div class="set-pill" onclick="toggleSet(this)">1</div>
+          <div class="set-pill" onclick="toggleSet(this)">2</div>
+          <div class="set-pill" onclick="toggleSet(this)">3</div>
+          <div class="set-pill" onclick="toggleSet(this)">4</div>
+          <div class="set-pill" onclick="toggleSet(this)">5</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ex 2.3: Press -->
+    <div class="exercise-card">
+      <div class="ex-top">
+        <div>
+          <div class="ex-title">Press to Handstand (Negativa de 5s / Straddle)</div>
+          <div class="ex-chips">
+            <span class="chip">Compressão Pélvica</span>
+            <span class="chip">Iliopsoas</span>
+          </div>
+        </div>
+        <div class="ex-volume">4x 3 reps</div>
+      </div>
+      <div class="bio-cue">
+        Subida de chute leve e descida carpada lenta em 5 segundos, projetando os ombros à frente para criar contrapeso.
+      </div>
+      <div class="ex-actions">
+        <button class="btn-video" onclick="openVideoModal('Press to Handstand', '<b>Mecânica Chave:</b> Controle excêntrico carpado descendo até pousar os pés suavemente na manjota.', 'https://www.youtube.com/embed/2_H_P9qN4kE')">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vídeo / Negativa
+        </button>
+        <div class="sets-container">
+          <div class="set-pill" onclick="toggleSet(this)">1</div>
+          <div class="set-pill" onclick="toggleSet(this)">2</div>
+          <div class="set-pill" onclick="toggleSet(this)">3</div>
+          <div class="set-pill" onclick="toggleSet(this)">4</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 3. FORTALECIMENTO ==================== -->
+  <div class="section-card border-fortalecimento">
+    <div class="section-header">
+      <div class="section-title">Fortalecimento</div>
+      <span class="section-time">30 min</span>
+    </div>
+
+    <!-- Ex 3.1: Front Lever -->
+    <div class="exercise-card">
+      <div class="ex-top">
+        <div>
+          <div class="ex-title">Front Lever (Isometria com Braço Reto)</div>
+          <div class="ex-chips">
+            <span class="chip">Dorsal</span>
+            <span class="chip">Redondo Maior</span>
+          </div>
+        </div>
+        <div class="ex-volume">5x 8s</div>
+      </div>
+      <div class="bio-cue">
+        Cotovelos 100% estendidos. Depressão e retração sustentadas com core anti-extensão travado.
+      </div>
+      <div class="ex-actions">
+        <button class="btn-video" onclick="openVideoModal('Front Lever', '<b>Mecânica:</b> Extensão pura de ombro tracionando a barra para o quadril com bloqueio articular completo.', 'https://www.youtube.com/embed/v9i8x60zF2Q')">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vídeo / Alavanca
+        </button>
+        <div class="sets-container">
+          <div class="set-pill" onclick="toggleSet(this)">1</div>
+          <div class="set-pill" onclick="toggleSet(this)">2</div>
+          <div class="set-pill" onclick="toggleSet(this)">3</div>
+          <div class="set-pill" onclick="toggleSet(this)">4</div>
+          <div class="set-pill" onclick="toggleSet(this)">5</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ex 3.2: RDL -->
+    <div class="exercise-card">
+      <div class="ex-top">
+        <div>
+          <div class="ex-title">Single-Leg RDL com KB 12 kg (Glúteo Máximo)</div>
+          <div class="ex-chips">
+            <span class="chip">Glúteo</span>
+            <span class="chip">Menisco Protegido</span>
+          </div>
+        </div>
+        <div class="ex-volume">3x 10-12 / perna</div>
+      </div>
+      <div class="bio-cue">
+        Dominância pura de quadril (*hip hinge*). Joelho mantido fixo em 20° para poupar o compartimento lateral.
+      </div>
+      <div class="ex-actions">
+        <div></div>
+        <div class="sets-container">
+          <div class="set-pill" onclick="toggleSet(this)">1</div>
+          <div class="set-pill" onclick="toggleSet(this)">2</div>
+          <div class="set-pill" onclick="toggleSet(this)">3</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ex 3.3: Panturrilha / Aquiles -->
+    <div class="exercise-card">
+      <div class="ex-top">
+        <div>
+          <div class="ex-title">Panturrilha / Aquiles (Pausa Profunda de 3–4s)</div>
+          <div class="ex-chips">
+            <span class="chip">Sarcomerogênese</span>
+            <span class="chip">Resgate 8 anos</span>
+          </div>
+        </div>
+        <div class="ex-volume">3x 12 / perna</div>
+      </div>
+      <div class="bio-cue">
+        Pausa estrita de 3 a 4 segundos em máxima dorsiflexão no fundo para adicionar sarcômeros em série e alongar os fascículos.
+      </div>
+      <div class="ex-actions">
+        <button class="btn-video" onclick="openVideoModal('Resgate de Panturrilha', '<b>Mecânica Chave:</b> Tensão passiva-ativa em estiramento máximo estimula a sarcomerogênese longitudinal.', 'https://www.youtube.com/embed/u3d_y5Yt-1g')">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vídeo / Mecânica
+        </button>
+        <div class="sets-container">
+          <div class="set-pill" onclick="toggleSet(this)">1</div>
+          <div class="set-pill" onclick="toggleSet(this)">2</div>
+          <div class="set-pill" onclick="toggleSet(this)">3</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 4. FLEXIBILIDADE ==================== -->
+  <div class="section-card border-flexibilidade">
+    <div class="section-header">
+      <div class="section-title">Flexibilidade</div>
+      <span class="section-time">15 min</span>
+    </div>
+
+    <!-- Ex 4.1 -->
+    <div class="exercise-card">
+      <div class="ex-top">
+        <div>
+          <div class="ex-title">Dorsiflexão Ativa de Tornozelo na Parede</div>
+          <div class="ex-chips">
+            <span class="chip">Tornozelo</span>
+            <span class="chip">Base Pistol</span>
+          </div>
+        </div>
+        <div class="ex-volume">2x 60s / perna</div>
+      </div>
+      <div class="bio-cue">
+        Avanço de joelho mantendo calcanhar grudado no chão, sem colapso medial do arco plantar.
+      </div>
+      <div class="ex-actions">
+        <div></div>
+        <div class="sets-container">
+          <div class="set-pill" onclick="toggleSet(this)">1</div>
+          <div class="set-pill" onclick="toggleSet(this)">2</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ex 4.2 -->
+    <div class="exercise-card">
+      <div class="ex-top">
+        <div>
+          <div class="ex-title">Ponte Torácica & Abertura de Ombros</div>
+          <div class="ex-chips">
+            <span class="chip">Torácica</span>
+            <span class="chip">Hollowback</span>
+          </div>
+        </div>
+        <div class="ex-volume">2x 45s</div>
+      </div>
+      <div class="bio-cue">
+        Apoio escapular sobre colchão firme, relaxando peitoral e dorsal para abrir o peito.
+      </div>
+      <div class="ex-actions">
+        <div></div>
+        <div class="sets-container">
+          <div class="set-pill" onclick="toggleSet(this)">1</div>
+          <div class="set-pill" onclick="toggleSet(this)">2</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 5. CARDIO ==================== -->
+  <div class="section-card border-cardio">
+    <div class="section-header">
+      <div class="section-title">Cardio</div>
+      <span class="section-time">20 min</span>
+    </div>
+
+    <!-- Ex 5.1 -->
+    <div class="exercise-card">
+      <div class="ex-top">
+        <div>
+          <div class="ex-title">Natação Intervalada Aeróbia (Z2)</div>
+          <div class="ex-chips">
+            <span class="chip">Zero Impacto</span>
+            <span class="chip">Recuperação</span>
+          </div>
+        </div>
+        <div class="ex-volume">800 m total</div>
+      </div>
+      <div class="bio-cue">
+        16 x 50m crawl e costas soltos com 15 segundos de descanso entre tiros. Manter frequência em Zona 2.
+      </div>
+      <div class="ex-actions">
+        <div></div>
+        <div class="sets-container">
+          <div class="set-pill" onclick="toggleSet(this)">1</div>
+          <div class="set-pill" onclick="toggleSet(this)">2</div>
+          <div class="set-pill" onclick="toggleSet(this)">3</div>
+          <div class="set-pill" onclick="toggleSet(this)">4</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cronômetro Flutuante Branco -->
+  <div class="timer-dock">
+    <div class="timer-info">
+      <span class="timer-caption">Descanso</span>
+      <span class="timer-display" id="timer">01:30</span>
+    </div>
+    <div class="timer-buttons">
+      <button class="btn-timer" onclick="startTimer(60)">60s</button>
+      <button class="btn-timer active" onclick="startTimer(90)">90s</button>
+      <button class="btn-timer" onclick="startTimer(120)">120s</button>
+      <button class="btn-timer btn-timer-reset" onclick="resetTimer()">Reset</button>
+    </div>
+  </div>
+
+  <!-- Modal de Vídeo Branco -->
+  <div id="videoModal" class="modal-overlay" onclick="handleOverlayClick(event)">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modalTitle">Demonstração</h3>
+        <button class="btn-close" onclick="closeVideoModal()">&times;</button>
+      </div>
+      <div class="video-container">
+        <iframe id="videoIframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="modal-body">
+        <p id="modalDesc"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleSet(btn) {
+      btn.classList.toggle('done');
+      if (btn.classList.contains('done') && 'vibrate' in navigator) {
+        navigator.vibrate(30);
+      }
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const allSets = document.querySelectorAll('.set-pill');
+      const completedSets = document.querySelectorAll('.set-pill.done');
+      const total = allSets.length;
+      const completed = completedSets.length;
+      const pct = total > 0 ? Math.round((completed / total) * 100) : 0;
+      
+      const bar = document.getElementById('progressBar');
+      const text = document.getElementById('progressText');
+      if (bar) bar.style.width = pct + '%';
+      if (text) text.innerText = `${completed} de ${total} séries (${pct}%)`;
+    }
+
+    let timerInterval = null;
+    let secondsLeft = 90;
+
+    function formatTime(s) {
+      const mins = Math.floor(s / 60);
+      const secs = s % 60;
+      return String(mins).padStart(2, '0') + ':' + String(secs).padStart(2, '0');
+    }
+
+    function startTimer(s) {
+      clearInterval(timerInterval);
+      secondsLeft = s;
+      document.getElementById('timer').innerText = formatTime(secondsLeft);
+      document.querySelectorAll('.timer-buttons .btn-timer').forEach(b => b.classList.remove('active'));
+      if (event && event.target) event.target.classList.add('active');
+
+      timerInterval = setInterval(() => {
+        secondsLeft--;
+        if (secondsLeft <= 0) {
+          clearInterval(timerInterval);
+          document.getElementById('timer').innerText = "VAI!";
+          if ('vibrate' in navigator) navigator.vibrate([100, 50, 100]);
+        } else {
+          document.getElementById('timer').innerText = formatTime(secondsLeft);
+        }
+      }, 1000);
+    }
+
+    function resetTimer() {
+      clearInterval(timerInterval);
+      document.getElementById('timer').innerText = "01:30";
+    }
+
+    /* Modal de Vídeo */
+    function openVideoModal(title, desc, videoUrl) {
+      document.getElementById('modalTitle').innerText = title;
+      document.getElementById('modalDesc').innerHTML = desc;
+      document.getElementById('videoIframe').src = videoUrl;
+      document.getElementById('videoModal').classList.add('active');
+    }
+
+    function closeVideoModal() {
+      document.getElementById('videoModal').classList.remove('active');
+      document.getElementById('videoIframe').src = '';
+    }
+
+    function handleOverlayClick(e) {
+      if (e.target.id === 'videoModal') {
+        closeVideoModal();
+      }
+    }
+
+    updateProgress();
+  </script>
+</body>
+</html>
