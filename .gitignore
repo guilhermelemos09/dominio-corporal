@@ -4,3 +4,6 @@ Desktop.ini
 $RECYCLE.BIN/
 .DS_Store
 *.tmp
+*token*
+*.txt
+Apoio/github_token.txt
