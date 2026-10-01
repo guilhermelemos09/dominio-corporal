@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dominio-corporal-v2';
+const CACHE_NAME = 'dominio-corporal-v3';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -8,7 +8,7 @@ const ASSETS_TO_CACHE = [
   './icon-192.png',
   './icon-512.png',
   './favicon.png',
-  './Apoio/manifest.json',
+  './manifest.json',
   'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap'
 ];
 
