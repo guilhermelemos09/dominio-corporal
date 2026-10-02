@@ -3,7 +3,7 @@
 **Data de Início/Registro:** 29 de Setembro de 2026  
 **Identidade Visual & Marca:** **DOMÍNIO CORPORAL | Gui Lemos** (`@guilemos_dominiocorporal`)  
 **Slogan Oficial:** *"Desafie a gravidade, domine seu corpo."* *(Evolução do conceito histórico: "A gravidade não te define")*  
-**Paleta:** Black OLED (`#000000`, `#0c0c0c`) + Verde Neon Hero (`#00ff88`) + Cores sutis de delimitação funcional  
+**Paleta Oficial:** Black OLED (`#000000`, `#0c0c0c`) + Verde Neon Hero (`#00ff88` - Habilidades/Força) + Amarelo Ouro (`#f59e0b` - Ativação/Aquecimento) + Lavanda Suave (`#c084fc` - Flexibilidade) + Coral Suave (`#fb7185` - Cardio)  
 **Formação:** Farmácia e Bioquímica (FCFRP-USP), Educação Física e Esporte (EEFERP-USP), Pós-graduação em Circo e Acrobacia (PUC-PR), Mestrando em Biomecânica (EEFERP-USP).  
 **Tempo de Prática:** 20 anos (Kung Fu Shaolin Norte, Boxe Chinês, Circo, Calistenia, Ginástica Artística/Acrobática, Dança Contemporânea/Soft Acrobatics, Natação, CrossFit).  
 **Atuação Profissional:** Personal trainer focado em habilidades gímnicas (BMU, Handstand) e periodização de força personalizada em academia.
