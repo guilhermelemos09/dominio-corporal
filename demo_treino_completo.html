@@ -279,8 +279,8 @@
     }
     .analysis-hero-img-wrap {
       position: relative;
-      flex: 0 0 160px;
-      min-height: 155px;
+      flex: 0 0 220px;
+      min-height: 165px;
       overflow: hidden;
     }
     .analysis-hero-img-wrap img {
@@ -296,13 +296,13 @@
       top: 0;
       right: 0;
       bottom: 0;
-      width: 60px;
+      width: 32px;
       background: linear-gradient(to right, transparent, #0d110e);
       pointer-events: none;
     }
     .analysis-hero-body {
       flex: 1;
-      padding: 14px 16px 14px 8px;
+      padding: 14px 18px 14px 12px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -346,20 +346,29 @@
       padding: 2px 7px;
       font-weight: 600;
     }
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
       .analysis-hero-img-wrap {
-        flex: 0 0 130px;
-        min-height: 140px;
+        flex: 0 0 180px;
+        min-height: 150px;
       }
       .analysis-hero-body {
-        padding: 10px 12px 10px 4px;
+        padding: 12px 14px 12px 8px;
+      }
+    }
+    @media (max-width: 440px) {
+      .analysis-hero-img-wrap {
+        flex: 0 0 155px;
+        min-height: 145px;
+      }
+      .analysis-hero-body {
+        padding: 10px 10px 10px 6px;
       }
       .analysis-hero-title {
         font-size: 0.88rem;
       }
       .analysis-hero-desc {
-        font-size: 0.73rem;
-        line-height: 1.4;
+        font-size: 0.72rem;
+        line-height: 1.38;
       }
     }
 
@@ -1959,7 +1968,7 @@
     <!-- HERO: FEEDBACK TÉCNICO & ANÁLISE CINEMÁTICA -->
     <div class="analysis-hero-card">
       <div class="analysis-hero-img-wrap" onclick="window.open('Midia/gui_analisando_handstand.jpg', '_blank')" style="cursor: pointer;" title="Toque para ampliar foto">
-        <img src="Midia/gui_analise_blend.jpg" alt="Prof. Gui Lemos analisando Handstand">
+        <img src="Midia/gui_analise_blend.jpg" alt="Prof. Gui Lemos analisando movimento">
       </div>
       <div class="analysis-hero-body">
         <div class="analysis-hero-tag">
@@ -1968,12 +1977,12 @@
         </div>
         <div class="analysis-hero-title">Devolutiva do Professor Gui Lemos</div>
         <div class="analysis-hero-desc">
-          Mapeamento milimétrico de alavancas, torques articulares e trajetória do centro de massa aplicado diretamente às suas execuções em vídeo.
+          Mapeamento detalhado de ângulos, alavancas e trajetórias para identificar compensações e prescrever ajustes precisos em qualquer movimento do seu treino.
         </div>
         <div class="analysis-hero-chips">
-          <span class="analysis-hero-chip">📐 Correção de Alavancas</span>
-          <span class="analysis-hero-chip">⚡ Torques & CoM</span>
-          <span class="analysis-hero-chip">🎥 Devolutiva em Vídeo</span>
+          <span class="analysis-hero-chip">📐 Ângulos & Alavancas</span>
+          <span class="analysis-hero-chip">⚡ Correção de Compensações</span>
+          <span class="analysis-hero-chip">🎯 Educativos para Pontos Fracos</span>
         </div>
       </div>
     </div>
