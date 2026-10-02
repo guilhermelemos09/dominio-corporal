@@ -265,6 +265,104 @@
     .callout-box strong { color: #ffffff; }
     .callout-icon { font-size: 1.15rem; line-height: 1; flex-shrink: 0; margin-top: 1px; }
 
+    /* Hero Feedback Técnico & Análise Cinemática */
+    .analysis-hero-card {
+      position: relative;
+      display: flex;
+      align-items: stretch;
+      background: #0d110e;
+      border: 1px solid rgba(0, 255, 136, 0.25);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+    .analysis-hero-img-wrap {
+      position: relative;
+      flex: 0 0 160px;
+      min-height: 155px;
+      overflow: hidden;
+    }
+    .analysis-hero-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .analysis-hero-img-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 60px;
+      background: linear-gradient(to right, transparent, #0d110e);
+      pointer-events: none;
+    }
+    .analysis-hero-body {
+      flex: 1;
+      padding: 14px 16px 14px 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 1;
+    }
+    .analysis-hero-tag {
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--brand-neon);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .analysis-hero-title {
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.25;
+      margin-bottom: 6px;
+    }
+    .analysis-hero-desc {
+      font-size: 0.77rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin-bottom: 8px;
+    }
+    .analysis-hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .analysis-hero-chip {
+      font-size: 0.65rem;
+      background: rgba(0, 255, 136, 0.08);
+      color: var(--brand-neon);
+      border: 1px solid rgba(0, 255, 136, 0.2);
+      border-radius: 6px;
+      padding: 2px 7px;
+      font-weight: 600;
+    }
+    @media (max-width: 480px) {
+      .analysis-hero-img-wrap {
+        flex: 0 0 130px;
+        min-height: 140px;
+      }
+      .analysis-hero-body {
+        padding: 10px 12px 10px 4px;
+      }
+      .analysis-hero-title {
+        font-size: 0.88rem;
+      }
+      .analysis-hero-desc {
+        font-size: 0.73rem;
+        line-height: 1.4;
+      }
+    }
+
     /* Cards de Seção */
     .section-card {
       background: var(--card-bg);
@@ -1858,11 +1956,25 @@
   <!-- ==================== TAB 4: ANÁLISE DE VÍDEOS & FEEDBACK ==================== -->
   <div id="tab-analises" class="tab-content">
 
-    <div class="callout-box">
-      <div class="callout-icon">🎬</div>
-      <div>
-        <strong>Laboratório de Análise & Devolutiva do Aluno:</strong><br>
-        Aqui ficam registradas as suas gravações e a devolutiva biomecânica do professor Gui Lemos. O feedback disseca trajetórias, ângulos de alavanca e momento de inércia para correção cirúrgica do movimento.
+    <!-- HERO: FEEDBACK TÉCNICO & ANÁLISE CINEMÁTICA -->
+    <div class="analysis-hero-card">
+      <div class="analysis-hero-img-wrap" onclick="window.open('Midia/gui_analisando_handstand.jpg', '_blank')" style="cursor: pointer;" title="Toque para ampliar foto">
+        <img src="Midia/gui_analise_blend.jpg" alt="Prof. Gui Lemos analisando Handstand">
+      </div>
+      <div class="analysis-hero-body">
+        <div class="analysis-hero-tag">
+          <svg style="width:10px; height:10px; fill:currentColor;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+          Feedback Técnico & Análise Cinemática
+        </div>
+        <div class="analysis-hero-title">Devolutiva do Professor Gui Lemos</div>
+        <div class="analysis-hero-desc">
+          Mapeamento milimétrico de alavancas, torques articulares e trajetória do centro de massa aplicado diretamente às suas execuções em vídeo.
+        </div>
+        <div class="analysis-hero-chips">
+          <span class="analysis-hero-chip">📐 Correção de Alavancas</span>
+          <span class="analysis-hero-chip">⚡ Torques & CoM</span>
+          <span class="analysis-hero-chip">🎥 Devolutiva em Vídeo</span>
+        </div>
       </div>
     </div>
 
@@ -1930,34 +2042,6 @@
         </div>
         <p style="margin-bottom: 6px;"><strong>Exemplo:</strong> Se a URL normal for <code>https://youtu.be/5Hj0m-e98_8</code> ou <code>youtube.com/watch?v=5Hj0m-e98_8</code>, o código é <code>5Hj0m-e98_8</code>.</p>
         <p>O YouTube cuida de toda a compressão, streaming e compatibilidade com qualquer celular, mantendo o app leve e sem limites de armazenamento!</p>
-      </div>
-    </div>
-
-    <!-- CARD DE PESQUISA CINEMÁTICA VICON 3D -->
-    <div class="section-card border-forca">
-      <div class="section-header">
-        <div class="section-title-wrap">
-          <span class="section-badge" style="background: rgba(0,255,136,0.15); color: var(--brand-neon); border-color: rgba(0,255,136,0.3);">Mestrado EEFERP-USP</span>
-          <div class="section-title">Laboratório de Biomecânica: Análise Cinemática da Parada de Mãos</div>
-        </div>
-        <span class="section-time">LaBioCoM</span>
-      </div>
-
-      <div class="bio-cue">
-        <strong>🔬 O Olhar da Ciência do Movimento:</strong><br>
-        Registro da coleta oficial no Laboratório de Biomecânica e Controle Motor (LaBioCoM / USP). O professor Gui Lemos analisa a estabilidade postural e os ajustes articulares milimétricos na Parada de Mãos sob a captura de 12 câmeras infravermelho de alta velocidade Vicon e marcadores retrorefletivos 3D.
-      </div>
-
-      <div style="margin: 12px 0; border-radius: 12px; overflow: hidden; border: 1px solid rgba(0,255,136,0.25); background: #000; cursor: pointer;" onclick="window.open('Midia/gui_analisando_handstand.jpg', '_blank')" title="Toque para ampliar em alta resolução">
-        <img src="Midia/gui_analisando_handstand.jpg" alt="Prof. Gui Lemos analisando Handstand no LaBioCoM EEFERP-USP" style="width: 100%; max-height: 480px; object-fit: contain; background: #050706; display: block;">
-        <div style="background: rgba(0,0,0,0.85); padding: 8px 12px; font-size: 0.72rem; color: #fff; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.08);">
-          <span style="color: var(--brand-neon); font-weight: 700;">Prof. Gui Lemos na análise da coleta 3D</span>
-          <span style="color: var(--text-muted);">Toque para ampliar ↗</span>
-        </div>
-      </div>
-
-      <div style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; background: rgba(0,255,136,0.03); border: 1px solid rgba(0,255,136,0.15); border-radius: 8px; padding: 10px 12px;">
-        💡 <strong>Metodologia Aplicada ao Aluno:</strong> O olhar de prescrição e correção biomecânica do professor Gui Lemos traz a precisão do laboratório cinemático para os treinos do seu dia a dia.
       </div>
     </div>
 
