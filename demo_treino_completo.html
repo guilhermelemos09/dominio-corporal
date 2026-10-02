@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>DOMÍNIO CORPORAL | Gui Lemos - Modelo Aluno</title>
+  <title>Domínio Corporal | Treinamento Especializado</title>
 
   <!-- PWA Meta Tags -->
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="manifest-aluno.json">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -1464,8 +1464,8 @@
         </div>
         <div class="ex-actions">
           <div style="display:flex; gap:6px; flex-wrap:wrap;">
-            <button class="btn-video" onclick="openVideoModal('Kip Muscle-Up (BMU)', '<b>Mecânica:</b> Manter a puxada em arco (linha C) e virar os dois cotovelos simultaneamente por cima da barra.', 'https://www.youtube.com/embed/5Hj0m-e98_8')">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vídeo
+            <button class="btn-video" onclick="openVideoModal('Kip Muscle-Up (BMU) — Execução Prof. Gui Lemos', '<b>Mecânica Chave:</b> Puxada explosiva em arco (linha C), pés unidos e extensão de quadril para elevar a pelve, virando ambos os cotovelos simultaneamente por cima da barra com impulsão controlada.', 'Midia/gui_kip_muscle_up.mp4')">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vídeo Prof. Gui
             </button>
             <button class="btn-comment" id="btn-comment-ex-y-3" onclick="toggleCommentBox('ex-y-3')">
               <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
@@ -1987,32 +1987,29 @@
       </div>
     </div>
 
-    <!-- Feedback 1: YouTube Live Embed -->
+    <!-- Feedback 1: Análise Cinemática Handstand Prof. Gui Lemos -->
     <div class="section-card border-habilidade">
       <div class="section-header">
         <div class="section-title-wrap">
-          <span class="section-badge" style="background:rgba(255,0,0,0.15); color:#ff4d4d; border-color:rgba(255,0,0,0.3);">YouTube HD</span>
-          <div class="section-title">Handstand Técnico — Alinhamento & Press</div>
+          <span class="section-badge" style="background:rgba(0, 255, 136, 0.15); color:var(--brand-neon); border-color:rgba(0, 255, 136, 0.3);">Análise Cinemática Vicon 3D</span>
+          <div class="section-title">Handstand & Alinhamento Biomecânico — Prof. Gui Lemos</div>
         </div>
-        <span class="section-time">Demonstração</span>
+        <span class="section-time">Vídeo HD</span>
       </div>
 
-      <!-- Player Responsivo YouTube -->
-      <div class="youtube-wrapper">
-        <iframe src="https://www.youtube.com/embed/5Hj0m-e98_8" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <!-- Player Nativo de Vídeo Responsivo -->
+      <div style="position:relative; width:100%; border-radius:12px; overflow:hidden; background:#000; box-shadow:0 6px 20px rgba(0,0,0,0.6); margin:12px 0;">
+        <video controls playsinline preload="metadata" style="width:100%; max-height:480px; display:block; object-fit:contain; background:#050505;" poster="Midia/gui_analisando_handstand.jpg">
+          <source src="Midia/gui_handstand_analise.mp4" type="video/mp4">
+          Seu navegador não suporta reprodução de vídeo.
+        </video>
       </div>
 
       <div class="bio-cue">
         <strong>🔍 Decomposição Biomecânica do Treinador:</strong><br>
-        1. <strong>Ângulo Glenoumeral:</strong> Abertura axilar a 180° sem compressão cervical.<br>
-        2. <strong>Retroversão Pélvica:</strong> Manutenção da pelve neutra eliminando a curvatura de "banana" na lombar.<br>
-        3. <strong>Pressão Digital:</strong> Uso das polpas digitais em garra para regulação fina do centro de gravidade.
-      </div>
-
-      <div style="margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap;">
-        <a href="https://youtu.be/5Hj0m-e98_8" target="_blank" class="btn-video" style="text-decoration:none;">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Abrir no App do YouTube
-        </a>
+        1. <strong>Ângulo Glenoumeral:</strong> Abertura axilar a 180° sem compressão cervical, mantendo elevação escapular ativa.<br>
+        2. <strong>Retroversão Pélvica & Core:</strong> Manutenção da pelve neutra eliminando a curvatura de "banana" na lombar.<br>
+        3. <strong>Pressão Digital & CoM:</strong> Uso das polpas digitais em garra para regulação fina do centro de gravidade e alavanca articular.
       </div>
     </div>
 
@@ -2077,8 +2074,9 @@
         <h3 id="modalTitle">Demonstração Técnica</h3>
         <button class="btn-close" onclick="closeVideoModal()">&times;</button>
       </div>
-      <div class="video-container">
-        <iframe id="videoIframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class="video-container" style="background:#000;">
+        <iframe id="videoIframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:none; width:100%; height:100%; border:none;"></iframe>
+        <video id="videoPlayer" controls playsinline preload="auto" style="display:none; width:100%; max-height:420px; background:#000;"></video>
       </div>
       <div class="modal-body">
         <p id="modalDesc"></p>
@@ -2303,13 +2301,37 @@
     function openVideoModal(title, desc, videoUrl) {
       document.getElementById('modalTitle').innerText = title;
       document.getElementById('modalDesc').innerHTML = desc;
-      document.getElementById('videoIframe').src = videoUrl;
+      const iframe = document.getElementById('videoIframe');
+      const player = document.getElementById('videoPlayer');
+      
+      if (videoUrl.includes('.mp4')) {
+        iframe.style.display = 'none';
+        iframe.src = '';
+        player.style.display = 'block';
+        player.src = videoUrl;
+        player.load();
+        player.play().catch(() => {});
+      } else {
+        if (player) {
+          player.pause();
+          player.src = '';
+          player.style.display = 'none';
+        }
+        iframe.style.display = 'block';
+        iframe.src = videoUrl;
+      }
       document.getElementById('videoModal').classList.add('active');
     }
 
     function closeVideoModal() {
       document.getElementById('videoModal').classList.remove('active');
-      document.getElementById('videoIframe').src = '';
+      const iframe = document.getElementById('videoIframe');
+      const player = document.getElementById('videoPlayer');
+      if (iframe) iframe.src = '';
+      if (player) {
+        player.pause();
+        player.src = '';
+      }
     }
 
     /* Modal de Bio Gui Lemos */
