@@ -599,6 +599,86 @@
       color: var(--text-main);
       line-height: 1.55;
     }
+
+    /* Coach Profile Button & Bio Modal */
+    .coach-profile-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      padding: 4px 12px 4px 6px;
+      border-radius: 24px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .coach-profile-btn:hover, .coach-profile-btn:active {
+      border-color: var(--brand-neon);
+      background: var(--brand-neon-bg);
+      transform: translateY(-1px);
+    }
+    .coach-avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 1.5px solid var(--brand-neon);
+      object-fit: cover;
+      display: block;
+    }
+    .coach-name {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+    .bio-badge {
+      font-size: 0.65rem;
+      color: var(--brand-neon);
+      font-weight: 700;
+      background: rgba(0, 255, 136, 0.12);
+      border: 1px solid rgba(0, 255, 136, 0.25);
+      padding: 1px 7px;
+      border-radius: 10px;
+    }
+    .btn-instagram {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+      color: #ffffff;
+      padding: 11px 16px;
+      border-radius: 10px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      text-decoration: none;
+      margin-top: 14px;
+      transition: opacity 0.2s ease;
+      box-shadow: 0 4px 15px rgba(253, 29, 29, 0.25);
+    }
+    .btn-instagram:hover { opacity: 0.9; }
+
+    /* YouTube Responsive Embed Container */
+    .youtube-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid var(--border-strong);
+      background: #000000;
+      margin: 10px 0;
+    }
+    .youtube-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
   </style>
 </head>
 <body>
@@ -606,17 +686,18 @@
   <!-- Header Domínio Corporal (Preto OLED & Verde Neon) -->
   <header>
     <div class="brand-top">
-      <div class="institution">EEFERP-USP • BIOMECÂNICA DO MOVIMENTO</div>
-      <div style="display: flex; gap: 8px; align-items: center;">
-        <a href="demo_treino_completo.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.7rem; font-weight: 600; background: #111; padding: 3px 9px; border-radius: 20px; border: 1px solid var(--border-subtle);">📋 Ver Modelo Completo</a>
-        <div class="badge-sync">Sincronizado</div>
+      <div class="coach-profile-btn" onclick="openBioModal()">
+        <img src="icon-192.png" alt="Domínio Corporal" class="coach-avatar">
+        <span class="coach-name">Gui Lemos</span>
+        <span class="bio-badge">Bio & Perfil ↗</span>
       </div>
+      <div class="badge-sync">Sincronizado</div>
     </div>
     <div class="brand">
       <h1>DOMÍNIO CORPORAL</h1>
       <div class="brand-slogan">Desafie a gravidade, domine seu corpo.</div>
       <div class="brand-subtitle">
-        <span>Gui Lemos</span>
+        <span>Handstand & Acrobacia</span>
         <span>Mestrado USP</span>
         <span>86 kg (Meta 14%)</span>
         <span>Tirzepatida</span>
@@ -637,8 +718,9 @@
 
   <!-- Navegação por Abas -->
   <div class="tabs">
-    <button class="tab-btn active" onclick="switchTab('quinta')">Hoje (Quinta Dança & Força Insta)</button>
-    <button class="tab-btn" onclick="switchTab('quarta')">Ontem (Quarta EEFERP - Concluído)</button>
+    <button class="tab-btn active" onclick="switchTab('quinta')">Hoje (Quinta Dança & Força)</button>
+    <button class="tab-btn" onclick="switchTab('quarta')">Ontem (Quarta EEFERP)</button>
+    <button class="tab-btn" onclick="switchTab('analises')">🎬 Análise de Vídeos</button>
     <button class="tab-btn" onclick="switchTab('semana')">Semana Completa</button>
     <button class="tab-btn" onclick="switchTab('perfil')">Diretrizes & Menisco</button>
   </div>
@@ -912,6 +994,105 @@
     </div>
   </div>
 
+  <!-- ==================== TAB: ANÁLISE DE VÍDEOS & BIOMECÂNICA ==================== -->
+  <div id="tab-analises" class="tab-content">
+
+    <div class="callout-box">
+      <div class="callout-icon">🎬</div>
+      <div>
+        <strong>Laboratório de Análise Cinemática & Devolutivas em Vídeo:</strong><br>
+        Central de monitoramento técnico do movimento. Aqui ficam registrados os vídeos das suas execuções com a decomposição biomecânica de cada fase, alavancas e torques articulares.
+      </div>
+    </div>
+
+    <!-- VÍDEO 1: MANJOTA -->
+    <div class="section-card sec-skills">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">Manjota / Canes</span>
+          <div class="section-title">Sequência Acrobática Completa (L-Sit → Press → Croc)</div>
+        </div>
+        <span class="time-badge">42s • Analisado</span>
+      </div>
+
+      <div style="margin-bottom: 12px;">
+        <video controls playsinline preload="metadata" style="width: 100%; border-radius: 12px; max-height: 380px; background: #000; border: 1px solid var(--border-strong);" src="Midia/WhatsApp Video 2026-10-01 at 11.30.16.mp4"></video>
+        <div style="margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap;">
+          <a href="https://drive.google.com/file/d/1tNgCqQQXc_sA3WCwqryKIRbHE7mK8zZX/view?usp=sharing" target="_blank" class="btn-video" style="text-decoration: none;">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> 📱 Abrir no Google Drive (Celular)
+          </a>
+        </div>
+      </div>
+
+      <div style="font-size: 0.84rem; line-height: 1.6; color: var(--text-muted);">
+        <p style="margin-bottom: 8px;"><strong style="color:#ffffff;">Decomposição Cinemática dos Movimentos:</strong></p>
+        <p style="margin-bottom: 6px;"><strong>1. L-Sit / V-Sit Inicial (00:01):</strong> Bloqueio articular completo de cotovelos e joelhos, flexão plantar rigorosa e depressão escapular ativa. Centro de massa estável entre os canes.</p>
+        <p style="margin-bottom: 6px;"><strong>2. Press to Straddle Handstand (00:03 - 00:05):</strong> Subida em força pura e contínua sem balanço ou salto balístico. Compressão pélvica de iliopsoas e translação precisa dos ombros à frente para criar contrapeso.</p>
+        <p style="margin-bottom: 6px;"><strong>3. Full Handstand Alinhado (00:11 - 00:19):</strong> Fechamento elegante unindo as pernas. Linha axilar aberta, elevação de serrátil e trapézio superior mantendo a vertical neutra por quase 10 segundos.</p>
+        <p style="margin-bottom: 6px;"><strong>4. Descida Excêntrica em Compressão para L-Sit (00:21 - 00:25):</strong> Passagem de pernas em <em>tuck/pike pass</em> controlada em câmera lenta, amortecendo a gravidade e travando no L-Sit no ar sem tocar o chão.</p>
+        <p style="margin-bottom: 6px;"><strong>5. Straddle Elbow Lever / Croc (00:28 - 00:31):</strong> Transição horizontal suave apoiando os cotovelos nos flexores/espinha ilíaca anterior.</p>
+        <p style="margin-bottom: 6px;"><strong style="color: var(--brand-neon);">6. One-Arm Croc Unilateral (00:32 - 00:39):</strong> O ponto alto do vídeo! Transferência total do centro de gravidade para o cane direito e sustentação com 1 único braço descolando o braço esquerdo por ~7 segundos. Torque anti-rotacional excepcional de oblíquos e quadrado lombar.</p>
+        <p><strong>7. Saída e Aterrissagem (00:41):</strong> Retorno limpo e aterrissagem bípede com total controle motor.</p>
+      </div>
+    </div>
+
+    <!-- VÍDEO 2: OITAVAS NA BARRA -->
+    <div class="section-card sec-skills">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">Barra Fixa</span>
+          <div class="section-title">4x Giros de Oitava Consecutivos (Glide Kips)</div>
+        </div>
+        <span class="time-badge">4 reps ligadas</span>
+      </div>
+
+      <div style="margin-bottom: 12px;">
+        <video controls playsinline preload="metadata" style="width: 100%; border-radius: 12px; max-height: 340px; background: #000; border: 1px solid var(--border-strong);" src="Midia/WhatsApp Video 2026-10-01 at 15.13.45.mp4"></video>
+        <div style="margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap;">
+          <a href="https://drive.google.com/file/d/1o5mW2GK-qtiffr74zTQOUaQ4PBfOzfxI/view?usp=sharing" target="_blank" class="btn-video" style="text-decoration: none;">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> 📱 Abrir no Google Drive (Celular)
+          </a>
+        </div>
+      </div>
+
+      <div style="font-size: 0.84rem; line-height: 1.6; color: var(--text-muted);">
+        <p style="margin-bottom: 8px;"><strong style="color:#ffffff;">Análise Cinemática do Gesto Gímnico:</strong></p>
+        <p style="margin-bottom: 6px;"><strong>• Retorno Pendular & Alavanca:</strong> Excelente conservação de energia angular com extensão torácica na abertura do pêndulo.</p>
+        <p style="margin-bottom: 6px;"><strong>• Compressão Pés na Barra:</strong> Pike agressivo aproximando a pelve da barra com flexores de quadril e reto abdominal sob tração balística.</p>
+        <p style="margin-bottom: 6px;"><strong>• Straight-Arm Press Down:</strong> Extensão de ombro poderosa com grande dorsal e tríceps cabeça longa mantendo os braços esticados durante toda a subida.</p>
+        <p><strong>• Troca Rápida de Punhos:</strong> Transição veloz da empunhadura por cima do eixo metálico no apoio frontal.</p>
+      </div>
+    </div>
+
+    <!-- VÍDEO 3: DEMO DE INTEGRAÇÃO YOUTUBE -->
+    <div class="section-card sec-forca">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge" style="background:rgba(255,0,0,0.15); color:#ff4d4d; border-color:rgba(255,0,0,0.3);">YouTube Live</span>
+          <div class="section-title">Integração Direta via YouTube (Demonstração)</div>
+        </div>
+        <span class="time-badge">Streaming Web</span>
+      </div>
+
+      <div class="bio-cue">
+        <strong>💡 Como funciona colocar vídeo do YouTube no App:</strong><br>
+        Para qualquer vídeo seu (ou referência técnica) no YouTube — seja público ou <em>não-listado</em> —, basta pegar o código final da URL (ex: em <code>youtube.com/watch?v=5Hj0m-e98_8</code>, o código é <code>5Hj0m-e98_8</code>) e inserir no player. Ele carrega na hora direto pelo Google, sem ocupar armazenamento no celular nem no GitHub!
+      </div>
+
+      <!-- Player Responsivo YouTube -->
+      <div class="youtube-wrapper">
+        <iframe src="https://www.youtube.com/embed/5Hj0m-e98_8" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+
+      <div style="margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap;">
+        <a href="https://youtu.be/5Hj0m-e98_8" target="_blank" class="btn-video" style="text-decoration:none;">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Abrir no App do YouTube
+        </a>
+      </div>
+    </div>
+
+  </div>
+
   <!-- ==================== TAB: SEMANA COMPLETA ==================== -->
   <div id="tab-semana" class="tab-content">
     <div class="section-card sec-skills">
@@ -984,6 +1165,47 @@
     </div>
   </div>
 
+  <!-- Modal Bio Gui Lemos -->
+  <div id="bioModal" class="modal-overlay" onclick="handleOverlayClick(event)">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <img src="icon-192.png" alt="Gui Lemos" style="width:34px; height:34px; border-radius:50%; border:2px solid var(--brand-neon); object-fit: cover;">
+          <div>
+            <h3 style="margin:0; font-size:1rem; color:#fff;">Gui Lemos</h3>
+            <span style="font-size:0.72rem; color:var(--brand-neon); font-weight:600;">@guilemos_dominiocorporal</span>
+          </div>
+        </div>
+        <button class="btn-close" onclick="closeBioModal()">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 20px;">
+        <div style="text-align: center; margin-bottom: 16px;">
+          <img src="icon-192.png" alt="Gui Lemos" style="width: 76px; height: 76px; border-radius: 50%; border: 3px solid var(--brand-neon); box-shadow: 0 0 20px var(--brand-neon-glow); margin-bottom: 8px; object-fit: cover;">
+          <h2 style="font-size: 1.2rem; font-weight: 800; color: #fff; margin-bottom: 4px;">Guilherme Lemos</h2>
+          <p style="font-size: 0.8rem; color: var(--brand-neon); font-weight: 600;">Criador do Método DOMÍNIO CORPORAL</p>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 14px; margin-bottom: 14px; font-size: 0.82rem; line-height: 1.6; color: var(--text-muted);">
+          <p style="margin-bottom: 8px;"><strong style="color: #fff;">🎓 Formação & Ciência:</strong><br>
+          • <strong>Farmacêutico-Bioquímico</strong> (USP)<br>
+          • <strong>Educador Físico</strong> & Especialista em Treinamento Funcional e Acrobático<br>
+          • <strong>Mestrando em Biomecânica</strong> na <strong>EEFERP-USP</strong> (Cinemática 3D Vicon, Eletromiografia e Dinamometria aplicada ao Handstand)</p>
+
+          <p style="margin-bottom: 8px;"><strong style="color: #fff;">🤸‍♂️ Vivência Prática:</strong><br>
+          • <strong>20 anos de prática ininterrupta</strong> em Parada de Mãos (Handstand), Calistenia Avançada, Ginástica Artística, Circo e Acrobacias de Solo.</p>
+
+          <p><strong style="color: #fff;">🎯 Filosofia:</strong><br>
+          <em>"Unir a precisão rigorosa da ciência biomecânica à arte do domínio corporal. Menos compensação, alinhamento perfeito e longevidade física."</em></p>
+        </div>
+
+        <a href="https://www.instagram.com/guilemos_dominiocorporal/" target="_blank" class="btn-instagram">
+          <svg style="width:18px; height:18px; fill:currentColor;" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Siga no Instagram @guilemos_dominiocorporal
+        </a>
+      </div>
+    </div>
+  </div>
+
   <script>
     function switchTab(tabId) {
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -1012,10 +1234,16 @@
       const completedSets = activeTab ? activeTab.querySelectorAll('.set-pill.done') : document.querySelectorAll('.set-pill.done');
       const total = allSets.length;
       const completed = completedSets.length;
-      const pct = total > 0 ? Math.round((completed / total) * 100) : 0;
-      
       const bar = document.getElementById('progressBar');
       const text = document.getElementById('progressText');
+
+      if (total === 0) {
+        if (bar) bar.style.width = '100%';
+        if (text) text.innerText = 'Consulta / Análise Técnica';
+        return;
+      }
+
+      const pct = Math.round((completed / total) * 100);
       if (bar) bar.style.width = pct + '%';
       if (text) text.innerText = `${completed} de ${total} séries (${pct}%)`;
     }
@@ -1066,9 +1294,21 @@
       document.getElementById('videoIframe').src = '';
     }
 
+    /* Modal de Bio Gui Lemos */
+    function openBioModal() {
+      document.getElementById('bioModal').classList.add('active');
+    }
+
+    function closeBioModal() {
+      document.getElementById('bioModal').classList.remove('active');
+    }
+
     function handleOverlayClick(e) {
       if (e.target.id === 'videoModal') {
         closeVideoModal();
+      }
+      if (e.target.id === 'bioModal') {
+        closeBioModal();
       }
     }
 

@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>DOMÍNIO CORPORAL | Gui Lemos - Treino Completo</title>
+  <title>DOMÍNIO CORPORAL | Gui Lemos - Modelo Aluno</title>
 
   <!-- PWA Meta Tags -->
   <link rel="manifest" href="manifest.json">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Domínio Corporal">
   <meta name="theme-color" content="#000000">
   <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
@@ -41,7 +42,7 @@
       --brand-neon-glow: rgba(0, 255, 136, 0.4);
       --brand-neon-bg: rgba(0, 255, 136, 0.08);
 
-      /* Cores Funcionais dos 5 Pilares (Mínimo Estrito) */
+      /* Cores Funcionais dos Pilares */
       --sec-ativacao: #f59e0b;        /* Ativação: Amarelo Ouro / Warm Gold */
       --sec-habilidade: #00ff88;     /* Habilidade: Verde Neon Hero */
       --sec-fortalecimento: #00ff88; /* Força: Verde Neon Hero */
@@ -89,14 +90,47 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
-    .institution {
-      font-size: 0.72rem;
+    .coach-profile-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      padding: 4px 12px 4px 6px;
+      border-radius: 24px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .coach-profile-btn:hover, .coach-profile-btn:active {
+      border-color: var(--brand-neon);
+      background: var(--brand-neon-bg);
+      transform: translateY(-1px);
+    }
+    .coach-avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 1.5px solid var(--brand-neon);
+      object-fit: cover;
+      display: block;
+    }
+    .coach-name {
+      font-size: 0.78rem;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-dim);
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+    .bio-badge {
+      font-size: 0.65rem;
+      color: var(--brand-neon);
+      font-weight: 700;
+      background: rgba(0, 255, 136, 0.12);
+      border: 1px solid rgba(0, 255, 136, 0.25);
+      padding: 1px 7px;
+      border-radius: 10px;
     }
     .badge-sync {
       display: inline-flex;
@@ -144,21 +178,7 @@
       border: 1px solid var(--border-subtle);
       padding: 2px 8px;
       border-radius: 6px;
-    }
-    .switch-link {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.72rem;
-      font-weight: 600;
-      background: #111111;
-      padding: 4px 10px;
-      border-radius: 20px;
-      border: 1px solid var(--border-subtle);
-      transition: all 0.2s ease;
-    }
-    .switch-link:hover {
-      color: #ffffff;
-      border-color: var(--brand-neon);
+      font-weight: 500;
     }
 
     /* Barra de Progresso Neon */
@@ -176,101 +196,110 @@
       margin-bottom: 6px;
     }
     .progress-bar-bg {
-      background: #161616;
       height: 6px;
-      border-radius: 10px;
+      background: #181818;
+      border-radius: 3px;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.03);
     }
     .progress-bar-fill {
-      background: var(--brand-neon);
-      box-shadow: 0 0 10px var(--brand-neon-glow);
       height: 100%;
       width: 0%;
-      border-radius: 10px;
-      transition: width 0.35s ease;
+      background: var(--brand-neon);
+      box-shadow: 0 0 10px var(--brand-neon-glow);
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* Links de Navegação Rápidos */
-    .nav-strip {
+    /* Navegação por Abas */
+    .tabs {
       display: flex;
-      gap: 8px;
-      margin-bottom: 16px;
+      gap: 6px;
       overflow-x: auto;
-      padding-bottom: 2px;
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
     }
-    .nav-pill {
+    .tabs::-webkit-scrollbar { display: none; }
+    .tab-btn {
       background: var(--card-bg);
       border: 1px solid var(--border-subtle);
       color: var(--text-muted);
-      font-size: 0.74rem;
+      padding: 9px 15px;
+      border-radius: 10px;
+      font-size: 0.8rem;
       font-weight: 600;
-      padding: 6px 12px;
-      border-radius: 20px;
-      text-decoration: none;
       white-space: nowrap;
-      transition: all 0.15s ease;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
-    .nav-pill.active, .nav-pill:hover {
-      background: var(--brand-neon-bg);
-      border-color: rgba(0, 255, 136, 0.35);
-      color: var(--brand-neon);
+    .tab-btn:active { transform: scale(0.97); }
+    .tab-btn.active {
+      background: #111111;
+      border-color: var(--brand-neon);
+      color: #ffffff;
+      box-shadow: 0 0 16px rgba(0, 255, 136, 0.15);
+      font-weight: 700;
     }
 
-    /* Seções Estruturais dos Pilares */
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.2s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Callout Card Dark */
+    .callout-box {
+      border-radius: var(--radius-md);
+      padding: 13px 16px;
+      margin-bottom: 16px;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+    }
+    .callout-box strong { color: #ffffff; }
+    .callout-icon { font-size: 1.15rem; line-height: 1; flex-shrink: 0; margin-top: 1px; }
+
+    /* Cards de Seção */
     .section-card {
       background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
       border-radius: var(--radius-lg);
       padding: 16px;
       margin-bottom: 16px;
-      border: 1px solid var(--border-subtle);
-      border-left: 3.5px solid;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      border-left: 3px solid var(--border-strong);
     }
-
-    .border-ativacao {
-      border-left-color: var(--sec-ativacao);
-    }
+    .border-ativacao { border-left-color: var(--sec-ativacao); }
     .border-ativacao .section-badge {
-      background: rgba(245, 158, 11, 0.10);
+      background: rgba(245, 158, 11, 0.12);
       color: var(--sec-ativacao);
-      border: 1px solid rgba(245, 158, 11, 0.3);
+      border: 1px solid rgba(245, 158, 11, 0.25);
     }
 
-    .border-habilidade {
-      border-left-color: var(--brand-neon);
-    }
+    .border-habilidade { border-left-color: var(--sec-habilidade); }
     .border-habilidade .section-badge {
       background: var(--brand-neon-bg);
       color: var(--brand-neon);
       border: 1px solid rgba(0, 255, 136, 0.3);
     }
 
-    .border-fortalecimento {
-      border-left-color: var(--brand-neon);
-    }
+    .border-fortalecimento { border-left-color: var(--brand-neon); }
     .border-fortalecimento .section-badge {
       background: var(--brand-neon-bg);
       color: var(--brand-neon);
       border: 1px solid rgba(0, 255, 136, 0.3);
     }
 
-    .border-flexibilidade {
-      border-left-color: var(--sec-flexibilidade);
-    }
+    .border-flexibilidade { border-left-color: var(--sec-flexibilidade); }
     .border-flexibilidade .section-badge {
       background: rgba(192, 132, 252, 0.08);
       color: var(--sec-flexibilidade);
       border: 1px solid rgba(192, 132, 252, 0.25);
-    }
-
-    .border-cardio {
-      border-left-color: var(--sec-cardio);
-    }
-    .border-cardio .section-badge {
-      background: rgba(251, 113, 133, 0.08);
-      color: var(--sec-cardio);
-      border: 1px solid rgba(251, 113, 133, 0.25);
     }
 
     .section-header {
@@ -348,45 +377,41 @@
       background: rgba(255, 255, 255, 0.06);
       color: var(--text-muted);
     }
-
     .ex-volume {
-      font-size: 0.76rem;
+      font-size: 0.8rem;
       font-weight: 700;
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      background: rgba(255, 255, 255, 0.08);
-      color: #ffffff;
-      border: 1px solid var(--border-subtle);
-      padding: 4px 9px;
+      color: var(--brand-neon);
+      background: var(--brand-neon-bg);
+      padding: 3px 9px;
       border-radius: 8px;
+      border: 1px solid rgba(0, 255, 136, 0.2);
       white-space: nowrap;
     }
 
-    /* Caixa de Dica Biomecânica */
     .bio-cue {
-      background: rgba(0, 0, 0, 0.25);
-      border-radius: 8px;
-      padding: 10px 12px;
-      margin: 10px 0;
       font-size: 0.8rem;
       color: var(--text-muted);
-      line-height: 1.5;
-      border: 1px solid rgba(255, 255, 255, 0.04);
+      line-height: 1.45;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 9px 12px;
+      border-radius: var(--radius-sm);
+      border-left: 2px solid var(--border-strong);
+      margin-top: 8px;
     }
     .bio-cue strong { color: #ffffff; }
 
-    /* Barra de Ação */
+    /* Barra de Ação do Exercício */
     .ex-actions {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 10px;
+      margin-top: 12px;
       padding-top: 10px;
       border-top: 1px solid var(--border-subtle);
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 10px;
     }
 
-    /* Botão de Vídeo Neon */
     .btn-video {
       display: inline-flex;
       align-items: center;
@@ -400,6 +425,7 @@
       font-weight: 600;
       cursor: pointer;
       transition: all 0.15s ease;
+      text-decoration: none;
     }
     .btn-video:active {
       background: rgba(0, 255, 136, 0.2);
@@ -407,12 +433,12 @@
       transform: scale(0.97);
     }
     .btn-video svg {
-      width: 13px;
-      height: 13px;
+      width: 14px;
+      height: 14px;
       fill: currentColor;
     }
 
-    /* Bolinhas de Série Pretas com Glow Neon ao Concluir */
+    /* Bolinhas de Série em Dark Mode */
     .sets-container {
       display: flex;
       gap: 6px;
@@ -443,40 +469,42 @@
       font-weight: 800;
     }
 
-    /* Cronômetro Flutuante Preto OLED */
+    /* Cronômetro Flutuante OLED */
     .timer-dock {
       position: fixed;
       bottom: 16px;
       left: 16px;
       right: 16px;
+      max-width: 520px;
+      margin: 0 auto;
       background: rgba(12, 12, 12, 0.94);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border: 1px solid var(--border-strong);
-      border-radius: 22px;
-      padding: 10px 18px;
+      border-radius: var(--radius-lg);
+      padding: 10px 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.9);
-      z-index: 100;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.9);
+      z-index: 99;
     }
     .timer-info {
       display: flex;
       flex-direction: column;
     }
     .timer-caption {
-      font-size: 0.62rem;
-      font-weight: 800;
-      color: var(--text-dim);
+      font-size: 0.65rem;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
+      color: var(--text-dim);
     }
     .timer-display {
-      font-size: 1.35rem;
+      font-size: 1.45rem;
       font-weight: 800;
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      color: var(--brand-neon);
+      color: #ffffff;
+      font-variant-numeric: tabular-nums;
       letter-spacing: -0.02em;
     }
     .timer-buttons {
@@ -484,39 +512,38 @@
       gap: 6px;
     }
     .btn-timer {
-      background: rgba(255, 255, 255, 0.06);
+      background: #181818;
       border: 1px solid var(--border-subtle);
       color: var(--text-muted);
-      padding: 7px 12px;
-      border-radius: 10px;
+      padding: 7px 11px;
+      border-radius: 8px;
       font-size: 0.76rem;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.15s ease;
     }
+    .btn-timer:active { transform: scale(0.95); }
     .btn-timer.active {
-      background: var(--brand-neon);
-      color: #000000;
+      background: var(--brand-neon-bg);
       border-color: var(--brand-neon);
-      box-shadow: 0 0 12px var(--brand-neon-glow);
+      color: var(--brand-neon);
     }
     .btn-timer-reset {
-      background: rgba(244, 63, 94, 0.15);
-      color: #fb7185;
-      border-color: rgba(244, 63, 94, 0.3);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-dim);
     }
 
-    /* Modal de Vídeo Dark */
+    /* Modais */
     .modal-overlay {
-      display: none;
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
       background: rgba(0, 0, 0, 0.88);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
-      z-index: 1000;
+      display: none;
       align-items: center;
       justify-content: center;
+      z-index: 1000;
       padding: 16px;
     }
     .modal-overlay.active { display: flex; animation: modalIn 0.2s ease; }
@@ -576,34 +603,75 @@
       color: var(--text-main);
       line-height: 1.55;
     }
+
+    /* YouTube Responsive Container */
+    .youtube-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid var(--border-strong);
+      background: #000000;
+      margin: 10px 0;
+    }
+    .youtube-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Botão Instagram */
+    .btn-instagram {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+      color: #ffffff;
+      padding: 11px 16px;
+      border-radius: 10px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      text-decoration: none;
+      margin-top: 14px;
+      transition: opacity 0.2s ease;
+      box-shadow: 0 4px 15px rgba(253, 29, 29, 0.25);
+    }
+    .btn-instagram:hover { opacity: 0.9; }
   </style>
 </head>
 <body>
 
-  <!-- Header Geral Domínio Corporal -->
+  <!-- Header Domínio Corporal (Preto OLED + Glow Neon) -->
   <header>
     <div class="brand-top">
-      <div class="institution">DOMÍNIO CORPORAL • EEFERP-USP</div>
-      <div style="display: flex; gap: 8px; align-items: center;">
-        <a href="treino.html" class="switch-link">🏠 Ir ao App Principal</a>
-        <div class="badge-sync">Sincronizado</div>
+      <div class="coach-profile-btn" onclick="openBioModal()">
+        <img src="icon-192.png" alt="Domínio Corporal" class="coach-avatar">
+        <span class="coach-name">Gui Lemos</span>
+        <span class="bio-badge">Bio & Perfil ↗</span>
       </div>
+      <div class="badge-sync">Consultoria & Aluno</div>
     </div>
     <div class="brand">
       <h1>DOMÍNIO CORPORAL</h1>
       <div class="brand-slogan">Desafie a gravidade, domine seu corpo.</div>
       <div class="brand-subtitle">
-        <span>Gui Lemos</span>
-        <span>Sessão Completa (5 Blocos)</span>
-        <span>Black OLED + Neon Hero</span>
+        <span>Handstand & Calistenia</span>
+        <span>Consultoria Online</span>
+        <span>Periodização Biomecânica</span>
       </div>
     </div>
 
     <!-- Barra de Progresso Neon -->
     <div class="progress-section">
       <div class="progress-labels">
-        <span>Séries Concluídas</span>
-        <span id="progressText">0 de 36 séries (0%)</span>
+        <span>Progresso da Sessão</span>
+        <span id="progressText">0 de 18 séries (0%)</span>
       </div>
       <div class="progress-bar-bg">
         <div class="progress-bar-fill" id="progressBar"></div>
@@ -611,387 +679,795 @@
     </div>
   </header>
 
-  <!-- ==================== 1. ATIVAÇÃO ==================== -->
-  <div class="section-card border-ativacao">
-    <div class="section-header">
-      <div class="section-title-wrap">
-        <span class="section-badge">Ativação</span>
-        <div class="section-title">Preparação Articular & Manguito</div>
-      </div>
-      <span class="section-time">15 min</span>
-    </div>
-
-    <!-- Ex 1.1 -->
-    <div class="exercise-card">
-      <div class="ex-top">
-        <div>
-          <div class="ex-title">Mobilidade de Punho na Manjota</div>
-          <div class="ex-chips">
-            <span class="chip">Flexores</span>
-            <span class="chip">Extensores</span>
-            <span class="chip">Carga Progressiva</span>
-          </div>
-        </div>
-        <div class="ex-volume">2x 10 reps</div>
-      </div>
-      <div class="bio-cue">
-        <strong>Foco:</strong> Círculos lentos e transferências anteroposteriores de carga em pronação e neutro sobre os blocos.
-      </div>
-      <div class="ex-actions">
-        <div></div>
-        <div class="sets-container">
-          <div class="set-pill" onclick="toggleSet(this)">1</div>
-          <div class="set-pill" onclick="toggleSet(this)">2</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Ex 1.2 -->
-    <div class="exercise-card">
-      <div class="ex-top">
-        <div>
-          <div class="ex-title">Descompressão Lateral do Joelho & Poplíteo</div>
-          <div class="ex-chips">
-            <span class="chip">Menisco Lateral</span>
-            <span class="chip">Trato Iliotibial</span>
-            <span class="chip">Proteção Articular</span>
-          </div>
-        </div>
-        <div class="ex-volume">2x 45s / perna</div>
-      </div>
-      <div class="bio-cue">
-        <strong>Foco:</strong> Tração com elástico do bíceps femoral + 10 rotações internas ativas da tíbia (retrai o corno posterior do menisco).
-      </div>
-      <div class="ex-actions">
-        <div></div>
-        <div class="sets-container">
-          <div class="set-pill" onclick="toggleSet(this)">1</div>
-          <div class="set-pill" onclick="toggleSet(this)">2</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Ex 1.3 -->
-    <div class="exercise-card">
-      <div class="ex-top">
-        <div>
-          <div class="ex-title">Scapular Push-ups (Serrátil) + Band Pull-aparts</div>
-          <div class="ex-chips">
-            <span class="chip">Serrátil</span>
-            <span class="chip">Manguito</span>
-            <span class="chip">Calibração Escapular</span>
-          </div>
-        </div>
-        <div class="ex-volume">2x 12 reps</div>
-      </div>
-      <div class="bio-cue">
-        <strong>Foco:</strong> Protração máxima em prancha para calibrar a elevação escapular do handstand.
-      </div>
-      <div class="ex-actions">
-        <div></div>
-        <div class="sets-container">
-          <div class="set-pill" onclick="toggleSet(this)">1</div>
-          <div class="set-pill" onclick="toggleSet(this)">2</div>
-        </div>
-      </div>
-    </div>
+  <!-- Navegação por Abas (Modelo Aluno: Treinos Temáticos + Análise) -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('treinox')">Treino X - Handstand</button>
+    <button class="tab-btn" onclick="switchTab('treinoy')">Treino Y - BMU & Potência</button>
+    <button class="tab-btn" onclick="switchTab('treinoz')">Treino Z - Fortalecimento & Alavancas</button>
+    <button class="tab-btn" onclick="switchTab('analises')">🎬 Análise de Vídeos</button>
   </div>
 
-  <!-- ==================== 2. HABILIDADE (VERDE NEON) ==================== -->
-  <div class="section-card border-habilidade">
-    <div class="section-header">
-      <div class="section-title-wrap">
-        <span class="section-badge">Habilidade</span>
-        <div class="section-title">Equilíbrio Fino & Handstand</div>
-      </div>
-      <span class="section-time">30 min</span>
-    </div>
+  <!-- ==================== TAB 1: TREINO X - HANDSTAND & HABILIDADE ==================== -->
+  <div id="tab-treinox" class="tab-content active">
 
-    <!-- Ex 2.1: OAHS -->
-    <div class="exercise-card">
-      <div class="ex-top">
-        <div>
-          <div class="ex-title">One-Arm Handstand (OAHS) — Shifts na Manjota</div>
-          <div class="ex-chips">
-            <span class="chip">Equilíbrio Fino</span>
-            <span class="chip">SNC Fresco</span>
-            <span class="chip">Shift de Carga</span>
-          </div>
-        </div>
-        <div class="ex-volume">5x 15-20s</div>
-      </div>
-      <div class="bio-cue">
-        <strong>Foco:</strong> Shift lateral progressivo na manjota transferindo o peso para a escápula de apoio em elevação máxima.
-      </div>
-      <div class="ex-actions">
-        <button class="btn-video" onclick="openVideoModal('One-Arm Handstand (OAHS)', '<b>Mecânica:</b> Manter a linha axilar fechada e o tronco compacto enquanto a mão oposta flutua suavemente.', 'https://www.youtube.com/embed/5Hj0m-e98_8')">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vídeo / Dicas
-        </button>
-        <div class="sets-container">
-          <div class="set-pill" onclick="toggleSet(this)">1</div>
-          <div class="set-pill" onclick="toggleSet(this)">2</div>
-          <div class="set-pill" onclick="toggleSet(this)">3</div>
-          <div class="set-pill" onclick="toggleSet(this)">4</div>
-          <div class="set-pill" onclick="toggleSet(this)">5</div>
-        </div>
+    <div class="callout-box">
+      <div class="callout-icon">🤸‍♂️</div>
+      <div>
+        <strong>Treino X — Handstand & Alinhamento Biomecânico:</strong><br>
+        Foco primário na vertical neutra, elevação escapular de serrátil, shifts de carga na manjota (OAHS) e flexibilidade específica de ombros e quadril. Execute com SNC descansado!
       </div>
     </div>
 
-    <!-- Ex 2.2: HSPU -->
-    <div class="exercise-card">
-      <div class="ex-top">
-        <div>
-          <div class="ex-title">Freestanding HSPU (Mecânica em Tripé)</div>
-          <div class="ex-chips">
-            <span class="chip">Deltoide Anterior</span>
-            <span class="chip">Push & Shrug</span>
-            <span class="chip">Linha Vertical</span>
+    <!-- Bloco 1: Ativação Escapular & Punhos -->
+    <div class="section-card border-ativacao">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">Ativação</span>
+          <div class="section-title">Preparação Articular & Manguito</div>
+        </div>
+        <span class="section-time">15 min</span>
+      </div>
+
+      <!-- Ex 1.1 -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Mobilidade de Punho na Manjota</div>
+            <div class="ex-chips">
+              <span class="chip">Flexores</span>
+              <span class="chip">Extensores</span>
+              <span class="chip">Carga Progressiva</span>
+            </div>
+          </div>
+          <div class="ex-volume">2x 10 reps</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Foco:</strong> Círculos lentos e transferências anteroposteriores de carga em pronação e neutro sobre os blocos.
+        </div>
+        <div class="ex-actions">
+          <div></div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
           </div>
         </div>
-        <div class="ex-volume">5x 1 rep</div>
       </div>
-      <div class="bio-cue">
-        <strong>Foco:</strong> Descida controlada até o bloco de 5–10 cm. Ao empurrar, empurrar o chão e transladar axilas para trás ao mesmo tempo.
+
+      <!-- Ex 1.2 -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Scapular Push-ups (Serrátil) + Band Pull-aparts</div>
+            <div class="ex-chips">
+              <span class="chip">Serrátil Anterior</span>
+              <span class="chip">Manguito Rotador</span>
+              <span class="chip">Protração</span>
+            </div>
+          </div>
+          <div class="ex-volume">2x 12 reps</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Foco:</strong> Protração máxima em prancha para calibrar a elevação escapular necessária na parada de mãos.
+        </div>
+        <div class="ex-actions">
+          <div></div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+          </div>
+        </div>
       </div>
-      <div class="ex-actions">
-        <button class="btn-video" onclick="openVideoModal('Freestanding HSPU', '<b>Mecânica Tripé:</b> Cabeça à frente das mãos formando um triângulo equilátero para garantir o contrapeso das pernas.', 'https://www.youtube.com/embed/D3s1p6d0J60')">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vídeo / Tripé
-        </button>
-        <div class="sets-container">
-          <div class="set-pill" onclick="toggleSet(this)">1</div>
-          <div class="set-pill" onclick="toggleSet(this)">2</div>
-          <div class="set-pill" onclick="toggleSet(this)">3</div>
-          <div class="set-pill" onclick="toggleSet(this)">4</div>
-          <div class="set-pill" onclick="toggleSet(this)">5</div>
+
+      <!-- Ex 1.3 -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Descompressão Lateral do Joelho & Poplíteo</div>
+            <div class="ex-chips">
+              <span class="chip">Menisco Lateral</span>
+              <span class="chip">Trato Iliotibial</span>
+              <span class="chip">Proteção Articular</span>
+            </div>
+          </div>
+          <div class="ex-volume">2x 45s / perna</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Foco:</strong> Tração com elástico do bíceps femoral + 10 rotações internas ativas da tíbia para acomodação meniscal.
+        </div>
+        <div class="ex-actions">
+          <div></div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Ex 2.3: Press -->
-    <div class="exercise-card">
-      <div class="ex-top">
-        <div>
-          <div class="ex-title">Press to Handstand (Negativa de 5s / Straddle)</div>
-          <div class="ex-chips">
-            <span class="chip">Compressão Pélvica</span>
-            <span class="chip">Iliopsoas</span>
-            <span class="chip">Controle Excêntrico</span>
+    <!-- Bloco 2: Habilidade & Handstand -->
+    <div class="section-card border-habilidade">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">Habilidade</span>
+          <div class="section-title">Equilíbrio Fino & Handstand</div>
+        </div>
+        <span class="section-time">30 min</span>
+      </div>
+
+      <!-- Ex 2.1: OAHS -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">One-Arm Handstand (OAHS) — Shifts na Manjota</div>
+            <div class="ex-chips">
+              <span class="chip">Equilíbrio Fino</span>
+              <span class="chip">SNC Fresco</span>
+              <span class="chip">Shift de Carga</span>
+            </div>
+          </div>
+          <div class="ex-volume">5x 15-20s</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Foco:</strong> Shift lateral progressivo na manjota transferindo o peso para a escápula de apoio em elevação máxima.
+        </div>
+        <div class="ex-actions">
+          <button class="btn-video" onclick="openVideoModal('One-Arm Handstand (OAHS)', '<b>Mecânica:</b> Manter a linha axilar fechada e o tronco compacto enquanto a mão oposta flutua suavemente.', 'https://www.youtube.com/embed/5Hj0m-e98_8')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vídeo / Dicas
+          </button>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">3</div>
+            <div class="set-pill" onclick="toggleSet(this)">4</div>
+            <div class="set-pill" onclick="toggleSet(this)">5</div>
           </div>
         </div>
-        <div class="ex-volume">4x 3 reps</div>
       </div>
-      <div class="bio-cue">
-        <strong>Foco:</strong> Subida de chute leve e descida carpada lenta em 5 segundos, projetando os ombros à frente para criar contrapeso.
+
+      <!-- Ex 2.2: HSPU -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Freestanding HSPU (Mecânica em Tripé)</div>
+            <div class="ex-chips">
+              <span class="chip">Deltoide Anterior</span>
+              <span class="chip">Push & Shrug</span>
+              <span class="chip">Linha Vertical</span>
+            </div>
+          </div>
+          <div class="ex-volume">4x 3-5 reps</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Foco:</strong> Descida controlada levando a cabeça à frente das mãos (formando um triângulo equilátero); empurrar devolvendo para a vertical sem quebrar a lombar.
+        </div>
+        <div class="ex-actions">
+          <button class="btn-video" onclick="openVideoModal('Freestanding HSPU', '<b>Mecânica:</b> Descida em tripé controlado, subida empurrando com shrug escapular no topo.', 'https://www.youtube.com/embed/5Hj0m-e98_8')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vídeo / Dicas
+          </button>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">3</div>
+            <div class="set-pill" onclick="toggleSet(this)">4</div>
+          </div>
+        </div>
       </div>
-      <div class="ex-actions">
-        <button class="btn-video" onclick="openVideoModal('Press to Handstand', '<b>Mecânica Chave:</b> Controle excêntrico carpado descendo até pousar os pés suavemente na manjota.', 'https://www.youtube.com/embed/2_H_P9qN4kE')">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vídeo / Negativa
-        </button>
-        <div class="sets-container">
-          <div class="set-pill" onclick="toggleSet(this)">1</div>
-          <div class="set-pill" onclick="toggleSet(this)">2</div>
-          <div class="set-pill" onclick="toggleSet(this)">3</div>
-          <div class="set-pill" onclick="toggleSet(this)">4</div>
+
+      <!-- Ex 2.3: Linha Vertical Neutra -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Linha Vertical Neutra no Espaldar (Chest-to-Wall)</div>
+            <div class="ex-chips">
+              <span class="chip">Retroversão Pélvica</span>
+              <span class="chip">Hollow Body</span>
+              <span class="chip">Isometria</span>
+            </div>
+          </div>
+          <div class="ex-volume">3x 45s</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Foco:</strong> Peito voltado para a parede a 10cm de distância. Pés em ponta, glúteos travados e elevação completa de trapézio.
+        </div>
+        <div class="ex-actions">
+          <div></div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">3</div>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- Bloco 3: Flexibilidade Específica -->
+    <div class="section-card border-flexibilidade">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">Flexibilidade</span>
+          <div class="section-title">Abertura de Ombros & Mobilidade Pélvica</div>
+        </div>
+        <span class="section-time">15 min</span>
+      </div>
+
+      <!-- Ex 3.1 -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Pancake no Solo (Compressão & Adutores)</div>
+            <div class="ex-chips">
+              <span class="chip">Pancake</span>
+              <span class="chip">Isquiotibiais</span>
+              <span class="chip">Straddle Press</span>
+            </div>
+          </div>
+          <div class="ex-volume">3x 45s</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Foco:</strong> Anteversão pélvica, descendo o umbigo em direção ao solo com joelhos em extensão máxima travados.
+        </div>
+        <div class="ex-actions">
+          <div></div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">3</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 3.2 -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Abertura Torácica e de Ombros com Bastão</div>
+            <div class="ex-chips">
+              <span class="chip">Flexão Glenoumeral</span>
+              <span class="chip">Extensão Torácica</span>
+              <span class="chip">Alinhamento</span>
+            </div>
+          </div>
+          <div class="ex-volume">3x 45s</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Foco:</strong> Cotovelos apoiados no banco, segurando o bastão com pegada supinada. Abrir a axila sem hiperextender a lombar.
+        </div>
+        <div class="ex-actions">
+          <div></div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-  <!-- ==================== 3. FORTALECIMENTO (VERDE NEON) ==================== -->
-  <div class="section-card border-fortalecimento">
-    <div class="section-header">
-      <div class="section-title-wrap">
-        <span class="section-badge">Fortalecimento</span>
-        <div class="section-title">Alavancas & Cadeia Posterior</div>
-      </div>
-      <span class="section-time">30 min</span>
-    </div>
+  <!-- ==================== TAB 2: TREINO Y - BMU & POTÊNCIA ==================== -->
+  <div id="tab-treinoy" class="tab-content">
 
-    <!-- Ex 3.1: Front Lever -->
-    <div class="exercise-card">
-      <div class="ex-top">
-        <div>
-          <div class="ex-title">Front Lever (Isometria com Braço Reto)</div>
-          <div class="ex-chips">
-            <span class="chip">Dorsal</span>
-            <span class="chip">Redondo Maior</span>
-            <span class="chip">Extensão Pura</span>
-          </div>
-        </div>
-        <div class="ex-volume">5x 8s</div>
-      </div>
-      <div class="bio-cue">
-        <strong>Foco:</strong> Cotovelos 100% estendidos. Depressão e retração sustentadas com core anti-extensão travado.
-      </div>
-      <div class="ex-actions">
-        <button class="btn-video" onclick="openVideoModal('Front Lever', '<b>Mecânica:</b> Extensão pura de ombro tracionando a barra para o quadril com bloqueio articular completo.', 'https://www.youtube.com/embed/v9i8x60zF2Q')">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vídeo / Alavanca
-        </button>
-        <div class="sets-container">
-          <div class="set-pill" onclick="toggleSet(this)">1</div>
-          <div class="set-pill" onclick="toggleSet(this)">2</div>
-          <div class="set-pill" onclick="toggleSet(this)">3</div>
-          <div class="set-pill" onclick="toggleSet(this)">4</div>
-          <div class="set-pill" onclick="toggleSet(this)">5</div>
-        </div>
+    <div class="callout-box">
+      <div class="callout-icon">⚡</div>
+      <div>
+        <strong>Treino Y — Kip Muscle-Up & Potência Gímnica de Barra:</strong><br>
+        Foco na conservação de energia cinética no swing, puxada agressiva aos quadris (straight-arm pull down) e transição limpa de punhos por cima da barra fixa.
       </div>
     </div>
 
-    <!-- Ex 3.2: RDL -->
-    <div class="exercise-card">
-      <div class="ex-top">
-        <div>
-          <div class="ex-title">Single-Leg RDL com KB 12 kg (Glúteo Máximo)</div>
-          <div class="ex-chips">
-            <span class="chip">Glúteo</span>
-            <span class="chip">Menisco Protegido</span>
-            <span class="chip">Hip Hinge</span>
+    <!-- Bloco 1: Ativação Gímnica -->
+    <div class="section-card border-ativacao">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">Ativação</span>
+          <div class="section-title">Pêndulo & Dinâmica Gímnica</div>
+        </div>
+        <span class="section-time">10 min</span>
+      </div>
+
+      <!-- Ex 1.1 -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Pêndulo Gímnico (Hollow & Arch Balístico)</div>
+            <div class="ex-chips">
+              <span class="chip">Timing</span>
+              <span class="chip">Core Gímnico</span>
+              <span class="chip">Extensão Torácica</span>
+            </div>
+          </div>
+          <div class="ex-volume">3x 8 balanços</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Foco:</strong> Transição fluida entre arch (abertura axilar) e hollow (compressão abdominal) sem dobrar cotovelos nem joelhos.
+        </div>
+        <div class="ex-actions">
+          <div></div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">3</div>
           </div>
         </div>
-        <div class="ex-volume">3x 10-12 / perna</div>
       </div>
-      <div class="bio-cue">
-        <strong>Foco:</strong> Dominância pura de quadril (<em>hip hinge</em>). Joelho mantido fixo em 20° para poupar o compartimento lateral.
-      </div>
-      <div class="ex-actions">
-        <div></div>
-        <div class="sets-container">
-          <div class="set-pill" onclick="toggleSet(this)">1</div>
-          <div class="set-pill" onclick="toggleSet(this)">2</div>
-          <div class="set-pill" onclick="toggleSet(this)">3</div>
+
+      <!-- Ex 1.2 -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Straight-Arm Lat Pulldown com Elástico</div>
+            <div class="ex-chips">
+              <span class="chip">Grande Dorsal</span>
+              <span class="chip">Extensão de Ombro</span>
+              <span class="chip">Ativação Terminal</span>
+            </div>
+          </div>
+          <div class="ex-volume">3x 10 reps</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Foco:</strong> Empurrar a banda para baixo mantendo cotovelos 100% esticados, ativando dorsal e tríceps cabeça longa.
+        </div>
+        <div class="ex-actions">
+          <div></div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">3</div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Ex 3.3: Panturrilha / Aquiles -->
-    <div class="exercise-card">
-      <div class="ex-top">
-        <div>
-          <div class="ex-title">Panturrilha / Aquiles (Pausa Profunda de 3–4s)</div>
-          <div class="ex-chips">
-            <span class="chip">Sarcomerogênese</span>
-            <span class="chip">Resgate 8 anos</span>
-            <span class="chip">Estiramento Máximo</span>
+    <!-- Bloco 2: Potência & Habilidades de Barra -->
+    <div class="section-card border-habilidade">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">Potência</span>
+          <div class="section-title">BMU & Transição de Barra</div>
+        </div>
+        <span class="section-time">25 min</span>
+      </div>
+
+      <!-- Ex 2.1: BMU -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Kip Muscle-Up (BMU) na Barra Fixa</div>
+            <div class="ex-chips">
+              <span class="chip">Potência de Puxada</span>
+              <span class="chip">Transição Dinâmica</span>
+              <span class="chip">Gímnico</span>
+            </div>
+          </div>
+          <div class="ex-volume">4x 2-4 reps</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Foco:</strong> Swing hollow agressivo, puxada em arco mirando o umbigo na barra e transição imediata do peito sobre a barra.
+        </div>
+        <div class="ex-actions">
+          <button class="btn-video" onclick="openVideoModal('Kip Muscle-Up (BMU)', '<b>Mecânica:</b> Manter a puxada em arco (linha C) e virar os dois cotovelos simultaneamente por cima da barra.', 'https://www.youtube.com/embed/5Hj0m-e98_8')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vídeo / Dicas
+          </button>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">3</div>
+            <div class="set-pill" onclick="toggleSet(this)">4</div>
           </div>
         </div>
-        <div class="ex-volume">3x 12 / perna</div>
       </div>
-      <div class="bio-cue">
-        <strong>Foco:</strong> Pausa estrita de 3 a 4 segundos em máxima dorsiflexão no fundo para adicionar sarcômeros em série e alongar os fascículos.
+
+      <!-- Ex 2.2: Oitavas -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Giros de Oitava (Glide Kips) Consecutivos</div>
+            <div class="ex-chips">
+              <span class="chip">Conservação de Energia</span>
+              <span class="chip">Pés na Barra</span>
+              <span class="chip">Transição Veloz</span>
+            </div>
+          </div>
+          <div class="ex-volume">4x 2-3 reps</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Foco:</strong> Máxima extensão no pêndulo, aproximação fulminante dos pés na barra e elevação de tronco com braços esticados.
+        </div>
+        <div class="ex-actions">
+          <button class="btn-video" onclick="openVideoModal('Glide Kip (Oitava)', '<b>Mecânica:</b> Abertura do pêndulo em arch, compressão pike pés na barra e straight-arm press down.', 'https://www.youtube.com/embed/5Hj0m-e98_8')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vídeo / Dicas
+          </button>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">3</div>
+            <div class="set-pill" onclick="toggleSet(this)">4</div>
+          </div>
+        </div>
       </div>
-      <div class="ex-actions">
-        <button class="btn-video" onclick="openVideoModal('Resgate de Panturrilha', '<b>Mecânica Chave:</b> Tensão passiva-ativa em estiramento máximo estimula a sarcomerogênese longitudinal.', 'https://www.youtube.com/embed/u3d_y5Yt-1g')">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vídeo / Mecânica
-        </button>
-        <div class="sets-container">
-          <div class="set-pill" onclick="toggleSet(this)">1</div>
-          <div class="set-pill" onclick="toggleSet(this)">2</div>
-          <div class="set-pill" onclick="toggleSet(this)">3</div>
+
+      <!-- Ex 2.3: Ice Cream Makers -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Ice Cream Makers na Barra Fixa</div>
+            <div class="ex-chips">
+              <span class="chip">Alavanca Front Lever</span>
+              <span class="chip">Transição Excêntrica</span>
+              <span class="chip">Dorsal / Bíceps</span>
+            </div>
+          </div>
+          <div class="ex-volume">3x 6 reps</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Foco:</strong> Puxar ao topo da barra e projetar o corpo reto para a horizontal do Front Lever, retornando sob controle.
+        </div>
+        <div class="ex-actions">
+          <div></div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">3</div>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- Bloco 3: Força de Puxada & Core -->
+    <div class="section-card border-fortalecimento">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">Fortalecimento</span>
+          <div class="section-title">Puxada Estrita & Core Anti-Gravidade</div>
+        </div>
+        <span class="section-time">20 min</span>
+      </div>
+
+      <!-- Ex 3.1 -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Pull-ups Estritas com Pausa de 2s no Topo</div>
+            <div class="ex-chips">
+              <span class="chip">Grande Dorsal</span>
+              <span class="chip">Depressão Escapular</span>
+              <span class="chip">Força Base</span>
+            </div>
+          </div>
+          <div class="ex-volume">4x 6 reps</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Foco:</strong> Pegada pronada na largura dos ombros, subida sem kipping e queixo totalmente acima da barra.
+        </div>
+        <div class="ex-actions">
+          <div></div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">3</div>
+            <div class="set-pill" onclick="toggleSet(this)">4</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 3.2 -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Dragon Flag Excêntrico no Solo / Banco</div>
+            <div class="ex-chips">
+              <span class="chip">Reto Abdominal</span>
+              <span class="chip">Alavanca Rígida</span>
+              <span class="chip">Controle Motor</span>
+            </div>
+          </div>
+          <div class="ex-volume">3x 5 reps (descida 4s)</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Foco:</strong> Manter corpo em bloco rígido desde os ombros até as pontas dos pés, descendo em câmera lenta.
+        </div>
+        <div class="ex-actions">
+          <div></div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-  <!-- ==================== 4. FLEXIBILIDADE ==================== -->
-  <div class="section-card border-flexibilidade">
-    <div class="section-header">
-      <div class="section-title-wrap">
-        <span class="section-badge">Flexibilidade</span>
-        <div class="section-title">Mobilidade Torácica & Tornozelo</div>
-      </div>
-      <span class="section-time">15 min</span>
-    </div>
+  <!-- ==================== TAB 3: TREINO Z - FORTALECIMENTO & ALAVANCAS ==================== -->
+  <div id="tab-treinoz" class="tab-content">
 
-    <!-- Ex 4.1 -->
-    <div class="exercise-card">
-      <div class="ex-top">
-        <div>
-          <div class="ex-title">Dorsiflexão Ativa de Tornozelo na Parede</div>
-          <div class="ex-chips">
-            <span class="chip">Tornozelo</span>
-            <span class="chip">Base Pistol</span>
-            <span class="chip">Sem Colapso</span>
-          </div>
-        </div>
-        <div class="ex-volume">2x 60s / perna</div>
-      </div>
-      <div class="bio-cue">
-        <strong>Foco:</strong> Avanço de joelho mantendo calcanhar grudado no chão, sem colapso medial do arco plantar.
-      </div>
-      <div class="ex-actions">
-        <div></div>
-        <div class="sets-container">
-          <div class="set-pill" onclick="toggleSet(this)">1</div>
-          <div class="set-pill" onclick="toggleSet(this)">2</div>
-        </div>
+    <div class="callout-box">
+      <div class="callout-icon">🛡️</div>
+      <div>
+        <strong>Treino Z — Fortalecimento, Alavancas Isométricas & Tendão:</strong><br>
+        Sessão focada em sustentação estática (Front Lever / Planche Lean), dominância de quadril sem compressão meniscal e sarcomerogênese do tendão de Aquiles.
       </div>
     </div>
 
-    <!-- Ex 4.2 -->
-    <div class="exercise-card">
-      <div class="ex-top">
-        <div>
-          <div class="ex-title">Ponte Torácica & Abertura de Ombros</div>
-          <div class="ex-chips">
-            <span class="chip">Torácica</span>
-            <span class="chip">Hollowback</span>
-            <span class="chip">Extensão</span>
+    <!-- Bloco 1: Alavancas Isométricas -->
+    <div class="section-card border-fortalecimento">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">Alavancas</span>
+          <div class="section-title">Isometria & Torque Anti-Gravidade</div>
+        </div>
+        <span class="section-time">25 min</span>
+      </div>
+
+      <!-- Ex 1.1: Front Lever -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Front Lever Isométrico (Tuck / Straddle)</div>
+            <div class="ex-chips">
+              <span class="chip">Dorsal</span>
+              <span class="chip">Retração Escapular</span>
+              <span class="chip">Alavanca Rígida</span>
+            </div>
+          </div>
+          <div class="ex-volume">4x 8-12s</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Foco:</strong> Depressão e retração escapular ativa; manter a pelve exatamente na mesma altura dos ombros.
+        </div>
+        <div class="ex-actions">
+          <button class="btn-video" onclick="openVideoModal('Front Lever', '<b>Mecânica:</b> Braços 100% esticados, depressão escapular contínua empurrando a barra para baixo contra as coxas.', 'https://www.youtube.com/embed/5Hj0m-e98_8')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vídeo / Dicas
+          </button>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">3</div>
+            <div class="set-pill" onclick="toggleSet(this)">4</div>
           </div>
         </div>
-        <div class="ex-volume">2x 45s</div>
       </div>
-      <div class="bio-cue">
-        <strong>Foco:</strong> Apoio escapular sobre colchão firme, relaxando peitoral e dorsal para abrir o peito.
-      </div>
-      <div class="ex-actions">
-        <div></div>
-        <div class="sets-container">
-          <div class="set-pill" onclick="toggleSet(this)">1</div>
-          <div class="set-pill" onclick="toggleSet(this)">2</div>
+
+      <!-- Ex 1.2: Planche Lean -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Planche Lean na Manjota / Solo</div>
+            <div class="ex-chips">
+              <span class="chip">Serrátil</span>
+              <span class="chip">Bíceps Distal</span>
+              <span class="chip">Protração</span>
+            </div>
+          </div>
+          <div class="ex-volume">4x 15s</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Foco:</strong> Ombros projetados à frente da linha dos punhos em protração máxima, joelhos esticados e retroversão pélvica.
+        </div>
+        <div class="ex-actions">
+          <div></div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">3</div>
+            <div class="set-pill" onclick="toggleSet(this)">4</div>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- Bloco 2: Cadeia Posterior & Pelve (Proteção Meniscal) -->
+    <div class="section-card border-ativacao">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">Cadeia Posterior</span>
+          <div class="section-title">Glúteos & Dominância de Quadril</div>
+        </div>
+        <span class="section-time">20 min</span>
+      </div>
+
+      <!-- Ex 2.1: RDL -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Single-Leg RDL com Kettlebell (Unilateral)</div>
+            <div class="ex-chips">
+              <span class="chip">Isquiotibiais</span>
+              <span class="chip">Glúteo Médio</span>
+              <span class="chip">Tíbia Vertical</span>
+            </div>
+          </div>
+          <div class="ex-volume">3x 8 reps / perna</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Foco:</strong> Tíbia perfeitamente vertical (zero avanço anterior do joelho para descompressão meniscal) e extensão de quadril pura.
+        </div>
+        <div class="ex-actions">
+          <div></div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">3</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 2.2: Banded KB Swing -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Banded Kettlebell Swing (Aceleração Terminal)</div>
+            <div class="ex-chips">
+              <span class="chip">Glúteo Máximo</span>
+              <span class="chip">Potência Pélvica</span>
+              <span class="chip">Resistência Elástica</span>
+            </div>
+          </div>
+          <div class="ex-volume">4x 12 reps</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Foco:</strong> Trava explosiva de glúteos e quadríceps no topo sem hiperextender a coluna lombar.
+        </div>
+        <div class="ex-actions">
+          <div></div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">3</div>
+            <div class="set-pill" onclick="toggleSet(this)">4</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bloco 3: Reabilitação & Rigidez Tendínea -->
+    <div class="section-card border-habilidade">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">Tendão & Estrutura</span>
+          <div class="section-title">Sarcomerogênese & Aquiles</div>
+        </div>
+        <span class="section-time">15 min</span>
+      </div>
+
+      <!-- Ex 3.1: Panturrilha no Degrau -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Elevação Unilateral de Panturrilha no Degrau</div>
+            <div class="ex-chips">
+              <span class="chip">Sóleo</span>
+              <span class="chip">Gastrocnêmio</span>
+              <span class="chip">Tendão de Aquiles</span>
+            </div>
+          </div>
+          <div class="ex-volume">4x 10 reps / perna</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Foco:</strong> Pausa isométrica de 3s no fundo (alongamento máximo sob carga) e subida explosiva com 2s no ápice.
+        </div>
+        <div class="ex-actions">
+          <div></div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">3</div>
+            <div class="set-pill" onclick="toggleSet(this)">4</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 3.2: Tibial Anterior -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Dorsiflexão Ativa (Tibial Anterior na Parede)</div>
+            <div class="ex-chips">
+              <span class="chip">Equilíbrio Agonista/Antagonista</span>
+              <span class="chip">Estabilidade Tornozelo</span>
+            </div>
+          </div>
+          <div class="ex-volume">3x 15 reps</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Foco:</strong> Costas apoiadas na parede, pernas retas; puxar as pontas dos pés em direção às canelas ao máximo.
+        </div>
+        <div class="ex-actions">
+          <div></div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-  <!-- ==================== 5. CARDIO ==================== -->
-  <div class="section-card border-cardio">
-    <div class="section-header">
-      <div class="section-title-wrap">
-        <span class="section-badge">Cardio</span>
-        <div class="section-title">Capacidade Aeróbia Sem Impacto</div>
+  <!-- ==================== TAB 4: ANÁLISE DE VÍDEOS & FEEDBACK ==================== -->
+  <div id="tab-analises" class="tab-content">
+
+    <div class="callout-box">
+      <div class="callout-icon">🎬</div>
+      <div>
+        <strong>Laboratório de Análise & Devolutiva do Aluno:</strong><br>
+        Aqui ficam registradas as suas gravações e a devolutiva biomecânica do professor Gui Lemos. O feedback disseca trajetórias, ângulos de alavanca e momento de inércia para correção cirúrgica do movimento.
       </div>
-      <span class="section-time">20 min</span>
     </div>
 
-    <!-- Ex 5.1 -->
-    <div class="exercise-card">
-      <div class="ex-top">
-        <div>
-          <div class="ex-title">Natação Intervalada Aeróbia (Z2)</div>
-          <div class="ex-chips">
-            <span class="chip">Zero Impacto</span>
-            <span class="chip">Recuperação</span>
-            <span class="chip">Zona 2</span>
-          </div>
+    <!-- Feedback 1: YouTube Live Embed -->
+    <div class="section-card border-habilidade">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge" style="background:rgba(255,0,0,0.15); color:#ff4d4d; border-color:rgba(255,0,0,0.3);">YouTube HD</span>
+          <div class="section-title">Handstand Técnico — Alinhamento & Press</div>
         </div>
-        <div class="ex-volume">800 m total</div>
+        <span class="section-time">Demonstração</span>
       </div>
+
+      <!-- Player Responsivo YouTube -->
+      <div class="youtube-wrapper">
+        <iframe src="https://www.youtube.com/embed/5Hj0m-e98_8" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+
       <div class="bio-cue">
-        <strong>Foco:</strong> 16 x 50m crawl e costas soltos com 15 segundos de descanso entre tiros. Manter frequência em Zona 2.
+        <strong>🔍 Decomposição Biomecânica do Treinador:</strong><br>
+        1. <strong>Ângulo Glenoumeral:</strong> Abertura axilar a 180° sem compressão cervical.<br>
+        2. <strong>Retroversão Pélvica:</strong> Manutenção da pelve neutra eliminando a curvatura de "banana" na lombar.<br>
+        3. <strong>Pressão Digital:</strong> Uso das polpas digitais em garra para regulação fina do centro de gravidade.
       </div>
-      <div class="ex-actions">
-        <div></div>
-        <div class="sets-container">
-          <div class="set-pill" onclick="toggleSet(this)">1</div>
-          <div class="set-pill" onclick="toggleSet(this)">2</div>
-          <div class="set-pill" onclick="toggleSet(this)">3</div>
-          <div class="set-pill" onclick="toggleSet(this)">4</div>
-        </div>
+
+      <div style="margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap;">
+        <a href="https://youtu.be/5Hj0m-e98_8" target="_blank" class="btn-video" style="text-decoration:none;">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Abrir no App do YouTube
+        </a>
       </div>
     </div>
+
+    <!-- Feedback 2: Correção de Movimento Aluno -->
+    <div class="section-card border-fortalecimento">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">Correção Técnica</span>
+          <div class="section-title">Bar Muscle-Up (BMU) — Timing do Quadril</div>
+        </div>
+        <span class="section-time">Feedback Gravado</span>
+      </div>
+
+      <div style="font-size: 0.85rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 12px;">
+        <p style="margin-bottom: 8px;"><strong style="color: #ffffff;">📋 Relatório de Análise do Professor:</strong></p>
+        <p style="margin-bottom: 6px;">• <strong>Ponto Positivo:</strong> O balanço inicial em arch tem boa amplitude e você mantém o corpo em tensão sem soltar as pernas.</p>
+        <p style="margin-bottom: 6px;">• <strong>Ajuste Obrigatório:</strong> Você está iniciando a flexão dos cotovelos cedo demais (antes da subida do quadril). Isso transforma o movimento em uma puxada vertical pura, aumentando o braço de alavanca.</p>
+        <p>• <strong>Prescrição:</strong> Pense em empurrar a barra para baixo com braços esticados (Straight-Arm Lat Pulldown) até a pelve atingir o nível da barra; somente então vire os punhos e lance os ombros à frente.</p>
+      </div>
+    </div>
+
+    <!-- Guia Didático: Como Adicionar Vídeos do YouTube -->
+    <div class="section-card border-ativacao">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">Dica do Método</span>
+          <div class="section-title">💡 Como Inserir Vídeos do YouTube no App</div>
+        </div>
+        <span class="section-time">Passo a Passo</span>
+      </div>
+
+      <div style="font-size: 0.84rem; line-height: 1.65; color: var(--text-muted);">
+        <p style="margin-bottom: 8px;">Para incluir novos vídeos (públicos ou <em>não-listados</em> exclusivos dos seus alunos), você precisa apenas da URL de incorporação:</p>
+        <div style="background: rgba(0,0,0,0.6); padding: 10px 14px; border-radius: 8px; font-family: monospace; font-size: 0.8rem; color: var(--brand-neon); margin-bottom: 10px; word-break: break-all;">
+          https://www.youtube.com/embed/SEU_CODIGO_DO_VIDEO
+        </div>
+        <p style="margin-bottom: 6px;"><strong>Exemplo:</strong> Se a URL normal for <code>https://youtu.be/5Hj0m-e98_8</code> ou <code>youtube.com/watch?v=5Hj0m-e98_8</code>, o código é <code>5Hj0m-e98_8</code>.</p>
+        <p>O YouTube cuida de toda a compressão, streaming e compatibilidade com qualquer celular, mantendo o app leve e sem limites de armazenamento!</p>
+      </div>
+    </div>
+
   </div>
 
-  <!-- Cronômetro Flutuante Preto OLED -->
+  <!-- Cronômetro Flutuante OLED Stealth -->
   <div class="timer-dock">
     <div class="timer-info">
       <span class="timer-caption">Descanso</span>
@@ -1005,11 +1481,11 @@
     </div>
   </div>
 
-  <!-- Modal de Vídeo Dark -->
+  <!-- Modal de Vídeo & Técnica -->
   <div id="videoModal" class="modal-overlay" onclick="handleOverlayClick(event)">
     <div class="modal-card">
       <div class="modal-header">
-        <h3 id="modalTitle">Demonstração</h3>
+        <h3 id="modalTitle">Demonstração Técnica</h3>
         <button class="btn-close" onclick="closeVideoModal()">&times;</button>
       </div>
       <div class="video-container">
@@ -1021,7 +1497,61 @@
     </div>
   </div>
 
+  <!-- Modal Bio Gui Lemos -->
+  <div id="bioModal" class="modal-overlay" onclick="handleOverlayClick(event)">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <img src="icon-192.png" alt="Gui Lemos" style="width:34px; height:34px; border-radius:50%; border:2px solid var(--brand-neon); object-fit: cover;">
+          <div>
+            <h3 style="margin:0; font-size:1rem; color:#fff;">Gui Lemos</h3>
+            <span style="font-size:0.72rem; color:var(--brand-neon); font-weight:600;">@guilemos_dominiocorporal</span>
+          </div>
+        </div>
+        <button class="btn-close" onclick="closeBioModal()">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 20px;">
+        <div style="text-align: center; margin-bottom: 16px;">
+          <img src="icon-192.png" alt="Gui Lemos" style="width: 76px; height: 76px; border-radius: 50%; border: 3px solid var(--brand-neon); box-shadow: 0 0 20px var(--brand-neon-glow); margin-bottom: 8px; object-fit: cover;">
+          <h2 style="font-size: 1.2rem; font-weight: 800; color: #fff; margin-bottom: 4px;">Guilherme Lemos</h2>
+          <p style="font-size: 0.8rem; color: var(--brand-neon); font-weight: 600;">Criador do Método DOMÍNIO CORPORAL</p>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 14px; margin-bottom: 14px; font-size: 0.82rem; line-height: 1.6; color: var(--text-muted);">
+          <p style="margin-bottom: 8px;"><strong style="color: #fff;">🎓 Formação & Ciência:</strong><br>
+          • <strong>Farmacêutico-Bioquímico</strong> (USP)<br>
+          • <strong>Educador Físico</strong> & Especialista em Treinamento Funcional e Acrobático<br>
+          • <strong>Mestrando em Biomecânica</strong> na <strong>EEFERP-USP</strong> (Cinemática 3D Vicon, Eletromiografia e Dinamometria aplicada ao Handstand)</p>
+
+          <p style="margin-bottom: 8px;"><strong style="color: #fff;">🤸‍♂️ Vivência Prática:</strong><br>
+          • <strong>20 anos de prática ininterrupta</strong> em Parada de Mãos (Handstand), Calistenia Avançada, Ginástica Artística, Circo e Acrobacias de Solo.</p>
+
+          <p><strong style="color: #fff;">🎯 Filosofia:</strong><br>
+          <em>"Unir a precisão rigorosa da ciência biomecânica à arte do domínio corporal. Menos compensação, alinhamento perfeito e longevidade física."</em></p>
+        </div>
+
+        <a href="https://www.instagram.com/guilemos_dominiocorporal/" target="_blank" class="btn-instagram">
+          <svg style="width:18px; height:18px; fill:currentColor;" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Siga no Instagram @guilemos_dominiocorporal
+        </a>
+      </div>
+    </div>
+  </div>
+
   <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      if (window.event && window.event.currentTarget) {
+        window.event.currentTarget.classList.add('active');
+      } else if (window.event && window.event.target) {
+        window.event.target.classList.add('active');
+      }
+      const target = document.getElementById('tab-' + tabId);
+      if (target) target.classList.add('active');
+      updateProgress();
+    }
+
     function toggleSet(btn) {
       btn.classList.toggle('done');
       if (btn.classList.contains('done') && 'vibrate' in navigator) {
@@ -1031,14 +1561,21 @@
     }
 
     function updateProgress() {
-      const allSets = document.querySelectorAll('.set-pill');
-      const completedSets = document.querySelectorAll('.set-pill.done');
+      const activeTab = document.querySelector('.tab-content.active');
+      const allSets = activeTab ? activeTab.querySelectorAll('.set-pill') : document.querySelectorAll('.set-pill');
+      const completedSets = activeTab ? activeTab.querySelectorAll('.set-pill.done') : document.querySelectorAll('.set-pill.done');
       const total = allSets.length;
       const completed = completedSets.length;
-      const pct = total > 0 ? Math.round((completed / total) * 100) : 0;
-      
       const bar = document.getElementById('progressBar');
       const text = document.getElementById('progressText');
+
+      if (total === 0) {
+        if (bar) bar.style.width = '100%';
+        if (text) text.innerText = 'Consulta / Feedback em Vídeo';
+        return;
+      }
+
+      const pct = Math.round((completed / total) * 100);
       if (bar) bar.style.width = pct + '%';
       if (text) text.innerText = `${completed} de ${total} séries (${pct}%)`;
     }
@@ -1089,12 +1626,25 @@
       document.getElementById('videoIframe').src = '';
     }
 
+    /* Modal de Bio Gui Lemos */
+    function openBioModal() {
+      document.getElementById('bioModal').classList.add('active');
+    }
+
+    function closeBioModal() {
+      document.getElementById('bioModal').classList.remove('active');
+    }
+
     function handleOverlayClick(e) {
       if (e.target.id === 'videoModal') {
         closeVideoModal();
       }
+      if (e.target.id === 'bioModal') {
+        closeBioModal();
+      }
     }
 
+    // Inicializa contador
     updateProgress();
 
     // Registra Service Worker (PWA Offline)
