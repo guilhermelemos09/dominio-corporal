@@ -126,5 +126,46 @@
 * **Abertura Torácica & Extensão Glenoumeral nas Argolas Baixas:** 2 séries de 45s (expansão torácica e descompressão de peitoral).
 
 #### 5. Cardio (CrossFit 17h/18h - Opcional)
-* **Status:** Aguardando WOD do dia.
-* **Diretriz:** Filtro biomecânico para evitar concorrência com a fadiga neural das 12h–14h. Priorizar ergômetros (Remo, Bike, Ski) e exercícios de core/dominância de quadril; vetar snatches pesados e sobrecarga balística de ombro/menisco.
+* **Status:** WOD Adaptado na íntegra no app ("Versão Blindada" 40-20-10).
+* **Diretriz:** Filtro biomecânico para evitar concorrência com a fadiga neural das 12h–14h. Priorizar ergômetros (Remo, Bike, Ski) e exercícios de core/dominância de quadril; vetar snatches pesados e sobrecarga balística de ombro/menisco. Realizar o resgate da panturrilha (3x 15 com pausa de 3-4s) na chegada ao box!
+
+---
+
+# Relatório de Execução Real: Sessão das 12h–14h (02/10/2026)
+
+### 🏆 MARCOS & CONQUISTAS DO DIA
+1. **Retorno Histórico do Strict RMU Livre:**
+   * Executou **3x 3 RMU estrito com elástico**, e em seguida nas argolas altas mandou **1 Strict Ring Muscle-Up livre SEM elástico + 2 RMU vindo da vela (Candle Kip)** por 2 rounds!
+   * *Significado Biomecânico:* Primeiro RMU estrito sem assistência em **2 anos**. Demonstra consolidação neuromuscular da estabilização escapular e capacidade de absorção tensional no tríceps esquerdo e supraespinhal direito operado.
+2. **Press Handstand no Ombro do Parceiro (Portagem):**
+   * Entrada em subida de força pura (Press) diretamente sobre a base escapular do volante/amigo, exigindo alinhamento de *stacking* e compressão pélvica de nível circense.
+
+---
+
+### 🔬 RESPOSTAS TÉCNICAS & BIOMECÂNICAS DO COACH
+
+#### A. O Que é o "Kip Vindo da Vela" nas Argolas?
+* **Nomenclatura Oficial:** Na ginástica artística, chama-se **Inverted Kip Muscle-Up**, **Candle Kip** ou **Kip da Vela** (família do *Felge Aufschwung*).
+* **Cinemática & Física:**
+  1. *Energia Potencial Gravitacional $\to$ Momento Linear:* Da posição de vela invertida (*candlestick hang*), a descida do centro de massa ($U_g = mgh$) acelera a pelve para baixo.
+  2. *Straight-Arm Lat Pull Down:* No momento exato em que os pés passam pela linha do quadril, você fecha violentamente o ângulo axilar em extensão de ombro com grande dorsal e redondo maior.
+  3. *Transição Flutuante:* A força de reação projeta o tronco verticalmente para cima, permitindo virar os cotovelos com as argolas já na altura do peito, praticamente **anulando a necessidade de um dip pesado**.
+  * *Vantagem para você:* Diferente do kipping horizontal balístico do CrossFit, o Candle Kip tem vetor puramente vertical paralelo às fitas, gerando **zero tração anterior na cabeça umeral** e protegendo 100% o supraespinhal operado!
+
+#### B. 4 Chaves Biomecânicas para os Giros de Chão na Dança (Floorwork Spins)
+1. **Conservação do Momento Angular e Momento de Inércia ($I = m r^2$):**
+   * *O erro comum:* Tentar girar mantendo braço ou perna livre estendida longe do corpo. Isso aumenta o momento de inércia e freia a rotação.
+   * *A correção:* Gere o torque inicial com a abertura e, no milissegundo em que o giro começa, **compacte os membros em espiral para o centro**. Pela lei da conservação do momento angular ($L = I \cdot \omega$), diminuir o raio ($r$) faz a velocidade angular ($\omega$) explodir, vencendo a resistência do chão.
+2. **Redução da Área de Contato com Chão de Alto Atrito:**
+   * Se o piso não é linóleo escorregadio, a pele nua cria atrito adesivo estático ($\mu_s$) que trava o movimento.
+   * *Solução:* Use sempre calça comprida ou meia que cubra a área de rotação e apoie sobre **superfícies ósseas convexas únicas** (ex: trocânter maior na lateral do glúteo ou o dorso do pé engavetado), evitando espalhar a coxa toda no chão.
+3. **Proteção Mandatória do Menisco Lateral Esquerdo:**
+   * **ALERTA MÁXIMO:** Em giros de joelho/canela, se o pé ou a canela ficarem "presos" no chão enquanto a pelve e o tronco giram, ocorre **torção tibial externa com compressão** — o mecanismo primário de lesão do menisco lateral!
+   * *Regra de Ouro:* O pé, a tíbia e o fêmur devem girar **em monobloco**. Se o pé não escorregar junto, o giro deve ser abortado ou transferido para o quadril.
+4. **Spotting de Tronco & Espirais:**
+   * A cabeça e os olhos devem escolher um ponto de saída fixo (*spotting*), puxando a caixa torácica antes da pelve completar a rotação.
+
+#### C. Progressão Pedagógica para o Rolamento para Trás nas Argolas (Backward Roll / Felge)
+1. **Educativo 1 (Skin the Cat Controlado nas Argolas Baixas):** Puxar vela, passar as pernas entre as fitas em rotação posterior controlada, descer até tocar as pontas dos pés suavemente no solo e retornar pela mesma via.
+2. **Educativo 2 (Inverted Hang to German Hang com Pausa):** Nas argolas médias sobre colchão, travar 3 segundos na vela e descer em rotação até a suspensão posterior invertida (*German Hang*), mantendo pegada firme e escápulas ativas.
+3. **Educativo 3 (Baby Felge to Support / Rolamento Baixo):** Com as argolas na altura do esterno e colchão, saltar do solo direto para a rotação posterior, empurrando as argolas para baixo contra a cintura para finalizar no apoio frontal.
