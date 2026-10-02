@@ -1,6 +1,6 @@
 # Planejamento Semanal de Treino: Gui
 **Semana:** 28/09/2026 a 02/10/2026  
-**Status Atual:** Quinta-feira (01/10/2026) — Sessão Especial EEFERP (12h às 13h): Dança Leve + Força Fora da Caixa & Core com Instabilidade (Gravação Insta) + Escola de Dança (18h30).
+**Status Atual:** Sexta-feira (02/10/2026) — 12h–13h Portagem com parceiro (~63 kg) + 13h–13h20 Dança Contemporânea (coreo 20 min) + 13h20–14h Ginástica nas Argolas (40 min: RTO Support, RMU strict, Rolamento para trás) + 17h–18h CrossFit (opcional).
 
 ---
 
@@ -8,11 +8,9 @@
 
 * **Segunda (28/09 - Realizado):** CrossFit (Squat Clean, Front Squat, Push Jerk, Burpees, V-ups).
 * **Terça (29/09 - Realizado):** Natação Regenerativa (500m) + Portagem Dinâmica com volante de 58 kg.
-* **Quarta (30/09 - Realizado):** Skills de Parada de Mão na Manjota (Sequência de elite gravada em vídeo: L-Sit → Press HS → Straight HS → Negative Press L-Sit → One-Arm Croc). *A parte de força/hipertrofia foi remanejada para quinta por limitação de tempo.*
-* **Quinta (01/10 - Hoje):** 
-  * *12h–13h (Ginásio EEFERP):* Flow de Dança Suave + Força "Fora da Caixa" (Ice Cream Makers, Dragon Flag, Headbangers, Glúteo Unilateral KB, Resgate do Aquiles).
-  * *18h30–19h30 (Escola de Dança):* Aula regular de nível intermediário (foco em ritmo e alinhamento).
-* **Sexta (02/10 - EEFERP 12h–14h):** Portagem de Força (volante 63 kg) + Complexo Estrito de Argolas (BMU / RMU strict / Rolamento para trás).
+* **Quarta (30/09 - Realizado):** Skills de Parada de Mão na Manjota (Sequência de elite gravada em vídeo: L-Sit → Press HS → Straight HS → Negative Press L-Sit → One-Arm Croc).
+* **Quinta (01/10 - Realizado):** EEFERP (17 séries: BMU, 4x Oitavas contínuas, Ice Cream Makers, Vela nas Argolas, Banded KB Swing, KB RDL, Panturrilha profunda com pausa) + 18h30 Dança Escola.
+* **Sexta (02/10 - HOJE):** 12h–13h Portagem de Força (63 kg) + 13h–13h20 Dança Contemporânea (coreo 20 min) + 13h20–14h Complexo Gímnico nas Argolas (RTO Support, RMU strict, Rolamento para trás) + Resgate do Aquiles + 17h/18h CrossFit (opcional).
 
 ---
 
@@ -91,3 +89,42 @@
 * Como você já fez um trabalho potente de puxada (BMU + Ice Cream Makers) e cadeia posterior (Swings + RDL):
   * Na aula de dança, foque em **fluidez articular, respiração e peso suave no chão**.
   * Evite quedas secas de joelho no chão e aterrissagens descalibradas com o pé esquerdo para preservar o menisco e os tendões de Aquiles.
+
+---
+
+# Planejamento & Biomecânica da Sessão de Hoje: Sexta-feira (02/10/2026)
+**Duração Total:** 12h00 às 14h00 (~120 min) + CrossFit opcional (17h/18h)  
+**Blocos:** Ativação (15 min) → Portagem 63 kg (60 min) → Dança Coreo (20 min) → Ginástica nas Argolas (40 min) → Resgate do Aquiles & Descompressão Meniscal (15 min)
+
+> [!IMPORTANT]
+> **Racional Biomecânico do Dia:**
+> 1. **Portagem com Volante Masculino (~63 kg):** Exige *bone stacking* (alinhamento articular vertical absoluto). Qualquer momento fletor excessivo em cotovelo coloca tensão desnecessária na cabeça medial do tríceps esquerdo (viscossuplementado) e na cápsula glenoumeral do ombro direito operado. Nas subidas e bases de solo, manter o padrão de *hip hinge* (glúteos) com tíbias verticais para anular o cisalhamento rotacional no menisco lateral esquerdo.
+> 2. **Dança Contemporânea (20 min de coreografia):** Transições fluidas com *floorwork* macio. Deslizar pela massa muscular dorsal e bordo lateral das coxas sem pancada direta de patela no tatame. Aterrissagens de saltos amortecidas e silenciosas na ponta dos pés para reeducar o *stiffness* dos tendões de Aquiles operados.
+> 3. **Ginástica nas Argolas (40 min):** Em vez de volume explosivo concorrente com as 4 oitavas e o BMU de ontem, o trabalho de argolas foca na **estabilidade glenoumeral profunda (RTO Support Hold a 45°–90°)** para blindar o supraespinhal operado, na **transição estrita de Ring Muscle-Up com False Grip profunda** (cotovelos raspando nas costelas, sem chute, aliviando a inserção distal do tríceps no dip) e no **rolamento para trás nas argolas (Backward roll / Felge to support sobre colchão)** para desenvolvimento de consciência espacial acrobática.
+> 4. **Resgate do Aquiles & Descompressão Meniscal:** Manutenção diária da sarcomerogênese em série (3-4s de pausa em dorsiflexão máxima sob carga) e tração miofascial do bíceps femoral / trato iliotibial para desanuviar a cabeça da fíbula e o menisco lateral.
+
+---
+
+### Detalhamento dos Exercícios da Sessão:
+
+#### 1. Ativação (11h45–12h00)
+* **Mobilidade Dinâmica de Punhos + Scapular Push-ups (Serrátil):** 2x 10 reps (preparação da fibrocartilagem triangular dos punhos para a compressão axial de 63 kg + ativação da protração escapular).
+* **Ponte Glútea Unilateral + Descompressão da Fáscia Lateral:** 2x 10 reps + soltura do trato iliotibial (estabilidade pélvica no plano coronal para blindar o joelho contra valgo dinâmico nas bases).
+
+#### 2. Habilidade (12h00–14h00)
+* **Portagem com Parceiro (63 kg) — Figuras Estáticas & Alinhamento Ósseo (12h–13h):** 5 séries sustentadas de figuras (L-base foot-to-hand, hand-to-hand, trono, ombros).
+* **Dança Contemporânea — Passagem da Coreografia (13h00–13h20):** 3 passagens completas focadas na memorização motora, peso contínuo e solo suave.
+* **RTO Support Hold nas Argolas (13h20–13h35):** 4 séries de 15 a 20s com rotação externa a 45°–90°, cotovelos 100% travados e depressão escapular ativa.
+* **Ring Muscle-Up (RMU Strict) — Transição com Falsa Pegada (13h35–13h50):** 4 séries de 2 reps estritas (com pés apoiados ou banda leve para manter a cinemática limpa e cotovelos colados às costelas).
+* **Rolamento para Trás nas Argolas (Backward Roll / Felge to Support) (13h50–14h00):** 3 séries de 2 a 3 reps sobre colchão gímnico nas argolas médias.
+
+#### 3. Fortalecimento
+* **Elevação de Panturrilha em Degrau com Pausa Profunda de 3-4s:** 3 séries de 12 a 15 reps com dorsiflexão estrita no fundo (estiramento sob tensão contínua para sarcomerogênese dos fascículos encurtados).
+
+#### 4. Flexibilidade
+* **Descompressão do Menisco Lateral (Alongamento de Bíceps Femoral & TFL):** 2 séries de 45s por lado (tração fêmoro-tibial em decúbito dorsal).
+* **Abertura Torácica & Extensão Glenoumeral nas Argolas Baixas:** 2 séries de 45s (expansão torácica e descompressão de peitoral).
+
+#### 5. Cardio (CrossFit 17h/18h - Opcional)
+* **Status:** Aguardando WOD do dia.
+* **Diretriz:** Filtro biomecânico para evitar concorrência com a fadiga neural das 12h–14h. Priorizar ergômetros (Remo, Bike, Ski) e exercícios de core/dominância de quadril; vetar snatches pesados e sobrecarga balística de ombro/menisco.

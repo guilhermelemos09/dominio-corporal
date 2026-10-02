@@ -61,7 +61,7 @@
       background: var(--bg);
       color: var(--text-main);
       padding: 16px;
-      padding-bottom: 115px;
+      padding-bottom: 120px;
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
     }
@@ -438,6 +438,173 @@
       fill: currentColor;
     }
 
+    /* Botão de Comentário / Feedback */
+    .btn-comment {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 6px 11px;
+      border-radius: 8px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      position: relative;
+    }
+    .btn-comment:active { transform: scale(0.97); }
+    .btn-comment.has-note {
+      border-color: rgba(0, 255, 136, 0.4);
+      color: #ffffff;
+      background: rgba(0, 255, 136, 0.06);
+    }
+    .btn-comment svg {
+      width: 13px;
+      height: 13px;
+      fill: currentColor;
+    }
+    .comment-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--brand-neon);
+      box-shadow: 0 0 6px var(--brand-neon);
+      margin-left: 2px;
+    }
+
+    /* Gaveta de Comentários */
+    .comment-drawer {
+      margin-top: 10px;
+      padding: 12px 14px;
+      background: #090909;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      animation: fadeIn 0.2s ease;
+    }
+    .comment-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+    .save-indicator {
+      font-size: 0.68rem;
+      color: var(--brand-neon);
+      font-weight: 600;
+      transition: opacity 0.3s ease;
+      opacity: 0.7;
+    }
+    .comment-textarea {
+      width: 100%;
+      min-height: 64px;
+      background: #111111;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      padding: 9px 12px;
+      font-family: inherit;
+      font-size: 0.8rem;
+      color: #ffffff;
+      line-height: 1.45;
+      resize: vertical;
+      box-sizing: border-box;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .comment-textarea:focus {
+      border-color: var(--brand-neon);
+      box-shadow: 0 0 8px rgba(0, 255, 136, 0.15);
+    }
+    .comment-textarea::placeholder {
+      color: #555555;
+      font-size: 0.76rem;
+    }
+
+    /* Box de Resposta do Treinador */
+    .coach-response-box {
+      margin-top: 10px;
+      padding: 10px 12px;
+      background: rgba(0, 255, 136, 0.04);
+      border: 1px solid rgba(0, 255, 136, 0.2);
+      border-radius: 8px;
+    }
+    .coach-response-header {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 6px;
+    }
+    .coach-response-avatar {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1px solid var(--brand-neon);
+      object-fit: cover;
+    }
+    .coach-response-name {
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+    .coach-response-badge {
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: var(--brand-neon);
+      background: rgba(0, 255, 136, 0.12);
+      padding: 1px 6px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .coach-response-text {
+      font-size: 0.78rem;
+      color: #e2e8f0;
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    /* Card de Envio de Relatório WhatsApp */
+    .workout-summary-card {
+      background: linear-gradient(180deg, #111111, #0c0c0c);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-lg);
+      padding: 18px 20px;
+      margin-top: 24px;
+      margin-bottom: 24px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+    .btn-whatsapp-report {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      width: 100%;
+      background: #25d366;
+      color: #000000;
+      border: none;
+      padding: 13px 18px;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+    }
+    .btn-whatsapp-report:active {
+      transform: scale(0.98);
+      background: #20ba59;
+    }
+    .btn-whatsapp-report svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
     /* Bolinhas de Série em Dark Mode */
     .sets-container {
       display: flex;
@@ -651,7 +818,7 @@
   <header>
     <div class="brand-top">
       <div class="coach-profile-btn" onclick="openBioModal()">
-        <img src="icon-192.png" alt="Domínio Corporal" class="coach-avatar">
+        <img src="gui_foto.jpg" onerror="this.onerror=null; this.src='icon-192.png';" alt="Domínio Corporal" class="coach-avatar">
         <span class="coach-name">Gui Lemos</span>
         <span class="bio-badge">Bio & Perfil ↗</span>
       </div>
@@ -708,7 +875,7 @@
         <span class="section-time">15 min</span>
       </div>
 
-      <!-- Ex 1.1 -->
+      <!-- Ex X.1 -->
       <div class="exercise-card">
         <div class="ex-top">
           <div>
@@ -725,15 +892,26 @@
           <strong>Foco:</strong> Círculos lentos e transferências anteroposteriores de carga em pronação e neutro sobre os blocos.
         </div>
         <div class="ex-actions">
-          <div></div>
+          <button class="btn-comment" id="btn-comment-ex-x-1" onclick="toggleCommentBox('ex-x-1')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span>Nota</span>
+            <span class="comment-dot" id="dot-ex-x-1" style="display:none;"></span>
+          </button>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1</div>
             <div class="set-pill" onclick="toggleSet(this)">2</div>
           </div>
         </div>
+        <div id="comment-box-ex-x-1" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (cargas, sensações, dores):</span>
+            <span class="save-indicator" id="save-status-ex-x-1"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-x-1" placeholder="Ex: Carga usada, sensações, desconforto articular..." oninput="saveExerciseNote('ex-x-1', this.value)"></textarea>
+        </div>
       </div>
 
-      <!-- Ex 1.2 -->
+      <!-- Ex X.2 -->
       <div class="exercise-card">
         <div class="ex-top">
           <div>
@@ -750,15 +928,26 @@
           <strong>Foco:</strong> Protração máxima em prancha para calibrar a elevação escapular necessária na parada de mãos.
         </div>
         <div class="ex-actions">
-          <div></div>
+          <button class="btn-comment" id="btn-comment-ex-x-2" onclick="toggleCommentBox('ex-x-2')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span>Nota</span>
+            <span class="comment-dot" id="dot-ex-x-2" style="display:none;"></span>
+          </button>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1</div>
             <div class="set-pill" onclick="toggleSet(this)">2</div>
           </div>
         </div>
+        <div id="comment-box-ex-x-2" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (cargas, sensações, dores):</span>
+            <span class="save-indicator" id="save-status-ex-x-2"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-x-2" placeholder="Ex: Carga usada, sensações, desconforto articular..." oninput="saveExerciseNote('ex-x-2', this.value)"></textarea>
+        </div>
       </div>
 
-      <!-- Ex 1.3 -->
+      <!-- Ex X.3 -->
       <div class="exercise-card">
         <div class="ex-top">
           <div>
@@ -775,11 +964,22 @@
           <strong>Foco:</strong> Tração com elástico do bíceps femoral + 10 rotações internas ativas da tíbia para acomodação meniscal.
         </div>
         <div class="ex-actions">
-          <div></div>
+          <button class="btn-comment" id="btn-comment-ex-x-3" onclick="toggleCommentBox('ex-x-3')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span>Nota</span>
+            <span class="comment-dot" id="dot-ex-x-3" style="display:none;"></span>
+          </button>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1</div>
             <div class="set-pill" onclick="toggleSet(this)">2</div>
           </div>
+        </div>
+        <div id="comment-box-ex-x-3" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (cargas, sensações, dores):</span>
+            <span class="save-indicator" id="save-status-ex-x-3"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-x-3" placeholder="Ex: Carga usada, sensações, desconforto articular..." oninput="saveExerciseNote('ex-x-3', this.value)"></textarea>
         </div>
       </div>
     </div>
@@ -794,7 +994,7 @@
         <span class="section-time">30 min</span>
       </div>
 
-      <!-- Ex 2.1: OAHS -->
+      <!-- Ex X.4: OAHS -->
       <div class="exercise-card">
         <div class="ex-top">
           <div>
@@ -811,9 +1011,16 @@
           <strong>Foco:</strong> Shift lateral progressivo na manjota transferindo o peso para a escápula de apoio em elevação máxima.
         </div>
         <div class="ex-actions">
-          <button class="btn-video" onclick="openVideoModal('One-Arm Handstand (OAHS)', '<b>Mecânica:</b> Manter a linha axilar fechada e o tronco compacto enquanto a mão oposta flutua suavemente.', 'https://www.youtube.com/embed/5Hj0m-e98_8')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vídeo / Dicas
-          </button>
+          <div style="display:flex; gap:6px; flex-wrap:wrap;">
+            <button class="btn-video" onclick="openVideoModal('One-Arm Handstand (OAHS)', '<b>Mecânica:</b> Manter a linha axilar fechada e o tronco compacto enquanto a mão oposta flutua suavemente.', 'https://www.youtube.com/embed/5Hj0m-e98_8')">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vídeo
+            </button>
+            <button class="btn-comment has-note" id="btn-comment-ex-x-4" onclick="toggleCommentBox('ex-x-4')">
+              <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+              <span>Nota</span>
+              <span class="comment-dot" id="dot-ex-x-4" style="display:inline-block;"></span>
+            </button>
+          </div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1</div>
             <div class="set-pill" onclick="toggleSet(this)">2</div>
@@ -822,9 +1029,29 @@
             <div class="set-pill" onclick="toggleSet(this)">5</div>
           </div>
         </div>
+        <!-- Drawer de Feedback com exemplo demonstrativo de Resposta do Treinador -->
+        <div id="comment-box-ex-x-4" class="comment-drawer" style="display: block;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (cargas, sensações, dores):</span>
+            <span class="save-indicator" id="save-status-ex-x-4">Salvo ✓</span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-x-4" placeholder="Ex: Carga usada, sensações, desconforto articular..." oninput="saveExerciseNote('ex-x-4', this.value)">Consegui sustentar 18s no lado direito com facilidade, mas no lado esquerdo senti o punho oscilar aos 12s.</textarea>
+
+          <!-- Resposta do Treinador Gui Lemos -->
+          <div class="coach-response-box">
+            <div class="coach-response-header">
+              <img src="gui_foto.jpg" onerror="this.onerror=null; this.src='icon-192.png';" alt="Gui Lemos" class="coach-response-avatar">
+              <span class="coach-response-name">Gui Lemos</span>
+              <span class="coach-response-badge">Treinador</span>
+            </div>
+            <p class="coach-response-text">
+              Excelente volume, Lucas! No lado esquerdo, antes de descolar o peso da mão oposta, faça uma pronação ativa empurrando mais a polpa dos dedos contra o bloco da manjota para travar o arco do punho. No próximo treino mantemos os 15-20s focando nessa firmeza distal!
+            </p>
+          </div>
+        </div>
       </div>
 
-      <!-- Ex 2.2: HSPU -->
+      <!-- Ex X.5: HSPU -->
       <div class="exercise-card">
         <div class="ex-top">
           <div>
@@ -841,9 +1068,16 @@
           <strong>Foco:</strong> Descida controlada levando a cabeça à frente das mãos (formando um triângulo equilátero); empurrar devolvendo para a vertical sem quebrar a lombar.
         </div>
         <div class="ex-actions">
-          <button class="btn-video" onclick="openVideoModal('Freestanding HSPU', '<b>Mecânica:</b> Descida em tripé controlado, subida empurrando com shrug escapular no topo.', 'https://www.youtube.com/embed/5Hj0m-e98_8')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vídeo / Dicas
-          </button>
+          <div style="display:flex; gap:6px; flex-wrap:wrap;">
+            <button class="btn-video" onclick="openVideoModal('Freestanding HSPU', '<b>Mecânica:</b> Descida em tripé controlado, subida empurrando com shrug escapular no topo.', 'https://www.youtube.com/embed/5Hj0m-e98_8')">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vídeo
+            </button>
+            <button class="btn-comment" id="btn-comment-ex-x-5" onclick="toggleCommentBox('ex-x-5')">
+              <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+              <span>Nota</span>
+              <span class="comment-dot" id="dot-ex-x-5" style="display:none;"></span>
+            </button>
+          </div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1</div>
             <div class="set-pill" onclick="toggleSet(this)">2</div>
@@ -851,9 +1085,16 @@
             <div class="set-pill" onclick="toggleSet(this)">4</div>
           </div>
         </div>
+        <div id="comment-box-ex-x-5" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (cargas, sensações, dores):</span>
+            <span class="save-indicator" id="save-status-ex-x-5"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-x-5" placeholder="Ex: Carga usada, sensações, desconforto articular..." oninput="saveExerciseNote('ex-x-5', this.value)"></textarea>
+        </div>
       </div>
 
-      <!-- Ex 2.3: Linha Vertical Neutra -->
+      <!-- Ex X.6: Linha Vertical Neutra -->
       <div class="exercise-card">
         <div class="ex-top">
           <div>
@@ -870,12 +1111,23 @@
           <strong>Foco:</strong> Peito voltado para a parede a 10cm de distância. Pés em ponta, glúteos travados e elevação completa de trapézio.
         </div>
         <div class="ex-actions">
-          <div></div>
+          <button class="btn-comment" id="btn-comment-ex-x-6" onclick="toggleCommentBox('ex-x-6')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span>Nota</span>
+            <span class="comment-dot" id="dot-ex-x-6" style="display:none;"></span>
+          </button>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1</div>
             <div class="set-pill" onclick="toggleSet(this)">2</div>
             <div class="set-pill" onclick="toggleSet(this)">3</div>
           </div>
+        </div>
+        <div id="comment-box-ex-x-6" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (cargas, sensações, dores):</span>
+            <span class="save-indicator" id="save-status-ex-x-6"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-x-6" placeholder="Ex: Carga usada, sensações, desconforto articular..." oninput="saveExerciseNote('ex-x-6', this.value)"></textarea>
         </div>
       </div>
     </div>
@@ -890,7 +1142,7 @@
         <span class="section-time">15 min</span>
       </div>
 
-      <!-- Ex 3.1 -->
+      <!-- Ex X.7 -->
       <div class="exercise-card">
         <div class="ex-top">
           <div>
@@ -907,16 +1159,27 @@
           <strong>Foco:</strong> Anteversão pélvica, descendo o umbigo em direção ao solo com joelhos em extensão máxima travados.
         </div>
         <div class="ex-actions">
-          <div></div>
+          <button class="btn-comment" id="btn-comment-ex-x-7" onclick="toggleCommentBox('ex-x-7')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span>Nota</span>
+            <span class="comment-dot" id="dot-ex-x-7" style="display:none;"></span>
+          </button>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1</div>
             <div class="set-pill" onclick="toggleSet(this)">2</div>
             <div class="set-pill" onclick="toggleSet(this)">3</div>
           </div>
         </div>
+        <div id="comment-box-ex-x-7" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (cargas, sensações, dores):</span>
+            <span class="save-indicator" id="save-status-ex-x-7"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-x-7" placeholder="Ex: Carga usada, sensações, desconforto articular..." oninput="saveExerciseNote('ex-x-7', this.value)"></textarea>
+        </div>
       </div>
 
-      <!-- Ex 3.2 -->
+      <!-- Ex X.8 -->
       <div class="exercise-card">
         <div class="ex-top">
           <div>
@@ -933,14 +1196,39 @@
           <strong>Foco:</strong> Cotovelos apoiados no banco, segurando o bastão com pegada supinada. Abrir a axila sem hiperextender a lombar.
         </div>
         <div class="ex-actions">
-          <div></div>
+          <button class="btn-comment" id="btn-comment-ex-x-8" onclick="toggleCommentBox('ex-x-8')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span>Nota</span>
+            <span class="comment-dot" id="dot-ex-x-8" style="display:none;"></span>
+          </button>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1</div>
             <div class="set-pill" onclick="toggleSet(this)">2</div>
             <div class="set-pill" onclick="toggleSet(this)">3</div>
           </div>
         </div>
+        <div id="comment-box-ex-x-8" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (cargas, sensações, dores):</span>
+            <span class="save-indicator" id="save-status-ex-x-8"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-x-8" placeholder="Ex: Carga usada, sensações, desconforto articular..." oninput="saveExerciseNote('ex-x-8', this.value)"></textarea>
+        </div>
       </div>
+    </div>
+
+    <!-- Card de Envio de Relatório WhatsApp -->
+    <div class="workout-summary-card">
+      <div style="font-size: 0.95rem; font-weight: 800; color: #fff; margin-bottom: 4px;">
+        📤 Finalizou o Treino X?
+      </div>
+      <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 14px;">
+        Envie seu progresso de séries e suas anotações dos exercícios diretamente para o WhatsApp do professor Gui Lemos com 1 clique!
+      </p>
+      <button class="btn-whatsapp-report" onclick="sendWorkoutReportWhatsApp()">
+        <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.24-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.49-.4-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.17-.48-.29z"/></svg>
+        Enviar Relatório ao Prof. Gui Lemos (WhatsApp)
+      </button>
     </div>
 
   </div>
@@ -966,7 +1254,7 @@
         <span class="section-time">10 min</span>
       </div>
 
-      <!-- Ex 1.1 -->
+      <!-- Ex Y.1 -->
       <div class="exercise-card">
         <div class="ex-top">
           <div>
@@ -983,16 +1271,27 @@
           <strong>Foco:</strong> Transição fluida entre arch (abertura axilar) e hollow (compressão abdominal) sem dobrar cotovelos nem joelhos.
         </div>
         <div class="ex-actions">
-          <div></div>
+          <button class="btn-comment" id="btn-comment-ex-y-1" onclick="toggleCommentBox('ex-y-1')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span>Nota</span>
+            <span class="comment-dot" id="dot-ex-y-1" style="display:none;"></span>
+          </button>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1</div>
             <div class="set-pill" onclick="toggleSet(this)">2</div>
             <div class="set-pill" onclick="toggleSet(this)">3</div>
           </div>
         </div>
+        <div id="comment-box-ex-y-1" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (cargas, sensações, dores):</span>
+            <span class="save-indicator" id="save-status-ex-y-1"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-y-1" placeholder="Ex: Carga usada, sensações, desconforto articular..." oninput="saveExerciseNote('ex-y-1', this.value)"></textarea>
+        </div>
       </div>
 
-      <!-- Ex 1.2 -->
+      <!-- Ex Y.2 -->
       <div class="exercise-card">
         <div class="ex-top">
           <div>
@@ -1009,12 +1308,23 @@
           <strong>Foco:</strong> Empurrar a banda para baixo mantendo cotovelos 100% esticados, ativando dorsal e tríceps cabeça longa.
         </div>
         <div class="ex-actions">
-          <div></div>
+          <button class="btn-comment" id="btn-comment-ex-y-2" onclick="toggleCommentBox('ex-y-2')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span>Nota</span>
+            <span class="comment-dot" id="dot-ex-y-2" style="display:none;"></span>
+          </button>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1</div>
             <div class="set-pill" onclick="toggleSet(this)">2</div>
             <div class="set-pill" onclick="toggleSet(this)">3</div>
           </div>
+        </div>
+        <div id="comment-box-ex-y-2" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (cargas, sensações, dores):</span>
+            <span class="save-indicator" id="save-status-ex-y-2"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-y-2" placeholder="Ex: Carga usada, sensações, desconforto articular..." oninput="saveExerciseNote('ex-y-2', this.value)"></textarea>
         </div>
       </div>
     </div>
@@ -1029,7 +1339,7 @@
         <span class="section-time">25 min</span>
       </div>
 
-      <!-- Ex 2.1: BMU -->
+      <!-- Ex Y.3: BMU -->
       <div class="exercise-card">
         <div class="ex-top">
           <div>
@@ -1046,9 +1356,16 @@
           <strong>Foco:</strong> Swing hollow agressivo, puxada em arco mirando o umbigo na barra e transição imediata do peito sobre a barra.
         </div>
         <div class="ex-actions">
-          <button class="btn-video" onclick="openVideoModal('Kip Muscle-Up (BMU)', '<b>Mecânica:</b> Manter a puxada em arco (linha C) e virar os dois cotovelos simultaneamente por cima da barra.', 'https://www.youtube.com/embed/5Hj0m-e98_8')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vídeo / Dicas
-          </button>
+          <div style="display:flex; gap:6px; flex-wrap:wrap;">
+            <button class="btn-video" onclick="openVideoModal('Kip Muscle-Up (BMU)', '<b>Mecânica:</b> Manter a puxada em arco (linha C) e virar os dois cotovelos simultaneamente por cima da barra.', 'https://www.youtube.com/embed/5Hj0m-e98_8')">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vídeo
+            </button>
+            <button class="btn-comment" id="btn-comment-ex-y-3" onclick="toggleCommentBox('ex-y-3')">
+              <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+              <span>Nota</span>
+              <span class="comment-dot" id="dot-ex-y-3" style="display:none;"></span>
+            </button>
+          </div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1</div>
             <div class="set-pill" onclick="toggleSet(this)">2</div>
@@ -1056,9 +1373,16 @@
             <div class="set-pill" onclick="toggleSet(this)">4</div>
           </div>
         </div>
+        <div id="comment-box-ex-y-3" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (cargas, sensações, dores):</span>
+            <span class="save-indicator" id="save-status-ex-y-3"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-y-3" placeholder="Ex: Carga usada, sensações, desconforto articular..." oninput="saveExerciseNote('ex-y-3', this.value)"></textarea>
+        </div>
       </div>
 
-      <!-- Ex 2.2: Oitavas -->
+      <!-- Ex Y.4: Oitavas -->
       <div class="exercise-card">
         <div class="ex-top">
           <div>
@@ -1075,9 +1399,16 @@
           <strong>Foco:</strong> Máxima extensão no pêndulo, aproximação fulminante dos pés na barra e elevação de tronco com braços esticados.
         </div>
         <div class="ex-actions">
-          <button class="btn-video" onclick="openVideoModal('Glide Kip (Oitava)', '<b>Mecânica:</b> Abertura do pêndulo em arch, compressão pike pés na barra e straight-arm press down.', 'https://www.youtube.com/embed/5Hj0m-e98_8')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vídeo / Dicas
-          </button>
+          <div style="display:flex; gap:6px; flex-wrap:wrap;">
+            <button class="btn-video" onclick="openVideoModal('Glide Kip (Oitava)', '<b>Mecânica:</b> Abertura do pêndulo em arch, compressão pike pés na barra e straight-arm press down.', 'https://www.youtube.com/embed/5Hj0m-e98_8')">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vídeo
+            </button>
+            <button class="btn-comment" id="btn-comment-ex-y-4" onclick="toggleCommentBox('ex-y-4')">
+              <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+              <span>Nota</span>
+              <span class="comment-dot" id="dot-ex-y-4" style="display:none;"></span>
+            </button>
+          </div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1</div>
             <div class="set-pill" onclick="toggleSet(this)">2</div>
@@ -1085,9 +1416,16 @@
             <div class="set-pill" onclick="toggleSet(this)">4</div>
           </div>
         </div>
+        <div id="comment-box-ex-y-4" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (cargas, sensações, dores):</span>
+            <span class="save-indicator" id="save-status-ex-y-4"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-y-4" placeholder="Ex: Carga usada, sensações, desconforto articular..." oninput="saveExerciseNote('ex-y-4', this.value)"></textarea>
+        </div>
       </div>
 
-      <!-- Ex 2.3: Ice Cream Makers -->
+      <!-- Ex Y.5: Ice Cream Makers -->
       <div class="exercise-card">
         <div class="ex-top">
           <div>
@@ -1104,12 +1442,23 @@
           <strong>Foco:</strong> Puxar ao topo da barra e projetar o corpo reto para a horizontal do Front Lever, retornando sob controle.
         </div>
         <div class="ex-actions">
-          <div></div>
+          <button class="btn-comment" id="btn-comment-ex-y-5" onclick="toggleCommentBox('ex-y-5')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span>Nota</span>
+            <span class="comment-dot" id="dot-ex-y-5" style="display:none;"></span>
+          </button>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1</div>
             <div class="set-pill" onclick="toggleSet(this)">2</div>
             <div class="set-pill" onclick="toggleSet(this)">3</div>
           </div>
+        </div>
+        <div id="comment-box-ex-y-5" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (cargas, sensações, dores):</span>
+            <span class="save-indicator" id="save-status-ex-y-5"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-y-5" placeholder="Ex: Carga usada, sensações, desconforto articular..." oninput="saveExerciseNote('ex-y-5', this.value)"></textarea>
         </div>
       </div>
     </div>
@@ -1124,7 +1473,7 @@
         <span class="section-time">20 min</span>
       </div>
 
-      <!-- Ex 3.1 -->
+      <!-- Ex Y.6 -->
       <div class="exercise-card">
         <div class="ex-top">
           <div>
@@ -1141,7 +1490,11 @@
           <strong>Foco:</strong> Pegada pronada na largura dos ombros, subida sem kipping e queixo totalmente acima da barra.
         </div>
         <div class="ex-actions">
-          <div></div>
+          <button class="btn-comment" id="btn-comment-ex-y-6" onclick="toggleCommentBox('ex-y-6')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span>Nota</span>
+            <span class="comment-dot" id="dot-ex-y-6" style="display:none;"></span>
+          </button>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1</div>
             <div class="set-pill" onclick="toggleSet(this)">2</div>
@@ -1149,9 +1502,16 @@
             <div class="set-pill" onclick="toggleSet(this)">4</div>
           </div>
         </div>
+        <div id="comment-box-ex-y-6" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (cargas, sensações, dores):</span>
+            <span class="save-indicator" id="save-status-ex-y-6"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-y-6" placeholder="Ex: Carga usada, sensações, desconforto articular..." oninput="saveExerciseNote('ex-y-6', this.value)"></textarea>
+        </div>
       </div>
 
-      <!-- Ex 3.2 -->
+      <!-- Ex Y.7 -->
       <div class="exercise-card">
         <div class="ex-top">
           <div>
@@ -1168,14 +1528,39 @@
           <strong>Foco:</strong> Manter corpo em bloco rígido desde os ombros até as pontas dos pés, descendo em câmera lenta.
         </div>
         <div class="ex-actions">
-          <div></div>
+          <button class="btn-comment" id="btn-comment-ex-y-7" onclick="toggleCommentBox('ex-y-7')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span>Nota</span>
+            <span class="comment-dot" id="dot-ex-y-7" style="display:none;"></span>
+          </button>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1</div>
             <div class="set-pill" onclick="toggleSet(this)">2</div>
             <div class="set-pill" onclick="toggleSet(this)">3</div>
           </div>
         </div>
+        <div id="comment-box-ex-y-7" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (cargas, sensações, dores):</span>
+            <span class="save-indicator" id="save-status-ex-y-7"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-y-7" placeholder="Ex: Carga usada, sensações, desconforto articular..." oninput="saveExerciseNote('ex-y-7', this.value)"></textarea>
+        </div>
       </div>
+    </div>
+
+    <!-- Card de Envio de Relatório WhatsApp -->
+    <div class="workout-summary-card">
+      <div style="font-size: 0.95rem; font-weight: 800; color: #fff; margin-bottom: 4px;">
+        📤 Finalizou o Treino Y?
+      </div>
+      <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 14px;">
+        Envie seu progresso de séries e suas anotações dos exercícios diretamente para o WhatsApp do professor Gui Lemos com 1 clique!
+      </p>
+      <button class="btn-whatsapp-report" onclick="sendWorkoutReportWhatsApp()">
+        <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.24-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.49-.4-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.17-.48-.29z"/></svg>
+        Enviar Relatório ao Prof. Gui Lemos (WhatsApp)
+      </button>
     </div>
 
   </div>
@@ -1201,7 +1586,7 @@
         <span class="section-time">25 min</span>
       </div>
 
-      <!-- Ex 1.1: Front Lever -->
+      <!-- Ex Z.1: Front Lever -->
       <div class="exercise-card">
         <div class="ex-top">
           <div>
@@ -1218,9 +1603,16 @@
           <strong>Foco:</strong> Depressão e retração escapular ativa; manter a pelve exatamente na mesma altura dos ombros.
         </div>
         <div class="ex-actions">
-          <button class="btn-video" onclick="openVideoModal('Front Lever', '<b>Mecânica:</b> Braços 100% esticados, depressão escapular contínua empurrando a barra para baixo contra as coxas.', 'https://www.youtube.com/embed/5Hj0m-e98_8')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vídeo / Dicas
-          </button>
+          <div style="display:flex; gap:6px; flex-wrap:wrap;">
+            <button class="btn-video" onclick="openVideoModal('Front Lever', '<b>Mecânica:</b> Braços 100% esticados, depressão escapular contínua empurrando a barra para baixo contra as coxas.', 'https://www.youtube.com/embed/5Hj0m-e98_8')">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vídeo
+            </button>
+            <button class="btn-comment" id="btn-comment-ex-z-1" onclick="toggleCommentBox('ex-z-1')">
+              <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+              <span>Nota</span>
+              <span class="comment-dot" id="dot-ex-z-1" style="display:none;"></span>
+            </button>
+          </div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1</div>
             <div class="set-pill" onclick="toggleSet(this)">2</div>
@@ -1228,9 +1620,16 @@
             <div class="set-pill" onclick="toggleSet(this)">4</div>
           </div>
         </div>
+        <div id="comment-box-ex-z-1" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (cargas, sensações, dores):</span>
+            <span class="save-indicator" id="save-status-ex-z-1"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-z-1" placeholder="Ex: Carga usada, sensações, desconforto articular..." oninput="saveExerciseNote('ex-z-1', this.value)"></textarea>
+        </div>
       </div>
 
-      <!-- Ex 1.2: Planche Lean -->
+      <!-- Ex Z.2: Planche Lean -->
       <div class="exercise-card">
         <div class="ex-top">
           <div>
@@ -1247,13 +1646,24 @@
           <strong>Foco:</strong> Ombros projetados à frente da linha dos punhos em protração máxima, joelhos esticados e retroversão pélvica.
         </div>
         <div class="ex-actions">
-          <div></div>
+          <button class="btn-comment" id="btn-comment-ex-z-2" onclick="toggleCommentBox('ex-z-2')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span>Nota</span>
+            <span class="comment-dot" id="dot-ex-z-2" style="display:none;"></span>
+          </button>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1</div>
             <div class="set-pill" onclick="toggleSet(this)">2</div>
             <div class="set-pill" onclick="toggleSet(this)">3</div>
             <div class="set-pill" onclick="toggleSet(this)">4</div>
           </div>
+        </div>
+        <div id="comment-box-ex-z-2" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (cargas, sensações, dores):</span>
+            <span class="save-indicator" id="save-status-ex-z-2"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-z-2" placeholder="Ex: Carga usada, sensações, desconforto articular..." oninput="saveExerciseNote('ex-z-2', this.value)"></textarea>
         </div>
       </div>
     </div>
@@ -1268,7 +1678,7 @@
         <span class="section-time">20 min</span>
       </div>
 
-      <!-- Ex 2.1: RDL -->
+      <!-- Ex Z.3: RDL -->
       <div class="exercise-card">
         <div class="ex-top">
           <div>
@@ -1285,16 +1695,27 @@
           <strong>Foco:</strong> Tíbia perfeitamente vertical (zero avanço anterior do joelho para descompressão meniscal) e extensão de quadril pura.
         </div>
         <div class="ex-actions">
-          <div></div>
+          <button class="btn-comment" id="btn-comment-ex-z-3" onclick="toggleCommentBox('ex-z-3')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span>Nota</span>
+            <span class="comment-dot" id="dot-ex-z-3" style="display:none;"></span>
+          </button>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1</div>
             <div class="set-pill" onclick="toggleSet(this)">2</div>
             <div class="set-pill" onclick="toggleSet(this)">3</div>
           </div>
         </div>
+        <div id="comment-box-ex-z-3" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (cargas, sensações, dores):</span>
+            <span class="save-indicator" id="save-status-ex-z-3"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-z-3" placeholder="Ex: Carga usada, sensações, desconforto articular..." oninput="saveExerciseNote('ex-z-3', this.value)"></textarea>
+        </div>
       </div>
 
-      <!-- Ex 2.2: Banded KB Swing -->
+      <!-- Ex Z.4: Banded KB Swing -->
       <div class="exercise-card">
         <div class="ex-top">
           <div>
@@ -1311,13 +1732,24 @@
           <strong>Foco:</strong> Trava explosiva de glúteos e quadríceps no topo sem hiperextender a coluna lombar.
         </div>
         <div class="ex-actions">
-          <div></div>
+          <button class="btn-comment" id="btn-comment-ex-z-4" onclick="toggleCommentBox('ex-z-4')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span>Nota</span>
+            <span class="comment-dot" id="dot-ex-z-4" style="display:none;"></span>
+          </button>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1</div>
             <div class="set-pill" onclick="toggleSet(this)">2</div>
             <div class="set-pill" onclick="toggleSet(this)">3</div>
             <div class="set-pill" onclick="toggleSet(this)">4</div>
           </div>
+        </div>
+        <div id="comment-box-ex-z-4" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (cargas, sensações, dores):</span>
+            <span class="save-indicator" id="save-status-ex-z-4"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-z-4" placeholder="Ex: Carga usada, sensações, desconforto articular..." oninput="saveExerciseNote('ex-z-4', this.value)"></textarea>
         </div>
       </div>
     </div>
@@ -1332,7 +1764,7 @@
         <span class="section-time">15 min</span>
       </div>
 
-      <!-- Ex 3.1: Panturrilha no Degrau -->
+      <!-- Ex Z.5: Panturrilha no Degrau -->
       <div class="exercise-card">
         <div class="ex-top">
           <div>
@@ -1349,7 +1781,11 @@
           <strong>Foco:</strong> Pausa isométrica de 3s no fundo (alongamento máximo sob carga) e subida explosiva com 2s no ápice.
         </div>
         <div class="ex-actions">
-          <div></div>
+          <button class="btn-comment" id="btn-comment-ex-z-5" onclick="toggleCommentBox('ex-z-5')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span>Nota</span>
+            <span class="comment-dot" id="dot-ex-z-5" style="display:none;"></span>
+          </button>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1</div>
             <div class="set-pill" onclick="toggleSet(this)">2</div>
@@ -1357,9 +1793,16 @@
             <div class="set-pill" onclick="toggleSet(this)">4</div>
           </div>
         </div>
+        <div id="comment-box-ex-z-5" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (cargas, sensações, dores):</span>
+            <span class="save-indicator" id="save-status-ex-z-5"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-z-5" placeholder="Ex: Carga usada, sensações, desconforto articular..." oninput="saveExerciseNote('ex-z-5', this.value)"></textarea>
+        </div>
       </div>
 
-      <!-- Ex 3.2: Tibial Anterior -->
+      <!-- Ex Z.6: Tibial Anterior -->
       <div class="exercise-card">
         <div class="ex-top">
           <div>
@@ -1375,14 +1818,39 @@
           <strong>Foco:</strong> Costas apoiadas na parede, pernas retas; puxar as pontas dos pés em direção às canelas ao máximo.
         </div>
         <div class="ex-actions">
-          <div></div>
+          <button class="btn-comment" id="btn-comment-ex-z-6" onclick="toggleCommentBox('ex-z-6')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span>Nota</span>
+            <span class="comment-dot" id="dot-ex-z-6" style="display:none;"></span>
+          </button>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1</div>
             <div class="set-pill" onclick="toggleSet(this)">2</div>
             <div class="set-pill" onclick="toggleSet(this)">3</div>
           </div>
         </div>
+        <div id="comment-box-ex-z-6" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (cargas, sensações, dores):</span>
+            <span class="save-indicator" id="save-status-ex-z-6"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-z-6" placeholder="Ex: Carga usada, sensações, desconforto articular..." oninput="saveExerciseNote('ex-z-6', this.value)"></textarea>
+        </div>
       </div>
+    </div>
+
+    <!-- Card de Envio de Relatório WhatsApp -->
+    <div class="workout-summary-card">
+      <div style="font-size: 0.95rem; font-weight: 800; color: #fff; margin-bottom: 4px;">
+        📤 Finalizou o Treino Z?
+      </div>
+      <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 14px;">
+        Envie seu progresso de séries e suas anotações dos exercícios diretamente para o WhatsApp do professor Gui Lemos com 1 clique!
+      </p>
+      <button class="btn-whatsapp-report" onclick="sendWorkoutReportWhatsApp()">
+        <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.24-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.49-.4-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.17-.48-.29z"/></svg>
+        Enviar Relatório ao Prof. Gui Lemos (WhatsApp)
+      </button>
     </div>
 
   </div>
@@ -1465,6 +1933,41 @@
       </div>
     </div>
 
+    <!-- CARD DE PESQUISA CINEMÁTICA VICON 3D -->
+    <div class="section-card border-forca">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge" style="background: rgba(0,255,136,0.15); color: var(--brand-neon); border-color: rgba(0,255,136,0.3);">Mestrado EEFERP-USP</span>
+          <div class="section-title">Laboratório Vicon 3D: Captura Cinemática em Handstand</div>
+        </div>
+        <span class="section-time">LaBioCoM</span>
+      </div>
+
+      <div class="bio-cue">
+        <strong>🔬 O Padrão Ouro da Biomecânica Mundial:</strong><br>
+        Registro da coleta oficial com 12 câmeras infravermelho de alta velocidade Vicon e marcadores retrorefletivos fixados nos marcos ósseos anatômicos. A reconstrução tridimensional permite quantificar a oscilação do Centro de Massa (CoM), ângulos escapuloumerais e torques no punho com precisão milimétrica.
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0;">
+        <div style="position: relative; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: #000; aspect-ratio: 9/16; cursor: pointer;" onclick="window.open('Midia/gui_vicon_lab.jpg', '_blank')" title="Clique para ampliar">
+          <img src="Midia/gui_vicon_lab.jpg" alt="Setup Vicon 3D - LaBioCoM EEFERP-USP" style="width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); padding: 8px 6px; font-size: 0.68rem; color: #fff; font-weight: 700; text-align: center;">
+            Setup LaBioCoM / Câmeras ↗
+          </div>
+        </div>
+        <div style="position: relative; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: #000; aspect-ratio: 9/16; cursor: pointer;" onclick="window.open('Midia/gui_vicon_cutout.jpg', '_blank')" title="Clique para ampliar">
+          <img src="Midia/gui_vicon_cutout.jpg" alt="Marcadores Retrorefletivos Vicon 3D" style="width: 100%; height: 100%; object-fit: contain; background: #000;">
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); padding: 8px 6px; font-size: 0.68rem; color: #fff; font-weight: 700; text-align: center;">
+            Marcadores Cinemáticos ↗
+          </div>
+        </div>
+      </div>
+
+      <div style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; background: rgba(0,255,136,0.03); border: 1px solid rgba(0,255,136,0.15); border-radius: 8px; padding: 10px 12px;">
+        💡 <strong>Metodologia Aplicada ao Aluno:</strong> O olhar de prescrição e correção biomecânica do professor Gui Lemos traz a precisão do laboratório cinemático para os treinos do seu dia a dia.
+      </div>
+    </div>
+
   </div>
 
   <!-- Cronômetro Flutuante OLED Stealth -->
@@ -1502,7 +2005,7 @@
     <div class="modal-card">
       <div class="modal-header">
         <div style="display:flex; align-items:center; gap:10px;">
-          <img src="icon-192.png" alt="Gui Lemos" style="width:34px; height:34px; border-radius:50%; border:2px solid var(--brand-neon); object-fit: cover;">
+          <img src="gui_foto.jpg" onerror="this.onerror=null; this.src='icon-192.png';" alt="Gui Lemos" style="width:34px; height:34px; border-radius:50%; border:2px solid var(--brand-neon); object-fit: cover;">
           <div>
             <h3 style="margin:0; font-size:1rem; color:#fff;">Gui Lemos</h3>
             <span style="font-size:0.72rem; color:var(--brand-neon); font-weight:600;">@guilemos_dominiocorporal</span>
@@ -1529,6 +2032,35 @@
 
           <p><strong style="color: #fff;">🎯 Filosofia:</strong><br>
           <em>"Unir a precisão da ciência biomecânica à arte do domínio corporal."</em></p>
+        </div>
+
+        <!-- Bloco de Pesquisa Vicon 3D -->
+        <div style="background: rgba(0, 255, 136, 0.03); border: 1px solid rgba(0, 255, 136, 0.2); border-radius: var(--radius-md); padding: 14px; margin-bottom: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <span style="font-size: 0.74rem; font-weight: 800; color: var(--brand-neon); text-transform: uppercase; letter-spacing: 0.5px; display: flex; align-items: center; gap: 6px;">
+              <span>🔬 Pesquisa & Vicon 3D</span>
+            </span>
+            <span style="font-size: 0.68rem; color: #888; background: rgba(255,255,255,0.05); padding: 2px 8px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1);">LaBioCoM EEFERP-USP</span>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px;">
+            <div style="position: relative; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: #000; aspect-ratio: 9/16; cursor: pointer;" onclick="window.open('Midia/gui_vicon_lab.jpg', '_blank')" title="Clique para ampliar">
+              <img src="Midia/gui_vicon_lab.jpg" alt="Gui Lemos - Laboratório LaBioCoM EEFERP-USP" style="width: 100%; height: 100%; object-fit: cover;">
+              <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); padding: 6px 4px; font-size: 0.64rem; color: #fff; font-weight: 700; text-align: center;">
+                Laboratório Vicon ↗
+              </div>
+            </div>
+            <div style="position: relative; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: #000; aspect-ratio: 9/16; cursor: pointer;" onclick="window.open('Midia/gui_vicon_cutout.jpg', '_blank')" title="Clique para ampliar">
+              <img src="Midia/gui_vicon_cutout.jpg" alt="Gui Lemos - Marcadores Retrorefletivos Cinemáticos" style="width: 100%; height: 100%; object-fit: contain; background: #000;">
+              <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); padding: 6px 4px; font-size: 0.64rem; color: #fff; font-weight: 700; text-align: center;">
+                Marcadores 3D ↗
+              </div>
+            </div>
+          </div>
+
+          <div style="font-size: 0.74rem; color: var(--text-muted); line-height: 1.45;">
+            Análise cinemática tridimensional com marcadores retrorefletivos para quantificação milimétrica do alinhamento escapular, torques e centro de massa em Handstand.
+          </div>
         </div>
 
         <a href="https://www.instagram.com/guilemos_dominiocorporal/" target="_blank" class="btn-instagram">
@@ -1579,6 +2111,102 @@
       const pct = Math.round((completed / total) * 100);
       if (bar) bar.style.width = pct + '%';
       if (text) text.innerText = `${completed} de ${total} séries (${pct}%)`;
+    }
+
+    /* Anotações e Feedback do Aluno */
+    function toggleCommentBox(exId) {
+      const box = document.getElementById('comment-box-' + exId);
+      if (!box) return;
+      const isHidden = box.style.display === 'none' || box.style.display === '';
+      box.style.display = isHidden ? 'block' : 'none';
+      if (isHidden) {
+        const textarea = document.getElementById('note-' + exId);
+        if (textarea) textarea.focus();
+      }
+    }
+
+    function saveExerciseNote(exId, val) {
+      const key = 'dominio_note_' + exId;
+      if (val.trim() === '') {
+        localStorage.removeItem(key);
+      } else {
+        localStorage.setItem(key, val);
+      }
+      updateCommentDot(exId);
+
+      const status = document.getElementById('save-status-' + exId);
+      if (status) {
+        status.style.opacity = '1';
+        status.innerText = 'Salvo ✓';
+        setTimeout(() => { status.style.opacity = '0.5'; }, 1500);
+      }
+    }
+
+    function updateCommentDot(exId) {
+      const val = localStorage.getItem('dominio_note_' + exId);
+      const dot = document.getElementById('dot-' + exId);
+      const btn = document.getElementById('btn-comment-' + exId);
+      if (val && val.trim() !== '') {
+        if (dot) dot.style.display = 'inline-block';
+        if (btn) btn.classList.add('has-note');
+      } else {
+        if (dot) dot.style.display = 'none';
+        if (btn) btn.classList.remove('has-note');
+      }
+    }
+
+    function loadAllNotes() {
+      document.querySelectorAll('.comment-textarea').forEach(ta => {
+        const exId = ta.id.replace('note-', '');
+        const saved = localStorage.getItem('dominio_note_' + exId);
+        if (saved) {
+          ta.value = saved;
+          updateCommentDot(exId);
+        } else if (ta.value.trim() !== '') {
+          // Pre-carrega exemplo inicial se houver valor estático
+          updateCommentDot(exId);
+        }
+      });
+    }
+
+    function sendWorkoutReportWhatsApp() {
+      const activeTab = document.querySelector('.tab-content.active');
+      const activeTabBtn = document.querySelector('.tab-btn.active');
+      const tabName = activeTabBtn ? activeTabBtn.innerText.trim() : 'Treino';
+
+      const allSets = activeTab ? activeTab.querySelectorAll('.set-pill') : [];
+      const doneSets = activeTab ? activeTab.querySelectorAll('.set-pill.done') : [];
+      const pct = allSets.length > 0 ? Math.round((doneSets.length / allSets.length) * 100) : 0;
+
+      let msg = `*DOMÍNIO CORPORAL | Relatório de Treino*\n`;
+      msg += `*Sessão:* ${tabName}\n`;
+      msg += `*Progresso:* ${doneSets.length}/${allSets.length} séries concluídas (${pct}%)\n\n`;
+
+      const cards = activeTab ? activeTab.querySelectorAll('.exercise-card') : [];
+      let notesFound = 0;
+      let notesText = `*📝 Anotações & Sensações do Atleta:*\n`;
+
+      cards.forEach(card => {
+        const titleEl = card.querySelector('.ex-title');
+        const title = titleEl ? titleEl.innerText.trim() : 'Exercício';
+        const ta = card.querySelector('.comment-textarea');
+        if (ta && ta.value && ta.value.trim() !== '') {
+          notesFound++;
+          notesText += `• *${title}:*\n  "${ta.value.trim()}"\n`;
+        }
+      });
+
+      if (notesFound > 0) {
+        msg += notesText;
+      } else {
+        msg += `_Nenhuma observação ou dor anotada nesta sessão._\n`;
+      }
+
+      msg += `\n_Enviado pelo App Domínio Corporal_`;
+
+      const phone = '5516997637744';
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
     }
 
     let timerInterval = null;
@@ -1645,8 +2273,9 @@
       }
     }
 
-    // Inicializa contador
+    // Inicializa contador e notas salvas
     updateProgress();
+    loadAllNotes();
 
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
