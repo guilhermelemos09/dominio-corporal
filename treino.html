@@ -173,7 +173,8 @@
       font-size: 0.72rem;
       letter-spacing: 0.06em;
     }
-    .progress-labels span#progressText {
+    .progress-labels span#progressText,
+    .progress-labels .progress-val-text {
       color: var(--brand-neon);
       font-weight: 800;
       font-size: 0.8rem;
@@ -1845,16 +1846,7 @@
         <span class="goal-txt">Recuperação Joelho</span>
       </div>
 
-      <!-- Barra de Progresso Neon (Destacada logo abaixo dos objetivos) -->
-      <div class="progress-section" id="mainProgressBar">
-        <div class="progress-labels">
-          <span>Progresso da Sessão</span>
-          <span id="progressText">0 de 30 séries (0%)</span>
-        </div>
-        <div class="progress-bar-bg">
-          <div class="progress-bar-fill" id="progressBar" style="width: 0%;"></div>
-        </div>
-      </div>
+
 
       <!-- Barra de Ferramentas / Recursos no Topo (Destacada) -->
       <div class="header-tools-bar">
@@ -1905,6 +1897,17 @@
         <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
           Potência de puxada na barra (Skill EMOM 12') e condicionamento metabólico de alta densidade no Box.
         </div>
+      </div>
+    </div>
+
+    <!-- Barra de Progresso da Sessão (Destacada sob o Objetivo da Sessão) -->
+    <div class="progress-section">
+      <div class="progress-labels">
+        <span>Progresso da Sessão</span>
+        <span class="progress-val-text">Roteiro Ativo</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" style="width: 100%;"></div>
       </div>
     </div>
 
@@ -2124,6 +2127,17 @@
         <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
           Laboratório de Bar Muscle-Up compartilhado. Gui: Strict BMU na barra alta com elástico em hollow body. Amiga: transição na barra baixa e spot biomecânico do Gui na barra alta.
         </div>
+      </div>
+    </div>
+
+    <!-- Barra de Progresso da Sessão (Destacada sob o Objetivo da Sessão) -->
+    <div class="progress-section">
+      <div class="progress-labels">
+        <span>Progresso da Sessão</span>
+        <span class="progress-val-text">0 de 16 séries (0%)</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" style="width: 0%;"></div>
       </div>
     </div>
 
@@ -2431,6 +2445,17 @@
         <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
           Portagem de força acrobática, Ring Muscle-Up livre nas argolas altas e transições em suspensão.
         </div>
+      </div>
+    </div>
+
+    <!-- Barra de Progresso da Sessão (Destacada sob o Objetivo da Sessão) -->
+    <div class="progress-section">
+      <div class="progress-labels">
+        <span>Progresso da Sessão</span>
+        <span class="progress-val-text">0 de 30 séries (0%)</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" style="width: 0%;"></div>
       </div>
     </div>
 
@@ -3039,6 +3064,17 @@
       </div>
     </div>
 
+    <!-- Barra de Progresso da Sessão (Destacada sob o Objetivo da Sessão) -->
+    <div class="progress-section">
+      <div class="progress-labels">
+        <span>Progresso da Sessão</span>
+        <span class="progress-val-text">0 de 17 séries (0%)</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" style="width: 0%;"></div>
+      </div>
+    </div>
+
     <!-- ==================== BLOCO 1: HABILIDADES & POTÊNCIA GÍMNICA ==================== -->
     <div class="section-card sec-skills">
       <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
@@ -3365,6 +3401,17 @@
         <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
           Parada de Mãos (Handstand), alavancas na manjota (canes) e equilíbrio unilateral (One-Arm Croc).
         </div>
+      </div>
+    </div>
+
+    <!-- Barra de Progresso da Sessão (Destacada sob o Objetivo da Sessão) -->
+    <div class="progress-section">
+      <div class="progress-labels">
+        <span>Progresso da Sessão</span>
+        <span class="progress-val-text">Análise & Treino Concluído</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" style="width: 100%;"></div>
       </div>
     </div>
 
@@ -4516,16 +4563,19 @@
 
     function updateProgress() {
       const activeTab = document.querySelector('.tab-content.active');
-      const allSets = activeTab ? activeTab.querySelectorAll('.set-pill') : document.querySelectorAll('.set-pill');
-      const completedSets = activeTab ? activeTab.querySelectorAll('.set-pill.done') : document.querySelectorAll('.set-pill.done');
+      if (!activeTab) return;
+
+      const allSets = activeTab.querySelectorAll('.set-pill');
+      const completedSets = activeTab.querySelectorAll('.set-pill.done');
       const total = allSets.length;
       const completed = completedSets.length;
-      const bar = document.getElementById('progressBar');
-      const text = document.getElementById('progressText');
+
+      const bar = activeTab.querySelector('.progress-bar-fill') || document.getElementById('progressBar');
+      const text = activeTab.querySelector('.progress-val-text') || document.getElementById('progressText');
 
       if (total === 0) {
         if (bar) bar.style.width = '100%';
-        if (text) text.innerText = 'Consulta / Análise Técnica';
+        if (text) text.innerText = 'Roteiro & Orientações Ativas';
         return;
       }
 
