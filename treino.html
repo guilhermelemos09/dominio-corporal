@@ -147,32 +147,51 @@
       font-weight: 500;
     }
 
-    /* Barra de Progresso Neon */
+    /* Barra de Progresso Neon (Destacada sob os Objetivos) */
     .progress-section {
-      margin-top: 14px;
-      padding-top: 12px;
-      border-top: 1px solid var(--border-subtle);
+      margin: 10px 0 12px 0;
+      padding: 10px 14px;
+      background: rgba(0, 255, 136, 0.04);
+      border: 1px solid rgba(0, 255, 136, 0.28);
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
     }
     .progress-labels {
       display: flex;
       justify-content: space-between;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      margin-bottom: 6px;
+      align-items: center;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      margin-bottom: 7px;
+      letter-spacing: 0.03em;
+    }
+    .progress-labels span:first-child {
+      color: #cbd5e1;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+    }
+    .progress-labels span#progressText {
+      color: var(--brand-neon);
+      font-weight: 800;
+      font-size: 0.8rem;
+      text-shadow: 0 0 8px rgba(0, 255, 136, 0.45);
     }
     .progress-bar-bg {
-      background: rgba(255, 255, 255, 0.07);
-      height: 7px;
+      background: rgba(255, 255, 255, 0.1);
+      height: 8px;
       border-radius: 10px;
       overflow: hidden;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.6);
     }
     .progress-bar-fill {
-      background: linear-gradient(90deg, #059669, var(--brand-neon));
+      background: linear-gradient(90deg, #00c853, var(--brand-neon));
       height: 100%;
       width: 0%;
       border-radius: 10px;
-      box-shadow: 0 0 10px var(--brand-neon-glow);
+      box-shadow: 0 0 12px var(--brand-neon-glow);
       transition: width 0.3s ease;
     }
 
@@ -969,42 +988,88 @@
       font-weight: 800;
     }
 
-    /* Pílulas de Acesso Rápido no Cabeçalho */
+    /* Pílulas de Acesso Rápido no Cabeçalho (Destacadas) */
     .header-tools-bar {
       display: flex;
-      gap: 6px;
+      gap: 8px;
       overflow-x: auto;
       scrollbar-width: none;
-      padding-bottom: 2px;
-      margin-top: 6px;
+      padding: 4px 2px 6px 2px;
+      margin-top: 4px;
     }
     .header-tools-bar::-webkit-scrollbar { display: none; }
     .tool-pill {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-subtle);
-      color: #94a3b8;
-      padding: 6px 12px;
+      gap: 6.5px;
+      background: #11141a;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #ffffff;
+      padding: 7.5px 14px;
       border-radius: 20px;
-      font-size: 0.76rem;
-      font-weight: 700;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       white-space: nowrap;
       flex-shrink: 0;
-    }
-    .tool-pill:hover, .tool-pill:active {
-      background: rgba(56, 189, 248, 0.15);
-      border-color: #38bdf8;
-      color: #38bdf8;
-      transform: translateY(-1px);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
     }
     .tool-pill svg {
-      width: 14px;
-      height: 14px;
-      fill: currentColor;
+      width: 15px;
+      height: 15px;
+      fill: #38bdf8;
+      transition: transform 0.2s ease;
+    }
+    .tool-pill:hover, .tool-pill:active {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+    }
+    .tool-pill:active {
+      transform: scale(0.96);
+    }
+    /* Cores de Destaque por Ferramenta */
+    .tool-pill.pill-timers {
+      border-color: rgba(56, 189, 248, 0.35);
+    }
+    .tool-pill.pill-timers:hover {
+      background: rgba(56, 189, 248, 0.18);
+      border-color: #38bdf8;
+      color: #38bdf8;
+    }
+    .tool-pill.pill-analises {
+      border-color: rgba(168, 85, 247, 0.35);
+    }
+    .tool-pill.pill-analises svg {
+      fill: #c084fc;
+    }
+    .tool-pill.pill-analises:hover {
+      background: rgba(168, 85, 247, 0.18);
+      border-color: #c084fc;
+      color: #c084fc;
+    }
+    .tool-pill.pill-evolucao {
+      border-color: rgba(0, 255, 136, 0.35);
+    }
+    .tool-pill.pill-evolucao svg {
+      fill: var(--brand-neon);
+    }
+    .tool-pill.pill-evolucao:hover {
+      background: rgba(0, 255, 136, 0.18);
+      border-color: var(--brand-neon);
+      color: var(--brand-neon);
+    }
+    .tool-pill.pill-diretrizes {
+      border-color: rgba(251, 191, 36, 0.35);
+    }
+    .tool-pill.pill-diretrizes svg {
+      fill: #fbbf24;
+    }
+    .tool-pill.pill-diretrizes:hover {
+      background: rgba(251, 191, 36, 0.18);
+      border-color: #fbbf24;
+      color: #fbbf24;
     }
 
     /* Barra Superior Fixa na Visão Dedicada */
@@ -1780,21 +1845,32 @@
         <span class="goal-txt">Recuperação Joelho</span>
       </div>
 
-      <!-- Barra de Ferramentas / Recursos no Topo -->
+      <!-- Barra de Progresso Neon (Destacada logo abaixo dos objetivos) -->
+      <div class="progress-section" id="mainProgressBar">
+        <div class="progress-labels">
+          <span>Progresso da Sessão</span>
+          <span id="progressText">0 de 30 séries (0%)</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progressBar" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <!-- Barra de Ferramentas / Recursos no Topo (Destacada) -->
       <div class="header-tools-bar">
-        <button class="tool-pill" onclick="openDedicatedView('timers')" title="Abrir Timers de Treino">
+        <button class="tool-pill pill-timers" onclick="openDedicatedView('timers')" title="Abrir Timers de Treino">
           <svg viewBox="0 0 24 24"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
           <span>Timers</span>
         </button>
-        <button class="tool-pill" onclick="openDedicatedView('analises')" title="Análise de Vídeos">
+        <button class="tool-pill pill-analises" onclick="openDedicatedView('analises')" title="Análise de Vídeos & Biomecânica">
           <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 12.5v-9l6 4.5-6 4.5z"/></svg>
-          <span>Vídeos</span>
+          <span>Análises</span>
         </button>
-        <button class="tool-pill" onclick="openDedicatedView('evolucao')" title="Evolução Corporal">
+        <button class="tool-pill pill-evolucao" onclick="openDedicatedView('evolucao')" title="Evolução Corporal">
           <svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
           <span>Evolução</span>
         </button>
-        <button class="tool-pill" onclick="openDedicatedView('perfil')" title="Diretrizes Biomecânicas">
+        <button class="tool-pill pill-diretrizes" onclick="openDedicatedView('perfil')" title="Diretrizes Biomecânicas">
           <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
           <span>Diretrizes</span>
         </button>
@@ -1816,16 +1892,7 @@
       </div>
     </div>
 
-    <!-- Barra de Progresso Neon (Posicionada abaixo dos dias de treino) -->
-    <div class="progress-section" id="mainProgressBar" style="margin-top: 6px; margin-bottom: 16px;">
-      <div class="progress-labels">
-        <span>Progresso da Sessão</span>
-        <span id="progressText">0 de 30 séries (0%)</span>
-      </div>
-      <div class="progress-bar-bg">
-        <div class="progress-bar-fill" id="progressBar" style="width: 0%;"></div>
-      </div>
-    </div>
+
 
   <!-- ==================== TAB ATIVA: HOJE (SEGUNDA: BOX À TARDE) ==================== -->
   <div id="tab-segunda" class="tab-content active">
