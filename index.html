@@ -1531,6 +1531,191 @@
     }
     .lap-row:last-child { border-bottom: none; }
     .lap-num { color: #38bdf8; font-weight: 700; }
+    /* Chips Concisos de Metadados da Sessão */
+    .session-meta-chips {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2.5px 8px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .meta-chip-loc {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #e2e8f0;
+    }
+    .meta-chip-type {
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+    }
+    .meta-chip-time {
+      background: rgba(0, 255, 136, 0.1);
+      border: 1px solid rgba(0, 255, 136, 0.3);
+      color: var(--brand-neon);
+    }
+
+    /* Roteiro da Sessão em Formato de Lista Estruturada */
+    .wod-list-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .wod-list-block {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 10px 12px;
+    }
+    .wod-block-badge {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .wod-block-items {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.82rem;
+      color: #cbd5e1;
+      line-height: 1.65;
+    }
+    .wod-block-items li {
+      padding: 4px 0;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+    }
+    .wod-block-items li:last-child {
+      border-bottom: none;
+    }
+    .wod-item-rest {
+      color: #94a3b8;
+      font-size: 0.78rem;
+      padding: 2px 0 !important;
+    }
+
+    /* Botão de Dica / Observação Técnica Flutuante */
+    .btn-tip-cue {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 1.5px 7px;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      vertical-align: middle;
+      margin-left: 6px;
+      transition: all 0.2s ease;
+    }
+    .btn-tip-cue:hover, .btn-tip-cue:active {
+      background: #38bdf8;
+      color: #000;
+      transform: scale(0.96);
+    }
+
+    /* Popover Flutuante de Dicas & Observações Técnicas */
+    .tip-popover-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: rgba(0, 0, 0, 0.78);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      animation: fadeIn 0.15s ease-out;
+    }
+    .tip-popover-card {
+      background: #0f1115;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(56, 189, 248, 0.15);
+      border-radius: 14px;
+      width: 100%;
+      max-width: 380px;
+      padding: 16px 18px;
+      color: #fff;
+      animation: popIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes popIn {
+      from { transform: scale(0.92); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .tip-popover-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .tip-popover-tag {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #38bdf8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .tip-popover-close {
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      font-size: 1.3rem;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0 4px;
+    }
+    .tip-popover-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 6px;
+    }
+    .tip-popover-content {
+      font-size: 0.84rem;
+      color: #cbd5e1;
+      line-height: 1.6;
+      white-space: pre-line;
+      margin-bottom: 14px;
+    }
+    .tip-popover-ok {
+      width: 100%;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .tip-popover-ok:active {
+      background: #38bdf8;
+      color: #000;
+    }
+
   </style>
 </head>
 <body>
@@ -1592,12 +1777,12 @@
     <!-- Barra dos Dias de Treino da Semana -->
     <div class="days-nav-container" id="mainDaysNav">
       <div class="tabs tabs-days" id="daysNavTabs">
-        <button class="tab-btn active" data-tab="segunda" data-base="Segunda - CrossFit Box" onclick="switchDayTab('segunda', this)">Segunda - CrossFit Box</button>
-        <button class="tab-btn" data-tab="terca" data-base="Terça - Box + Lab BMU" onclick="switchDayTab('terca', this)">Terça - Box + Lab BMU</button>
-        <button class="tab-btn" data-tab="quarta" data-base="Quarta - EEFERP Manjota" onclick="switchDayTab('quarta', this)">Quarta - EEFERP Manjota</button>
-        <button class="tab-btn" data-tab="quinta" data-base="Quinta - Dança & Força" onclick="switchDayTab('quinta', this)">Quinta - Dança & Força</button>
-        <button class="tab-btn" data-tab="sexta" data-base="Sexta - Portagem & Argolas" onclick="switchDayTab('sexta', this)">Sexta - Portagem & Argolas</button>
-        <button class="tab-btn" data-tab="semana" data-base="Semana Completa" onclick="switchDayTab('semana', this)">Semana Completa</button>
+        <button class="tab-btn active" data-tab="segunda" data-base="SEGUNDA - Crossfit" onclick="switchDayTab('segunda', this)">SEGUNDA - Crossfit</button>
+        <button class="tab-btn" data-tab="terca" data-base="TERÇA - BMU + Acroduo" onclick="switchDayTab('terca', this)">TERÇA - BMU + Acroduo</button>
+        <button class="tab-btn" data-tab="quarta" data-base="QUARTA - Handstand" onclick="switchDayTab('quarta', this)">QUARTA - Handstand</button>
+        <button class="tab-btn" data-tab="quinta" data-base="QUINTA - Dança & Força" onclick="switchDayTab('quinta', this)">QUINTA - Dança & Força</button>
+        <button class="tab-btn" data-tab="sexta" data-base="SEXTA - Argolas & Portagem" onclick="switchDayTab('sexta', this)">SEXTA - Argolas & Portagem</button>
+        <button class="tab-btn" data-tab="semana" data-base="SEMANA COMPLETA" onclick="switchDayTab('semana', this)">SEMANA COMPLETA</button>
       </div>
     </div>
 
@@ -1615,40 +1800,91 @@
   <!-- ==================== TAB ATIVA: HOJE (SEGUNDA: BOX À TARDE) ==================== -->
   <div id="tab-segunda" class="tab-content active">
 
-    <!-- Checklist & Status Hoje -->
-    <div class="callout-box" style="border-left: 3.5px solid var(--brand-neon);">
-      <div class="callout-icon">🔥</div>
-      <div>
-        <strong>Sessão de Hoje (Segunda-Feira) • Box CrossFit à Tarde (WOD Completo + Descompressão):</strong><br>
-        • <strong>Mudança de Planos Alinhada:</strong> Amiga não pôde hoje — o <strong>Lab de Bar Muscle-Up</strong> foi transferido para <strong>amanhã (Terça)</strong> no Box. Hoje o foco é 100% no treino do Box no período da tarde!<br>
-        • <strong>Estrutura da Sessão à Tarde:</strong> Warm-up articular e core (2 rds) + Skill EMOM 12' (Strict & Butterfly) + Triplo AMRAP progressivo de alta densidade metabólica (Snatch, Clean & Jerk, Thruster intercalados com Wall Balls, Pull-ups e Burpees).<br>
-        • <strong>🛡️ Proteção Articular Crítica:</strong> Nos 90 Wall Balls totais, flexão a 90° (sem desabar no fundo para poupar o menisco lateral esquerdo). Nos DB Snatches e Thrusters, impulsione com quadril/glúteo para poupar o ombro operado.<br>
-        • <strong>🧘 Pós-Treino Mandatório:</strong> Reset subacromial com superband + descompressão gravitacional com ponta dos pés + alívio miofascial do menisco lateral.
+    <!-- Introdução Sucinta da Sessão -->
+    <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 10px 14px; margin-bottom: 12px;">
+      <div class="callout-icon" style="font-size:1.15rem; margin-top:1px;">🎯</div>
+      <div style="font-size: 0.84rem; line-height: 1.5; color: var(--text-main);">
+        <strong>Objetivo:</strong> Potência de puxada na barra (Skill EMOM 12') e condicionamento de alta densidade no Box. <em>(Lab BMU com amiga transferido para amanhã)</em>. Foco no menisco: travar descida a 90° nos Wall Balls.
       </div>
     </div>
 
-    <!-- ==================== SEÇÃO 1: BOX CROSSFIT (ORIENTAÇÕES & WOD DA TARDE) ==================== -->
+    <!-- ==================== SEÇÃO 1: BOX CROSSFIT ==================== -->
     <div class="section-card sec-cardio">
-      <div class="section-header">
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
         <div class="section-title-wrap">
-          <span class="section-badge">Box CrossFit</span>
-          <div class="section-title">WOD da Tarde — Roteiro, Ritmo & Orientações</div>
+          <div class="section-title" style="font-size:0.95rem; font-weight:800; color:#fff;">WOD do Box</div>
         </div>
-        <span class="time-badge">~50 min • Turma da Tarde</span>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-loc">📍 Box CrossFit</span>
+          <span class="meta-chip meta-chip-type">⚡ Condicionamento</span>
+          <span class="meta-chip meta-chip-time">⏱️ ~50 min</span>
+        </div>
       </div>
 
-      <!-- Card Unificado de Orientações do Box (Sem botões de séries) -->
+      <!-- Card Unificado de Roteiro do Box -->
       <div class="exercise-card">
-        <div class="bio-cue" style="border-left: 2px solid var(--accent-coral); margin-bottom: 12px; font-size: 0.88rem; line-height: 1.7;">
-          <strong>📋 Roteiro da Sessão no Box:</strong><br>
-          1. <strong>Warm-up Articular & Core (2 rounds):</strong> 10 Hollow Rock + 10 Arch Rocks + 10 Scapular Pull-ups + 10 Beat Swings.<br>
-          2. <strong>Skill EMOM 12':</strong> Min 1: 5 Strict Pull-up | Min 2: 10 Pull-up (Butterfly/Kip) | Min 3: Descanso total (4 rounds completos).<br>
-          3. <strong>Triplo AMRAP Metabólico (15 min de WOD + 2 min de Rest):</strong><br>
-          &nbsp;&nbsp;• <em>AMRAP 6':</em> 40 Wall Ball (6/9 kg) ➔ No tempo restante: 6 Pull-up + 8 Burpees over DB + 10 DB Snatch.<br>
-          &nbsp;&nbsp;• <em>Rest 1'</em><br>
-          &nbsp;&nbsp;• <em>AMRAP 5':</em> 30 Wall Ball ➔ No tempo restante: 6 Pull-up + 8 Burpees over DB + 10 DB Hang Clean & Jerk.<br>
-          &nbsp;&nbsp;• <em>Rest 1'</em><br>
-          &nbsp;&nbsp;• <em>AMRAP 4':</em> 20 Wall Ball ➔ No tempo restante: 6 Pull-up + 8 Burpees over DB + 10 DB Thruster.
+        <!-- Roteiro da Sessão em Formato de Lista Estruturada -->
+        <div class="wod-list-container">
+          <!-- Bloco 1: Aquecimento -->
+          <div class="wod-list-block">
+            <div class="wod-block-badge">1. Aquecimento Articular & Core (2 rounds)</div>
+            <ul class="wod-block-items">
+              <li>10 Hollow Rocks</li>
+              <li>10 Arch Rocks (Superman)</li>
+              <li>10 Scapular Pull-ups</li>
+              <li>10 Beat Swings na barra</li>
+            </ul>
+          </div>
+
+          <!-- Bloco 2: Skill EMOM -->
+          <div class="wod-list-block">
+            <div class="wod-block-badge">
+              <span>2. Skill EMOM 12' (4 rounds)</span>
+              <button class="btn-tip-cue" onclick="openTip('Skill EMOM 12\'', '• Min 1: 5 Strict Pull-up (pegada pronada 1 dedo além dos ombros, hollow body firme sem balanço).\n• Min 2: 10 Pull-up Butterfly/Kipping (trajetória circular fluida, puxada forte com quadril e grande dorsal).\n• Min 3: Descanso Total (recuperação de fosfocreatina).')">💡 Dica Geral</button>
+            </div>
+            <ul class="wod-block-items">
+              <li>
+                <strong>Minuto 1:</strong> 5 Strict Pull-up
+                <button class="btn-tip-cue" onclick="openTip('Strict Pull-up — Alinhamento & Pegada', '• Pegada: Pronada, 1 a 2 dedos além da largura dos ombros.\n• Alavanca: Depressão escapular ativa antes do cotovelo dobrar.\n• Core: Pernas unidas e ponta dos pés esticada em hollow body (sem quebra lombar nem balanço de quadril).')">💡 Dica</button>
+              </li>
+              <li>
+                <strong>Minuto 2:</strong> 10 Pull-up (Butterfly ou Kipping)
+                <button class="btn-tip-cue" onclick="openTip('Butterfly & Kipping — Ritmo', '• Ritmo: Ritmo cíclico contínuo sem trancos articulares bruscos.\n• Ombro Direito: 100% livre e zerado — direcione a puxada com o grande dorsal e peitoral.')">💡 Dica</button>
+              </li>
+              <li><strong>Minuto 3:</strong> Descanso Total</li>
+            </ul>
+          </div>
+
+          <!-- Bloco 3: Triplo AMRAP -->
+          <div class="wod-list-block">
+            <div class="wod-block-badge">
+              <span>3. Triplo AMRAP Metabólico (15' WOD + 2' Rest)</span>
+            </div>
+            <ul class="wod-block-items">
+              <li>
+                <strong>AMRAP 6':</strong> 40 Wall Ball (6/9 kg)
+                <button class="btn-tip-cue" onclick="openTip('Wall Balls — Proteção Meniscal', '• Ângulo: Pare a descida rigorosamente a 90° (paralela ao solo).\n• Menisco Lateral: Jamais desabe na flexão passiva profunda para evitar translação e cisalhamento.\n• Impulso: Empurre o solo através dos calcanhares e dispare os glúteos.')">🛡️ Joelho 90°</button>
+                <div style="font-size:0.8rem; color:#94a3b8; margin-top:3px;">
+                  ➔ No tempo restante: 6 Pull-ups + 8 Burpees over DB + 10 DB Snatch
+                  <button class="btn-tip-cue" onclick="openTip('DB Snatch — Eficiência Cinética', '• Motor: Extensão tripla de tornozelo, joelho e quadril impulsionando o halter.\n• Ombro: O braço é apenas o condutor da trajetória até o lockout.')">⚡ Dica</button>
+                </div>
+              </li>
+              <li class="wod-item-rest">☕ <em>Rest 1'</em></li>
+              <li>
+                <strong>AMRAP 5':</strong> 30 Wall Ball (6/9 kg)
+                <div style="font-size:0.8rem; color:#94a3b8; margin-top:3px;">
+                  ➔ No tempo restante: 6 Pull-ups + 8 Burpees over DB + 10 DB Hang Clean & Jerk
+                </div>
+              </li>
+              <li class="wod-item-rest">☕ <em>Rest 1'</em></li>
+              <li>
+                <strong>AMRAP 4':</strong> 20 Wall Ball (6/9 kg)
+                <div style="font-size:0.8rem; color:#94a3b8; margin-top:3px;">
+                  ➔ No tempo restante: 6 Pull-ups + 8 Burpees over DB + 10 DB Thruster
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <!-- Disparadores Rápidos para os Timers do WOD -->
@@ -1661,13 +1897,6 @@
             <svg style="width:14px; height:14px; fill:currentColor;" viewBox="0 0 24 24"><path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.05.5-9 4.77-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.01-4.09l-2.49-1.46C16.14 17.84 14.21 19 12 19z"/></svg>
             <span>⚡ Iniciar Timer AMRAP 6' ↗</span>
           </button>
-        </div>
-
-        <div class="bio-cue" style="border-left: 2px solid var(--brand-neon); margin-bottom: 14px; font-size: 0.88rem; line-height: 1.7;">
-          <strong>🎯 Orientações de Foco & Atenção Articular:</strong><br>
-          • <strong>🛡️ Joelho Esquerdo (Foco Crítico):</strong> Nos 90 Wall Balls totais, controle a descida excêntrica e pare exatamente a <strong>90° (coxas paralelas ao solo)</strong>. Evite o "rebote" na flexão passiva profunda para não pinçar o corno posterior do menisco lateral.<br>
-          • <strong>💪 Cotovelo Esquerdo:</strong> Praticamente zerado; apenas mantenha extensão neutra simétrica nos DB Snatches e Thrusters.<br>
-          • <strong>⚡ Ombro Direito:</strong> 100% zerado e consolidado — puxe com potência máxima nos butterfly e pull-ups estritos!
         </div>
 
         <div class="ex-actions">
@@ -1791,26 +2020,25 @@
   <!-- ==================== TAB: AMANHÃ (TERÇA: BOX + LAB BMU COMPARTILHADO) ==================== -->
   <div id="tab-terca" class="tab-content">
 
-    <!-- Checklist & Status Terça -->
-    <div class="callout-box" style="border-left: 3.5px solid var(--accent-gold);">
-      <div class="callout-icon">🎯</div>
-      <div>
-        <strong>Sessão de Amanhã (Terça-Feira) • Box CrossFit + Laboratório de Bar Muscle-Up Compartilhado:</strong><br>
-        • <strong>Contexto & Oportunidade:</strong> Com as escápulas recuperadas do metcon de segunda, amanhã no Box o foco técnico de Bar Muscle-Up entra com máxima clareza neural e força.<br>
-        • <strong>Para a Amiga (Destravar o 1º BMU):</strong> Transição na <strong>barra baixa com elástico</strong> (foco na rotação dos punhos <em>knuckles over</em> e projeção do tronco à frente sem medo de queda) + <strong>Tentativas na barra alta com Spot Biomecânico do Gui</strong> (impulso diagonal na região sacral/lombar no ápice da subida).<br>
-        • <strong>Para o Gui (Strict BMU Estrito):</strong> <strong>Strict Bar Muscle-Up na barra alta com superband e corpo estendido em hollow body</strong> (zero kipping, 4 a 5 micro-séries de 1-2 reps com 3 min de descanso) para consolidação simétrica e proteção absoluta do ombro e tríceps.<br>
-        • <strong>Acessórios de Reforço:</strong> Straight-Bar Dips na barra reta + Banded Straight-Arm Pushdowns + Descompressão final.
+    <!-- Introdução Sucinta da Sessão -->
+    <div class="callout-box" style="border-left: 3px solid var(--accent-gold); padding: 10px 14px; margin-bottom: 12px;">
+      <div class="callout-icon" style="font-size:1.15rem; margin-top:1px;">🎯</div>
+      <div style="font-size: 0.84rem; line-height: 1.5; color: var(--text-main);">
+        <strong>Objetivo:</strong> Laboratório de Bar Muscle-Up compartilhado. Gui: Strict BMU na barra alta com elástico em hollow body. Amiga: transição na barra baixa + spot biomecânico do Gui na barra alta.
       </div>
     </div>
 
     <!-- SEÇÃO 1: LAB MUSCLE-UP (GUI & AMIGA) -->
     <div class="section-card sec-forca">
-      <div class="section-header">
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
         <div class="section-title-wrap">
-          <span class="section-badge">Lab BMU</span>
-          <div class="section-title">Laboratório de Bar Muscle-Up — Gui (Strict) & Amiga (Barra Baixa + Spot)</div>
+          <div class="section-title" style="font-size:0.95rem; font-weight:800; color:#fff;">Laboratório Bar Muscle-Up</div>
         </div>
-        <span class="time-badge">~45 min • Força & Técnica Pura</span>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-loc">📍 Box CrossFit</span>
+          <span class="meta-chip meta-chip-type">⚡ Treino Técnico</span>
+          <span class="meta-chip meta-chip-time">⏱️ ~45 min</span>
+        </div>
       </div>
 
       <div class="bio-cue" style="border-left: 2px solid var(--brand-neon); margin-bottom: 14px;">
@@ -2097,26 +2325,25 @@
   <!-- ==================== TAB: SEXTA (PORTAGEM, DANÇA & ARGOLAS) ==================== -->
   <div id="tab-sexta" class="tab-content">
 
-    <!-- Checklist & Status Hoje -->
-    <div class="callout-box" style="border-left: 3.5px solid var(--brand-neon);">
-      <div class="callout-icon">🏆</div>
-      <div>
-        <strong>Sessão Realizada na EEFERP (12h às 14h) • Marcos Históricos:</strong><br>
-        • <strong>Argolas Altas:</strong> 3x3 RMU strict com elástico + <strong>1 Strict Ring Muscle-Up LIVRE (1º após 2 anos!) + 2 Candle Kips x 2 rounds</strong>! Consolidação de força e zero dor no tríceps!<br>
-        • <strong>Portagem de Força:</strong> Entrada magistral em <strong>Press Handstand no ombro do parceiro</strong> (vídeo em análise)!<br>
-        • <strong>Dança Contemporânea:</strong> Passagem da coreografia e estudo cinemático de giros de chão em piso de atrito.<br>
-        • <strong>Próximo Passo (17h/18h):</strong> CrossFit no box (lembrar do resgate de Aquiles 3x 15 no degrau e seguir a Versão Blindada 40-20-10 abaixo!).
+    <!-- Introdução Sucinta da Sessão -->
+    <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 10px 14px; margin-bottom: 12px;">
+      <div class="callout-icon" style="font-size:1.15rem; margin-top:1px;">🏆</div>
+      <div style="font-size: 0.84rem; line-height: 1.5; color: var(--text-main);">
+        <strong>Objetivo:</strong> Portagem de força acrobática, Ring Muscle-Up livre nas argolas altas e transições em suspensão.
       </div>
     </div>
 
     <!-- ==================== SEÇÃO 1: ATIVAÇÃO ==================== -->
     <div class="section-card sec-ativacao">
-      <div class="section-header">
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
         <div class="section-title-wrap">
-          <span class="section-badge">Ativação</span>
-          <div class="section-title">Preparação Articular de Punhos & Descompressão do Menisco</div>
+          <div class="section-title" style="font-size:0.95rem; font-weight:800; color:#fff;">Portagem & Argolas</div>
         </div>
-        <span class="time-badge">4 séries • 15 min</span>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-loc">📍 EEFERP-USP</span>
+          <span class="meta-chip meta-chip-type">🎪 Acrobacia & Força</span>
+          <span class="meta-chip meta-chip-time">⏱️ ~60 min</span>
+        </div>
       </div>
 
       <!-- Ex 1.1: Mobilidade de Punhos + Scapular Push-ups -->
@@ -2701,20 +2928,25 @@
   <!-- ==================== TAB: QUINTA (DANÇA & FORÇA REAL EXECUTADA) ==================== -->
   <div id="tab-quinta" class="tab-content">
 
-    <!-- Checklist & Status Real -->
-    <div class="callout-box">
-      <div class="callout-icon">⚡</div>
-      <div>
-        <strong>Sessão Realizada na EEFERP (12h às 13h) • Registro Real:</strong><br>
-        Você montou intuitivamente uma sessão com altíssima densidade mecânica: potência de puxada e transição na barra, alavanca e vela nas argolas, aceleração terminal de glúteo com elástico e sarcomerogênese do Aquiles. As 17 séries executadas estão registradas abaixo!
+    <!-- Introdução Sucinta da Sessão -->
+    <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 10px 14px; margin-bottom: 12px;">
+      <div class="callout-icon" style="font-size:1.15rem; margin-top:1px;">🩰</div>
+      <div style="font-size: 0.84rem; line-height: 1.5; color: var(--text-main);">
+        <strong>Objetivo:</strong> Potência de puxada na barra, alavancas nas argolas, aceleração terminal de glúteo e dança contemporânea.
       </div>
     </div>
 
     <!-- ==================== BLOCO 1: HABILIDADES & POTÊNCIA GÍMNICA ==================== -->
     <div class="section-card sec-skills">
-      <div class="section-header">
-        <div class="section-title">Habilidades & Potência de Barra</div>
-        <span class="time-badge">6 séries</span>
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+        <div class="section-title-wrap">
+          <div class="section-title" style="font-size:0.95rem; font-weight:800; color:#fff;">Dança & Força Real</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-loc">📍 Dança & EEFERP</span>
+          <span class="meta-chip meta-chip-type">🩰 Dança & Força</span>
+          <span class="meta-chip meta-chip-time">⏱️ ~60 min</span>
+        </div>
       </div>
 
       <!-- Ex 1.1: Kip Muscle-Up -->
@@ -3023,20 +3255,25 @@
   <!-- ==================== TAB: ONTEM (QUARTA EEFERP - REGISTRO TÉCNICO & VÍDEO) ==================== -->
   <div id="tab-quarta" class="tab-content">
     
-    <div class="callout-box">
-      <div class="callout-icon">🏆</div>
-      <div>
-        <strong>Análise Técnica da Sessão de Quarta (30/09/2026):</strong><br>
-        • <strong>Bloco de Skills:</strong> Concluído com louvor! Sequência magistral na manjota gravada em vídeo.<br>
-        • <strong>Bloco de Força / Hipertrofia:</strong> Não realizado devido ao tempo curto; todo o volume foi reorganizado e aprimorado na sessão de <strong>Hoje (Quinta)</strong> com os <em>Ice Cream Makers</em>, <em>Dragon Flag</em>, <em>Headbangers</em> e <em>Single-Leg RDL</em>!
+    <!-- Introdução Sucinta da Sessão -->
+    <div class="callout-box" style="border-left: 3px solid #38bdf8; padding: 10px 14px; margin-bottom: 12px;">
+      <div class="callout-icon" style="font-size:1.15rem; margin-top:1px;">🤸</div>
+      <div style="font-size: 0.84rem; line-height: 1.5; color: var(--text-main);">
+        <strong>Objetivo:</strong> Parada de Mãos (Handstand), alavancas na manjota (canes) e equilíbrio unilateral (One-Arm Croc).
       </div>
     </div>
 
     <!-- Card de Análise do Vídeo da Manjota -->
     <div class="section-card sec-skills">
-      <div class="section-header">
-        <div class="section-title">Análise Biomecânica da Sequência na Manjota (Canes)</div>
-        <span class="time-badge">Vídeo Analisado</span>
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+        <div class="section-title-wrap">
+          <div class="section-title" style="font-size:0.95rem; font-weight:800; color:#fff;">Manjota & Parada de Mãos</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-loc">📍 EEFERP-USP</span>
+          <span class="meta-chip meta-chip-type">🤸 Ginástica</span>
+          <span class="meta-chip meta-chip-time">⏱️ ~60 min</span>
+        </div>
       </div>
 
       <div style="margin-bottom: 14px;">
@@ -4388,6 +4625,38 @@
         navigator.serviceWorker.register('sw.js').catch(err => console.log('SW falhou:', err));
       });
     }
+      /* Funções do Popover Flutuante de Observações e Dicas Técnicas */
+    function openTip(title, contentText) {
+      const overlay = document.getElementById('tipPopoverOverlay');
+      const titleEl = document.getElementById('tipPopoverTitle');
+      const contentEl = document.getElementById('tipPopoverContent');
+      if (overlay && titleEl && contentEl) {
+        titleEl.textContent = title;
+        contentEl.textContent = contentText;
+        overlay.style.display = 'flex';
+      }
+    }
+
+    function closeTipPopover(event) {
+      if (event && event.target && event.target !== event.currentTarget && !event.target.classList.contains('tip-popover-close') && !event.target.classList.contains('tip-popover-ok')) {
+        return;
+      }
+      const overlay = document.getElementById('tipPopoverOverlay');
+      if (overlay) overlay.style.display = 'none';
+    }
+
   </script>
+  <!-- Popover Flutuante de Dica Biomecânica / Observação Técnica -->
+  <div id="tipPopoverOverlay" class="tip-popover-overlay" onclick="closeTipPopover(event)" style="display:none;">
+    <div class="tip-popover-card">
+      <div class="tip-popover-header">
+        <div class="tip-popover-tag">💡 Observação Técnica</div>
+        <button class="tip-popover-close" onclick="closeTipPopover()">&times;</button>
+      </div>
+      <div class="tip-popover-title" id="tipPopoverTitle">Strict Pull-up</div>
+      <div class="tip-popover-content" id="tipPopoverContent"></div>
+      <button class="tip-popover-ok" onclick="closeTipPopover()">Entendido</button>
+    </div>
+  </div>
 </body>
 </html>
