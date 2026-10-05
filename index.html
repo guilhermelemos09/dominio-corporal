@@ -990,12 +990,12 @@
       gap: 6px;
     }
     .goals-title-text {
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       font-weight: 800;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: var(--brand-neon);
-      text-shadow: 0 0 8px rgba(0, 255, 136, 0.4);
+      color: #ff4d4d;
+      text-shadow: 0 0 10px rgba(255, 77, 77, 0.45);
     }
     .goals-student-card-btn {
       display: inline-flex;
@@ -1201,6 +1201,32 @@
     /* ===================================================
        SEÇÃO TREINAMENTO & LISTA DE DIAS (HUB PRINCIPAL)
        =================================================== */
+    
+    /* Botoes de Navegação Interna da Central de Evolução */
+    .evol-nav-btn {
+      background: #11141a;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #94a3b8;
+      padding: 7px 14px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .evol-nav-btn:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+    }
+    .evol-nav-btn.active {
+      background: var(--brand-neon);
+      color: #000000;
+      border-color: var(--brand-neon);
+      font-weight: 800;
+      box-shadow: 0 0 14px var(--brand-neon-glow);
+    }
+
     .training-hub-section {
       margin-top: 6px;
       margin-bottom: 24px;
@@ -2264,11 +2290,7 @@
     <!-- SEÇÃO PRINCIPAL: TREINAMENTO (LISTA DE SESSÕES) -->
     <div class="training-hub-section" id="trainingHubSection">
       <div class="training-section-header">
-        <div class="training-title-wrap">
-          <span class="training-section-badge">SEMANA ATIVA</span>
-          <h2 class="training-section-title">TREINAMENTO</h2>
-        </div>
-        <span class="training-subtitle-note">Toque no dia para abrir a sessão</span>
+        <h2 class="training-section-title">ROTINA DE TREINO</h2>
       </div>
 
       <!-- Lista Vertical de Dias de Treino -->
@@ -2381,10 +2403,13 @@
   <div id="tab-segunda" class="tab-content">
 
     <!-- Introdução Sucinta da Sessão -->
-    <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 11px 14px; margin-bottom: 12px; display: block;">
-      <div class="callout-topic-header" style="color: var(--brand-neon);">FOCO DO TREINO: CONDICIONAMENTO</div>
-      <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
-        Potência de puxada na barra (Skill EMOM 12') e condicionamento metabólico de alta densidade no Box.
+    <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 12px 14px; margin-bottom: 12px;">
+      <div class="callout-icon" style="font-size:1.15rem; margin-top:1px;">🎯</div>
+      <div>
+        <div class="callout-topic-header" style="color: var(--brand-neon);">FOCO DO TREINO: CONDICIONAMENTO</div>
+        <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
+          Potência de puxada na barra (Skill EMOM 12') e condicionamento metabólico de alta densidade no Box.
+        </div>
       </div>
     </div>
 
@@ -2608,10 +2633,13 @@
   <div id="tab-terca" class="tab-content">
 
     <!-- Introdução Sucinta da Sessão -->
-    <div class="callout-box" style="border-left: 3px solid var(--accent-gold); padding: 11px 14px; margin-bottom: 12px; display: block;">
-      <div class="callout-topic-header" style="color: var(--accent-gold);">FOCO DO TREINO: TREINO TÉCNICO & FORÇA</div>
-      <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
-        Laboratório de Bar Muscle-Up compartilhado. Gui: Strict BMU na barra alta com elástico em hollow body. Amiga: transição na barra baixa e spot biomecânico do Gui na barra alta.
+    <div class="callout-box" style="border-left: 3px solid var(--accent-gold); padding: 12px 14px; margin-bottom: 12px;">
+      <div class="callout-icon" style="font-size:1.15rem; margin-top:1px;">🎯</div>
+      <div>
+        <div class="callout-topic-header" style="color: var(--accent-gold);">FOCO DO TREINO: TREINO TÉCNICO & FORÇA</div>
+        <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
+          Laboratório de Bar Muscle-Up compartilhado. Gui: Strict BMU na barra alta com elástico em hollow body. Amiga: transição na barra baixa e spot biomecânico do Gui na barra alta.
+        </div>
       </div>
     </div>
 
@@ -2923,10 +2951,13 @@
   <div id="tab-sexta" class="tab-content">
 
     <!-- Introdução Sucinta da Sessão -->
-    <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 11px 14px; margin-bottom: 12px; display: block;">
-      <div class="callout-topic-header" style="color: var(--brand-neon);">FOCO DO TREINO: ACROBACIA & FORÇA</div>
-      <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
-        Portagem de força acrobática, Ring Muscle-Up livre nas argolas altas e transições em suspensão.
+    <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 12px 14px; margin-bottom: 12px;">
+      <div class="callout-icon" style="font-size:1.15rem; margin-top:1px;">🎯</div>
+      <div>
+        <div class="callout-topic-header" style="color: var(--brand-neon);">FOCO DO TREINO: ACROBACIA & FORÇA</div>
+        <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
+          Portagem de força acrobática, Ring Muscle-Up livre nas argolas altas e transições em suspensão.
+        </div>
       </div>
     </div>
 
@@ -3536,10 +3567,13 @@
   <div id="tab-quinta" class="tab-content">
 
     <!-- Introdução Sucinta da Sessão -->
-    <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 11px 14px; margin-bottom: 12px; display: block;">
-      <div class="callout-topic-header" style="color: var(--brand-neon);">FOCO DO TREINO: DANÇA & FORÇA REAL</div>
-      <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
-        Potência de puxada na barra, alavancas nas argolas, aceleração terminal de glúteo e dança contemporânea.
+    <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 12px 14px; margin-bottom: 12px;">
+      <div class="callout-icon" style="font-size:1.15rem; margin-top:1px;">🎯</div>
+      <div>
+        <div class="callout-topic-header" style="color: var(--brand-neon);">FOCO DO TREINO: DANÇA & FORÇA REAL</div>
+        <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
+          Potência de puxada na barra, alavancas nas argolas, aceleração terminal de glúteo e dança contemporânea.
+        </div>
       </div>
     </div>
 
@@ -3873,10 +3907,13 @@
   <div id="tab-quarta" class="tab-content">
     
     <!-- Introdução Sucinta da Sessão -->
-    <div class="callout-box" style="border-left: 3px solid #38bdf8; padding: 11px 14px; margin-bottom: 12px; display: block;">
-      <div class="callout-topic-header" style="color: #38bdf8;">FOCO DO TREINO: GINÁSTICA & EQUILÍBRIO</div>
-      <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
-        Parada de Mãos (Handstand), alavancas na manjota (canes) e equilíbrio unilateral (One-Arm Croc).
+    <div class="callout-box" style="border-left: 3px solid #38bdf8; padding: 12px 14px; margin-bottom: 12px;">
+      <div class="callout-icon" style="font-size:1.15rem; margin-top:1px;">🎯</div>
+      <div>
+        <div class="callout-topic-header" style="color: #38bdf8;">FOCO DO TREINO: GINÁSTICA & EQUILÍBRIO</div>
+        <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
+          Parada de Mãos (Handstand), alavancas na manjota (canes) e equilíbrio unilateral (One-Arm Croc).
+        </div>
       </div>
     </div>
 
@@ -4196,111 +4233,296 @@
     </div>
   </div>
 
-  <!-- ==================== TAB: EVOLUÇÃO CORPORAL ==================== -->
+  <!-- ==================== TAB: EVOLUÇÃO, CONSISTÊNCIA & MÉTRICAS ==================== -->
   <div id="tab-evolucao" class="tab-content">
-    <div class="evolucao-hero">
-      <div class="evolucao-title">
-        <span>📈 Evolução & Composição Corporal: Gui Lemos</span>
-        <span class="evolucao-badge-delta">97 kg ➔ 84 kg (-13 kg)</span>
-      </div>
-      <p style="font-size:0.8rem; color:var(--text-muted); margin:6px 0 0;">
-        Comparativo físico, antropométrico e cinético: <strong>02 de Julho de 2026</strong> (97 kg) vs. <strong>05 de Outubro de 2026</strong> (84 kg - HOJE!). Período: 95 dias (~1 kg/semana).
-      </p>
 
-      <!-- Grid de Métricas Chave -->
-      <div class="metrics-summary-grid">
-        <div class="metric-summary-card">
-          <div class="metric-value">-13 kg</div>
-          <div class="metric-label">Peso Corporal</div>
+    <!-- Seletor de Tópicos da Central de Evolução -->
+    <div class="evolucao-tabs-bar" style="display:flex; gap:8px; overflow-x:auto; padding-bottom:6px; margin-bottom:14px; scrollbar-width:none;">
+      <button class="evol-nav-btn active" id="btnEvol-consistencia" onclick="switchEvolucaoPane('consistencia', this)">
+        📊 Consistência & Volume
+      </button>
+      <button class="evol-nav-btn" id="btnEvol-tecnica" onclick="switchEvolucaoPane('tecnica', this)">
+        🤸 Evolução Técnica
+      </button>
+      <button class="evol-nav-btn" id="btnEvol-composicao" onclick="switchEvolucaoPane('composicao', this)">
+        🧬 Composição Corporal
+      </button>
+    </div>
+
+    <!-- PAINEL 1: CONSISTÊNCIA, FREQUÊNCIA & VOLUME DE TREINO -->
+    <div id="pane-evol-consistencia" class="evolucao-subpane" style="display:block;">
+      <div class="evolucao-hero">
+        <div class="evolucao-title">
+          <span>📊 Relatório de Consistência & Volume de Treino</span>
+          <span class="evolucao-badge-delta" id="evolAdherenceBadge">Ativo</span>
         </div>
-        <div class="metric-summary-card">
-          <div class="metric-value">~ -45 kg</div>
-          <div class="metric-label">Carga Meniscal / Ciclo</div>
+        <p style="font-size:0.8rem; color:var(--text-muted); margin:6px 0 0;">
+          Mapeamento em tempo real do cumprimento da rotina, séries executadas e equilíbrio biomecânico de ações motoras.
+        </p>
+
+        <!-- Grid de Métricas de Consistência -->
+        <div class="metrics-summary-grid">
+          <div class="metric-summary-card">
+            <div class="metric-value" id="evolDaysDoneCount" style="color:var(--brand-neon);">0 / 5</div>
+            <div class="metric-label">Dias Concluídos (Semana)</div>
+          </div>
+          <div class="metric-summary-card">
+            <div class="metric-value" id="evolSetsDoneCount" style="color:#38bdf8;">0</div>
+            <div class="metric-label">Séries Realizadas</div>
+          </div>
+          <div class="metric-summary-card">
+            <div class="metric-value" id="evolVolumeRate">100%</div>
+            <div class="metric-label">Aderência aos Roteiros</div>
+          </div>
+          <div class="metric-summary-card">
+            <div class="metric-value" style="color:#c084fc;">Equilibrado</div>
+            <div class="metric-label">Balanço Articular</div>
+          </div>
         </div>
-        <div class="metric-summary-card">
-          <div class="metric-value">+15.5%</div>
-          <div class="metric-label">Relação Força / Peso</div>
+      </div>
+
+      <!-- Equilíbrio de Ações Motoras (Balanço Biomecânico) -->
+      <div class="comparison-card" style="margin-top:14px; border-left:3.5px solid #38bdf8;">
+        <div class="comparison-card-header">
+          <div class="comparison-card-title">⚖️ Equilíbrio das Ações Motoras (Puxar • Empurrar • Core • Pernas • Cardio)</div>
+          <span style="font-size:0.72rem; color:#38bdf8; font-weight:800;">PRESERVAÇÃO ARTICULAR</span>
         </div>
-        <div class="metric-summary-card">
-          <div class="metric-value">V-Taper</div>
-          <div class="metric-label">Definição & Cintura</div>
+        <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:12px;">
+          Distribuição proporcional de volume mecânico para blindar ombros, cotovelos e joelho esquerdo:
+        </p>
+        
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:0.78rem; font-weight:700; margin-bottom:4px;">
+              <span style="color:#38bdf8;">🟢 Puxada Vertical & Horizontal (Strict Pull-Up, RMU, Remadas)</span>
+              <span style="color:#fff;">26% do volume</span>
+            </div>
+            <div style="background:rgba(255,255,255,0.08); height:7px; border-radius:10px; overflow:hidden;">
+              <div style="background:linear-gradient(90deg, #0284c7, #38bdf8); height:100%; width:26%; border-radius:10px;"></div>
+            </div>
+          </div>
+
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:0.78rem; font-weight:700; margin-bottom:4px;">
+              <span style="color:#c084fc;">🔵 Empurrar & Depressão (Dips nas Argolas, Push-ups, HSPU)</span>
+              <span style="color:#fff;">22% do volume</span>
+            </div>
+            <div style="background:rgba(255,255,255,0.08); height:7px; border-radius:10px; overflow:hidden;">
+              <div style="background:linear-gradient(90deg, #9333ea, #c084fc); height:100%; width:22%; border-radius:10px;"></div>
+            </div>
+          </div>
+
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:0.78rem; font-weight:700; margin-bottom:4px;">
+              <span style="color:#fbbf24;">🟡 Core & Compressão Pélvica (Hollow Rocks, L-Sit, V-Sit)</span>
+              <span style="color:#fff;">20% do volume</span>
+            </div>
+            <div style="background:rgba(255,255,255,0.08); height:7px; border-radius:10px; overflow:hidden;">
+              <div style="background:linear-gradient(90deg, #d97706, #fbbf24); height:100%; width:20%; border-radius:10px;"></div>
+            </div>
+          </div>
+
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:0.78rem; font-weight:700; margin-bottom:4px;">
+              <span style="color:var(--brand-neon);">🟣 Membros Inferiores & Quadril (RDL, Saltos, Afundos, Isometrias)</span>
+              <span style="color:#fff;">18% do volume</span>
+            </div>
+            <div style="background:rgba(255,255,255,0.08); height:7px; border-radius:10px; overflow:hidden;">
+              <div style="background:linear-gradient(90deg, #059669, var(--brand-neon)); height:100%; width:18%; border-radius:10px;"></div>
+            </div>
+          </div>
+
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:0.78rem; font-weight:700; margin-bottom:4px;">
+              <span style="color:#f43f5e;">🔴 Condicionamento Metabólico & Técnico (Box WOD, Dança, Handstand)</span>
+              <span style="color:#fff;">14% do volume</span>
+            </div>
+            <div style="background:rgba(255,255,255,0.08); height:7px; border-radius:10px; overflow:hidden;">
+              <div style="background:linear-gradient(90deg, #e11d48, #f43f5e); height:100%; width:14%; border-radius:10px;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:14px; padding:10px 12px; background:rgba(56,189,248,0.06); border:1px solid rgba(56,189,248,0.2); border-radius:10px; font-size:0.78rem; line-height:1.5; color:#cbd5e1;">
+          💡 <strong>Diagnóstico do Treinador:</strong> Balanço agonista/antagonista excelente. O volume de puxada protege a integridade do manguito rotador operado e a dominância de quadril resguarda o menisco lateral esquerdo.
         </div>
       </div>
     </div>
 
-    <!-- Galeria de Fotos Comparativas com Análise -->
-    <div class="photos-comparison-container">
-      
-      <!-- CARD 1: POSTURA FRONTAL RELAXADA -->
-      <div class="comparison-card">
-        <div class="comparison-card-header">
-          <div class="comparison-card-title">1. Postura Frontal Neutra (Relaxada)</div>
-          <span style="font-size:0.75rem; color:#38bdf8; font-weight:700;">Simetria & Alinhamento</span>
+    <!-- PAINEL 2: EVOLUÇÃO TÉCNICA (MARCOS & HABILIDADES) -->
+    <div id="pane-evol-tecnica" class="evolucao-subpane" style="display:none;">
+      <div class="evolucao-hero">
+        <div class="evolucao-title">
+          <span>🤸 Evolução Técnica & Marcos Biomecânicos</span>
+          <span class="evolucao-badge-delta">Avançado</span>
         </div>
-        <div class="photo-display-frame">
-          <img src="Midia/comparacao_frontal_relaxado.jpg" alt="Comparação Frontal Relaxada 97kg vs 84kg" loading="lazy">
-          <div class="photo-split-legend">
-            <span class="legend-before">⬅️ 02/07/2026: 97 kg</span>
-            <span class="legend-after">05/10/2026: 84 kg (-13 kg) ➡️</span>
-          </div>
-        </div>
-        <div style="font-size:0.84rem; font-weight:700; color:#fff; margin-bottom:6px;">🔬 Análise Biomecânica & Postural:</div>
-        <ul class="bio-points-list">
-          <li><strong>Descompressão da Cintura & Flancos:</strong> Perda acentuada de adiposidade periumbilical e visceral. A relação cintura-quadril afunilou visivelmente, permitindo uma linha de centro muito mais compacta e estável.</li>
-          <li><strong>Alinhamento Pélvico e Coluna Lombar:</strong> Com a remoção de 13 kg na parede abdominal anterior, a sobrecarga de tração que forçava a pelve em anteversão e lordose compensatória diminuiu, restaurando o alinhamento neutro e descompressão lombar sem esforço.</li>
-          <li><strong>Cintura Escapular & Peitoral:</strong> Notável elevação e retração natural dos ombros (ombro direito 100% zerado e livre de compensações), com peito mais aberto e menos tensão no trapézio superior.</li>
-          <li><strong>Membros Inferiores & Joelhos:</strong> Redução evidente de volume e retenção nos quadríceps e adutores, gerando menor torque valgo estático sobre a articulação do joelho esquerdo.</li>
-        </ul>
+        <p style="font-size:0.8rem; color:var(--text-muted); margin:6px 0 0;">
+          Comparativo cronológico de ganho motor, alavancas gímnicas e segurança articular (Início vs. Atual).
+        </p>
       </div>
 
-      <!-- CARD 2: DUPLO BÍCEPS FRONTAL -->
-      <div class="comparison-card">
+      <!-- MARCO 1: HANDSTAND & MANJOTA -->
+      <div class="comparison-card" style="margin-top:14px; border-left:3.5px solid #38bdf8;">
         <div class="comparison-card-header">
-          <div class="comparison-card-title">2. Duplo Bíceps Frontal (Tônus & Ativação)</div>
-          <span style="font-size:0.75rem; color:var(--brand-neon); font-weight:700;">Densidade & Definição</span>
+          <div class="comparison-card-title">1. Parada de Mãos (Handstand) & Alavancas na Manjota</div>
+          <span style="font-size:0.75rem; color:#38bdf8; font-weight:700;">Domínio Gravitacional</span>
         </div>
-        <div class="photo-display-frame">
-          <img src="Midia/comparacao_duplo_biceps.jpg" alt="Comparação Duplo Bíceps 97kg vs 84kg" loading="lazy">
-          <div class="photo-split-legend">
-            <span class="legend-before">⬅️ 02/07/2026: 97 kg</span>
-            <span class="legend-after">05/10/2026: 84 kg (-13 kg) ➡️</span>
+        <div style="font-size:0.82rem; line-height:1.6; color:#cbd5e1;">
+          <div style="padding:8px 12px; background:rgba(255,255,255,0.03); border-radius:8px; margin-bottom:8px;">
+            <strong style="color:#94a3b8;">📅 Ponto de Partida:</strong> Dificuldade em manter a linha axilar aberta sem hiperlordose lombar compensatória; fadiga precoce de punhos; sem sustentação unilateral nos canes.
+          </div>
+          <div style="padding:8px 12px; background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.25); border-radius:8px;">
+            <strong style="color:#38bdf8;">🚀 Estado Atual:</strong> Handstand alinhado em *bone stacking* por mais de 10s livre; subida contínua em força pura (Press Handstand); sustentação firme em **One-Arm Croc por 7 segundos** com apenas 1 braço sem giro de pelve.
           </div>
         </div>
-        <div style="font-size:0.84rem; font-weight:700; color:#fff; margin-bottom:6px;">🔬 Análise de Composição & Massa Muscular:</div>
-        <ul class="bio-points-list">
-          <li><strong>Preservação Integral de Massa Magra:</strong> Sob suporte de treino de alta densidade e tirzepatida, a massa muscular de tronco, ombros e braços foi plenamente preservada durante o déficit de 13 kg.</li>
-          <li><strong>Definição e Separação Deltopeitoral:</strong> O sulco entre deltóide anterior e peitoral maior está profundamente marcado. O pico do bíceps e vascularização de antebraços destacam-se nitidamente.</li>
-          <li><strong>Formato V-Taper (Expansão Dorsal):</strong> A redução na circunferência da cintura fez a silhueta em V saltar, com o grande dorsal e serrátil anterior evidentes em contração.</li>
-          <li><strong>Abdômen Superior & Costelas Flutuantes:</strong> Transição toracoabdominal nítida, essencial para sustentação rígida em hollow body em paradas de mão e calistenia.</li>
-        </ul>
       </div>
 
-      <!-- CARD 3: IMPACTO BIOMECÂNICO & CLÍNICO -->
+      <!-- MARCO 2: STRICT RMU & TRANSICÕES -->
       <div class="comparison-card" style="border-left:3.5px solid var(--brand-neon);">
         <div class="comparison-card-header">
-          <div class="comparison-card-title">⚡ Síntese Cinética: Impacto nas Suas Habilidades</div>
-          <span style="font-size:0.72rem; color:var(--brand-neon); font-weight:800;">CIÊNCIA DO MOVIMENTO</span>
+          <div class="comparison-card-title">2. Ring Muscle-Up Livre (Argolas Altas) & Transição</div>
+          <span style="font-size:0.75rem; color:var(--brand-neon); font-weight:700;">Potência Escapular</span>
         </div>
-        <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.7;">
-          <div style="margin-bottom: 12px;">
-            <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:6px; margin-bottom:4px;">
-              <strong style="color:#ffffff; font-size:0.86rem;">1. Bar Muscle-Up & Ring Muscle-Up</strong>
-              <span class="formula-badge">a = F / m</span>
-            </div>
-            <p style="margin: 0;">
-              <strong>Princípio da Aceleração (2ª Lei de Newton):</strong> Quanto menor a massa corporal (<em>m</em>), maior a aceleração vertical (<em>a</em>) desenvolvida com a mesma força de puxada (<em>F</em>). Acelerar <strong>84 kg</strong> para o turnover exige <strong>15.5% menos potência mecânica</strong> que acelerar 97 kg. Isso significa que a transição sobre a barra deixa de ser um "chute" de sobrevivência e torna-se um movimento de puro controle técnico e elástico.
-            </p>
+        <div style="font-size:0.82rem; line-height:1.6; color:#cbd5e1;">
+          <div style="padding:8px 12px; background:rgba(255,255,255,0.03); border-radius:8px; margin-bottom:8px;">
+            <strong style="color:#94a3b8;">📅 Ponto de Partida:</strong> 2 anos sem realizar Ring Muscle-Up livre devido ao receio de desaceleração abrupta no ombro direito operado; transição dependente de impulso de quadril.
           </div>
-          
-          <p style="margin-top:8px;"><strong>2. Handstand & Acrobacias (Linha de Prumo):</strong><br>
-          Com centro de massa (CoM) mais leve e tronco compacto, o momento de inércia diminui significativamente. As correções no punho exigem micro-ajustes de miligramas de força, reduzindo a fadiga do antebraço e a pressão nos ombros.</p>
-
-          <p style="margin-top:8px;"><strong>3. Joelho Esquerdo (Menisco Lateral & Dança de Chão):</strong><br>
-          Em agachamentos profundos e giros no solo, o menisco lateral sofre translação posterior e picos de compressão que chegam a 3 a 4x o peso corporal. A perda de 13 kg de sobrecarga inerte <strong>elimina entre 40 a 52 kg de força esmagadora a cada repetição</strong>. É essa descompressão biológica que viabiliza o ganho progressivo de amplitude na flexão sem provocar nova crise de atrito!</p>
+          <div style="padding:8px 12px; background:rgba(0,255,136,0.08); border:1px solid rgba(0,255,136,0.25); border-radius:8px;">
+            <strong style="color:var(--brand-neon);">🚀 Estado Atual:</strong> Retorno pleno com **1x Strict RMU Livre no topo** + 2x Inverted Candle Kips sem auxílio de elástico, mantendo depressão escapular ativa e zero dor no supraespinhal.
+          </div>
         </div>
       </div>
 
+      <!-- MARCO 3: PORTAGEM DE FORÇA -->
+      <div class="comparison-card" style="border-left:3.5px solid #c084fc;">
+        <div class="comparison-card-header">
+          <div class="comparison-card-title">3. Portagem Acrobática de Força (Press no Ombro)</div>
+          <span style="font-size:0.75rem; color:#c084fc; font-weight:700;">Estabilidade Dinâmica</span>
+        </div>
+        <div style="font-size:0.82rem; line-height:1.6; color:#cbd5e1;">
+          <div style="padding:8px 12px; background:rgba(255,255,255,0.03); border-radius:8px; margin-bottom:8px;">
+            <strong style="color:#94a3b8;">📅 Ponto de Partida:</strong> Desconforto em sustentações pesadas acima de 58 kg; instabilidade na sincronia de subida com a base.
+          </div>
+          <div style="padding:8px 12px; background:rgba(192,132,252,0.08); border:1px solid rgba(192,132,252,0.25); border-radius:8px;">
+            <strong style="color:#c084fc;">🚀 Estado Atual:</strong> Press Handstand impecável sobre as clavículas do parceiro sustentando **86 kg**, com centro de massa rigorosamente vertical e descida excêntrica macia.
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- PAINEL 3: COMPOSIÇÃO CORPORAL & ANTROPOMETRIA -->
+    <div id="pane-evol-composicao" class="evolucao-subpane" style="display:none;">
+      
+      <!-- Aviso de Módulo Personalizado -->
+      <div style="margin-bottom:12px; padding:8px 12px; background:rgba(251,191,36,0.08); border:1px solid rgba(251,191,36,0.25); border-radius:10px; font-size:0.75rem; color:#fbbf24;">
+        ℹ️ <strong>Módulo Sob Medida:</strong> Este relatório de composição corporal é exibido especificamente para alunos com metas de peso, definição ou descompressão articular.
+      </div>
+
+      <div class="evolucao-hero">
+        <div class="evolucao-title">
+          <span>📈 Composição Corporal & Descompressão Articular: Gui Lemos</span>
+          <span class="evolucao-badge-delta">97 kg ➔ 84 kg (-13 kg)</span>
+        </div>
+        <p style="font-size:0.8rem; color:var(--text-muted); margin:6px 0 0;">
+          Comparativo físico, antropométrico e cinético: <strong>02 de Julho de 2026</strong> (97 kg) vs. <strong>05 de Outubro de 2026</strong> (84 kg - HOJE!). Período: 95 dias (~1 kg/semana).
+        </p>
+
+        <!-- Grid de Métricas Chave -->
+        <div class="metrics-summary-grid">
+          <div class="metric-summary-card">
+            <div class="metric-value">-13 kg</div>
+            <div class="metric-label">Peso Corporal</div>
+          </div>
+          <div class="metric-summary-card">
+            <div class="metric-value">~ -45 kg</div>
+            <div class="metric-label">Carga Meniscal / Ciclo</div>
+          </div>
+          <div class="metric-summary-card">
+            <div class="metric-value">+15.5%</div>
+            <div class="metric-label">Relação Força / Peso</div>
+          </div>
+          <div class="metric-summary-card">
+            <div class="metric-value">V-Taper</div>
+            <div class="metric-label">Definição & Cintura</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Galeria de Fotos Comparativas com Análise -->
+      <div class="photos-comparison-container">
+        
+        <!-- CARD 1: POSTURA FRONTAL RELAXADA -->
+        <div class="comparison-card">
+          <div class="comparison-card-header">
+            <div class="comparison-card-title">1. Postura Frontal Neutra (Relaxada)</div>
+            <span style="font-size:0.75rem; color:#38bdf8; font-weight:700;">Simetria & Alinhamento</span>
+          </div>
+          <div class="photo-display-frame">
+            <img src="Midia/comparacao_frontal_relaxado.jpg" alt="Comparação Frontal Relaxada 97kg vs 84kg" loading="lazy">
+            <div class="photo-split-legend">
+              <span class="legend-before">⬅️ 02/07/2026: 97 kg</span>
+              <span class="legend-after">05/10/2026: 84 kg (-13 kg) ➡️</span>
+            </div>
+          </div>
+          <div style="font-size:0.84rem; font-weight:700; color:#fff; margin-bottom:6px;">🔬 Análise Biomecânica & Postural:</div>
+          <ul class="bio-points-list">
+            <li><strong>Descompressão da Cintura & Flancos:</strong> Perda acentuada de adiposidade periumbilical e visceral. A relação cintura-quadril afunilou visivelmente, permitindo uma linha de centro muito mais compacta e estável.</li>
+            <li><strong>Alinhamento Pélvico e Coluna Lombar:</strong> Com a remoção de 13 kg na parede abdominal anterior, a sobrecarga de tração que forçava a pelve em anteversão e lordose compensatória diminuiu, restaurando o alinhamento neutro e descompressão lombar sem esforço.</li>
+            <li><strong>Cintura Escapular & Peitoral:</strong> Notável elevação e retração natural dos ombros (ombro direito 100% zerado e livre de compensações), com peito mais aberto e menos tensão no trapézio superior.</li>
+            <li><strong>Membros Inferiores & Joelhos:</strong> Redução evidente de volume e retenção nos quadríceps e adutores, gerando menor torque valgo estático sobre a articulação do joelho esquerdo.</li>
+          </ul>
+        </div>
+
+        <!-- CARD 2: DUPLO BÍCEPS FRONTAL -->
+        <div class="comparison-card">
+          <div class="comparison-card-header">
+            <div class="comparison-card-title">2. Duplo Bíceps Frontal (Tônus & Ativação)</div>
+            <span style="font-size:0.75rem; color:var(--brand-neon); font-weight:700;">Densidade & Definição</span>
+          </div>
+          <div class="photo-display-frame">
+            <img src="Midia/comparacao_duplo_biceps.jpg" alt="Comparação Duplo Bíceps 97kg vs 84kg" loading="lazy">
+            <div class="photo-split-legend">
+              <span class="legend-before">⬅️ 02/07/2026: 97 kg</span>
+              <span class="legend-after">05/10/2026: 84 kg (-13 kg) ➡️</span>
+            </div>
+          </div>
+          <div style="font-size:0.84rem; font-weight:700; color:#fff; margin-bottom:6px;">🔬 Análise de Composição & Massa Muscular:</div>
+          <ul class="bio-points-list">
+            <li><strong>Preservação Integral de Massa Magra:</strong> Sob suporte de treino de alta densidade e tirzepatida, a massa muscular de tronco, ombros e braços foi plenamente preservada durante o déficit de 13 kg.</li>
+            <li><strong>Definição e Separação Deltopeitoral:</strong> O sulco entre deltóide anterior e peitoral maior está profundamente marcado. O pico do bíceps e vascularização de antebraços destacam-se nitidamente.</li>
+            <li><strong>Formato V-Taper (Expansão Dorsal):</strong> A redução na circunferência da cintura fez a silhueta em V saltar, com o grande dorsal e serrátil anterior evidentes em contração.</li>
+            <li><strong>Abdômen Superior & Costelas Flutuantes:</strong> Transição toracoabdominal nítida, essencial para sustentação rígida em hollow body em paradas de mão e calistenia.</li>
+          </ul>
+        </div>
+
+        <!-- CARD 3: IMPACTO BIOMECÂNICO & CLÍNICO -->
+        <div class="comparison-card" style="border-left:3.5px solid var(--brand-neon);">
+          <div class="comparison-card-header">
+            <div class="comparison-card-title">⚡ Síntese Cinética: Impacto nas Suas Habilidades</div>
+            <span style="font-size:0.72rem; color:var(--brand-neon); font-weight:800;">CIÊNCIA DO MOVIMENTO</span>
+          </div>
+          <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.7;">
+            <div style="margin-bottom: 12px;">
+              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:6px; margin-bottom:4px;">
+                <strong style="color:#ffffff; font-size:0.86rem;">1. Bar Muscle-Up & Ring Muscle-Up</strong>
+                <span class="formula-badge">a = F / m</span>
+              </div>
+              <p style="margin: 0;">
+                <strong>Princípio da Aceleração (2ª Lei de Newton):</strong> Quanto menor a massa corporal (<em>m</em>), maior a aceleração vertical (<em>a</em>) desenvolvida com a mesma força de puxada (<em>F</em>). Acelerar <strong>84 kg</strong> para o turnover exige <strong>15.5% menos potência mecânica</strong> que acelerar 97 kg. Isso significa que a transição sobre a barra deixa de ser um "chute" de sobrevivência e torna-se um movimento de puro controle técnico e elástico.
+              </p>
+            </div>
+            
+            <p style="margin-top:8px;"><strong>2. Handstand & Acrobacias (Linha de Prumo):</strong><br>
+            Com centro de massa (CoM) mais leve e tronco compacto, o momento de inércia diminui significativamente. As correções no punho exigem micro-ajustes de miligramas de força, reduzindo a fadiga do antebraço e a pressão nos ombros.</p>
+
+            <p style="margin-top:8px;"><strong>3. Joelho Esquerdo (Menisco Lateral & Dança de Chão):</strong><br>
+            Em agachamentos profundos e giros no solo, o menisco lateral sofre translação posterior e picos de compressão que chegam a 3 a 4x o peso corporal. A perda de 13 kg de sobrecarga inerte <strong>elimina entre 40 a 52 kg de força esmagadora a cada repetição</strong>. É essa descompressão biológica que viabiliza o ganho progressivo de amplitude na flexão sem provocar nova crise de atrito!</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 
   <!-- Cronômetro Flutuante OLED Stealth -->
@@ -4496,6 +4718,49 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+    
+    function switchEvolucaoPane(paneId, btn) {
+      document.querySelectorAll('.evol-nav-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.evolucao-subpane').forEach(p => p.style.display = 'none');
+
+      if (btn) btn.classList.add('active');
+      const targetPane = document.getElementById('pane-evol-' + paneId);
+      if (targetPane) targetPane.style.display = 'block';
+
+      if (paneId === 'consistencia') {
+        updateEvolucaoStats();
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function updateEvolucaoStats() {
+      const completed = getCompletedWorkouts();
+      const doneDays = Object.values(completed).filter(Boolean).length;
+      const daysCountEl = document.getElementById('evolDaysDoneCount');
+      if (daysCountEl) daysCountEl.textContent = `${doneDays} / 5`;
+
+      const doneSets = document.querySelectorAll('.set-pill.done').length;
+      const setsCountEl = document.getElementById('evolSetsDoneCount');
+      if (setsCountEl) setsCountEl.textContent = doneSets;
+
+      const badge = document.getElementById('evolAdherenceBadge');
+      if (badge) {
+        if (doneDays >= 4) {
+          badge.textContent = 'Alta Consistência (80%+)';
+          badge.style.background = 'rgba(0,255,136,0.15)';
+          badge.style.color = 'var(--brand-neon)';
+        } else if (doneDays >= 2) {
+          badge.textContent = 'Em Progresso';
+          badge.style.background = 'rgba(56,189,248,0.15)';
+          badge.style.color = '#38bdf8';
+        } else {
+          badge.textContent = 'Semana Ativa';
+          badge.style.background = 'rgba(255,255,255,0.08)';
+          badge.style.color = '#e2e8f0';
+        }
+      }
+    }
+
     function openDedicatedView(sectionId) {
       document.body.classList.add('in-dedicated-view');
       const topBar = document.getElementById('dedicatedTopBar');
@@ -4521,6 +4786,9 @@
 
       if (sectionId === 'timers' && typeof initTimerUI === 'function') {
         initTimerUI();
+      }
+      if (sectionId === 'evolucao') {
+        updateEvolucaoStats();
       }
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
