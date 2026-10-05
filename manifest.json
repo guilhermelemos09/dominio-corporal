@@ -1,7 +1,8 @@
 {
-  "name": "Domínio Corporal - Gui Lemos",
-  "short_name": "Domínio Corporal",
-  "description": "Desafie a gravidade, domine seu corpo.",
+  "id": "/dominio-corporal-gui",
+  "name": "Domínio Corporal Gui",
+  "short_name": "Domínio Corporal Gui",
+  "description": "Desafie a gravidade, domine seu corpo - Gui Lemos",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
