@@ -41,21 +41,15 @@
      3. *Isometria Pesada de Longa Duração (30–45s):* Para aumentar o *stiffness* tendíneo, estimular mecanotransdução nos tenócitos e quebrar a inibição neural.
      4. *Reeducação Pliométrica Progressiva (Pogo Hops):* Quando a força basal estiver reestabelecida.
 
-2. **Ombro Direito — Acromioplastia & Reparo de Supraespinhal (Histórico de 2 a 3 anos):**
-   * *Histórico:* Ressecção de acrômio tipo III (em gancho) + sutura/reparo do tendão do supraespinhal pós-queda de corda há ~2 a 3 anos.
-   * *Status Atual:* Cirurgia 100% consolidada e biológica/mecanicamente assintomática ("não sinto mais nada"). Amplitude e força preservadas.
-   * *Leitura Biomecânica:* A articulação glenoumeral está íntegra e apta a cargas pesadas em cadeia fechada (como comprovado no Press Handstand no ombro e no RMU estrito de hoje). O cuidado restante é meramente preventivo contra desacelerações balísticas descontroladas em grande amplitude.
+2. **Ombro Direito — Acromioplastia & Reparo de Supraespinhal (Histórico):**
+   * *Status Atual:* **100% ZERADO e consolidado.** Sem dor, sem restrição de amplitude ou força. O atleta confirmou que não há necessidade de hipervigilância ou alertas constantes sobre o ombro; apto para puxadas e empurres com potência máxima.
 
-3. **Tríceps Esquerdo (Reabilitação Recente - Pós-Viscossuplementação):**
-   * *Histórico:* Lesão parcial com 2 sessões de viscossuplementação com ácido hialurônico e reabilitação de Dez/2025 a Jun/2026.
-   * *Status Atual:* Sem dor aguda (0/10). Apresenta sensação intermitente descrita como "pressão / coceirinha interna / meio azedo" durante esforços de sustentação ou transições de alavanca.
-   * *Diagnóstico Biomecânico & Tecidual:*
-     * *Mecano-transdução em Remodelação:* O tendão em maturação (substituição contínua de colágeno III por colágeno I) e o ácido hialurônico reorganizam a matriz extracelular sob tensão. A "coceirinha / pressão" decorre do disparo de mecanorreceptores e nociceptores de baixo limiar na fáscia peritendínea e septo intermuscular medial.
-     * *Ambiente Metabólico Tendíneo ("Azedo"):* Tendões possuem baixa densidade capilar em relação ao ventre muscular; esforços tensoriais anaeróbios geram acúmulo temporário de prótons ($H^+$) e metabólitos que demoram mais para serem depurados, gerando a sensação de "azedo/ardência difusa".
-     * *Diretriz Operacional:* Excelente prognóstico (permitiu 1 RMU livre hoje sem dor). Evitar sobrecarga excêntrica balística em flexão máxima de cotovelo (como na Rosca Francesa overhead) e priorizar empurres neutros e transições com cotovelos colados ao corpo.
+3. **Cotovelo / Tríceps Esquerdo (Pós-Viscossuplementação):**
+   * *Status Atual:* **Praticamente zerado.** Sem dor aguda, excelente tolerância mecânica demonstrada nas argolas e barras. Atenção apenas leve e sutil para evitar hiperextensão sob choque articular.
 
-4. **Menisco Lateral Esquerdo (Rompimento parcial):**
-   * *Histórico & Status Atual:* Incômodo crônico, sensação de atrito ("pedrinha"). Agrava com hiperflexão e rotação tibial; alivia com descompressão e alongamento de cadeia lateral.
+4. **Menisco Lateral Esquerdo (Rompimento Parcial) — FOCO CLÍNICO PRINCIPAL:**
+   * *Status Atual:* **Principal queixa ativa e incômodo remanescente.** Sensação de atrito / bloqueio mecânico ("pedrinha") que limita a amplitude de flexão profunda de joelho (>110°–120°), essencial para a fluidez do *floorwork* na Dança Contemporânea.
+   * *Alvo Funcional:* Restaurar a amplitude de flexão profunda sem pinçamento do corno posterior via distração articular, desativação de poplíteo/bíceps femoral e reeducação da rotação interna tibial em cadeia cinética fechada.
 
 ---
 

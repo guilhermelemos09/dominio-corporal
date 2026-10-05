@@ -1,19 +1,16 @@
-const CACHE_NAME = 'dominio-corporal-v8';
+const CACHE_NAME = 'dominio-corporal-v9';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './treino.html',
-  './demo_treino_completo.html',
-  './aluno.html',
-  './demo_treino_branco.html',
   './icon-192.png',
   './icon-512.png',
   './icon-pessoal-192.png',
   './icon-pessoal-512.png',
   './favicon.png',
+  './gui_foto.jpg',
   './manifest.json',
   './manifest-pessoal.json',
-  './manifest-aluno.json',
   'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap'
 ];
 

@@ -965,10 +965,7 @@
         <span class="coach-name">Gui Lemos</span>
         <span class="bio-badge">Bio & Perfil ↗</span>
       </div>
-      <div style="display:flex; align-items:center; gap:8px;">
-        <a href="aluno.html" style="font-size:0.75rem; color:var(--text-muted); text-decoration:none; border:1px solid var(--border-subtle); padding:4px 8px; border-radius:6px; display:inline-flex; align-items:center; gap:4px; background:rgba(255,255,255,0.03);">👥 Modelo Alunos ↗</a>
-        <div class="badge-sync">Sincronizado</div>
-      </div>
+      <div class="badge-sync">Sincronizado</div>
     </div>
     <div class="brand">
       <h1>DOMÍNIO CORPORAL</h1>
@@ -1020,139 +1017,50 @@
       </div>
     </div>
 
-    <!-- ==================== SEÇÃO 1: BOX CROSSFIT (WOD À TARDE) ==================== -->
+    <!-- ==================== SEÇÃO 1: BOX CROSSFIT (ORIENTAÇÕES & WOD DA TARDE) ==================== -->
     <div class="section-card sec-cardio">
       <div class="section-header">
         <div class="section-title-wrap">
-          <span class="section-badge">WOD Box</span>
-          <div class="section-title">WOD da Tarde — Warm-up, Skill EMOM 12' & Triplo AMRAP</div>
+          <span class="section-badge">Box CrossFit</span>
+          <div class="section-title">WOD da Tarde — Roteiro, Ritmo & Orientações</div>
         </div>
-        <span class="time-badge">3 blocos • ~50 min</span>
+        <span class="time-badge">~50 min • Turma da Tarde</span>
       </div>
 
-      <!-- Ex 1.1: Warm-up Dinâmico -->
+      <!-- Card Unificado de Orientações do Box (Sem botões de séries) -->
       <div class="exercise-card">
-        <div class="ex-top">
-          <div>
-            <div class="ex-title">Warm-up Dinâmico: 2 Rounds de Ativação Escapular & Core</div>
-            <div class="ex-chips">
-              <span class="chip">10 Hollow Rock</span>
-              <span class="chip">10 Arch Rocks</span>
-              <span class="chip">10 Scapular Pull-up</span>
-              <span class="chip">10 Beat Swing</span>
-            </div>
-          </div>
-          <div class="ex-volume-badge">2 rounds</div>
+        <div class="bio-cue" style="border-left: 2px solid var(--accent-coral); margin-bottom: 12px; font-size: 0.88rem; line-height: 1.7;">
+          <strong>📋 Roteiro da Sessão no Box:</strong><br>
+          1. <strong>Warm-up Articular & Core (2 rounds):</strong> 10 Hollow Rock + 10 Arch Rocks + 10 Scapular Pull-ups + 10 Beat Swings.<br>
+          2. <strong>Skill EMOM 12':</strong> Min 1: 5 Strict Pull-up | Min 2: 10 Pull-up (Butterfly/Kip) | Min 3: Descanso total (4 rounds completos).<br>
+          3. <strong>Triplo AMRAP Metabólico (15 min de WOD + 2 min de Rest):</strong><br>
+          &nbsp;&nbsp;• <em>AMRAP 6':</em> 40 Wall Ball (6/9 kg) ➔ No tempo restante: 6 Pull-up + 8 Burpees over DB + 10 DB Snatch.<br>
+          &nbsp;&nbsp;• <em>Rest 1'</em><br>
+          &nbsp;&nbsp;• <em>AMRAP 5':</em> 30 Wall Ball ➔ No tempo restante: 6 Pull-up + 8 Burpees over DB + 10 DB Hang Clean & Jerk.<br>
+          &nbsp;&nbsp;• <em>Rest 1'</em><br>
+          &nbsp;&nbsp;• <em>AMRAP 4':</em> 20 Wall Ball ➔ No tempo restante: 6 Pull-up + 8 Burpees over DB + 10 DB Thruster.
         </div>
-        <div class="bio-cue">
-          <strong>Ativação Articular Escapular:</strong> Nas escapulares e beat swings, mantenha pegada firme e controle consciente da protração/retração e depressão escapular, sem "desabar" na suspensão passiva. No hollow e arch, mantenha a pelve retrovertida para ativar a fáscia tóraco-lombar.
-        </div>
-        <div class="ex-actions">
-          <button class="btn-comment" id="btn-comment-ex-seg-1" onclick="toggleCommentBox('ex-seg-1')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
-            <span>Nota</span>
-            <span class="comment-dot" id="dot-ex-seg-1" style="display:none;"></span>
-          </button>
-          <div class="sets-container">
-            <div class="set-pill" onclick="toggleSet(this)">Round 1</div>
-            <div class="set-pill" onclick="toggleSet(this)">Round 2</div>
-          </div>
-        </div>
-        <div id="comment-box-ex-seg-1" class="comment-drawer" style="display: none;">
-          <div class="comment-header">
-            <span>👤 Suas anotações (sensações articulares, aquecimento):</span>
-            <span class="save-indicator" id="save-status-ex-seg-1"></span>
-          </div>
-          <textarea class="comment-textarea" id="note-ex-seg-1" placeholder="Ex: Ombros soltos, escápulas ativadas, core firme..." oninput="saveExerciseNote('ex-seg-1', this.value)"></textarea>
-        </div>
-      </div>
 
-      <!-- Ex 1.2: Skill EMOM 12' -->
-      <div class="exercise-card">
-        <div class="ex-top">
-          <div>
-            <div class="ex-title">Skill EMOM 12': Butterfly Pull-up / Força Estrita & Cadência</div>
-            <div class="ex-chips">
-              <span class="chip">Min 1: 5 Strict Pull-up</span>
-              <span class="chip">Min 2: 10 Pull-up (Butterfly/Kip)</span>
-              <span class="chip">Min 3: Descanso Total</span>
-            </div>
-          </div>
-          <div class="ex-volume-badge">4 rounds • 12 min</div>
+        <div class="bio-cue" style="border-left: 2px solid var(--brand-neon); margin-bottom: 14px; font-size: 0.88rem; line-height: 1.7;">
+          <strong>🎯 Orientações de Foco & Atenção Articular:</strong><br>
+          • <strong>🛡️ Joelho Esquerdo (Foco Crítico):</strong> Nos 90 Wall Balls totais, controle a descida excêntrica e pare exatamente a <strong>90° (coxas paralelas ao solo)</strong>. Evite o "rebote" na flexão passiva profunda para não pinçar o corno posterior do menisco lateral.<br>
+          • <strong>💪 Cotovelo Esquerdo:</strong> Praticamente zerado; apenas mantenha extensão neutra simétrica nos DB Snatches e Thrusters.<br>
+          • <strong>⚡ Ombro Direito:</strong> 100% zerado e consolidado — puxe com potência máxima nos butterfly e pull-ups estritos!
         </div>
-        <div class="bio-cue">
-          <strong>Qualidade Neural & Proteção Subacromial:</strong><br>
-          • <strong>Min 1 (5 Strict Pull-up):</strong> Tração bilateral simétrica pura até o esterno. Mantenha os cotovelos alinhados e evite qualquer rotação interna compensatória do braço esquerdo.<br>
-          • <strong>Min 2 (10 Butterfly/Kip Pull-up):</strong> Ritmo cíclico fluido. Use a impulsão de arco/canoa sem choques no final da fase excêntrica.<br>
-          • <strong>Min 3:</strong> Descanso passivo total para desanuviar a fadiga fosfagênica.
-        </div>
-        <div class="ex-actions">
-          <button class="btn-comment" id="btn-comment-ex-seg-2" onclick="toggleCommentBox('ex-seg-2')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
-            <span>Nota</span>
-            <span class="comment-dot" id="dot-ex-seg-2" style="display:none;"></span>
-          </button>
-          <div class="sets-container">
-            <div class="set-pill" onclick="toggleSet(this)">R1 Strict</div>
-            <div class="set-pill" onclick="toggleSet(this)">R1 Kipping</div>
-            <div class="set-pill" onclick="toggleSet(this)">R2 Strict</div>
-            <div class="set-pill" onclick="toggleSet(this)">R2 Kipping</div>
-            <div class="set-pill" onclick="toggleSet(this)">R3 Strict</div>
-            <div class="set-pill" onclick="toggleSet(this)">R3 Kipping</div>
-            <div class="set-pill" onclick="toggleSet(this)">R4 Strict</div>
-            <div class="set-pill" onclick="toggleSet(this)">R4 Kipping</div>
-          </div>
-        </div>
-        <div id="comment-box-ex-seg-2" class="comment-drawer" style="display: none;">
-          <div class="comment-header">
-            <span>👤 Suas anotações (ritmo do butterfly, sensação do ombro):</span>
-            <span class="save-indicator" id="save-status-ex-seg-2"></span>
-          </div>
-          <textarea class="comment-textarea" id="note-ex-seg-2" placeholder="Ex: Strict saiu limpo, butterfly fluido sem incômodo no supra..." oninput="saveExerciseNote('ex-seg-2', this.value)"></textarea>
-        </div>
-      </div>
 
-      <!-- Ex 1.3: WOD Triplo AMRAP -->
-      <div class="exercise-card">
-        <div class="ex-top">
-          <div>
-            <div class="ex-title">WOD Triplo AMRAP: Densidade Metabólica & Pulling Sob Fadiga</div>
-            <div class="ex-chips">
-              <span class="chip">AMRAP 6' (Snatch)</span>
-              <span class="chip">AMRAP 5' (Clean & Jerk)</span>
-              <span class="chip">AMRAP 4' (Thruster)</span>
-              <span class="chip">1' Rest entre blocos</span>
-            </div>
-          </div>
-          <div class="ex-volume-badge">15 min WOD + 2 min Rest</div>
-        </div>
-        <div class="bio-cue">
-          <strong>Roteiro dos 3 Blocos & Blindagem Articular:</strong><br>
-          • <strong>AMRAP 6':</strong> 40 Wall Ball ➔ Then no tempo restante: 6 Pull-up + 8 Burpees over DB + 10 DB Snatch.<br>
-          • <em>Rest 1'</em><br>
-          • <strong>AMRAP 5':</strong> 30 Wall Ball ➔ Then no tempo restante: 6 Pull-up + 8 Burpees over DB + 10 DB Hang Clean & Jerk.<br>
-          • <em>Rest 1'</em><br>
-          • <strong>AMRAP 4':</strong> 20 Wall Ball ➔ Then no tempo restante: 6 Pull-up + 8 Burpees over DB + 10 DB Thruster.<br>
-          • <strong>Foco Meniscal & Ombro:</strong> Nos 90 Wall Balls totais, mantenha controle na descida e flexão a 90° (sem desabar no fundo para proteger o menisco lateral). Nos DB Snatches e Thrusters, impulsione com extensão tripla potente de quadril para aliviar os braços!
-        </div>
         <div class="ex-actions">
-          <button class="btn-comment" id="btn-comment-ex-seg-3" onclick="toggleCommentBox('ex-seg-3')">
+          <button class="btn-comment" id="btn-comment-ex-seg-box" onclick="toggleCommentBox('ex-seg-box')">
             <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
-            <span>Nota</span>
-            <span class="comment-dot" id="dot-ex-seg-3" style="display:none;"></span>
+            <span>Anotações do WOD</span>
+            <span class="comment-dot" id="dot-ex-seg-box" style="display:none;"></span>
           </button>
-          <div class="sets-container">
-            <div class="set-pill" onclick="toggleSet(this)">AMRAP 6'</div>
-            <div class="set-pill" onclick="toggleSet(this)">AMRAP 5'</div>
-            <div class="set-pill" onclick="toggleSet(this)">AMRAP 4'</div>
-          </div>
         </div>
-        <div id="comment-box-ex-seg-3" class="comment-drawer" style="display: none;">
+        <div id="comment-box-ex-seg-box" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas anotações (rounds completados, peso do DB, joelho/ombro):</span>
-            <span class="save-indicator" id="save-status-ex-seg-3"></span>
+            <span>👤 Suas anotações (peso do DB, rounds nos AMRAPs, como o joelho respondeu):</span>
+            <span class="save-indicator" id="save-status-ex-seg-box"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-seg-3" placeholder="Ex: DB de 20kg, 2 rounds + 10 reps no AMRAP 6', joelho 100%..." oninput="saveExerciseNote('ex-seg-3', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-seg-box" placeholder="Ex: DB de 20kg, fiz 2 rounds no AMRAP 6', joelho bem estável parando a 90°..." oninput="saveExerciseNote('ex-seg-box', this.value)"></textarea>
         </div>
       </div>
     </div>
