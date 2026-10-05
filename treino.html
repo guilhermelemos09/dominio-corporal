@@ -1198,6 +1198,286 @@
     body.in-dedicated-view .timer-dock {
       display: none !important;
     }
+    
+    /* ===================================================
+       FICHA DE AVALIAÇÃO DO ALUNO (ANAMNESE BIOMECÂNICA)
+       =================================================== */
+    .student-profile-header-card {
+      background: #11141a;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+    }
+    .btn-open-assessment-form {
+      display: inline-flex;
+      align-items: center;
+      gap: 6.5px;
+      background: rgba(0, 255, 136, 0.12);
+      border: 1px solid rgba(0, 255, 136, 0.35);
+      color: var(--brand-neon);
+      padding: 8px 14px;
+      border-radius: 12px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 2px 8px rgba(0, 255, 136, 0.15);
+    }
+    .btn-open-assessment-form svg {
+      width: 14px;
+      height: 14px;
+      fill: var(--brand-neon);
+      transition: transform 0.2s ease;
+    }
+    .btn-open-assessment-form:hover {
+      background: var(--brand-neon);
+      color: #000000;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px var(--brand-neon-glow);
+    }
+    .btn-open-assessment-form:hover svg {
+      fill: #000000;
+    }
+    .btn-open-assessment-form:active {
+      transform: scale(0.97);
+    }
+
+    .assessment-container {
+      max-width: 680px;
+      margin: 0 auto 30px auto;
+      padding: 4px;
+    }
+    .assessment-header {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    .assessment-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brand-neon);
+      background: rgba(0, 255, 136, 0.1);
+      border: 1px solid rgba(0, 255, 136, 0.28);
+      padding: 3px 8px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+    .assessment-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0 0 6px 0;
+      letter-spacing: -0.01em;
+    }
+    .assessment-desc {
+      font-size: 0.84rem;
+      color: #94a3b8;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .assessment-card-block {
+      background: #11141a;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    }
+    .block-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding-bottom: 10px;
+    }
+    .block-number {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.76rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .block-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.02em;
+    }
+    .block-hint {
+      font-size: 0.78rem;
+      color: #94a3b8;
+      line-height: 1.45;
+      margin: 0 0 12px 0;
+    }
+
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .form-grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 580px) {
+      .form-grid-2, .form-grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 12px;
+    }
+    .form-group:last-child {
+      margin-bottom: 0;
+    }
+    .form-label {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      letter-spacing: 0.02em;
+    }
+    .form-label .req {
+      color: #ef4444;
+      font-weight: 900;
+    }
+    .form-input, .form-select, .form-textarea {
+      background: #090b0e;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 0.84rem;
+      padding: 9px 12px;
+      border-radius: 10px;
+      outline: none;
+      transition: all 0.2s ease;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--brand-neon);
+      box-shadow: 0 0 10px rgba(0, 255, 136, 0.25);
+      background: #0d1115;
+    }
+    .form-textarea {
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    /* Checkbox Pills Grid */
+    .assessment-checkboxes-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .check-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      padding: 9px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+    .check-pill:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .check-pill input[type="checkbox"] {
+      display: none;
+    }
+    .check-box-custom {
+      width: 18px;
+      height: 18px;
+      border-radius: 5px;
+      border: 1.5px solid rgba(255, 255, 255, 0.25);
+      background: #090b0e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+    .check-pill input[type="checkbox"]:checked + .check-box-custom {
+      background: var(--brand-neon);
+      border-color: var(--brand-neon);
+    }
+    .check-pill input[type="checkbox"]:checked + .check-box-custom::after {
+      content: "✓";
+      color: #000000;
+      font-size: 0.75rem;
+      font-weight: 900;
+    }
+    .check-pill-text {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #cbd5e1;
+    }
+    .check-pill input[type="checkbox"]:checked ~ .check-pill-text {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    /* Barra de Submissão */
+    .assessment-submit-bar {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .btn-submit-assessment {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      width: 100%;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #ffffff;
+      border: none;
+      padding: 14px 20px;
+      border-radius: 14px;
+      font-size: 0.92rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 6px 18px rgba(16, 185, 129, 0.35);
+    }
+    .btn-submit-assessment svg {
+      width: 20px;
+      height: 20px;
+      fill: #ffffff;
+      flex-shrink: 0;
+    }
+    .btn-submit-assessment:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(16, 185, 129, 0.5);
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    }
+    .btn-submit-assessment:active {
+      transform: scale(0.98);
+    }
+
     /* ===================================================
        SEÇÃO TREINAMENTO & LISTA DE DIAS (HUB PRINCIPAL)
        =================================================== */
@@ -2239,7 +2519,7 @@
     <div class="brand-top">
       <div class="coach-profile-btn" onclick="openBioModal()">
         <img src="gui_foto.jpg" onerror="this.onerror=null; this.src='icon-192.png';" alt="Domínio Corporal" class="coach-avatar">
-        <span class="coach-name">Gui Lemos</span>
+        <span class="coach-name">GUI LEMOS</span>
         <span class="bio-badge">Bio ↗</span>
       </div>
     </div>
@@ -2257,7 +2537,7 @@
     <div class="goals-overview-card" id="goalsOverviewCard">
       <div class="goals-card-header">
         <div class="goals-card-title">
-          <span class="goals-title-text">GUI LEMOS</span>
+          <span class="goals-title-text">GUILHERME DE PAULA LEMOS</span>
         </div>
         <button class="goals-student-card-btn" onclick="openDedicatedView('perfil')" title="Abrir Ficha do Aluno & Diretrizes">
           <svg viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
@@ -4140,6 +4420,21 @@
 
   <!-- ==================== TAB: DIRETRIZES & REABILITAÇÃO ==================== -->
   <div id="tab-perfil" class="tab-content">
+    <!-- Card de Acesso à Avaliação & Ficha Inicial -->
+    <div class="student-profile-header-card">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap;">
+        <div>
+          <div style="font-size:0.7rem; font-weight:800; color:var(--brand-neon); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:4px;">FICHA TÉCNICA DO ATLETA</div>
+          <h2 style="font-size:1.15rem; font-weight:800; color:#fff; margin:0;">Guilherme de Paula Lemos</h2>
+          <div style="font-size:0.78rem; color:#94a3b8; margin-top:3px;">Ciclo Ativo • Reabilitação Articular & Calistenia de Alta Densidade</div>
+        </div>
+        <button class="btn-open-assessment-form" onclick="openDedicatedView('avaliacao')">
+          <svg viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+          <span>Ficha de Avaliação & Anamnese ↗</span>
+        </button>
+      </div>
+    </div>
+
     <div class="section-card sec-aquecimento">
       <div class="section-header">
         <div class="section-title">🔬 Gestão Biomecânica do Menisco Lateral</div>
@@ -4161,6 +4456,197 @@
         <p><strong>• Ombro Direito (Supraespinhal + Acrômio operados):</strong> A cirurgia zerou a lesão mecânica, mas o SNC guarda o reflexo de proteção. O balanço para HS na paralela gera desaceleração brusca de alta inércia. Vamos reconstruir isso em aparelhos baixos com frenagem controlada.</p>
         <p style="margin-top:8px;"><strong>• Tendões de Aquiles Bilaterais (operados há 8 anos):</strong> Exigem tolerância isométrica e excêntrica pesada de sóleo/gastrocnêmio para devolver complacência elástica sem medo de impacto.</p>
       </div>
+    </div>
+  </div>
+
+  <!-- ==================== TAB: FICHA DE AVALIAÇÃO INICIAL & ANAMNESE ==================== -->
+  <div id="tab-avaliacao" class="tab-content">
+    <div class="assessment-container">
+      <div class="assessment-header">
+        <div class="assessment-badge">DOMÍNIO CORPORAL • ANAMNESE BIOMECÂNICA</div>
+        <h1 class="assessment-title">Ficha de Avaliação do Aluno</h1>
+        <p class="assessment-desc">
+          Preencha as informações abaixo para a prescrição personalizada do seu ciclo de treino. Ao finalizar, toque em <strong>Salvar & Enviar Ficha</strong> para encaminhar o relatório completo diretamente para o WhatsApp do Gui.
+        </p>
+      </div>
+
+      <!-- Formulário Completo -->
+      <form id="assessmentForm" onsubmit="event.preventDefault(); sendAssessmentToWhatsApp();">
+
+        <!-- BLOCO 1: IDENTIFICAÇÃO & ROTINA -->
+        <div class="assessment-card-block">
+          <div class="block-header">
+            <span class="block-number">1</span>
+            <div class="block-title">Identificação & Rotina Diária</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="ass_nome">Nome Completo <span class="req">*</span></label>
+            <input type="text" id="ass_nome" class="form-input" placeholder="Seu nome completo" required oninput="autoSaveAssessmentDraft()">
+          </div>
+
+          <div class="form-grid-3">
+            <div class="form-group">
+              <label class="form-label" for="ass_idade">Idade (anos)</label>
+              <input type="number" id="ass_idade" class="form-input" placeholder="Ex: 28" min="10" max="100" oninput="autoSaveAssessmentDraft()">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ass_altura">Altura (cm)</label>
+              <input type="number" id="ass_altura" class="form-input" placeholder="Ex: 178" min="100" max="230" oninput="autoSaveAssessmentDraft()">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ass_peso">Peso Atual (kg)</label>
+              <input type="number" step="0.1" id="ass_peso" class="form-input" placeholder="Ex: 75.5" oninput="autoSaveAssessmentDraft()">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="ass_rotina">Rotina Diária (Trabalho, Estresse & Sono)</label>
+            <textarea id="ass_rotina" class="form-textarea" rows="2" placeholder="Ex: Trabalho 8h por dia no computador sentado, nível de estresse moderado, durmo em média 7h por noite..." oninput="autoSaveAssessmentDraft()"></textarea>
+          </div>
+
+          <div class="form-grid-3">
+            <div class="form-group">
+              <label class="form-label" for="ass_dias_disponiveis">Dias Disponíveis na Semana</label>
+              <input type="text" id="ass_dias_disponiveis" class="form-input" placeholder="Ex: 3 a 4 dias (Seg, Qua, Sex...)" oninput="autoSaveAssessmentDraft()">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ass_duracao_disponivel">Duração Disponível por Treino</label>
+              <input type="text" id="ass_duracao_disponivel" class="form-input" placeholder="Ex: 45 a 60 minutos" oninput="autoSaveAssessmentDraft()">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ass_local">Onde vai treinar? (Local)</label>
+              <input type="text" id="ass_local" class="form-input" placeholder="Ex: Box CrossFit, Academia, Casa..." oninput="autoSaveAssessmentDraft()">
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOCO 2: HISTÓRICO CLÍNICO & ARTICULAR (LIVRE) -->
+        <div class="assessment-card-block" style="border-left: 3.5px solid #ef4444;">
+          <div class="block-header">
+            <span class="block-number" style="background:rgba(239,68,68,0.2); color:#ef4444;">2</span>
+            <div class="block-title">Histórico Clínico, Lesões & Cuidados Articulares</div>
+          </div>
+          <p class="block-hint">
+            Escreva livremente sobre qualquer cirurgia prévia, histórico de lesões (ombros, joelhos, coluna, punhos...), dores atuais, desconfortos ou restrições médicas que você possui:
+          </p>
+          <div class="form-group">
+            <textarea id="ass_historico_clinico" class="form-textarea" rows="4" placeholder="Ex: Operei o menisco do joelho esquerdo há 2 anos e ainda sinto estalo em agachamento fundo; sinto leve pinçamento no ombro direito quando faço desenvolvimento acima da cabeça..." oninput="autoSaveAssessmentDraft()"></textarea>
+          </div>
+        </div>
+
+        <!-- BLOCO 3: BAGAGEM MOTORA & CONDICIONAMENTO GERAL -->
+        <div class="assessment-card-block" style="border-left: 3.5px solid #38bdf8;">
+          <div class="block-header">
+            <span class="block-number" style="background:rgba(56,189,248,0.2); color:#38bdf8;">3</span>
+            <div class="block-title">Bagagem Motora & Condicionamento Geral</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="ass_historico_esportivo">O que você já treinou previamente?</label>
+            <textarea id="ass_historico_esportivo" class="form-textarea" rows="2" placeholder="Ex: Musculação por 2 anos, natação na adolescência, 6 meses de calistenia básica..." oninput="autoSaveAssessmentDraft()"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="ass_treino_atual">O que treina atualmente? (Modalidade, dias e duração)</label>
+            <textarea id="ass_treino_atual" class="form-textarea" rows="2" placeholder="Ex: CrossFit 3x por semana (1 hora) e corrida leve 1x no final de semana..." oninput="autoSaveAssessmentDraft()"></textarea>
+          </div>
+
+          <div class="form-grid-3">
+            <div class="form-group">
+              <label class="form-label" for="ass_pullups">Barra Fixa (Pull-ups)</label>
+              <select id="ass_pullups" class="form-select" onchange="autoSaveAssessmentDraft()">
+                <option value="">Selecione...</option>
+                <option value="Ainda não faz">Ainda não faz</option>
+                <option value="Faz com elástico / auxílio">Faz com elástico / auxílio</option>
+                <option value="1 a 3 estritas">1 a 3 reps estritas</option>
+                <option value="4 a 8 estritas">4 a 8 reps estritas</option>
+                <option value="9 a 15 estritas">9 a 15 reps estritas</option>
+                <option value="Mais de 15 estritas">Mais de 15 reps estritas</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ass_pushups">Flexão no Solo (Push-ups)</label>
+              <select id="ass_pushups" class="form-select" onchange="autoSaveAssessmentDraft()">
+                <option value="">Selecione...</option>
+                <option value="Faz na parede ou inclinado">Na parede ou inclinado</option>
+                <option value="Faz com joelhos no solo">Com joelhos no solo</option>
+                <option value="1 a 5 no chão">1 a 5 reps no chão</option>
+                <option value="6 a 15 no chão">6 a 15 reps no chão</option>
+                <option value="16 a 30 no chão">16 a 30 reps no chão</option>
+                <option value="Mais de 30 no chão">Mais de 30 reps no chão</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ass_cardio">Nível Cardiorrespiratório</label>
+              <select id="ass_cardio" class="form-select" onchange="autoSaveAssessmentDraft()">
+                <option value="">Selecione...</option>
+                <option value="Iniciante (fadiga rápida)">Iniciante (fadiga rápida)</option>
+                <option value="Moderado (mantém ritmo médio)">Moderado (mantém ritmo)</option>
+                <option value="Bom (boa recuperação)">Bom (boa recuperação)</option>
+                <option value="Avançado (ótimo fôlego)">Avançado (ótimo fôlego)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOCO 4: OBJETIVOS DO CICLO & CONTEXTUALIZAÇÃO -->
+        <div class="assessment-card-block" style="border-left: 3.5px solid var(--brand-neon);">
+          <div class="block-header">
+            <span class="block-number" style="background:rgba(0,255,136,0.2); color:var(--brand-neon);">4</span>
+            <div class="block-title">Objetivos do Ciclo & Contextualização</div>
+          </div>
+
+          <label class="form-label" style="margin-bottom:8px;">Pilares Prioritários (selecione quantos desejar):</label>
+          <div class="assessment-checkboxes-grid">
+            <label class="check-pill">
+              <input type="checkbox" name="pilares" value="Definição Muscular / Composição Corporal" onchange="autoSaveAssessmentDraft()">
+              <span class="check-box-custom"></span>
+              <span class="check-pill-text">Definição Muscular / Composição Corporal</span>
+            </label>
+            <label class="check-pill">
+              <input type="checkbox" name="pilares" value="Ganho de Força & Massa Magra" onchange="autoSaveAssessmentDraft()">
+              <span class="check-box-custom"></span>
+              <span class="check-pill-text">Ganho de Força & Massa Magra</span>
+            </label>
+            <label class="check-pill">
+              <input type="checkbox" name="pilares" value="Habilidades Calistênicas & Ginástica (Handstand, Muscle-Up)" onchange="autoSaveAssessmentDraft()">
+              <span class="check-box-custom"></span>
+              <span class="check-pill-text">Habilidades Calistênicas & Ginástica</span>
+            </label>
+            <label class="check-pill">
+              <input type="checkbox" name="pilares" value="Reabilitação & Alívio de Dores Articulares" onchange="autoSaveAssessmentDraft()">
+              <span class="check-box-custom"></span>
+              <span class="check-pill-text">Reabilitação & Alívio de Dores Articulares</span>
+            </label>
+            <label class="check-pill">
+              <input type="checkbox" name="pilares" value="Mobilidade & Flexibilidade" onchange="autoSaveAssessmentDraft()">
+              <span class="check-box-custom"></span>
+              <span class="check-pill-text">Mobilidade & Flexibilidade</span>
+            </label>
+          </div>
+
+          <div class="form-group" style="margin-top:16px;">
+            <label class="form-label" for="ass_contexto_metas">Contextualização dos Seus Objetivos</label>
+            <p class="block-hint" style="margin-top:2px;">
+              Conte com detalhes o que você busca alcançar nesse ciclo, o que é mais importante para você no dia a dia e suas expectativas com o treino:
+            </p>
+            <textarea id="ass_contexto_metas" class="form-textarea" rows="4" placeholder="Ex: Minha meta principal é conseguir ficar 10 segundos na parada de mão sem depender da parede, enquanto perco um pouco de gordura na cintura e fortaleço o joelho para não sentir mais dor no final do dia..." oninput="autoSaveAssessmentDraft()"></textarea>
+          </div>
+        </div>
+
+        <!-- Ação Final de Envio -->
+        <div class="assessment-submit-bar">
+          <button type="submit" class="btn-submit-assessment">
+            <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.24-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.49-.4-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.17-.48-.29z"/></svg>
+            <span>Salvar & Enviar Ficha para o Gui no WhatsApp</span>
+          </button>
+          <div id="assessmentFeedbackMsg" style="display:none; margin-top:10px; padding:10px 14px; background:rgba(0,255,136,0.12); border:1px solid rgba(0,255,136,0.3); border-radius:10px; color:var(--brand-neon); font-size:0.82rem; font-weight:700; text-align:center;">
+            ✓ Ficha salva no seu celular e enviada no WhatsApp com sucesso!
+          </div>
+        </div>
+
+      </form>
     </div>
   </div>
 
@@ -4771,7 +5257,8 @@
         'timers': 'Central de Timers WOD',
         'analises': 'Análise de Vídeos & Biomecânica',
         'evolucao': 'Evolução & Antropometria',
-        'perfil': 'Ficha do Aluno & Diretrizes'
+        'perfil': 'Ficha do Aluno & Diretrizes',
+        'avaliacao': 'Ficha de Avaliação Inicial'
       };
       const titleEl = document.getElementById('dedicatedBarTitle');
       if (titleEl) titleEl.textContent = titles[sectionId] || 'Central Especializada';
@@ -4791,6 +5278,9 @@
       if (sectionId === 'evolucao') {
         updateEvolucaoStats();
       }
+      if (sectionId === 'avaliacao') {
+        loadStudentAssessment();
+      }
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -4805,6 +5295,136 @@
 
       renderTrainingHubDays();
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    
+    /* ===================================================
+       LÓGICA DA FICHA DE AVALIAÇÃO DO ALUNO (ANAMNESE)
+       =================================================== */
+
+    function getAssessmentData() {
+      const selectedPilares = Array.from(document.querySelectorAll('input[name="pilares"]:checked')).map(cb => cb.value);
+      return {
+        nome: document.getElementById('ass_nome')?.value.trim() || '',
+        idade: document.getElementById('ass_idade')?.value.trim() || '',
+        altura: document.getElementById('ass_altura')?.value.trim() || '',
+        peso: document.getElementById('ass_peso')?.value.trim() || '',
+        rotina: document.getElementById('ass_rotina')?.value.trim() || '',
+        dias_disponiveis: document.getElementById('ass_dias_disponiveis')?.value.trim() || '',
+        duracao_disponivel: document.getElementById('ass_duracao_disponivel')?.value.trim() || '',
+        local: document.getElementById('ass_local')?.value.trim() || '',
+        historico_clinico: document.getElementById('ass_historico_clinico')?.value.trim() || '',
+        historico_esportivo: document.getElementById('ass_historico_esportivo')?.value.trim() || '',
+        treino_atual: document.getElementById('ass_treino_atual')?.value.trim() || '',
+        pullups: document.getElementById('ass_pullups')?.value || '',
+        pushups: document.getElementById('ass_pushups')?.value || '',
+        cardio: document.getElementById('ass_cardio')?.value || '',
+        pilares: selectedPilares,
+        contexto_metas: document.getElementById('ass_contexto_metas')?.value.trim() || '',
+        timestamp: new Date().toISOString()
+      };
+    }
+
+    function autoSaveAssessmentDraft() {
+      try {
+        const data = getAssessmentData();
+        localStorage.setItem('dominio_student_intake', JSON.stringify(data));
+      } catch (e) {}
+    }
+
+    function loadStudentAssessment() {
+      try {
+        const raw = localStorage.getItem('dominio_student_intake');
+        if (!raw) return;
+        const data = JSON.parse(raw);
+
+        const setVal = (id, val) => {
+          const el = document.getElementById(id);
+          if (el && val !== undefined) el.value = val;
+        };
+
+        setVal('ass_nome', data.nome);
+        setVal('ass_idade', data.idade);
+        setVal('ass_altura', data.altura);
+        setVal('ass_peso', data.peso);
+        setVal('ass_rotina', data.rotina);
+        setVal('ass_dias_disponiveis', data.dias_disponiveis || data.disponibilidade || '');
+        setVal('ass_duracao_disponivel', data.duracao_disponivel || '');
+        setVal('ass_local', data.local);
+        setVal('ass_historico_clinico', data.historico_clinico);
+        setVal('ass_historico_esportivo', data.historico_esportivo);
+        setVal('ass_treino_atual', data.treino_atual);
+        setVal('ass_pullups', data.pullups);
+        setVal('ass_pushups', data.pushups);
+        setVal('ass_cardio', data.cardio);
+        setVal('ass_contexto_metas', data.contexto_metas);
+
+        if (Array.isArray(data.pilares)) {
+          document.querySelectorAll('input[name="pilares"]').forEach(cb => {
+            cb.checked = data.pilares.includes(cb.value);
+          });
+        }
+      } catch (e) {}
+    }
+
+    function sendAssessmentToWhatsApp() {
+      const data = getAssessmentData();
+      if (!data.nome) {
+        alert('Por favor, preencha pelo menos o seu nome completo.');
+        const nomeEl = document.getElementById('ass_nome');
+        if (nomeEl) nomeEl.focus();
+        return;
+      }
+
+      autoSaveAssessmentDraft();
+
+      let msg = `*📋 DOMÍNIO CORPORAL | Ficha de Avaliação & Anamnese*\n`;
+      msg += `-------------------------------------------\n\n`;
+
+      msg += `*👤 1. IDENTIFICAÇÃO & ROTINA*\n`;
+      msg += `• *Nome:* ${data.nome}\n`;
+      if (data.idade || data.altura || data.peso) {
+        msg += `• *Físico:* ${data.idade ? `${data.idade} anos` : ''}${data.altura ? ` • ${data.altura} cm` : ''}${data.peso ? ` • ${data.peso} kg` : ''}\n`;
+      }
+      if (data.rotina) msg += `• *Rotina/Estresse/Sono:* ${data.rotina}\n`;
+      if (data.dias_disponiveis || data.duracao_disponivel) {
+        msg += `• *Disponibilidade:* ${data.dias_disponiveis ? `${data.dias_disponiveis}` : ''}${data.duracao_disponivel ? ` (${data.duracao_disponivel} por sessão)` : ''}\n`;
+      }
+      if (data.local) msg += `• *Local de Treino:* ${data.local}\n\n`;
+
+      msg += `*🛡️ 2. HISTÓRICO CLÍNICO & ARTICULAR*\n`;
+      msg += `${data.historico_clinico ? data.historico_clinico : '_Nenhuma dor, cirurgia ou restrição relatada._'}\n\n`;
+
+      msg += `*🤸 3. BAGAGEM MOTORA & CONDICIONAMENTO*\n`;
+      if (data.historico_esportivo) msg += `• *Histórico Prévio:* ${data.historico_esportivo}\n`;
+      if (data.treino_atual) msg += `• *Treino Atual:* ${data.treino_atual}\n`;
+      msg += `• *Barra Fixa (Pull-ups):* ${data.pullups || 'Não informado'}\n`;
+      msg += `• *Flexão de Solo (Push-ups):* ${data.pushups || 'Não informado'}\n`;
+      msg += `• *Cardiorrespiratório:* ${data.cardio || 'Não informado'}\n\n`;
+
+      msg += `*🎯 4. OBJETIVOS DO CICLO & CONTEXTO*\n`;
+      if (data.pilares && data.pilares.length > 0) {
+        msg += `• *Pilares Escolhidos:*\n`;
+        data.pilares.forEach(p => { msg += `  ✓ ${p}\n`; });
+      } else {
+        msg += `• *Pilares:* _Nenhum pilar específico assinalado._\n`;
+      }
+      if (data.contexto_metas) {
+        msg += `• *Contexto & Expectativas:*\n  "${data.contexto_metas}"\n`;
+      }
+
+      msg += `\n-------------------------------------------\n`;
+      msg += `_Enviado pelo App Domínio Corporal_`;
+
+      const phone = '5516997637744';
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
+
+      const fb = document.getElementById('assessmentFeedbackMsg');
+      if (fb) {
+        fb.style.display = 'block';
+        setTimeout(() => { fb.style.display = 'none'; }, 6000);
+      }
     }
 
     function contactCoachWhatsApp() {
