@@ -969,121 +969,96 @@
        NOVOS ESTILOS: OBJETIVOS, 2 BARRAS & TIMERS & EVOLUÇÃO
        =================================================== */
 
-    /* Card de Objetivos do Ciclo & Diretrizes (Acima da Barra dos Dias) */
+    /* Card do Aluno & Objetivos Clean (Acima da Barra dos Dias) */
     .goals-overview-card {
-      background: linear-gradient(135deg, rgba(17, 24, 39, 0.85) 0%, rgba(15, 23, 42, 0.7) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 14px;
-      padding: 10px 14px;
-      margin-bottom: 12px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(8px);
+      background: #11141a;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 9px 12px;
+      margin-bottom: 10px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.45);
     }
     .goals-card-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 8px;
+      margin-bottom: 7px;
     }
     .goals-card-title {
       display: flex;
       align-items: center;
       gap: 6px;
     }
-    .goals-icon {
-      font-size: 0.95rem;
-      line-height: 1;
-    }
     .goals-title-text {
-      font-size: 0.72rem;
+      font-size: 0.78rem;
       font-weight: 800;
-      letter-spacing: 0.07em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: #94a3b8;
+      color: var(--brand-neon);
+      text-shadow: 0 0 8px rgba(0, 255, 136, 0.4);
     }
-    .goals-guidelines-btn {
+    .goals-student-card-btn {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      background: rgba(251, 191, 36, 0.1);
-      border: 1px solid rgba(251, 191, 36, 0.32);
-      color: #fbbf24;
-      padding: 4px 10px;
-      border-radius: 14px;
-      font-size: 0.73rem;
+      gap: 5.5px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.32);
+      color: #38bdf8;
+      padding: 3.5px 9px;
+      border-radius: 12px;
+      font-size: 0.72rem;
       font-weight: 700;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.01em;
       cursor: pointer;
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
     }
-    .goals-guidelines-btn svg {
-      width: 12px;
-      height: 12px;
-      fill: #fbbf24;
+    .goals-student-card-btn svg {
+      width: 13px;
+      height: 13px;
+      fill: #38bdf8;
       transition: transform 0.2s ease;
     }
-    .goals-guidelines-btn .arrow-indicator {
-      font-size: 0.75rem;
-      font-weight: 900;
+    .goals-student-card-btn .arrow-indicator {
+      font-size: 0.72rem;
+      font-weight: 800;
       opacity: 0.85;
       transition: transform 0.2s ease;
     }
-    .goals-guidelines-btn:hover {
-      background: rgba(251, 191, 36, 0.22);
-      border-color: #fbbf24;
+    .goals-student-card-btn:hover {
+      background: rgba(56, 189, 248, 0.22);
+      border-color: #38bdf8;
+      color: #ffffff;
       transform: translateY(-1px);
-      box-shadow: 0 4px 10px rgba(251, 191, 36, 0.2);
     }
-    .goals-guidelines-btn:hover .arrow-indicator {
-      transform: translate(2px, -2px);
+    .goals-student-card-btn:hover svg {
+      fill: #ffffff;
     }
-    .goals-guidelines-btn:active {
+    .goals-student-card-btn:active {
       transform: scale(0.96);
     }
 
     .goals-chips-row {
       display: flex;
       align-items: center;
-      gap: 7px;
+      gap: 6px;
       flex-wrap: wrap;
     }
     .goal-chip {
       display: inline-flex;
       align-items: center;
-      gap: 5.5px;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 4.5px 9px;
-      border-radius: 8px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: #e2e8f0;
-      letter-spacing: 0.01em;
-      transition: all 0.2s ease;
+      padding: 3px 8.5px;
+      border-radius: 6px;
+      font-size: 0.73rem;
+      font-weight: 500;
+      color: #cbd5e1;
+      letter-spacing: -0.01em;
+      transition: all 0.15s ease;
     }
     .goal-chip:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(255, 255, 255, 0.16);
-      transform: translateY(-1px);
-    }
-    .chip-dot {
-      width: 6.5px;
-      height: 6.5px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-    .chip-dot.dot-neon {
-      background: var(--brand-neon);
-      box-shadow: 0 0 6px var(--brand-neon-glow);
-    }
-    .chip-dot.dot-purple {
-      background: #c084fc;
-      box-shadow: 0 0 6px rgba(192, 132, 252, 0.6);
-    }
-    .chip-dot.dot-amber {
-      background: #fbbf24;
-      box-shadow: 0 0 6px rgba(251, 191, 36, 0.6);
+      background: rgba(255, 255, 255, 0.07);
+      color: #ffffff;
     }
 
     /* Pílulas de Acesso Rápido no Cabeçalho (Destacadas - Trio Limpo) */
@@ -1216,12 +1191,321 @@
 
     /* Esconde elementos na Visão Dedicada */
     body.in-dedicated-view #mainAppHeader,
-    body.in-dedicated-view #mainTrainingView,
+    body.in-dedicated-view #goalsOverviewCard,
+    body.in-dedicated-view #trainingHubSection,
     body.in-dedicated-view #mainDaysNav,
     body.in-dedicated-view #mainProgressBar,
     body.in-dedicated-view .timer-dock {
       display: none !important;
     }
+    /* ===================================================
+       SEÇÃO TREINAMENTO & LISTA DE DIAS (HUB PRINCIPAL)
+       =================================================== */
+    .training-hub-section {
+      margin-top: 6px;
+      margin-bottom: 24px;
+    }
+    .training-section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 12px;
+      padding: 0 4px;
+    }
+    .training-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .training-section-badge {
+      background: rgba(0, 255, 136, 0.12);
+      border: 1px solid rgba(0, 255, 136, 0.3);
+      color: var(--brand-neon);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      padding: 2px 7px;
+      border-radius: 6px;
+      text-transform: uppercase;
+    }
+    .training-section-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin: 0;
+    }
+    .training-subtitle-note {
+      font-size: 0.72rem;
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    .training-days-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .training-day-card {
+      background: #11141a;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      padding: 13px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+      position: relative;
+      overflow: hidden;
+    }
+    .training-day-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: transparent;
+      transition: background 0.2s ease;
+    }
+    .training-day-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.22);
+      background: #161b22;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    }
+    .training-day-card:active {
+      transform: scale(0.98);
+    }
+
+    /* Cores de borda por dia */
+    #dayCard-segunda::before { background: var(--brand-neon); }
+    #dayCard-terca::before { background: var(--accent-gold); }
+    #dayCard-quarta::before { background: #38bdf8; }
+    #dayCard-quinta::before { background: #c084fc; }
+    #dayCard-sexta::before { background: #f43f5e; }
+
+    .day-card-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .day-card-name-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .day-name {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.04em;
+    }
+    .day-today-badge {
+      background: var(--brand-neon);
+      color: #000000;
+      font-size: 0.65rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px var(--brand-neon-glow);
+    }
+    .day-focus-desc {
+      font-size: 0.8rem;
+      color: #cbd5e1;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+    .day-meta-pill {
+      font-size: 0.72rem;
+      color: #64748b;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .day-card-right {
+      display: flex;
+      align-items: center;
+      margin-left: 12px;
+      flex-shrink: 0;
+    }
+    .day-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      transition: all 0.2s ease;
+    }
+    .day-status-pill.status-pending {
+      background: rgba(255, 255, 255, 0.05);
+      color: #94a3b8;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .day-status-pill.status-pending .status-icon {
+      font-size: 1.1rem;
+      line-height: 1;
+      font-weight: 700;
+      color: #64748b;
+    }
+    .day-status-pill.status-done {
+      background: rgba(0, 255, 136, 0.12);
+      border: 1px solid rgba(0, 255, 136, 0.35);
+      color: var(--brand-neon);
+      box-shadow: 0 0 10px rgba(0, 255, 136, 0.15);
+    }
+    .day-status-pill.status-done svg {
+      width: 14px;
+      height: 14px;
+      fill: var(--brand-neon);
+    }
+
+    /* Card WhatsApp no Rodapé do Hub */
+    .whatsapp-support-card {
+      margin-top: 18px;
+      background: linear-gradient(135deg, #0d1612 0%, #0a110e 100%);
+      border: 1px solid rgba(37, 211, 102, 0.28);
+      border-radius: 16px;
+      padding: 14px 16px;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    }
+    .whatsapp-support-card:hover {
+      transform: translateY(-2px);
+      border-color: #25d366;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.2);
+    }
+    .whatsapp-support-card:active {
+      transform: scale(0.98);
+    }
+    .wpp-card-icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(37, 211, 102, 0.14);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .wpp-card-icon-wrap svg {
+      width: 24px;
+      height: 24px;
+      fill: #25d366;
+    }
+    .wpp-card-info {
+      flex: 1;
+    }
+    .wpp-card-title {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.02em;
+      margin-bottom: 2px;
+    }
+    .wpp-card-desc {
+      font-size: 0.76rem;
+      color: #94a3b8;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+    .wpp-card-btn-inline {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: #25d366;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+    .wpp-card-btn-inline .wpp-arrow {
+      font-size: 0.8rem;
+      transition: transform 0.2s ease;
+    }
+    .whatsapp-support-card:hover .wpp-arrow {
+      transform: translate(2px, -2px);
+    }
+
+    /* Botão de Finalização dentro do Treino */
+    .session-finish-container {
+      margin: 22px 0 35px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .btn-toggle-workout-finish {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: #11141a;
+      border: 1px solid rgba(0, 255, 136, 0.35);
+      color: var(--brand-neon);
+      padding: 13px 18px;
+      border-radius: 14px;
+      font-size: 0.88rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+    }
+    .btn-toggle-workout-finish svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--brand-neon);
+      transition: transform 0.2s ease;
+    }
+    .btn-toggle-workout-finish:hover {
+      background: rgba(0, 255, 136, 0.12);
+      border-color: var(--brand-neon);
+      transform: translateY(-1px);
+    }
+    .btn-toggle-workout-finish:active {
+      transform: scale(0.98);
+    }
+    .btn-toggle-workout-finish.completed {
+      background: var(--brand-neon);
+      color: #000000;
+      border-color: var(--brand-neon);
+      box-shadow: 0 0 20px var(--brand-neon-glow);
+    }
+    .btn-toggle-workout-finish.completed svg {
+      fill: #000000;
+    }
+    .btn-back-hub-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94a3b8;
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-back-hub-bottom:hover {
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
 
     /* Badge de Fórmula Científica (Renderização Limpa sem Desconfigurar) */
     .formula-badge {
@@ -1918,7 +2202,7 @@
   <!-- Topbar Fixa (visível apenas na visão dedicada de Timers, Vídeos, Evolução e Diretrizes) -->
   <div id="dedicatedTopBar" class="dedicated-topbar-sticky" style="display:none;">
     <button class="btn-back-workout" onclick="closeDedicatedView()">
-      ‹ Voltar ao Treino
+      ‹ Voltar aos Treinos
     </button>
     <div class="dedicated-bar-title" id="dedicatedBarTitle">Timers WOD</div>
     <div style="width:24px;"></div>
@@ -1930,9 +2214,8 @@
       <div class="coach-profile-btn" onclick="openBioModal()">
         <img src="gui_foto.jpg" onerror="this.onerror=null; this.src='icon-192.png';" alt="Domínio Corporal" class="coach-avatar">
         <span class="coach-name">Gui Lemos</span>
-        <span class="bio-badge">Bio & Perfil ↗</span>
+        <span class="bio-badge">Bio ↗</span>
       </div>
-      <div class="badge-sync">Sincronizado</div>
     </div>
     <div class="brand">
       <h1>DOMÍNIO CORPORAL</h1>
@@ -1959,60 +2242,149 @@
   <!-- Container Principal dos Treinos -->
   <div id="mainTrainingView">
 
-    <!-- Card de Objetivos do Ciclo & Diretrizes Integradas -->
+    <!-- Card do Aluno & Objetivos Clean -->
     <div class="goals-overview-card" id="goalsOverviewCard">
       <div class="goals-card-header">
         <div class="goals-card-title">
-          <span class="goals-icon">🎯</span>
-          <span class="goals-title-text">OBJETIVOS DO CICLO</span>
+          <span class="goals-title-text">GUI LEMOS</span>
         </div>
-        <button class="goals-guidelines-btn" onclick="openDedicatedView('perfil')" title="Abrir Diretrizes & Recomendações Técnicas">
-          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-          <span>Diretrizes</span>
+        <button class="goals-student-card-btn" onclick="openDedicatedView('perfil')" title="Abrir Ficha do Aluno & Diretrizes">
+          <svg viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+          <span>Ficha do Aluno</span>
           <span class="arrow-indicator">↗</span>
         </button>
       </div>
       <div class="goals-chips-row">
-        <div class="goal-chip">
-          <span class="chip-dot dot-neon"></span>
-          <span>Definição Muscular</span>
-        </div>
-        <div class="goal-chip">
-          <span class="chip-dot dot-purple"></span>
-          <span>Aperfeiçoar Habilidades</span>
-        </div>
-        <div class="goal-chip">
-          <span class="chip-dot dot-amber"></span>
-          <span>Recuperação Joelho</span>
-        </div>
+        <span class="goal-chip">Definição Muscular</span>
+        <span class="goal-chip">Aperfeiçoar Habilidades</span>
+        <span class="goal-chip">Recuperação Joelho</span>
       </div>
     </div>
 
-    <!-- Barra dos Dias de Treino da Semana -->
-    <div class="days-nav-container" id="mainDaysNav">
-      <div class="tabs tabs-days" id="daysNavTabs">
-        <button class="tab-btn active" data-tab="segunda" data-base="SEGUNDA - Crossfit" onclick="switchDayTab('segunda', this)">SEGUNDA - Crossfit</button>
-        <button class="tab-btn" data-tab="terca" data-base="TERÇA - BMU + Acroduo" onclick="switchDayTab('terca', this)">TERÇA - BMU + Acroduo</button>
-        <button class="tab-btn" data-tab="quarta" data-base="QUARTA - Handstand" onclick="switchDayTab('quarta', this)">QUARTA - Handstand</button>
-        <button class="tab-btn" data-tab="quinta" data-base="QUINTA - Dança + Força" onclick="switchDayTab('quinta', this)">QUINTA - Dança + Força</button>
-        <button class="tab-btn" data-tab="sexta" data-base="SEXTA - Argolas + Portagem" onclick="switchDayTab('sexta', this)">SEXTA - Argolas + Portagem</button>
-        <button class="tab-btn" data-tab="semana" data-base="SEMANA COMPLETA" onclick="switchDayTab('semana', this)">SEMANA COMPLETA</button>
+    <!-- SEÇÃO PRINCIPAL: TREINAMENTO (LISTA DE SESSÕES) -->
+    <div class="training-hub-section" id="trainingHubSection">
+      <div class="training-section-header">
+        <div class="training-title-wrap">
+          <span class="training-section-badge">SEMANA ATIVA</span>
+          <h2 class="training-section-title">TREINAMENTO</h2>
+        </div>
+        <span class="training-subtitle-note">Toque no dia para abrir a sessão</span>
+      </div>
+
+      <!-- Lista Vertical de Dias de Treino -->
+      <div class="training-days-list" id="trainingDaysList">
+        <!-- SEGUNDA -->
+        <div class="training-day-card" id="dayCard-segunda" onclick="openDayWorkout('segunda')">
+          <div class="day-card-left">
+            <div class="day-card-name-row">
+              <span class="day-name">SEGUNDA</span>
+              <span class="day-today-badge" id="todayBadge-segunda" style="display:none;">Hoje</span>
+            </div>
+            <div class="day-focus-desc">CrossFit • EMOM & Condicionamento</div>
+            <div class="day-meta-pill">📍 Box CrossFit • ⏱️ ~50 min</div>
+          </div>
+          <div class="day-card-right">
+            <div class="day-status-pill status-pending" id="statusPill-segunda">
+              <span class="status-icon">›</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TERÇA -->
+        <div class="training-day-card" id="dayCard-terca" onclick="openDayWorkout('terca')">
+          <div class="day-card-left">
+            <div class="day-card-name-row">
+              <span class="day-name">TERÇA</span>
+              <span class="day-today-badge" id="todayBadge-terca" style="display:none;">Hoje</span>
+            </div>
+            <div class="day-focus-desc">BMU + Acroduo • Treino Técnico & Força</div>
+            <div class="day-meta-pill">📍 Box CrossFit • ⏱️ ~60 min</div>
+          </div>
+          <div class="day-card-right">
+            <div class="day-status-pill status-pending" id="statusPill-terca">
+              <span class="status-icon">›</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- QUARTA -->
+        <div class="training-day-card" id="dayCard-quarta" onclick="openDayWorkout('quarta')">
+          <div class="day-card-left">
+            <div class="day-card-name-row">
+              <span class="day-name">QUARTA</span>
+              <span class="day-today-badge" id="todayBadge-quarta" style="display:none;">Hoje</span>
+            </div>
+            <div class="day-focus-desc">Handstand • Ginástica & Equilíbrio (Manjota)</div>
+            <div class="day-meta-pill">📍 EEFERP • ⏱️ ~45 min</div>
+          </div>
+          <div class="day-card-right">
+            <div class="day-status-pill status-pending" id="statusPill-quarta">
+              <span class="status-icon">›</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- QUINTA -->
+        <div class="training-day-card" id="dayCard-quinta" onclick="openDayWorkout('quinta')">
+          <div class="day-card-left">
+            <div class="day-card-name-row">
+              <span class="day-name">QUINTA</span>
+              <span class="day-today-badge" id="todayBadge-quinta" style="display:none;">Hoje</span>
+            </div>
+            <div class="day-focus-desc">Dança + Força • Alavancas & Expressão</div>
+            <div class="day-meta-pill">📍 Sala de Dança / EEFERP • ⏱️ ~55 min</div>
+          </div>
+          <div class="day-card-right">
+            <div class="day-status-pill status-pending" id="statusPill-quinta">
+              <span class="status-icon">›</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SEXTA -->
+        <div class="training-day-card" id="dayCard-sexta" onclick="openDayWorkout('sexta')">
+          <div class="day-card-left">
+            <div class="day-card-name-row">
+              <span class="day-name">SEXTA</span>
+              <span class="day-today-badge" id="todayBadge-sexta" style="display:none;">Hoje</span>
+            </div>
+            <div class="day-focus-desc">Argolas + Portagem • RMU & Força Acrobática</div>
+            <div class="day-meta-pill">📍 Ginásio EEFERP • ⏱️ ~65 min</div>
+          </div>
+          <div class="day-card-right">
+            <div class="day-status-pill status-pending" id="statusPill-sexta">
+              <span class="status-icon">›</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card de Contato WhatsApp com o Treinador -->
+      <div class="whatsapp-support-card" onclick="contactCoachWhatsApp()">
+        <div class="wpp-card-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c4.54 0 8.24 3.7 8.24 8.24 0 2.2-.86 4.28-2.42 5.84a8.188 8.188 0 0 1-5.82 2.41c-1.45 0-2.87-.38-4.13-1.11l-.3-.18-3.12.82.83-3.04-.2-.31a8.175 8.175 0 0 1-1.25-4.43c0-4.54 3.7-8.24 8.25-8.24zm4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+        </div>
+        <div class="wpp-card-info">
+          <div class="wpp-card-title">Dúvidas sobre o Treino?</div>
+          <div class="wpp-card-desc">Fale diretamente com o Gui no WhatsApp para orientações técnicas, dúvidas nos movimentos ou ajustes de carga.</div>
+          <div class="wpp-card-btn-inline">
+            <span>Tirar Dúvidas no WhatsApp</span>
+            <span class="wpp-arrow">↗</span>
+          </div>
+        </div>
       </div>
     </div>
 
 
 
   <!-- ==================== TAB ATIVA: HOJE (SEGUNDA: BOX À TARDE) ==================== -->
-  <div id="tab-segunda" class="tab-content active">
+  <div id="tab-segunda" class="tab-content">
 
     <!-- Introdução Sucinta da Sessão -->
-    <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 12px 14px; margin-bottom: 12px;">
-      <div class="callout-icon" style="font-size:1.2rem; margin-top:2px;">🎯</div>
-      <div>
-        <div class="callout-topic-header" style="color: var(--brand-neon);">FOCO DO TREINO: CONDICIONAMENTO</div>
-        <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
-          Potência de puxada na barra (Skill EMOM 12') e condicionamento metabólico de alta densidade no Box.
-        </div>
+    <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 11px 14px; margin-bottom: 12px; display: block;">
+      <div class="callout-topic-header" style="color: var(--brand-neon);">FOCO DO TREINO: CONDICIONAMENTO</div>
+      <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
+        Potência de puxada na barra (Skill EMOM 12') e condicionamento metabólico de alta densidade no Box.
       </div>
     </div>
 
@@ -2236,13 +2608,10 @@
   <div id="tab-terca" class="tab-content">
 
     <!-- Introdução Sucinta da Sessão -->
-    <div class="callout-box" style="border-left: 3px solid var(--accent-gold); padding: 12px 14px; margin-bottom: 12px;">
-      <div class="callout-icon" style="font-size:1.2rem; margin-top:2px;">🎯</div>
-      <div>
-        <div class="callout-topic-header" style="color: var(--accent-gold);">FOCO DO TREINO: TREINO TÉCNICO & FORÇA</div>
-        <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
-          Laboratório de Bar Muscle-Up compartilhado. Gui: Strict BMU na barra alta com elástico em hollow body. Amiga: transição na barra baixa e spot biomecânico do Gui na barra alta.
-        </div>
+    <div class="callout-box" style="border-left: 3px solid var(--accent-gold); padding: 11px 14px; margin-bottom: 12px; display: block;">
+      <div class="callout-topic-header" style="color: var(--accent-gold);">FOCO DO TREINO: TREINO TÉCNICO & FORÇA</div>
+      <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
+        Laboratório de Bar Muscle-Up compartilhado. Gui: Strict BMU na barra alta com elástico em hollow body. Amiga: transição na barra baixa e spot biomecânico do Gui na barra alta.
       </div>
     </div>
 
@@ -2554,13 +2923,10 @@
   <div id="tab-sexta" class="tab-content">
 
     <!-- Introdução Sucinta da Sessão -->
-    <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 12px 14px; margin-bottom: 12px;">
-      <div class="callout-icon" style="font-size:1.2rem; margin-top:2px;">🎯</div>
-      <div>
-        <div class="callout-topic-header" style="color: var(--brand-neon);">FOCO DO TREINO: ACROBACIA & FORÇA</div>
-        <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
-          Portagem de força acrobática, Ring Muscle-Up livre nas argolas altas e transições em suspensão.
-        </div>
+    <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 11px 14px; margin-bottom: 12px; display: block;">
+      <div class="callout-topic-header" style="color: var(--brand-neon);">FOCO DO TREINO: ACROBACIA & FORÇA</div>
+      <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
+        Portagem de força acrobática, Ring Muscle-Up livre nas argolas altas e transições em suspensão.
       </div>
     </div>
 
@@ -3170,13 +3536,10 @@
   <div id="tab-quinta" class="tab-content">
 
     <!-- Introdução Sucinta da Sessão -->
-    <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 12px 14px; margin-bottom: 12px;">
-      <div class="callout-icon" style="font-size:1.2rem; margin-top:2px;">🎯</div>
-      <div>
-        <div class="callout-topic-header" style="color: var(--brand-neon);">FOCO DO TREINO: DANÇA & FORÇA REAL</div>
-        <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
-          Potência de puxada na barra, alavancas nas argolas, aceleração terminal de glúteo e dança contemporânea.
-        </div>
+    <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 11px 14px; margin-bottom: 12px; display: block;">
+      <div class="callout-topic-header" style="color: var(--brand-neon);">FOCO DO TREINO: DANÇA & FORÇA REAL</div>
+      <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
+        Potência de puxada na barra, alavancas nas argolas, aceleração terminal de glúteo e dança contemporânea.
       </div>
     </div>
 
@@ -3510,13 +3873,10 @@
   <div id="tab-quarta" class="tab-content">
     
     <!-- Introdução Sucinta da Sessão -->
-    <div class="callout-box" style="border-left: 3px solid #38bdf8; padding: 12px 14px; margin-bottom: 12px;">
-      <div class="callout-icon" style="font-size:1.2rem; margin-top:2px;">🎯</div>
-      <div>
-        <div class="callout-topic-header" style="color: #38bdf8;">FOCO DO TREINO: GINÁSTICA & EQUILÍBRIO</div>
-        <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
-          Parada de Mãos (Handstand), alavancas na manjota (canes) e equilíbrio unilateral (One-Arm Croc).
-        </div>
+    <div class="callout-box" style="border-left: 3px solid #38bdf8; padding: 11px 14px; margin-bottom: 12px; display: block;">
+      <div class="callout-topic-header" style="color: #38bdf8;">FOCO DO TREINO: GINÁSTICA & EQUILÍBRIO</div>
+      <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
+        Parada de Mãos (Handstand), alavancas na manjota (canes) e equilíbrio unilateral (One-Arm Croc).
       </div>
     </div>
 
@@ -3563,24 +3923,15 @@
         <p><strong>7. Saída e Aterrissagem (00:41):</strong> Retorno limpo e aterrissagem bípede com total controle motor.</p>
       </div>
     </div>
-  </div>
-
-  <!-- ==================== TAB: SEMANA COMPLETA ==================== -->
-  <div id="tab-semana" class="tab-content">
-    <div class="section-card sec-skills">
-      <div class="section-header">
-        <div class="section-title">📅 Matriz Semanal de Treino Atualizada (05/10 a 09/10/2026)</div>
-      </div>
-      <div style="font-size: 0.86rem; line-height: 1.8; color: var(--text-main);">
-        <p><strong>• Segunda (05/10 - HOJE À TARDE):</strong> ⚡ Box CrossFit (Skill EMOM 12' Butterfly/Strict + Triplo AMRAP Wall Ball / DB Snatch / Clean & Jerk / Thrusters) + Descompressão Articular.</p>
-        <p><strong>• Terça (06/10 - AMANHÃ):</strong> 🎯 Box CrossFit + <strong>Laboratório de Bar Muscle-Up Compartilhado com a Amiga</strong> (Educativo na barra baixa com elástico + Tentativas na barra alta com Spot Biomecânico do Gui + Treino Gui: Strict BMU com elástico na barra alta em hollow body + Acessórios de mergulho e lat pushdown).</p>
-        <p><strong>• Quarta (07/10):</strong> 🤸 EEFERP (Skills neurais de Parada de Mão / Manjota / Argolas).</p>
-        <p><strong>• Quinta (08/10):</strong> 🩰 Dança Contemporânea + Força Estrutural / Alavancas.</p>
-        <p><strong>• Sexta (09/10):</strong> 🎪 Portagem de Força + Complexo Gímnico nas Argolas + Descompressão.</p>
-        <hr style="border:none; border-top:1px solid var(--border-subtle); margin: 12px 0;">
-        <p style="color:var(--text-muted); font-size:0.8rem;"><strong>Histórico da Semana Anterior (28/09 a 02/10):</strong><br>
-        Seg (CrossFit Cleans/Jerk) • Ter (Natação + Portagem 58kg) • Qua (Manjota Press HS/Croc) • Qui (EEFERP 17 séries + 4 Oitavas) • Sex (Portagem 63kg + 1º RMU Livre + Candle Kips).</p>
-      </div>
+    <!-- Ação de Conclusão da Sessão -->
+    <div class="session-finish-container">
+      <button class="btn-toggle-workout-finish" id="btnFinish-quarta" onclick="toggleWorkoutComplete('quarta')">
+        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        <span class="finish-text">Marcar Treino de Quarta como Concluído</span>
+      </button>
+      <button class="btn-back-hub-bottom" onclick="closeDedicatedView()">
+        ‹ Voltar à Lista de Treinos
+      </button>
     </div>
   </div>
 
@@ -4028,24 +4379,121 @@
   <script>
     let lastActiveDayTab = 'segunda';
 
-    function switchDayTab(dayId, btnElement) {
-      lastActiveDayTab = dayId;
-      document.querySelectorAll('#daysNavTabs .tab-btn').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('#mainTrainingView .tab-content').forEach(c => c.classList.remove('active'));
+    function switchDayTab(dayId) {
+      openDayWorkout(dayId);
+    }
 
-      if (btnElement) {
-        btnElement.classList.add('active');
-      } else {
-        const matchingBtn = document.querySelector(`#daysNavTabs .tab-btn[data-tab="${dayId}"]`);
-        if (matchingBtn) matchingBtn.classList.add('active');
+    /* ===================================================
+       NAVEGAÇÃO HUB DE TREINAMENTO & VISÕES DEDICADAS
+       =================================================== */
+
+    // Persistência de Treinos Concluídos no LocalStorage
+    function getCompletedWorkouts() {
+      try {
+        const data = localStorage.getItem('dominio_completed_workouts');
+        return data ? JSON.parse(data) : {};
+      } catch (e) {
+        return {};
       }
+    }
+
+    function isWorkoutCompleted(dayId) {
+      const completed = getCompletedWorkouts();
+      return !!completed[dayId];
+    }
+
+    function toggleWorkoutComplete(dayId) {
+      const completed = getCompletedWorkouts();
+      completed[dayId] = !completed[dayId];
+      try {
+        localStorage.setItem('dominio_completed_workouts', JSON.stringify(completed));
+      } catch (e) {}
+
+      if ('vibrate' in navigator) {
+        navigator.vibrate(completed[dayId] ? [40, 40, 80] : 35);
+      }
+
+      updateWorkoutCompletionUI(dayId);
+      renderTrainingHubDays();
+    }
+
+    function updateWorkoutCompletionUI(dayId) {
+      const isDone = isWorkoutCompleted(dayId);
+      const btn = document.getElementById('btnFinish-' + dayId);
+      if (btn) {
+        const txt = btn.querySelector('.finish-text');
+        if (isDone) {
+          btn.classList.add('completed');
+          if (txt) txt.textContent = '✓ Treino Concluído! (Toque para desmarcar)';
+        } else {
+          btn.classList.remove('completed');
+          const dayNameCapitalized = dayId.charAt(0).toUpperCase() + dayId.slice(1);
+          if (txt) txt.textContent = `Marcar Treino de ${dayNameCapitalized} como Concluído`;
+        }
+      }
+    }
+
+    function renderTrainingHubDays() {
+      const dayOfWeek = new Date().getDay(); // 0: Dom, 1: Seg, 2: Ter, 3: Qua, 4: Qui, 5: Sex, 6: Sab
+      const dayMap = { 1: 'segunda', 2: 'terca', 3: 'quarta', 4: 'quinta', 5: 'sexta' };
+      const todayTab = dayMap[dayOfWeek] || 'segunda';
+
+      const days = ['segunda', 'terca', 'quarta', 'quinta', 'sexta'];
+      days.forEach(d => {
+        // Badge Hoje
+        const todayBadge = document.getElementById('todayBadge-' + d);
+        if (todayBadge) {
+          todayBadge.style.display = (d === todayTab) ? 'inline-flex' : 'none';
+        }
+
+        // Status Pill (Check Concluído ou Chevron)
+        const isDone = isWorkoutCompleted(d);
+        const pill = document.getElementById('statusPill-' + d);
+        const card = document.getElementById('dayCard-' + d);
+        if (pill) {
+          if (isDone) {
+            pill.className = 'day-status-pill status-done';
+            pill.innerHTML = `<svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> <span>Concluído</span>`;
+            if (card) card.classList.add('is-done');
+          } else {
+            pill.className = 'day-status-pill status-pending';
+            pill.innerHTML = `<span class="status-icon">›</span>`;
+            if (card) card.classList.remove('is-done');
+          }
+        }
+      });
+    }
+
+    function openDayWorkout(dayId) {
+      lastActiveDayTab = dayId;
+      document.body.classList.add('in-dedicated-view');
+      const topBar = document.getElementById('dedicatedTopBar');
+      if (topBar) topBar.style.display = 'flex';
+
+      const dayNames = {
+        'segunda': 'SEGUNDA • Crossfit',
+        'terca': 'TERÇA • BMU + Acroduo',
+        'quarta': 'QUARTA • Handstand',
+        'quinta': 'QUINTA • Dança + Força',
+        'sexta': 'SEXTA • Argolas + Portagem'
+      };
+
+      const titleEl = document.getElementById('dedicatedBarTitle');
+      if (titleEl) titleEl.textContent = dayNames[dayId] || 'Treino do Dia';
+
+      // Esconde todas as abas e ativa a do dia
+      document.querySelectorAll('.tab-content').forEach(c => {
+        c.classList.remove('active');
+      });
 
       const target = document.getElementById('tab-' + dayId);
       if (target) {
         target.classList.add('active');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
+
+      updateWorkoutCompletionUI(dayId);
       updateProgress();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function openDedicatedView(sectionId) {
@@ -4057,7 +4505,7 @@
         'timers': 'Central de Timers WOD',
         'analises': 'Análise de Vídeos & Biomecânica',
         'evolucao': 'Evolução & Antropometria',
-        'perfil': 'Diretrizes Biomecânicas'
+        'perfil': 'Ficha do Aluno & Diretrizes'
       };
       const titleEl = document.getElementById('dedicatedBarTitle');
       if (titleEl) titleEl.textContent = titles[sectionId] || 'Central Especializada';
@@ -4083,25 +4531,18 @@
       const topBar = document.getElementById('dedicatedTopBar');
       if (topBar) topBar.style.display = 'none';
 
-      // Esconde tabs utilitárias
-      ['timers', 'analises', 'evolucao', 'perfil'].forEach(id => {
-        const el = document.getElementById('tab-' + id);
-        if (el) el.classList.remove('active');
-      });
+      // Esconde todas as abas
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
 
-      // Restaura o dia ativo do treino
-      const targetDay = document.getElementById('tab-' + lastActiveDayTab) || document.getElementById('tab-segunda');
-      if (targetDay) {
-        targetDay.classList.add('active');
-      }
-      const dayBtn = document.querySelector(`#daysNavTabs .tab-btn[data-tab="${lastActiveDayTab}"]`);
-      if (dayBtn) {
-        document.querySelectorAll('#daysNavTabs .tab-btn').forEach(b => b.classList.remove('active'));
-        dayBtn.classList.add('active');
-      }
-
-      updateProgress();
+      renderTrainingHubDays();
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function contactCoachWhatsApp() {
+      const phone = '5516997637744';
+      const msg = `Olá Gui! Estou no app Domínio Corporal e tenho uma dúvida sobre os treinos:`;
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
     }
 
     function openDedicatedTimerWithMode(mode, minutes, title, notes) {
@@ -4130,32 +4571,14 @@
     }
 
     function calibrateDayLabels() {
-      const dayOfWeek = new Date().getDay(); // 0: Dom, 1: Seg, 2: Ter, 3: Qua, 4: Qui, 5: Sex, 6: Sab
-      const dayMap = {
-        1: 'segunda',
-        2: 'terca',
-        3: 'quarta',
-        4: 'quinta',
-        5: 'sexta'
-      };
-      const todayTab = dayMap[dayOfWeek] || 'segunda';
-      document.querySelectorAll('#daysNavTabs .tab-btn').forEach(btn => {
-        const tab = btn.dataset.tab;
-        const base = btn.dataset.base || btn.textContent.replace(' (Hoje)', '').trim();
-        btn.dataset.base = base;
-        if (tab === todayTab) {
-          btn.textContent = `${base} (Hoje)`;
-        } else {
-          btn.textContent = base;
-        }
-      });
+      renderTrainingHubDays();
     }
-    function switchTab(tabId, btnElement) {
+    function switchTab(tabId) {
       if (['timers', 'analises', 'evolucao', 'perfil'].includes(tabId)) {
         openDedicatedView(tabId);
         return;
       }
-      switchDayTab(tabId, btnElement);
+      openDayWorkout(tabId);
     }
 
     /* ===================================================
@@ -4884,7 +5307,7 @@
     }
 
     // Inicializa contador de progresso, labels calibrados e notas salvas
-    calibrateDayLabels();
+    renderTrainingHubDays();
     updateProgress();
     loadAllNotes();
     initTimerUI();
