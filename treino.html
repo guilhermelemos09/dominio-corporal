@@ -822,7 +822,7 @@
       border-color: rgba(244, 63, 94, 0.3);
     }
 
-    /* Modal de Vídeo Dark */
+    /* Modal de Vídeo Dark & Modais Gerais */
     .modal-overlay {
       display: none;
       position: fixed;
@@ -830,12 +830,16 @@
       background: rgba(0, 0, 0, 0.85);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
-      z-index: 1000;
+      z-index: 25000 !important;
       align-items: center;
       justify-content: center;
       padding: 16px;
+      box-sizing: border-box;
     }
-    .modal-overlay.active { display: flex; animation: modalIn 0.25s ease; }
+    .modal-overlay.active {
+      display: flex !important;
+      animation: modalIn 0.25s ease;
+    }
     @keyframes modalIn { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: scale(1); } }
 
     .modal-card {
@@ -844,8 +848,12 @@
       border-radius: 20px;
       width: 100%;
       max-width: 520px;
-      overflow: hidden;
+      max-height: 90vh;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
       box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9);
+      position: relative;
+      z-index: 25001;
     }
     .modal-header {
       display: flex;
@@ -905,7 +913,16 @@
       border-radius: 24px;
       cursor: pointer;
       text-decoration: none;
+      font-family: inherit;
+      color: inherit;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      -webkit-user-select: none;
       transition: all 0.2s ease;
+    }
+    .coach-profile-btn * {
+      pointer-events: none;
     }
     .coach-profile-btn:hover, .coach-profile-btn:active {
       border-color: var(--brand-neon);
@@ -1494,28 +1511,48 @@
        =================================================== */
     
     /* Botoes de Navegação Interna da Central de Evolução */
+    .evolucao-tabs-bar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .evolucao-tabs-bar::-webkit-scrollbar {
+      display: none;
+    }
     .evol-nav-btn {
       background: #11141a;
       border: 1px solid rgba(255, 255, 255, 0.12);
       color: #94a3b8;
-      padding: 7px 14px;
-      border-radius: 20px;
-      font-size: 0.78rem;
+      padding: 8px 16px;
+      border-radius: 22px;
+      font-size: 0.8rem;
       font-weight: 700;
       cursor: pointer;
       white-space: nowrap;
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      -webkit-user-select: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
     .evol-nav-btn:hover {
-      border-color: rgba(255, 255, 255, 0.3);
+      border-color: rgba(255, 255, 255, 0.35);
       color: #ffffff;
+      transform: translateY(-1px);
     }
     .evol-nav-btn.active {
       background: var(--brand-neon);
       color: #000000;
       border-color: var(--brand-neon);
       font-weight: 800;
-      box-shadow: 0 0 14px var(--brand-neon-glow);
+      box-shadow: 0 0 16px var(--brand-neon-glow);
     }
 
     .training-hub-section {
@@ -2528,11 +2565,11 @@
   <!-- Header Domínio Corporal (Preto OLED & Verde Neon) -->
   <header id="mainAppHeader">
     <div class="brand-top">
-      <div class="coach-profile-btn" onclick="openBioModal()">
+      <button type="button" class="coach-profile-btn" onclick="openBioModal(event)" aria-label="Abrir Perfil e Biografia de Gui Lemos">
         <img src="gui_foto.jpg" onerror="this.onerror=null; this.src='icon-192.png';" alt="Domínio Corporal" class="coach-avatar">
         <span class="coach-name">GUI LEMOS</span>
         <span class="bio-badge">Bio ↗</span>
-      </div>
+      </button>
     </div>
     <div class="brand">
       <h1>DOMÍNIO CORPORAL</h1>
@@ -4759,181 +4796,20 @@
   <div id="tab-evolucao" class="tab-content">
 
     <!-- Seletor de Tópicos da Central de Evolução -->
-    <div class="evolucao-tabs-bar" style="display:flex; gap:8px; overflow-x:auto; padding-bottom:6px; margin-bottom:14px; scrollbar-width:none;">
-      <button class="evol-nav-btn active" id="btnEvol-consistencia" onclick="switchEvolucaoPane('consistencia', this)">
-        📊 Consistência & Volume
-      </button>
-      <button class="evol-nav-btn" id="btnEvol-tecnica" onclick="switchEvolucaoPane('tecnica', this)">
-        🤸 Evolução Técnica
-      </button>
-      <button class="evol-nav-btn" id="btnEvol-composicao" onclick="switchEvolucaoPane('composicao', this)">
+    <div class="evolucao-tabs-bar">
+      <button class="evol-nav-btn active" id="btnEvol-composicao" onclick="switchEvolucaoPane('composicao', this)">
         🧬 Composição Corporal
       </button>
-    </div>
-
-    <!-- PAINEL 1: CONSISTÊNCIA, FREQUÊNCIA & VOLUME DE TREINO -->
-    <div id="pane-evol-consistencia" class="evolucao-subpane" style="display:block;">
-      <div class="evolucao-hero">
-        <div class="evolucao-title">
-          <span>📊 Relatório de Consistência & Volume de Treino</span>
-          <span class="evolucao-badge-delta" id="evolAdherenceBadge">Ativo</span>
-        </div>
-        <p style="font-size:0.8rem; color:var(--text-muted); margin:6px 0 0;">
-          Mapeamento em tempo real do cumprimento da rotina, séries executadas e equilíbrio biomecânico de ações motoras.
-        </p>
-
-        <!-- Grid de Métricas de Consistência -->
-        <div class="metrics-summary-grid">
-          <div class="metric-summary-card">
-            <div class="metric-value" id="evolDaysDoneCount" style="color:var(--brand-neon);">0 / 5</div>
-            <div class="metric-label">Dias Concluídos (Semana)</div>
-          </div>
-          <div class="metric-summary-card">
-            <div class="metric-value" id="evolSetsDoneCount" style="color:#38bdf8;">0</div>
-            <div class="metric-label">Séries Realizadas</div>
-          </div>
-          <div class="metric-summary-card">
-            <div class="metric-value" id="evolVolumeRate">100%</div>
-            <div class="metric-label">Aderência aos Roteiros</div>
-          </div>
-          <div class="metric-summary-card">
-            <div class="metric-value" style="color:#c084fc;">Equilibrado</div>
-            <div class="metric-label">Balanço Articular</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Equilíbrio de Ações Motoras (Balanço Biomecânico) -->
-      <div class="comparison-card" style="margin-top:14px; border-left:3.5px solid #38bdf8;">
-        <div class="comparison-card-header">
-          <div class="comparison-card-title">⚖️ Equilíbrio das Ações Motoras (Puxar • Empurrar • Core • Pernas • Cardio)</div>
-          <span style="font-size:0.72rem; color:#38bdf8; font-weight:800;">PRESERVAÇÃO ARTICULAR</span>
-        </div>
-        <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:12px;">
-          Distribuição proporcional de volume mecânico para blindar ombros, cotovelos e joelho esquerdo:
-        </p>
-        
-        <div style="display:flex; flex-direction:column; gap:10px;">
-          <div>
-            <div style="display:flex; justify-content:space-between; font-size:0.78rem; font-weight:700; margin-bottom:4px;">
-              <span style="color:#38bdf8;">🟢 Puxada Vertical & Horizontal (Strict Pull-Up, RMU, Remadas)</span>
-              <span style="color:#fff;">26% do volume</span>
-            </div>
-            <div style="background:rgba(255,255,255,0.08); height:7px; border-radius:10px; overflow:hidden;">
-              <div style="background:linear-gradient(90deg, #0284c7, #38bdf8); height:100%; width:26%; border-radius:10px;"></div>
-            </div>
-          </div>
-
-          <div>
-            <div style="display:flex; justify-content:space-between; font-size:0.78rem; font-weight:700; margin-bottom:4px;">
-              <span style="color:#c084fc;">🔵 Empurrar & Depressão (Dips nas Argolas, Push-ups, HSPU)</span>
-              <span style="color:#fff;">22% do volume</span>
-            </div>
-            <div style="background:rgba(255,255,255,0.08); height:7px; border-radius:10px; overflow:hidden;">
-              <div style="background:linear-gradient(90deg, #9333ea, #c084fc); height:100%; width:22%; border-radius:10px;"></div>
-            </div>
-          </div>
-
-          <div>
-            <div style="display:flex; justify-content:space-between; font-size:0.78rem; font-weight:700; margin-bottom:4px;">
-              <span style="color:#fbbf24;">🟡 Core & Compressão Pélvica (Hollow Rocks, L-Sit, V-Sit)</span>
-              <span style="color:#fff;">20% do volume</span>
-            </div>
-            <div style="background:rgba(255,255,255,0.08); height:7px; border-radius:10px; overflow:hidden;">
-              <div style="background:linear-gradient(90deg, #d97706, #fbbf24); height:100%; width:20%; border-radius:10px;"></div>
-            </div>
-          </div>
-
-          <div>
-            <div style="display:flex; justify-content:space-between; font-size:0.78rem; font-weight:700; margin-bottom:4px;">
-              <span style="color:var(--brand-neon);">🟣 Membros Inferiores & Quadril (RDL, Saltos, Afundos, Isometrias)</span>
-              <span style="color:#fff;">18% do volume</span>
-            </div>
-            <div style="background:rgba(255,255,255,0.08); height:7px; border-radius:10px; overflow:hidden;">
-              <div style="background:linear-gradient(90deg, #059669, var(--brand-neon)); height:100%; width:18%; border-radius:10px;"></div>
-            </div>
-          </div>
-
-          <div>
-            <div style="display:flex; justify-content:space-between; font-size:0.78rem; font-weight:700; margin-bottom:4px;">
-              <span style="color:#f43f5e;">🔴 Condicionamento Metabólico & Técnico (Box WOD, Dança, Handstand)</span>
-              <span style="color:#fff;">14% do volume</span>
-            </div>
-            <div style="background:rgba(255,255,255,0.08); height:7px; border-radius:10px; overflow:hidden;">
-              <div style="background:linear-gradient(90deg, #e11d48, #f43f5e); height:100%; width:14%; border-radius:10px;"></div>
-            </div>
-          </div>
-        </div>
-
-        <div style="margin-top:14px; padding:10px 12px; background:rgba(56,189,248,0.06); border:1px solid rgba(56,189,248,0.2); border-radius:10px; font-size:0.78rem; line-height:1.5; color:#cbd5e1;">
-          💡 <strong>Diagnóstico do Treinador:</strong> Balanço agonista/antagonista excelente. O volume de puxada protege a integridade do manguito rotador operado e a dominância de quadril resguarda o menisco lateral esquerdo.
-        </div>
-      </div>
-    </div>
-
-    <!-- PAINEL 2: EVOLUÇÃO TÉCNICA (MARCOS & HABILIDADES) -->
-    <div id="pane-evol-tecnica" class="evolucao-subpane" style="display:none;">
-      <div class="evolucao-hero">
-        <div class="evolucao-title">
-          <span>🤸 Evolução Técnica & Marcos Biomecânicos</span>
-          <span class="evolucao-badge-delta">Avançado</span>
-        </div>
-        <p style="font-size:0.8rem; color:var(--text-muted); margin:6px 0 0;">
-          Comparativo cronológico de ganho motor, alavancas gímnicas e segurança articular (Início vs. Atual).
-        </p>
-      </div>
-
-      <!-- MARCO 1: HANDSTAND & MANJOTA -->
-      <div class="comparison-card" style="margin-top:14px; border-left:3.5px solid #38bdf8;">
-        <div class="comparison-card-header">
-          <div class="comparison-card-title">1. Parada de Mãos (Handstand) & Alavancas na Manjota</div>
-          <span style="font-size:0.75rem; color:#38bdf8; font-weight:700;">Domínio Gravitacional</span>
-        </div>
-        <div style="font-size:0.82rem; line-height:1.6; color:#cbd5e1;">
-          <div style="padding:8px 12px; background:rgba(255,255,255,0.03); border-radius:8px; margin-bottom:8px;">
-            <strong style="color:#94a3b8;">📅 Ponto de Partida:</strong> Dificuldade em manter a linha axilar aberta sem hiperlordose lombar compensatória; fadiga precoce de punhos; sem sustentação unilateral nos canes.
-          </div>
-          <div style="padding:8px 12px; background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.25); border-radius:8px;">
-            <strong style="color:#38bdf8;">🚀 Estado Atual:</strong> Handstand alinhado em *bone stacking* por mais de 10s livre; subida contínua em força pura (Press Handstand); sustentação firme em **One-Arm Croc por 7 segundos** com apenas 1 braço sem giro de pelve.
-          </div>
-        </div>
-      </div>
-
-      <!-- MARCO 2: STRICT RMU & TRANSICÕES -->
-      <div class="comparison-card" style="border-left:3.5px solid var(--brand-neon);">
-        <div class="comparison-card-header">
-          <div class="comparison-card-title">2. Ring Muscle-Up Livre (Argolas Altas) & Transição</div>
-          <span style="font-size:0.75rem; color:var(--brand-neon); font-weight:700;">Potência Escapular</span>
-        </div>
-        <div style="font-size:0.82rem; line-height:1.6; color:#cbd5e1;">
-          <div style="padding:8px 12px; background:rgba(255,255,255,0.03); border-radius:8px; margin-bottom:8px;">
-            <strong style="color:#94a3b8;">📅 Ponto de Partida:</strong> 2 anos sem realizar Ring Muscle-Up livre devido ao receio de desaceleração abrupta no ombro direito operado; transição dependente de impulso de quadril.
-          </div>
-          <div style="padding:8px 12px; background:rgba(0,255,136,0.08); border:1px solid rgba(0,255,136,0.25); border-radius:8px;">
-            <strong style="color:var(--brand-neon);">🚀 Estado Atual:</strong> Retorno pleno com **1x Strict RMU Livre no topo** + 2x Inverted Candle Kips sem auxílio de elástico, mantendo depressão escapular ativa e zero dor no supraespinhal.
-          </div>
-        </div>
-      </div>
-
-      <!-- MARCO 3: PORTAGEM DE FORÇA -->
-      <div class="comparison-card" style="border-left:3.5px solid #c084fc;">
-        <div class="comparison-card-header">
-          <div class="comparison-card-title">3. Portagem Acrobática de Força (Press no Ombro)</div>
-          <span style="font-size:0.75rem; color:#c084fc; font-weight:700;">Estabilidade Dinâmica</span>
-        </div>
-        <div style="font-size:0.82rem; line-height:1.6; color:#cbd5e1;">
-          <div style="padding:8px 12px; background:rgba(255,255,255,0.03); border-radius:8px; margin-bottom:8px;">
-            <strong style="color:#94a3b8;">📅 Ponto de Partida:</strong> Desconforto em sustentações pesadas acima de 58 kg; instabilidade na sincronia de subida com a base.
-          </div>
-          <div style="padding:8px 12px; background:rgba(192,132,252,0.08); border:1px solid rgba(192,132,252,0.25); border-radius:8px;">
-            <strong style="color:#c084fc;">🚀 Estado Atual:</strong> Press Handstand impecável sobre as clavículas do parceiro sustentando **86 kg**, com centro de massa rigorosamente vertical e descida excêntrica macia.
-          </div>
-        </div>
-      </div>
+      <button class="evol-nav-btn" id="btnEvol-tecnica" onclick="switchEvolucaoPane('tecnica', this)">
+        🤸 Aperfeiçoamento Técnico
+      </button>
+      <button class="evol-nav-btn" id="btnEvol-consistencia" onclick="switchEvolucaoPane('consistencia', this)">
+        📊 Consistência de Treino
+      </button>
     </div>
 
     <!-- PAINEL 3: COMPOSIÇÃO CORPORAL & ANTROPOMETRIA -->
-    <div id="pane-evol-composicao" class="evolucao-subpane" style="display:none;">
+    <div id="pane-evol-composicao" class="evolucao-subpane" style="display:block;">
       
       <!-- Aviso de Módulo Personalizado -->
       <div style="margin-bottom:12px; padding:8px 12px; background:rgba(251,191,36,0.08); border:1px solid rgba(251,191,36,0.25); border-radius:10px; font-size:0.75rem; color:#fbbf24;">
@@ -5045,6 +4921,168 @@
       </div>
     </div>
 
+    <!-- PAINEL 2: EVOLUÇÃO TÉCNICA (MARCOS & HABILIDADES) -->
+    <div id="pane-evol-tecnica" class="evolucao-subpane" style="display:none;">
+      <div class="evolucao-hero">
+        <div class="evolucao-title">
+          <span>🤸 Aperfeiçoamento Técnico & Marcos Biomecânicos</span>
+          <span class="evolucao-badge-delta">Avançado</span>
+        </div>
+        <p style="font-size:0.8rem; color:var(--text-muted); margin:6px 0 0;">
+          Comparativo cronológico de ganho motor, alavancas gímnicas e segurança articular (Início vs. Atual).
+        </p>
+      </div>
+
+      <!-- MARCO 1: HANDSTAND & MANJOTA -->
+      <div class="comparison-card" style="margin-top:14px; border-left:3.5px solid #38bdf8;">
+        <div class="comparison-card-header">
+          <div class="comparison-card-title">1. Parada de Mãos (Handstand) & Alavancas na Manjota</div>
+          <span style="font-size:0.75rem; color:#38bdf8; font-weight:700;">Domínio Gravitacional</span>
+        </div>
+        <div style="font-size:0.82rem; line-height:1.6; color:#cbd5e1;">
+          <div style="padding:8px 12px; background:rgba(255,255,255,0.03); border-radius:8px; margin-bottom:8px;">
+            <strong style="color:#94a3b8;">📅 Ponto de Partida:</strong> Dificuldade em manter a linha axilar aberta sem hiperlordose lombar compensatória; fadiga precoce de punhos; sem sustentação unilateral nos canes.
+          </div>
+          <div style="padding:8px 12px; background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.25); border-radius:8px;">
+            <strong style="color:#38bdf8;">🚀 Estado Atual:</strong> Handstand alinhado em *bone stacking* por mais de 10s livre; subida contínua em força pura (Press Handstand); sustentação firme em **One-Arm Croc por 7 segundos** com apenas 1 braço sem giro de pelve.
+          </div>
+        </div>
+      </div>
+
+      <!-- MARCO 2: STRICT RMU & TRANSICÕES -->
+      <div class="comparison-card" style="border-left:3.5px solid var(--brand-neon);">
+        <div class="comparison-card-header">
+          <div class="comparison-card-title">2. Ring Muscle-Up Livre (Argolas Altas) & Transição</div>
+          <span style="font-size:0.75rem; color:var(--brand-neon); font-weight:700;">Potência Escapular</span>
+        </div>
+        <div style="font-size:0.82rem; line-height:1.6; color:#cbd5e1;">
+          <div style="padding:8px 12px; background:rgba(255,255,255,0.03); border-radius:8px; margin-bottom:8px;">
+            <strong style="color:#94a3b8;">📅 Ponto de Partida:</strong> 2 anos sem realizar Ring Muscle-Up livre devido ao receio de desaceleração abrupta no ombro direito operado; transição dependente de impulso de quadril.
+          </div>
+          <div style="padding:8px 12px; background:rgba(0,255,136,0.08); border:1px solid rgba(0,255,136,0.25); border-radius:8px;">
+            <strong style="color:var(--brand-neon);">🚀 Estado Atual:</strong> Retorno pleno com **1x Strict RMU Livre no topo** + 2x Inverted Candle Kips sem auxílio de elástico, mantendo depressão escapular ativa e zero dor no supraespinhal.
+          </div>
+        </div>
+      </div>
+
+      <!-- MARCO 3: PORTAGEM DE FORÇA -->
+      <div class="comparison-card" style="border-left:3.5px solid #c084fc;">
+        <div class="comparison-card-header">
+          <div class="comparison-card-title">3. Portagem Acrobática de Força (Press no Ombro)</div>
+          <span style="font-size:0.75rem; color:#c084fc; font-weight:700;">Estabilidade Dinâmica</span>
+        </div>
+        <div style="font-size:0.82rem; line-height:1.6; color:#cbd5e1;">
+          <div style="padding:8px 12px; background:rgba(255,255,255,0.03); border-radius:8px; margin-bottom:8px;">
+            <strong style="color:#94a3b8;">📅 Ponto de Partida:</strong> Desconforto em sustentações pesadas acima de 58 kg; instabilidade na sincronia de subida com a base.
+          </div>
+          <div style="padding:8px 12px; background:rgba(192,132,252,0.08); border:1px solid rgba(192,132,252,0.25); border-radius:8px;">
+            <strong style="color:#c084fc;">🚀 Estado Atual:</strong> Press Handstand impecável sobre as clavículas do parceiro sustentando **86 kg**, com centro de massa rigorosamente vertical e descida excêntrica macia.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAINEL 1: CONSISTÊNCIA, FREQUÊNCIA & VOLUME DE TREINO -->
+    <div id="pane-evol-consistencia" class="evolucao-subpane" style="display:none;">
+      <div class="evolucao-hero">
+        <div class="evolucao-title">
+          <span>📊 Relatório de Consistência de Treino & Volume</span>
+          <span class="evolucao-badge-delta" id="evolAdherenceBadge">Ativo</span>
+        </div>
+        <p style="font-size:0.8rem; color:var(--text-muted); margin:6px 0 0;">
+          Mapeamento em tempo real do cumprimento da rotina, séries executadas e equilíbrio biomecânico de ações motoras.
+        </p>
+
+        <!-- Grid de Métricas de Consistência -->
+        <div class="metrics-summary-grid">
+          <div class="metric-summary-card">
+            <div class="metric-value" id="evolDaysDoneCount" style="color:var(--brand-neon);">0 / 5</div>
+            <div class="metric-label">Dias Concluídos (Semana)</div>
+          </div>
+          <div class="metric-summary-card">
+            <div class="metric-value" id="evolSetsDoneCount" style="color:#38bdf8;">0</div>
+            <div class="metric-label">Séries Realizadas</div>
+          </div>
+          <div class="metric-summary-card">
+            <div class="metric-value" id="evolVolumeRate">100%</div>
+            <div class="metric-label">Aderência aos Roteiros</div>
+          </div>
+          <div class="metric-summary-card">
+            <div class="metric-value" style="color:#c084fc;">Equilibrado</div>
+            <div class="metric-label">Balanço Articular</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Equilíbrio de Ações Motoras (Balanço Biomecânico) -->
+      <div class="comparison-card" style="margin-top:14px; border-left:3.5px solid #38bdf8;">
+        <div class="comparison-card-header">
+          <div class="comparison-card-title">⚖️ Equilíbrio das Ações Motoras (Puxar • Empurrar • Core • Pernas • Cardio)</div>
+          <span style="font-size:0.72rem; color:#38bdf8; font-weight:800;">PRESERVAÇÃO ARTICULAR</span>
+        </div>
+        <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:12px;">
+          Distribuição proporcional de volume mecânico para blindar ombros, cotovelos e joelho esquerdo:
+        </p>
+        
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:0.78rem; font-weight:700; margin-bottom:4px;">
+              <span style="color:#38bdf8;">🟢 Puxada Vertical & Horizontal (Strict Pull-Up, RMU, Remadas)</span>
+              <span style="color:#fff;">26% do volume</span>
+            </div>
+            <div style="background:rgba(255,255,255,0.08); height:7px; border-radius:10px; overflow:hidden;">
+              <div style="background:linear-gradient(90deg, #0284c7, #38bdf8); height:100%; width:26%; border-radius:10px;"></div>
+            </div>
+          </div>
+
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:0.78rem; font-weight:700; margin-bottom:4px;">
+              <span style="color:#c084fc;">🔵 Empurrar & Depressão (Dips nas Argolas, Push-ups, HSPU)</span>
+              <span style="color:#fff;">22% do volume</span>
+            </div>
+            <div style="background:rgba(255,255,255,0.08); height:7px; border-radius:10px; overflow:hidden;">
+              <div style="background:linear-gradient(90deg, #9333ea, #c084fc); height:100%; width:22%; border-radius:10px;"></div>
+            </div>
+          </div>
+
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:0.78rem; font-weight:700; margin-bottom:4px;">
+              <span style="color:#fbbf24;">🟡 Core & Compressão Pélvica (Hollow Rocks, L-Sit, V-Sit)</span>
+              <span style="color:#fff;">20% do volume</span>
+            </div>
+            <div style="background:rgba(255,255,255,0.08); height:7px; border-radius:10px; overflow:hidden;">
+              <div style="background:linear-gradient(90deg, #d97706, #fbbf24); height:100%; width:20%; border-radius:10px;"></div>
+            </div>
+          </div>
+
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:0.78rem; font-weight:700; margin-bottom:4px;">
+              <span style="color:var(--brand-neon);">🟣 Membros Inferiores & Quadril (RDL, Saltos, Afundos, Isometrias)</span>
+              <span style="color:#fff;">18% do volume</span>
+            </div>
+            <div style="background:rgba(255,255,255,0.08); height:7px; border-radius:10px; overflow:hidden;">
+              <div style="background:linear-gradient(90deg, #059669, var(--brand-neon)); height:100%; width:18%; border-radius:10px;"></div>
+            </div>
+          </div>
+
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:0.78rem; font-weight:700; margin-bottom:4px;">
+              <span style="color:#f43f5e;">🔴 Condicionamento Metabólico & Técnico (Box WOD, Dança, Handstand)</span>
+              <span style="color:#fff;">14% do volume</span>
+            </div>
+            <div style="background:rgba(255,255,255,0.08); height:7px; border-radius:10px; overflow:hidden;">
+              <div style="background:linear-gradient(90deg, #e11d48, #f43f5e); height:100%; width:14%; border-radius:10px;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:14px; padding:10px 12px; background:rgba(56,189,248,0.06); border:1px solid rgba(56,189,248,0.2); border-radius:10px; font-size:0.78rem; line-height:1.5; color:#cbd5e1;">
+          💡 <strong>Diagnóstico do Treinador:</strong> Balanço agonista/antagonista excelente. O volume de puxada protege a integridade do manguito rotador operado e a dominância de quadril resguarda o menisco lateral esquerdo.
+        </div>
+      </div>
+    </div>
+
+
   </div>
 
   <!-- Cronômetro Flutuante OLED Stealth -->
@@ -5089,7 +5127,7 @@
             <span style="font-size:0.72rem; color:var(--brand-neon); font-weight:600;">@guilemos_dominiocorporal</span>
           </div>
         </div>
-        <button class="btn-close" onclick="closeBioModal()">&times;</button>
+        <button class="btn-close" onclick="closeBioModal(event)">&times;</button>
       </div>
       <div class="modal-body" style="padding: 20px;">
         <div style="text-align: center; margin-bottom: 16px;">
@@ -5282,7 +5320,12 @@
       document.querySelectorAll('.evol-nav-btn').forEach(b => b.classList.remove('active'));
       document.querySelectorAll('.evolucao-subpane').forEach(p => p.style.display = 'none');
 
-      if (btn) btn.classList.add('active');
+      if (btn) {
+        btn.classList.add('active');
+      } else {
+        const matchingBtn = document.getElementById('btnEvol-' + paneId);
+        if (matchingBtn) matchingBtn.classList.add('active');
+      }
       const targetPane = document.getElementById('pane-evol-' + paneId);
       if (targetPane) targetPane.style.display = 'block';
 
@@ -6220,22 +6263,48 @@
     }
 
     /* Modal de Bio Gui Lemos */
-    function openBioModal() {
-      document.getElementById('bioModal').classList.add('active');
+    function openBioModal(e) {
+      if (e) {
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+      }
+      const m = document.getElementById('bioModal');
+      if (m) {
+        m.classList.add('active');
+        m.style.display = 'flex';
+      }
     }
 
-    function closeBioModal() {
-      document.getElementById('bioModal').classList.remove('active');
+    function closeBioModal(e) {
+      if (e) {
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+      }
+      const m = document.getElementById('bioModal');
+      if (m) {
+        m.classList.remove('active');
+        m.style.display = 'none';
+      }
     }
 
     function handleOverlayClick(e) {
-      if (e.target.id === 'videoModal') {
-        closeVideoModal();
-      }
-      if (e.target.id === 'bioModal') {
-        closeBioModal();
+      if (e && e.target) {
+        if (e.target.id === 'videoModal') {
+          closeVideoModal();
+        }
+        if (e.target.id === 'bioModal') {
+          closeBioModal(e);
+        }
       }
     }
+
+    // Tecla ESC fecha modais abertos
+    window.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeBioModal(e);
+        closeVideoModal();
+      }
+    });
 
     /* Anotações e Feedback do Exercício */
     function toggleCommentBox(exId) {
