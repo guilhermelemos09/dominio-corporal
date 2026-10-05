@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Domínio Corporal Gui</title>
+  <title>Dominio Corporal - Jean</title>
 
   <!-- PWA & Mobile App Meta Tags -->
   <link rel="manifest" href="manifest-jean.json">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Domínio Corporal Gui">
+  <meta name="apple-mobile-web-app-title" content="Dominio Corporal - Jean">
   <meta name="theme-color" content="#000000">
   <link rel="icon" type="image/png" sizes="192x192" href="icon-pessoal-192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="icon-pessoal-512.png">
@@ -4427,7 +4427,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=35').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=36').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
