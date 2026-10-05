@@ -992,7 +992,8 @@
 
   <!-- Navegação por Abas -->
   <div class="tabs">
-    <button class="tab-btn active" onclick="switchTab('sexta')">Hoje (Sexta Portagem & Argolas)</button>
+    <button class="tab-btn active" onclick="switchTab('segunda')">Hoje (Segunda: Box + Lab BMU)</button>
+    <button class="tab-btn" onclick="switchTab('sexta')">Sexta (Portagem & Argolas)</button>
     <button class="tab-btn" onclick="switchTab('quinta')">Quinta (Dança & Força Real)</button>
     <button class="tab-btn" onclick="switchTab('quarta')">Quarta (EEFERP Manjota)</button>
     <button class="tab-btn" onclick="switchTab('analises')">🎬 Análise de Vídeos</button>
@@ -1000,8 +1001,450 @@
     <button class="tab-btn" onclick="switchTab('perfil')">Diretrizes & Menisco</button>
   </div>
 
-  <!-- ==================== TAB ATIVA: HOJE (SEXTA PORTAGEM, DANÇA & ARGOLAS) ==================== -->
-  <div id="tab-sexta" class="tab-content active">
+  <!-- ==================== TAB ATIVA: HOJE (SEGUNDA: BOX + LAB BMU) ==================== -->
+  <div id="tab-segunda" class="tab-content active">
+
+    <!-- Checklist & Status Hoje -->
+    <div class="callout-box" style="border-left: 3.5px solid var(--brand-neon);">
+      <div class="callout-icon">🔥</div>
+      <div>
+        <strong>Sessão de Hoje (Segunda-Feira) • Box CrossFit (12:10) + Lab de Bar Muscle-Up (13:10):</strong><br>
+        • <strong>Bloco 1 (Box às 12:10):</strong> Warm-up articular (2 rds) + Skill EMOM 12' (Strict & Butterfly) + Triplo AMRAP progressivo de alta densidade metabólica.<br>
+        • <strong>Bloco 2 (Lab BMU ~40 min às 13:10):</strong> <strong>Gui (Strict Bar Muscle-Up com elástico na barra alta & corpo estendido)</strong> + <strong>Amiga (Transição na barra baixa com elástico para absorver o turnover)</strong> + Spot biomecânico Gui + Acessórios de força (Dips na barra reta + Lat pushdowns) + Descompressão final.<br>
+        • <strong>🛡️ Proteção Articular Crítica:</strong> Com o volume de 80 a 100+ pull-ups no box, o ombro esquerdo operado entra em fadiga: <em>zero chicken wing</em> ou tranco balístico assimétrico. Nos Wall Balls, controle o fundo a 90° para preservar o menisco lateral.
+      </div>
+    </div>
+
+    <!-- ==================== SEÇÃO 1: BOX CROSSFIT (12:10) ==================== -->
+    <div class="section-card sec-cardio">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">WOD Box</span>
+          <div class="section-title">WOD das 12:10 — Warm-up, Skill EMOM 12' & Triplo AMRAP</div>
+        </div>
+        <span class="time-badge">3 blocos • ~50 min</span>
+      </div>
+
+      <!-- Ex 1.1: Warm-up Dinâmico -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Warm-up Dinâmico: 2 Rounds de Ativação Escapular & Core</div>
+            <div class="ex-chips">
+              <span class="chip">10 Hollow Rock</span>
+              <span class="chip">10 Arch Rocks</span>
+              <span class="chip">10 Scapular Pull-up</span>
+              <span class="chip">10 Beat Swing</span>
+            </div>
+          </div>
+          <div class="ex-volume-badge">2 rounds</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Ativação Articular Escapular:</strong> Nas escapulares e beat swings, mantenha pegada firme e controle consciente da protração/retração e depressão escapular, sem "desabar" na suspensão passiva. No hollow e arch, mantenha a pelve retrovertida para ativar a fáscia tóraco-lombar.
+        </div>
+        <div class="ex-actions">
+          <button class="btn-comment" id="btn-comment-ex-seg-1" onclick="toggleCommentBox('ex-seg-1')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span>Nota</span>
+            <span class="comment-dot" id="dot-ex-seg-1" style="display:none;"></span>
+          </button>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Round 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Round 2</div>
+          </div>
+        </div>
+        <div id="comment-box-ex-seg-1" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (sensações articulares, aquecimento):</span>
+            <span class="save-indicator" id="save-status-ex-seg-1"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-seg-1" placeholder="Ex: Ombros soltos, escápulas ativadas, core firme..." oninput="saveExerciseNote('ex-seg-1', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 1.2: Skill EMOM 12' -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Skill EMOM 12': Butterfly Pull-up / Força Estrita & Cadência</div>
+            <div class="ex-chips">
+              <span class="chip">Min 1: 5 Strict Pull-up</span>
+              <span class="chip">Min 2: 10 Pull-up (Butterfly/Kip)</span>
+              <span class="chip">Min 3: Descanso Total</span>
+            </div>
+          </div>
+          <div class="ex-volume-badge">4 rounds • 12 min</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Qualidade Neural & Proteção Subacromial:</strong><br>
+          • <strong>Min 1 (5 Strict Pull-up):</strong> Tração bilateral simétrica pura até o esterno. Mantenha os cotovelos alinhados e evite qualquer rotação interna compensatória do braço esquerdo.<br>
+          • <strong>Min 2 (10 Butterfly/Kip Pull-up):</strong> Ritmo cíclico fluido. Use a impulsão de arco/canoa sem choques no final da fase excêntrica.<br>
+          • <strong>Min 3:</strong> Descanso passivo total para desanuviar a fadiga fosfagênica.
+        </div>
+        <div class="ex-actions">
+          <button class="btn-comment" id="btn-comment-ex-seg-2" onclick="toggleCommentBox('ex-seg-2')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span>Nota</span>
+            <span class="comment-dot" id="dot-ex-seg-2" style="display:none;"></span>
+          </button>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">R1 Strict</div>
+            <div class="set-pill" onclick="toggleSet(this)">R1 Kipping</div>
+            <div class="set-pill" onclick="toggleSet(this)">R2 Strict</div>
+            <div class="set-pill" onclick="toggleSet(this)">R2 Kipping</div>
+            <div class="set-pill" onclick="toggleSet(this)">R3 Strict</div>
+            <div class="set-pill" onclick="toggleSet(this)">R3 Kipping</div>
+            <div class="set-pill" onclick="toggleSet(this)">R4 Strict</div>
+            <div class="set-pill" onclick="toggleSet(this)">R4 Kipping</div>
+          </div>
+        </div>
+        <div id="comment-box-ex-seg-2" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (ritmo do butterfly, sensação do ombro):</span>
+            <span class="save-indicator" id="save-status-ex-seg-2"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-seg-2" placeholder="Ex: Strict saiu limpo, butterfly fluido sem incômodo no supra..." oninput="saveExerciseNote('ex-seg-2', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 1.3: WOD Triplo AMRAP -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">WOD Triplo AMRAP: Densidade Metabólica & Pulling Sob Fadiga</div>
+            <div class="ex-chips">
+              <span class="chip">AMRAP 6' (Snatch)</span>
+              <span class="chip">AMRAP 5' (Clean & Jerk)</span>
+              <span class="chip">AMRAP 4' (Thruster)</span>
+              <span class="chip">1' Rest entre blocos</span>
+            </div>
+          </div>
+          <div class="ex-volume-badge">15 min WOD + 2 min Rest</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Roteiro dos 3 Blocos & Blindagem Articular:</strong><br>
+          • <strong>AMRAP 6':</strong> 40 Wall Ball ➔ Then no tempo restante: 6 Pull-up + 8 Burpees over DB + 10 DB Snatch.<br>
+          • <em>Rest 1'</em><br>
+          • <strong>AMRAP 5':</strong> 30 Wall Ball ➔ Then no tempo restante: 6 Pull-up + 8 Burpees over DB + 10 DB Hang Clean & Jerk.<br>
+          • <em>Rest 1'</em><br>
+          • <strong>AMRAP 4':</strong> 20 Wall Ball ➔ Then no tempo restante: 6 Pull-up + 8 Burpees over DB + 10 DB Thruster.<br>
+          • <strong>Foco Meniscal & Ombro:</strong> Nos 90 Wall Balls totais, mantenha controle na descida e flexão a 90° (sem desabar no fundo para proteger o menisco lateral). Nos DB Snatches e Thrusters, impulsione com extensão tripla potente de quadril para aliviar os braços!
+        </div>
+        <div class="ex-actions">
+          <button class="btn-comment" id="btn-comment-ex-seg-3" onclick="toggleCommentBox('ex-seg-3')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span>Nota</span>
+            <span class="comment-dot" id="dot-ex-seg-3" style="display:none;"></span>
+          </button>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">AMRAP 6'</div>
+            <div class="set-pill" onclick="toggleSet(this)">AMRAP 5'</div>
+            <div class="set-pill" onclick="toggleSet(this)">AMRAP 4'</div>
+          </div>
+        </div>
+        <div id="comment-box-ex-seg-3" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (rounds completados, peso do DB, joelho/ombro):</span>
+            <span class="save-indicator" id="save-status-ex-seg-3"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-seg-3" placeholder="Ex: DB de 20kg, 2 rounds + 10 reps no AMRAP 6', joelho 100%..." oninput="saveExerciseNote('ex-seg-3', this.value)"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SEÇÃO 2: LAB MUSCLE-UP (13:10) ==================== -->
+    <div class="section-card sec-forca">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">Lab BMU</span>
+          <div class="section-title">Laboratório de Bar Muscle-Up — Gui (Strict) & Amiga (Barra Baixa)</div>
+        </div>
+        <span class="time-badge">40 min • Força & Técnica Pura</span>
+      </div>
+
+      <div class="bio-cue" style="border-left: 2px solid var(--brand-neon); margin-bottom: 14px;">
+        <strong>🔬 Diagnóstico Biomecânico do Treino Compartilhado:</strong><br>
+        • <strong>Para o Gui:</strong> Após ~100 puxadas no box, fazer Muscle-Up com kip rápido pode desestabilizar o ombro esquerdo operado. Por isso, faremos <strong>Strict BMU na barra alta com elástico e corpo estendido (hollow)</strong>. O elástico retira o tranco no sticking point e o corpo estendido obriga uma linha simétrica de dorsais e peitoral, impedindo compensações assimétricas (<em>chicken-wing</em>).<br>
+        • <strong>Para a Amiga:</strong> Ao invés do salto da caixa (onde o aluno foca no pulo e não aprende o giro de punho), ela usará a <strong>barra baixa com elástico</strong>. Ela sentirá a rotação simultânea das mãos (turnover) e o tronco projetado à frente sem qualquer receio de queda ou altura. Em seguida, na barra alta com o spot manual do Gui na lombar/pelve, ela destrava a transição real!
+      </div>
+
+      <!-- Ex 2.1: Reset Escapular & Transição -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Reset Articular Pós-WOD: Descompressão Subacromial & Peitoral Menor</div>
+            <div class="ex-chips">
+              <span class="chip">Elástico na Barra Alta</span>
+              <span class="chip">Soltura de Grande Dorsal</span>
+              <span class="chip">Espaço Subacromial</span>
+            </div>
+          </div>
+          <div class="ex-volume-badge">2x 45s / braço</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Abertura Articular Rápida:</strong> Segure a superband alta com o braço estendido e incline o tronco para a frente, deixando o elástico tracionar a articulação glenoumeral para cima e para fora. Respire fundo para soltar a hipertonia do grande dorsal e do peitoral menor antes do trabalho fino de transição.
+        </div>
+        <div class="ex-actions">
+          <button class="btn-comment" id="btn-comment-ex-seg-4" onclick="toggleCommentBox('ex-seg-4')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span>Nota</span>
+            <span class="comment-dot" id="dot-ex-seg-4" style="display:none;"></span>
+          </button>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+          </div>
+        </div>
+        <div id="comment-box-ex-seg-4" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (alívio do ombro operado):</span>
+            <span class="save-indicator" id="save-status-ex-seg-4"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-seg-4" placeholder="Ex: Espaço articular aberto, ombro livre para puxar..." oninput="saveExerciseNote('ex-seg-4', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 2.2: Treino Gui - Strict BMU com Elástico e Corpo Estendido -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Treino Gui: Strict Bar Muscle-Up com Elástico na Barra Alta (Corpo Estendido)</div>
+            <div class="ex-chips">
+              <span class="chip">Gui Lemos</span>
+              <span class="chip">Superband Média/Leve</span>
+              <span class="chip">Hollow Body Estrito</span>
+              <span class="chip">Zero Chicken-Wing</span>
+            </div>
+          </div>
+          <div class="ex-volume-badge">4 a 5 micro-séries • 1-2 reps</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Biomecânica da Puxada Estrita e Alinhamento:</strong><br>
+          1. <strong>Corpo Estendido em Hollow:</strong> Pés unidos à frente, glúteos e abdômen contraídos. Não dobre os joelhos e não quebre a lombar para trás.<br>
+          2. <strong>Puxada Alta ao Esterno:</strong> Puxe a barra o mais alto possível em direção ao abdômen superior/esterno, mantendo os punhos em ligeira pegada falsa (ou rolamento suave).<br>
+          3. <strong>Turnover Sincronizado:</strong> Gire os dois cotovelos estritamente no mesmo milissegundo por cima da barra com o peito projetando à frente. Se houver qualquer assimetria ou puxão isolado, interrompa a repetição.<br>
+          4. <strong>Descanso:</strong> 2 a 3 minutos completos entre cada série para recomposição de ATP-CP neural.
+        </div>
+        <div class="ex-actions">
+          <div style="display:flex; gap:6px; flex-wrap:wrap;">
+            <button class="btn-video" onclick="openVideoModal('Kip Bar Muscle-Up (Gui Lemos)', '<b>Referência Técnica:</b> Trajetória parabólica, momento do peito sobre a barra e rotação simultânea das mãos e cotovelos na finalização.', 'Midia/gui_kip_muscle_up.mp4')">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Ver Vídeo Kip BMU
+            </button>
+            <button class="btn-comment" id="btn-comment-ex-seg-5" onclick="toggleCommentBox('ex-seg-5')">
+              <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+              <span>Nota</span>
+              <span class="comment-dot" id="dot-ex-seg-5" style="display:none;"></span>
+            </button>
+          </div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1 rep</div>
+            <div class="set-pill" onclick="toggleSet(this)">1-2 reps</div>
+            <div class="set-pill" onclick="toggleSet(this)">1-2 reps</div>
+            <div class="set-pill" onclick="toggleSet(this)">1-2 reps</div>
+            <div class="set-pill" onclick="toggleSet(this)">1-2 reps</div>
+          </div>
+        </div>
+        <div id="comment-box-ex-seg-5" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (corpo estendido, simetria de cotovelos, elástico usado):</span>
+            <span class="save-indicator" id="save-status-ex-seg-5"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-seg-5" placeholder="Ex: Elástico roxo, 2 reps estritas limpas, cotovelos entraram juntos, sem dor..." oninput="saveExerciseNote('ex-seg-5', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 2.3: Educativo Amiga - Transição na Barra Baixa com Elástico -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Educativo Amiga: Transição de Muscle-Up na Barra Baixa com Elástico</div>
+            <div class="ex-chips">
+              <span class="chip">Amiga BMU</span>
+              <span class="chip">Barra no Peito/Quadril</span>
+              <span class="chip">Turnover dos Punhos</span>
+              <span class="chip">Sem Medo de Queda</span>
+            </div>
+          </div>
+          <div class="ex-volume-badge">4 séries • 3 a 5 reps</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Por Que a Barra Baixa com Elástico Destrava o BMU Dela:</strong><br>
+          • <strong>O Gargalo Real:</strong> Alunos que estão quase tirando o BMU geralmente têm força de puxada suficiente, mas travam na transição por medo de bater a cabeça na barra ou por girar a pegada tarde demais.<br>
+          • <strong>Montagem:</strong> Barra baixa (na altura do esterno ou diafragma) com elástico horizontal ou sob os pés. Com os pés apoiados e elástico aliviando a carga, ela inicia a puxada para trás e para cima.<br>
+          • <strong>O Gatilho Neural:</strong> No topo da puxada, ela foca exclusivamente em <strong>rolar os nós dos dedos para cima da barra (knuckles over) e projetar a testa e o peito para frente</strong>, caindo na posição de apoio do mergulho (dip). Faça 4 séries com cadência suave até o movimento ser 100% automático!
+        </div>
+        <div class="ex-actions">
+          <button class="btn-comment" id="btn-comment-ex-seg-6" onclick="toggleCommentBox('ex-seg-6')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span>Nota</span>
+            <span class="comment-dot" id="dot-ex-seg-6" style="display:none;"></span>
+          </button>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1 (3 reps)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2 (4 reps)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3 (4 reps)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 4 (5 reps)</div>
+          </div>
+        </div>
+        <div id="comment-box-ex-seg-6" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (evolução dela no turnover da barra baixa):</span>
+            <span class="save-indicator" id="save-status-ex-seg-6"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-seg-6" placeholder="Ex: Pegou o timing da virada dos punhos na 2ª série, perdeu o medo..." oninput="saveExerciseNote('ex-seg-6', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 2.4: Tentativas da Amiga na Barra Alta com Spot do Gui -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Tentativas da Amiga na Barra Alta com Spot Biomecânico do Gui</div>
+            <div class="ex-chips">
+              <span class="chip">Amiga + Spot Gui</span>
+              <span class="chip">Barra Alta</span>
+              <span class="chip">Vetor Diagonal na Lombar</span>
+              <span class="chip">Destrave do Primeiro BMU</span>
+            </div>
+          </div>
+          <div class="ex-volume-badge">3 a 4 tentativas</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Como Dar o Spot Biomecânico Perfeito (Gui Lemos):</strong><br>
+          • Posicione-se ligeiramente atrás e ao lado dela.<br>
+          • Ela executa o swing e a puxada alta do kip normal.<br>
+          • <strong>No ápice da subida (o momento exato em que os pés começam a descer):</strong> Suas mãos entram na região sacral/lombar inferior dela. Aplique uma força diagonal firme: <em>para cima e para frente</em>.<br>
+          • Esse empurrão vence a inércia dos 10-15% que faltam, permitindo que ela faça o mesmo snap do peito e giro de punho que treinou na barra baixa. Se subir, comemore o 1º BMU!
+        </div>
+        <div class="ex-actions">
+          <button class="btn-comment" id="btn-comment-ex-seg-7" onclick="toggleCommentBox('ex-seg-7')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span>Nota</span>
+            <span class="comment-dot" id="dot-ex-seg-7" style="display:none;"></span>
+          </button>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Tentativa 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Tentativa 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Tentativa 3</div>
+            <div class="set-pill" onclick="toggleSet(this)">Tentativa 4</div>
+          </div>
+        </div>
+        <div id="comment-box-ex-seg-7" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (resultado das tentativas na barra alta):</span>
+            <span class="save-indicator" id="save-status-ex-seg-7"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-seg-7" placeholder="Ex: Na 2ª tentativa passou o peito com spot leve! Quase encaixou livre..." oninput="saveExerciseNote('ex-seg-7', this.value)"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SEÇÃO 3: ACESSÓRIOS & DESCOMPRESSÃO ==================== -->
+    <div class="section-card sec-flexibilidade">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-badge">Acessórios & Soltura</span>
+          <div class="section-title">Força de Mergulho na Barra & Descompressão do Ombro e Menisco</div>
+        </div>
+        <span class="time-badge">2 blocos • 15 min</span>
+      </div>
+
+      <!-- Ex 3.1: Straight Bar Dips + Lat Pushdown -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Straight Bar Dips + Straight-Arm Banded Pushdown (Gui & Amiga)</div>
+            <div class="ex-chips">
+              <span class="chip">Dips na Barra Reta (Tríceps/Peitoral)</span>
+              <span class="chip">Puxada com Braço Reto no Elástico</span>
+              <span class="chip">Consolidação de Força</span>
+            </div>
+          </div>
+          <div class="ex-volume-badge">3 séries • 4-6 dips + 10 pushdowns</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Consolidação da Transição & Finalização:</strong><br>
+          • <strong>Straight Bar Dips (4 a 6 reps):</strong> Em cima da barra reta (com pés apoiados se necessário para a amiga), descer com o peito tocando a barra e cotovelos fechados, empurrando até a extensão completa. Constrói a força do tríceps e peitoral menor na saída da transição.<br>
+          • <strong>Straight-Arm Pushdown (10 reps):</strong> Elástico amarrado no alto, segurar com braços esticados e abaixar até as coxas sem dobrar os cotovelos. Isola o grande dorsal e a cabeça longa do tríceps.
+        </div>
+        <div class="ex-actions">
+          <button class="btn-comment" id="btn-comment-ex-seg-8" onclick="toggleCommentBox('ex-seg-8')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span>Nota</span>
+            <span class="comment-dot" id="dot-ex-seg-8" style="display:none;"></span>
+          </button>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
+          </div>
+        </div>
+        <div id="comment-box-ex-seg-8" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (desempenho nos dips e elástico):</span>
+            <span class="save-indicator" id="save-status-ex-seg-8"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-seg-8" placeholder="Ex: Dips limpos na barra reta, tríceps bem ativado sem dor anterior..." oninput="saveExerciseNote('ex-seg-8', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 3.2: Descompressão Subacromial & Menisco Lateral -->
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Descompressão Subacromial do Ombro & Alívio do Menisco Lateral</div>
+            <div class="ex-chips">
+              <span class="chip">Dead Hang com Ponta dos Pés</span>
+              <span class="chip">Abertura Subacromial</span>
+              <span class="chip">Tração Bíceps Femoral / TFL</span>
+            </div>
+          </div>
+          <div class="ex-volume-badge">2x 45s cada</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Neutralização Articular Imediata Pós-Treino:</strong><br>
+          1. <strong>Ombro Esquerdo:</strong> Suspensão passiva na barra com pontas dos pés no solo tirando 30% do peso. Permite que a gravidade abra o túnel subacromial, descomprimindo o tendão do supraespinhal após o alto estresse do WOD.<br>
+          2. <strong>Joelho Esquerdo:</strong> Alongamento de bíceps femoral e fáscia lata com rotação interna da tíbia, liberando a tração na cabeça da fíbula e descomprimindo o menisco lateral após os 90 Wall Balls.
+        </div>
+        <div class="ex-actions">
+          <button class="btn-comment" id="btn-comment-ex-seg-9" onclick="toggleCommentBox('ex-seg-9')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span>Nota</span>
+            <span class="comment-dot" id="dot-ex-seg-9" style="display:none;"></span>
+          </button>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+          </div>
+        </div>
+        <div id="comment-box-ex-seg-9" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (sensações pós-treino no ombro e joelho):</span>
+            <span class="save-indicator" id="save-status-ex-seg-9"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-seg-9" placeholder="Ex: Ombro e joelho sem dores, sensação de descompressão total..." oninput="saveExerciseNote('ex-seg-9', this.value)"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card de Envio de Relatório WhatsApp -->
+    <div class="workout-summary-card">
+      <div style="font-size: 0.95rem; font-weight: 800; color: #fff; margin-bottom: 4px;">
+        📤 Finalizou o Treino de Hoje (Box + Lab BMU)?
+      </div>
+      <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 14px;">
+        Gere o relatório completo com suas séries executadas, sensações do ombro e progresso no BMU para salvar no seu WhatsApp com 1 clique!
+      </p>
+      <button class="btn-whatsapp-report" onclick="sendWorkoutReportWhatsApp()">
+        <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.24-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.49-.4-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.17-.48-.29z"/></svg>
+        Compartilhar Relatório no WhatsApp
+      </button>
+    </div>
+
+  </div>
+
+  <!-- ==================== TAB: SEXTA (PORTAGEM, DANÇA & ARGOLAS) ==================== -->
+  <div id="tab-sexta" class="tab-content">
 
     <!-- Checklist & Status Hoje -->
     <div class="callout-box" style="border-left: 3.5px solid var(--brand-neon);">
@@ -2190,8 +2633,9 @@
         <h3 id="modalTitle">Demonstração Técnica</h3>
         <button class="btn-close" onclick="closeVideoModal()">&times;</button>
       </div>
-      <div class="video-container">
-        <iframe id="videoIframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class="video-container" style="background:#000;">
+        <iframe id="videoIframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:none; width:100%; height:100%; border:none;"></iframe>
+        <video id="videoPlayer" controls playsinline preload="auto" style="display:none; width:100%; max-height:420px; background:#000;"></video>
       </div>
       <div class="modal-body">
         <p id="modalDesc"></p>
@@ -2320,13 +2764,37 @@
     function openVideoModal(title, desc, videoUrl) {
       document.getElementById('modalTitle').innerText = title;
       document.getElementById('modalDesc').innerHTML = desc;
-      document.getElementById('videoIframe').src = videoUrl;
+      const iframe = document.getElementById('videoIframe');
+      const player = document.getElementById('videoPlayer');
+      
+      if (videoUrl.includes('.mp4')) {
+        iframe.style.display = 'none';
+        iframe.src = '';
+        player.style.display = 'block';
+        player.src = videoUrl;
+        player.load();
+        player.play().catch(() => {});
+      } else {
+        if (player) {
+          player.pause();
+          player.src = '';
+          player.style.display = 'none';
+        }
+        iframe.style.display = 'block';
+        iframe.src = videoUrl;
+      }
       document.getElementById('videoModal').classList.add('active');
     }
 
     function closeVideoModal() {
       document.getElementById('videoModal').classList.remove('active');
-      document.getElementById('videoIframe').src = '';
+      const iframe = document.getElementById('videoIframe');
+      const player = document.getElementById('videoPlayer');
+      if (iframe) iframe.src = '';
+      if (player) {
+        player.pause();
+        player.src = '';
+      }
     }
 
     /* Modal de Bio Gui Lemos */
