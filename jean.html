@@ -3087,7 +3087,7 @@
 
   <!-- Modal Bio Gui Lemos -->
   <div id="bioModal" class="modal-overlay" onclick="handleOverlayClick(event)">
-    <div class="modal-card">
+    <div class="modal-card" onclick="event.stopPropagation();">
       <div class="modal-header">
         <div style="display:flex; align-items:center; gap:10px;">
           <img src="gui_foto.jpg" onerror="this.onerror=null; this.src='icon-192.png';" alt="Gui Lemos" style="width:34px; height:34px; border-radius:50%; border:2px solid var(--brand-neon); object-fit: cover;">
@@ -4276,25 +4276,24 @@
     }
 
     /* Modal de Bio Gui Lemos */
-    function openBioModal(e) {
-      if (e) {
-        if (typeof e.stopPropagation === 'function') e.stopPropagation();
-        if (typeof e.preventDefault === 'function') e.preventDefault();
-      }
-      // Se estiver na visão dedicada de timers, análises ou ficha, não abre bio
-      if (document.body.classList.contains('in-dedicated-view')) return;
+    let bioModalOpenTime = 0;
 
+    function openBioModal(e) {
+      if (e && typeof e.stopPropagation === 'function') {
+        e.stopPropagation();
+      }
       const m = document.getElementById('bioModal');
       if (m) {
+        bioModalOpenTime = Date.now();
         m.classList.add('active');
         m.style.display = 'flex';
       }
     }
 
     function closeBioModal(e) {
-      if (e) {
-        if (typeof e.stopPropagation === 'function') e.stopPropagation();
-        if (typeof e.preventDefault === 'function') e.preventDefault();
+      if (Date.now() - bioModalOpenTime < 350) return;
+      if (e && typeof e.stopPropagation === 'function') {
+        e.stopPropagation();
       }
       const m = document.getElementById('bioModal');
       if (m) {
@@ -4308,7 +4307,7 @@
         if (e.target.id === 'videoModal') {
           closeVideoModal();
         }
-        if (e.target.id === 'bioModal') {
+        if (e.target.id === 'bioModal' && (Date.now() - bioModalOpenTime >= 350)) {
           closeBioModal(e);
         }
       }
@@ -4427,7 +4426,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=36').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=37').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });

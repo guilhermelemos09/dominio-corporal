@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dominio-corporal-v36';
+const CACHE_NAME = 'dominio-corporal-v37';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -14,26 +14,31 @@ const ASSETS_TO_CACHE = [
   './Midia/comparacao_frontal_relaxado.jpg',
   './Midia/comparacao_duplo_biceps.jpg',
   './manifest.json',
-  './manifest-pessoal.json',
-  'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap'
+  './manifest-pessoal.json'
 ];
 
-// Install: precache app shell
+// Install: precache app shell safely without failing on network/font issues
 self.addEventListener('install', (event) => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(ASSETS_TO_CACHE);
-    }).then(() => self.skipWaiting())
+      return Promise.allSettled(
+        ASSETS_TO_CACHE.map((url) =>
+          cache.add(url).catch((err) => console.warn('Cache fallback for ' + url, err))
+        )
+      );
+    })
   );
 });
 
-// Activate: clean up old caches
+// Activate: clean up old caches immediately and take control
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) => {
       return Promise.all(
         keys.map((key) => {
           if (key !== CACHE_NAME) {
+            console.log('Purging legacy cache:', key);
             return caches.delete(key);
           }
         })
