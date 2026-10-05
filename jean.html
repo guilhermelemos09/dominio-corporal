@@ -1,0 +1,4504 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Domínio Corporal Gui</title>
+
+  <!-- PWA & Mobile App Meta Tags -->
+  <link rel="manifest" href="manifest-jean.json">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Domínio Corporal Gui">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-pessoal-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="icon-pessoal-512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="icon-pessoal-192.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="icon-pessoal-192.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="icon-pessoal-512.png">
+  <link rel="shortcut icon" href="icon-pessoal-192.png">
+
+  <!-- Fonte Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Base Preto Puro OLED */
+      --bg: #000000;
+      --card-bg: #0c0c0c;
+      --card-inner: #131313;
+      --border-subtle: #1e1e1e;
+      --border-strong: #2c2c2c;
+      
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+
+      /* Identidade Visual: Verde Neon Hero */
+      --brand-neon: #00ff88;
+      --brand-neon-glow: rgba(0, 255, 136, 0.4);
+      --brand-neon-bg: rgba(0, 255, 136, 0.08);
+
+      /* Cores Funcionais Discretas (Mínimo Estrito) */
+      --sec-aquecimento: #f59e0b;      /* Ativação: Amarelo Ouro / Warm Gold */
+      --sec-skills: #00ff88;           /* Habilidade: Verde Neon */
+      --sec-forca: #00ff88;            /* Fortalecimento: Verde Neon */
+      --sec-flex: #c084fc;             /* Flexibilidade: Lavanda Suave */
+      --sec-cardio: #fb7185;           /* Cardio: Coral Suave */
+
+      --radius-lg: 14px;
+      --radius-md: 10px;
+      --radius-sm: 6px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      padding: 16px;
+      padding-bottom: 115px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header Domínio Corporal Minimalista */
+    header {
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 18px 20px;
+      margin-bottom: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--brand-neon), transparent);
+    }
+    .brand-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .institution {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+    }
+    .badge-sync {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--brand-neon-bg);
+      color: var(--brand-neon);
+      border: 1px solid rgba(0, 255, 136, 0.3);
+      padding: 3px 9px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+    .badge-sync::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--brand-neon);
+      box-shadow: 0 0 8px var(--brand-neon);
+    }
+    .brand h1 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      margin-bottom: 2px;
+    }
+    .brand-slogan {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--brand-neon);
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+    .brand-subtitle {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+    .brand-subtitle span {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+
+    /* Barra de Progresso Neon (Destacada sob os Objetivos) */
+    .progress-section {
+      margin: 10px 0 12px 0;
+      padding: 10px 14px;
+      background: rgba(0, 255, 136, 0.04);
+      border: 1px solid rgba(0, 255, 136, 0.28);
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+    .progress-labels {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      margin-bottom: 7px;
+      letter-spacing: 0.03em;
+    }
+    .progress-labels span:first-child {
+      color: #cbd5e1;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+    }
+    .progress-labels span#progressText,
+    .progress-labels .progress-val-text {
+      color: var(--brand-neon);
+      font-weight: 800;
+      font-size: 0.8rem;
+      text-shadow: 0 0 8px rgba(0, 255, 136, 0.45);
+    }
+    .progress-bar-bg {
+      background: rgba(255, 255, 255, 0.1);
+      height: 8px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.6);
+    }
+    .progress-bar-fill {
+      background: linear-gradient(90deg, #00c853, var(--brand-neon));
+      height: 100%;
+      width: 0%;
+      border-radius: 10px;
+      box-shadow: 0 0 12px var(--brand-neon-glow);
+      transition: width 0.3s ease;
+    }
+
+    /* Tabs em Preto Fosco */
+    .tabs {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      margin-bottom: 16px;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .tabs::-webkit-scrollbar { display: none; }
+    .tab-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .tab-btn.active {
+      background: var(--brand-neon);
+      color: #000000;
+      border-color: var(--brand-neon);
+      box-shadow: 0 0 14px var(--brand-neon-glow);
+      font-weight: 800;
+    }
+
+    /* Tab Content */
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.25s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ===================================================
+       SISTEMA DOS PILARES (PRETO OLED + VERDE NEON HERO)
+       =================================================== */
+    .section-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border-subtle);
+      border-left: 3.5px solid var(--brand-neon);
+      position: relative;
+    }
+
+    /* 1. Ativação (Amarelo Ouro) */
+    .sec-aquecimento, .sec-ativacao, .border-ativacao {
+      border-left-color: var(--sec-aquecimento);
+    }
+    .sec-aquecimento .section-badge, .sec-ativacao .section-badge, .border-ativacao .section-badge {
+      background: rgba(245, 158, 11, 0.10);
+      color: var(--sec-aquecimento);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    /* 2. Habilidade (Verde Neon Hero) */
+    .sec-skills, .sec-habilidade, .border-habilidade {
+      border-left-color: var(--brand-neon);
+    }
+    .sec-skills .section-badge, .sec-habilidade .section-badge, .border-habilidade .section-badge {
+      background: var(--brand-neon-bg);
+      color: var(--brand-neon);
+      border: 1px solid rgba(0, 255, 136, 0.3);
+    }
+
+    /* 3. Fortalecimento (Verde Neon) */
+    .sec-forca, .sec-fortalecimento, .border-fortalecimento {
+      border-left-color: var(--brand-neon);
+    }
+    .sec-forca .section-badge, .sec-fortalecimento .section-badge, .border-fortalecimento .section-badge {
+      background: var(--brand-neon-bg);
+      color: var(--brand-neon);
+      border: 1px solid rgba(0, 255, 136, 0.3);
+    }
+
+    /* 4. Flexibilidade (Discreto Lavanda) */
+    .sec-flex, .sec-flexibilidade, .border-flexibilidade {
+      border-left-color: var(--sec-flex);
+    }
+    .sec-flex .section-badge, .sec-flexibilidade .section-badge, .border-flexibilidade .section-badge {
+      background: rgba(192, 132, 252, 0.08);
+      color: var(--sec-flex);
+      border: 1px solid rgba(192, 132, 252, 0.25);
+    }
+
+    /* 5. Cardio (Discreto Coral) */
+    .sec-cardio, .border-cardio {
+      border-left-color: var(--sec-cardio);
+    }
+    .sec-cardio .section-badge, .border-cardio .section-badge {
+      background: rgba(251, 113, 133, 0.08);
+      color: var(--sec-cardio);
+      border: 1px solid rgba(251, 113, 133, 0.25);
+    }
+
+    /* Cabeçalho da Seção */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .section-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-badge {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .section-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+    .time-badge {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+      border: 1px solid var(--border-subtle);
+    }
+
+    /* Cards Internos de Exercício */
+    .exercise-card {
+      background: var(--card-inner);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      transition: all 0.2s ease;
+    }
+    .exercise-card:last-child { margin-bottom: 0; }
+    .exercise-card:hover {
+      border-color: var(--border-strong);
+    }
+
+    .ex-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+    .ex-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.3;
+    }
+    .ex-chips {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .chip {
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-muted);
+    }
+
+    .ex-volume-badge {
+      font-size: 0.76rem;
+      font-weight: 700;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      border: 1px solid var(--border-subtle);
+      padding: 4px 9px;
+      border-radius: 8px;
+      white-space: nowrap;
+    }
+
+    /* Caixa de Dica Biomecânica */
+    .bio-cue {
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin: 10px 0;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    .bio-cue strong { color: #ffffff; }
+
+    /* Barra de Ação do Exercício */
+    .ex-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* Botão de Vídeo Estilo Cyberpunk / Dark Glass */
+    .btn-video {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--brand-neon-bg);
+      border: 1px solid rgba(0, 255, 136, 0.25);
+      color: var(--brand-neon);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .btn-video:active {
+      background: rgba(0, 255, 136, 0.2);
+      border-color: var(--brand-neon);
+      transform: scale(0.97);
+    }
+    .btn-video svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
+    /* Bolinhas de Série em Dark Mode */
+    .sets-container {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .set-pill {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1.5px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.15s ease;
+    }
+    .set-pill:active { transform: scale(0.92); }
+    .set-pill.done {
+      background: var(--brand-neon);
+      color: #000000;
+      border-color: var(--brand-neon);
+      box-shadow: 0 0 14px var(--brand-neon-glow);
+      font-weight: 800;
+    }
+
+    /* Botão de Comentário / Feedback */
+    .btn-comment {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 6px 11px;
+      border-radius: 8px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      position: relative;
+    }
+    .btn-comment:active { transform: scale(0.97); }
+    .btn-comment.has-note {
+      border-color: rgba(0, 255, 136, 0.4);
+      color: #ffffff;
+      background: rgba(0, 255, 136, 0.06);
+    }
+    .btn-comment svg {
+      width: 13px;
+      height: 13px;
+      fill: currentColor;
+    }
+    .comment-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--brand-neon);
+      box-shadow: 0 0 6px var(--brand-neon);
+      margin-left: 2px;
+    }
+
+    /* Gaveta de Comentários */
+    .comment-drawer {
+      margin-top: 10px;
+      padding: 12px 14px;
+      background: #090909;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      animation: fadeIn 0.2s ease;
+    }
+    .comment-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+    .save-indicator {
+      font-size: 0.68rem;
+      color: var(--brand-neon);
+      font-weight: 600;
+      transition: opacity 0.3s ease;
+      opacity: 0.7;
+    }
+    .comment-textarea {
+      width: 100%;
+      min-height: 64px;
+      background: #111111;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      padding: 9px 12px;
+      font-family: inherit;
+      font-size: 0.8rem;
+      color: #ffffff;
+      line-height: 1.45;
+      resize: vertical;
+      box-sizing: border-box;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .comment-textarea:focus {
+      border-color: var(--brand-neon);
+      box-shadow: 0 0 8px rgba(0, 255, 136, 0.15);
+    }
+    .comment-textarea::placeholder {
+      color: #555555;
+      font-size: 0.76rem;
+    }
+
+    /* Box de Resposta do Treinador */
+    .coach-response-box {
+      margin-top: 10px;
+      padding: 10px 12px;
+      background: rgba(0, 255, 136, 0.04);
+      border: 1px solid rgba(0, 255, 136, 0.2);
+      border-radius: 8px;
+    }
+    .coach-response-header {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 6px;
+    }
+    .coach-response-avatar {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1px solid var(--brand-neon);
+      object-fit: cover;
+    }
+    .coach-response-name {
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+    .coach-response-badge {
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: var(--brand-neon);
+      background: rgba(0, 255, 136, 0.12);
+      padding: 1px 6px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .coach-response-text {
+      font-size: 0.78rem;
+      color: #e2e8f0;
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    /* Card de Envio de Relatório WhatsApp */
+    .workout-summary-card {
+      background: linear-gradient(180deg, #111111, #0c0c0c);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-lg);
+      padding: 18px 20px;
+      margin-top: 24px;
+      margin-bottom: 24px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+    .btn-whatsapp-report {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      width: 100%;
+      background: #25d366;
+      color: #000000;
+      border: none;
+      padding: 13px 18px;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+    }
+    .btn-whatsapp-report:active {
+      transform: scale(0.98);
+      background: #20ba59;
+    }
+    .btn-whatsapp-report svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* Callout Card Dark */
+    .callout-box {
+      border-radius: var(--radius-md);
+      padding: 13px 16px;
+      margin-bottom: 16px;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+    }
+    .callout-box strong { color: #ffffff; }
+    .callout-icon { font-size: 1.15rem; line-height: 1; flex-shrink: 0; margin-top: 1px; }
+
+    /* Hero Feedback Técnico & Análise Cinemática */
+    .analysis-hero-card {
+      position: relative;
+      display: flex;
+      align-items: stretch;
+      background: #0d110e;
+      border: 1px solid rgba(0, 255, 136, 0.25);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+    .analysis-hero-img-wrap {
+      position: relative;
+      flex: 0 0 220px;
+      min-height: 165px;
+      overflow: hidden;
+    }
+    .analysis-hero-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .analysis-hero-img-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 32px;
+      background: linear-gradient(to right, transparent, #0d110e);
+      pointer-events: none;
+    }
+    .analysis-hero-body {
+      flex: 1;
+      padding: 14px 18px 14px 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 1;
+    }
+    .analysis-hero-tag {
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--brand-neon);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .analysis-hero-title {
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.25;
+      margin-bottom: 6px;
+    }
+    .analysis-hero-desc {
+      font-size: 0.77rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin-bottom: 8px;
+    }
+    .analysis-hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .analysis-hero-chip {
+      font-size: 0.65rem;
+      background: rgba(0, 255, 136, 0.08);
+      color: var(--brand-neon);
+      border: 1px solid rgba(0, 255, 136, 0.2);
+      border-radius: 6px;
+      padding: 2px 7px;
+      font-weight: 600;
+    }
+    @media (max-width: 600px) {
+      .analysis-hero-img-wrap {
+        flex: 0 0 180px;
+        min-height: 150px;
+      }
+      .analysis-hero-body {
+        padding: 12px 14px 12px 8px;
+      }
+    }
+    @media (max-width: 440px) {
+      .analysis-hero-img-wrap {
+        flex: 0 0 155px;
+        min-height: 145px;
+      }
+      .analysis-hero-body {
+        padding: 10px 10px 10px 6px;
+      }
+      .analysis-hero-title {
+        font-size: 0.88rem;
+      }
+      .analysis-hero-desc {
+        font-size: 0.72rem;
+        line-height: 1.38;
+      }
+    }
+
+    /* Cronômetro Flutuante OLED */
+    .timer-dock {
+      position: fixed;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      background: rgba(17, 24, 39, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--border-strong);
+      border-radius: 24px;
+      padding: 10px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7);
+      z-index: 100;
+    }
+    .timer-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .timer-caption {
+      font-size: 0.62rem;
+      font-weight: 800;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .timer-display {
+      font-size: 1.35rem;
+      font-weight: 800;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      color: var(--brand-neon);
+      letter-spacing: -0.02em;
+    }
+    .timer-buttons {
+      display: flex;
+      gap: 6px;
+    }
+    .btn-timer {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 7px 12px;
+      border-radius: 12px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .btn-timer.active {
+      background: var(--brand-neon);
+      color: #000000;
+      border-color: var(--brand-neon);
+      box-shadow: 0 0 12px var(--brand-neon-glow);
+    }
+    .btn-timer-reset {
+      background: rgba(244, 63, 94, 0.15);
+      color: #fb7185;
+      border-color: rgba(244, 63, 94, 0.3);
+    }
+
+    /* Modal de Vídeo Dark & Modais Gerais */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 25000 !important;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      box-sizing: border-box;
+    }
+    .modal-overlay.active {
+      display: flex !important;
+      animation: modalIn 0.25s ease;
+    }
+    @keyframes modalIn { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: scale(1); } }
+
+    .modal-card {
+      background: #111827;
+      border: 1px solid var(--border-strong);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 520px;
+      max-height: 90vh;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9);
+      position: relative;
+      z-index: 25001;
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 18px;
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .modal-header h3 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+    .btn-close {
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      color: var(--text-muted);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      background: #000;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      border: none;
+    }
+    .modal-body {
+      padding: 16px 18px;
+      font-size: 0.85rem;
+      color: var(--text-main);
+      line-height: 1.55;
+    }
+
+    /* Coach Profile Button & Bio Modal */
+    .coach-profile-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      padding: 4px 12px 4px 6px;
+      border-radius: 24px;
+      cursor: pointer;
+      text-decoration: none;
+      font-family: inherit;
+      color: inherit;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      -webkit-user-select: none;
+      transition: all 0.2s ease;
+    }
+    .coach-profile-btn * {
+      pointer-events: none;
+    }
+    .coach-profile-btn:hover, .coach-profile-btn:active {
+      border-color: var(--brand-neon);
+      background: var(--brand-neon-bg);
+      transform: translateY(-1px);
+    }
+    .coach-avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 1.5px solid var(--brand-neon);
+      object-fit: cover;
+      display: block;
+    }
+    .coach-name {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+    .bio-badge {
+      font-size: 0.65rem;
+      color: var(--brand-neon);
+      font-weight: 700;
+      background: rgba(0, 255, 136, 0.12);
+      border: 1px solid rgba(0, 255, 136, 0.25);
+      padding: 1px 7px;
+      border-radius: 10px;
+    }
+    .btn-instagram {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+      color: #ffffff;
+      padding: 11px 16px;
+      border-radius: 10px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      text-decoration: none;
+      margin-top: 14px;
+      transition: opacity 0.2s ease;
+      box-shadow: 0 4px 15px rgba(253, 29, 29, 0.25);
+    }
+    .btn-instagram:hover { opacity: 0.9; }
+
+    /* YouTube Responsive Embed Container */
+    .youtube-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid var(--border-strong);
+      background: #000000;
+      margin: 10px 0;
+    }
+    /* ===================================================
+       NOVOS ESTILOS: OBJETIVOS, 2 BARRAS & TIMERS & EVOLUÇÃO
+       =================================================== */
+
+    /* Card do Aluno & Objetivos Clean (Acima da Barra dos Dias) */
+    .goals-overview-card {
+      background: #11141a;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 9px 12px;
+      margin-bottom: 10px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.45);
+    }
+    .goals-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 7px;
+    }
+    .goals-card-title {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .goals-title-text {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #ff4d4d;
+      text-shadow: 0 0 10px rgba(255, 77, 77, 0.45);
+    }
+    .goals-student-card-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5.5px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.32);
+      color: #38bdf8;
+      padding: 3.5px 9px;
+      border-radius: 12px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .goals-student-card-btn svg {
+      width: 13px;
+      height: 13px;
+      fill: #38bdf8;
+      transition: transform 0.2s ease;
+    }
+    .goals-student-card-btn .arrow-indicator {
+      font-size: 0.72rem;
+      font-weight: 800;
+      opacity: 0.85;
+      transition: transform 0.2s ease;
+    }
+    .goals-student-card-btn:hover {
+      background: rgba(56, 189, 248, 0.22);
+      border-color: #38bdf8;
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+    .goals-student-card-btn:hover svg {
+      fill: #ffffff;
+    }
+    .goals-student-card-btn:active {
+      transform: scale(0.96);
+    }
+
+    .goals-chips-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .goal-chip {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 3px 8.5px;
+      border-radius: 6px;
+      font-size: 0.73rem;
+      font-weight: 500;
+      color: #cbd5e1;
+      letter-spacing: -0.01em;
+      transition: all 0.15s ease;
+    }
+    .goal-chip:hover {
+      background: rgba(255, 255, 255, 0.07);
+      color: #ffffff;
+    }
+
+    /* Pílulas de Acesso Rápido no Cabeçalho (Destacadas - Trio Limpo) */
+    .header-tools-bar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 4px 2px 6px 2px;
+      margin-top: 6px;
+    }
+    .header-tools-bar::-webkit-scrollbar { display: none; }
+    .tool-pill {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6.5px;
+      background: #11141a;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #ffffff;
+      padding: 7.5px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
+      flex-shrink: 0;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+    .tool-pill svg {
+      width: 15px;
+      height: 15px;
+      fill: #38bdf8;
+      transition: transform 0.2s ease;
+    }
+    .tool-pill:hover, .tool-pill:active {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+    }
+    .tool-pill:active {
+      transform: scale(0.96);
+    }
+    /* Cores de Destaque por Ferramenta */
+    .tool-pill.pill-timers {
+      border-color: rgba(56, 189, 248, 0.35);
+    }
+    .tool-pill.pill-timers:hover {
+      background: rgba(56, 189, 248, 0.18);
+      border-color: #38bdf8;
+      color: #38bdf8;
+    }
+    .tool-pill.pill-analises {
+      border-color: rgba(168, 85, 247, 0.35);
+    }
+    .tool-pill.pill-analises svg {
+      fill: #c084fc;
+    }
+    .tool-pill.pill-analises:hover {
+      background: rgba(168, 85, 247, 0.18);
+      border-color: #c084fc;
+      color: #c084fc;
+    }
+    .tool-pill.pill-evolucao {
+      border-color: rgba(0, 255, 136, 0.35);
+    }
+    .tool-pill.pill-evolucao svg {
+      fill: var(--brand-neon);
+    }
+    .tool-pill.pill-evolucao:hover {
+      background: rgba(0, 255, 136, 0.18);
+      border-color: var(--brand-neon);
+      color: var(--brand-neon);
+    }
+    .tool-pill.pill-diretrizes {
+      border-color: rgba(251, 191, 36, 0.35);
+    }
+    .tool-pill.pill-diretrizes svg {
+      fill: #fbbf24;
+    }
+    .tool-pill.pill-diretrizes:hover {
+      background: rgba(251, 191, 36, 0.18);
+      border-color: #fbbf24;
+      color: #fbbf24;
+    }
+    .tool-pill.pill-avaliacao {
+      border-color: rgba(16, 185, 129, 0.4);
+    }
+    .tool-pill.pill-avaliacao svg {
+      fill: #10b981;
+    }
+    .tool-pill.pill-avaliacao:hover {
+      background: rgba(16, 185, 129, 0.18);
+      border-color: #10b981;
+      color: #10b981;
+    }
+
+    /* Barra Superior Fixa na Visão Dedicada */
+    .dedicated-topbar-sticky {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: -12px -12px 14px -12px;
+    }
+    .btn-back-workout {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 255, 136, 0.1);
+      border: 1px solid rgba(0, 255, 136, 0.35);
+      color: var(--brand-neon);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-back-workout:active {
+      transform: scale(0.96);
+      background: var(--brand-neon);
+      color: #000;
+    }
+    .dedicated-bar-title {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* Esconde elementos na Visão Dedicada */
+    body.in-dedicated-view #mainAppHeader,
+    body.in-dedicated-view #goalsOverviewCard,
+    body.in-dedicated-view #trainingHubSection,
+    body.in-dedicated-view #mainDaysNav,
+    body.in-dedicated-view #mainProgressBar,
+    body.in-dedicated-view .timer-dock {
+      display: none !important;
+    }
+    
+    /* ===================================================
+       FICHA DE AVALIAÇÃO DO ALUNO
+       =================================================== */
+    .student-profile-header-card {
+      background: #11141a;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+    }
+    .btn-open-assessment-form {
+      display: inline-flex;
+      align-items: center;
+      gap: 6.5px;
+      background: rgba(0, 255, 136, 0.12);
+      border: 1px solid rgba(0, 255, 136, 0.35);
+      color: var(--brand-neon);
+      padding: 8px 14px;
+      border-radius: 12px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 2px 8px rgba(0, 255, 136, 0.15);
+    }
+    .btn-open-assessment-form svg {
+      width: 14px;
+      height: 14px;
+      fill: var(--brand-neon);
+      transition: transform 0.2s ease;
+    }
+    .btn-open-assessment-form:hover {
+      background: var(--brand-neon);
+      color: #000000;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px var(--brand-neon-glow);
+    }
+    .btn-open-assessment-form:hover svg {
+      fill: #000000;
+    }
+    .btn-open-assessment-form:active {
+      transform: scale(0.97);
+    }
+
+    .assessment-container {
+      max-width: 680px;
+      margin: 0 auto 30px auto;
+      padding: 4px;
+    }
+    .assessment-header {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    .assessment-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brand-neon);
+      background: rgba(0, 255, 136, 0.1);
+      border: 1px solid rgba(0, 255, 136, 0.28);
+      padding: 3px 8px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+    .assessment-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0 0 6px 0;
+      letter-spacing: -0.01em;
+    }
+    .assessment-desc {
+      font-size: 0.84rem;
+      color: #94a3b8;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .assessment-card-block {
+      background: #11141a;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    }
+    .block-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding-bottom: 10px;
+    }
+    .block-number {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.76rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .block-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.02em;
+    }
+    .block-hint {
+      font-size: 0.78rem;
+      color: #94a3b8;
+      line-height: 1.45;
+      margin: 0 0 12px 0;
+    }
+
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .form-grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 580px) {
+      .form-grid-2, .form-grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 12px;
+    }
+    .form-group:last-child {
+      margin-bottom: 0;
+    }
+    .form-label {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      letter-spacing: 0.02em;
+    }
+    .form-label .req {
+      color: #ef4444;
+      font-weight: 900;
+    }
+    .form-input, .form-select, .form-textarea {
+      background: #090b0e;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 0.84rem;
+      padding: 9px 12px;
+      border-radius: 10px;
+      outline: none;
+      transition: all 0.2s ease;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--brand-neon);
+      box-shadow: 0 0 10px rgba(0, 255, 136, 0.25);
+      background: #0d1115;
+    }
+    .form-textarea {
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    /* Checkbox Pills Grid */
+    .assessment-checkboxes-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .check-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      padding: 9px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+    .check-pill:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .check-pill input[type="checkbox"] {
+      display: none;
+    }
+    .check-box-custom {
+      width: 18px;
+      height: 18px;
+      border-radius: 5px;
+      border: 1.5px solid rgba(255, 255, 255, 0.25);
+      background: #090b0e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+    .check-pill input[type="checkbox"]:checked + .check-box-custom {
+      background: var(--brand-neon);
+      border-color: var(--brand-neon);
+    }
+    .check-pill input[type="checkbox"]:checked + .check-box-custom::after {
+      content: "✓";
+      color: #000000;
+      font-size: 0.75rem;
+      font-weight: 900;
+    }
+    .check-pill-text {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #cbd5e1;
+    }
+    .check-pill input[type="checkbox"]:checked ~ .check-pill-text {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    /* Barra de Submissão */
+    .assessment-submit-bar {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .btn-submit-assessment {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      width: 100%;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #ffffff;
+      border: none;
+      padding: 14px 20px;
+      border-radius: 14px;
+      font-size: 0.92rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 6px 18px rgba(16, 185, 129, 0.35);
+    }
+    .btn-submit-assessment svg {
+      width: 20px;
+      height: 20px;
+      fill: #ffffff;
+      flex-shrink: 0;
+    }
+    .btn-submit-assessment:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(16, 185, 129, 0.5);
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    }
+    .btn-submit-assessment:active {
+      transform: scale(0.98);
+    }
+
+    /* ===================================================
+       SEÇÃO TREINAMENTO & LISTA DE DIAS (HUB PRINCIPAL)
+       =================================================== */
+    
+    /* Botoes de Navegação Interna da Central de Evolução */
+    .evolucao-tabs-bar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .evolucao-tabs-bar::-webkit-scrollbar {
+      display: none;
+    }
+    .evol-nav-btn {
+      background: #11141a;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #94a3b8;
+      padding: 8px 16px;
+      border-radius: 22px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      -webkit-user-select: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .evol-nav-btn:hover {
+      border-color: rgba(255, 255, 255, 0.35);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+    .evol-nav-btn.active {
+      background: var(--brand-neon);
+      color: #000000;
+      border-color: var(--brand-neon);
+      font-weight: 800;
+      box-shadow: 0 0 16px var(--brand-neon-glow);
+    }
+
+    .training-hub-section {
+      margin-top: 6px;
+      margin-bottom: 24px;
+    }
+    .training-section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 12px;
+      padding: 0 4px;
+    }
+    .training-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .training-section-badge {
+      background: rgba(0, 255, 136, 0.12);
+      border: 1px solid rgba(0, 255, 136, 0.3);
+      color: var(--brand-neon);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      padding: 2px 7px;
+      border-radius: 6px;
+      text-transform: uppercase;
+    }
+    .training-section-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin: 0;
+    }
+    .training-subtitle-note {
+      font-size: 0.72rem;
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    .training-days-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .training-day-card {
+      background: #11141a;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      padding: 13px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+      position: relative;
+      overflow: hidden;
+    }
+    .training-day-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: transparent;
+      transition: background 0.2s ease;
+    }
+    .training-day-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.22);
+      background: #161b22;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    }
+    .training-day-card:active {
+      transform: scale(0.98);
+    }
+
+    /* Cores de borda por dia */
+    #dayCard-segunda::before { background: var(--brand-neon); }
+    #dayCard-terca::before { background: var(--accent-gold); }
+    #dayCard-quarta::before { background: #38bdf8; }
+    #dayCard-quinta::before { background: #c084fc; }
+    #dayCard-sexta::before { background: #f43f5e; }
+
+    .day-card-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .day-card-name-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .day-name {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.04em;
+    }
+    .day-today-badge {
+      background: var(--brand-neon);
+      color: #000000;
+      font-size: 0.65rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px var(--brand-neon-glow);
+    }
+    .day-focus-desc {
+      font-size: 0.8rem;
+      color: #cbd5e1;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+    .day-meta-pill {
+      font-size: 0.72rem;
+      color: #64748b;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .day-card-right {
+      display: flex;
+      align-items: center;
+      margin-left: 12px;
+      flex-shrink: 0;
+    }
+    .day-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      transition: all 0.2s ease;
+    }
+    .day-status-pill.status-pending {
+      background: rgba(255, 255, 255, 0.05);
+      color: #94a3b8;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .day-status-pill.status-pending .status-icon {
+      font-size: 1.1rem;
+      line-height: 1;
+      font-weight: 700;
+      color: #64748b;
+    }
+    .day-status-pill.status-done {
+      background: rgba(0, 255, 136, 0.12);
+      border: 1px solid rgba(0, 255, 136, 0.35);
+      color: var(--brand-neon);
+      box-shadow: 0 0 10px rgba(0, 255, 136, 0.15);
+    }
+    .day-status-pill.status-done svg {
+      width: 14px;
+      height: 14px;
+      fill: var(--brand-neon);
+    }
+
+    /* Card WhatsApp no Rodapé do Hub */
+    .whatsapp-support-card {
+      margin-top: 18px;
+      background: linear-gradient(135deg, #0d1612 0%, #0a110e 100%);
+      border: 1px solid rgba(37, 211, 102, 0.28);
+      border-radius: 16px;
+      padding: 14px 16px;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    }
+    .whatsapp-support-card:hover {
+      transform: translateY(-2px);
+      border-color: #25d366;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.2);
+    }
+    .whatsapp-support-card:active {
+      transform: scale(0.98);
+    }
+    .wpp-card-icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(37, 211, 102, 0.14);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .wpp-card-icon-wrap svg {
+      width: 24px;
+      height: 24px;
+      fill: #25d366;
+    }
+    .wpp-card-info {
+      flex: 1;
+    }
+    .wpp-card-title {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.02em;
+      margin-bottom: 2px;
+    }
+    .wpp-card-desc {
+      font-size: 0.76rem;
+      color: #94a3b8;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+    .wpp-card-btn-inline {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: #25d366;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+    .wpp-card-btn-inline .wpp-arrow {
+      font-size: 0.8rem;
+      transition: transform 0.2s ease;
+    }
+    .whatsapp-support-card:hover .wpp-arrow {
+      transform: translate(2px, -2px);
+    }
+
+    /* Botão de Finalização dentro do Treino */
+    .session-finish-container {
+      margin: 22px 0 35px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .btn-toggle-workout-finish {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: #11141a;
+      border: 1px solid rgba(0, 255, 136, 0.35);
+      color: var(--brand-neon);
+      padding: 13px 18px;
+      border-radius: 14px;
+      font-size: 0.88rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+    }
+    .btn-toggle-workout-finish svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--brand-neon);
+      transition: transform 0.2s ease;
+    }
+    .btn-toggle-workout-finish:hover {
+      background: rgba(0, 255, 136, 0.12);
+      border-color: var(--brand-neon);
+      transform: translateY(-1px);
+    }
+    .btn-toggle-workout-finish:active {
+      transform: scale(0.98);
+    }
+    .btn-toggle-workout-finish.completed {
+      background: var(--brand-neon);
+      color: #000000;
+      border-color: var(--brand-neon);
+      box-shadow: 0 0 20px var(--brand-neon-glow);
+    }
+    .btn-toggle-workout-finish.completed svg {
+      fill: #000000;
+    }
+    .btn-back-hub-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94a3b8;
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-back-hub-bottom:hover {
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+
+    /* Badge de Fórmula Científica (Renderização Limpa sem Desconfigurar) */
+    .formula-badge {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+      font-family: 'SF Mono', 'Courier New', monospace;
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 2px 8px;
+      border-radius: 6px;
+      letter-spacing: 0.04em;
+    }
+
+    /* Botão de Disparo do Timer dentro dos WODs */
+    .btn-wod-timer-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: all 0.2s ease;
+    }
+    .btn-wod-timer-trigger:hover, .btn-wod-timer-trigger:active {
+      background: #38bdf8;
+      color: #000;
+      transform: scale(0.98);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+    }
+
+    /* Caixa de Consulta Rápida do WOD sob o Timer */
+    .timer-wod-ref-box {
+      background: #080808;
+      border: 1px solid var(--border-subtle);
+      border-left: 3px solid #38bdf8;
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-top: 14px;
+      text-align: left;
+    }
+    .timer-wod-ref-box .ref-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding-bottom: 6px;
+    }
+    .timer-wod-ref-box .ref-badge {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #38bdf8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .timer-wod-ref-box .ref-day-name {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .timer-wod-ref-box .ref-content {
+      font-size: 0.82rem;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+
+    /* Barra dos Dias de Treino */
+    .days-nav-container {
+      margin-bottom: 10px;
+    }
+    .tabs-days {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .tabs-days::-webkit-scrollbar { display: none; }
+    .tabs-days, .tabs-hub {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .tabs-days::-webkit-scrollbar, .tabs-hub::-webkit-scrollbar { display: none; }
+    
+    .tab-btn-cyan {
+      border-color: rgba(56, 189, 248, 0.25) !important;
+    }
+    .tab-btn-cyan:hover {
+      border-color: #38bdf8 !important;
+      color: #fff !important;
+    }
+    .tab-btn-cyan.active {
+      background: #38bdf8 !important;
+      color: #000000 !important;
+      border-color: #38bdf8 !important;
+      box-shadow: 0 0 14px rgba(56, 189, 248, 0.4) !important;
+      font-weight: 800 !important;
+    }
+
+    /* ===================================================
+       ESTILOS DA ABA EVOLUÇÃO (97kg -> 84kg)
+       =================================================== */
+    .evolucao-hero {
+      background: linear-gradient(145deg, #0e1713, #070d0a);
+      border: 1px solid rgba(0, 255, 136, 0.3);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 8px 24px rgba(0, 255, 136, 0.08);
+    }
+    .evolucao-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .evolucao-badge-delta {
+      background: var(--brand-neon);
+      color: #000;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 12px;
+      display: inline-block;
+    }
+    .metrics-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin: 14px 0 6px;
+    }
+    @media(min-width: 600px) {
+      .metrics-summary-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    .metric-summary-card {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 10px;
+      text-align: center;
+    }
+    .metric-value {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--brand-neon);
+      margin-bottom: 2px;
+    }
+    .metric-label {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .photos-comparison-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .comparison-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      overflow: hidden;
+      padding: 14px;
+    }
+    .comparison-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .comparison-card-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .photo-display-frame {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      background: #000;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    .photo-display-frame img {
+      width: 100%;
+      max-height: 560px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+    .photo-split-legend {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 12px;
+      background: rgba(0, 0, 0, 0.75);
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.75rem;
+    }
+    .legend-before {
+      color: #f87171;
+      font-weight: 700;
+    }
+    .legend-after {
+      color: var(--brand-neon);
+      font-weight: 700;
+    }
+    .bio-points-list {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      padding-left: 18px;
+      margin: 8px 0;
+    }
+    .bio-points-list li {
+      margin-bottom: 6px;
+    }
+    .bio-points-list strong {
+      color: #fff;
+    }
+
+    /* ===================================================
+       ESTILOS DO HUB DE TIMERS & CRONÔMETRO WOD
+       =================================================== */
+    .timer-app-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+      padding: 16px;
+      margin-bottom: 18px;
+    }
+    .timer-modes-bar {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 4px;
+      margin-bottom: 16px;
+    }
+    .timer-modes-bar::-webkit-scrollbar { display: none; }
+    .timer-mode-btn {
+      background: #111;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+    .timer-mode-btn.active {
+      background: #38bdf8;
+      color: #000;
+      border-color: #38bdf8;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.35);
+    }
+    .timer-viewport {
+      background: #000;
+      border: 2px solid var(--border-strong);
+      border-radius: 16px;
+      padding: 24px 16px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 16px;
+      transition: all 0.3s ease;
+    }
+    .timer-viewport.tabata-work-state {
+      border-color: var(--brand-neon) !important;
+      box-shadow: 0 0 30px rgba(0, 255, 136, 0.2) inset, 0 0 20px rgba(0, 255, 136, 0.3) !important;
+    }
+    .timer-viewport.tabata-rest-state {
+      border-color: #f59e0b !important;
+      box-shadow: 0 0 30px rgba(245, 158, 11, 0.2) inset, 0 0 20px rgba(245, 158, 11, 0.3) !important;
+    }
+    .timer-status-header {
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      min-height: 20px;
+    }
+    .timer-round-sub {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-bottom: 8px;
+      min-height: 22px;
+    }
+    .timer-digits-big {
+      font-family: 'Inter', monospace, sans-serif;
+      font-size: 4rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: #ffffff;
+      line-height: 1;
+      margin: 10px 0;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+    @media(max-width: 400px) {
+      .timer-digits-big { font-size: 3.2rem; }
+    }
+    .tabata-work-state .timer-digits-big {
+      color: var(--brand-neon) !important;
+      text-shadow: 0 0 25px var(--brand-neon-glow) !important;
+    }
+    .tabata-rest-state .timer-digits-big {
+      color: #f59e0b !important;
+      text-shadow: 0 0 25px rgba(245, 158, 11, 0.5) !important;
+    }
+    .prep-countdown-box {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.95);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+    .prep-countdown-number {
+      font-size: 5.5rem;
+      font-weight: 900;
+      color: #38bdf8;
+      animation: prepPulse 0.9s infinite;
+      line-height: 1;
+    }
+    @keyframes prepPulse {
+      0% { transform: scale(0.85); opacity: 0.7; }
+      50% { transform: scale(1.15); opacity: 1; text-shadow: 0 0 30px #38bdf8; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+    .timer-btn-row {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .btn-action-timer {
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-size: 0.92rem;
+      font-weight: 800;
+      cursor: pointer;
+      border: none;
+      transition: all 0.15s ease;
+      min-width: 110px;
+    }
+    .btn-action-timer:active {
+      transform: scale(0.97);
+    }
+    .btn-timer-start {
+      background: var(--brand-neon);
+      color: #000;
+      box-shadow: 0 0 16px var(--brand-neon-glow);
+    }
+    .btn-timer-pause {
+      background: #f59e0b;
+      color: #000;
+    }
+    .btn-timer-reset {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      border: 1px solid var(--border-subtle);
+    }
+    .btn-round-add {
+      background: #38bdf8;
+      color: #000;
+      font-size: 1rem;
+      padding: 14px 28px;
+      border-radius: 14px;
+      font-weight: 900;
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.4);
+      width: 100%;
+      max-width: 320px;
+      margin: 10px auto 0;
+      display: block;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-round-add:active {
+      transform: scale(0.97);
+    }
+    input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(1);
+      cursor: pointer;
+      opacity: 0.7;
+    }
+    input[type="date"]::-webkit-calendar-picker-indicator:hover {
+      opacity: 1;
+    }
+    .timer-preset-row {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .custom-preset-input-box {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+    .custom-preset-input-box:focus-within {
+      border-color: #38bdf8;
+      background: rgba(56, 189, 248, 0.08);
+    }
+    .custom-preset-input {
+      width: 56px;
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      padding: 6px 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-align: center;
+      outline: none;
+      -moz-appearance: textfield;
+    }
+    .custom-preset-input::-webkit-outer-spin-button,
+    .custom-preset-input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    .btn-preset-apply {
+      background: rgba(56, 189, 248, 0.2);
+      border: none;
+      border-left: 1px solid var(--border-subtle);
+      color: #38bdf8;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 6px 10px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 0.15s ease;
+    }
+    .btn-preset-apply:active {
+      background: #38bdf8;
+      color: #000;
+    }
+    .btn-preset {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-preset:hover, .btn-preset.active {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: #38bdf8;
+      color: #38bdf8;
+    }
+    .sound-test-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 14px;
+    }
+    .btn-sound-test {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .laps-list-container {
+      margin-top: 14px;
+      max-height: 160px;
+      overflow-y: auto;
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      background: #050505;
+      padding: 8px;
+    }
+    .lap-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 4px 8px;
+      font-size: 0.78rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+    }
+    .lap-row:last-child { border-bottom: none; }
+    .lap-num { color: #38bdf8; font-weight: 700; }
+    /* Chips Concisos de Metadados da Sessão */
+    .session-meta-chips {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3.5px 10px;
+      border-radius: 7px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .meta-chip-loc {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: #ffffff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    }
+    .meta-chip-time {
+      background: rgba(0, 255, 136, 0.12);
+      border: 1px solid rgba(0, 255, 136, 0.45);
+      color: var(--brand-neon);
+      font-weight: 800;
+      box-shadow: 0 0 10px rgba(0, 255, 136, 0.18);
+    }
+    .callout-topic-header {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 4px;
+    }
+
+    /* Roteiro da Sessão em Formato de Lista Estruturada */
+    .wod-list-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .wod-list-block {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 10px 12px;
+    }
+    .wod-block-badge {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .wod-block-items {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.82rem;
+      color: #cbd5e1;
+      line-height: 1.65;
+    }
+    .wod-block-items li {
+      padding: 4px 0;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+    }
+    .wod-block-items li:last-child {
+      border-bottom: none;
+    }
+    .wod-item-rest {
+      color: #94a3b8;
+      font-size: 0.78rem;
+      padding: 2px 0 !important;
+    }
+
+    /* Botão de Dica, Execução e Cuidados (Taxonomia Padronizada) */
+    .btn-tip-cue {
+      display: inline-flex;
+      align-items: center;
+      gap: 3.5px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 7.5px;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      vertical-align: middle;
+      margin-left: 6px;
+      transition: all 0.2s ease;
+    }
+    /* 💡 Dica (Amarelo / Âmbar) */
+    .cue-dica {
+      background: rgba(250, 204, 21, 0.1);
+      border: 1px solid rgba(250, 204, 21, 0.35);
+      color: #facc15;
+    }
+    .cue-dica:hover, .cue-dica:active {
+      background: #facc15;
+      color: #000;
+      transform: scale(0.96);
+    }
+    /* 🔧 Execução (Azul Ciano) */
+    .cue-execucao {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+    }
+    .cue-execucao:hover, .cue-execucao:active {
+      background: #38bdf8;
+      color: #000;
+      transform: scale(0.96);
+    }
+    /* 🛡️ Cuidados (Coral / Vermelho de Proteção) */
+    .cue-cuidados {
+      background: rgba(248, 113, 113, 0.12);
+      border: 1px solid rgba(248, 113, 113, 0.38);
+      color: #f87171;
+    }
+    .cue-cuidados:hover, .cue-cuidados:active {
+      background: #f87171;
+      color: #000;
+      transform: scale(0.96);
+    }
+
+    /* Popover Flutuante de Dicas & Observações Técnicas */
+    .tip-popover-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: rgba(0, 0, 0, 0.78);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      animation: fadeIn 0.15s ease-out;
+    }
+    .tip-popover-card {
+      background: #0f1115;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(56, 189, 248, 0.15);
+      border-radius: 14px;
+      width: 100%;
+      max-width: 380px;
+      padding: 16px 18px;
+      color: #fff;
+      animation: popIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes popIn {
+      from { transform: scale(0.92); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .tip-popover-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .tip-popover-tag {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #38bdf8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .tip-popover-close {
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      font-size: 1.3rem;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0 4px;
+    }
+    .tip-popover-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 6px;
+    }
+    .tip-popover-content {
+      font-size: 0.84rem;
+      color: #cbd5e1;
+      line-height: 1.6;
+      white-space: pre-line;
+      margin-bottom: 14px;
+    }
+    .tip-popover-ok {
+      width: 100%;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .tip-popover-ok:active {
+      background: #38bdf8;
+      color: #000;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Topbar Fixa (visível apenas na visão dedicada de Timers, Vídeos, Evolução e Diretrizes) -->
+  <div id="dedicatedTopBar" class="dedicated-topbar-sticky" style="display:none;">
+    <button class="btn-back-workout" id="btnDedicatedBack" onclick="handleDedicatedBackClick(event)">
+      ‹ Voltar aos Treinos
+    </button>
+    <div class="dedicated-bar-title" id="dedicatedBarTitle">Central de Timers</div>
+    <div style="width:24px;"></div>
+  </div>
+
+  <!-- Header Domínio Corporal (Preto OLED & Verde Neon) -->
+  <header id="mainAppHeader">
+    <div class="brand-top">
+      <button type="button" class="coach-profile-btn" onclick="openBioModal(event)" aria-label="Abrir Perfil e Biografia de Gui Lemos">
+        <img src="gui_foto.jpg" onerror="this.onerror=null; this.src='icon-192.png';" alt="Domínio Corporal" class="coach-avatar">
+        <span class="coach-name">GUI LEMOS</span>
+        <span class="bio-badge">Bio ↗</span>
+      </button>
+    </div>
+    <div class="brand">
+      <h1>DOMÍNIO CORPORAL</h1>
+      <div class="brand-slogan">Desafie a gravidade, domine seu corpo.</div>
+
+    </div>
+  </header>
+
+  <!-- Container Principal dos Treinos -->
+  <div id="mainTrainingView">
+
+    <!-- Card do Aluno & Objetivos Clean -->
+    <div class="goals-overview-card" id="goalsOverviewCard">
+      <div class="goals-card-header">
+        <div class="goals-card-title">
+          <span class="goals-title-text">JEAN HILÁRIO</span>
+        </div>
+        <button class="goals-student-card-btn" onclick="openDedicatedView('perfil')" title="Abrir Ficha do Aluno">
+          <svg viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+          <span>Ficha do Aluno</span>
+          <span class="arrow-indicator">↗</span>
+        </button>
+      </div>
+
+      <!-- Barra de Ferramentas / Recursos dentro do Card do Aluno -->
+      <div class="header-tools-bar" style="margin-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 8px;">
+        <button class="tool-pill pill-timers" onclick="openDedicatedView('timers')" title="Abrir Timers de Treino">
+          <svg viewBox="0 0 24 24"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
+          <span>Timers</span>
+        </button>
+        <button class="tool-pill pill-analises" onclick="openDedicatedView('analises')" title="Análise de Vídeos & Biomecânica">
+          <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 12.5v-9l6 4.5-6 4.5z"/></svg>
+          <span>Análises</span>
+        </button>
+        <button class="tool-pill pill-evolucao" onclick="openDedicatedView('evolucao')" title="Evolução Corporal">
+          <svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+          <span>Evolução</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- SEÇÃO PRINCIPAL: TREINAMENTO (EM PRESCRIÇÃO) -->
+    <div class="training-hub-section" id="trainingHubSection">
+      <div class="training-section-header">
+        <h2 class="training-section-title">ROTINA DE TREINO</h2>
+      </div>
+
+      <div style="background: rgba(255, 255, 255, 0.03); border: 1.5px dashed rgba(0, 255, 136, 0.35); border-radius: 18px; padding: 36px 20px; text-align: center; margin: 12px 0;">
+        <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(0, 255, 136, 0.1); border: 1.5px solid var(--brand-neon); display: flex; align-items: center; justify-content: center; font-size: 1.7rem; margin: 0 auto 16px auto; box-shadow: 0 0 16px var(--brand-neon-glow);">
+          📝
+        </div>
+        <h3 style="font-size: 1.2rem; font-weight: 800; color: #ffffff; margin: 0 0 8px 0;">Treinos em Prescrição</h3>
+        <p style="font-size: 0.86rem; color: #94a3b8; line-height: 1.6; max-width: 440px; margin: 0 auto 20px auto;">
+          O treinador <strong>Gui Lemos</strong> está elaborando a sua rotina personalizada com base nas respostas da sua <strong>Ficha de Avaliação</strong>.
+        </p>
+        <div style="display: inline-flex; align-items: center; gap: 8px; font-size: 0.78rem; font-weight: 700; color: var(--brand-neon); background: rgba(0, 255, 136, 0.08); border: 1px solid rgba(0, 255, 136, 0.25); padding: 7px 16px; border-radius: 20px;">
+          ⏳ Aguardando liberação do Treinador
+        </div>
+      </div>
+    </div>
+
+  <!-- ==================== TAB: ANÁLISE DE VÍDEOS & BIOMECÂNICA ==================== -->
+  <div id="tab-analises" class="tab-content">
+
+    <!-- HERO: FEEDBACK TÉCNICO & ANÁLISE CINEMÁTICA -->
+    <div class="analysis-hero-card">
+      <div class="analysis-hero-img-wrap" onclick="window.open('Midia/gui_analisando_handstand.jpg', '_blank')" style="cursor: pointer;" title="Toque para ampliar foto">
+        <img src="Midia/gui_analise_blend.jpg" alt="Prof. Gui Lemos analisando movimento">
+      </div>
+      <div class="analysis-hero-body">
+        <div class="analysis-hero-tag">
+          <svg style="width:10px; height:10px; fill:currentColor;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+          Feedback Técnico & Análise Cinemática
+        </div>
+        <div class="analysis-hero-title">Precisão Biomecânica do Movimento</div>
+        <div class="analysis-hero-desc">
+          Mapeamento detalhado de ângulos, alavancas e trajetórias para identificar compensações e prescrever ajustes precisos em qualquer movimento acrobático, gímnico ou de força.
+        </div>
+        <div class="analysis-hero-chips">
+          <span class="analysis-hero-chip">📐 Ângulos & Alavancas</span>
+          <span class="analysis-hero-chip">⚡ Correção de Compensações</span>
+          <span class="analysis-hero-chip">🎯 Educativos para Pontos Fracos</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Placeholder sem vídeos para aluno inicial -->
+    <div style="background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.12); border-radius: 14px; padding: 32px 20px; text-align: center; margin-top: 14px;">
+      <div style="font-size: 1.6rem; margin-bottom: 8px;">📹</div>
+      <div style="font-weight: 700; color: #fff; font-size: 0.95rem; margin-bottom: 6px;">Nenhuma análise em vídeo enviada ainda</div>
+      <p style="font-size: 0.82rem; color: #94a3b8; line-height: 1.6; max-width: 460px; margin: 0 auto;">
+        Conforme você gravar suas execuções nos treinos, o treinador <strong>Gui Lemos</strong> publicará aqui os seus vídeos com traçados biomecânicos e feedbacks técnicos.
+      </p>
+    </div>
+  </div>
+
+  <!-- ==================== TAB: DIRETRIZES & REABILITAÇÃO ==================== -->
+  <div id="tab-perfil" class="tab-content">
+    <!-- Card de Acesso à Avaliação & Ficha Inicial -->
+    <div class="student-profile-header-card">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap;">
+        <div>
+          <div style="font-size:0.7rem; font-weight:800; color:var(--brand-neon); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:4px;">FICHA TÉCNICA DO ATLETA</div>
+          <h2 style="font-size:1.15rem; font-weight:800; color:#fff; margin:0;">Jean Hilário</h2>
+        </div>
+        <button class="btn-open-assessment-form" onclick="openDedicatedView('avaliacao')">
+          <svg viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+          <span>Ficha de Avaliação ↗</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Título Orientações Gerais -->
+    <div style="margin: 22px 4px 14px 4px; display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+      <h3 style="font-size: 1.15rem; font-weight: 800; color: #fff; margin: 0; letter-spacing: -0.01em;">
+        🎯 Orientações Gerais
+      </h3>
+      <span style="font-size: 0.72rem; font-weight: 700; color: var(--brand-neon); background: rgba(0, 255, 136, 0.1); border: 1px solid rgba(0, 255, 136, 0.25); padding: 3px 8px; border-radius: 12px; text-transform: uppercase;">Aguardando Avaliação</span>
+    </div>
+
+    <div class="section-card" style="background: var(--bg-card); border: 1px dashed rgba(255, 255, 255, 0.15); border-radius: var(--radius-lg); padding: 26px 20px; text-align: center;">
+      <div style="font-size: 1.6rem; margin-bottom: 8px;">📋</div>
+      <h4 style="font-size: 1rem; font-weight: 700; color: #ffffff; margin: 0 0 6px 0;">Diretrizes em Construção</h4>
+      <p style="font-size: 0.84rem; color: #94a3b8; line-height: 1.6; max-width: 480px; margin: 0 auto;">
+        Suas orientações biomecânicas personalizadas, gestão articular e diretrizes de intensidade serão calibradas e inseridas aqui pelo treinador <strong>Gui Lemos</strong> assim que você enviar sua Ficha de Avaliação.
+      </p>
+    </div>
+  </div>
+
+  <!-- ==================== TAB: FICHA DE AVALIAÇÃO INICIAL ==================== -->
+  <div id="tab-avaliacao" class="tab-content">
+    <div class="assessment-container">
+      <div class="assessment-header">
+        <div class="assessment-badge">DOMÍNIO CORPORAL • AVALIAÇÃO INICIAL</div>
+        <h1 class="assessment-title">Ficha de Avaliação do Aluno</h1>
+        <p class="assessment-desc">
+          Preencha as informações abaixo para a prescrição personalizada do seu ciclo de treino. Ao finalizar, toque em <strong>Salvar & Enviar Ficha</strong> para encaminhar o relatório completo diretamente para o WhatsApp do Gui.
+        </p>
+      </div>
+      
+      <!-- Banner de Bloqueio se não preenchido -->
+      <div id="assessmentGateBanner" style="display:none; margin-bottom:16px; background:rgba(239,68,68,0.12); border:1px solid rgba(239,68,68,0.35); border-radius:12px; padding:12px 14px; color:#fca5a5; font-size:0.8rem; line-height:1.45;">
+        🔒 <strong>Etapa Obrigatória de Ingresso:</strong> Preencha as informações abaixo e envie para liberar o acesso a todos os seus treinos.
+      </div>
+
+      <!-- Formulário Completo -->
+      <form id="assessmentForm" onsubmit="event.preventDefault(); sendAssessmentToWhatsApp();">
+
+        <!-- BLOCO 1: IDENTIFICAÇÃO & ROTINA -->
+        <div class="assessment-card-block">
+          <div class="block-header">
+            <span class="block-number">1</span>
+            <div class="block-title">Identificação & Rotina Diária</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="ass_nome">Nome Completo <span class="req">*</span></label>
+            <input type="text" id="ass_nome" class="form-input" value="Jean Hilário" placeholder="Seu nome completo" required oninput="autoSaveAssessmentDraft()">
+          </div>
+
+          <div class="form-grid-3">
+            <div class="form-group">
+              <label class="form-label" for="ass_nascimento">Data de Nascimento <span class="req">*</span></label>
+              <input type="date" id="ass_nascimento" class="form-input" required oninput="autoSaveAssessmentDraft()">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ass_altura">Altura (cm)</label>
+              <input type="number" id="ass_altura" class="form-input" placeholder="Ex: 178" min="100" max="230" oninput="autoSaveAssessmentDraft()">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ass_peso">Peso Atual (kg)</label>
+              <input type="number" step="0.1" id="ass_peso" class="form-input" placeholder="Ex: 75.5" oninput="autoSaveAssessmentDraft()">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="ass_rotina">Rotina Diária (Trabalho, Estresse & Sono)</label>
+            <textarea id="ass_rotina" class="form-textarea" rows="2" placeholder="Ex: Trabalho 8h por dia no computador sentado, nível de estresse moderado, durmo em média 7h por noite..." oninput="autoSaveAssessmentDraft()"></textarea>
+          </div>
+
+          <div class="form-grid-3">
+            <div class="form-group">
+              <label class="form-label" for="ass_dias_disponiveis">Dias Disponíveis na Semana</label>
+              <input type="text" id="ass_dias_disponiveis" class="form-input" placeholder="Ex: 3 a 4 dias (Seg, Qua, Sex...)" oninput="autoSaveAssessmentDraft()">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ass_duracao_disponivel">Duração Disponível por Treino</label>
+              <input type="text" id="ass_duracao_disponivel" class="form-input" placeholder="Ex: 45 a 60 minutos" oninput="autoSaveAssessmentDraft()">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ass_local">Onde vai treinar? (Local)</label>
+              <input type="text" id="ass_local" class="form-input" placeholder="Ex: Box CrossFit, Academia, Casa..." oninput="autoSaveAssessmentDraft()">
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOCO 2: HISTÓRICO CLÍNICO, LESÕES & SAÚDE -->
+        <div class="assessment-card-block" style="border-left: 3.5px solid #ef4444;">
+          <div class="block-header">
+            <span class="block-number" style="background:rgba(239,68,68,0.2); color:#ef4444;">2</span>
+            <div class="block-title">Histórico Clínico, Lesões & Saúde Geral</div>
+          </div>
+          <p class="block-hint">
+            Escreva livremente sobre qualquer cirurgia prévia, histórico de lesões (ombros, joelhos, coluna, punhos...), dores atuais, desconfortos ou restrições médicas que você possui:
+          </p>
+          <div class="form-group">
+            <textarea id="ass_historico_clinico" class="form-textarea" rows="3" placeholder="Ex: Operei o menisco do joelho esquerdo há 2 anos e ainda sinto estalo em agachamento fundo; sinto leve pinçamento no ombro direito quando faço desenvolvimento acima da cabeça..." oninput="autoSaveAssessmentDraft()"></textarea>
+          </div>
+
+          <div class="form-grid-2" style="margin-top: 10px;">
+            <div class="form-group">
+              <label class="form-label" for="ass_medicamentos">Toma algum medicamento contínuo?</label>
+              <input type="text" id="ass_medicamentos" class="form-input" placeholder="Ex: Não / Tomo remédio para tireoide, etc." oninput="autoSaveAssessmentDraft()">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ass_condicoes_cronicas">Condição de saúde crônica?</label>
+              <input type="text" id="ass_condicoes_cronicas" class="form-input" placeholder="Ex: Pressão alta, diabetes, asma... (ou Nenhuma)" oninput="autoSaveAssessmentDraft()">
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOCO 3: BAGAGEM MOTORA & CONDICIONAMENTO GERAL -->
+        <div class="assessment-card-block" style="border-left: 3.5px solid #38bdf8;">
+          <div class="block-header">
+            <span class="block-number" style="background:rgba(56,189,248,0.2); color:#38bdf8;">3</span>
+            <div class="block-title">Bagagem Motora & Condicionamento Geral</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="ass_historico_esportivo">O que você já treinou previamente?</label>
+            <textarea id="ass_historico_esportivo" class="form-textarea" rows="2" placeholder="Ex: Musculação por 2 anos, natação na adolescência, 6 meses de calistenia básica..." oninput="autoSaveAssessmentDraft()"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="ass_treino_atual">O que treina atualmente? (Modalidade, dias e duração)</label>
+            <textarea id="ass_treino_atual" class="form-textarea" rows="2" placeholder="Ex: CrossFit 3x por semana (1 hora) e corrida leve 1x no final de semana..." oninput="autoSaveAssessmentDraft()"></textarea>
+          </div>
+
+          <div class="form-grid-3">
+            <div class="form-group">
+              <label class="form-label" for="ass_pullups">Barra Fixa (Pull-ups)</label>
+              <select id="ass_pullups" class="form-select" onchange="autoSaveAssessmentDraft()">
+                <option value="">Selecione...</option>
+                <option value="Ainda não faz">Ainda não faz</option>
+                <option value="Faz com elástico / auxílio">Faz com elástico / auxílio</option>
+                <option value="1 a 3 estritas">1 a 3 reps estritas</option>
+                <option value="4 a 8 estritas">4 a 8 reps estritas</option>
+                <option value="9 a 15 estritas">9 a 15 reps estritas</option>
+                <option value="Mais de 15 estritas">Mais de 15 reps estritas</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ass_pushups">Flexão no Solo (Push-ups)</label>
+              <select id="ass_pushups" class="form-select" onchange="autoSaveAssessmentDraft()">
+                <option value="">Selecione...</option>
+                <option value="Faz na parede ou inclinado">Na parede ou inclinado</option>
+                <option value="Faz com joelhos no solo">Com joelhos no solo</option>
+                <option value="1 a 5 no chão">1 a 5 reps no chão</option>
+                <option value="6 a 15 no chão">6 a 15 reps no chão</option>
+                <option value="16 a 30 no chão">16 a 30 reps no chão</option>
+                <option value="Mais de 30 no chão">Mais de 30 reps no chão</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ass_cardio">Nível Cardiorrespiratório</label>
+              <select id="ass_cardio" class="form-select" onchange="autoSaveAssessmentDraft()">
+                <option value="">Selecione...</option>
+                <option value="Iniciante (fadiga rápida)">Iniciante (fadiga rápida)</option>
+                <option value="Moderado (mantém ritmo médio)">Moderado (mantém ritmo)</option>
+                <option value="Bom (boa recuperação)">Bom (boa recuperação)</option>
+                <option value="Avançado (ótimo fôlego)">Avançado (ótimo fôlego)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOCO 4: OBJETIVOS DO CICLO & CONTEXTUALIZAÇÃO -->
+        <div class="assessment-card-block" style="border-left: 3.5px solid var(--brand-neon);">
+          <div class="block-header">
+            <span class="block-number" style="background:rgba(0,255,136,0.2); color:var(--brand-neon);">4</span>
+            <div class="block-title">Objetivos do Ciclo & Contextualização</div>
+          </div>
+
+          <label class="form-label" style="margin-bottom:8px;">Pilares Prioritários (selecione quantos desejar):</label>
+          <div class="assessment-checkboxes-grid">
+            <label class="check-pill">
+              <input type="checkbox" name="pilares" value="Definição Muscular / Composição Corporal" onchange="autoSaveAssessmentDraft()">
+              <span class="check-box-custom"></span>
+              <span class="check-pill-text">Definição Muscular / Composição Corporal</span>
+            </label>
+            <label class="check-pill">
+              <input type="checkbox" name="pilares" value="Ganho de Força & Massa Magra" onchange="autoSaveAssessmentDraft()">
+              <span class="check-box-custom"></span>
+              <span class="check-pill-text">Ganho de Força & Massa Magra</span>
+            </label>
+            <label class="check-pill">
+              <input type="checkbox" name="pilares" value="Habilidades Calistênicas & Ginástica (Handstand, Muscle-Up)" onchange="autoSaveAssessmentDraft()">
+              <span class="check-box-custom"></span>
+              <span class="check-pill-text">Habilidades Calistênicas & Ginástica</span>
+            </label>
+            <label class="check-pill">
+              <input type="checkbox" name="pilares" value="Reabilitação & Alívio de Dores Articulares" onchange="autoSaveAssessmentDraft()">
+              <span class="check-box-custom"></span>
+              <span class="check-pill-text">Reabilitação & Alívio de Dores Articulares</span>
+            </label>
+            <label class="check-pill">
+              <input type="checkbox" name="pilares" value="Mobilidade & Flexibilidade" onchange="autoSaveAssessmentDraft()">
+              <span class="check-box-custom"></span>
+              <span class="check-pill-text">Mobilidade & Flexibilidade</span>
+            </label>
+          </div>
+
+          <div class="form-group" style="margin-top:16px;">
+            <label class="form-label" for="ass_contexto_metas">Contextualização dos Seus Objetivos</label>
+            <p class="block-hint" style="margin-top:2px;">
+              Conte com detalhes o que você busca alcançar nesse ciclo, o que é mais importante para você no dia a dia e suas expectativas com o treino:
+            </p>
+            <textarea id="ass_contexto_metas" class="form-textarea" rows="4" placeholder="Ex: Minha meta principal é conseguir ficar 10 segundos na parada de mão sem depender da parede, enquanto perco um pouco de gordura na cintura e fortaleço o joelho para não sentir mais dor no final do dia..." oninput="autoSaveAssessmentDraft()"></textarea>
+          </div>
+
+          <div class="form-group" style="margin-top:14px;">
+            <label class="form-label" for="ass_algo_mais">Mais algo que eu deveria saber?</label>
+            <p class="block-hint" style="margin-top:2px;">
+              Alguma preferência pessoal, rotina específica, detalhe ou observação adicional para o seu acompanhamento:
+            </p>
+            <textarea id="ass_algo_mais" class="form-textarea" rows="3" placeholder="Ex: Prefiro treinar pela manhã em jejum; sinto que meu lado esquerdo cansa mais rápido; etc." oninput="autoSaveAssessmentDraft()"></textarea>
+          </div>
+        </div>
+
+        <!-- Ação Final de Envio -->
+        <div class="assessment-submit-bar">
+          <button type="submit" class="btn-submit-assessment">
+            <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.24-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.49-.4-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.17-.48-.29z"/></svg>
+            <span>Salvar & Enviar Ficha para o Gui no WhatsApp</span>
+          </button>
+          <div id="assessmentFeedbackMsg" style="display:none; margin-top:10px; padding:10px 14px; background:rgba(0,255,136,0.12); border:1px solid rgba(0,255,136,0.3); border-radius:10px; color:var(--brand-neon); font-size:0.82rem; font-weight:700; text-align:center;">
+            ✓ Ficha salva no seu celular e enviada no WhatsApp com sucesso!
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== TAB: CRONÔMETRO & WOD TIMERS ==================== -->
+  <div id="tab-timers" class="tab-content">
+    <div class="timer-app-card">
+      <div style="margin-bottom:14px;">
+        <h2 style="font-size:1.15rem; font-weight:800; color:#fff; margin:0;">⏱️ Central de Timers</h2>
+      </div>
+
+      <!-- Seletor de Modo do Timer (Cronômetro e Temporizador primeiro, seguidos de EMOM, AMRAP e Tabata) -->
+      <div class="timer-modes-bar">
+        <button class="timer-mode-btn active" id="modeBtn-cronometro" onclick="setTimerMode('cronometro', this)">⏱️ Cronômetro</button>
+        <button class="timer-mode-btn" id="modeBtn-timer" onclick="setTimerMode('timer', this)">⏳ Temporizador</button>
+        <button class="timer-mode-btn" id="modeBtn-emom" onclick="setTimerMode('emom', this)">🔄 EMOM</button>
+        <button class="timer-mode-btn" id="modeBtn-amrap" onclick="setTimerMode('amrap', this)">⚡ AMRAP</button>
+        <button class="timer-mode-btn" id="modeBtn-tabata" onclick="setTimerMode('tabata', this)">🔥 TABATA</button>
+      </div>
+
+      <!-- Viewport / Relógio Digital Principal -->
+      <div class="timer-viewport" id="timerViewport">
+        <!-- Overlay de Contagem Prévia de 3 Segundos -->
+        <div id="prepOverlay" class="prep-countdown-box" style="display:none;">
+          <div style="font-size:0.9rem; font-weight:800; color:#94a3b8; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:8px;">PREPARE-SE</div>
+          <div id="prepCountNumber" class="prep-countdown-number">3</div>
+        </div>
+
+        <div class="timer-status-header" id="timerStatusHeader">EMOM • MINUTO A MINUTO</div>
+        <div class="timer-round-sub" id="timerRoundSub">Minuto 1 de 12 (01:00)</div>
+        <div class="timer-digits-big" id="timerBigDigits">01:00</div>
+        
+        <!-- Barra de Progresso Interna -->
+        <div style="background:rgba(255,255,255,0.06); height:6px; border-radius:10px; overflow:hidden; max-width:320px; margin:0 auto 10px;">
+          <div id="timerProgressFill" style="background:#38bdf8; height:100%; width:100%; transition:width 0.2s linear;"></div>
+        </div>
+
+        <div id="timerExtraInfo" style="font-size:0.78rem; color:var(--text-dim);">Tempo Total Restante: 12:00</div>
+      </div>
+
+      <!-- Presets / Configurações Rápidas por Modo -->
+      <div id="timerPresetsContainer" class="timer-preset-row">
+        <!-- Preenchido via JavaScript -->
+      </div>
+
+      <!-- Botões de Ação Principais -->
+      <div class="timer-btn-row">
+        <button class="btn-action-timer btn-timer-start" id="btnMainStart" onclick="handleTimerStart()">▶ INICIAR (3s)</button>
+        <button class="btn-action-timer btn-timer-pause" id="btnMainPause" onclick="handleTimerPause()" style="display:none;">⏸ PAUSAR</button>
+        <button class="btn-action-timer btn-timer-reset" id="btnMainReset" onclick="handleTimerReset()">↺ ZERAR</button>
+      </div>
+
+      <!-- Quadro de Consulta Rápida do WOD (Quando acionado a partir do treino) -->
+      <div id="timerWodQuickReference" class="timer-wod-ref-box" style="display:none;">
+        <div class="ref-header">
+          <span class="ref-badge">⚡ WOD em Andamento</span>
+          <span class="ref-day-name" id="timerWodRefTitle">Skill EMOM 12'</span>
+        </div>
+        <div class="ref-content" id="timerWodRefContent" style="white-space: pre-line;"></div>
+      </div>
+
+      <!-- Botão de AMRAP Rounds (visível apenas no modo AMRAP) -->
+      <button class="btn-round-add" id="btnAmrapAddRound" onclick="addAmrapRound()" style="display:none;">
+        ➕ 1 ROUND COMPLETADO (<span id="amrapRoundCount">0</span>)
+      </button>
+
+      <!-- Botão de Voltas do Cronômetro (visível apenas no cronômetro) -->
+      <div id="stopwatchLapControls" style="display:none; text-align:center; margin-top:10px;">
+        <button class="btn-preset" onclick="recordStopwatchLap()">🏁 Marcar Volta (Lap)</button>
+        <div class="laps-list-container" id="stopwatchLapsList" style="display:none;"></div>
+    </div>
+  </div>
+
+  <!-- ==================== TAB: EVOLUÇÃO, CONSISTÊNCIA & MÉTRICAS ==================== -->
+  <div id="tab-evolucao" class="tab-content">
+    <div style="background: rgba(255,255,255,0.02); border: 1.5px dashed rgba(0, 255, 136, 0.3); border-radius: 18px; padding: 36px 20px; text-align: center; margin-top: 10px;">
+      <div style="width: 54px; height: 54px; border-radius: 50%; background: rgba(0, 255, 136, 0.1); border: 1.5px solid var(--brand-neon); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin: 0 auto 16px auto; box-shadow: 0 0 16px var(--brand-neon-glow);">
+        📊
+      </div>
+      <h3 style="font-size: 1.15rem; font-weight: 800; color: #fff; margin: 0 0 8px 0;">Evolução do Aluno</h3>
+      <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.6; max-width: 440px; margin: 0 auto 18px auto;">
+        Assim que você iniciar sua rotina, este painel registrará sua <strong>Composição Corporal</strong>, <strong>Aperfeiçoamento Técnico</strong> e <strong>Consistência de Treino</strong>.
+      </p>
+      <div style="display: inline-flex; align-items: center; gap: 8px; font-size: 0.78rem; font-weight: 700; color: var(--brand-neon); background: rgba(0, 255, 136, 0.08); border: 1px solid rgba(0, 255, 136, 0.25); padding: 7px 16px; border-radius: 20px;">
+        🚀 Módulo será ativado com os primeiros treinos
+      </div>
+    </div>
+  </div>
+
+  <!-- Cronômetro Flutuante OLED Stealth -->
+  <div class="timer-dock">
+    <div class="timer-info">
+      <span class="timer-caption">Descanso</span>
+      <span class="timer-display" id="timer">01:30</span>
+    </div>
+    <div class="timer-buttons">
+      <button class="btn-timer" onclick="startTimer(60)">60s</button>
+      <button class="btn-timer active" onclick="startTimer(90)">90s</button>
+      <button class="btn-timer" onclick="startTimer(120)">120s</button>
+      <button class="btn-timer btn-timer-reset" onclick="resetTimer()">Reset</button>
+    </div>
+  </div>
+
+  <!-- Modal de Vídeo & Técnica -->
+  <div id="videoModal" class="modal-overlay" onclick="handleOverlayClick(event)">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modalTitle">Demonstração Técnica</h3>
+        <button class="btn-close" onclick="closeVideoModal()">&times;</button>
+      </div>
+      <div class="video-container" style="background:#000;">
+        <iframe id="videoIframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:none; width:100%; height:100%; border:none;"></iframe>
+        <video id="videoPlayer" controls playsinline preload="auto" style="display:none; width:100%; max-height:420px; background:#000;"></video>
+      </div>
+      <div class="modal-body">
+        <p id="modalDesc"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Bio Gui Lemos -->
+  <div id="bioModal" class="modal-overlay" onclick="handleOverlayClick(event)">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <img src="gui_foto.jpg" onerror="this.onerror=null; this.src='icon-192.png';" alt="Gui Lemos" style="width:34px; height:34px; border-radius:50%; border:2px solid var(--brand-neon); object-fit: cover;">
+          <div>
+            <h3 style="margin:0; font-size:1rem; color:#fff;">Gui Lemos</h3>
+            <span style="font-size:0.72rem; color:var(--brand-neon); font-weight:600;">@guilemos_dominiocorporal</span>
+          </div>
+        </div>
+        <button class="btn-close" onclick="closeBioModal(event)">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 20px;">
+        <div style="text-align: center; margin-bottom: 16px;">
+          <img src="gui_foto.jpg" onerror="this.onerror=null; this.src='icon-192.png';" alt="Gui Lemos" style="width: 82px; height: 82px; border-radius: 50%; border: 3px solid var(--brand-neon); box-shadow: 0 0 20px var(--brand-neon-glow); margin-bottom: 8px; object-fit: cover;">
+          <h2 style="font-size: 1.2rem; font-weight: 800; color: #fff; margin-bottom: 4px;">Guilherme de Paula Lemos</h2>
+          <p style="font-size: 0.8rem; color: var(--brand-neon); font-weight: 600;">Treinamento Especializado</p>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 14px; margin-bottom: 16px; font-size: 0.82rem; line-height: 1.6; color: var(--text-muted);">
+          <p style="margin-bottom: 8px;"><strong style="color: #fff;">🎓 Formação & Ciência:</strong><br>
+          • <strong>Farmacêutico-Bioquímico (FCFRP-USP)</strong><br>
+          • <strong>Profissional de Educação Física (EEFERP-USP)</strong><br>
+          • <strong>Especialista em Atividades Acrobáticas do Circo e da Ginástica (PUC-PR)</strong><br>
+          • <strong>Mestrando em Biomecânica (EEFERP-USP)</strong></p>
+
+          <p style="margin-bottom: 8px;"><strong style="color: #fff;">🤸‍♂️ Vivência Prática:</strong><br>
+          • <strong>20 anos de prática</strong> em Parada de Mãos (Handstand), Calistenia, CrossFit, Ginástica Artística, Circo e Acrobacias de Solo.</p>
+
+          <p><strong style="color: #fff;">🎯 Filosofia:</strong><br>
+          <em>"Unir a precisão da ciência biomecânica à arte do domínio corporal."</em></p>
+        </div>
+
+        <a href="https://www.instagram.com/guilemos_dominiocorporal/" target="_blank" class="btn-instagram">
+          <svg style="width:18px; height:18px; fill:currentColor;" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Siga no Instagram @guilemos_dominiocorporal
+        </a>
+        <div style="text-align:center; margin-top:14px;">
+          <button type="button" onclick="localStorage.removeItem('dominio_assessment_completed'); alert('Bloqueio reativado para testes! Ao recarregar, o pop-up de avaliação aparecerá.');" style="background:transparent; border:none; color:rgba(255,255,255,0.22); font-size:0.68rem; cursor:pointer;">[Resetar bloqueio da ficha para testes]</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Obrigatório de Avaliação Inicial (Bloqueio até preenchimento) -->
+  <div id="intakeGateModal" class="modal-overlay" style="z-index: 9999;">
+    <div class="modal-card" style="border: 1px solid rgba(0, 255, 136, 0.4); box-shadow: 0 0 35px rgba(0, 255, 136, 0.18); max-width: 480px;">
+      <div class="modal-body" style="padding: 26px 20px; text-align: center;">
+        <div style="width: 58px; height: 58px; border-radius: 50%; background: rgba(0, 255, 136, 0.12); border: 1.5px solid var(--brand-neon); color: var(--brand-neon); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto; font-size: 1.6rem; box-shadow: 0 0 20px var(--brand-neon-glow);">
+          📋
+        </div>
+        <div style="display:inline-block; font-size:0.68rem; font-weight:800; letter-spacing:0.1em; color:var(--brand-neon); background:rgba(0,255,136,0.1); border:1px solid rgba(0,255,136,0.3); padding:4px 10px; border-radius:8px; text-transform:uppercase; margin-bottom:12px;">
+          ETAPA DE INGRESSO OBRIGATÓRIA
+        </div>
+        <h2 style="font-size: 1.35rem; font-weight: 800; color: #fff; margin: 0 0 10px 0; line-height: 1.3;">
+          Ficha de Avaliação Inicial
+        </h2>
+        <p style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.55; margin: 0 0 18px 0;">
+          Para calibrar seu ciclo de treino com segurança biomecânica, proteção articular e gestão de cargas, precisamos conhecer seu histórico e objetivos.
+        </p>
+        <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 12px; padding: 12px 14px; margin-bottom: 20px; text-align: left; display: flex; gap: 10px; align-items: center;">
+          <span style="font-size: 1.2rem;">🔒</span>
+          <span style="font-size: 0.78rem; color: #fca5a5; line-height: 1.45; font-weight: 600;">
+            O acesso à rotina de treinos permanece bloqueado até o preenchimento e envio da sua ficha.
+          </span>
+        </div>
+        <button type="button" class="btn-submit-assessment" onclick="startIntakeGate()" style="margin: 0; width: 100%;">
+          <span>📝 Preencher Minha Ficha Agora ➔</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let lastActiveDayTab = 'segunda';
+
+    function switchDayTab(dayId) {
+      openDayWorkout(dayId);
+    }
+
+    /* ===================================================
+       NAVEGAÇÃO HUB DE TREINAMENTO & VISÕES DEDICADAS
+       =================================================== */
+
+    // Persistência de Treinos Concluídos no LocalStorage
+    function getCompletedWorkouts() {
+      try {
+        const data = localStorage.getItem('dominio_completed_workouts');
+        return data ? JSON.parse(data) : {};
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function isWorkoutCompleted(dayId) {
+      const completed = getCompletedWorkouts();
+      return !!completed[dayId];
+    }
+
+    function toggleWorkoutComplete(dayId) {
+      const completed = getCompletedWorkouts();
+      completed[dayId] = !completed[dayId];
+      try {
+        localStorage.setItem('dominio_completed_workouts', JSON.stringify(completed));
+      } catch (e) {}
+
+      if ('vibrate' in navigator) {
+        navigator.vibrate(completed[dayId] ? [40, 40, 80] : 35);
+      }
+
+      updateWorkoutCompletionUI(dayId);
+      renderTrainingHubDays();
+    }
+
+    function updateWorkoutCompletionUI(dayId) {
+      const isDone = isWorkoutCompleted(dayId);
+      const btn = document.getElementById('btnFinish-' + dayId);
+      if (btn) {
+        const txt = btn.querySelector('.finish-text');
+        if (isDone) {
+          btn.classList.add('completed');
+          if (txt) txt.textContent = '✓ Treino Concluído! (Toque para desmarcar)';
+        } else {
+          btn.classList.remove('completed');
+          const dayNameCapitalized = dayId.charAt(0).toUpperCase() + dayId.slice(1);
+          if (txt) txt.textContent = `Marcar Treino de ${dayNameCapitalized} como Concluído`;
+        }
+      }
+    }
+
+    function renderTrainingHubDays() {
+      // Piloto Jean: Treinos em prescrição
+      return;
+    }
+
+    function openDayWorkout(dayId) {
+      if (localStorage.getItem('dominio_assessment_completed') !== 'true') {
+        const modal = document.getElementById('intakeGateModal');
+        if (modal) modal.classList.add('active');
+        return;
+      }
+      lastActiveDayTab = dayId;
+      document.body.classList.add('in-dedicated-view');
+      const topBar = document.getElementById('dedicatedTopBar');
+      if (topBar) topBar.style.display = 'flex';
+
+      const dayNames = {
+        'segunda': 'SEGUNDA • Crossfit',
+        'terca': 'TERÇA • BMU + Acroduo',
+        'quarta': 'QUARTA • Handstand',
+        'quinta': 'QUINTA • Dança + Força',
+        'sexta': 'SEXTA • Argolas + Portagem'
+      };
+
+      const titleEl = document.getElementById('dedicatedBarTitle');
+      if (titleEl) titleEl.textContent = dayNames[dayId] || 'Treino do Dia';
+
+      // Esconde todas as abas e ativa a do dia
+      document.querySelectorAll('.tab-content').forEach(c => {
+        c.classList.remove('active');
+      });
+
+      const target = document.getElementById('tab-' + dayId);
+      if (target) {
+        target.classList.add('active');
+      }
+
+      updateWorkoutCompletionUI(dayId);
+      updateProgress();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    
+    function switchEvolucaoPane(paneId, btn) {
+      document.querySelectorAll('.evol-nav-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.evolucao-subpane').forEach(p => p.style.display = 'none');
+
+      if (btn) {
+        btn.classList.add('active');
+      } else {
+        const matchingBtn = document.getElementById('btnEvol-' + paneId);
+        if (matchingBtn) matchingBtn.classList.add('active');
+      }
+      const targetPane = document.getElementById('pane-evol-' + paneId);
+      if (targetPane) targetPane.style.display = 'block';
+
+      if (paneId === 'consistencia') {
+        updateEvolucaoStats();
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function updateEvolucaoStats() {
+      const completed = getCompletedWorkouts();
+      const doneDays = Object.values(completed).filter(Boolean).length;
+      const daysCountEl = document.getElementById('evolDaysDoneCount');
+      if (daysCountEl) daysCountEl.textContent = `${doneDays} / 5`;
+
+      const doneSets = document.querySelectorAll('.set-pill.done').length;
+      const setsCountEl = document.getElementById('evolSetsDoneCount');
+      if (setsCountEl) setsCountEl.textContent = doneSets;
+
+      const badge = document.getElementById('evolAdherenceBadge');
+      if (badge) {
+        if (doneDays >= 4) {
+          badge.textContent = 'Alta Consistência (80%+)';
+          badge.style.background = 'rgba(0,255,136,0.15)';
+          badge.style.color = 'var(--brand-neon)';
+        } else if (doneDays >= 2) {
+          badge.textContent = 'Em Progresso';
+          badge.style.background = 'rgba(56,189,248,0.15)';
+          badge.style.color = '#38bdf8';
+        } else {
+          badge.textContent = 'Semana Ativa';
+          badge.style.background = 'rgba(255,255,255,0.08)';
+          badge.style.color = '#e2e8f0';
+        }
+      }
+    }
+
+    function openDedicatedView(sectionId) {
+      closeBioModal();
+      closeVideoModal();
+
+      document.body.classList.add('in-dedicated-view');
+      const topBar = document.getElementById('dedicatedTopBar');
+      if (topBar) topBar.style.display = 'flex';
+
+      const titles = {
+        'timers': 'Central de Timers',
+        'analises': 'Análise de Vídeos & Biomecânica',
+        'evolucao': 'Evolução & Antropometria',
+        'perfil': '',
+        'avaliacao': 'Ficha de Avaliação'
+      };
+      const titleEl = document.getElementById('dedicatedBarTitle');
+      if (titleEl) titleEl.textContent = titles[sectionId] || 'Central Especializada';
+
+      // Esconde todas as abas
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+      // Ativa a aba dedicada
+      const target = document.getElementById('tab-' + sectionId);
+      if (target) {
+        target.classList.add('active');
+      }
+
+      if (sectionId === 'timers' && typeof initTimerUI === 'function') {
+        initTimerUI();
+      }
+      if (sectionId === 'evolucao') {
+        updateEvolucaoStats();
+      }
+      if (sectionId === 'avaliacao') {
+        loadStudentAssessment();
+        const banner = document.getElementById('assessmentGateBanner');
+        const isCompleted = localStorage.getItem('dominio_assessment_completed') === 'true';
+        if (banner) {
+          banner.style.display = isCompleted ? 'none' : 'block';
+        }
+        updateDedicatedTopBarGate(isCompleted);
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function closeDedicatedView() {
+      if (localStorage.getItem('dominio_assessment_completed') !== 'true') {
+        alert('🔒 Para liberar o acesso aos seus treinos, você precisa primeiro preencher e enviar a Ficha de Avaliação.');
+        return;
+      }
+      closeBioModal();
+      closeVideoModal();
+
+      // Desativa temporariamente eventos de ponteiro no header para eliminar ghost click de toque móvel caindo no botão Bio
+      const hdr = document.getElementById('mainAppHeader');
+      if (hdr) {
+        hdr.style.pointerEvents = 'none';
+        setTimeout(() => { if (hdr) hdr.style.pointerEvents = ''; }, 450);
+      }
+
+      document.body.classList.remove('in-dedicated-view');
+      const topBar = document.getElementById('dedicatedTopBar');
+      if (topBar) topBar.style.display = 'none';
+
+      // Esconde todas as abas
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+      renderTrainingHubDays();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function handleDedicatedBackClick(e) {
+      if (e) {
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+      }
+      closeDedicatedView();
+    }
+
+    function updateDedicatedTopBarGate(isUnlocked) {
+      const backBtn = document.getElementById('btnDedicatedBack');
+      if (!backBtn) return;
+      if (!isUnlocked) {
+        backBtn.innerHTML = '🔒 Ficha Obrigatória';
+        backBtn.style.opacity = '0.7';
+      } else {
+        backBtn.innerHTML = '‹ Voltar aos Treinos';
+        backBtn.style.opacity = '1';
+      }
+    }
+
+    function startIntakeGate() {
+      const modal = document.getElementById('intakeGateModal');
+      if (modal) modal.classList.remove('active');
+      openDedicatedView('avaliacao');
+    }
+
+    function checkIntakeGate() {
+      const isCompleted = localStorage.getItem('dominio_assessment_completed') === 'true';
+      if (!isCompleted) {
+        const modal = document.getElementById('intakeGateModal');
+        if (modal) modal.classList.add('active');
+        updateDedicatedTopBarGate(false);
+      } else {
+        updateDedicatedTopBarGate(true);
+      }
+    }
+
+    
+    /* ===================================================
+       LÓGICA DA FICHA DE AVALIAÇÃO DO ALUNO
+       =================================================== */
+
+    function calculateAgeFromBirth(birthStr) {
+      if (!birthStr) return '';
+      const parts = birthStr.split('-');
+      if (parts.length !== 3) return '';
+      const birth = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+      const today = new Date();
+      let age = today.getFullYear() - birth.getFullYear();
+      const m = today.getMonth() - birth.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {
+        age--;
+      }
+      return (age >= 0 && age < 130) ? age : '';
+    }
+
+    function getAssessmentData() {
+      const selectedPilares = Array.from(document.querySelectorAll('input[name="pilares"]:checked')).map(cb => cb.value);
+      const nascimento = document.getElementById('ass_nascimento')?.value.trim() || '';
+      const idadeCalc = calculateAgeFromBirth(nascimento);
+      return {
+        nome: document.getElementById('ass_nome')?.value.trim() || '',
+        nascimento: nascimento,
+        idade: idadeCalc,
+        altura: document.getElementById('ass_altura')?.value.trim() || '',
+        peso: document.getElementById('ass_peso')?.value.trim() || '',
+        rotina: document.getElementById('ass_rotina')?.value.trim() || '',
+        dias_disponiveis: document.getElementById('ass_dias_disponiveis')?.value.trim() || '',
+        duracao_disponivel: document.getElementById('ass_duracao_disponivel')?.value.trim() || '',
+        local: document.getElementById('ass_local')?.value.trim() || '',
+        historico_clinico: document.getElementById('ass_historico_clinico')?.value.trim() || '',
+        medicamentos: document.getElementById('ass_medicamentos')?.value.trim() || '',
+        condicoes_cronicas: document.getElementById('ass_condicoes_cronicas')?.value.trim() || '',
+        historico_esportivo: document.getElementById('ass_historico_esportivo')?.value.trim() || '',
+        treino_atual: document.getElementById('ass_treino_atual')?.value.trim() || '',
+        pullups: document.getElementById('ass_pullups')?.value || '',
+        pushups: document.getElementById('ass_pushups')?.value || '',
+        cardio: document.getElementById('ass_cardio')?.value || '',
+        pilares: selectedPilares,
+        contexto_metas: document.getElementById('ass_contexto_metas')?.value.trim() || '',
+        algo_mais: document.getElementById('ass_algo_mais')?.value.trim() || '',
+        timestamp: new Date().toISOString()
+      };
+    }
+
+    function autoSaveAssessmentDraft() {
+      try {
+        const data = getAssessmentData();
+        localStorage.setItem('dominio_student_intake', JSON.stringify(data));
+      } catch (e) {}
+    }
+
+    function loadStudentAssessment() {
+      try {
+        const raw = localStorage.getItem('dominio_student_intake');
+        if (!raw) return;
+        const data = JSON.parse(raw);
+
+        const setVal = (id, val) => {
+          const el = document.getElementById(id);
+          if (el && val !== undefined) el.value = val;
+        };
+
+        setVal('ass_nome', data.nome);
+        setVal('ass_nascimento', data.nascimento || data.data_nascimento || '');
+        setVal('ass_altura', data.altura);
+        setVal('ass_peso', data.peso);
+        setVal('ass_rotina', data.rotina);
+        setVal('ass_dias_disponiveis', data.dias_disponiveis || data.disponibilidade || '');
+        setVal('ass_duracao_disponivel', data.duracao_disponivel || '');
+        setVal('ass_local', data.local);
+        setVal('ass_historico_clinico', data.historico_clinico);
+        setVal('ass_medicamentos', data.medicamentos);
+        setVal('ass_condicoes_cronicas', data.condicoes_cronicas);
+        setVal('ass_historico_esportivo', data.historico_esportivo);
+        setVal('ass_treino_atual', data.treino_atual);
+        setVal('ass_pullups', data.pullups);
+        setVal('ass_pushups', data.pushups);
+        setVal('ass_cardio', data.cardio);
+        setVal('ass_contexto_metas', data.contexto_metas);
+        setVal('ass_algo_mais', data.algo_mais);
+
+        if (Array.isArray(data.pilares)) {
+          document.querySelectorAll('input[name="pilares"]').forEach(cb => {
+            cb.checked = data.pilares.includes(cb.value);
+          });
+        }
+      } catch (e) {}
+    }
+
+    function sendAssessmentToWhatsApp() {
+      const data = getAssessmentData();
+      if (!data.nome) {
+        alert('Por favor, preencha pelo menos o seu nome completo.');
+        const nomeEl = document.getElementById('ass_nome');
+        if (nomeEl) nomeEl.focus();
+        return;
+      }
+
+      autoSaveAssessmentDraft();
+
+      let msg = `*📋 DOMÍNIO CORPORAL | Ficha de Avaliação*\n`;
+      msg += `-------------------------------------------\n\n`;
+
+      msg += `*👤 1. IDENTIFICAÇÃO & ROTINA*\n`;
+      msg += `• *Nome:* ${data.nome}\n`;
+      if (data.nascimento) {
+        const parts = data.nascimento.split('-');
+        const formattedBirth = (parts.length === 3) ? `${parts[2]}/${parts[1]}/${parts[0]}` : data.nascimento;
+        msg += `• *Data de Nascimento:* ${formattedBirth}${data.idade ? ` (${data.idade} anos)` : ''}\n`;
+      } else if (data.idade) {
+        msg += `• *Idade:* ${data.idade} anos\n`;
+      }
+      if (data.altura || data.peso) {
+        msg += `• *Físico:* ${data.altura ? `${data.altura} cm` : ''}${data.peso ? ` • ${data.peso} kg` : ''}\n`;
+      }
+      if (data.rotina) msg += `• *Rotina/Estresse/Sono:* ${data.rotina}\n`;
+      if (data.dias_disponiveis || data.duracao_disponivel) {
+        msg += `• *Disponibilidade:* ${data.dias_disponiveis ? `${data.dias_disponiveis}` : ''}${data.duracao_disponivel ? ` (${data.duracao_disponivel} por sessão)` : ''}\n`;
+      }
+      if (data.local) msg += `• *Local de Treino:* ${data.local}\n\n`;
+
+      msg += `*🛡️ 2. HISTÓRICO CLÍNICO, LESÕES & SAÚDE*\n`;
+      msg += `• *Cirurgias/Lesões/Dores:* ${data.historico_clinico ? data.historico_clinico : 'Nenhuma dor ou cirurgia relatada.'}\n`;
+      if (data.medicamentos) msg += `• *Uso Contínuo de Remédios:* ${data.medicamentos}\n`;
+      if (data.condicoes_cronicas) msg += `• *Condições de Saúde Crônicas:* ${data.condicoes_cronicas}\n`;
+      msg += `\n`;
+
+      msg += `*🤸 3. BAGAGEM MOTORA & CONDICIONAMENTO*\n`;
+      if (data.historico_esportivo) msg += `• *Histórico Prévio:* ${data.historico_esportivo}\n`;
+      if (data.treino_atual) msg += `• *Treino Atual:* ${data.treino_atual}\n`;
+      msg += `• *Barra Fixa (Pull-ups):* ${data.pullups || 'Não informado'}\n`;
+      msg += `• *Flexão de Solo (Push-ups):* ${data.pushups || 'Não informado'}\n`;
+      msg += `• *Cardiorrespiratório:* ${data.cardio || 'Não informado'}\n\n`;
+
+      msg += `*🎯 4. OBJETIVOS DO CICLO & CONTEXTO*\n`;
+      if (data.pilares && data.pilares.length > 0) {
+        msg += `• *Pilares Escolhidos:*\n`;
+        data.pilares.forEach(p => { msg += `  ✓ ${p}\n`; });
+      } else {
+        msg += `• *Pilares:* _Nenhum pilar específico assinalado._\n`;
+      }
+      if (data.contexto_metas) {
+        msg += `• *Contexto & Expectativas:*\n  "${data.contexto_metas}"\n`;
+      }
+      if (data.algo_mais) {
+        msg += `• *Mais Algo Que Devo Saber:*\n  "${data.algo_mais}"\n`;
+      }
+
+      msg += `\n-------------------------------------------\n`;
+      msg += `_Enviado pelo App Domínio Corporal_`;
+
+      const phone = '5516997637744';
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
+
+      // Desbloqueia o aplicativo no dispositivo do aluno
+      localStorage.setItem('dominio_assessment_completed', 'true');
+      updateDedicatedTopBarGate(true);
+      const gateBanner = document.getElementById('assessmentGateBanner');
+      if (gateBanner) gateBanner.style.display = 'none';
+
+      const fb = document.getElementById('assessmentFeedbackMsg');
+      if (fb) {
+        fb.innerHTML = `
+          <div style="font-size:0.95rem; font-weight:800; margin-bottom:4px;">🎉 Ficha Salva & Enviada!</div>
+          <div style="margin-bottom:8px; line-height:1.45;">Seus dados foram salvos e o acesso à sua rotina de treinos está <strong>100% desbloqueado</strong>!</div>
+          <button type="button" onclick="closeDedicatedView()" style="background:#000; color:var(--brand-neon); border:1px solid var(--brand-neon); padding:8px 16px; border-radius:10px; font-weight:800; font-size:0.8rem; cursor:pointer;">➔ Acessar Meus Treinos Desbloqueados</button>
+        `;
+        fb.style.display = 'block';
+      }
+    }
+
+    function contactCoachWhatsApp() {
+      const phone = '5516997637744';
+      const msg = `Olá Gui! Estou no app Domínio Corporal e tenho uma dúvida sobre os treinos:`;
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
+    }
+
+    function openDedicatedTimerWithMode(mode, minutes, title, notes) {
+      openDedicatedView('timers');
+      if (typeof setTimerMode === 'function') {
+        const btn = document.getElementById('modeBtn-' + mode);
+        setTimerMode(mode, btn);
+      }
+      if (mode === 'emom') {
+        setEmomPreset(minutes || 12);
+      } else if (mode === 'amrap') {
+        setAmrapPreset(minutes || 6);
+      }
+
+      const refBox = document.getElementById('timerWodQuickReference');
+      const refTitle = document.getElementById('timerWodRefTitle');
+      const refContent = document.getElementById('timerWodRefContent');
+      if (refBox && refTitle && refContent) {
+        refTitle.textContent = title || 'WOD Selecionado';
+        refContent.textContent = notes || '';
+        refBox.style.display = 'block';
+      }
+    }
+
+    function calibrateDayLabels() {
+      renderTrainingHubDays();
+    }
+    function switchTab(tabId) {
+      if (['timers', 'analises', 'evolucao', 'perfil'].includes(tabId)) {
+        openDedicatedView(tabId);
+        return;
+      }
+      openDayWorkout(tabId);
+    }
+
+    /* ===================================================
+       MOTOR DE TIMERS WOD & CRONÔMETRO (WEB AUDIO OFFLINE)
+       =================================================== */
+    let audioCtx = null;
+    let wakeLock = null;
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (AudioContextClass) audioCtx = new AudioContextClass();
+      }
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    async function requestScreenWakeLock() {
+      try {
+        if ('wakeLock' in navigator) {
+          wakeLock = await navigator.wakeLock.request('screen');
+        }
+      } catch (err) {
+        console.log('WakeLock:', err);
+      }
+    }
+
+    function playTone(freq, durationMs, type = 'sine') {
+      try {
+        const ctx = getAudioContext();
+        if (!ctx) return;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, ctx.currentTime);
+        gain.gain.setValueAtTime(0.35, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (durationMs / 1000));
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + (durationMs / 1000));
+      } catch (e) {
+        console.warn('Audio tone error:', e);
+      }
+    }
+
+    // 1. Apito de contagem prévia (3, 2, 1) ou aviso prévio aos 57s, 58s, 59s:
+    function beepPrep() {
+      playTone(880, 130, 'triangle');
+      if ('vibrate' in navigator) navigator.vibrate(40);
+    }
+
+    // 2. Apito de GO / Início de Round / Virada de Minuto:
+    function beepGo() {
+      playTone(1760, 450, 'square');
+      if ('vibrate' in navigator) navigator.vibrate([100, 50, 100]);
+    }
+
+    // 3. Apito comemorativo / Final de WOD:
+    function beepFinish() {
+      playTone(659, 140, 'triangle');
+      setTimeout(() => playTone(880, 140, 'triangle'), 150);
+      setTimeout(() => playTone(1320, 140, 'triangle'), 300);
+      setTimeout(() => playTone(1760, 550, 'square'), 450);
+      if ('vibrate' in navigator) navigator.vibrate([150, 80, 250]);
+    }
+
+    // Teste dos bips para o atleta checar o volume
+    function testPrepAudio() {
+      beepPrep();
+      setTimeout(beepPrep, 400);
+      setTimeout(beepPrep, 800);
+      setTimeout(beepGo, 1200);
+    }
+
+    /* Estado Geral dos Timers */
+    let currentTimerMode = 'cronometro';
+    let timerRunning = false;
+    let timerInterval = null;
+    let prepTimer = null;
+    let prepCountdownValue = 3;
+
+    // Configurações e estados específicos por modo
+    const timerState = {
+      // EMOM
+      emomMinutesTotal: 12,
+      emomCurrentMinute: 1,
+      emomSecondsLeftInMinute: 60,
+      
+      // AMRAP
+      amrapMinutesTotal: 10,
+      amrapSecondsRemaining: 600,
+      amrapRoundsCompleted: 0,
+
+      // TABATA
+      tabataRoundsTotal: 8,
+      tabataCurrentRound: 1,
+      tabataPhase: 'work',
+      tabataWorkTime: 20,
+      tabataRestTime: 10,
+      tabataPhaseSecondsRemaining: 20,
+
+      // Cronômetro
+      stopwatchStartTime: 0,
+      stopwatchElapsedTime: 0,
+      stopwatchLaps: [],
+
+      // Temporizador Simples
+      simpleTimerDuration: 90,
+      simpleTimerRemaining: 90
+    };
+
+    function initTimerUI() {
+      const activeBtn = document.getElementById('modeBtn-' + currentTimerMode);
+      setTimerMode(currentTimerMode, activeBtn);
+    }
+
+    function setTimerMode(mode, btn) {
+      if (timerRunning) {
+        handleTimerPause();
+      }
+      currentTimerMode = mode;
+      document.querySelectorAll('.timer-mode-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      const vp = document.getElementById('timerViewport');
+      if (vp) {
+        vp.classList.remove('tabata-work-state', 'tabata-rest-state');
+      }
+
+      const btnAmrap = document.getElementById('btnAmrapAddRound');
+      if (btnAmrap) btnAmrap.style.display = (mode === 'amrap') ? 'block' : 'none';
+
+      const lapControls = document.getElementById('stopwatchLapControls');
+      if (lapControls) lapControls.style.display = (mode === 'cronometro') ? 'block' : 'none';
+
+      renderTimerMode();
+    }
+
+    function renderTimerMode() {
+      const header = document.getElementById('timerStatusHeader');
+      const sub = document.getElementById('timerRoundSub');
+      const digits = document.getElementById('timerBigDigits');
+      const extra = document.getElementById('timerExtraInfo');
+      const presets = document.getElementById('timerPresetsContainer');
+      const fill = document.getElementById('timerProgressFill');
+
+      if (!header || !digits) return;
+
+      if (currentTimerMode === 'emom') {
+        header.innerText = 'EMOM • EVERY MINUTE ON THE MINUTE';
+        sub.innerText = `Minuto ${timerState.emomCurrentMinute} de ${timerState.emomMinutesTotal} (60s)`;
+        digits.innerText = formatTimeSec(timerState.emomSecondsLeftInMinute);
+        extra.innerText = `Tempo Total: ${timerState.emomMinutesTotal} min | Fim após minuto ${timerState.emomMinutesTotal}`;
+        if (fill) fill.style.width = ((timerState.emomSecondsLeftInMinute / 60) * 100) + '%';
+        if (fill) fill.style.background = '#38bdf8';
+
+        presets.innerHTML = `
+          <button class="btn-preset ${timerState.emomMinutesTotal===10?'active':''}" onclick="setEmomPreset(10)">10 min</button>
+          <button class="btn-preset ${timerState.emomMinutesTotal===15?'active':''}" onclick="setEmomPreset(15)">15 min</button>
+          <button class="btn-preset ${timerState.emomMinutesTotal===20?'active':''}" onclick="setEmomPreset(20)">20 min</button>
+          <div class="custom-preset-input-box" title="Defina qualquer quantidade de minutos para o EMOM">
+            <input type="number" min="1" max="180" id="customEmomVal" placeholder="Min" class="custom-preset-input" value="${[10,15,20].includes(timerState.emomMinutesTotal)?'':timerState.emomMinutesTotal}" onkeydown="if(event.key==='Enter') applyCustomEmom()">
+            <button type="button" class="btn-preset-apply" onclick="applyCustomEmom()">OK</button>
+          </div>
+        `;
+      } 
+      else if (currentTimerMode === 'amrap') {
+        header.innerText = 'AMRAP • AS MANY ROUNDS AS POSSIBLE';
+        sub.innerText = `Rounds Feitos: ${timerState.amrapRoundsCompleted}`;
+        digits.innerText = formatTimeMinSec(timerState.amrapSecondsRemaining);
+        extra.innerText = `Meta: Máximo de rounds em ${timerState.amrapMinutesTotal} minutos`;
+        if (fill) fill.style.width = ((timerState.amrapSecondsRemaining / (timerState.amrapMinutesTotal * 60)) * 100) + '%';
+        if (fill) fill.style.background = 'var(--brand-neon)';
+
+        const countEl = document.getElementById('amrapRoundCount');
+        if (countEl) countEl.innerText = timerState.amrapRoundsCompleted;
+
+        presets.innerHTML = `
+          <button class="btn-preset ${timerState.amrapMinutesTotal===10?'active':''}" onclick="setAmrapPreset(10)">10 min</button>
+          <button class="btn-preset ${timerState.amrapMinutesTotal===15?'active':''}" onclick="setAmrapPreset(15)">15 min</button>
+          <button class="btn-preset ${timerState.amrapMinutesTotal===20?'active':''}" onclick="setAmrapPreset(20)">20 min</button>
+          <div class="custom-preset-input-box" title="Defina qualquer quantidade de minutos para o AMRAP">
+            <input type="number" min="1" max="180" id="customAmrapVal" placeholder="Min" class="custom-preset-input" value="${[10,15,20].includes(timerState.amrapMinutesTotal)?'':timerState.amrapMinutesTotal}" onkeydown="if(event.key==='Enter') applyCustomAmrap()">
+            <button type="button" class="btn-preset-apply" onclick="applyCustomAmrap()">OK</button>
+          </div>
+        `;
+      }
+      else if (currentTimerMode === 'tabata') {
+        const isWork = timerState.tabataPhase === 'work';
+        header.innerText = isWork ? '🔥 WORK • FORÇA MÁXIMA' : '⏸️ REST • RECUPERAÇÃO';
+        sub.innerText = `Round ${timerState.tabataCurrentRound} de ${timerState.tabataRoundsTotal}`;
+        digits.innerText = formatTimeSec(timerState.tabataPhaseSecondsRemaining);
+        extra.innerText = `Protocolo: ${timerState.tabataWorkTime}s Trabalho / ${timerState.tabataRestTime}s Descanso`;
+        
+        const maxSec = isWork ? timerState.tabataWorkTime : timerState.tabataRestTime;
+        if (fill) {
+          fill.style.width = ((timerState.tabataPhaseSecondsRemaining / maxSec) * 100) + '%';
+          fill.style.background = isWork ? 'var(--brand-neon)' : '#f59e0b';
+        }
+
+        presets.innerHTML = `
+          <button class="btn-preset ${timerState.tabataRoundsTotal===8?'active':''}" onclick="setTabataPreset(8)">8 Rounds (4 min)</button>
+          <button class="btn-preset ${timerState.tabataRoundsTotal===6?'active':''}" onclick="setTabataPreset(6)">6 Rounds (3 min)</button>
+          <button class="btn-preset ${timerState.tabataRoundsTotal===4?'active':''}" onclick="setTabataPreset(4)">4 Rounds (2 min)</button>
+        `;
+      }
+      else if (currentTimerMode === 'cronometro') {
+        header.innerText = 'CRONÔMETRO PROGRESSIVO (STOPWATCH)';
+        sub.innerText = `Voltas Registradas: ${timerState.stopwatchLaps.length}`;
+        digits.innerText = formatStopwatch(timerState.stopwatchElapsedTime);
+        extra.innerText = 'Precisão em milissegundos • Toque em Volta para marcar parciais';
+        if (fill) fill.style.width = '100%';
+        if (fill) fill.style.background = '#38bdf8';
+        presets.innerHTML = '';
+      }
+      else if (currentTimerMode === 'timer') {
+        header.innerText = 'TEMPORIZADOR REGRESSIVO';
+        sub.innerText = `Tempo Inicial: ${formatTimeMinSec(timerState.simpleTimerDuration)}`;
+        digits.innerText = formatTimeMinSec(timerState.simpleTimerRemaining);
+        extra.innerText = 'Contagem decrescente';
+        if (fill) fill.style.width = ((timerState.simpleTimerRemaining / timerState.simpleTimerDuration) * 100) + '%';
+        if (fill) fill.style.background = '#38bdf8';
+
+        presets.innerHTML = `
+          <button class="btn-preset" onclick="addSimpleTimerTime(30)">+30s</button>
+          <button class="btn-preset" onclick="addSimpleTimerTime(60)">+1 min</button>
+          <button class="btn-preset" onclick="addSimpleTimerTime(120)">+2 min</button>
+          <button class="btn-preset" onclick="addSimpleTimerTime(180)">+3 min</button>
+          <button class="btn-preset" onclick="addSimpleTimerTime(300)">+5 min</button>
+        `;
+      }
+    }
+
+    function formatTimeSec(s) {
+      const sec = Math.max(0, Math.floor(s));
+      const m = Math.floor(sec / 60);
+      const rem = sec % 60;
+      return `${String(m).padStart(2, '0')}:${String(rem).padStart(2, '0')}`;
+    }
+
+    function formatTimeMinSec(s) {
+      const sec = Math.max(0, Math.floor(s));
+      const m = Math.floor(sec / 60);
+      const rem = sec % 60;
+      return `${String(m).padStart(2, '0')}:${String(rem).padStart(2, '0')}`;
+    }
+
+    function formatStopwatch(ms) {
+      const totalSec = Math.floor(ms / 1000);
+      const m = Math.floor(totalSec / 60);
+      const s = totalSec % 60;
+      const c = Math.floor((ms % 1000) / 10);
+      return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}.${String(c).padStart(2, '0')}`;
+    }
+
+    function applyCustomEmom() {
+      const el = document.getElementById('customEmomVal');
+      if (!el) return;
+      const min = parseInt(el.value, 10);
+      if (isNaN(min) || min <= 0) {
+        alert('Digite uma quantidade de minutos válida (ex: 8, 12, 25).');
+        return;
+      }
+      setEmomPreset(min);
+    }
+
+    function applyCustomAmrap() {
+      const el = document.getElementById('customAmrapVal');
+      if (!el) return;
+      const min = parseInt(el.value, 10);
+      if (isNaN(min) || min <= 0) {
+        alert('Digite uma quantidade de minutos válida (ex: 8, 12, 25).');
+        return;
+      }
+      setAmrapPreset(min);
+    }
+
+    function setEmomPreset(min) {
+      if (timerRunning) return;
+      timerState.emomMinutesTotal = min;
+      timerState.emomCurrentMinute = 1;
+      timerState.emomSecondsLeftInMinute = 60;
+      renderTimerMode();
+    }
+
+    function setAmrapPreset(min) {
+      if (timerRunning) return;
+      timerState.amrapMinutesTotal = min;
+      timerState.amrapSecondsRemaining = min * 60;
+      timerState.amrapRoundsCompleted = 0;
+      renderTimerMode();
+    }
+
+    function setTabataPreset(rounds) {
+      if (timerRunning) return;
+      timerState.tabataRoundsTotal = rounds;
+      timerState.tabataCurrentRound = 1;
+      timerState.tabataPhase = 'work';
+      timerState.tabataPhaseSecondsRemaining = timerState.tabataWorkTime;
+      renderTimerMode();
+    }
+
+    function addSimpleTimerTime(sec) {
+      if (timerRunning) return;
+      timerState.simpleTimerDuration += sec;
+      timerState.simpleTimerRemaining += sec;
+      renderTimerMode();
+    }
+
+    function addAmrapRound() {
+      timerState.amrapRoundsCompleted++;
+      const countEl = document.getElementById('amrapRoundCount');
+      if (countEl) countEl.innerText = timerState.amrapRoundsCompleted;
+      const sub = document.getElementById('timerRoundSub');
+      if (sub) sub.innerText = `Rounds Feitos: ${timerState.amrapRoundsCompleted}`;
+      beepPrep();
+    }
+
+    function recordStopwatchLap() {
+      if (!timerRunning && timerState.stopwatchElapsedTime === 0) return;
+      timerState.stopwatchLaps.unshift(timerState.stopwatchElapsedTime);
+      const listEl = document.getElementById('stopwatchLapsList');
+      if (listEl) {
+        listEl.style.display = 'block';
+        listEl.innerHTML = timerState.stopwatchLaps.map((lap, idx) => `
+          <div class="lap-row">
+            <span class="lap-num">Volta #${timerState.stopwatchLaps.length - idx}</span>
+            <span>${formatStopwatch(lap)}</span>
+          </div>
+        `).join('');
+      }
+    }
+
+    function handleTimerStart() {
+      requestScreenWakeLock();
+      getAudioContext();
+
+      if (currentTimerMode === 'emom' || currentTimerMode === 'amrap' || currentTimerMode === 'tabata') {
+        runPrepCountdown(() => {
+          startRunningTimer();
+        });
+      } else {
+        startRunningTimer();
+      }
+    }
+
+    function runPrepCountdown(onComplete) {
+      const overlay = document.getElementById('prepOverlay');
+      const numEl = document.getElementById('prepCountNumber');
+      if (!overlay || !numEl) {
+        onComplete();
+        return;
+      }
+
+      overlay.style.display = 'flex';
+      prepCountdownValue = 3;
+      numEl.innerText = prepCountdownValue;
+      beepPrep();
+
+      if (prepTimer) clearInterval(prepTimer);
+      prepTimer = setInterval(() => {
+        prepCountdownValue--;
+        if (prepCountdownValue > 0) {
+          numEl.innerText = prepCountdownValue;
+          beepPrep();
+        } else if (prepCountdownValue === 0) {
+          numEl.innerText = 'GO!';
+          beepGo();
+        } else {
+          clearInterval(prepTimer);
+          overlay.style.display = 'none';
+          onComplete();
+        }
+      }, 1000);
+    }
+
+    function startRunningTimer() {
+      timerRunning = true;
+      toggleButtonsRunning(true);
+
+      const vp = document.getElementById('timerViewport');
+      if (currentTimerMode === 'tabata' && vp) {
+        vp.classList.add(timerState.tabataPhase === 'work' ? 'tabata-work-state' : 'tabata-rest-state');
+      }
+
+      if (currentTimerMode === 'cronometro') {
+        const startTimestamp = Date.now() - timerState.stopwatchElapsedTime;
+        timerInterval = setInterval(() => {
+          timerState.stopwatchElapsedTime = Date.now() - startTimestamp;
+          renderTimerMode();
+        }, 30);
+      }
+      else if (currentTimerMode === 'emom') {
+        timerInterval = setInterval(() => {
+          timerState.emomSecondsLeftInMinute--;
+          
+          if (timerState.emomSecondsLeftInMinute === 3 || timerState.emomSecondsLeftInMinute === 2 || timerState.emomSecondsLeftInMinute === 1) {
+            beepPrep();
+          }
+
+          if (timerState.emomSecondsLeftInMinute <= 0) {
+            if (timerState.emomCurrentMinute >= timerState.emomMinutesTotal) {
+              beepFinish();
+              handleTimerPause();
+              timerState.emomSecondsLeftInMinute = 0;
+              renderTimerMode();
+              return;
+            } else {
+              beepGo();
+              timerState.emomCurrentMinute++;
+              timerState.emomSecondsLeftInMinute = 60;
+            }
+          }
+          renderTimerMode();
+        }, 1000);
+      }
+      else if (currentTimerMode === 'amrap') {
+        timerInterval = setInterval(() => {
+          timerState.amrapSecondsRemaining--;
+
+          if (timerState.amrapSecondsRemaining === 3 || timerState.amrapSecondsRemaining === 2 || timerState.amrapSecondsRemaining === 1) {
+            beepPrep();
+          }
+
+          if (timerState.amrapSecondsRemaining <= 0) {
+            beepFinish();
+            handleTimerPause();
+            timerState.amrapSecondsRemaining = 0;
+            renderTimerMode();
+            return;
+          }
+          renderTimerMode();
+        }, 1000);
+      }
+      else if (currentTimerMode === 'tabata') {
+        timerInterval = setInterval(() => {
+          timerState.tabataPhaseSecondsRemaining--;
+
+          if (timerState.tabataPhaseSecondsRemaining === 3 || timerState.tabataPhaseSecondsRemaining === 2 || timerState.tabataPhaseSecondsRemaining === 1) {
+            beepPrep();
+          }
+
+          if (timerState.tabataPhaseSecondsRemaining <= 0) {
+            const vp = document.getElementById('timerViewport');
+            if (timerState.tabataPhase === 'work') {
+              beepGo();
+              timerState.tabataPhase = 'rest';
+              timerState.tabataPhaseSecondsRemaining = timerState.tabataRestTime;
+              if (vp) {
+                vp.classList.remove('tabata-work-state');
+                vp.classList.add('tabata-rest-state');
+              }
+            } else {
+              if (timerState.tabataCurrentRound >= timerState.tabataRoundsTotal) {
+                beepFinish();
+                handleTimerPause();
+                if (vp) vp.classList.remove('tabata-work-state', 'tabata-rest-state');
+                return;
+              } else {
+                beepGo();
+                timerState.tabataCurrentRound++;
+                timerState.tabataPhase = 'work';
+                timerState.tabataPhaseSecondsRemaining = timerState.tabataWorkTime;
+                if (vp) {
+                  vp.classList.remove('tabata-rest-state');
+                  vp.classList.add('tabata-work-state');
+                }
+              }
+            }
+          }
+          renderTimerMode();
+        }, 1000);
+      }
+      else if (currentTimerMode === 'timer') {
+        timerInterval = setInterval(() => {
+          timerState.simpleTimerRemaining--;
+          if (timerState.simpleTimerRemaining === 3 || timerState.simpleTimerRemaining === 2 || timerState.simpleTimerRemaining === 1) {
+            beepPrep();
+          }
+          if (timerState.simpleTimerRemaining <= 0) {
+            beepFinish();
+            handleTimerPause();
+            timerState.simpleTimerRemaining = 0;
+            renderTimerMode();
+            return;
+          }
+          renderTimerMode();
+        }, 1000);
+      }
+    }
+
+    function handleTimerPause() {
+      timerRunning = false;
+      if (timerInterval) clearInterval(timerInterval);
+      if (prepTimer) clearInterval(prepTimer);
+      const overlay = document.getElementById('prepOverlay');
+      if (overlay) overlay.style.display = 'none';
+      toggleButtonsRunning(false);
+    }
+
+    function handleTimerReset() {
+      handleTimerPause();
+      const vp = document.getElementById('timerViewport');
+      if (vp) vp.classList.remove('tabata-work-state', 'tabata-rest-state');
+
+      if (currentTimerMode === 'emom') {
+        timerState.emomCurrentMinute = 1;
+        timerState.emomSecondsLeftInMinute = 60;
+      } else if (currentTimerMode === 'amrap') {
+        timerState.amrapSecondsRemaining = timerState.amrapMinutesTotal * 60;
+        timerState.amrapRoundsCompleted = 0;
+      } else if (currentTimerMode === 'tabata') {
+        timerState.tabataCurrentRound = 1;
+        timerState.tabataPhase = 'work';
+        timerState.tabataPhaseSecondsRemaining = timerState.tabataWorkTime;
+      } else if (currentTimerMode === 'cronometro') {
+        timerState.stopwatchElapsedTime = 0;
+        timerState.stopwatchLaps = [];
+        const listEl = document.getElementById('stopwatchLapsList');
+        if (listEl) {
+          listEl.innerHTML = '';
+          listEl.style.display = 'none';
+        }
+      } else if (currentTimerMode === 'timer') {
+        timerState.simpleTimerRemaining = timerState.simpleTimerDuration;
+      }
+      renderTimerMode();
+    }
+
+    function toggleButtonsRunning(isRunning) {
+      const btnStart = document.getElementById('btnMainStart');
+      const btnPause = document.getElementById('btnMainPause');
+      if (btnStart) btnStart.style.display = isRunning ? 'none' : 'inline-block';
+      if (btnPause) btnPause.style.display = isRunning ? 'inline-block' : 'none';
+    }
+
+    function toggleSet(btn) {
+      btn.classList.toggle('done');
+      if (btn.classList.contains('done') && 'vibrate' in navigator) {
+        navigator.vibrate(35);
+      }
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const activeTab = document.querySelector('.tab-content.active');
+      if (!activeTab) return;
+
+      const allSets = activeTab.querySelectorAll('.set-pill');
+      const completedSets = activeTab.querySelectorAll('.set-pill.done');
+      const total = allSets.length;
+      const completed = completedSets.length;
+
+      const bar = activeTab.querySelector('.progress-bar-fill') || document.getElementById('progressBar');
+      const text = activeTab.querySelector('.progress-val-text') || document.getElementById('progressText');
+
+      if (total === 0) {
+        if (bar) bar.style.width = '100%';
+        if (text) text.innerText = 'Roteiro & Orientações Ativas';
+        return;
+      }
+
+      const pct = Math.round((completed / total) * 100);
+      if (bar) bar.style.width = pct + '%';
+      if (text) text.innerText = `${completed} de ${total} séries (${pct}%)`;
+    }
+
+    let dockTimerInterval = null;
+    let dockSecondsLeft = 90;
+
+    function formatTime(s) {
+      const mins = Math.floor(s / 60);
+      const secs = s % 60;
+      return String(mins).padStart(2, '0') + ':' + String(secs).padStart(2, '0');
+    }
+
+    function startTimer(s) {
+      clearInterval(dockTimerInterval);
+      dockSecondsLeft = s;
+      document.getElementById('timer').innerText = formatTime(dockSecondsLeft);
+      document.querySelectorAll('.timer-buttons .btn-timer').forEach(b => b.classList.remove('active'));
+      if (window.event && window.event.target) window.event.target.classList.add('active');
+
+      dockTimerInterval = setInterval(() => {
+        dockSecondsLeft--;
+        if (dockSecondsLeft <= 0) {
+          clearInterval(dockTimerInterval);
+          document.getElementById('timer').innerText = "VAI!";
+          if ('vibrate' in navigator) navigator.vibrate([120, 60, 120]);
+        } else {
+          document.getElementById('timer').innerText = formatTime(dockSecondsLeft);
+        }
+      }, 1000);
+    }
+
+    function resetTimer() {
+      clearInterval(dockTimerInterval);
+      document.getElementById('timer').innerText = "01:30";
+    }
+
+    /* Modal de Vídeo */
+    function openVideoModal(title, desc, videoUrl) {
+      document.getElementById('modalTitle').innerText = title;
+      document.getElementById('modalDesc').innerHTML = desc;
+      const iframe = document.getElementById('videoIframe');
+      const player = document.getElementById('videoPlayer');
+      
+      if (videoUrl.includes('.mp4')) {
+        iframe.style.display = 'none';
+        iframe.src = '';
+        player.style.display = 'block';
+        player.src = videoUrl;
+        player.load();
+        player.play().catch(() => {});
+      } else {
+        if (player) {
+          player.pause();
+          player.src = '';
+          player.style.display = 'none';
+        }
+        iframe.style.display = 'block';
+        iframe.src = videoUrl;
+      }
+      document.getElementById('videoModal').classList.add('active');
+    }
+
+    function closeVideoModal() {
+      document.getElementById('videoModal').classList.remove('active');
+      const iframe = document.getElementById('videoIframe');
+      const player = document.getElementById('videoPlayer');
+      if (iframe) iframe.src = '';
+      if (player) {
+        player.pause();
+        player.src = '';
+      }
+    }
+
+    /* Modal de Bio Gui Lemos */
+    function openBioModal(e) {
+      if (e) {
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+      }
+      // Se estiver na visão dedicada de timers, análises ou ficha, não abre bio
+      if (document.body.classList.contains('in-dedicated-view')) return;
+
+      const m = document.getElementById('bioModal');
+      if (m) {
+        m.classList.add('active');
+        m.style.display = 'flex';
+      }
+    }
+
+    function closeBioModal(e) {
+      if (e) {
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+      }
+      const m = document.getElementById('bioModal');
+      if (m) {
+        m.classList.remove('active');
+        m.style.display = 'none';
+      }
+    }
+
+    function handleOverlayClick(e) {
+      if (e && e.target) {
+        if (e.target.id === 'videoModal') {
+          closeVideoModal();
+        }
+        if (e.target.id === 'bioModal') {
+          closeBioModal(e);
+        }
+      }
+    }
+
+    // Tecla ESC fecha modais abertos
+    window.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeBioModal(e);
+        closeVideoModal();
+      }
+    });
+
+    /* Anotações e Feedback do Exercício */
+    function toggleCommentBox(exId) {
+      const box = document.getElementById('comment-box-' + exId);
+      if (!box) return;
+      const isHidden = box.style.display === 'none' || box.style.display === '';
+      box.style.display = isHidden ? 'block' : 'none';
+      if (isHidden) {
+        const textarea = document.getElementById('note-' + exId);
+        if (textarea) textarea.focus();
+      }
+    }
+
+    function saveExerciseNote(exId, val) {
+      const key = 'dominio_note_' + exId;
+      if (val.trim() === '') {
+        localStorage.removeItem(key);
+      } else {
+        localStorage.setItem(key, val);
+      }
+      updateCommentDot(exId);
+
+      const status = document.getElementById('save-status-' + exId);
+      if (status) {
+        status.style.opacity = '1';
+        status.innerText = 'Salvo ✓';
+        setTimeout(() => { status.style.opacity = '0.5'; }, 1500);
+      }
+    }
+
+    function updateCommentDot(exId) {
+      const val = localStorage.getItem('dominio_note_' + exId);
+      const dot = document.getElementById('dot-' + exId);
+      const btn = document.getElementById('btn-comment-' + exId);
+      if (val && val.trim() !== '') {
+        if (dot) dot.style.display = 'inline-block';
+        if (btn) btn.classList.add('has-note');
+      } else {
+        if (dot) dot.style.display = 'none';
+        if (btn) btn.classList.remove('has-note');
+      }
+    }
+
+    function loadAllNotes() {
+      document.querySelectorAll('.comment-textarea').forEach(ta => {
+        const exId = ta.id.replace('note-', '');
+        const saved = localStorage.getItem('dominio_note_' + exId);
+        if (saved) {
+          ta.value = saved;
+          updateCommentDot(exId);
+        } else if (ta.value.trim() !== '') {
+          updateCommentDot(exId);
+        }
+      });
+    }
+
+    function sendWorkoutReportWhatsApp() {
+      const activeTab = document.querySelector('.tab-content.active');
+      const activeTabBtn = document.querySelector('.tab-btn.active');
+      const tabName = activeTabBtn ? activeTabBtn.innerText.trim() : 'Treino';
+
+      const allSets = activeTab ? activeTab.querySelectorAll('.set-pill') : [];
+      const doneSets = activeTab ? activeTab.querySelectorAll('.set-pill.done') : [];
+      const pct = allSets.length > 0 ? Math.round((doneSets.length / allSets.length) * 100) : 0;
+
+      let msg = `*DOMÍNIO CORPORAL | Relatório de Treino*\n`;
+      msg += `*Sessão:* ${tabName}\n`;
+      msg += `*Progresso:* ${doneSets.length}/${allSets.length} séries concluídas (${pct}%)\n\n`;
+
+      const cards = activeTab ? activeTab.querySelectorAll('.exercise-card') : [];
+      let notesFound = 0;
+      let notesText = `*📝 Anotações & Sensações do Treino:*\n`;
+
+      cards.forEach(card => {
+        const titleEl = card.querySelector('.ex-title');
+        const title = titleEl ? titleEl.innerText.trim() : 'Exercício';
+        const ta = card.querySelector('.comment-textarea');
+        if (ta && ta.value && ta.value.trim() !== '') {
+          notesFound++;
+          notesText += `• *${title}:*\n  "${ta.value.trim()}"\n`;
+        }
+      });
+
+      if (notesFound > 0) {
+        msg += notesText;
+      } else {
+        msg += `_Nenhuma observação ou dor anotada nesta sessão._\n`;
+      }
+
+      msg += `\n_Enviado pelo App Domínio Corporal_`;
+
+      const phone = '5516997637744';
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
+    }
+
+    // Inicializa contador de progresso, labels calibrados e notas salvas
+    renderTrainingHubDays();
+    updateProgress();
+    loadAllNotes();
+    initTimerUI();
+    checkIntakeGate();
+
+    // Registra Service Worker (PWA Offline)
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').then((reg) => {
+          reg.update();
+        }).catch(err => console.log('SW falhou:', err));
+      });
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        window.location.reload();
+      });
+    }
+    /* Funções do Popover Flutuante: 💡 Dica | 🔧 Execução | 🛡️ Cuidados */
+    function openTip(title, contentText, category = '💡 Dica') {
+      const overlay = document.getElementById('tipPopoverOverlay');
+      const tagEl = document.querySelector('.tip-popover-tag');
+      const titleEl = document.getElementById('tipPopoverTitle');
+      const contentEl = document.getElementById('tipPopoverContent');
+      const cardEl = document.querySelector('.tip-popover-card');
+      const okBtn = document.querySelector('.tip-popover-ok');
+
+      if (overlay && titleEl && contentEl) {
+        titleEl.textContent = title;
+        contentEl.textContent = contentText;
+
+        let tagText = '💡 DICA';
+        let tagColor = '#facc15';
+        let cardBorder = 'rgba(250, 204, 21, 0.35)';
+        let btnBg = 'rgba(250, 204, 21, 0.15)';
+        let btnBorder = 'rgba(250, 204, 21, 0.4)';
+
+        if (category.includes('Execução') || category.includes('🔧')) {
+          tagText = '🔧 EXECUÇÃO';
+          tagColor = '#38bdf8';
+          cardBorder = 'rgba(56, 189, 248, 0.35)';
+          btnBg = 'rgba(56, 189, 248, 0.15)';
+          btnBorder = 'rgba(56, 189, 248, 0.4)';
+        } else if (category.includes('Cuidado') || category.includes('🛡️')) {
+          tagText = '🛡️ CUIDADOS';
+          tagColor = '#f87171';
+          cardBorder = 'rgba(248, 113, 113, 0.38)';
+          btnBg = 'rgba(248, 113, 113, 0.15)';
+          btnBorder = 'rgba(248, 113, 113, 0.4)';
+        }
+
+        if (tagEl) {
+          tagEl.textContent = tagText;
+          tagEl.style.color = tagColor;
+        }
+        if (cardEl) {
+          cardEl.style.borderColor = cardBorder;
+        }
+        if (okBtn) {
+          okBtn.style.color = tagColor;
+          okBtn.style.background = btnBg;
+          okBtn.style.borderColor = btnBorder;
+        }
+
+        overlay.style.display = 'flex';
+      }
+    }
+
+    function closeTipPopover(event) {
+      if (event && event.target && event.target !== event.currentTarget && !event.target.classList.contains('tip-popover-close') && !event.target.classList.contains('tip-popover-ok')) {
+        return;
+      }
+      const overlay = document.getElementById('tipPopoverOverlay');
+      if (overlay) overlay.style.display = 'none';
+    }
+
+  </script>
+  <!-- Popover Flutuante de Dica Biomecânica / Observação Técnica -->
+  <div id="tipPopoverOverlay" class="tip-popover-overlay" onclick="closeTipPopover(event)" style="display:none;">
+    <div class="tip-popover-card">
+      <div class="tip-popover-header">
+        <div class="tip-popover-tag">💡 Observação Técnica</div>
+        <button class="tip-popover-close" onclick="closeTipPopover()">&times;</button>
+      </div>
+      <div class="tip-popover-title" id="tipPopoverTitle">Strict Pull-up</div>
+      <div class="tip-popover-content" id="tipPopoverContent"></div>
+      <button class="tip-popover-ok" onclick="closeTipPopover()">Entendido</button>
+    </div>
+  </div>
+</body>
+</html>
