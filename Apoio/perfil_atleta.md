@@ -18,10 +18,15 @@
 ---
 
 ## 2. Composição Corporal & Fisiologia
-* **Peso Inicial:** 98 kg
-* **Peso Atual:** 86 kg
+* **Peso Inicial:** 97 kg (02/07/2026)
+* **Peso Atual:** 84 kg (05/10/2026 - Registro fotográfico comparativo oficial)
+* **Delta Ponderal:** -13 kg em 95 dias (~1 kg/semana)
 * **Farmacoterapia:** Tirzepatida (Mounjaro).
 * **Meta de Gordura:** 20% → 14%.
+* **Objetivos Oficiais Definidos pelo Atleta:**
+  1. **🎯 Definição Muscular:** Redução contínua de gordura preservando tônus e massa magra.
+  2. **🤸 Aperfeiçoar Habilidades:** Handstand livre, Bar Muscle-Up (BMU), Ring Muscle-Up (RMU), acrobacias de solo e parada de mãos na paralela.
+  3. **🛡️ Recuperação do Joelho:** Ganho progressivo de amplitude de flexão profunda sem pinçamento do menisco lateral esquerdo para a dança contemporânea.
 * **Prioridade Metabólica:** Preservação estrita de massa magra / sarcômeros em série/paralelo via estímulo tensional e suporte proteico alto (2.0–2.4 g/kg), otimizando a relação potência-peso ($W/kg$) para ganho mecânico em alavancas de peso corporal.
 
 ---

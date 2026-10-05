@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dominio-corporal-v10';
+const CACHE_NAME = 'dominio-corporal-v11';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -9,6 +9,8 @@ const ASSETS_TO_CACHE = [
   './icon-pessoal-512.png',
   './favicon.png',
   './gui_foto.jpg',
+  './Midia/comparacao_frontal_relaxado.jpg',
+  './Midia/comparacao_duplo_biceps.jpg',
   './manifest.json',
   './manifest-pessoal.json',
   'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap'
