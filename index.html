@@ -949,19 +949,63 @@
        NOVOS ESTILOS: OBJETIVOS, 2 BARRAS & TIMERS & EVOLUÇÃO
        =================================================== */
 
-    /* Objetivos no Cabeçalho */
-    .brand-subtitle .goal-pill {
-      background: rgba(0, 255, 136, 0.08);
-      border: 1px solid rgba(0, 255, 136, 0.35);
-      color: #00ff88;
-      padding: 3px 10px;
-      border-radius: 20px;
-      font-weight: 600;
+    /* Objetivos no Cabeçalho & Botão Diretrizes */
+    .brand-goals-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .brand-goals-list {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
       font-size: 0.74rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .brand-goals-list .goal-txt {
+      color: #e2e8f0;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .brand-goals-list .goal-dot {
+      color: var(--brand-neon);
+      font-weight: 800;
+    }
+    .btn-diretrizes-inline {
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      letter-spacing: -0.01em;
+      gap: 5px;
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-diretrizes-inline:hover, .btn-diretrizes-inline:active {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: #38bdf8;
+      transform: scale(0.98);
+    }
+    .btn-diretrizes-inline.active {
+      background: #38bdf8;
+      color: #000000;
+      border-color: #38bdf8;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+    }
+    .btn-diretrizes-inline svg {
+      width: 13px;
+      height: 13px;
+      fill: currentColor;
     }
 
     /* Agrupamento em 2 Barras de Navegação */
@@ -1399,10 +1443,18 @@
     <div class="brand">
       <h1>DOMÍNIO CORPORAL</h1>
       <div class="brand-slogan">Desafie a gravidade, domine seu corpo.</div>
-      <div class="brand-subtitle">
-        <span class="goal-pill">🎯 Definição Muscular</span>
-        <span class="goal-pill">🤸 Aperfeiçoar Habilidades</span>
-        <span class="goal-pill">🛡️ Recuperação Joelho</span>
+      <div class="brand-goals-bar">
+        <div class="brand-goals-list">
+          <span class="goal-txt">Definição Muscular</span>
+          <span class="goal-dot">•</span>
+          <span class="goal-txt">Aperfeiçoar Habilidades</span>
+          <span class="goal-dot">•</span>
+          <span class="goal-txt">Recuperação Joelho</span>
+        </div>
+        <button class="btn-diretrizes-inline" onclick="switchTab('perfil')" title="Abrir Diretrizes Biomecânicas">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+          <span>Diretrizes</span>
+        </button>
       </div>
     </div>
 
@@ -1420,11 +1472,22 @@
 
   <!-- Navegação Agrupada em 2 Barras -->
   <div class="nav-container">
-    <!-- BARRA 1: DIAS DE TREINO DA SEMANA -->
+    <!-- BARRA 1 (EM CIMA): FERRAMENTAS & PERFORMANCE -->
+    <div class="nav-group">
+      <div class="nav-group-header">
+        <span class="nav-group-title" style="color: #38bdf8;">⚡ FERRAMENTAS & PERFORMANCE</span>
+      </div>
+      <div class="tabs tabs-hub">
+        <button class="tab-btn tab-btn-cyan" data-tab="timers" onclick="switchTab('timers', this)">⏱️ Cronômetro & Timers</button>
+        <button class="tab-btn tab-btn-cyan" data-tab="analises" onclick="switchTab('analises', this)">🎬 Análise de Vídeos</button>
+        <button class="tab-btn tab-btn-cyan" data-tab="evolucao" onclick="switchTab('evolucao', this)">📈 Evolução</button>
+      </div>
+    </div>
+
+    <!-- BARRA 2 (EMBAIXO): DIAS DE TREINO DA SEMANA -->
     <div class="nav-group">
       <div class="nav-group-header">
         <span class="nav-group-title">📅 DIAS DE TREINO</span>
-        <span class="nav-group-hint">Selecione o dia</span>
       </div>
       <div class="tabs tabs-days">
         <button class="tab-btn active" data-tab="segunda" onclick="switchTab('segunda', this)">Hoje (Segunda: Box à Tarde)</button>
@@ -1433,20 +1496,6 @@
         <button class="tab-btn" data-tab="quinta" onclick="switchTab('quinta', this)">Quinta (Dança & Força Real)</button>
         <button class="tab-btn" data-tab="sexta" onclick="switchTab('sexta', this)">Sexta (Portagem & Argolas)</button>
         <button class="tab-btn" data-tab="semana" onclick="switchTab('semana', this)">Semana Completa</button>
-      </div>
-    </div>
-
-    <!-- BARRA 2: HUB DE INFORMAÇÕES & FERRAMENTAS -->
-    <div class="nav-group">
-      <div class="nav-group-header">
-        <span class="nav-group-title" style="color: #38bdf8;">⚡ INFORMAÇÕES & FERRAMENTAS</span>
-        <span class="nav-group-hint">Timers, Análises & Diretrizes</span>
-      </div>
-      <div class="tabs tabs-hub">
-        <button class="tab-btn tab-btn-cyan" data-tab="timers" onclick="switchTab('timers', this)">⏱️ Cronômetro & Timers</button>
-        <button class="tab-btn tab-btn-cyan" data-tab="evolucao" onclick="switchTab('evolucao', this)">📈 Evolução (97kg ➔ 84kg)</button>
-        <button class="tab-btn tab-btn-cyan" data-tab="analises" onclick="switchTab('analises', this)">🎬 Análise de Vídeos</button>
-        <button class="tab-btn tab-btn-cyan" data-tab="perfil" onclick="switchTab('perfil', this)">📋 Diretrizes</button>
       </div>
     </div>
   </div>
@@ -3361,6 +3410,14 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
       updateProgress();
+      const dirBtn = document.querySelector('.btn-diretrizes-inline');
+      if (dirBtn) {
+        if (tabId === 'perfil') {
+          dirBtn.classList.add('active');
+        } else {
+          dirBtn.classList.remove('active');
+        }
+      }
 
       if (tabId === 'timers' && typeof initTimerUI === 'function') {
         initTimerUI();
@@ -3906,8 +3963,8 @@
       if (text) text.innerText = `${completed} de ${total} séries (${pct}%)`;
     }
 
-    let timerInterval = null;
-    let secondsLeft = 90;
+    let dockTimerInterval = null;
+    let dockSecondsLeft = 90;
 
     function formatTime(s) {
       const mins = Math.floor(s / 60);
@@ -3916,26 +3973,26 @@
     }
 
     function startTimer(s) {
-      clearInterval(timerInterval);
-      secondsLeft = s;
-      document.getElementById('timer').innerText = formatTime(secondsLeft);
+      clearInterval(dockTimerInterval);
+      dockSecondsLeft = s;
+      document.getElementById('timer').innerText = formatTime(dockSecondsLeft);
       document.querySelectorAll('.timer-buttons .btn-timer').forEach(b => b.classList.remove('active'));
-      if (event && event.target) event.target.classList.add('active');
+      if (window.event && window.event.target) window.event.target.classList.add('active');
 
-      timerInterval = setInterval(() => {
-        secondsLeft--;
-        if (secondsLeft <= 0) {
-          clearInterval(timerInterval);
+      dockTimerInterval = setInterval(() => {
+        dockSecondsLeft--;
+        if (dockSecondsLeft <= 0) {
+          clearInterval(dockTimerInterval);
           document.getElementById('timer').innerText = "VAI!";
           if ('vibrate' in navigator) navigator.vibrate([120, 60, 120]);
         } else {
-          document.getElementById('timer').innerText = formatTime(secondsLeft);
+          document.getElementById('timer').innerText = formatTime(dockSecondsLeft);
         }
       }, 1000);
     }
 
     function resetTimer() {
-      clearInterval(timerInterval);
+      clearInterval(dockTimerInterval);
       document.getElementById('timer').innerText = "01:30";
     }
 
