@@ -949,96 +949,201 @@
        NOVOS ESTILOS: OBJETIVOS, 2 BARRAS & TIMERS & EVOLUÇÃO
        =================================================== */
 
-    /* Objetivos no Cabeçalho & Botão Diretrizes */
-    .brand-goals-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 4px;
-    }
-    .brand-goals-list {
+    /* Objetivos no Cabeçalho & Barra de Ferramentas */
+    .brand-goals-row {
       display: flex;
       align-items: center;
       gap: 6px;
       flex-wrap: wrap;
-      font-size: 0.74rem;
+      font-size: 0.75rem;
       color: var(--text-muted);
-      font-weight: 500;
+      margin: 4px 0 10px 0;
     }
-    .brand-goals-list .goal-txt {
-      color: #e2e8f0;
+    .brand-goals-row .goal-txt {
+      color: #f1f5f9;
       font-weight: 600;
       letter-spacing: -0.01em;
     }
-    .brand-goals-list .goal-dot {
+    .brand-goals-row .goal-dot {
       color: var(--brand-neon);
       font-weight: 800;
     }
-    .btn-diretrizes-inline {
+
+    /* Pílulas de Acesso Rápido no Cabeçalho */
+    .header-tools-bar {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 2px;
+      margin-top: 6px;
+    }
+    .header-tools-bar::-webkit-scrollbar { display: none; }
+    .tool-pill {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      background: rgba(56, 189, 248, 0.08);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      color: #38bdf8;
-      padding: 4px 10px;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: #94a3b8;
+      padding: 6px 12px;
       border-radius: 20px;
-      font-size: 0.72rem;
+      font-size: 0.76rem;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.2s ease;
       white-space: nowrap;
+      flex-shrink: 0;
     }
-    .btn-diretrizes-inline:hover, .btn-diretrizes-inline:active {
-      background: rgba(56, 189, 248, 0.2);
+    .tool-pill:hover, .tool-pill:active {
+      background: rgba(56, 189, 248, 0.15);
       border-color: #38bdf8;
-      transform: scale(0.98);
+      color: #38bdf8;
+      transform: translateY(-1px);
     }
-    .btn-diretrizes-inline.active {
-      background: #38bdf8;
-      color: #000000;
-      border-color: #38bdf8;
-      box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
-    }
-    .btn-diretrizes-inline svg {
-      width: 13px;
-      height: 13px;
+    .tool-pill svg {
+      width: 14px;
+      height: 14px;
       fill: currentColor;
     }
 
-    /* Agrupamento em 2 Barras de Navegação */
-    .nav-container {
-      margin-bottom: 16px;
+    /* Barra Superior Fixa na Visão Dedicada */
+    .dedicated-topbar-sticky {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 10px 14px;
       display: flex;
-      flex-direction: column;
-      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+      margin: -12px -12px 14px -12px;
     }
-    .nav-group {
-      background: rgba(255, 255, 255, 0.02);
+    .btn-back-workout {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 255, 136, 0.1);
+      border: 1px solid rgba(0, 255, 136, 0.35);
+      color: var(--brand-neon);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-back-workout:active {
+      transform: scale(0.96);
+      background: var(--brand-neon);
+      color: #000;
+    }
+    .dedicated-bar-title {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* Esconde elementos na Visão Dedicada */
+    body.in-dedicated-view #mainAppHeader,
+    body.in-dedicated-view #mainTrainingView,
+    body.in-dedicated-view #mainDaysNav,
+    body.in-dedicated-view #mainProgressBar,
+    body.in-dedicated-view .timer-dock {
+      display: none !important;
+    }
+
+    /* Badge de Fórmula Científica (Renderização Limpa sem Desconfigurar) */
+    .formula-badge {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+      font-family: 'SF Mono', 'Courier New', monospace;
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 2px 8px;
+      border-radius: 6px;
+      letter-spacing: 0.04em;
+    }
+
+    /* Botão de Disparo do Timer dentro dos WODs */
+    .btn-wod-timer-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: all 0.2s ease;
+    }
+    .btn-wod-timer-trigger:hover, .btn-wod-timer-trigger:active {
+      background: #38bdf8;
+      color: #000;
+      transform: scale(0.98);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+    }
+
+    /* Caixa de Consulta Rápida do WOD sob o Timer */
+    .timer-wod-ref-box {
+      background: #080808;
       border: 1px solid var(--border-subtle);
-      border-radius: 14px;
-      padding: 8px 10px 6px;
+      border-left: 3px solid #38bdf8;
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-top: 14px;
+      text-align: left;
     }
-    .nav-group-header {
+    .timer-wod-ref-box .ref-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 6px;
-      padding: 0 4px;
+      margin-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding-bottom: 6px;
     }
-    .nav-group-title {
-      font-size: 0.68rem;
+    .timer-wod-ref-box .ref-badge {
+      font-size: 0.72rem;
       font-weight: 800;
+      color: #38bdf8;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-dim);
+      letter-spacing: 0.05em;
     }
-    .nav-group-hint {
-      font-size: 0.65rem;
-      color: var(--text-dim);
+    .timer-wod-ref-box .ref-day-name {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 600;
     }
+    .timer-wod-ref-box .ref-content {
+      font-size: 0.82rem;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+
+    /* Barra dos Dias de Treino */
+    .days-nav-container {
+      margin-bottom: 10px;
+    }
+    .tabs-days {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .tabs-days::-webkit-scrollbar { display: none; }
     .tabs-days, .tabs-hub {
       display: flex;
       gap: 6px;
@@ -1430,8 +1535,17 @@
 </head>
 <body>
 
+  <!-- Topbar Fixa (visível apenas na visão dedicada de Timers, Vídeos, Evolução e Diretrizes) -->
+  <div id="dedicatedTopBar" class="dedicated-topbar-sticky" style="display:none;">
+    <button class="btn-back-workout" onclick="closeDedicatedView()">
+      ‹ Voltar ao Treino
+    </button>
+    <div class="dedicated-bar-title" id="dedicatedBarTitle">Timers WOD</div>
+    <div style="width:24px;"></div>
+  </div>
+
   <!-- Header Domínio Corporal (Preto OLED & Verde Neon) -->
-  <header>
+  <header id="mainAppHeader">
     <div class="brand-top">
       <div class="coach-profile-btn" onclick="openBioModal()">
         <img src="gui_foto.jpg" onerror="this.onerror=null; this.src='icon-192.png';" alt="Domínio Corporal" class="coach-avatar">
@@ -1443,23 +1557,52 @@
     <div class="brand">
       <h1>DOMÍNIO CORPORAL</h1>
       <div class="brand-slogan">Desafie a gravidade, domine seu corpo.</div>
-      <div class="brand-goals-bar">
-        <div class="brand-goals-list">
-          <span class="goal-txt">Definição Muscular</span>
-          <span class="goal-dot">•</span>
-          <span class="goal-txt">Aperfeiçoar Habilidades</span>
-          <span class="goal-dot">•</span>
-          <span class="goal-txt">Recuperação Joelho</span>
-        </div>
-        <button class="btn-diretrizes-inline" onclick="switchTab('perfil')" title="Abrir Diretrizes Biomecânicas">
+      <div class="brand-goals-row">
+        <span class="goal-txt">Definição Muscular</span>
+        <span class="goal-dot">•</span>
+        <span class="goal-txt">Aperfeiçoar Habilidades</span>
+        <span class="goal-dot">•</span>
+        <span class="goal-txt">Recuperação Joelho</span>
+      </div>
+
+      <!-- Barra de Ferramentas / Recursos no Topo -->
+      <div class="header-tools-bar">
+        <button class="tool-pill" onclick="openDedicatedView('timers')" title="Abrir Timers de Treino">
+          <svg viewBox="0 0 24 24"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
+          <span>Timers</span>
+        </button>
+        <button class="tool-pill" onclick="openDedicatedView('analises')" title="Análise de Vídeos">
+          <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 12.5v-9l6 4.5-6 4.5z"/></svg>
+          <span>Vídeos</span>
+        </button>
+        <button class="tool-pill" onclick="openDedicatedView('evolucao')" title="Evolução Corporal">
+          <svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+          <span>Evolução</span>
+        </button>
+        <button class="tool-pill" onclick="openDedicatedView('perfil')" title="Diretrizes Biomecânicas">
           <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
           <span>Diretrizes</span>
         </button>
       </div>
     </div>
+  </header>
 
-    <!-- Barra de Progresso Neon -->
-    <div class="progress-section">
+  <!-- Container Principal dos Treinos -->
+  <div id="mainTrainingView">
+    <!-- Barra dos Dias de Treino da Semana -->
+    <div class="days-nav-container" id="mainDaysNav">
+      <div class="tabs tabs-days" id="daysNavTabs">
+        <button class="tab-btn active" data-tab="segunda" data-base="Segunda - CrossFit Box" onclick="switchDayTab('segunda', this)">Segunda - CrossFit Box</button>
+        <button class="tab-btn" data-tab="terca" data-base="Terça - Box + Lab BMU" onclick="switchDayTab('terca', this)">Terça - Box + Lab BMU</button>
+        <button class="tab-btn" data-tab="quarta" data-base="Quarta - EEFERP Manjota" onclick="switchDayTab('quarta', this)">Quarta - EEFERP Manjota</button>
+        <button class="tab-btn" data-tab="quinta" data-base="Quinta - Dança & Força" onclick="switchDayTab('quinta', this)">Quinta - Dança & Força</button>
+        <button class="tab-btn" data-tab="sexta" data-base="Sexta - Portagem & Argolas" onclick="switchDayTab('sexta', this)">Sexta - Portagem & Argolas</button>
+        <button class="tab-btn" data-tab="semana" data-base="Semana Completa" onclick="switchDayTab('semana', this)">Semana Completa</button>
+      </div>
+    </div>
+
+    <!-- Barra de Progresso Neon (Posicionada abaixo dos dias de treino) -->
+    <div class="progress-section" id="mainProgressBar" style="margin-top: 6px; margin-bottom: 16px;">
       <div class="progress-labels">
         <span>Progresso da Sessão</span>
         <span id="progressText">0 de 30 séries (0%)</span>
@@ -1468,37 +1611,6 @@
         <div class="progress-bar-fill" id="progressBar" style="width: 0%;"></div>
       </div>
     </div>
-  </header>
-
-  <!-- Navegação Agrupada em 2 Barras -->
-  <div class="nav-container">
-    <!-- BARRA 1 (EM CIMA): FERRAMENTAS & PERFORMANCE -->
-    <div class="nav-group">
-      <div class="nav-group-header">
-        <span class="nav-group-title" style="color: #38bdf8;">⚡ FERRAMENTAS & PERFORMANCE</span>
-      </div>
-      <div class="tabs tabs-hub">
-        <button class="tab-btn tab-btn-cyan" data-tab="timers" onclick="switchTab('timers', this)">⏱️ Cronômetro & Timers</button>
-        <button class="tab-btn tab-btn-cyan" data-tab="analises" onclick="switchTab('analises', this)">🎬 Análise de Vídeos</button>
-        <button class="tab-btn tab-btn-cyan" data-tab="evolucao" onclick="switchTab('evolucao', this)">📈 Evolução</button>
-      </div>
-    </div>
-
-    <!-- BARRA 2 (EMBAIXO): DIAS DE TREINO DA SEMANA -->
-    <div class="nav-group">
-      <div class="nav-group-header">
-        <span class="nav-group-title">📅 DIAS DE TREINO</span>
-      </div>
-      <div class="tabs tabs-days">
-        <button class="tab-btn active" data-tab="segunda" onclick="switchTab('segunda', this)">Hoje (Segunda: Box à Tarde)</button>
-        <button class="tab-btn" data-tab="terca" onclick="switchTab('terca', this)">Amanhã (Terça: Box + Lab BMU)</button>
-        <button class="tab-btn" data-tab="quarta" onclick="switchTab('quarta', this)">Quarta (EEFERP Manjota)</button>
-        <button class="tab-btn" data-tab="quinta" onclick="switchTab('quinta', this)">Quinta (Dança & Força Real)</button>
-        <button class="tab-btn" data-tab="sexta" onclick="switchTab('sexta', this)">Sexta (Portagem & Argolas)</button>
-        <button class="tab-btn" data-tab="semana" onclick="switchTab('semana', this)">Semana Completa</button>
-      </div>
-    </div>
-  </div>
 
   <!-- ==================== TAB ATIVA: HOJE (SEGUNDA: BOX À TARDE) ==================== -->
   <div id="tab-segunda" class="tab-content active">
@@ -1537,6 +1649,18 @@
           &nbsp;&nbsp;• <em>AMRAP 5':</em> 30 Wall Ball ➔ No tempo restante: 6 Pull-up + 8 Burpees over DB + 10 DB Hang Clean & Jerk.<br>
           &nbsp;&nbsp;• <em>Rest 1'</em><br>
           &nbsp;&nbsp;• <em>AMRAP 4':</em> 20 Wall Ball ➔ No tempo restante: 6 Pull-up + 8 Burpees over DB + 10 DB Thruster.
+        </div>
+
+        <!-- Disparadores Rápidos para os Timers do WOD -->
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;">
+          <button class="btn-wod-timer-trigger" onclick="openDedicatedTimerWithMode('emom', 12, 'Skill EMOM 12\' • Strict & Butterfly', '• Min 1: 5 Strict Pull-up\n• Min 2: 10 Pull-up (Butterfly/Kipping)\n• Min 3: Descanso Total\n(Total: 4 rounds completos)')">
+            <svg style="width:14px; height:14px; fill:currentColor;" viewBox="0 0 24 24"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
+            <span>⏱️ Iniciar Timer EMOM 12' ↗</span>
+          </button>
+          <button class="btn-wod-timer-trigger" onclick="openDedicatedTimerWithMode('amrap', 6, 'AMRAP 1 (6 min) • Wall Balls & Snatch', '• 40 Wall Ball (6/9 kg)\n• Tempo restante: 6 Pull-up + 8 Burpees over DB + 10 DB Snatch\n\n(A seguir: Rest 1\' ➔ AMRAP 5\' ➔ Rest 1\' ➔ AMRAP 4\')')">
+            <svg style="width:14px; height:14px; fill:currentColor;" viewBox="0 0 24 24"><path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.05.5-9 4.77-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.01-4.09l-2.49-1.46C16.14 17.84 14.21 19 12 19z"/></svg>
+            <span>⚡ Iniciar Timer AMRAP 6' ↗</span>
+          </button>
         </div>
 
         <div class="bio-cue" style="border-left: 2px solid var(--brand-neon); margin-bottom: 14px; font-size: 0.88rem; line-height: 1.7;">
@@ -2937,6 +3061,28 @@
     </div>
   </div>
 
+  <!-- ==================== TAB: SEMANA COMPLETA ==================== -->
+  <div id="tab-semana" class="tab-content">
+    <div class="section-card sec-skills">
+      <div class="section-header">
+        <div class="section-title">📅 Matriz Semanal de Treino Atualizada (05/10 a 09/10/2026)</div>
+      </div>
+      <div style="font-size: 0.86rem; line-height: 1.8; color: var(--text-main);">
+        <p><strong>• Segunda (05/10 - HOJE À TARDE):</strong> ⚡ Box CrossFit (Skill EMOM 12' Butterfly/Strict + Triplo AMRAP Wall Ball / DB Snatch / Clean & Jerk / Thrusters) + Descompressão Articular. <em>(Lab BMU transferido para terça)</em>.</p>
+        <p><strong>• Terça (06/10 - AMANHÃ):</strong> 🎯 Box CrossFit + <strong>Laboratório de Bar Muscle-Up Compartilhado com a Amiga</strong> (Educativo na barra baixa com elástico + Tentativas na barra alta com Spot Biomecânico do Gui + Treino Gui: Strict BMU com elástico na barra alta em hollow body + Acessórios de mergulho e lat pushdown).</p>
+        <p><strong>• Quarta (07/10):</strong> 🤸 EEFERP (Skills neurais de Parada de Mão / Manjota / Argolas).</p>
+        <p><strong>• Quinta (08/10):</strong> 🩰 Dança Contemporânea + Força Estrutural / Alavancas.</p>
+        <p><strong>• Sexta (09/10):</strong> 🎪 Portagem de Força + Complexo Gímnico nas Argolas + Descompressão.</p>
+        <hr style="border:none; border-top:1px solid var(--border-subtle); margin: 12px 0;">
+        <p style="color:var(--text-muted); font-size:0.8rem;"><strong>Histórico da Semana Anterior (28/09 a 02/10):</strong><br>
+        Seg (CrossFit Cleans/Jerk) • Ter (Natação + Portagem 58kg) • Qua (Manjota Press HS/Croc) • Qui (EEFERP 17 séries + 4 Oitavas) • Sex (Portagem 63kg + 1º RMU Livre + Candle Kips).</p>
+      </div>
+    </div>
+  </div>
+
+  </div><!-- end #mainTrainingView -->
+
+
   <!-- ==================== TAB: ANÁLISE DE VÍDEOS & BIOMECÂNICA ==================== -->
   <div id="tab-analises" class="tab-content">
 
@@ -3097,24 +3243,7 @@
 
   </div>
 
-  <!-- ==================== TAB: SEMANA COMPLETA ==================== -->
-  <div id="tab-semana" class="tab-content">
-    <div class="section-card sec-skills">
-      <div class="section-header">
-        <div class="section-title">📅 Matriz Semanal de Treino Atualizada (05/10 a 09/10/2026)</div>
-      </div>
-      <div style="font-size: 0.86rem; line-height: 1.8; color: var(--text-main);">
-        <p><strong>• Segunda (05/10 - HOJE À TARDE):</strong> ⚡ Box CrossFit (Skill EMOM 12' Butterfly/Strict + Triplo AMRAP Wall Ball / DB Snatch / Clean & Jerk / Thrusters) + Descompressão Articular. <em>(Lab BMU transferido para terça)</em>.</p>
-        <p><strong>• Terça (06/10 - AMANHÃ):</strong> 🎯 Box CrossFit + <strong>Laboratório de Bar Muscle-Up Compartilhado com a Amiga</strong> (Educativo na barra baixa com elástico + Tentativas na barra alta com Spot Biomecânico do Gui + Treino Gui: Strict BMU com elástico na barra alta em hollow body + Acessórios de mergulho e lat pushdown).</p>
-        <p><strong>• Quarta (07/10):</strong> 🤸 EEFERP (Skills neurais de Parada de Mão / Manjota / Argolas).</p>
-        <p><strong>• Quinta (08/10):</strong> 🩰 Dança Contemporânea + Força Estrutural / Alavancas.</p>
-        <p><strong>• Sexta (09/10):</strong> 🎪 Portagem de Força + Complexo Gímnico nas Argolas + Descompressão.</p>
-        <hr style="border:none; border-top:1px solid var(--border-subtle); margin: 12px 0;">
-        <p style="color:var(--text-muted); font-size:0.8rem;"><strong>Histórico da Semana Anterior (28/09 a 02/10):</strong><br>
-        Seg (CrossFit Cleans/Jerk) • Ter (Natação + Portagem 58kg) • Qua (Manjota Press HS/Croc) • Qui (EEFERP 17 séries + 4 Oitavas) • Sex (Portagem 63kg + 1º RMU Livre + Candle Kips).</p>
-      </div>
-    </div>
-  </div>
+
 
   <!-- ==================== TAB: DIRETRIZES & REABILITAÇÃO ==================== -->
   <div id="tab-perfil" class="tab-content">
@@ -3145,12 +3274,9 @@
   <!-- ==================== TAB: CRONÔMETRO & WOD TIMERS ==================== -->
   <div id="tab-timers" class="tab-content">
     <div class="timer-app-card">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:8px;">
-        <div>
-          <h2 style="font-size:1.15rem; font-weight:800; color:#fff; margin:0;">⏱️ Central de Cronômetro & Timers</h2>
-          <span style="font-size:0.75rem; color:#38bdf8; font-weight:600;">WODs • EMOM • AMRAP • TABATA • Cronômetro Progressivo</span>
-        </div>
-        <button class="btn-sound-test" onclick="testPrepAudio()">🔊 Testar Apito (3s)</button>
+      <div style="margin-bottom:14px;">
+        <h2 style="font-size:1.15rem; font-weight:800; color:#fff; margin:0;">⏱️ Central de Cronômetro & Timers</h2>
+        <span style="font-size:0.75rem; color:#38bdf8; font-weight:600;">WODs • EMOM • AMRAP • TABATA • Cronômetro Progressivo</span>
       </div>
 
       <!-- Seletor de Modo do Timer -->
@@ -3194,6 +3320,15 @@
         <button class="btn-action-timer btn-timer-reset" id="btnMainReset" onclick="handleTimerReset()">↺ ZERAR</button>
       </div>
 
+      <!-- Quadro de Consulta Rápida do WOD (Quando acionado a partir do treino) -->
+      <div id="timerWodQuickReference" class="timer-wod-ref-box" style="display:none;">
+        <div class="ref-header">
+          <span class="ref-badge">⚡ WOD em Andamento</span>
+          <span class="ref-day-name" id="timerWodRefTitle">Skill EMOM 12'</span>
+        </div>
+        <div class="ref-content" id="timerWodRefContent" style="white-space: pre-line;"></div>
+      </div>
+
       <!-- Botão de AMRAP Rounds (visível apenas no modo AMRAP) -->
       <button class="btn-round-add" id="btnAmrapAddRound" onclick="addAmrapRound()" style="display:none;">
         ➕ 1 ROUND COMPLETADO (<span id="amrapRoundCount">0</span>)
@@ -3203,13 +3338,6 @@
       <div id="stopwatchLapControls" style="display:none; text-align:center; margin-top:10px;">
         <button class="btn-preset" onclick="recordStopwatchLap()">🏁 Marcar Volta (Lap)</button>
         <div class="laps-list-container" id="stopwatchLapsList" style="display:none;"></div>
-      </div>
-
-      <!-- Barra de Informações do Áudio e WakeLock -->
-      <div class="sound-test-bar">
-        <span>🛡️ <strong>Apito Sonoro:</strong> 3s, 2s, 1s + Bip de GO (Web Audio API nativo offline).</span>
-        <span>💡 Tela sem bloqueio</span>
-      </div>
     </div>
   </div>
 
@@ -3299,8 +3427,15 @@
           <span style="font-size:0.72rem; color:var(--brand-neon); font-weight:800;">CIÊNCIA DO MOVIMENTO</span>
         </div>
         <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.7;">
-          <p><strong>1. Bar Muscle-Up & Ring Muscle-Up (\(a = F_{net}/m\)):</strong><br>
-          Acelerar 84 kg para o turnover exige 15.5% menos potência mecânica que acelerar 97 kg. Isso significa que a transição sobre a barra deixa de ser um "chute" de sobrevivência e torna-se um movimento de controle técnico e elástico.</p>
+          <div style="margin-bottom: 12px;">
+            <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:6px; margin-bottom:4px;">
+              <strong style="color:#ffffff; font-size:0.86rem;">1. Bar Muscle-Up & Ring Muscle-Up</strong>
+              <span class="formula-badge">a = F / m</span>
+            </div>
+            <p style="margin: 0;">
+              <strong>Princípio da Aceleração (2ª Lei de Newton):</strong> Quanto menor a massa corporal (<em>m</em>), maior a aceleração vertical (<em>a</em>) desenvolvida com a mesma força de puxada (<em>F</em>). Acelerar <strong>84 kg</strong> para o turnover exige <strong>15.5% menos potência mecânica</strong> que acelerar 97 kg. Isso significa que a transição sobre a barra deixa de ser um "chute" de sobrevivência e torna-se um movimento de puro controle técnico e elástico.
+            </p>
+          </div>
           
           <p style="margin-top:8px;"><strong>2. Handstand & Acrobacias (Linha de Prumo):</strong><br>
           Com centro de massa (CoM) mais leve e tronco compacto, o momento de inércia diminui significativamente. As correções no punho exigem micro-ajustes de miligramas de força, reduzindo a fadiga do antebraço e a pressão nos ombros.</p>
@@ -3387,41 +3522,136 @@
   </div>
 
   <script>
-    function switchTab(tabId, btnElement) {
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    let lastActiveDayTab = 'segunda';
+
+    function switchDayTab(dayId, btnElement) {
+      lastActiveDayTab = dayId;
+      document.querySelectorAll('#daysNavTabs .tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('#mainTrainingView .tab-content').forEach(c => c.classList.remove('active'));
 
       if (btnElement) {
         btnElement.classList.add('active');
       } else {
-        const matchingBtn = document.querySelector(`.tab-btn[data-tab="${tabId}"]`);
-        if (matchingBtn) {
-          matchingBtn.classList.add('active');
-        } else if (window.event && window.event.currentTarget) {
-          window.event.currentTarget.classList.add('active');
-        } else if (window.event && window.event.target) {
-          window.event.target.classList.add('active');
-        }
+        const matchingBtn = document.querySelector(`#daysNavTabs .tab-btn[data-tab="${dayId}"]`);
+        if (matchingBtn) matchingBtn.classList.add('active');
       }
 
-      const target = document.getElementById('tab-' + tabId);
+      const target = document.getElementById('tab-' + dayId);
       if (target) {
         target.classList.add('active');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
       updateProgress();
-      const dirBtn = document.querySelector('.btn-diretrizes-inline');
-      if (dirBtn) {
-        if (tabId === 'perfil') {
-          dirBtn.classList.add('active');
-        } else {
-          dirBtn.classList.remove('active');
-        }
+    }
+
+    function openDedicatedView(sectionId) {
+      document.body.classList.add('in-dedicated-view');
+      const topBar = document.getElementById('dedicatedTopBar');
+      if (topBar) topBar.style.display = 'flex';
+
+      const titles = {
+        'timers': 'Central de Timers WOD',
+        'analises': 'Análise de Vídeos & Biomecânica',
+        'evolucao': 'Evolução & Antropometria',
+        'perfil': 'Diretrizes Biomecânicas'
+      };
+      const titleEl = document.getElementById('dedicatedBarTitle');
+      if (titleEl) titleEl.textContent = titles[sectionId] || 'Central Especializada';
+
+      // Esconde todas as abas
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+      // Ativa a aba dedicada
+      const target = document.getElementById('tab-' + sectionId);
+      if (target) {
+        target.classList.add('active');
       }
 
-      if (tabId === 'timers' && typeof initTimerUI === 'function') {
+      if (sectionId === 'timers' && typeof initTimerUI === 'function') {
         initTimerUI();
       }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function closeDedicatedView() {
+      document.body.classList.remove('in-dedicated-view');
+      const topBar = document.getElementById('dedicatedTopBar');
+      if (topBar) topBar.style.display = 'none';
+
+      // Esconde tabs utilitárias
+      ['timers', 'analises', 'evolucao', 'perfil'].forEach(id => {
+        const el = document.getElementById('tab-' + id);
+        if (el) el.classList.remove('active');
+      });
+
+      // Restaura o dia ativo do treino
+      const targetDay = document.getElementById('tab-' + lastActiveDayTab) || document.getElementById('tab-segunda');
+      if (targetDay) {
+        targetDay.classList.add('active');
+      }
+      const dayBtn = document.querySelector(`#daysNavTabs .tab-btn[data-tab="${lastActiveDayTab}"]`);
+      if (dayBtn) {
+        document.querySelectorAll('#daysNavTabs .tab-btn').forEach(b => b.classList.remove('active'));
+        dayBtn.classList.add('active');
+      }
+
+      updateProgress();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function openDedicatedTimerWithMode(mode, minutes, title, notes) {
+      openDedicatedView('timers');
+      if (typeof setTimerMode === 'function') {
+        const btn = document.getElementById('modeBtn-' + mode);
+        setTimerMode(mode, btn);
+      }
+      if (mode === 'emom' && typeof emomTotalMinutes !== 'undefined') {
+        emomTotalMinutes = minutes || 12;
+        updateTimerDisplay();
+      } else if (mode === 'amrap' && typeof amrapTotalMinutes !== 'undefined') {
+        amrapTotalMinutes = minutes || 6;
+        amrapSecondsLeft = amrapTotalMinutes * 60;
+        updateTimerDisplay();
+      }
+
+      const refBox = document.getElementById('timerWodQuickReference');
+      const refTitle = document.getElementById('timerWodRefTitle');
+      const refContent = document.getElementById('timerWodRefContent');
+      if (refBox && refTitle && refContent) {
+        refTitle.textContent = title || 'WOD Selecionado';
+        refContent.textContent = notes || '';
+        refBox.style.display = 'block';
+      }
+    }
+
+    function calibrateDayLabels() {
+      const dayOfWeek = new Date().getDay(); // 0: Dom, 1: Seg, 2: Ter, 3: Qua, 4: Qui, 5: Sex, 6: Sab
+      const dayMap = {
+        1: 'segunda',
+        2: 'terca',
+        3: 'quarta',
+        4: 'quinta',
+        5: 'sexta'
+      };
+      const todayTab = dayMap[dayOfWeek] || 'segunda';
+      document.querySelectorAll('#daysNavTabs .tab-btn').forEach(btn => {
+        const tab = btn.dataset.tab;
+        const base = btn.dataset.base || btn.textContent.replace(' (Hoje)', '').trim();
+        btn.dataset.base = base;
+        if (tab === todayTab) {
+          btn.textContent = `${base} (Hoje)`;
+        } else {
+          btn.textContent = base;
+        }
+      });
+    }
+    function switchTab(tabId, btnElement) {
+      if (['timers', 'analises', 'evolucao', 'perfil'].includes(tabId)) {
+        openDedicatedView(tabId);
+        return;
+      }
+      switchDayTab(tabId, btnElement);
     }
 
     /* ===================================================
@@ -3640,7 +3870,7 @@
         header.innerText = 'TEMPORIZADOR REGRESSIVO';
         sub.innerText = `Tempo Inicial: ${formatTimeMinSec(timerState.simpleTimerDuration)}`;
         digits.innerText = formatTimeMinSec(timerState.simpleTimerRemaining);
-        extra.innerText = 'Contagem decrescente com apito final';
+        extra.innerText = 'Contagem decrescente';
         if (fill) fill.style.width = ((timerState.simpleTimerRemaining / timerState.simpleTimerDuration) * 100) + '%';
         if (fill) fill.style.background = '#38bdf8';
 
@@ -4146,7 +4376,8 @@
       window.open(url, '_blank');
     }
 
-    // Inicializa contador de progresso e notas salvas
+    // Inicializa contador de progresso, labels calibrados e notas salvas
+    calibrateDayLabels();
     updateProgress();
     loadAllNotes();
     initTimerUI();
