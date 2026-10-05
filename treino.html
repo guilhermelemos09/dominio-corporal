@@ -969,39 +969,138 @@
        NOVOS ESTILOS: OBJETIVOS, 2 BARRAS & TIMERS & EVOLUÇÃO
        =================================================== */
 
-    /* Objetivos no Cabeçalho & Barra de Ferramentas */
-    .brand-goals-row {
+    /* Card de Objetivos do Ciclo & Diretrizes (Acima da Barra dos Dias) */
+    .goals-overview-card {
+      background: linear-gradient(135deg, rgba(17, 24, 39, 0.85) 0%, rgba(15, 23, 42, 0.7) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(8px);
+    }
+    .goals-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .goals-card-title {
       display: flex;
       align-items: center;
       gap: 6px;
-      flex-wrap: wrap;
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin: 4px 0 10px 0;
     }
-    .brand-goals-row .goal-txt {
-      color: #f1f5f9;
-      font-weight: 600;
-      letter-spacing: -0.01em;
+    .goals-icon {
+      font-size: 0.95rem;
+      line-height: 1;
     }
-    .brand-goals-row .goal-dot {
-      color: var(--brand-neon);
+    .goals-title-text {
+      font-size: 0.72rem;
       font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: #94a3b8;
+    }
+    .goals-guidelines-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(251, 191, 36, 0.1);
+      border: 1px solid rgba(251, 191, 36, 0.32);
+      color: #fbbf24;
+      padding: 4px 10px;
+      border-radius: 14px;
+      font-size: 0.73rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    }
+    .goals-guidelines-btn svg {
+      width: 12px;
+      height: 12px;
+      fill: #fbbf24;
+      transition: transform 0.2s ease;
+    }
+    .goals-guidelines-btn .arrow-indicator {
+      font-size: 0.75rem;
+      font-weight: 900;
+      opacity: 0.85;
+      transition: transform 0.2s ease;
+    }
+    .goals-guidelines-btn:hover {
+      background: rgba(251, 191, 36, 0.22);
+      border-color: #fbbf24;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(251, 191, 36, 0.2);
+    }
+    .goals-guidelines-btn:hover .arrow-indicator {
+      transform: translate(2px, -2px);
+    }
+    .goals-guidelines-btn:active {
+      transform: scale(0.96);
     }
 
-    /* Pílulas de Acesso Rápido no Cabeçalho (Destacadas) */
+    .goals-chips-row {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+    .goal-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5.5px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 4.5px 9px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      letter-spacing: 0.01em;
+      transition: all 0.2s ease;
+    }
+    .goal-chip:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.16);
+      transform: translateY(-1px);
+    }
+    .chip-dot {
+      width: 6.5px;
+      height: 6.5px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .chip-dot.dot-neon {
+      background: var(--brand-neon);
+      box-shadow: 0 0 6px var(--brand-neon-glow);
+    }
+    .chip-dot.dot-purple {
+      background: #c084fc;
+      box-shadow: 0 0 6px rgba(192, 132, 252, 0.6);
+    }
+    .chip-dot.dot-amber {
+      background: #fbbf24;
+      box-shadow: 0 0 6px rgba(251, 191, 36, 0.6);
+    }
+
+    /* Pílulas de Acesso Rápido no Cabeçalho (Destacadas - Trio Limpo) */
     .header-tools-bar {
       display: flex;
       gap: 8px;
       overflow-x: auto;
       scrollbar-width: none;
       padding: 4px 2px 6px 2px;
-      margin-top: 4px;
+      margin-top: 6px;
     }
     .header-tools-bar::-webkit-scrollbar { display: none; }
     .tool-pill {
+      flex: 1;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 6.5px;
       background: #11141a;
       border: 1px solid rgba(255, 255, 255, 0.16);
@@ -1838,17 +1937,8 @@
     <div class="brand">
       <h1>DOMÍNIO CORPORAL</h1>
       <div class="brand-slogan">Desafie a gravidade, domine seu corpo.</div>
-      <div class="brand-goals-row">
-        <span class="goal-txt">Definição Muscular</span>
-        <span class="goal-dot">•</span>
-        <span class="goal-txt">Aperfeiçoar Habilidades</span>
-        <span class="goal-dot">•</span>
-        <span class="goal-txt">Recuperação Joelho</span>
-      </div>
 
-
-
-      <!-- Barra de Ferramentas / Recursos no Topo (Destacada) -->
+      <!-- Barra de Ferramentas / Recursos no Topo (Destacada - Trio Limpo) -->
       <div class="header-tools-bar">
         <button class="tool-pill pill-timers" onclick="openDedicatedView('timers')" title="Abrir Timers de Treino">
           <svg viewBox="0 0 24 24"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
@@ -1862,16 +1952,42 @@
           <svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
           <span>Evolução</span>
         </button>
-        <button class="tool-pill pill-diretrizes" onclick="openDedicatedView('perfil')" title="Diretrizes Biomecânicas">
-          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-          <span>Diretrizes</span>
-        </button>
       </div>
     </div>
   </header>
 
   <!-- Container Principal dos Treinos -->
   <div id="mainTrainingView">
+
+    <!-- Card de Objetivos do Ciclo & Diretrizes Integradas -->
+    <div class="goals-overview-card" id="goalsOverviewCard">
+      <div class="goals-card-header">
+        <div class="goals-card-title">
+          <span class="goals-icon">🎯</span>
+          <span class="goals-title-text">OBJETIVOS DO CICLO</span>
+        </div>
+        <button class="goals-guidelines-btn" onclick="openDedicatedView('perfil')" title="Abrir Diretrizes & Recomendações Técnicas">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+          <span>Diretrizes</span>
+          <span class="arrow-indicator">↗</span>
+        </button>
+      </div>
+      <div class="goals-chips-row">
+        <div class="goal-chip">
+          <span class="chip-dot dot-neon"></span>
+          <span>Definição Muscular</span>
+        </div>
+        <div class="goal-chip">
+          <span class="chip-dot dot-purple"></span>
+          <span>Aperfeiçoar Habilidades</span>
+        </div>
+        <div class="goal-chip">
+          <span class="chip-dot dot-amber"></span>
+          <span>Recuperação Joelho</span>
+        </div>
+      </div>
+    </div>
+
     <!-- Barra dos Dias de Treino da Semana -->
     <div class="days-nav-container" id="mainDaysNav">
       <div class="tabs tabs-days" id="daysNavTabs">
@@ -1893,14 +2009,14 @@
     <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 12px 14px; margin-bottom: 12px;">
       <div class="callout-icon" style="font-size:1.2rem; margin-top:2px;">🎯</div>
       <div>
-        <div class="callout-topic-header" style="color: var(--brand-neon);">OBJETIVO: CONDICIONAMENTO</div>
+        <div class="callout-topic-header" style="color: var(--brand-neon);">FOCO DO TREINO: CONDICIONAMENTO</div>
         <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
           Potência de puxada na barra (Skill EMOM 12') e condicionamento metabólico de alta densidade no Box.
         </div>
       </div>
     </div>
 
-    <!-- Barra de Progresso da Sessão (Destacada sob o Objetivo da Sessão) -->
+    <!-- Barra de Progresso da Sessão (Destacada sob o Foco do Treino) -->
     <div class="progress-section">
       <div class="progress-labels">
         <span>Progresso da Sessão</span>
@@ -2123,14 +2239,14 @@
     <div class="callout-box" style="border-left: 3px solid var(--accent-gold); padding: 12px 14px; margin-bottom: 12px;">
       <div class="callout-icon" style="font-size:1.2rem; margin-top:2px;">🎯</div>
       <div>
-        <div class="callout-topic-header" style="color: var(--accent-gold);">OBJETIVO: TREINO TÉCNICO & FORÇA</div>
+        <div class="callout-topic-header" style="color: var(--accent-gold);">FOCO DO TREINO: TREINO TÉCNICO & FORÇA</div>
         <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
           Laboratório de Bar Muscle-Up compartilhado. Gui: Strict BMU na barra alta com elástico em hollow body. Amiga: transição na barra baixa e spot biomecânico do Gui na barra alta.
         </div>
       </div>
     </div>
 
-    <!-- Barra de Progresso da Sessão (Destacada sob o Objetivo da Sessão) -->
+    <!-- Barra de Progresso da Sessão (Destacada sob o Foco do Treino) -->
     <div class="progress-section">
       <div class="progress-labels">
         <span>Progresso da Sessão</span>
@@ -2441,14 +2557,14 @@
     <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 12px 14px; margin-bottom: 12px;">
       <div class="callout-icon" style="font-size:1.2rem; margin-top:2px;">🎯</div>
       <div>
-        <div class="callout-topic-header" style="color: var(--brand-neon);">OBJETIVO: ACROBACIA & FORÇA</div>
+        <div class="callout-topic-header" style="color: var(--brand-neon);">FOCO DO TREINO: ACROBACIA & FORÇA</div>
         <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
           Portagem de força acrobática, Ring Muscle-Up livre nas argolas altas e transições em suspensão.
         </div>
       </div>
     </div>
 
-    <!-- Barra de Progresso da Sessão (Destacada sob o Objetivo da Sessão) -->
+    <!-- Barra de Progresso da Sessão (Destacada sob o Foco do Treino) -->
     <div class="progress-section">
       <div class="progress-labels">
         <span>Progresso da Sessão</span>
@@ -3057,14 +3173,14 @@
     <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 12px 14px; margin-bottom: 12px;">
       <div class="callout-icon" style="font-size:1.2rem; margin-top:2px;">🎯</div>
       <div>
-        <div class="callout-topic-header" style="color: var(--brand-neon);">OBJETIVO: DANÇA & FORÇA REAL</div>
+        <div class="callout-topic-header" style="color: var(--brand-neon);">FOCO DO TREINO: DANÇA & FORÇA REAL</div>
         <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
           Potência de puxada na barra, alavancas nas argolas, aceleração terminal de glúteo e dança contemporânea.
         </div>
       </div>
     </div>
 
-    <!-- Barra de Progresso da Sessão (Destacada sob o Objetivo da Sessão) -->
+    <!-- Barra de Progresso da Sessão (Destacada sob o Foco do Treino) -->
     <div class="progress-section">
       <div class="progress-labels">
         <span>Progresso da Sessão</span>
@@ -3397,14 +3513,14 @@
     <div class="callout-box" style="border-left: 3px solid #38bdf8; padding: 12px 14px; margin-bottom: 12px;">
       <div class="callout-icon" style="font-size:1.2rem; margin-top:2px;">🎯</div>
       <div>
-        <div class="callout-topic-header" style="color: #38bdf8;">OBJETIVO: GINÁSTICA & EQUILÍBRIO</div>
+        <div class="callout-topic-header" style="color: #38bdf8;">FOCO DO TREINO: GINÁSTICA & EQUILÍBRIO</div>
         <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
           Parada de Mãos (Handstand), alavancas na manjota (canes) e equilíbrio unilateral (One-Arm Croc).
         </div>
       </div>
     </div>
 
-    <!-- Barra de Progresso da Sessão (Destacada sob o Objetivo da Sessão) -->
+    <!-- Barra de Progresso da Sessão (Destacada sob o Foco do Treino) -->
     <div class="progress-section">
       <div class="progress-labels">
         <span>Progresso da Sessão</span>
