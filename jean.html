@@ -3337,7 +3337,13 @@
         initTimerUI();
       }
       if (sectionId === 'evolucao') {
-        updateEvolucaoStats();
+        const defaultBtn = document.getElementById('btnEvol-composicao');
+        if (typeof switchEvolucaoPane === 'function') {
+          switchEvolucaoPane('composicao', defaultBtn);
+        }
+        if (typeof updateEvolucaoStats === 'function') {
+          updateEvolucaoStats();
+        }
       }
       if (sectionId === 'avaliacao') {
         loadStudentAssessment();
@@ -4421,7 +4427,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=35').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
