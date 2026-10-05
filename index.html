@@ -1609,17 +1609,14 @@
       padding: 2px 0 !important;
     }
 
-    /* Botão de Dica / Observação Técnica Flutuante */
+    /* Botão de Dica, Execução e Cuidados (Taxonomia Padronizada) */
     .btn-tip-cue {
       display: inline-flex;
       align-items: center;
-      gap: 3px;
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.35);
-      color: #38bdf8;
+      gap: 3.5px;
       font-size: 0.72rem;
       font-weight: 700;
-      padding: 1.5px 7px;
+      padding: 2px 7.5px;
       border-radius: 10px;
       cursor: pointer;
       text-decoration: none;
@@ -1627,8 +1624,36 @@
       margin-left: 6px;
       transition: all 0.2s ease;
     }
-    .btn-tip-cue:hover, .btn-tip-cue:active {
+    /* 💡 Dica (Amarelo / Âmbar) */
+    .cue-dica {
+      background: rgba(250, 204, 21, 0.1);
+      border: 1px solid rgba(250, 204, 21, 0.35);
+      color: #facc15;
+    }
+    .cue-dica:hover, .cue-dica:active {
+      background: #facc15;
+      color: #000;
+      transform: scale(0.96);
+    }
+    /* 🔧 Execução (Azul Ciano) */
+    .cue-execucao {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+    }
+    .cue-execucao:hover, .cue-execucao:active {
       background: #38bdf8;
+      color: #000;
+      transform: scale(0.96);
+    }
+    /* 🛡️ Cuidados (Coral / Vermelho de Proteção) */
+    .cue-cuidados {
+      background: rgba(248, 113, 113, 0.12);
+      border: 1px solid rgba(248, 113, 113, 0.38);
+      color: #f87171;
+    }
+    .cue-cuidados:hover, .cue-cuidados:active {
+      background: #f87171;
       color: #000;
       transform: scale(0.96);
     }
@@ -1840,16 +1865,16 @@
           <div class="wod-list-block">
             <div class="wod-block-badge">
               <span>2. Skill EMOM 12' (4 rounds)</span>
-              <button class="btn-tip-cue" onclick="openTip('Skill EMOM 12\'', '• Min 1: 5 Strict Pull-up (pegada pronada 1 dedo além dos ombros, hollow body firme sem balanço).\n• Min 2: 10 Pull-up Butterfly/Kipping (trajetória circular fluida, puxada forte com quadril e grande dorsal).\n• Min 3: Descanso Total (recuperação de fosfocreatina).')">💡 Observação Geral</button>
+              <button class="btn-tip-cue cue-dica" onclick="openTip('Skill EMOM 12\'', '• Min 1: 5 Strict Pull-up (pegada pronada 1 dedo além dos ombros, hollow body firme sem balanço).\n• Min 2: 10 Pull-up Butterfly/Kipping (trajetória circular fluida, puxada forte com quadril e grande dorsal).\n• Min 3: Descanso Total (recuperação de fosfocreatina).', '💡 Dica')">💡 Dica</button>
             </div>
             <ul class="wod-block-items">
               <li>
                 <strong>Minuto 1:</strong> 5 Strict Pull-up
-                <button class="btn-tip-cue" onclick="openTip('Strict Pull-up — Alinhamento & Pegada', '• Pegada: Pronada, 1 a 2 dedos além da largura dos ombros.\n• Alavanca: Depressão escapular ativa antes do cotovelo dobrar.\n• Core: Pernas unidas e ponta dos pés esticada em hollow body (sem quebra lombar nem balanço de quadril).')">💡 Observação</button>
+                <button class="btn-tip-cue cue-execucao" onclick="openTip('Strict Pull-up — Alinhamento & Pegada', '• Pegada: Pronada, 1 a 2 dedos além da largura dos ombros.\n• Alavanca: Depressão escapular ativa antes do cotovelo dobrar.\n• Core: Pernas unidas e ponta dos pés esticada em hollow body (sem quebra lombar nem balanço de quadril).', '🔧 Execução')">🔧 Execução</button>
               </li>
               <li>
                 <strong>Minuto 2:</strong> 10 Pull-up (Butterfly ou Kipping)
-                <button class="btn-tip-cue" onclick="openTip('Butterfly & Kipping — Ritmo', '• Ritmo: Ritmo cíclico contínuo sem trancos articulares bruscos.\n• Ombro Direito: 100% livre e zerado — direcione a puxada com o grande dorsal e peitoral.')">💡 Observação</button>
+                <button class="btn-tip-cue cue-execucao" onclick="openTip('Butterfly & Kipping — Ritmo', '• Ritmo: Ritmo cíclico contínuo sem trancos articulares bruscos.\n• Ombro Direito: 100% livre e zerado — direcione a puxada com o grande dorsal e peitoral.', '🔧 Execução')">🔧 Execução</button>
               </li>
               <li><strong>Minuto 3:</strong> Descanso Total</li>
             </ul>
@@ -1863,10 +1888,10 @@
             <ul class="wod-block-items">
               <li>
                 <strong>AMRAP 6':</strong> 40 Wall Ball (6/9 kg)
-                <button class="btn-tip-cue" onclick="openTip('Wall Balls — Proteção Meniscal', '• Ângulo: Pare a descida rigorosamente a 90° (paralela ao solo).\n• Menisco Lateral: Jamais desabe na flexão passiva profunda para evitar translação e cisalhamento.\n• Impulso: Empurre o solo através dos calcanhares e dispare os glúteos.')">🛡️ Joelho 90°</button>
+                <button class="btn-tip-cue cue-cuidados" onclick="openTip('Wall Balls — Proteção Meniscal', '• Ângulo: Pare a descida rigorosamente a 90° (paralela ao solo).\n• Menisco Lateral: Jamais desabe na flexão passiva profunda para evitar translação e cisalhamento.\n• Impulso: Empurre o solo através dos calcanhares e dispare os glúteos.', '🛡️ Cuidados')">🛡️ Cuidados</button>
                 <div style="font-size:0.8rem; color:#94a3b8; margin-top:3px;">
                   ➔ No tempo restante: 6 Pull-ups + 8 Burpees over DB + 10 DB Snatch
-                  <button class="btn-tip-cue" onclick="openTip('DB Snatch — Eficiência Cinética', '• Motor: Extensão tripla de tornozelo, joelho e quadril impulsionando o halter.\n• Ombro: O braço é apenas o condutor da trajetória até o lockout.')">⚡ Observação</button>
+                  <button class="btn-tip-cue cue-execucao" onclick="openTip('DB Snatch — Eficiência Cinética', '• Motor: Extensão tripla de tornozelo, joelho e quadril impulsionando o halter.\n• Ombro: O braço é apenas o condutor da trajetória até o lockout.', '🔧 Execução')">🔧 Execução</button>
                 </div>
               </li>
               <li class="wod-item-rest">☕ <em>Rest 1'</em></li>
@@ -1874,6 +1899,7 @@
                 <strong>AMRAP 5':</strong> 30 Wall Ball (6/9 kg)
                 <div style="font-size:0.8rem; color:#94a3b8; margin-top:3px;">
                   ➔ No tempo restante: 6 Pull-ups + 8 Burpees over DB + 10 DB Hang Clean & Jerk
+                  <button class="btn-tip-cue cue-execucao" onclick="openTip('DB Hang Clean & Jerk', '• Salto violento de quadril antes da remada com o braço.\n• Recepção em power com joelhos estáveis e dip curto para o Jerk.', '🔧 Execução')">🔧 Execução</button>
                 </div>
               </li>
               <li class="wod-item-rest">☕ <em>Rest 1'</em></li>
@@ -1881,6 +1907,7 @@
                 <strong>AMRAP 4':</strong> 20 Wall Ball (6/9 kg)
                 <div style="font-size:0.8rem; color:#94a3b8; margin-top:3px;">
                   ➔ No tempo restante: 6 Pull-ups + 8 Burpees over DB + 10 DB Thruster
+                  <button class="btn-tip-cue cue-cuidados" onclick="openTip('DB Thruster — Joelho & Ombro', '• Travar agachamento a 90° para blindar o menisco.\n• Acelerar o halter com os quadris antes de travar acima da cabeça.', '🛡️ Cuidados')">🛡️ Cuidados</button>
                 </div>
               </li>
             </ul>
@@ -4625,14 +4652,52 @@
         navigator.serviceWorker.register('sw.js').catch(err => console.log('SW falhou:', err));
       });
     }
-      /* Funções do Popover Flutuante de Observações e Dicas Técnicas */
-    function openTip(title, contentText) {
+    /* Funções do Popover Flutuante: 💡 Dica | 🔧 Execução | 🛡️ Cuidados */
+    function openTip(title, contentText, category = '💡 Dica') {
       const overlay = document.getElementById('tipPopoverOverlay');
+      const tagEl = document.querySelector('.tip-popover-tag');
       const titleEl = document.getElementById('tipPopoverTitle');
       const contentEl = document.getElementById('tipPopoverContent');
+      const cardEl = document.querySelector('.tip-popover-card');
+      const okBtn = document.querySelector('.tip-popover-ok');
+
       if (overlay && titleEl && contentEl) {
         titleEl.textContent = title;
         contentEl.textContent = contentText;
+
+        let tagText = '💡 DICA';
+        let tagColor = '#facc15';
+        let cardBorder = 'rgba(250, 204, 21, 0.35)';
+        let btnBg = 'rgba(250, 204, 21, 0.15)';
+        let btnBorder = 'rgba(250, 204, 21, 0.4)';
+
+        if (category.includes('Execução') || category.includes('🔧')) {
+          tagText = '🔧 EXECUÇÃO';
+          tagColor = '#38bdf8';
+          cardBorder = 'rgba(56, 189, 248, 0.35)';
+          btnBg = 'rgba(56, 189, 248, 0.15)';
+          btnBorder = 'rgba(56, 189, 248, 0.4)';
+        } else if (category.includes('Cuidado') || category.includes('🛡️')) {
+          tagText = '🛡️ CUIDADOS';
+          tagColor = '#f87171';
+          cardBorder = 'rgba(248, 113, 113, 0.38)';
+          btnBg = 'rgba(248, 113, 113, 0.15)';
+          btnBorder = 'rgba(248, 113, 113, 0.4)';
+        }
+
+        if (tagEl) {
+          tagEl.textContent = tagText;
+          tagEl.style.color = tagColor;
+        }
+        if (cardEl) {
+          cardEl.style.borderColor = cardBorder;
+        }
+        if (okBtn) {
+          okBtn.style.color = tagColor;
+          okBtn.style.background = btnBg;
+          okBtn.style.borderColor = btnBorder;
+        }
+
         overlay.style.display = 'flex';
       }
     }
