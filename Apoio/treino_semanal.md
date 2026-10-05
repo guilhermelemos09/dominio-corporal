@@ -1,16 +1,77 @@
 # Planejamento Semanal de Treino: Gui
-**Semana:** 28/09/2026 a 02/10/2026  
-**Status Atual:** Sexta-feira (02/10/2026) — 12h–13h Portagem com parceiro (~63 kg) + 13h–13h20 Dança Contemporânea (coreo 20 min) + 13h20–14h Ginástica nas Argolas (40 min: RTO Support, RMU strict, Rolamento para trás) + 17h–18h CrossFit (opcional).
+**Semana Atual:** 05/10/2026 a 09/10/2026  
+**Status Atual:** Segunda-feira (05/10/2026) — ⚡ Box CrossFit à Tarde (Warm-up + EMOM 12' Butterfly/Strict + Triplo AMRAP Wall Ball/DB) + Descompressão Articular.  
+*(Lab de Bar Muscle-Up compartilhado com a amiga transferido para Terça-feira no Box).*
 
 ---
 
-## Estrutura da Semana em Curso
+## Estrutura da Nova Semana (05/10 a 09/10/2026)
+
+* **Segunda (05/10 - HOJE À TARDE):** Box CrossFit (EMOM 12' Butterfly/Strict + Triplo AMRAP Wall Ball / DB Snatch / Clean & Jerk / Thrusters) + Neutralização subacromial e descompressão do menisco lateral. *(Lab BMU com amiga reagendado para terça).*
+* **Terça (06/10 - AMANHÃ):** Box CrossFit + **Laboratório de Bar Muscle-Up Compartilhado com a Amiga** (Educativo de turnover na barra baixa com elástico + Tentativas na barra alta com Spotting Biomecânico do Gui + Treino Gui: Strict BMU com elástico na barra alta em hollow body + Acessórios de mergulho e lat pushdown).
+* **Quarta (07/10):** EEFERP (Skills neurais de Parada de Mão / Manjota / Argolas).
+* **Quinta (08/10):** Dança Contemporânea + Força Estrutural / Alavancas.
+* **Sexta (09/10):** Portagem de Força + Complexo Gímnico nas Argolas + Descompressão.
+
+---
+
+# Planejamento & Biomecânica de Hoje: Segunda-feira (05/10/2026) — Box à Tarde
+
+> [!NOTE]
+> **Ajuste de Cronograma:** Como a amiga não pôde treinar hoje, transferimos o bloco de Bar Muscle-Up compartilhado para a sessão de amanhã no box. Isso traz uma grande vantagem fisiológica: hoje à tarde você foca 100% na capacidade de trabalho metabólica e na cadência do WOD, sem dispersar energia neural no pós-treino com alavancas estritas exaustivas.
+
+### 1. Warm-up Articular & Escapular (2 Rounds)
+* 10 Hollow Rocks + 10 Arch Rocks (ativação da fáscia tóraco-lombar e core anterior/posterior).
+* 10 Scapular Pull-ups + 10 Beat Swings (pegada firme, controle ativo da depressão/elevação sem impacto no fim de curso da glenoumeral).
+
+### 2. Skill EMOM 12' — Butterfly Pull-up / Força Estrita & Cadência
+* **Min 1:** 5 Strict Pull-ups simétricas (tração até o esterno com zero compensação umeral).
+* **Min 2:** 10 Butterfly / Kipping Pull-ups (ritmo cíclico suave, aproveitando o momento pendular sem tranco brusco no ombro direito operado).
+* **Min 3:** Descanso total.
+* *(4 rounds = 12 min).*
+
+### 3. Triplo AMRAP de Alta Densidade Metabólica (15 min de WOD + 2 min de Rest)
+* **AMRAP 6':** 40 Wall Ball (6/9 kg) ➔ Then no tempo restante: 6 Pull-ups + 8 Burpees over DB + 10 DB Snatch.
+* *Descanso 1'*
+* **AMRAP 5':** 30 Wall Ball ➔ Then no tempo restante: 6 Pull-ups + 8 Burpees over DB + 10 DB Clean & Jerk.
+* *Descanso 1'*
+* **AMRAP 4':** 20 Wall Ball ➔ Then no tempo restante: 6 Pull-ups + 8 Burpees over DB + 10 DB Thruster.
+* **Blindagem Biomecânica:**
+  * *Menisco Lateral:* Nos 90 Wall Balls totais, flexione os joelhos apenas até 90° (coxas paralelas ao solo), sem afundar na hiperflexão para não comprimir o corno posterior do menisco lesionado.
+  * *Ombro Operado:* Nos DB Snatches e Thrusters, use extensão tripla agressiva de quadril/glúteos para projetar a carga verticalmente; os braços apenas guiam a trajetória.
+
+### 4. Neutralização Articular Imediata Pós-WOD
+* **Reset Subacromial com Superband na Barra Alta:** 2x 45s por braço (tração axial para abrir o espaço subacromial e aliviar peitoral menor e grande dorsal hipertonizados).
+* **Dead Hang Parcial (com pontas dos pés no solo tirando 30% da carga):** 2x 45s (descompressão gravitacional da coluna e cápsula glenoumeral).
+* **Tração do Bíceps Femoral & Trato Iliotibial:** 2x 45s por perna (alívio da tensão na cabeça da fíbula e descompressão do menisco lateral esquerdo pós-Wall Balls).
+
+---
+
+# Planejamento da Sessão de Amanhã: Terça-feira (06/10/2026) — Box + Lab BMU com Amiga
+
+> [!IMPORTANT]
+> **Racional Biomecânico do Treino Compartilhado no Box:**
+> Amanhã, com o SNC recuperado e o tecido descansado, você e sua amiga entram no box para uma sessão cirúrgica de Bar Muscle-Up:
+> 1. **Para a Amiga (Destravar o 1º BMU):**
+>    * *O Bloqueio Comum:* Alunos com força de tração muitas vezes falham no BMU pelo medo inconsciente de chocar o peito na barra ou por iniciarem a transição com atraso. Usar caixas altas gera salto descontrolado e não ensina o padrão motor.
+>    * *A Solução Pedagógica (Barra Baixa com Elástico):* Na barra baixa (altura do diafragma) com elástico nos pés, ela pratica a virada de punhos (*knuckles over*) com o peito projetado sobre a barra com zero risco de queda. 4 séries de 3 a 5 reps fixam a via eferente do movimento.
+>    * *Transição na Barra Alta com Spot Biomecânico do Gui:* Na barra alta, o Gui aplica apoio diagonal firme na região sacral/lombar no exato milissegundo de ápice da subida, eliminando a inércia dos 15% finais para que ela encadeie o snap e encaixe o primeiro BMU livre!
+> 2. **Para o Gui Lemos (Strict BMU com Elástico & Hollow):**
+>    * *Foco Estrutural:* 4 a 5 micro-séries de 1 a 2 reps estritas na barra alta com superband média e corpo 100% estendido em *hollow body*.
+>    * *Benefício Clínico:* Exige simetria perfeita de dorsais e peitoral, impedindo qualquer subida assimétrica (*chicken-wing*) e blindando o supraespinhal direito e a cabeça medial do tríceps esquerdo sob tensão controlada.
+> 3. **Acessórios de Suporte:**
+>    * Dips na barra reta (3x 6–8 reps) para força no fundo do apoio frontal.
+>    * Straight-Arm Pushdowns com elástico (3x 10 reps) para isolamento da cabeça longa do tríceps e dorsal.
+
+---
+
+# Histórico: Semana Anterior (28/09/2026 a 02/10/2026)
 
 * **Segunda (28/09 - Realizado):** CrossFit (Squat Clean, Front Squat, Push Jerk, Burpees, V-ups).
 * **Terça (29/09 - Realizado):** Natação Regenerativa (500m) + Portagem Dinâmica com volante de 58 kg.
 * **Quarta (30/09 - Realizado):** Skills de Parada de Mão na Manjota (Sequência de elite gravada em vídeo: L-Sit → Press HS → Straight HS → Negative Press L-Sit → One-Arm Croc).
 * **Quinta (01/10 - Realizado):** EEFERP (17 séries: BMU, 4x Oitavas contínuas, Ice Cream Makers, Vela nas Argolas, Banded KB Swing, KB RDL, Panturrilha profunda com pausa) + 18h30 Dança Escola.
-* **Sexta (02/10 - HOJE):** 12h–13h Portagem de Força (63 kg) + 13h–13h20 Dança Contemporânea (coreo 20 min) + 13h20–14h Complexo Gímnico nas Argolas (RTO Support, RMU strict, Rolamento para trás) + Resgate do Aquiles + 17h/18h CrossFit (opcional).
+* **Sexta (02/10 - Realizado):** 12h–13h Portagem de Força (63 kg) + 13h–13h20 Dança Contemporânea (coreo 20 min) + 13h20–14h Complexo Gímnico nas Argolas (RTO Support, 1 RMU livre + 2 Candle Kips) + Resgate do Aquiles.
 
 ---
 
