@@ -2475,15 +2475,15 @@
       padding: 2px 0 !important;
     }
 
-        /* Botão de Dica, Execução e Cuidados (Taxonomia Padronizada) */
+            /* Estilo Minimalista Cinza para Botões Técnicos e Duração */
     .btn-tip-cue {
       display: inline-flex;
       align-items: center;
       gap: 4px;
       font-size: 0.74rem;
-      font-weight: 700;
-      padding: 5px 10px;
-      border-radius: 10px;
+      font-weight: 600;
+      padding: 4px 9px;
+      border-radius: 8px;
       cursor: pointer;
       text-decoration: none;
       vertical-align: middle;
@@ -2492,58 +2492,58 @@
       user-select: none;
       touch-action: manipulation;
       min-height: 28px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #cbd5e1;
     }
-    .ex-cues-row {
-      display: flex;
+    .btn-tip-cue:hover, .btn-tip-cue:active {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      transform: scale(0.97);
+    }
+    .cue-execucao, .cue-cuidados, .cue-dica, .cue-importante, .cue-alerta {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #cbd5e1;
+    }
+    .cue-execucao:hover, .cue-cuidados:hover, .cue-dica:hover, .cue-importante:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+    }
+
+    /* Badges de Duração / Volume dos Exercícios sem moldura chamativa */
+    .ex-volume-badge {
+      font-size: 0.76rem;
+      font-weight: 600;
+      font-family: inherit;
+      background: rgba(255, 255, 255, 0.04);
+      color: #94a3b8;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 3px 8px;
+      border-radius: 7px;
+      white-space: nowrap;
+    }
+
+    /* Local e Duração das Seções Sem Moldura (Apenas Texto Limpo com Ícone) */
+    .session-meta-chips {
+      display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 12px;
       flex-wrap: wrap;
-      margin: 6px 0 8px 0;
     }
-    /* 💡 Dica (Amarelo / Âmbar) */
-    .cue-dica {
-      background: rgba(250, 204, 21, 0.1);
-      border: 1px solid rgba(250, 204, 21, 0.35);
-      color: #facc15;
-    }
-    .cue-dica:hover, .cue-dica:active {
-      background: #facc15;
-      color: #000;
-      transform: scale(0.96);
-    }
-    /* 🔧 Execução (Azul Ciano) */
-    .cue-execucao {
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.35);
-      color: #38bdf8;
-    }
-    .cue-execucao:hover, .cue-execucao:active {
-      background: #38bdf8;
-      color: #000;
-      transform: scale(0.96);
-    }
-    /* 🛡️ Cuidados (Coral / Vermelho de Proteção) */
-    .cue-cuidados {
-      background: rgba(248, 113, 113, 0.12);
-      border: 1px solid rgba(248, 113, 113, 0.38);
-      color: #f87171;
-    }
-    .cue-cuidados:hover, .cue-cuidados:active {
-      background: #f87171;
-      color: #000;
-      transform: scale(0.96);
-    }
-    /* ⚠️ Importante (Alerta Âmbar) */
-    .cue-importante, .cue-alerta {
-      background: rgba(251, 191, 36, 0.12);
-      border: 1px solid rgba(251, 191, 36, 0.4);
-      color: #fbbf24;
-    }
-    .cue-importante:hover, .cue-importante:active,
-    .cue-alerta:hover, .cue-alerta:active {
-      background: #fbbf24;
-      color: #000;
-      transform: scale(0.96);
+    .meta-chip, .meta-chip-loc, .meta-chip-time, .time-badge {
+      background: none !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      font-size: 0.78rem !important;
+      font-weight: 500 !important;
+      color: #94a3b8 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 4px !important;
     }
 
         /* Otimização de Largura Mobile (Quadros Mais Largos em Todo o App) */
@@ -2766,7 +2766,7 @@
         <span class="coach-name">Gui Lemos</span>
         <span class="bio-badge">Perfil do Coach ↗</span>
       </div>
-      <div class="badge-sync" onclick="forceAppRefresh()" style="cursor: pointer;" title="Toque para sincronizar e atualizar o app">Sincronizado • v45</div>
+      <div class="badge-sync" onclick="forceAppRefresh()" style="cursor: pointer;" title="Toque para sincronizar e atualizar o app">Sincronizado • v46</div>
     </div>
     <div class="brand">
       <h1>DOMÍNIO CORPORAL</h1>
@@ -3155,17 +3155,13 @@
 
   </div>
 
-      <!-- ==================== TAB ATIVA: HOJE (TERÇA: BOX + LAB BMU COMPARTILHADO) ==================== -->
+        <!-- ==================== TAB ATIVA: HOJE (TERÇA: BOX + LAB BMU COMPARTILHADO) ==================== -->
   <div id="tab-terca" class="tab-content">
 
     <!-- Introdução Sucinta da Sessão -->
-    <div class="callout-box" style="border-left: 3px solid var(--accent-gold); padding: 12px 14px; margin-bottom: 12px;">
-      <div class="callout-icon" style="font-size:1.15rem; margin-top:1px;">⚡</div>
-      <div>
-        <div class="callout-topic-header" style="color: var(--accent-gold);">FOCO DO TREINO: TRIPLO ESTÍMULO (BOX + BMU + ACRODUO 17H)</div>
-        <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
-          Box CrossFit (Skill + WOD) ➔ Lab BMU (foco pedagógico) ➔ Acroduo 17h (~58 kg). Gestão estrita de ombros e alinhamento articular!
-        </div>
+    <div class="callout-box" style="border-left: 3px solid var(--accent-gold); padding: 10px 12px; margin-bottom: 12px; background: rgba(250, 204, 21, 0.04);">
+      <div style="font-size: 0.82rem; line-height: 1.45; color: #facc15;">
+        ⚡ <strong>Foco da Sessão:</strong> Box CrossFit (Skill empurrar + WOD) ➔ Lab BMU (foco pedagógico aluna) ➔ Acroduo 17h (~58 kg).
       </div>
     </div>
 
@@ -3192,8 +3188,9 @@
         </div>
       </div>
 
-      <div class="ex-cues-row" style="margin-bottom: 12px;">
-        <button type="button" class="btn-tip-cue cue-importante" onclick="event.stopPropagation(); openTip('Box CrossFit — Gestão de Energia & Menisco', '• Fadiga de Empurrar: A Skill tem 120 reps (Supino + Flexão + Z-press). Mantenha RIR 3-4 (carga moderada/leve) para poupar o tríceps para o BMU e Acroduo!\n\n• Menisco Lateral: Nos 80 Box Jump Overs, faça STEP-DOWN obrigatório (descer pisando um pé por vez, sem saltar de costas). Nos Thrusters, limite o agachamento a 90°.\n\n• Snatches: Carga de 40 kg com extensão explosiva de quadril (sem puxar com os braços).', '⚠️ Importante')">⚠️ Importante: Fadiga & Menisco</button>
+      <!-- Recado Importante Escrito Direto em Amarelo Sucinto -->
+      <div style="font-size: 0.82rem; color: #facc15; font-weight: 600; line-height: 1.45; margin-bottom: 12px; padding: 4px 0;">
+        ⚠️ <strong>Importante:</strong> Poupar tríceps no supino (RIR 3-4) • Step-down obrigatório no caixote (blindagem meniscal).
       </div>
 
       <div class="exercise-card">
@@ -3217,12 +3214,12 @@
             <ul class="wod-block-items">
               <li>
                 <strong>10 Bench Press</strong> (Supino reto)
-                <button type="button" class="btn-tip-cue cue-execucao" onclick="event.stopPropagation(); openTip('Bench Press — Autoregulação', '• Carga: Moderada/leve (RIR 3-4).\n• Mecânica: Escápulas retraídas e deprimidas.\n• Objetivo: Preservar unidades motoras do tríceps para o BMU.', '🔧 Execução')">🔧 Execução</button>
+                <button type="button" class="btn-tip-cue cue-execucao" onclick="openTip('Bench Press — Autoregulação', '• Carga: Moderada/leve (RIR 3-4).\n• Mecânica: Escápulas retraídas e deprimidas.\n• Objetivo: Preservar unidades motoras do tríceps para o BMU.', '🔧 Execução')">🔧 Execução</button>
               </li>
               <li><strong>10 Push-up</strong> (Flexão de braço cadenciada)</li>
               <li>
                 <strong>10 Z-Press</strong> (Sentado no solo com pernas em L)
-                <button type="button" class="btn-tip-cue cue-execucao" onclick="event.stopPropagation(); openTip('Z-Press — Estabilidade do Core', '• Postura: Pernas estendidas no solo, pelve neutra.\n• Bloqueio: Empurrar vertical puro sem hiperextensão lombar.', '🔧 Execução')">🔧 Execução</button>
+                <button type="button" class="btn-tip-cue cue-execucao" onclick="openTip('Z-Press — Estabilidade do Core', '• Postura: Pernas estendidas no solo, pelve neutra.\n• Bloqueio: Empurrar vertical puro sem hiperextensão lombar.', '🔧 Execução')">🔧 Execução</button>
               </li>
             </ul>
           </div>
@@ -3236,12 +3233,12 @@
               <li>50 Abmat Sit-ups</li>
               <li>
                 <strong>40 Box Jump Over</strong>
-                <button type="button" class="btn-tip-cue cue-cuidados" onclick="event.stopPropagation(); openTip('Box Jump Over — Blindagem Meniscal & Aquiles', '• Descida: Faça STEP-DOWN obrigatório (descer pisando um pé por vez).\n• Proibido: Jamais descer saltando de costas ou aterrissar em torção/rotação no caixote.\n• Joelhos: Manter no plano sagital estrito (sem valgo dinâmico).', '🛡️ Cuidados')">🛡️ Cuidados</button>
+                <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Box Jump Over — Blindagem Meniscal & Aquiles', '• Descida: Faça STEP-DOWN obrigatório (descer pisando um pé por vez).\n• Proibido: Jamais descer saltando de costas ou aterrissar em torção/rotação no caixote.\n• Joelhos: Manter no plano sagital estrito (sem valgo dinâmico).', '🛡️ Cuidados')">🛡️ Cuidados</button>
               </li>
               <li><strong>30 Power Snatch</strong> (40 kg — quebrar em 5 ou 10 com quadril dominante)</li>
               <li>
                 <strong>20 Thruster</strong> (40 kg)
-                <button type="button" class="btn-tip-cue cue-cuidados" onclick="event.stopPropagation(); openTip('Thrusters — Gestão Articular', '• Profundidade: Coxas paralelas ao solo (90°).\n• Não desabe passivamente na flexão profunda para não comprimir o menisco lesionado.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+                <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Thrusters — Gestão Articular', '• Profundidade: Coxas paralelas ao solo (90°).\n• Não desabe passivamente na flexão profunda para não comprimir o menisco lesionado.', '🛡️ Cuidados')">🛡️ Cuidados</button>
               </li>
               <li><strong>30 Power Snatch</strong> (40 kg)</li>
               <li><strong>40 Box Jump Over</strong> (manter step-down)</li>
@@ -3251,7 +3248,7 @@
         </div>
 
         <div class="ex-bottom-actions" style="margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border-subtle);">
-          <button type="button" class="btn-comment" id="btn-comment-ex-ter-box" onclick="event.stopPropagation(); toggleCommentBox('ex-ter-box')">
+          <button type="button" class="btn-comment" id="btn-comment-ex-ter-box" onclick="toggleCommentBox('ex-ter-box')">
             <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>Comentários</span>
             <span class="comment-dot" id="dot-ex-ter-box" style="display:none;"></span>
@@ -3279,8 +3276,9 @@
         </div>
       </div>
 
-      <div class="ex-cues-row" style="margin-bottom: 12px;">
-        <button type="button" class="btn-tip-cue cue-execucao" onclick="event.stopPropagation(); openTip('Foco do Treino: Laboratório de BMU', '• Gui: Padrão estrito em corpo estendido (hollow) com superband na barra alta. Ativação bilateral do grande dorsal e peitoral maior, sem chicken-wing e com vetor puramente vertical.\n\n• Aluna: O turnover na barra baixa com elástico reprograma o reflexo motor de virar as mãos no topo antes de subir para a barra alta com o spot manual do Gui.', '🔧 Execução')">⚡ Foco do Treino</button>
+      <!-- Foco do Treino Escrito Direto em Amarelo Sucinto -->
+      <div style="font-size: 0.82rem; color: #facc15; font-weight: 600; line-height: 1.45; margin-bottom: 12px; padding: 4px 0;">
+        ⚡ <strong>Foco do Treino:</strong> Padrão estrito em corpo estendido para o Gui • Rotação de punho na barra baixa para a aluna com spot manual.
       </div>
 
       <!-- Ex ter-1: Reset Escapular -->
@@ -3288,7 +3286,7 @@
         <div class="ex-header-row">
           <div class="ex-title">Reset Escapular & Aquecimento</div>
           <div class="ex-cues-group">
-            <button type="button" class="btn-tip-cue cue-execucao" onclick="event.stopPropagation(); openTip('Reset Escapular — Abertura Glenoumeral', '• Tracionar o braço com a superband alta inclinando o tronco à frente.\n• Respirar fundo para abrir a cápsula glenoumeral e soltar a hipertonia do peitoral menor antes de iniciar as puxadas.', '🔧 Execução')">🔧 Execução</button>
+            <button type="button" class="btn-tip-cue cue-execucao" onclick="openTip('Reset Escapular — Abertura Glenoumeral', '• Tracionar o braço com a superband alta inclinando o tronco à frente.\n• Respirar fundo para abrir a cápsula glenoumeral e soltar a hipertonia do peitoral menor antes de iniciar as puxadas.', '🔧 Execução')">🔧 Execução</button>
           </div>
         </div>
         <div class="ex-volume-sets-row">
@@ -3299,7 +3297,7 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-comment" id="btn-comment-ex-ter-1" onclick="event.stopPropagation(); toggleCommentBox('ex-ter-1')">
+          <button type="button" class="btn-comment" id="btn-comment-ex-ter-1" onclick="toggleCommentBox('ex-ter-1')">
             <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>Comentários</span>
             <span class="comment-dot" id="dot-ex-ter-1" style="display:none;"></span>
@@ -3319,8 +3317,8 @@
         <div class="ex-header-row">
           <div class="ex-title">Strict Bar Muscle-Up</div>
           <div class="ex-cues-group">
-            <button type="button" class="btn-tip-cue cue-execucao" onclick="event.stopPropagation(); openTip('Strict BMU — Puxada Estrita & Alinhamento', '1. Corpo Estendido em Hollow: Pés unidos à frente, glúteos e abdômen contraídos. Não dobre os joelhos e não quebre a lombar para trás.\n\n2. Puxada Alta ao Esterno: Puxe a barra o mais alto possível em direção ao abdômen superior/esterno, com punhos em rolamento suave.\n\n3. Turnover Sincronizado: Gire os dois cotovelos estritamente no mesmo milissegundo por cima da barra com o peito à frente.\n\n4. Descanso: 2 a 3 minutos completos entre cada série para recomposição de ATP-CP neural.', '🔧 Execução')">🔧 Execução</button>
-            <button type="button" class="btn-tip-cue cue-cuidados" onclick="event.stopPropagation(); openTip('Strict BMU — Proteção Articular', '• Se houver qualquer assimetria ou puxão isolado (chicken-wing), interrompa a repetição imediatamente para resguardar o ombro direito.\n\n• Mantenha o elástico sob tensão estável na descida excêntrica.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+            <button type="button" class="btn-tip-cue cue-execucao" onclick="openTip('Strict BMU — Puxada Estrita & Alinhamento', '1. Corpo Estendido em Hollow: Pés unidos à frente, glúteos e abdômen contraídos. Não dobre os joelhos e não quebre a lombar para trás.\n\n2. Puxada Alta ao Esterno: Puxe a barra o mais alto possível em direção ao abdômen superior/esterno, com punhos em rolamento suave.\n\n3. Turnover Sincronizado: Gire os dois cotovelos estritamente no mesmo milissegundo por cima da barra com o peito à frente.\n\n4. Descanso: 2 a 3 minutos completos entre cada série para recomposição de ATP-CP neural.', '🔧 Execução')">🔧 Execução</button>
+            <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Strict BMU — Proteção Articular', '• Se houver qualquer assimetria ou puxão isolado (chicken-wing), interrompa a repetição imediatamente para resguardar o ombro direito.\n\n• Mantenha o elástico sob tensão estável na descida excêntrica.', '🛡️ Cuidados')">🛡️ Cuidados</button>
           </div>
         </div>
         <div class="ex-volume-sets-row">
@@ -3334,11 +3332,11 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-video" onclick="event.stopPropagation(); openVideoModal('Kip Bar Muscle-Up (Gui Lemos)', '<b>Referência Técnica:</b> Trajetória parabólica, momento do peito sobre a barra e rotação simultânea das mãos e cotovelos na finalização.', 'Midia/gui_kip_muscle_up.mp4')">
+          <button type="button" class="btn-video" onclick="openVideoModal('Kip Bar Muscle-Up (Gui Lemos)', '<b>Referência Técnica:</b> Trajetória parabólica, momento do peito sobre a barra e rotação simultânea das mãos e cotovelos na finalização.', 'Midia/gui_kip_muscle_up.mp4')">
             <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             <span>Vídeo</span>
           </button>
-          <button type="button" class="btn-comment" id="btn-comment-ex-ter-2" onclick="event.stopPropagation(); toggleCommentBox('ex-ter-2')">
+          <button type="button" class="btn-comment" id="btn-comment-ex-ter-2" onclick="toggleCommentBox('ex-ter-2')">
             <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>Comentários</span>
             <span class="comment-dot" id="dot-ex-ter-2" style="display:none;"></span>
@@ -3358,7 +3356,7 @@
         <div class="ex-header-row">
           <div class="ex-title">Transição na Barra Baixa (Aluna)</div>
           <div class="ex-cues-group">
-            <button type="button" class="btn-tip-cue cue-execucao" onclick="event.stopPropagation(); openTip('Transição na Barra Baixa — Destrave do BMU', '• O Gargalo Real: Alunas que estão quase tirando o BMU geralmente travam no turnover por medo de bater na barra ou por girar a pegada tarde demais.\n\n• Montagem: Barra baixa (altura do diafragma) com elástico horizontal ou sob os pés.\n\n• Gatilho Neural: No topo da puxada, focar em rolar os nós dos dedos para cima da barra (knuckles over) e projetar o peito para frente no mergulho.', '🔧 Execução')">🔧 Execução</button>
+            <button type="button" class="btn-tip-cue cue-execucao" onclick="openTip('Transição na Barra Baixa — Destrave do BMU', '• O Gargalo Real: Alunas que estão quase tirando o BMU geralmente travam no turnover por medo de bater na barra ou por girar a pegada tarde demais.\n\n• Montagem: Barra baixa (altura do diafragma) com elástico horizontal ou sob os pés.\n\n• Gatilho Neural: No topo da puxada, focar em rolar os nós dos dedos para cima da barra (knuckles over) e projetar o peito para frente no mergulho.', '🔧 Execução')">🔧 Execução</button>
           </div>
         </div>
         <div class="ex-volume-sets-row">
@@ -3371,7 +3369,7 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-comment" id="btn-comment-ex-ter-3" onclick="event.stopPropagation(); toggleCommentBox('ex-ter-3')">
+          <button type="button" class="btn-comment" id="btn-comment-ex-ter-3" onclick="toggleCommentBox('ex-ter-3')">
             <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>Comentários</span>
             <span class="comment-dot" id="dot-ex-ter-3" style="display:none;"></span>
@@ -3391,7 +3389,7 @@
         <div class="ex-header-row">
           <div class="ex-title">Barra Alta com Spot (Aluna)</div>
           <div class="ex-cues-group">
-            <button type="button" class="btn-tip-cue cue-execucao" onclick="event.stopPropagation(); openTip('Spot Biomecânico na Barra Alta (Gui Lemos)', '• Posicione-se ligeiramente atrás e ao lado dela.\n• Ela executa o swing e a puxada alta do kip normal.\n• No ápice da subida (quando os pés começam a descer), suas mãos entram na região sacral/lombar dela.\n• Aplique força diagonal: para cima e para frente, vencendo os 10-15% finais de inércia para ela realizar o snap do peito e o giro dos punhos.', '🔧 Execução')">🔧 Execução</button>
+            <button type="button" class="btn-tip-cue cue-execucao" onclick="openTip('Spot Biomecânico na Barra Alta (Gui Lemos)', '• Posicione-se ligeiramente atrás e ao lado dela.\n• Ela executa o swing e a puxada alta do kip normal.\n• No ápice da subida (quando os pés começam a descer), suas mãos entram na região sacral/lombar dela.\n• Aplique força diagonal: para cima e para frente, vencendo os 10-15% finais de inércia para ela realizar o snap do peito e o giro dos punhos.', '🔧 Execução')">🔧 Execução</button>
           </div>
         </div>
         <div class="ex-volume-sets-row">
@@ -3404,7 +3402,7 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-comment" id="btn-comment-ex-ter-4" onclick="event.stopPropagation(); toggleCommentBox('ex-ter-4')">
+          <button type="button" class="btn-comment" id="btn-comment-ex-ter-4" onclick="toggleCommentBox('ex-ter-4')">
             <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>Comentários</span>
             <span class="comment-dot" id="dot-ex-ter-4" style="display:none;"></span>
@@ -3432,15 +3430,16 @@
         </div>
       </div>
 
-      <div class="ex-cues-row" style="margin-bottom: 12px;">
-        <button type="button" class="btn-tip-cue cue-cuidados" onclick="event.stopPropagation(); openTip('Blindagem da Portagem pós-Box', '• Bone Stacking Obrigatório: Cotovelos 100% estendidos nas sustentações para anular torque fletor no tríceps fadigado da Skill.\n\n• Privilegiar L-Base: Bases deitadas transmitem carga diretamente pela pelve ao chão, poupando pernas e paravertebrais.\n\n• Menisco Lateral: Em bases em pé, tíbias rigorosamente verticais. Vetado bases de pivô com torção do pé esquerdo no solo.', '🛡️ Cuidados')">🛡️ Blindagem da Portagem</button>
+      <!-- Recado de Alinhamento Escrito Direto em Amarelo Sucinto -->
+      <div style="font-size: 0.82rem; color: #facc15; font-weight: 600; line-height: 1.45; margin-bottom: 12px; padding: 4px 0;">
+        🛡️ <strong>Alinhamento:</strong> Bone stacking total nos braços • Privilegiar bases deitadas (L-base) para poupar pernas e menisco.
       </div>
 
       <div class="exercise-card">
         <div class="ex-header-row">
           <div class="ex-title">Portagem & Fluxo Acrobático</div>
           <div class="ex-cues-group">
-            <button type="button" class="btn-tip-cue cue-execucao" onclick="event.stopPropagation(); openTip('Portagem com Volante Feminina (~58 kg)', '• Use o timing e o momento pendular da parceira para as transições em vez de força bruta com os ombros fadigados.\n• Foco em fluidez, respiração coordenada e conexão de peso.\n• Figuras sugeridas: L-Base, Trono, Pés nas Mãos e Transições de Solo.', '🔧 Execução')">🔧 Execução</button>
+            <button type="button" class="btn-tip-cue cue-execucao" onclick="openTip('Portagem com Volante Feminina (~58 kg)', '• Use o timing e o momento pendular da parceira para as transições em vez de força bruta com os ombros fadigados.\n• Foco em fluidez, respiração coordenada e conexão de peso.\n• Figuras sugeridas: L-Base, Trono, Pés nas Mãos e Transições de Solo.', '🔧 Execução')">🔧 Execução</button>
           </div>
         </div>
         <div class="ex-volume-sets-row">
@@ -3451,7 +3450,7 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-comment" id="btn-comment-ex-ter-acro" onclick="event.stopPropagation(); toggleCommentBox('ex-ter-acro')">
+          <button type="button" class="btn-comment" id="btn-comment-ex-ter-acro" onclick="toggleCommentBox('ex-ter-acro')">
             <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>Comentários</span>
             <span class="comment-dot" id="dot-ex-ter-acro" style="display:none;"></span>
@@ -3469,12 +3468,14 @@
 
     <!-- ==================== SEÇÃO 4: ACESSÓRIOS & DESCOMPRESSÃO ==================== -->
     <div class="section-card sec-flexibilidade">
-      <div class="section-header">
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
         <div class="section-title-wrap">
           <span class="section-badge" style="background:rgba(192,132,252,0.12); color:#c084fc; border-color:rgba(192,132,252,0.3);">Descompressão Articular</span>
           <div class="section-title">Protocolo Pós-Treino (Femorotibial & Lombar)</div>
         </div>
-        <span class="time-badge">~15 min</span>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~15 min</span>
+        </div>
       </div>
 
       <!-- Ex ter-5: Straight Bar Dips + Lat Pushdown -->
@@ -3482,7 +3483,7 @@
         <div class="ex-header-row">
           <div class="ex-title">Dips na Barra + Puxada no Elástico</div>
           <div class="ex-cues-group">
-            <button type="button" class="btn-tip-cue cue-execucao" onclick="event.stopPropagation(); openTip('Dips na Barra & Puxada no Elástico', '• Straight Bar Dips (4 a 6 reps): Em cima da barra reta (com pés apoiados se necessário para a amiga), descer com o peito tocando a barra e cotovelos fechados, empurrando até a extensão completa. Constrói a força do tríceps e peitoral menor na saída da transição.\n\n• Straight-Arm Pushdown (10 reps): Elástico amarrado no alto, segurar com braços esticados e abaixar até as coxas sem dobrar os cotovelos. Isola o grande dorsal e a cabeça longa do tríceps.', '🔧 Execução')">🔧 Execução</button>
+            <button type="button" class="btn-tip-cue cue-execucao" onclick="openTip('Dips na Barra & Puxada no Elástico', '• Straight Bar Dips (4 a 6 reps): Em cima da barra reta (com pés apoiados se necessário para a amiga), descer com o peito tocando a barra e cotovelos fechados, empurrando até a extensão completa. Constrói a força do tríceps e peitoral menor na saída da transição.\n\n• Straight-Arm Pushdown (10 reps): Elástico amarrado no alto, segurar com braços esticados e abaixar até as coxas sem dobrar os cotovelos. Isola o grande dorsal e a cabeça longa do tríceps.', '🔧 Execução')">🔧 Execução</button>
           </div>
         </div>
         <div class="ex-volume-sets-row">
@@ -3494,7 +3495,7 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-comment" id="btn-comment-ex-ter-5" onclick="event.stopPropagation(); toggleCommentBox('ex-ter-5')">
+          <button type="button" class="btn-comment" id="btn-comment-ex-ter-5" onclick="toggleCommentBox('ex-ter-5')">
             <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>Comentários</span>
             <span class="comment-dot" id="dot-ex-ter-5" style="display:none;"></span>
@@ -3514,7 +3515,7 @@
         <div class="ex-header-row">
           <div class="ex-title">Descompressão Articular & Alongamento</div>
           <div class="ex-cues-group">
-            <button type="button" class="btn-tip-cue cue-execucao" onclick="event.stopPropagation(); openTip('Descompressão Meniscal & Ombro', '1. Ombro: Suspensão passiva na barra com pontas dos pés no solo tirando 30% do peso. A gravidade abre o túnel subacromial, descomprimindo o tendão do supraespinhal.\n\n2. Joelho Esquerdo: Alongamento de bíceps femoral e fáscia lata com rotação interna da tíbia, liberando a tração na cabeça da fíbula e descomprimindo o menisco lateral.', '🔧 Execução')">🔧 Execução</button>
+            <button type="button" class="btn-tip-cue cue-execucao" onclick="openTip('Descompressão Meniscal & Ombro', '1. Ombro: Suspensão passiva na barra com pontas dos pés no solo tirando 30% do peso. A gravidade abre o túnel subacromial, descomprimindo o tendão do supraespinhal.\n\n2. Joelho Esquerdo: Alongamento de bíceps femoral e fáscia lata com rotação interna da tíbia, liberando a tração na cabeça da fíbula e descomprimindo o menisco lateral.', '🔧 Execução')">🔧 Execução</button>
           </div>
         </div>
         <div class="ex-volume-sets-row">
@@ -3525,7 +3526,7 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-comment" id="btn-comment-ex-ter-6" onclick="event.stopPropagation(); toggleCommentBox('ex-ter-6')">
+          <button type="button" class="btn-comment" id="btn-comment-ex-ter-6" onclick="toggleCommentBox('ex-ter-6')">
             <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>Comentários</span>
             <span class="comment-dot" id="dot-ex-ter-6" style="display:none;"></span>
@@ -5550,13 +5551,13 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '45';
+    const APP_BUILD_VERSION = '46';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
         caches.keys().then((keys) => {
           keys.forEach((k) => {
-            if (k !== 'dominio-corporal-v45') caches.delete(k);
+            if (k !== 'dominio-corporal-v46') caches.delete(k);
           });
         });
       }
@@ -6862,7 +6863,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=45').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=46').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
