@@ -2584,29 +2584,107 @@
     }
 
     /* Popover Flutuante de Dicas & Observações Técnicas */
+        /* Padronização dos Cards de Exercício (Linha 1: Título + Cues | Linha 2: Volume + Sets | Linha 3: Ações) */
+    .ex-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .ex-cues-group {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .ex-volume-sets-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+      padding: 6px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .ex-volume-badge {
+      font-size: 0.78rem;
+      font-weight: 700;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      background: rgba(250, 204, 21, 0.08);
+      color: var(--accent-gold);
+      border: 1px solid rgba(250, 204, 21, 0.25);
+      padding: 4px 9px;
+      border-radius: 8px;
+      white-space: nowrap;
+    }
+    .ex-bottom-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .set-pill {
+      min-width: 36px;
+      width: auto;
+      padding: 0 8px;
+      height: 34px;
+      border-radius: 9px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1.5px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-size: 0.76rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+    .set-pill.done {
+      background: var(--brand-neon-bg);
+      border-color: var(--brand-neon);
+      color: var(--brand-neon);
+    }
+
+        /* Popover Flutuante de Observações Técnicas (z-index absoluto e proteção mobile) */
     .tip-popover-overlay {
       position: fixed;
       inset: 0;
-      z-index: 10000;
-      background: rgba(0, 0, 0, 0.78);
+      z-index: 999999 !important;
+      background: rgba(0, 0, 0, 0.82);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
-      display: flex;
+      display: none;
       align-items: center;
       justify-content: center;
       padding: 16px;
-      animation: fadeIn 0.15s ease-out;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .tip-popover-overlay.active {
+      display: flex !important;
     }
     .tip-popover-card {
       background: #0f1115;
-      border: 1px solid rgba(56, 189, 248, 0.35);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.85), 0 0 25px rgba(56, 189, 248, 0.18);
       border-radius: 14px;
       width: 100%;
       max-width: 380px;
       padding: 16px 18px;
       color: #fff;
       animation: popIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      z-index: 1000000 !important;
+      max-height: 85vh;
+      overflow-y: auto;
     }
     @keyframes popIn {
       from { transform: scale(0.92); opacity: 0; }
@@ -2687,7 +2765,7 @@
         <span class="coach-name">Gui Lemos</span>
         <span class="bio-badge">Perfil do Coach ↗</span>
       </div>
-      <div class="badge-sync" onclick="forceAppRefresh()" style="cursor: pointer;" title="Toque para sincronizar e atualizar o app">Sincronizado</div>
+      <div class="badge-sync" onclick="forceAppRefresh()" style="cursor: pointer;" title="Toque para sincronizar e atualizar o app">Sincronizado • v44</div>
     </div>
     <div class="brand">
       <h1>DOMÍNIO CORPORAL</h1>
@@ -3076,7 +3154,7 @@
 
   </div>
 
-    <!-- ==================== TAB ATIVA: HOJE (TERÇA: BOX + LAB BMU COMPARTILHADO) ==================== -->
+      <!-- ==================== TAB ATIVA: HOJE (TERÇA: BOX + LAB BMU COMPARTILHADO) ==================== -->
   <div id="tab-terca" class="tab-content">
 
     <!-- Introdução Sucinta da Sessão -->
@@ -3114,7 +3192,7 @@
       </div>
 
       <div class="ex-cues-row" style="margin-bottom: 12px;">
-        <button type="button" class="btn-tip-cue cue-importante" onclick="openTip('Box CrossFit — Gestão de Energia & Menisco', '• Fadiga de Empurrar: A Skill tem 120 reps (Supino + Flexão + Z-press). Mantenha RIR 3-4 (carga moderada/leve) para poupar o tríceps para o BMU e Acroduo!\n\n• Menisco Lateral: Nos 80 Box Jump Overs, faça STEP-DOWN obrigatório (descer pisando um pé por vez, sem saltar de costas). Nos Thrusters, limite o agachamento a 90°.\n\n• Snatches: Carga de 40 kg com extensão explosiva de quadril (sem puxar com os braços).', '⚠️ Importante')">⚠️ Importante: Fadiga & Menisco</button>
+        <button type="button" class="btn-tip-cue cue-importante" onclick="event.stopPropagation(); openTip('Box CrossFit — Gestão de Energia & Menisco', '• Fadiga de Empurrar: A Skill tem 120 reps (Supino + Flexão + Z-press). Mantenha RIR 3-4 (carga moderada/leve) para poupar o tríceps para o BMU e Acroduo!\n\n• Menisco Lateral: Nos 80 Box Jump Overs, faça STEP-DOWN obrigatório (descer pisando um pé por vez, sem saltar de costas). Nos Thrusters, limite o agachamento a 90°.\n\n• Snatches: Carga de 40 kg com extensão explosiva de quadril (sem puxar com os braços).', '⚠️ Importante')">⚠️ Importante: Fadiga & Menisco</button>
       </div>
 
       <div class="exercise-card">
@@ -3138,12 +3216,12 @@
             <ul class="wod-block-items">
               <li>
                 <strong>10 Bench Press</strong> (Supino reto)
-                <button type="button" class="btn-tip-cue cue-execucao" onclick="openTip('Bench Press — Autoregulação', '• Carga: Moderada/leve (RIR 3-4).\n• Mecânica: Escápulas retraídas e deprimidas.\n• Objetivo: Preservar unidades motoras do tríceps para o BMU.', '🔧 Execução')">🔧 Execução</button>
+                <button type="button" class="btn-tip-cue cue-execucao" onclick="event.stopPropagation(); openTip('Bench Press — Autoregulação', '• Carga: Moderada/leve (RIR 3-4).\n• Mecânica: Escápulas retraídas e deprimidas.\n• Objetivo: Preservar unidades motoras do tríceps para o BMU.', '🔧 Execução')">🔧 Execução</button>
               </li>
               <li><strong>10 Push-up</strong> (Flexão de braço cadenciada)</li>
               <li>
                 <strong>10 Z-Press</strong> (Sentado no solo com pernas em L)
-                <button type="button" class="btn-tip-cue cue-execucao" onclick="openTip('Z-Press — Estabilidade do Core', '• Postura: Pernas estendidas no solo, pelve neutra.\n• Bloqueio: Empurrar vertical puro sem hiperextensão lombar.', '🔧 Execução')">🔧 Execução</button>
+                <button type="button" class="btn-tip-cue cue-execucao" onclick="event.stopPropagation(); openTip('Z-Press — Estabilidade do Core', '• Postura: Pernas estendidas no solo, pelve neutra.\n• Bloqueio: Empurrar vertical puro sem hiperextensão lombar.', '🔧 Execução')">🔧 Execução</button>
               </li>
             </ul>
           </div>
@@ -3157,12 +3235,12 @@
               <li>50 Abmat Sit-ups</li>
               <li>
                 <strong>40 Box Jump Over</strong>
-                <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Box Jump Over — Blindagem Meniscal & Aquiles', '• Descida: Faça STEP-DOWN obrigatório (descer pisando um pé por vez).\n• Proibido: Jamais descer saltando de costas ou aterrissar em torção/rotação no caixote.\n• Joelhos: Manter no plano sagital estrito (sem valgo dinâmico).', '🛡️ Cuidados')">🛡️ Cuidados</button>
+                <button type="button" class="btn-tip-cue cue-cuidados" onclick="event.stopPropagation(); openTip('Box Jump Over — Blindagem Meniscal & Aquiles', '• Descida: Faça STEP-DOWN obrigatório (descer pisando um pé por vez).\n• Proibido: Jamais descer saltando de costas ou aterrissar em torção/rotação no caixote.\n• Joelhos: Manter no plano sagital estrito (sem valgo dinâmico).', '🛡️ Cuidados')">🛡️ Cuidados</button>
               </li>
               <li><strong>30 Power Snatch</strong> (40 kg — quebrar em 5 ou 10 com quadril dominante)</li>
               <li>
                 <strong>20 Thruster</strong> (40 kg)
-                <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Thrusters — Gestão Articular', '• Profundidade: Coxas paralelas ao solo (90°).\n• Não desabe passivamente na flexão profunda para não comprimir o menisco lesionado.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+                <button type="button" class="btn-tip-cue cue-cuidados" onclick="event.stopPropagation(); openTip('Thrusters — Gestão Articular', '• Profundidade: Coxas paralelas ao solo (90°).\n• Não desabe passivamente na flexão profunda para não comprimir o menisco lesionado.', '🛡️ Cuidados')">🛡️ Cuidados</button>
               </li>
               <li><strong>30 Power Snatch</strong> (40 kg)</li>
               <li><strong>40 Box Jump Over</strong> (manter step-down)</li>
@@ -3171,16 +3249,16 @@
           </div>
         </div>
 
-        <div class="ex-actions">
-          <button class="btn-comment" id="btn-comment-ex-ter-box" onclick="toggleCommentBox('ex-ter-box')">
+        <div class="ex-bottom-actions" style="margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border-subtle);">
+          <button type="button" class="btn-comment" id="btn-comment-ex-ter-box" onclick="event.stopPropagation(); toggleCommentBox('ex-ter-box')">
             <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
-            <span>Anotações do WOD & Skill</span>
+            <span>Comentários</span>
             <span class="comment-dot" id="dot-ex-ter-box" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-ter-box" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas anotações (cargas no Supino/Z-press, tempo do WOD, resposta do joelho):</span>
+            <span>👤 Comentários sobre WOD & Skill (cargas, tempo e resposta do joelho):</span>
             <span class="save-indicator" id="save-status-ex-ter-box"></span>
           </div>
           <textarea class="comment-textarea" id="note-ex-ter-box" placeholder="Ex: Carga leve no supino, WOD fechado em 16min, joelho estável com step-down..." oninput="saveExerciseNote('ex-ter-box', this.value)"></textarea>
@@ -3201,32 +3279,34 @@
       </div>
 
       <div class="ex-cues-row" style="margin-bottom: 12px;">
-        <button type="button" class="btn-tip-cue cue-execucao" onclick="openTip('Racional Biomecânico do Treino Compartilhado', '• Gui: Padrão estrito em corpo estendido (hollow) com superband na barra alta. Ativação bilateral do grande dorsal e peitoral maior, sem chicken-wing e com vetor puramente vertical.\n\n• Aluna: O turnover na barra baixa com elástico reprograma o reflexo motor de virar as mãos no topo antes de subir para a barra alta com o spot manual do Gui.', '🔧 Execução')">🔧 Racional Biomecânico do Lab</button>
+        <button type="button" class="btn-tip-cue cue-execucao" onclick="event.stopPropagation(); openTip('Racional Biomecânico do Treino Compartilhado', '• Gui: Padrão estrito em corpo estendido (hollow) com superband na barra alta. Ativação bilateral do grande dorsal e peitoral maior, sem chicken-wing e com vetor puramente vertical.\n\n• Aluna: O turnover na barra baixa com elástico reprograma o reflexo motor de virar as mãos no topo antes de subir para a barra alta com o spot manual do Gui.', '🔧 Execução')">🔧 Racional Biomecânico do Lab</button>
       </div>
 
       <!-- Ex ter-1: Reset Escapular -->
       <div class="exercise-card">
-        <div class="ex-top">
+        <div class="ex-header-row">
           <div class="ex-title">Reset Escapular & Aquecimento</div>
+          <div class="ex-cues-group">
+            <button type="button" class="btn-tip-cue cue-execucao" onclick="event.stopPropagation(); openTip('Reset Escapular — Abertura Glenoumeral', '• Tracionar o braço com a superband alta inclinando o tronco à frente.\n• Respirar fundo para abrir a cápsula glenoumeral e soltar a hipertonia do peitoral menor antes de iniciar as puxadas.', '🔧 Execução')">🔧 Execução</button>
+          </div>
+        </div>
+        <div class="ex-volume-sets-row">
           <div class="ex-volume-badge">2x 45s / braço</div>
-        </div>
-        <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-execucao" onclick="openTip('Reset Escapular — Abertura Glenoumeral', '• Tracionar o braço com a superband alta inclinando o tronco à frente.\n• Respirar fundo para abrir a cápsula glenoumeral e soltar a hipertonia do peitoral menor antes de iniciar as puxadas.', '🔧 Execução')">🔧 Execução</button>
-        </div>
-        <div class="ex-actions">
-          <button class="btn-comment" id="btn-comment-ex-ter-1" onclick="toggleCommentBox('ex-ter-1')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
-            <span>Nota</span>
-            <span class="comment-dot" id="dot-ex-ter-1" style="display:none;"></span>
-          </button>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Braço D</div>
             <div class="set-pill" onclick="toggleSet(this)">Braço E</div>
           </div>
         </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-ter-1" onclick="event.stopPropagation(); toggleCommentBox('ex-ter-1')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span>Comentários</span>
+            <span class="comment-dot" id="dot-ex-ter-1" style="display:none;"></span>
+          </button>
+        </div>
         <div id="comment-box-ex-ter-1" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas anotações (sensação do ombro e mobilidade):</span>
+            <span>👤 Comentários sobre a execução (sensação do ombro e mobilidade):</span>
             <span class="save-indicator" id="save-status-ex-ter-1"></span>
           </div>
           <textarea class="comment-textarea" id="note-ex-ter-1" placeholder="Ex: Ombro solto e preparado para as puxadas..." oninput="saveExerciseNote('ex-ter-1', this.value)"></textarea>
@@ -3235,25 +3315,15 @@
 
       <!-- Ex ter-2: Strict Bar Muscle-Up -->
       <div class="exercise-card">
-        <div class="ex-top">
+        <div class="ex-header-row">
           <div class="ex-title">Strict Bar Muscle-Up</div>
-          <div class="ex-volume-badge">4-5 séries • 1-2 reps</div>
-        </div>
-        <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-execucao" onclick="openTip('Strict BMU — Puxada Estrita & Alinhamento', '1. Corpo Estendido em Hollow: Pés unidos à frente, glúteos e abdômen contraídos. Não dobre os joelhos e não quebre a lombar para trás.\n\n2. Puxada Alta ao Esterno: Puxe a barra o mais alto possível em direção ao abdômen superior/esterno, com punhos em rolamento suave.\n\n3. Turnover Sincronizado: Gire os dois cotovelos estritamente no mesmo milissegundo por cima da barra com o peito à frente.\n\n4. Descanso: 2 a 3 minutos completos entre cada série para recomposição de ATP-CP neural.', '🔧 Execução')">🔧 Execução</button>
-          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Strict BMU — Proteção Articular', '• Se houver qualquer assimetria ou puxão isolado (chicken-wing), interrompa a repetição imediatamente para resguardar o ombro direito.\n\n• Mantenha o elástico sob tensão estável na descida excêntrica.', '🛡️ Cuidados')">🛡️ Cuidados</button>
-        </div>
-        <div class="ex-actions">
-          <div style="display:flex; gap:6px; flex-wrap:wrap;">
-            <button class="btn-video" onclick="openVideoModal('Kip Bar Muscle-Up (Gui Lemos)', '<b>Referência Técnica:</b> Trajetória parabólica, momento do peito sobre a barra e rotação simultânea das mãos e cotovelos na finalização.', 'Midia/gui_kip_muscle_up.mp4')">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vídeo BMU
-            </button>
-            <button class="btn-comment" id="btn-comment-ex-ter-2" onclick="toggleCommentBox('ex-ter-2')">
-              <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
-              <span>Nota</span>
-              <span class="comment-dot" id="dot-ex-ter-2" style="display:none;"></span>
-            </button>
+          <div class="ex-cues-group">
+            <button type="button" class="btn-tip-cue cue-execucao" onclick="event.stopPropagation(); openTip('Strict BMU — Puxada Estrita & Alinhamento', '1. Corpo Estendido em Hollow: Pés unidos à frente, glúteos e abdômen contraídos. Não dobre os joelhos e não quebre a lombar para trás.\n\n2. Puxada Alta ao Esterno: Puxe a barra o mais alto possível em direção ao abdômen superior/esterno, com punhos em rolamento suave.\n\n3. Turnover Sincronizado: Gire os dois cotovelos estritamente no mesmo milissegundo por cima da barra com o peito à frente.\n\n4. Descanso: 2 a 3 minutos completos entre cada série para recomposição de ATP-CP neural.', '🔧 Execução')">🔧 Execução</button>
+            <button type="button" class="btn-tip-cue cue-cuidados" onclick="event.stopPropagation(); openTip('Strict BMU — Proteção Articular', '• Se houver qualquer assimetria ou puxão isolado (chicken-wing), interrompa a repetição imediatamente para resguardar o ombro direito.\n\n• Mantenha o elástico sob tensão estável na descida excêntrica.', '🛡️ Cuidados')">🛡️ Cuidados</button>
           </div>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">4-5 séries • 1-2 reps</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1 rep</div>
             <div class="set-pill" onclick="toggleSet(this)">1-2 reps</div>
@@ -3262,9 +3332,20 @@
             <div class="set-pill" onclick="toggleSet(this)">1-2 reps</div>
           </div>
         </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-video" onclick="event.stopPropagation(); openVideoModal('Kip Bar Muscle-Up (Gui Lemos)', '<b>Referência Técnica:</b> Trajetória parabólica, momento do peito sobre a barra e rotação simultânea das mãos e cotovelos na finalização.', 'Midia/gui_kip_muscle_up.mp4')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <span>Vídeo Ilustrativo</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-ter-2" onclick="event.stopPropagation(); toggleCommentBox('ex-ter-2')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span>Comentários</span>
+            <span class="comment-dot" id="dot-ex-ter-2" style="display:none;"></span>
+          </button>
+        </div>
         <div id="comment-box-ex-ter-2" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas anotações (corpo estendido, simetria de cotovelos, elástico usado):</span>
+            <span>👤 Comentários sobre a execução (corpo estendido, simetria de cotovelos, elástico):</span>
             <span class="save-indicator" id="save-status-ex-ter-2"></span>
           </div>
           <textarea class="comment-textarea" id="note-ex-ter-2" placeholder="Ex: Elástico roxo, 2 reps estritas limpas, cotovelos entraram juntos, sem dor..." oninput="saveExerciseNote('ex-ter-2', this.value)"></textarea>
@@ -3273,29 +3354,31 @@
 
       <!-- Ex ter-3: Transição na Barra Baixa -->
       <div class="exercise-card">
-        <div class="ex-top">
+        <div class="ex-header-row">
           <div class="ex-title">Transição na Barra Baixa (Aluna)</div>
+          <div class="ex-cues-group">
+            <button type="button" class="btn-tip-cue cue-execucao" onclick="event.stopPropagation(); openTip('Transição na Barra Baixa — Destrave do BMU', '• O Gargalo Real: Alunas que estão quase tirando o BMU geralmente travam no turnover por medo de bater na barra ou por girar a pegada tarde demais.\n\n• Montagem: Barra baixa (altura do diafragma) com elástico horizontal ou sob os pés.\n\n• Gatilho Neural: No topo da puxada, focar em rolar os nós dos dedos para cima da barra (knuckles over) e projetar o peito para frente no mergulho.', '🔧 Execução')">🔧 Execução</button>
+          </div>
+        </div>
+        <div class="ex-volume-sets-row">
           <div class="ex-volume-badge">4 séries • 3-5 reps</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 4</div>
+          </div>
         </div>
-        <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-execucao" onclick="openTip('Transição na Barra Baixa — Destrave do BMU', '• O Gargalo Real: Alunas que estão quase tirando o BMU geralmente travam no turnover por medo de bater na barra ou por girar a pegada tarde demais.\n\n• Montagem: Barra baixa (altura do diafragma) com elástico horizontal ou sob os pés.\n\n• Gatilho Neural: No topo da puxada, focar em rolar os nós dos dedos para cima da barra (knuckles over) e projetar o peito para frente no mergulho.', '🔧 Execução')">🔧 Execução</button>
-        </div>
-        <div class="ex-actions">
-          <button class="btn-comment" id="btn-comment-ex-ter-3" onclick="toggleCommentBox('ex-ter-3')">
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-ter-3" onclick="event.stopPropagation(); toggleCommentBox('ex-ter-3')">
             <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
-            <span>Nota</span>
+            <span>Comentários</span>
             <span class="comment-dot" id="dot-ex-ter-3" style="display:none;"></span>
           </button>
-          <div class="sets-container">
-            <div class="set-pill" onclick="toggleSet(this)">Série 1 (3 reps)</div>
-            <div class="set-pill" onclick="toggleSet(this)">Série 2 (4 reps)</div>
-            <div class="set-pill" onclick="toggleSet(this)">Série 3 (4 reps)</div>
-            <div class="set-pill" onclick="toggleSet(this)">Série 4 (5 reps)</div>
-          </div>
         </div>
         <div id="comment-box-ex-ter-3" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas anotações (evolução dela no turnover da barra baixa):</span>
+            <span>👤 Comentários sobre a evolução dela no turnover:</span>
             <span class="save-indicator" id="save-status-ex-ter-3"></span>
           </div>
           <textarea class="comment-textarea" id="note-ex-ter-3" placeholder="Ex: Pegou o timing da virada dos punhos na 2ª série, perdeu o medo..." oninput="saveExerciseNote('ex-ter-3', this.value)"></textarea>
@@ -3304,19 +3387,14 @@
 
       <!-- Ex ter-4: Barra Alta com Spot -->
       <div class="exercise-card">
-        <div class="ex-top">
+        <div class="ex-header-row">
           <div class="ex-title">Barra Alta com Spot (Aluna)</div>
+          <div class="ex-cues-group">
+            <button type="button" class="btn-tip-cue cue-execucao" onclick="event.stopPropagation(); openTip('Spot Biomecânico na Barra Alta (Gui Lemos)', '• Posicione-se ligeiramente atrás e ao lado dela.\n• Ela executa o swing e a puxada alta do kip normal.\n• No ápice da subida (quando os pés começam a descer), suas mãos entram na região sacral/lombar dela.\n• Aplique força diagonal: para cima e para frente, vencendo os 10-15% finais de inércia para ela realizar o snap do peito e o giro dos punhos.', '🔧 Execução')">🔧 Execução</button>
+          </div>
+        </div>
+        <div class="ex-volume-sets-row">
           <div class="ex-volume-badge">3-4 tentativas</div>
-        </div>
-        <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-execucao" onclick="openTip('Spot Biomecânico na Barra Alta (Gui Lemos)', '• Posicione-se ligeiramente atrás e ao lado dela.\n• Ela executa o swing e a puxada alta do kip normal.\n• No ápice da subida (quando os pés começam a descer), suas mãos entram na região sacral/lombar dela.\n• Aplique força diagonal: para cima e para frente, vencendo os 10-15% finais de inércia para ela realizar o snap do peito e o giro dos punhos.', '🔧 Execução')">🔧 Execução</button>
-        </div>
-        <div class="ex-actions">
-          <button class="btn-comment" id="btn-comment-ex-ter-4" onclick="toggleCommentBox('ex-ter-4')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
-            <span>Nota</span>
-            <span class="comment-dot" id="dot-ex-ter-4" style="display:none;"></span>
-          </button>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Tentativa 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Tentativa 2</div>
@@ -3324,9 +3402,16 @@
             <div class="set-pill" onclick="toggleSet(this)">Tentativa 4</div>
           </div>
         </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-ter-4" onclick="event.stopPropagation(); toggleCommentBox('ex-ter-4')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span>Comentários</span>
+            <span class="comment-dot" id="dot-ex-ter-4" style="display:none;"></span>
+          </button>
+        </div>
         <div id="comment-box-ex-ter-4" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas anotações (ajuste do spot e percepção de altura):</span>
+            <span>👤 Comentários sobre as tentativas na barra alta:</span>
             <span class="save-indicator" id="save-status-ex-ter-4"></span>
           </div>
           <textarea class="comment-textarea" id="note-ex-ter-4" placeholder="Ex: Spot firme na 2ª tentativa, ela quase encaixou o mergulho..." oninput="saveExerciseNote('ex-ter-4', this.value)"></textarea>
@@ -3347,27 +3432,33 @@
       </div>
 
       <div class="ex-cues-row" style="margin-bottom: 12px;">
-        <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Blindagem da Portagem pós-Box', '• Bone Stacking Obrigatório: Cotovelos 100% estendidos nas sustentações para anular torque fletor no tríceps fadigado da Skill.\n\n• Privilegiar L-Base: Bases deitadas transmitem carga diretamente pela pelve ao chão, poupando pernas e paravertebrais.\n\n• Menisco Lateral: Em bases em pé, tíbias rigorosamente verticais. Vetado bases de pivô com torção do pé esquerdo no solo.', '🛡️ Cuidados')">🛡️ Blindagem da Portagem</button>
+        <button type="button" class="btn-tip-cue cue-cuidados" onclick="event.stopPropagation(); openTip('Blindagem da Portagem pós-Box', '• Bone Stacking Obrigatório: Cotovelos 100% estendidos nas sustentações para anular torque fletor no tríceps fadigado da Skill.\n\n• Privilegiar L-Base: Bases deitadas transmitem carga diretamente pela pelve ao chão, poupando pernas e paravertebrais.\n\n• Menisco Lateral: Em bases em pé, tíbias rigorosamente verticais. Vetado bases de pivô com torção do pé esquerdo no solo.', '🛡️ Cuidados')">🛡️ Blindagem da Portagem</button>
       </div>
 
       <div class="exercise-card">
-        <div class="ex-top">
+        <div class="ex-header-row">
           <div class="ex-title">Portagem & Fluxo Acrobático</div>
-          <div class="ex-volume-badge">Volante 58 kg</div>
+          <div class="ex-cues-group">
+            <button type="button" class="btn-tip-cue cue-execucao" onclick="event.stopPropagation(); openTip('Portagem com Volante Feminina (~58 kg)', '• Use o timing e o momento pendular da parceira para as transições em vez de força bruta com os ombros fadigados.\n• Foco em fluidez, respiração coordenada e conexão de peso.\n• Figuras sugeridas: L-Base, Trono, Pés nas Mãos e Transições de Solo.', '🔧 Execução')">🔧 Execução</button>
+          </div>
         </div>
-        <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-execucao" onclick="openTip('Portagem com Volante Feminina (~58 kg)', '• Use o timing e o momento pendular da parceira para as transições em vez de força bruta com os ombros fadigados.\n• Foco em fluidez, respiração coordenada e conexão de peso.\n• Figuras sugeridas: L-Base, Trono, Pés nas Mãos e Transições de Solo.', '🔧 Execução')">🔧 Execução</button>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">Volante 58 kg • ~90 min</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Parte 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Parte 2</div>
+          </div>
         </div>
-        <div class="ex-actions">
-          <button class="btn-comment" id="btn-comment-ex-ter-acro" onclick="toggleCommentBox('ex-ter-acro')">
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-ter-acro" onclick="event.stopPropagation(); toggleCommentBox('ex-ter-acro')">
             <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
-            <span>Anotações do Acroduo</span>
+            <span>Comentários</span>
             <span class="comment-dot" id="dot-ex-ter-acro" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-ter-acro" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas anotações (figuras executadas, resposta articular, fluidez):</span>
+            <span>👤 Comentários do Acroduo (figuras executadas, resposta articular, fluidez):</span>
             <span class="save-indicator" id="save-status-ex-ter-acro"></span>
           </div>
           <textarea class="comment-textarea" id="note-ex-ter-acro" placeholder="Ex: L-base fluiu super bem, ombros responderam sem dor usando stacking..." oninput="saveExerciseNote('ex-ter-acro', this.value)"></textarea>
@@ -3387,28 +3478,30 @@
 
       <!-- Ex ter-5: Straight Bar Dips + Lat Pushdown -->
       <div class="exercise-card">
-        <div class="ex-top">
+        <div class="ex-header-row">
           <div class="ex-title">Dips na Barra + Puxada no Elástico</div>
+          <div class="ex-cues-group">
+            <button type="button" class="btn-tip-cue cue-execucao" onclick="event.stopPropagation(); openTip('Dips na Barra & Puxada no Elástico', '• Straight Bar Dips (4 a 6 reps): Em cima da barra reta (com pés apoiados se necessário para a amiga), descer com o peito tocando a barra e cotovelos fechados, empurrando até a extensão completa. Constrói a força do tríceps e peitoral menor na saída da transição.\n\n• Straight-Arm Pushdown (10 reps): Elástico amarrado no alto, segurar com braços esticados e abaixar até as coxas sem dobrar os cotovelos. Isola o grande dorsal e a cabeça longa do tríceps.', '🔧 Execução')">🔧 Execução</button>
+          </div>
+        </div>
+        <div class="ex-volume-sets-row">
           <div class="ex-volume-badge">3 séries • 4-6 dips + 10 pushdowns</div>
-        </div>
-        <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-execucao" onclick="openTip('Dips na Barra & Puxada no Elástico', '• Straight Bar Dips (4 a 6 reps): Em cima da barra reta (com pés apoiados se necessário para a amiga), descer com o peito tocando a barra e cotovelos fechados, empurrando até a extensão completa. Constrói a força do tríceps e peitoral menor na saída da transição.\n\n• Straight-Arm Pushdown (10 reps): Elástico amarrado no alto, segurar com braços esticados e abaixar até as coxas sem dobrar os cotovelos. Isola o grande dorsal e a cabeça longa do tríceps.', '🔧 Execução')">🔧 Execução</button>
-        </div>
-        <div class="ex-actions">
-          <button class="btn-comment" id="btn-comment-ex-ter-5" onclick="toggleCommentBox('ex-ter-5')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
-            <span>Nota</span>
-            <span class="comment-dot" id="dot-ex-ter-5" style="display:none;"></span>
-          </button>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
           </div>
         </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-ter-5" onclick="event.stopPropagation(); toggleCommentBox('ex-ter-5')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span>Comentários</span>
+            <span class="comment-dot" id="dot-ex-ter-5" style="display:none;"></span>
+          </button>
+        </div>
         <div id="comment-box-ex-ter-5" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas anotações (desempenho nos dips e elástico):</span>
+            <span>👤 Comentários sobre os dips e elástico:</span>
             <span class="save-indicator" id="save-status-ex-ter-5"></span>
           </div>
           <textarea class="comment-textarea" id="note-ex-ter-5" placeholder="Ex: Dips limpos na barra reta, tríceps bem ativado sem dor anterior..." oninput="saveExerciseNote('ex-ter-5', this.value)"></textarea>
@@ -3417,27 +3510,29 @@
 
       <!-- Ex ter-6: Descompressão Final -->
       <div class="exercise-card">
-        <div class="ex-top">
+        <div class="ex-header-row">
           <div class="ex-title">Descompressão Articular & Alongamento</div>
+          <div class="ex-cues-group">
+            <button type="button" class="btn-tip-cue cue-execucao" onclick="event.stopPropagation(); openTip('Descompressão Meniscal & Ombro', '1. Ombro: Suspensão passiva na barra com pontas dos pés no solo tirando 30% do peso. A gravidade abre o túnel subacromial, descomprimindo o tendão do supraespinhal.\n\n2. Joelho Esquerdo: Alongamento de bíceps femoral e fáscia lata com rotação interna da tíbia, liberando a tração na cabeça da fíbula e descomprimindo o menisco lateral.', '🔧 Execução')">🔧 Execução</button>
+          </div>
+        </div>
+        <div class="ex-volume-sets-row">
           <div class="ex-volume-badge">2x 45s cada</div>
-        </div>
-        <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-execucao" onclick="openTip('Descompressão Meniscal & Ombro', '1. Ombro: Suspensão passiva na barra com pontas dos pés no solo tirando 30% do peso. A gravidade abre o túnel subacromial, descomprimindo o tendão do supraespinhal.\n\n2. Joelho Esquerdo: Alongamento de bíceps femoral e fáscia lata com rotação interna da tíbia, liberando a tração na cabeça da fíbula e descomprimindo o menisco lateral.', '🔧 Execução')">🔧 Execução</button>
-        </div>
-        <div class="ex-actions">
-          <button class="btn-comment" id="btn-comment-ex-ter-6" onclick="toggleCommentBox('ex-ter-6')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
-            <span>Nota</span>
-            <span class="comment-dot" id="dot-ex-ter-6" style="display:none;"></span>
-          </button>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
           </div>
         </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-ter-6" onclick="event.stopPropagation(); toggleCommentBox('ex-ter-6')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span>Comentários</span>
+            <span class="comment-dot" id="dot-ex-ter-6" style="display:none;"></span>
+          </button>
+        </div>
         <div id="comment-box-ex-ter-6" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas anotações (sensações finais no ombro e joelho):</span>
+            <span>👤 Comentários finais (sensações no ombro e joelho):</span>
             <span class="save-indicator" id="save-status-ex-ter-6"></span>
           </div>
           <textarea class="comment-textarea" id="note-ex-ter-6" placeholder="Ex: Ombro e joelho 100% aliviados..." oninput="saveExerciseNote('ex-ter-6', this.value)"></textarea>
@@ -5454,13 +5549,13 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '43';
+    const APP_BUILD_VERSION = '44';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
         caches.keys().then((keys) => {
           keys.forEach((k) => {
-            if (k !== 'dominio-corporal-v43') caches.delete(k);
+            if (k !== 'dominio-corporal-v44') caches.delete(k);
           });
         });
       }
@@ -6766,7 +6861,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=43').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=44').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
@@ -6774,84 +6869,87 @@
         window.location.reload();
       });
     }
-        /* Funções do Popover Flutuante: 💡 Dica | 🔧 Execução | 🛡️ Cuidados | ⚠️ Importante */
+            /* Funções do Popover Flutuante: 💡 Dica | 🔧 Execução | 🛡️ Cuidados | ⚠️ Importante */
     let tipPopoverOpenTime = 0;
 
-    function openTip(title, contentText, category = '💡 Dica') {
+    window.openTip = function(title, contentText, category = '💡 Dica') {
       const overlay = document.getElementById('tipPopoverOverlay');
-      const tagEl = document.querySelector('.tip-popover-tag');
+      if (!overlay) {
+        console.error('tipPopoverOverlay element not found');
+        return;
+      }
+
+      const tagEl = overlay.querySelector('.tip-popover-tag');
       const titleEl = document.getElementById('tipPopoverTitle');
       const contentEl = document.getElementById('tipPopoverContent');
-      const cardEl = document.querySelector('.tip-popover-card');
-      const okBtn = document.querySelector('.tip-popover-ok');
+      const cardEl = overlay.querySelector('.tip-popover-card');
+      const okBtn = overlay.querySelector('.tip-popover-ok');
 
-      if (overlay && titleEl && contentEl) {
-        tipPopoverOpenTime = Date.now();
-        titleEl.textContent = title;
-        
-        // Formata quebras de linha com espaçamento confortável
-        contentEl.innerHTML = contentText.split(/\r?\n/).map(l => {
+      tipPopoverOpenTime = Date.now();
+      if (titleEl) titleEl.textContent = title;
+      
+      if (contentEl) {
+        const text = contentText || '';
+        contentEl.innerHTML = text.split(/\r?\n/).map(l => {
           const t = l.trim();
           if (!t) return '<div style="height:6px;"></div>';
           return `<div style="margin-bottom:4px; line-height:1.55;">${t}</div>`;
         }).join('');
-
-        let tagText = '💡 DICA';
-        let tagColor = '#facc15';
-        let cardBorder = 'rgba(250, 204, 21, 0.35)';
-        let btnBg = 'rgba(250, 204, 21, 0.15)';
-        let btnBorder = 'rgba(250, 204, 21, 0.4)';
-
-        if (category.includes('Execução') || category.includes('🔧')) {
-          tagText = '🔧 EXECUÇÃO';
-          tagColor = '#38bdf8';
-          cardBorder = 'rgba(56, 189, 248, 0.35)';
-          btnBg = 'rgba(56, 189, 248, 0.15)';
-          btnBorder = 'rgba(56, 189, 248, 0.4)';
-        } else if (category.includes('Cuidado') || category.includes('🛡️')) {
-          tagText = '🛡️ CUIDADOS';
-          tagColor = '#f87171';
-          cardBorder = 'rgba(248, 113, 113, 0.38)';
-          btnBg = 'rgba(248, 113, 113, 0.15)';
-          btnBorder = 'rgba(248, 113, 113, 0.4)';
-        } else if (category.includes('Importante') || category.includes('⚠️')) {
-          tagText = '⚠️ IMPORTANTE';
-          tagColor = '#fbbf24';
-          cardBorder = 'rgba(251, 191, 36, 0.4)';
-          btnBg = 'rgba(251, 191, 36, 0.15)';
-          btnBorder = 'rgba(251, 191, 36, 0.4)';
-        }
-
-        if (tagEl) {
-          tagEl.textContent = tagText;
-          tagEl.style.color = tagColor;
-        }
-        if (cardEl) {
-          cardEl.style.borderColor = cardBorder;
-        }
-        if (okBtn) {
-          okBtn.style.color = tagColor;
-          okBtn.style.background = btnBg;
-          okBtn.style.borderColor = btnBorder;
-        }
-
-        overlay.style.display = 'flex';
       }
-    }
 
-    function closeTipPopover(event, force = false) {
+      let tagText = '💡 DICA';
+      let tagColor = '#facc15';
+      let cardBorder = 'rgba(250, 204, 21, 0.4)';
+      let btnBg = 'rgba(250, 204, 21, 0.15)';
+      let btnBorder = 'rgba(250, 204, 21, 0.4)';
+
+      if (category.includes('Execução') || category.includes('🔧')) {
+        tagText = '🔧 EXECUÇÃO';
+        tagColor = '#38bdf8';
+        cardBorder = 'rgba(56, 189, 248, 0.45)';
+        btnBg = 'rgba(56, 189, 248, 0.18)';
+        btnBorder = 'rgba(56, 189, 248, 0.45)';
+      } else if (category.includes('Cuidado') || category.includes('🛡️')) {
+        tagText = '🛡️ CUIDADOS';
+        tagColor = '#f87171';
+        cardBorder = 'rgba(248, 113, 113, 0.45)';
+        btnBg = 'rgba(248, 113, 113, 0.18)';
+        btnBorder = 'rgba(248, 113, 113, 0.45)';
+      } else if (category.includes('Importante') || category.includes('⚠️')) {
+        tagText = '⚠️ IMPORTANTE';
+        tagColor = '#fbbf24';
+        cardBorder = 'rgba(251, 191, 36, 0.45)';
+        btnBg = 'rgba(251, 191, 36, 0.18)';
+        btnBorder = 'rgba(251, 191, 36, 0.45)';
+      }
+
+      if (tagEl) { tagEl.textContent = tagText; tagEl.style.color = tagColor; }
+      if (cardEl) { cardEl.style.borderColor = cardBorder; }
+      if (okBtn) { okBtn.style.color = tagColor; okBtn.style.background = btnBg; okBtn.style.borderColor = btnBorder; }
+
+      overlay.style.setProperty('display', 'flex', 'important');
+      overlay.classList.add('active');
+    };
+
+    window.closeTipPopover = function(event, force = false) {
       if (!force && (Date.now() - tipPopoverOpenTime < 600)) {
         return;
       }
-      if (event && event.target && event.target !== event.currentTarget && !event.target.classList.contains('tip-popover-close') && !event.target.classList.contains('tip-popover-ok') && !force) {
+      if (event && event.target && event.target.closest && event.target.closest('.tip-popover-card') && !event.target.classList.contains('tip-popover-close') && !event.target.classList.contains('tip-popover-ok') && !force) {
+        return;
+      }
+      if (event && event.target && event.target.id !== 'tipPopoverOverlay' && !force) {
         return;
       }
       const overlay = document.getElementById('tipPopoverOverlay');
-      if (overlay) overlay.style.display = 'none';
-    }
+      if (overlay) {
+        overlay.style.setProperty('display', 'none', 'important');
+        overlay.classList.remove('active');
+      }
+    };
 
   </script>
-    <!-- Popover Flutuante de Dica Biomecânica / Observação Técnica -->
+      <!-- Popover Flutuante de Dica Biomecânica / Observação Técnica -->
   <div id="tipPopoverOverlay" class="tip-popover-overlay" onclick="closeTipPopover(event)" style="display:none;">
     <div class="tip-popover-card" onclick="event.stopPropagation();">
       <div class="tip-popover-header">
