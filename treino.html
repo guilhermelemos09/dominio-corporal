@@ -2578,111 +2578,84 @@
       border-color: #facc15;
     }
 
-    /* Badges de Duração / Séries / Descanso: Destaque Limpo em Maiúsculas */
-    .ex-volume-badge {
-      font-size: 0.74rem;
+        /* Título do Exercício em Caixa Alta e Negrito */
+    .ex-title {
+      font-size: 0.92rem;
       font-weight: 800;
-      letter-spacing: 0.05em;
+      color: #ffffff;
       text-transform: uppercase;
-      font-family: inherit;
-      background: rgba(255, 255, 255, 0.04);
-      color: #cbd5e1;
-      border-left: 2px solid var(--brand-neon);
-      padding: 5px 10px;
-      border-radius: 4px;
-      white-space: nowrap;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      letter-spacing: 0.02em;
     }
 
-    /* Botão de Comentários / Dúvidas Mais Explícito */
-    .btn-comment {
-      display: inline-flex;
+    /* Botão Pop-up: IMPORTANTE (LEIA ANTES DE TREINAR) */
+    .btn-important-banner {
+      display: flex;
       align-items: center;
-      gap: 6px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: #94a3b8;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px dashed rgba(255, 255, 255, 0.15);
-      padding: 6px 12px;
-      border-radius: 8px;
+      justify-content: space-between;
+      gap: 10px;
+      width: 100%;
+      background: rgba(250, 204, 21, 0.08);
+      border: 1px solid rgba(250, 204, 21, 0.35);
+      border-left: 4px solid #facc15;
+      padding: 10px 14px;
+      border-radius: 10px;
+      color: #facc15;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
       cursor: pointer;
       transition: all 0.2s ease;
       -webkit-tap-highlight-color: transparent;
-      width: 100%;
-      justify-content: flex-start;
+      user-select: none;
+      touch-action: manipulation;
     }
-    .btn-comment:hover {
-      background: rgba(255, 255, 255, 0.07);
-      color: #ffffff;
-      border-color: rgba(255, 255, 255, 0.3);
+    .btn-important-banner:hover, .btn-important-banner:active {
+      background: rgba(250, 204, 21, 0.16);
+      border-color: #facc15;
+      transform: translateY(-1px);
     }
-    .btn-comment svg {
-      width: 15px;
-      height: 15px;
-      fill: currentColor;
+    .important-icon {
+      font-size: 1.15rem;
       flex-shrink: 0;
     }
-
-    /* Card de Finalização de Treino */
-    .workout-summary-card {
-      background: #11141a;
-      border: 1px solid rgba(0, 255, 136, 0.2);
-      border-radius: 16px;
-      padding: 16px 18px;
-      margin-top: 24px;
-      margin-bottom: 20px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-    }
-    .btn-complete-workout {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      background: linear-gradient(135deg, #00ff88, #00cc6a);
-      color: #000000;
-      font-weight: 800;
-      font-size: 0.95rem;
-      padding: 12px 18px;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      box-shadow: 0 4px 16px rgba(0, 255, 136, 0.3);
-      transition: all 0.2s ease;
-    }
-    .btn-complete-workout:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(0, 255, 136, 0.45);
-    }
-    .btn-complete-workout:active {
-      transform: scale(0.98);
-    }
-    .btn-complete-workout svg {
-      width: 20px;
-      height: 20px;
-      fill: currentColor;
-    }
-    .complete-feedback-box {
-      margin-top: 12px;
-      padding: 12px;
-      background: rgba(0, 255, 136, 0.1);
-      border: 1px solid rgba(0, 255, 136, 0.3);
-      border-radius: 10px;
-      font-size: 0.84rem;
-      font-weight: 700;
-      color: #00ff88;
-      text-align: center;
+    .important-arrow {
+      font-size: 1.25rem;
+      opacity: 0.85;
+      margin-left: auto;
     }
 
-    /* Padding extra inferior para o Dock flutuante */
-    .tab-content {
-      padding-bottom: 120px;
+    /* Relógio de Duração sem Frame (Apenas Texto Limpo com Ícone) */
+    .meta-chip, .meta-chip-time, .meta-chip-loc, .session-meta-chips span {
+      background: none !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      font-size: 0.8rem !important;
+      font-weight: 600 !important;
+      color: #94a3b8 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 4px !important;
     }
 
-    /* Dock Flutuante 2 em 1: Barra de Progresso + Botões de Descanso */
+    /* Séries / Repetições / Descanso: Sem Amarelinho, Sem Frames, Apenas Caixa Alta e Negrito */
+    .ex-volume-badge {
+      font-size: 0.78rem !important;
+      font-weight: 800 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.04em !important;
+      color: #e2e8f0 !important;
+      background: none !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      white-space: nowrap !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 4px !important;
+    }
+
+    /* Dock Flutuante 2 em 1: Barra de Progresso Ampliada (Verde e Cinza) + Descanso */
     .timer-dock {
       position: fixed;
       bottom: 14px;
@@ -2695,10 +2668,10 @@
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 20px;
-      padding: 8px 14px 10px;
+      padding: 10px 16px 12px;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 8px;
       box-shadow: 0 16px 36px rgba(0, 0, 0, 0.75);
       z-index: 1000;
       transition: transform 0.25s ease, opacity 0.25s ease;
@@ -2706,30 +2679,36 @@
     .dock-progress-row {
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 5px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
     .dock-progress-labels {
       display: flex;
       justify-content: space-between;
-      font-size: 0.65rem;
-      font-weight: 700;
+      font-size: 0.74rem;
+      font-weight: 800;
       color: #94a3b8;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
+    .dock-progress-labels #dockProgressText {
+      color: var(--brand-neon);
+      font-weight: 800;
+    }
     .dock-progress-bar-bg {
-      background: rgba(255, 255, 255, 0.08);
-      height: 4px;
-      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.14); /* Fundo cinza visível */
+      height: 8px; /* Altura aumentada de 4px para 8px! */
+      border-radius: 6px;
       overflow: hidden;
     }
     .dock-progress-bar-fill {
-      background: var(--brand-neon);
+      background: var(--brand-neon); /* Barra verde neon */
       height: 100%;
       width: 0%;
-      border-radius: 4px;
+      border-radius: 6px;
       transition: width 0.25s ease;
-      box-shadow: 0 0 6px var(--brand-neon-glow);
+      box-shadow: 0 0 8px var(--brand-neon-glow);
     }
     .dock-timer-row {
       display: flex;
@@ -3139,16 +3118,7 @@
       </div>
     </div>
 
-    <!-- Barra de Progresso da Sessão (Destacada sob o Foco do Treino) -->
-    <div class="progress-section">
-      <div class="progress-labels">
-        <span>Progresso da Sessão</span>
-        <span class="progress-val-text">Roteiro Ativo</span>
-      </div>
-      <div class="progress-bar-bg">
-        <div class="progress-bar-fill" style="width: 100%;"></div>
-      </div>
-    </div>
+    <!-- Progresso gerenciado no dock flutuante -->
 
     <!-- ==================== SEÇÃO 1: BOX CROSSFIT ==================== -->
     <div class="section-card sec-cardio">
@@ -3364,7 +3334,7 @@
 
   </div>
 
-  <!-- ==================== TAB ATIVA: HOJE (TERÇA: BOX + LAB BMU COMPARTILHADO) ==================== -->
+    <!-- ==================== TAB ATIVA: HOJE (TERÇA: BOX + LAB BMU COMPARTILHADO) ==================== -->
   <div id="tab-terca" class="tab-content">
 
     <!-- CABEÇALHO / METADADOS GERAIS: LOCAL E DURAÇÃO TOTAL -->
@@ -3384,26 +3354,13 @@
       </div>
     </div>
 
-    <!-- QUADRO DE IMPORTANTE & CUIDADOS ARTICULARES (Amarelo, Texto Corrido) -->
-    <div class="callout-box" style="border-left: 3px solid #facc15; padding: 10px 12px; margin-bottom: 12px; background: rgba(250, 204, 21, 0.05);">
-      <div class="callout-icon" style="font-size:1.1rem; margin-top:1px;">⚠️</div>
-      <div>
-        <div class="callout-topic-header" style="color: #facc15;">IMPORTANTE & CUIDADOS ARTICULARES</div>
-        <div style="font-size: 0.82rem; line-height: 1.5; color: #fef08a;">
-          Poupar tríceps no supino do Box (RIR 3-4) • Step-down obrigatório no caixote (blindagem meniscal e aquiles) • Sem chicken-wing no BMU (resguardo do ombro operado) • Bone stacking total e bases deitadas (L-base) no Acroduo.
-        </div>
-      </div>
-    </div>
-
-    <!-- Barra de Progresso da Sessão (Padrão de Segunda) -->
-    <div class="progress-section">
-      <div class="progress-labels">
-        <span>Progresso da Sessão</span>
-        <span class="progress-val-text" id="sessionProgressVal-terca">0 / 20 séries (0%)</span>
-      </div>
-      <div class="progress-bar-bg">
-        <div class="progress-bar-fill" id="sessionProgressBar-terca" style="width: 0%;"></div>
-      </div>
+    <!-- BOTÃO POP-UP: IMPORTANTE (LEIA ANTES DE TREINAR) -->
+    <div style="margin-bottom: 14px;">
+      <button type="button" class="btn-important-banner" onclick="openTip('Orientações e Cuidados Articulares', '• Box CrossFit: Poupar tríceps no supino (RIR 3-4) para não fadigar o BMU.\n• Caixote: Step-down obrigatório ao descer (blindagem do menisco lateral e tendão de Aquiles).\n• Bar Muscle-Up: Sem puxão assimétrico ou chicken-wing para preservar o ombro direito operado.\n• Acroduo (17h): Bone stacking total nos braços e privilegiar bases deitadas (L-base) para poupar pernas e menisco.', '⚠️ Importante')">
+        <span class="important-icon">⚠️</span>
+        <span>IMPORTANTE (LEIA ANTES DE TREINAR)</span>
+        <span class="important-arrow">›</span>
+      </button>
     </div>
 
     <!-- ==================== SEÇÃO 1: BOX CROSSFIT ==================== -->
@@ -3421,7 +3378,7 @@
         <div class="wod-list-container">
           <!-- Bloco 1: Warm Up -->
           <div class="wod-list-block">
-            <div class="wod-block-badge">1. Warm Up (2 Rounds)</div>
+            <div class="wod-block-badge">1. WARM UP (2 ROUNDS)</div>
             <ul class="wod-block-items">
               <li>10 Floor Press (chão)</li>
               <li>5 Thrusters (barra leve)</li>
@@ -3433,16 +3390,16 @@
           <!-- Bloco 2: Skill For Quality -->
           <div class="wod-list-block">
             <div class="wod-block-badge">
-              <span>2. Skill: For Quality (4 Rounds — TC 15' @ Autoregulação)</span>
+              <span>2. SKILL: FOR QUALITY (4 ROUNDS — TC 15' @ AUTOREGULAÇÃO)</span>
             </div>
             <ul class="wod-block-items">
               <li>
-                <strong>10 Bench Press</strong> (Supino reto)
+                <strong>10 BENCH PRESS</strong> (Supino reto)
                 <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Bench Press — Autoregulação', '• Carga: Moderada/leve (RIR 3-4).\n• Mecânica: Escápulas retraídas e deprimidas.\n• Objetivo: Preservar unidades motoras do tríceps para o BMU.', '🔧 Instruções')">🔧 Instruções</button>
               </li>
-              <li><strong>10 Push-up</strong> (Flexão de braço cadenciada)</li>
+              <li><strong>10 PUSH-UP</strong> (Flexão de braço cadenciada)</li>
               <li>
-                <strong>10 Z-Press</strong> (Sentado no solo com pernas em L)
+                <strong>10 Z-PRESS</strong> (Sentado no solo com pernas em L)
                 <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Z-Press — Estabilidade do Core', '• Postura: Pernas estendidas no solo, pelve neutra.\n• Bloqueio: Empurrar vertical puro sem hiperextensão lombar.', '🔧 Instruções')">🔧 Instruções</button>
               </li>
             </ul>
@@ -3451,21 +3408,21 @@
           <!-- Bloco 3: WOD -->
           <div class="wod-list-block">
             <div class="wod-block-badge">
-              <span>3. WOD (Time Cap 20' • Carga: 40/29 kg)</span>
+              <span>3. WOD (TIME CAP 20' • CARGA: 40/29 KG)</span>
             </div>
             <ul class="wod-block-items">
               <li>50 Abmat Sit-ups</li>
               <li>
-                <strong>40 Box Jump Over</strong>
+                <strong>40 BOX JUMP OVER</strong>
                 <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Box Jump Over — Blindagem Meniscal & Aquiles', '• Descida: Faça STEP-DOWN obrigatório (descer pisando um pé por vez).\n• Proibido: Jamais descer saltando de costas ou aterrissar em torção/rotação no caixote.\n• Joelhos: Manter no plano sagital estrito (sem valgo dinâmico).', '🛡️ Cuidados')">🛡️ Cuidados</button>
               </li>
-              <li><strong>30 Power Snatch</strong> (40 kg — quebrar em 5 ou 10 com quadril dominante)</li>
+              <li><strong>30 POWER SNATCH</strong> (40 kg — quebrar em 5 ou 10 com quadril dominante)</li>
               <li>
-                <strong>20 Thruster</strong> (40 kg)
+                <strong>20 THRUSTER</strong> (40 kg)
                 <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Thrusters — Gestão Articular', '• Profundidade: Coxas paralelas ao solo (90°).\n• Não desabe passivamente na flexão profunda para não comprimir o menisco lesionado.', '🛡️ Cuidados')">🛡️ Cuidados</button>
               </li>
-              <li><strong>30 Power Snatch</strong> (40 kg)</li>
-              <li><strong>40 Box Jump Over</strong> (manter step-down)</li>
+              <li><strong>30 POWER SNATCH</strong> (40 kg)</li>
+              <li><strong>40 BOX JUMP OVER</strong> (manter step-down)</li>
               <li>50 Abmat Sit-ups</li>
             </ul>
           </div>
@@ -3502,7 +3459,7 @@
       <!-- Ex ter-1: Reset Escapular -->
       <div class="exercise-card">
         <div class="ex-header-row">
-          <div class="ex-title">Reset Escapular & Aquecimento</div>
+          <div class="ex-title">RESET ESCAPULAR & AQUECIMENTO</div>
           <div class="ex-cues-group">
             <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Reset Escapular — Abertura Glenoumeral', '• Tracionar o braço com a superband alta inclinando o tronco à frente.\n• Respirar fundo para abrir a cápsula glenoumeral e soltar a hipertonia do peitoral menor antes de iniciar as puxadas.', '🔧 Instruções')">🔧 Instruções</button>
           </div>
@@ -3533,7 +3490,7 @@
       <!-- Ex ter-2: Strict Bar Muscle-Up -->
       <div class="exercise-card">
         <div class="ex-header-row">
-          <div class="ex-title">Strict Bar Muscle-Up (Gui Lemos)</div>
+          <div class="ex-title">STRICT BAR MUSCLE-UP (GUI LEMOS)</div>
           <div class="ex-cues-group">
             <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Strict BMU — Puxada Estrita & Alinhamento', '1. Corpo Estendido em Hollow: Pés unidos à frente, glúteos e abdômen contraídos. Não dobre os joelhos e não quebre a lombar para trás.\n\n2. Puxada Alta ao Esterno: Puxe a barra o mais alto possível em direção ao abdômen superior/esterno, com punhos em rolamento suave.\n\n3. Turnover Sincronizado: Gire os dois cotovelos estritamente no mesmo milissegundo por cima da barra com o peito à frente.\n\n4. Descanso: 2 a 3 minutos completos entre cada série para recomposição de ATP-CP neural.', '🔧 Instruções')">🔧 Instruções</button>
             <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Strict BMU — Proteção Articular', '• Se houver qualquer assimetria ou puxão isolado (chicken-wing), interrompa a repetição imediatamente para resguardar o ombro direito.\n\n• Mantenha o elástico sob tensão estável na descida excêntrica.', '🛡️ Cuidados')">🛡️ Cuidados</button>
@@ -3572,7 +3529,7 @@
       <!-- Ex ter-3: Transição na Barra Baixa -->
       <div class="exercise-card">
         <div class="ex-header-row">
-          <div class="ex-title">Transição na Barra Baixa (Aluna)</div>
+          <div class="ex-title">TRANSIÇÃO NA BARRA BAIXA (ALUNA)</div>
           <div class="ex-cues-group">
             <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Transição na Barra Baixa — Destrave do BMU', '• O Gargalo Real: Alunas que estão quase tirando o BMU geralmente travam no turnover por medo de bater na barra ou por girar a pegada tarde demais.\n\n• Montagem: Barra baixa (altura do diafragma) com elástico horizontal ou sob os pés.\n\n• Gatilho Neural: No topo da puxada, focar em rolar os nós dos dedos para cima da barra (knuckles over) e projetar o peito para frente no mergulho.', '🔧 Instruções')">🔧 Instruções</button>
             <button type="button" class="btn-tip-cue cue-dicas" onclick="openTip('Dica Pedagógica — Giro dos Punhos', '• Oriente a aluna a olhar ligeiramente por cima da barra e iniciar a virada do punho assim que o esterno atingir o plano da barra.', '💡 Dicas')">💡 Dicas</button>
@@ -3606,7 +3563,7 @@
       <!-- Ex ter-4: Barra Alta com Spot -->
       <div class="exercise-card">
         <div class="ex-header-row">
-          <div class="ex-title">Barra Alta com Spot (Aluna)</div>
+          <div class="ex-title">BARRA ALTA COM SPOT (ALUNA)</div>
           <div class="ex-cues-group">
             <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Spot Biomecânico na Barra Alta (Gui Lemos)', '• Posicione-se ligeiramente atrás e ao lado dela.\n• Ela executa o swing e a puxada alta do kip normal.\n• No ápice da subida (quando os pés começam a descer), suas mãos entram na região sacral/lombar dela.\n• Aplique força diagonal: para cima e para frente, vencendo os 10-15% finais de inércia para ela realizar o snap do peito e o giro dos punhos.', '🔧 Instruções')">🔧 Instruções</button>
           </div>
@@ -3650,7 +3607,7 @@
 
       <div class="exercise-card">
         <div class="ex-header-row">
-          <div class="ex-title">Portagem & Fluxo Acrobático</div>
+          <div class="ex-title">PORTAGEM & FLUXO ACROBÁTICO</div>
           <div class="ex-cues-group">
             <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Portagem com Volante Feminina (~58 kg)', '• Use o timing e o momento pendular da parceira para as transições em vez de força bruta com os ombros fadigados.\n• Foco em fluidez, respiração coordenada e conexão de peso.\n• Figuras sugeridas: L-Base, Trono, Pés nas Mãos e Transições de Solo.', '🔧 Instruções')">🔧 Instruções</button>
             <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Acroduo — Blindagem Meniscal', '• Privilegie bases deitadas (L-base) para poupar pernas e menisco.\n• Em bases em pé, mantenha joelhos destravados e centro de massa sobre os calcanhares.', '🛡️ Cuidados')">🛡️ Cuidados</button>
@@ -3695,7 +3652,7 @@
       <!-- Ex ter-5: Straight Bar Dips + Lat Pushdown -->
       <div class="exercise-card">
         <div class="ex-header-row">
-          <div class="ex-title">Dips na Barra + Puxada no Elástico</div>
+          <div class="ex-title">DIPS NA BARRA + PUXADA NO ELÁSTICO</div>
           <div class="ex-cues-group">
             <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Dips na Barra & Puxada no Elástico', '• Straight Bar Dips (4 a 6 reps): Em cima da barra reta (com pés apoiados se necessário para a amiga), descer com o peito tocando a barra e cotovelos fechados, empurrando até a extensão completa. Constrói a força do tríceps e peitoral menor na saída da transição.\n\n• Straight-Arm Pushdown (10 reps): Elástico amarrado no alto, segurar com braços esticados e abaixar até as coxas sem dobrar os cotovelos. Isola o grande dorsal e a cabeça longa do tríceps.', '🔧 Instruções')">🔧 Instruções</button>
           </div>
@@ -3727,7 +3684,7 @@
       <!-- Ex ter-6: Descompressão Final -->
       <div class="exercise-card">
         <div class="ex-header-row">
-          <div class="ex-title">Descompressão Articular & Alongamento</div>
+          <div class="ex-title">DESCOMPRESSÃO ARTICULAR & ALONGAMENTO</div>
           <div class="ex-cues-group">
             <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Descompressão Meniscal & Ombro', '1. Ombro: Suspensão passiva na barra com pontas dos pés no solo tirando 30% do peso. A gravidade abre o túnel subacromial, descomprimindo o tendão do supraespinhal.\n\n2. Joelho Esquerdo: Alongamento de bíceps femoral e fáscia lata com rotação interna da tíbia, liberando a tração na cabeça da fíbula e descomprimindo o menisco lateral.', '🔧 Instruções')">🔧 Instruções</button>
           </div>
@@ -5799,13 +5756,13 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '48';
+    const APP_BUILD_VERSION = '49';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
         caches.keys().then((keys) => {
           keys.forEach((k) => {
-            if (k !== 'dominio-corporal-v48') caches.delete(k);
+            if (k !== 'dominio-corporal-v49') caches.delete(k);
           });
         });
       }
@@ -7175,7 +7132,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=48').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=49').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
