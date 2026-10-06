@@ -914,7 +914,7 @@
       gap: 8px;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border-subtle);
-      padding: 4px 12px 4px 6px;
+      padding: 5px 14px 5px 8px;
       border-radius: 24px;
       cursor: pointer;
       text-decoration: none;
@@ -924,10 +924,8 @@
       -webkit-tap-highlight-color: transparent;
       user-select: none;
       -webkit-user-select: none;
+      touch-action: manipulation;
       transition: all 0.2s ease;
-    }
-    .coach-profile-btn * {
-      pointer-events: none;
     }
     .coach-profile-btn:hover, .coach-profile-btn:active {
       border-color: var(--brand-neon);
@@ -2624,15 +2622,11 @@
 
   <!-- Header Domínio Corporal (Preto OLED & Verde Neon) -->
   <header id="mainAppHeader">
-    <div class="brand-top">
+    <div class="brand-top" style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
       <button type="button" id="btnCoachBio" class="coach-profile-btn" onclick="openBioModal(event)" aria-label="Abrir Perfil e Biografia de Gui Lemos">
         <img src="gui_foto.jpg" onerror="this.onerror=null; this.src='icon-192.png';" alt="Domínio Corporal" class="coach-avatar">
         <span class="coach-name">GUI LEMOS</span>
         <span class="bio-badge">Bio ↗</span>
-      </button>
-      <button type="button" class="btn-refresh-app" onclick="forceAppRefresh()" title="Atualizar dados e limpar cache do app" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(0,255,136,0.3); color: var(--brand-neon); font-size: 0.68rem; font-weight: 800; padding: 5px 11px; border-radius: 20px; display: inline-flex; align-items: center; gap: 5px; cursor: pointer; -webkit-tap-highlight-color: transparent;">
-        <svg style="width:12px; height:12px; fill:currentColor;" viewBox="0 0 24 24"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
-        <span>Atualizar v38</span>
       </button>
     </div>
     <div class="brand">
@@ -2712,8 +2706,8 @@
               <span class="day-name">TERÇA</span>
               <span class="day-today-badge" id="todayBadge-terca" style="display:none;">Hoje</span>
             </div>
-            <div class="day-focus-desc">Box + Lab BMU com Aluna • Empurrar & Potência Gímnica</div>
-            <div class="day-meta-pill">📍 Box CrossFit • ⏱️ ~75 min</div>
+            <div class="day-focus-desc">Box + BMU + Acroduo 17h • Triplo Estímulo & Gestão Tática</div>
+            <div class="day-meta-pill">📍 Box + Ginásio • ⏱️ Box + 17h Acroduo</div>
           </div>
           <div class="day-card-right">
             <div class="day-status-pill status-pending" id="statusPill-terca">
@@ -3029,9 +3023,9 @@
     <div class="callout-box" style="border-left: 3px solid var(--accent-gold); padding: 12px 14px; margin-bottom: 12px;">
       <div class="callout-icon" style="font-size:1.15rem; margin-top:1px;">⚡</div>
       <div>
-        <div class="callout-topic-header" style="color: var(--accent-gold);">FOCO DO TREINO: BOX CROSSFIT + LAB BAR MUSCLE-UP</div>
+        <div class="callout-topic-header" style="color: var(--accent-gold);">FOCO DO TREINO: TRIPLO ESTÍMULO (BOX + BMU + ACRODUO 17H)</div>
         <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
-          Sessão no Box (Skill 120 reps empurrar @ autoregulação + WOD Metcon 20') seguida do Laboratório de BMU compartilhado com a aluna/amiga e descompressão articular.
+          Box CrossFit (Skill empurrar + WOD) ➔ Lab BMU (foco 90% pedagógico na aluna) ➔ 17h Acroduo com volante feminina (~58 kg). Gestão estrita de energia, economia nos ombros e stacking articular!
         </div>
       </div>
     </div>
@@ -3325,7 +3319,59 @@
       </div>
     </div>
 
-    <!-- SEÇÃO 3: ACESSÓRIOS & DESCOMPRESSÃO -->
+    <!-- ==================== SEÇÃO 3: ACRODUO & DANÇA ACROBÁTICA (17h00 às 18h30) ==================== -->
+    <div class="section-card sec-skills">
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+        <div class="section-title-wrap">
+          <div class="section-title" style="font-size:0.95rem; font-weight:800; color:#fff;">Acroduo & Fluxo Acrobático (17h)</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-loc">📍 Sala de Dança / Tatame</span>
+          <span class="meta-chip meta-chip-time">⏱️ 17h–18h30 (~90 min)</span>
+        </div>
+      </div>
+
+      <div class="bio-cue" style="border-left: 2px solid var(--brand-neon); margin-bottom: 14px;">
+        <strong>🎪 Blindagem Biomecânica da Portagem pós-CrossFit:</strong><br>
+        • <strong>Bone Stacking Obrigatório:</strong> Cotovelos 100% estendidos nas sustentações para anular torque fletor no tríceps fadigado da Skill.<br>
+        • <strong>Privilegiar L-Base:</strong> Bases deitadas transmitem carga diretamente pela pelve ao chão, poupando a musculatura paravertebral e pernas.<br>
+        • <strong>Menisco Lateral:</strong> Em bases em pé, tíbias rigorosamente verticais. Vetado bases de pivô com torção do pé esquerdo no chão.
+      </div>
+
+      <div class="exercise-card">
+        <div class="ex-top">
+          <div>
+            <div class="ex-title">Portagem Dinâmica & Dança com Volante Feminina (~58 kg)</div>
+            <div class="ex-chips">
+              <span class="chip">Volante 58 kg</span>
+              <span class="chip">Transições de Fluxo</span>
+              <span class="chip">L-Base / Trono / Pés nas Mãos</span>
+              <span class="chip">Empilhamento Ósseo</span>
+            </div>
+          </div>
+          <div class="ex-volume-badge">Fluxo Contínuo</div>
+        </div>
+        <div class="bio-cue">
+          <strong>Diretrizes Técnicas:</strong> Use o timing e o momento pendular da parceira para as transições em vez de força bruta com os ombros fadigados. Foco em fluidez, respiração coordenada e conexão de peso.
+        </div>
+        <div class="ex-actions">
+          <button class="btn-comment" id="btn-comment-ex-ter-acro" onclick="toggleCommentBox('ex-ter-acro')">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span>Anotações do Acroduo</span>
+            <span class="comment-dot" id="dot-ex-ter-acro" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-ter-acro" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (figuras executadas, resposta articular, fluidez):</span>
+            <span class="save-indicator" id="save-status-ex-ter-acro"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-ter-acro" placeholder="Ex: L-base fluiu super bem, ombros responderam sem dor usando stacking..." oninput="saveExerciseNote('ex-ter-acro', this.value)"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SEÇÃO 4: ACESSÓRIOS & DESCOMPRESSÃO ==================== -->
     <div class="section-card sec-flexibilidade">
       <div class="section-header">
         <div class="section-title-wrap">
@@ -5316,7 +5362,7 @@
             <span style="font-size:0.72rem; color:var(--brand-neon); font-weight:600;">@guilemos_dominiocorporal</span>
           </div>
         </div>
-        <button class="btn-close" onclick="closeBioModal(event)">&times;</button>
+        <button class="btn-close" type="button" onclick="closeBioModal(event, true)" aria-label="Fechar">&times;</button>
       </div>
       <div class="modal-body" style="padding: 20px;">
         <div style="text-align: center; margin-bottom: 16px;">
@@ -5343,8 +5389,15 @@
           <svg style="width:18px; height:18px; fill:currentColor;" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
           Siga no Instagram @guilemos_dominiocorporal
         </a>
-        <div style="text-align:center; margin-top:14px;">
-          <button type="button" onclick="localStorage.removeItem('dominio_assessment_completed'); alert('Bloqueio reativado para testes! Ao recarregar, o pop-up de avaliação aparecerá.');" style="background:transparent; border:none; color:rgba(255,255,255,0.22); font-size:0.68rem; cursor:pointer;">[Resetar bloqueio da ficha para testes]</button>
+
+        <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
+          <button type="button" class="btn-primary" onclick="closeBioModal(event, true)" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); color: #fff; font-weight: 700; padding: 10px; border-radius: 12px; font-size: 0.85rem; cursor: pointer; width: 100%;">
+            Fechar Perfil
+          </button>
+          <button type="button" onclick="forceAppRefresh()" style="background: transparent; border: 1px dashed rgba(0,255,136,0.3); color: var(--brand-neon); font-size: 0.72rem; padding: 8px 12px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;">
+            <svg style="width:12px; height:12px; fill:currentColor;" viewBox="0 0 24 24"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+            <span>Sincronizar Dados / Atualizar App (v39)</span>
+          </button>
         </div>
       </div>
     </div>
@@ -5381,13 +5434,13 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '38';
+    const APP_BUILD_VERSION = '39';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
         caches.keys().then((keys) => {
           keys.forEach((k) => {
-            if (k !== 'dominio-corporal-v38') caches.delete(k);
+            if (k !== 'dominio-corporal-v39') caches.delete(k);
           });
         });
       }
@@ -5516,7 +5569,7 @@
 
       const dayNames = {
         'segunda': 'SEGUNDA • Crossfit',
-        'terca': 'TERÇA • Box + Lab BMU',
+        'terca': 'TERÇA • Box + BMU + Acroduo',
         'quarta': 'QUARTA • Ginástica EEFERP',
         'quinta': 'QUINTA • Dança + Ginásio',
         'sexta': 'SEXTA • Portagem + Argolas (Zero Pernas)'
@@ -6559,27 +6612,27 @@
     let bioModalOpenTime = 0;
 
     function openBioModal(e) {
-      if (e && typeof e.stopPropagation === 'function') {
-        e.stopPropagation();
+      if (e) {
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+        if (typeof e.preventDefault === 'function') e.preventDefault();
       }
       const m = document.getElementById('bioModal');
       if (m) {
         bioModalOpenTime = Date.now();
         m.classList.add('active');
-        m.style.display = 'flex';
+        m.style.setProperty('display', 'flex', 'important');
       }
     }
 
-    function closeBioModal(e) {
-      // Impede fechamento instantâneo se disparado no mesmo toque/click que abriu (ghost click iOS)
-      if (Date.now() - bioModalOpenTime < 350) return;
+    function closeBioModal(e, force = false) {
+      if (!force && (Date.now() - bioModalOpenTime < 600)) return;
       if (e && typeof e.stopPropagation === 'function') {
         e.stopPropagation();
       }
       const m = document.getElementById('bioModal');
       if (m) {
         m.classList.remove('active');
-        m.style.display = 'none';
+        m.style.setProperty('display', 'none', 'important');
       }
     }
 
@@ -6588,8 +6641,10 @@
         if (e.target.id === 'videoModal') {
           closeVideoModal();
         }
-        if (e.target.id === 'bioModal' && (Date.now() - bioModalOpenTime >= 350)) {
-          closeBioModal(e);
+        if (e.target.id === 'bioModal') {
+          if (Date.now() - bioModalOpenTime >= 800) {
+            closeBioModal(e, true);
+          }
         }
       }
     }
@@ -6698,6 +6753,9 @@
     }
 
     // Inicializa contador de progresso, labels calibrados e notas salvas
+    if (localStorage.getItem('dominio_assessment_completed') === null) {
+      localStorage.setItem('dominio_assessment_completed', 'true');
+    }
     renderTrainingHubDays();
     updateProgress();
     loadAllNotes();
@@ -6714,7 +6772,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=38').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=39').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });

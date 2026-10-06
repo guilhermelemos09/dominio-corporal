@@ -1,13 +1,13 @@
 # Planejamento Semanal de Treino: Gui
 **Semana Atual:** 05/10/2026 a 11/10/2026  
-**Status Atual:** Terça-feira (06/10/2026) — ⚡ Box CrossFit (Warm-up + Skill 4 Rds Bench/Push-up/Z-press + WOD 20' Abmat/Box Jump/Snatch/Thruster) + Laboratório de Bar Muscle-Up com a Amiga/Aluna.
+**Status Atual:** Terça-feira (06/10/2026) — ⚡ Triplo Estímulo: Box CrossFit (Warm-up + Skill 4 Rds Bench/Push-up/Z-press + WOD 20') + Lab BMU com Aluna + 🎪 Acroduo das 17h às 18h30 (Volante ~58 kg).
 
 ---
 
 ## Estrutura Atualizada do Microciclo (05/10 a 11/10/2026)
 
 * **Segunda (05/10 - Concluído):** Box CrossFit (EMOM 12' Butterfly/Strict + Triplo AMRAP Wall Ball / DB Snatch / Clean & Jerk / Thrusters) + Descompressão.
-* **Terça (06/10 - HOJE):** Box CrossFit (Skill 4 Rds Bench/Push-up/Z-press @ autoregulação + WOD 20' Abmat/Box Jump Over/Snatch/Thruster) + **Laboratório de Bar Muscle-Up com a Amiga/Aluna** + Descompressão Articular.
+* **Terça (06/10 - HOJE):** ⚡ **Triplo Estímulo Tático:** Box CrossFit (Skill 120 reps empurrar @ autoregulação + WOD 20') ➔ **Laboratório de Bar Muscle-Up (Gui como Coach/Spotter + micro-séries leves)** ➔ **17h às 18h30: Acroduo com Volante Feminina (~58 kg: fluxo dinâmico & dança acrobática)** + Descompressão Articular.
 * **Quarta (07/10 - AMANHÃ, 17h às 19h):** Ginásio EEFERP (2h) — **Estrutura Completa de Ginástica Artística/Acrobática** (Ativação articular/escapular/meniscal + Habilidades de Parada de Mãos/Manjota/Press + Força Estrita/Front Lever/Resgate Aquiles + Mobilidade torácica/ombros). *Sem cardio (potência e capacidade de trabalho já estressadas no Box).*
 * **Quinta (08/10):** Dança Contemporânea na EEFERP + 1h Ginásio (Aperfeiçoamento de *Floorwork*/Giros no tatame ou Natação regenerativa soltura).
 * **Sexta (09/10):** Portagem de Força com Amigo (volante ~63 kg, bases em alinhamento de *bone stacking*) + 1h Ginástica no Ginásio (Argolas: RTO Support, RMU, Candle Kip, Felge to support) + **ZERO TREINO DE PERNAS** (Blindagem total para a viagem ao festival no fim de semana).
@@ -15,17 +15,16 @@
 
 ---
 
-# Planejamento & Biomecânica de Hoje: Terça-feira (06/10/2026) — Box + Lab BMU
+# Planejamento & Biomecânica de Hoje: Terça-feira (06/10/2026) — Triplo Estímulo
 
 > [!WARNING]
-> **ANÁLISE DE INTERFERÊNCIA NEUROMUSCULAR & ALERTA DE FADIGA:**
-> 1. **Volume Massivo de Empurrar na Skill:** 4 rounds de 10 Bench Press + 10 Push-up + 10 Z-Press = **120 repetições de empurrar** (horizontal e vertical). Isso gera acidose e depleção de fosfocreatina acentuada em tríceps braquial e deltoide anterior.
-> 2. **Impacto no BMU Posterior:** O Bar Muscle-Up exige um *turnover* dinâmico e finaliza com um **straight bar dip (mergulho)**. Se tríceps e peitoral estiverem em fadiga periférica máxima, o dip falha e a cápsula articular do ombro fica vulnerável.
-> 3. **Diretriz de Execução:** Na Skill, aplique **AUTOREGULAÇÃO REAL (RIR 3-4, RPE 6-7)**. Cargas moderadas a leves, zero falha concêntrica. Guarde os extensores de cotovelo para o laboratório de BMU!
+> **ANÁLISE DE INTERFERÊNCIA NEUROMUSCULAR & GESTÃO DO TRIPLO ESTÍMULO (BOX + BMU + ACRODUO 17H):**
+> 1. **Economia Mandatória no BMU:** Como você tem **Acroduo com a volante de 58 kg às 17h**, você **NÃO PODE** estressar seus depressores escapulares (peitoral menor, dorsal, tríceps) no pós-WOD. Seu papel no laboratório de BMU deve ser **90% pedagógico (Coach e Spotter da aluna)**. Faça no máximo 2 a 3 micro-séries com superband média para manter a via neural fresca.
+> 2. **Autoregulação na Skill do Box:** 4 rounds de 10 Supinos + 10 Push-ups + 10 Z-Press = 120 reps de empurrar. Mantenha RIR 3-4 (reps de reserva) e cargas moderadas a leves. Se você chegar com tríceps em acidose no Acroduo, perde a capacidade de estabilização articular!
+> 3. **Preservação da Pegada nos Snatches:** No WOD, não "estrangule" a barra com os flexores dos dedos. Use *hook grip* relaxado e extensão tripla violenta de quadril/glúteo para salvar o antebraço e punhos para o contato manual com a volante às 17h.
 > 4. **Blindagem do Menisco & Tendão de Aquiles no WOD:**
->    * **80 Box Jump Overs:** Step-down mandatório! Vetado aterrissar girando ou saltar de costas. Aterrissagem com joelhos alinhados no plano sagital (sem valgo).
->    * **Thrusters (40 kg):** Flexão até 90° (coxas paralelas), sem desabar passivamente na flexão profunda para não pinçar o corno posterior do menisco lateral esquerdo.
->    * **Power Snatches (40 kg):** Extensão tripla violenta de quadril/glúteos; a barra sobe pela inércia, poupando os flexores e deltoides.
+>    * **80 Box Jump Overs:** Step-down mandatório! Aterrissagens paralelas no plano sagital (sem valgo dinâmico e sem torção).
+>    * **Thrusters (40 kg):** Flexão até 90° (coxas paralelas), sem desabar na flexão profunda.
 
 ### 1. WARM UP (2 Rounds)
 * 10 Floor Press
@@ -49,7 +48,7 @@
 
 ---
 
-### 4. LABORATÓRIO DE BAR MUSCLE-UP (Pós-WOD: Gui & Amiga/Aluna)
+### 4. LABORATÓRIO DE BAR MUSCLE-UP (Pós-WOD: Gui como Coach & Amiga/Aluna)
 
 > [!IMPORTANT]
 > **Metodologia de Destrave & Lapidação Técnica:**
@@ -64,14 +63,31 @@
 >    * **Spot do Gui:** No milissegundo em que os pés atingem o ápice e começam a descer, Gui aplica vetor de força diagonal (para cima e para frente) na região sacral/lombar baixa dela.
 >    * Vence os 10-15% restantes da inércia para que ela encadeie o snap e encaixe o apoio frontal.
 > 
-> **B. Treino do Gui Lemos (Lapidação & Qualidade sem Exaustão):**
-> * Como o tríceps e deltoides já estarão estimulados pela Skill e WOD: **ZERO repetições máximas até a falha**.
-> * 3 a 4 micro-séries de 1 a 2 reps de Strict BMU na barra alta com elástico médio/leve em hollow body perfeito (corpo unificado, sem quebra lombar, cotovelos virando em sincronia milimétrica).
-> * Papel primário: Condução técnica e biomecânica do destrave da aluna!
+> **B. Treino do Gui Lemos (Economia Estratégica para o Acroduo das 17h):**
+> * **ZERO exaustão.** Foco 90% em orientar e dar o spot técnico na aluna.
+> * Se treinar, apenas 2 a 3 micro-séries de 1 a 2 reps de Strict BMU na barra alta com superband média em hollow body perfeito, sem forçar dips pesados no topo.
 
-### 5. Descompressão Articular Imediata
+---
+
+### 5. ACRODUO & DANÇA ACROBÁTICA (17h00 às 18h30 — Volante Feminina ~58 kg)
+
+> [!TIP]
+> **Diretrizes Biomecânicas para a Portagem com Fadiga Prévia:**
+> 1. **Empilhamento Ósseo Vertical (*Bone Stacking*):**
+>    * Em todas as figuras de sustentação (L-base, foot-to-hand, hand-to-hand, trono): mantenha os cotovelos 100% estendidos e travados.
+>    * O vetor de peso da volante (58 kg) deve ser transmitido axialmente pelos ossos (rádio/ulna $\to$ úmero $\to$ glenóide $\to$ coluna), **zerando qualquer momento fletor no tríceps braquial**.
+> 2. **Privilegiar L-Base e Transições Suaves de Chão:**
+>    * A base deitada (L-base) poupa a fadiga lombar e dos membros inferiores acumulada no WOD.
+>    * Nas transições em pé, use a cadência e o *timing* do impulso da volante; não tente "levantá-la no muque" usando os deltoides fadigados.
+> 3. **Blindagem do Menisco Lateral:**
+>    * Em bases de solo ou semi-agachadas, mantenha as tíbias verticais e a pelve alinhada. Vetado fazer bases de torção com o pé esquerdo fixo no tatame.
+
+---
+
+### 6. Descompressão Articular Imediata Pós-Acroduo
 * **Dead Hang Parcial (pontas dos pés no solo tirando 30% da carga):** 2x 45s (abertura do espaço subacromial e descompressão glenoumeral).
-* **Tração do Bíceps Femoral & Trato Iliotibial:** 2x 45s por perna (descompressão imediata da cabeça da fíbula e corno posterior do menisco lateral pós-Box Jumps e Thrusters).
+* **Tração do Bíceps Femoral & Trato Iliotibial:** 2x 45s por perna (descompressão imediata da cabeça da fíbula e corno posterior do menisco lateral).
+* **Liberação de Punhos e Antebraços:** Alongamento suave de flexores/extensores do carpo.
 
 ---
 
