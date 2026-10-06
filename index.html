@@ -66,7 +66,7 @@
       background: var(--bg);
       color: var(--text-main);
       padding: 16px;
-      padding-bottom: 115px;
+      padding-bottom: 135px;
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
     }
@@ -600,6 +600,110 @@
       color: #e2e8f0;
       line-height: 1.45;
       margin: 0;
+    }
+
+    /* Card Clean de Finalização de Treino com Checkbox e Envio para Coach */
+    .workout-finish-clean-card {
+      background: #11141a;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 10px 14px;
+      margin-top: 18px;
+      margin-bottom: 95px !important; /* Folga generosa para nunca ficar atrás do dock flutuante */
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    }
+    .finish-controls-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: nowrap;
+    }
+    .finish-checkbox-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      flex: 1;
+      min-width: 0;
+    }
+    .finish-checkbox-input {
+      display: none;
+    }
+    .finish-custom-checkbox {
+      width: 18px;
+      height: 18px;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+    .finish-checkbox-input:checked + .finish-custom-checkbox {
+      background: var(--brand-neon);
+      border-color: var(--brand-neon);
+      box-shadow: 0 0 8px var(--brand-neon-glow);
+    }
+    .finish-checkbox-input:checked + .finish-custom-checkbox::after {
+      content: "✓";
+      color: #000000;
+      font-size: 12px;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .finish-checkbox-text {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+    .btn-send-coach {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      padding: 6px 12px;
+      height: 32px;
+      border-radius: 16px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
+      background: linear-gradient(135deg, #00ff88, #00cc6a);
+      color: #000000;
+      box-shadow: 0 2px 8px rgba(0, 255, 136, 0.25);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .btn-send-coach svg {
+      width: 12px;
+      height: 12px;
+      fill: currentColor;
+    }
+    .btn-send-coach:disabled {
+      background: rgba(255, 255, 255, 0.06) !important;
+      color: #64748b !important;
+      box-shadow: none !important;
+      cursor: not-allowed;
+      opacity: 0.45;
+    }
+    .btn-send-coach:not(:disabled):hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 255, 136, 0.4);
+    }
+    .btn-send-coach:not(:disabled):active {
+      transform: scale(0.97);
     }
 
     /* Card de Envio de Relatório WhatsApp */
@@ -2655,24 +2759,24 @@
       gap: 4px !important;
     }
 
-    /* Dock Flutuante 2 em 1: Barra de Progresso Ampliada (Verde e Cinza) + Descanso */
+    /* Dock Flutuante 2 em 1 Compacto OLED: Descanso em Cima, Progressão em Baixo */
     .timer-dock {
       position: fixed;
-      bottom: 14px;
-      left: 14px;
-      right: 14px;
-      max-width: 480px;
+      bottom: 10px;
+      left: 12px;
+      right: 12px;
+      max-width: 440px;
       margin: 0 auto;
-      background: rgba(15, 23, 42, 0.94);
+      background: rgba(15, 23, 42, 0.95);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 20px;
-      padding: 10px 16px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 14px;
+      padding: 6px 12px 6px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.75);
+      gap: 4px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.75);
       z-index: 1000;
       transition: transform 0.25s ease, opacity 0.25s ease;
     }
@@ -2680,23 +2784,66 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 7px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 3px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .dock-timer-row .timer-caption {
+      font-size: 0.52rem;
+      font-weight: 800;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .dock-timer-row .timer-display {
+      font-size: 1.10rem;
+      font-weight: 800;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      color: var(--brand-neon);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .dock-timer-row .timer-buttons {
+      display: flex;
+      gap: 4px;
+    }
+    .dock-timer-row .btn-timer {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 3px 8px;
+      border-radius: 7px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .dock-timer-row .btn-timer.active {
+      background: var(--brand-neon);
+      color: #000000;
+      border-color: var(--brand-neon);
+      box-shadow: 0 0 10px var(--brand-neon-glow);
+    }
+    .dock-timer-row .btn-timer-reset {
+      background: rgba(244, 63, 94, 0.15);
+      color: #fb7185;
+      border-color: rgba(244, 63, 94, 0.3);
     }
     .dock-progress-row {
       display: flex;
       flex-direction: column;
-      gap: 5px;
-      padding-top: 2px;
+      gap: 3px;
+      padding-top: 1px;
     }
     .dock-progress-labels {
       display: flex;
       justify-content: space-between;
-      font-size: 0.72rem;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.62rem;
       font-weight: 800;
       color: #94a3b8;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
     }
     .dock-progress-labels #dockProgressText {
       color: var(--brand-neon);
@@ -2704,16 +2851,16 @@
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
     }
     .dock-progress-bar-bg {
-      background: rgba(255, 255, 255, 0.14); /* Fundo cinza visível */
-      height: 8px; /* Altura aumentada */
-      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.14);
+      height: 5px;
+      border-radius: 4px;
       overflow: hidden;
     }
     .dock-progress-bar-fill {
-      background: var(--brand-neon); /* Barra verde neon */
+      background: var(--brand-neon);
       height: 100%;
       width: 0%;
-      border-radius: 6px;
+      border-radius: 4px;
       transition: width 0.25s ease;
       box-shadow: 0 0 8px var(--brand-neon-glow);
     }
@@ -3211,7 +3358,6 @@
 
         <div class="ex-actions">
           <button class="btn-comment" id="btn-comment-ex-seg-box" onclick="toggleCommentBox('ex-seg-box')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>💬 Dúvidas ou observações? Clique aqui</span>
             <span class="comment-dot" id="dot-ex-seg-box" style="display:none;"></span>
           </button>
@@ -3247,14 +3393,13 @@
               <span class="chip">Espaço Subacromial</span>
             </div>
           </div>
-          <div class="ex-volume-badge">2x 45s / braço</div>
+          <div class="ex-volume-badge">2X 45" / BRAÇO</div>
         </div>
         <div class="bio-cue">
           <strong>Abertura Articular Rápida:</strong> Segure a superband alta com o braço estendido e incline o tronco para a frente, deixando o elástico tracionar a articulação glenoumeral para cima e para fora. Respire fundo para soltar a hipertonia do grande dorsal e do peitoral menor após os pull-ups do WOD.
         </div>
         <div class="ex-actions">
           <button class="btn-comment" id="btn-comment-ex-seg-4" onclick="toggleCommentBox('ex-seg-4')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>💬 Dúvidas ou observações? Clique aqui</span>
             <span class="comment-dot" id="dot-ex-seg-4" style="display:none;"></span>
           </button>
@@ -3283,7 +3428,7 @@
               <span class="chip">Tração Bíceps Femoral / TFL</span>
             </div>
           </div>
-          <div class="ex-volume-badge">2x 45s cada</div>
+          <div class="ex-volume-badge">2X 45" CADA</div>
         </div>
         <div class="bio-cue">
           <strong>Neutralização Articular Imediata Pós-Treino:</strong><br>
@@ -3292,7 +3437,6 @@
         </div>
         <div class="ex-actions">
           <button class="btn-comment" id="btn-comment-ex-seg-5" onclick="toggleCommentBox('ex-seg-5')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>💬 Dúvidas ou observações? Clique aqui</span>
             <span class="comment-dot" id="dot-ex-seg-5" style="display:none;"></span>
           </button>
@@ -3428,7 +3572,6 @@
 
         <div class="ex-bottom-actions" style="margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border-subtle);">
           <button type="button" class="btn-comment" id="btn-comment-ex-ter-box" onclick="toggleCommentBox('ex-ter-box')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>💬 Dúvidas ou observações? Clique aqui</span>
             <span class="comment-dot" id="dot-ex-ter-box" style="display:none;"></span>
           </button>
@@ -3463,7 +3606,7 @@
           </div>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">2X 45S / BRAÇO</div>
+          <div class="ex-volume-badge">2X 45" / BRAÇO</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Braço D</div>
             <div class="set-pill" onclick="toggleSet(this)">Braço E</div>
@@ -3471,7 +3614,6 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-ter-1" onclick="toggleCommentBox('ex-ter-1')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>💬 Dúvidas ou observações? Clique aqui</span>
             <span class="comment-dot" id="dot-ex-ter-1" style="display:none;"></span>
           </button>
@@ -3510,7 +3652,6 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-ter-2" onclick="toggleCommentBox('ex-ter-2')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>💬 Dúvidas ou observações? Clique aqui</span>
             <span class="comment-dot" id="dot-ex-ter-2" style="display:none;"></span>
           </button>
@@ -3544,7 +3685,6 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-ter-3" onclick="toggleCommentBox('ex-ter-3')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>💬 Dúvidas ou observações? Clique aqui</span>
             <span class="comment-dot" id="dot-ex-ter-3" style="display:none;"></span>
           </button>
@@ -3577,7 +3717,6 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-ter-4" onclick="toggleCommentBox('ex-ter-4')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>💬 Dúvidas ou observações? Clique aqui</span>
             <span class="comment-dot" id="dot-ex-ter-4" style="display:none;"></span>
           </button>
@@ -3612,7 +3751,7 @@
           </div>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">VOLANTE 58 KG • ~90 MIN</div>
+          <div class="ex-volume-badge">VOLANTE 58 KG • ~90'</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Parte 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Parte 2</div>
@@ -3620,7 +3759,6 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-ter-acro" onclick="toggleCommentBox('ex-ter-acro')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>💬 Dúvidas ou observações? Clique aqui</span>
             <span class="comment-dot" id="dot-ex-ter-acro" style="display:none;"></span>
           </button>
@@ -3665,7 +3803,6 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-ter-5" onclick="toggleCommentBox('ex-ter-5')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>💬 Dúvidas ou observações? Clique aqui</span>
             <span class="comment-dot" id="dot-ex-ter-5" style="display:none;"></span>
           </button>
@@ -3688,7 +3825,7 @@
           </div>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">2X 45S CADA</div>
+          <div class="ex-volume-badge">2X 45" CADA</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
@@ -3696,7 +3833,6 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-ter-6" onclick="toggleCommentBox('ex-ter-6')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>💬 Dúvidas ou observações? Clique aqui</span>
             <span class="comment-dot" id="dot-ex-ter-6" style="display:none;"></span>
           </button>
@@ -3785,14 +3921,13 @@
               <span class="chip">Pré-Portagem</span>
             </div>
           </div>
-          <div class="ex-volume-badge">2x 10 reps</div>
+          <div class="ex-volume-badge">2X 10 REPS</div>
         </div>
         <div class="bio-cue">
           <strong>Preparação Articular:</strong> Círculos lentos e transferências anteroposteriores de carga em prancha no solo para preparar o fibrocartilagem triangular dos punhos para a carga compressiva do parceiro (63 kg). Associar a protração escapular ativa para recrutar o serrátil anterior.
         </div>
         <div class="ex-actions">
           <button class="btn-comment" id="btn-comment-ex-sex-1" onclick="toggleCommentBox('ex-sex-1')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>💬 Dúvidas ou observações? Clique aqui</span>
             <span class="comment-dot" id="dot-ex-sex-1" style="display:none;"></span>
           </button>
@@ -3821,14 +3956,13 @@
               <span class="chip">Menisco Esquerdo</span>
             </div>
           </div>
-          <div class="ex-volume-badge">2x 10 reps + soltura</div>
+          <div class="ex-volume-badge">2X 10 REPS + SOLTURA</div>
         </div>
         <div class="bio-cue">
           <strong>Estabilidade no Plano Frontal:</strong> Ativação de glúteo médio/máximo para travar o alinhamento fêmoro-tibial e impedir o valgo dinâmico ao sustentar ou elevar o parceiro. Liberação breve do trato iliotibial e bíceps femoral para desanuviar a fíbula esquerda.
         </div>
         <div class="ex-actions">
           <button class="btn-comment" id="btn-comment-ex-sex-2" onclick="toggleCommentBox('ex-sex-2')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>💬 Dúvidas ou observações? Clique aqui</span>
             <span class="comment-dot" id="dot-ex-sex-2" style="display:none;"></span>
           </button>
@@ -3869,14 +4003,13 @@
               <span class="chip">Dominância de Quadril</span>
             </div>
           </div>
-          <div class="ex-volume-badge">5 séries sustentadas</div>
+          <div class="ex-volume-badge">5 SÉRIES SUSTENTADAS</div>
         </div>
         <div class="bio-cue">
           <strong>Alinhamento Biomecânico (Stacking):</strong> Punho, cotovelo e ombro rigorosamente na mesma linha vertical da gravidade. A sustentação deve ocorrer por compressão óssea direta, eliminando braço de momento sobre os flexores de cotovelo (protege o tríceps esquerdo) e reduzindo a sobrecarga glenoumeral no supraespinhal operado. Nas subidas e bases, faça flexão de quadril (hip hinge) com tíbias verticais, nunca agache profundamente flexionando o joelho esquerdo.
         </div>
         <div class="ex-actions">
           <button class="btn-comment" id="btn-comment-ex-sex-3" onclick="toggleCommentBox('ex-sex-3')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>💬 Dúvidas ou observações? Clique aqui</span>
             <span class="comment-dot" id="dot-ex-sex-3" style="display:none;"></span>
           </button>
@@ -3909,14 +4042,13 @@
               <span class="chip">Economia de Energia</span>
             </div>
           </div>
-          <div class="ex-volume-badge">3 passagens</div>
+          <div class="ex-volume-badge">3 PASSAGENS</div>
         </div>
         <div class="bio-cue">
           <strong>Fluidez & Preservação Articular:</strong> Executar 3 passagens completas focando na continuidade do movimento e dinâmica do peso. No trabalho de chão (*floorwork*), transfira o peso pelas escápulas e bordo lateral das coxas, sem pancada direta de patela no solo e sem torção tibial. Aterrissagens de saltos suaves na ponta dos pés para proteger os tendões de Aquiles operados.
         </div>
         <div class="ex-actions">
           <button class="btn-comment" id="btn-comment-ex-sex-4" onclick="toggleCommentBox('ex-sex-4')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>💬 Dúvidas ou observações? Clique aqui</span>
             <span class="comment-dot" id="dot-ex-sex-4" style="display:none;"></span>
           </button>
@@ -3947,7 +4079,7 @@
               <span class="chip">Supraespinhal Operado</span>
             </div>
           </div>
-          <div class="ex-volume-badge">4x 15–20s</div>
+          <div class="ex-volume-badge">4X 15–20"</div>
         </div>
         <div class="bio-cue">
           <strong>Coadjuvação do Manguito:</strong> Apoio em suspensão nas argolas girando as mãos para fora (45° a 90°). Cotovelos em bloqueio ósseo completo (extensão total), escápulas ativamente em depressão e protração. Isso gera torque de rotação externa que centraliza a cabeça umeral na glenoide, fortalecendo o supraespinhal e bíceps cabeça longa sem choque excêntrico.
@@ -3958,7 +4090,6 @@
               <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Ver Técnica
             </button>
             <button class="btn-comment" id="btn-comment-ex-sex-5" onclick="toggleCommentBox('ex-sex-5')">
-              <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
               <span>💬 Dúvidas ou observações? Clique aqui</span>
               <span class="comment-dot" id="dot-ex-sex-5" style="display:none;"></span>
             </button>
@@ -3975,7 +4106,7 @@
             <span>👤 Suas anotações (tempo sustentado, ombro direito):</span>
             <span class="save-indicator" id="save-status-ex-sex-5"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-sex-5" placeholder="Ex: 18s cravados, rotação a 60°, ombro estável..." oninput="saveExerciseNote('ex-sex-5', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-sex-5" placeholder="Ex: 18" cravados, rotação a 60°, ombro estável..." oninput="saveExerciseNote('ex-sex-5', this.value)"></textarea>
         </div>
       </div>
 
@@ -3991,7 +4122,7 @@
               <span class="chip">Proteção do Tríceps</span>
             </div>
           </div>
-          <div class="ex-volume-badge">4x 2 reps</div>
+          <div class="ex-volume-badge">4X 2 REPS</div>
         </div>
         <div class="bio-cue">
           <strong>Padrão Motor Limpo:</strong> Utilizar pegada falsa profunda (*false grip*) com argolas coladas no esterno. Puxar até o peito encostar nos anéis e realizar a transição veloz projetando a cabeça e ombros para frente, mantendo os cotovelos raspando nas costelas. Usar apoio de ponta de pé ou banda leve se necessário para priorizar a cinemática estrita e zero impacto no tríceps esquerdo.
@@ -4002,7 +4133,6 @@
               <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Ver Técnica
             </button>
             <button class="btn-comment" id="btn-comment-ex-sex-6" onclick="toggleCommentBox('ex-sex-6')">
-              <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
               <span>💬 Dúvidas ou observações? Clique aqui</span>
               <span class="comment-dot" id="dot-ex-sex-6" style="display:none;"></span>
             </button>
@@ -4035,7 +4165,7 @@
               <span class="chip">Propriocepção Aérea</span>
             </div>
           </div>
-          <div class="ex-volume-badge">3x 2–3 reps</div>
+          <div class="ex-volume-badge">3X 2–3 REPS</div>
         </div>
         <div class="bio-cue">
           <strong>Consciência Acrobática em Suspensão:</strong> Realizar nas argolas em altura média sobre colchão gímnico. Puxar em vela invertida, passar a pelve em rotação posterior com depressão escapular ativa e buscar a estabilização no apoio ou suspensão sem choque brusco. Excelente transferência proprioceptiva para o repertório acrobático.
@@ -4046,7 +4176,6 @@
               <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Ver Técnica
             </button>
             <button class="btn-comment" id="btn-comment-ex-sex-7" onclick="toggleCommentBox('ex-sex-7')">
-              <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
               <span>💬 Dúvidas ou observações? Clique aqui</span>
               <span class="comment-dot" id="dot-ex-sex-7" style="display:none;"></span>
             </button>
@@ -4081,21 +4210,20 @@
       <div class="exercise-card">
         <div class="ex-top">
           <div>
-            <div class="ex-title">Elevação de Panturrilha em Degrau com Pausa Profunda de 3-4s</div>
+            <div class="ex-title">ELEVAÇÃO DE PANTURRILHA EM DEGRAU COM PAUSA PROFUNDA DE 3-4"</div>
             <div class="ex-chips">
               <span class="chip">Sarcomerogênese em Série</span>
               <span class="chip">Aquiles 8 Anos</span>
               <span class="chip">Pausa em Dorsiflexão Máxima</span>
             </div>
           </div>
-          <div class="ex-volume-badge">3x 12–15 reps</div>
+          <div class="ex-volume-badge">3X 12–15 REPS</div>
         </div>
         <div class="bio-cue">
           <strong>Protocolo Mandatório de Resgate:</strong> Pausa estrita de 3 a 4 segundos no fundo da dorsiflexão máxima do degrau antes de cada subida concêntrica. O estiramento sob alta tensão passiva-ativa adiciona sarcômeros em série nos fascículos encurtados pós-sutura, recuperando o comprimento fisiológico e o stiffness elástico para impulsão vertical.
         </div>
         <div class="ex-actions">
           <button class="btn-comment" id="btn-comment-ex-sex-8" onclick="toggleCommentBox('ex-sex-8')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>💬 Dúvidas ou observações? Clique aqui</span>
             <span class="comment-dot" id="dot-ex-sex-8" style="display:none;"></span>
           </button>
@@ -4110,7 +4238,7 @@
             <span>👤 Suas anotações (pausa isométrica, tensão no tendão):</span>
             <span class="save-indicator" id="save-status-ex-sex-8"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-sex-8" placeholder="Ex: Pausa de 4s respeitada, queimação profunda no sóleo..." oninput="saveExerciseNote('ex-sex-8', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-sex-8" placeholder="Ex: Pausa de 4" respeitada, queimação profunda no sóleo..." oninput="saveExerciseNote('ex-sex-8', this.value)"></textarea>
         </div>
       </div>
     </div>
@@ -4136,14 +4264,13 @@
               <span class="chip">Alívio de Crepitação</span>
             </div>
           </div>
-          <div class="ex-volume-badge">2x 45s / lado</div>
+          <div class="ex-volume-badge">2X 45" / LADO</div>
         </div>
         <div class="bio-cue">
           <strong>Abertura Articular:</strong> Tracionar a perna esquerda estendida em adução e leve rotação interna para alongar o bíceps femoral e o trato iliotibial. Essa manobra diminui a tração sobre a cabeça da fíbula e abre espaço no platô tibial lateral, eliminando a sensação de compressão ou atrito ("pedrinha").
         </div>
         <div class="ex-actions">
           <button class="btn-comment" id="btn-comment-ex-sex-9" onclick="toggleCommentBox('ex-sex-9')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>💬 Dúvidas ou observações? Clique aqui</span>
             <span class="comment-dot" id="dot-ex-sex-9" style="display:none;"></span>
           </button>
@@ -4172,14 +4299,13 @@
               <span class="chip">Descompressão Postural</span>
             </div>
           </div>
-          <div class="ex-volume-badge">2x 45s</div>
+          <div class="ex-volume-badge">2X 45"</div>
         </div>
         <div class="bio-cue">
           <strong>Neutralização de Tensões:</strong> Mãos nas argolas baixas atrás do corpo com expiração profunda, deixando a caixa torácica se expandir. Reequilibra o complexo do ombro após a alta demanda tensional das sustentações em RTO e portagem.
         </div>
         <div class="ex-actions">
           <button class="btn-comment" id="btn-comment-ex-sex-10" onclick="toggleCommentBox('ex-sex-10')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>💬 Dúvidas ou observações? Clique aqui</span>
             <span class="comment-dot" id="dot-ex-sex-10" style="display:none;"></span>
           </button>
@@ -4230,14 +4356,13 @@
               <span class="chip">30 Single Unders</span>
             </div>
           </div>
-          <div class="ex-volume-badge">2 rounds</div>
+          <div class="ex-volume-badge">2 ROUNDS</div>
         </div>
         <div class="bio-cue">
           <strong>Aquecimento Articular:</strong> Movimentos soltos e controlados com anilha de 5 a 10 kg, sem choque articular e sem descer o joelho no chão nos lunges (use step-up na caixa baixa).
         </div>
         <div class="ex-actions">
           <button class="btn-comment" id="btn-comment-ex-cf-1" onclick="toggleCommentBox('ex-cf-1')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>💬 Dúvidas ou observações? Clique aqui</span>
             <span class="comment-dot" id="dot-ex-cf-1" style="display:none;"></span>
           </button>
@@ -4268,14 +4393,13 @@
               <span class="chip">5/5 Ponte Glútea</span>
             </div>
           </div>
-          <div class="ex-volume-badge">AMRAP 10 min</div>
+          <div class="ex-volume-badge">AMRAP 10'</div>
         </div>
         <div class="bio-cue">
           <strong>Ajuste Obrigatório:</strong> Substituir a rosca francesa por tríceps corda na polia ou coice com halteres leves para não estirar sob carga a cabeça longa do tríceps esquerdo. Crucifixo inverso e remada reforçam o romboide e deltoide posterior.
         </div>
         <div class="ex-actions">
           <button class="btn-comment" id="btn-comment-ex-cf-2" onclick="toggleCommentBox('ex-cf-2')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>💬 Dúvidas ou observações? Clique aqui</span>
             <span class="comment-dot" id="dot-ex-cf-2" style="display:none;"></span>
           </button>
@@ -4307,7 +4431,7 @@
               <span class="chip">Single Unders Macios</span>
             </div>
           </div>
-          <div class="ex-volume-badge">For Time 20'</div>
+          <div class="ex-volume-badge">FOR TIME 20'</div>
         </div>
         <div class="bio-cue">
           <strong>Roteiro dos Rounds:</strong><br>
@@ -4317,7 +4441,6 @@
         </div>
         <div class="ex-actions">
           <button class="btn-comment" id="btn-comment-ex-cf-3" onclick="toggleCommentBox('ex-cf-3')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>💬 Dúvidas ou observações? Clique aqui</span>
             <span class="comment-dot" id="dot-ex-cf-3" style="display:none;"></span>
           </button>
@@ -4407,14 +4530,13 @@
               <span class="chip">Gímnico</span>
             </div>
           </div>
-          <div class="ex-volume-badge">3x 3 reps</div>
+          <div class="ex-volume-badge">3X 3 REPS</div>
         </div>
         <div class="bio-cue">
           <strong>Potência Dinâmica:</strong> Puxada balística com transição rápida de cotovelos sobre a barra. Recrutamento explosivo de grande dorsal e peitoral com desaceleração do tríceps no dip.
         </div>
         <div class="ex-actions">
           <button class="btn-comment" id="btn-comment-ex-q-1" onclick="toggleCommentBox('ex-q-1')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>💬 Dúvidas ou observações? Clique aqui</span>
             <span class="comment-dot" id="dot-ex-q-1" style="display:none;"></span>
           </button>
@@ -4445,7 +4567,7 @@
               <span class="chip">🔥 Vídeo Analisado</span>
             </div>
           </div>
-          <div class="ex-volume-badge">4 reps ligadas</div>
+          <div class="ex-volume-badge">4 REPS LIGADAS</div>
         </div>
         <div class="bio-cue">
           <strong>Análise Biomecânica da Execução:</strong> 4 repetições consecutivas com excelente retenção de alavanca com braço reto (*straight-arm press down*). Compressão precisa de pés na barra no retorno pendular e transição veloz de punhos por cima da barra no apoio frontal.
@@ -4460,7 +4582,6 @@
         </div>
         <div class="ex-actions">
           <button class="btn-comment" id="btn-comment-ex-q-2" onclick="toggleCommentBox('ex-q-2')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>💬 Dúvidas ou observações? Clique aqui</span>
             <span class="comment-dot" id="dot-ex-q-2" style="display:none;"></span>
           </button>
@@ -4499,7 +4620,7 @@
               <span class="chip">🔥 Destaque</span>
             </div>
           </div>
-          <div class="ex-volume-badge">2x 6 reps</div>
+          <div class="ex-volume-badge">2X 6 REPS</div>
         </div>
         <div class="bio-cue">
           <strong>Alavanca Horizontal:</strong> Transição fluida entre extensão de ombro em alavanca e flexão concêntrica em cadeia fechada, mantendo o corpo horizontal e o reto abdominal sob tensão isométrica máxima.
@@ -4510,7 +4631,6 @@
               <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Ver Técnica
             </button>
             <button class="btn-comment" id="btn-comment-ex-q-3" onclick="toggleCommentBox('ex-q-3')">
-              <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
               <span>💬 Dúvidas ou observações? Clique aqui</span>
               <span class="comment-dot" id="dot-ex-q-3" style="display:none;"></span>
             </button>
@@ -4540,14 +4660,13 @@
               <span class="chip">Vela Invertida</span>
             </div>
           </div>
-          <div class="ex-volume-badge">1x 6 reps</div>
+          <div class="ex-volume-badge">1X 6 REPS</div>
         </div>
         <div class="bio-cue">
           <strong>Compressão e Alavanca Vertical:</strong> Elevação ativa de pernas com transição vertical em vela nas argolas. Força anti-gravitacional pura de cadeia anterior e depressão escapular.
         </div>
         <div class="ex-actions">
           <button class="btn-comment" id="btn-comment-ex-q-4" onclick="toggleCommentBox('ex-q-4')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>💬 Dúvidas ou observações? Clique aqui</span>
             <span class="comment-dot" id="dot-ex-q-4" style="display:none;"></span>
           </button>
@@ -4584,14 +4703,13 @@
               <span class="chip">🔥 Fora da Caixa</span>
             </div>
           </div>
-          <div class="ex-volume-badge">4x 10 reps</div>
+          <div class="ex-volume-badge">4X 10 REPS</div>
         </div>
         <div class="bio-cue">
           <strong>Aceleração Terminal:</strong> A superband ancorada impõe pico de resistência justamente no ponto de máxima extensão de quadril (*lockout*). Disparo de glúteo máximo sem qualquer cisalhamento patelofemoral ou meniscal.
         </div>
         <div class="ex-actions">
           <button class="btn-comment" id="btn-comment-ex-q-5" onclick="toggleCommentBox('ex-q-5')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>💬 Dúvidas ou observações? Clique aqui</span>
             <span class="comment-dot" id="dot-ex-q-5" style="display:none;"></span>
           </button>
@@ -4622,14 +4740,13 @@
               <span class="chip">Glúteo Máximo</span>
             </div>
           </div>
-          <div class="ex-volume-badge">2x 10 reps</div>
+          <div class="ex-volume-badge">2X 10 REPS</div>
         </div>
         <div class="bio-cue">
           <strong>Dominância de Quadril:</strong> Tíbias verticais, joelhos semifletidos (~20°). Carrega glúteo e posteriores sob tensão passiva sem flexão profunda que pressione o menisco lateral rompido.
         </div>
         <div class="ex-actions">
           <button class="btn-comment" id="btn-comment-ex-q-6" onclick="toggleCommentBox('ex-q-6')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>💬 Dúvidas ou observações? Clique aqui</span>
             <span class="comment-dot" id="dot-ex-q-6" style="display:none;"></span>
           </button>
@@ -4658,14 +4775,13 @@
               <span class="chip">Pausa em Dorsiflexão</span>
             </div>
           </div>
-          <div class="ex-volume-badge">2x 15 reps</div>
+          <div class="ex-volume-badge">2X 15 REPS</div>
         </div>
         <div class="bio-cue">
           <strong>Protocolo de Resgate:</strong> Pausa profunda no fundo do degrau estirando os fascículos sob carga para estimular a adição de sarcômeros em série no gastrocnêmio e sóleo.
         </div>
         <div class="ex-actions">
           <button class="btn-comment" id="btn-comment-ex-q-7" onclick="toggleCommentBox('ex-q-7')">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
             <span>💬 Dúvidas ou observações? Clique aqui</span>
             <span class="comment-dot" id="dot-ex-q-7" style="display:none;"></span>
           </button>
@@ -5636,9 +5752,9 @@
         <span class="timer-display" id="timer">01:30</span>
       </div>
       <div class="timer-buttons">
-        <button type="button" class="btn-timer" onclick="startTimer(60)">60s</button>
-        <button type="button" class="btn-timer active" onclick="startTimer(90)">90s</button>
-        <button type="button" class="btn-timer" onclick="startTimer(120)">120s</button>
+        <button type="button" class="btn-timer" onclick="startTimer(60)">60"</button>
+        <button type="button" class="btn-timer active" onclick="startTimer(90)">90"</button>
+        <button type="button" class="btn-timer" onclick="startTimer(120)">120"</button>
         <button type="button" class="btn-timer btn-timer-reset" onclick="resetTimer()">Reset</button>
       </div>
     </div>
@@ -5750,7 +5866,7 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '51';
+    const APP_BUILD_VERSION = '52';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
