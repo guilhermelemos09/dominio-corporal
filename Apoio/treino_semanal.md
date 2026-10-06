@@ -1,13 +1,15 @@
 # Planejamento Semanal de Treino: Gui
 **Semana Atual:** 05/10/2026 a 11/10/2026  
-**Status Atual:** Terça-feira (06/10/2026) — ⚡ Triplo Estímulo: Box CrossFit (Warm-up + Skill 4 Rds Bench/Push-up/Z-press + WOD 20') + Lab BMU com Aluna + 🎪 Acroduo das 17h às 18h30 (Volante ~58 kg).
+**Status Atual:** Terça-feira (06/10/2026) — ⚡ Box CrossFit Concluído à Tarde ✅ + 🤸 Sessão de 1h de Ginástica no Ginásio EEFERP (17h–18h | BMU, Handstand Linha & Descompressão). *(Sessão com amiga cancelada por mudança de planos).*
 
 ---
 
 ## Estrutura Atualizada do Microciclo (05/10 a 11/10/2026)
 
 * **Segunda (05/10 - Concluído):** Box CrossFit (EMOM 12' Butterfly/Strict + Triplo AMRAP Wall Ball / DB Snatch / Clean & Jerk / Thrusters) + Descompressão.
-* **Terça (06/10 - HOJE):** ⚡ **Triplo Estímulo Tático:** Box CrossFit (Skill 120 reps empurrar @ autoregulação + WOD 20') ➔ **Laboratório de Bar Muscle-Up (Gui como Coach/Spotter + micro-séries leves)** ➔ **17h às 18h30: Acroduo com Volante Feminina (~58 kg: fluxo dinâmico & dança acrobática)** + Descompressão Articular.
+* **Terça (06/10 - HOJE):** 
+  * **Parte 1 (Concluída ✅):** Box CrossFit (Warm-up + Skill 120 reps empurrar @ autoregulação + WOD 20' Abmat/Box Jump/Snatch/Thruster).
+  * **Parte 2 (Agora, 17h–18h | Ginásio EEFERP - 1h):** Sessão Gímnica Individual de Habilidades & Força: Reset escapular na barra alta, Bar Muscle-Up (Strict em hollow com banda ou Kipping fluido), Parada de Mãos Livre (foco em alinhamento articular e equilíbrio estático nos dedos), Oitavas na barra (Glide Kip) e Descompressão articular profunda (menisco lateral + resgate do tendão de Aquiles no degrau).
 * **Quarta (07/10 - AMANHÃ, 17h às 19h):** Ginásio EEFERP (2h) — **Estrutura Completa de Ginástica Artística/Acrobática** (Ativação articular/escapular/meniscal + Habilidades de Parada de Mãos/Manjota/Press + Força Estrita/Front Lever/Resgate Aquiles + Mobilidade torácica/ombros). *Sem cardio (potência e capacidade de trabalho já estressadas no Box).*
 * **Quinta (08/10):** Dança Contemporânea na EEFERP + 1h Ginásio (Aperfeiçoamento de *Floorwork*/Giros no tatame ou Natação regenerativa soltura).
 * **Sexta (09/10):** Portagem de Força com Amigo (volante ~63 kg, bases em alinhamento de *bone stacking*) + 1h Ginástica no Ginásio (Argolas: RTO Support, RMU, Candle Kip, Felge to support) + **ZERO TREINO DE PERNAS** (Blindagem total para a viagem ao festival no fim de semana).
@@ -15,79 +17,45 @@
 
 ---
 
-# Planejamento & Biomecânica de Hoje: Terça-feira (06/10/2026) — Triplo Estímulo
+# Planejamento & Biomecânica de Hoje: Terça-feira (06/10/2026) — Box Feito + Ginásio 1h
 
-> [!WARNING]
-> **ANÁLISE DE INTERFERÊNCIA NEUROMUSCULAR & GESTÃO DO TRIPLO ESTÍMULO (BOX + BMU + ACRODUO 17H):**
-> 1. **Economia Mandatória no BMU:** Como você tem **Acroduo com a volante de 58 kg às 17h**, você **NÃO PODE** estressar seus depressores escapulares (peitoral menor, dorsal, tríceps) no pós-WOD. Seu papel no laboratório de BMU deve ser **90% pedagógico (Coach e Spotter da aluna)**. Faça no máximo 2 a 3 micro-séries com superband média para manter a via neural fresca.
-> 2. **Autoregulação na Skill do Box:** 4 rounds de 10 Supinos + 10 Push-ups + 10 Z-Press = 120 reps de empurrar. Mantenha RIR 3-4 (reps de reserva) e cargas moderadas a leves. Se você chegar com tríceps em acidose no Acroduo, perde a capacidade de estabilização articular!
-> 3. **Preservação da Pegada nos Snatches:** No WOD, não "estrangule" a barra com os flexores dos dedos. Use *hook grip* relaxado e extensão tripla violenta de quadril/glúteo para salvar o antebraço e punhos para o contato manual com a volante às 17h.
-> 4. **Blindagem do Menisco & Tendão de Aquiles no WOD:**
->    * **80 Box Jump Overs:** Step-down mandatório! Aterrissagens paralelas no plano sagital (sem valgo dinâmico e sem torção).
->    * **Thrusters (40 kg):** Flexão até 90° (coxas paralelas), sem desabar na flexão profunda.
-
-### 1. WARM UP (2 Rounds)
-* 10 Floor Press
-* 5 Thrusters (barra vazia / carga leve)
-* 5 Muscle Snatch
-* 10 Box Step-up (subida controlada, ênfase em extensão de quadril)
-
-### 2. SKILL: FOR QUALITY (4 Rounds — TC 15' @ Autoregulação)
-* 10 Bench Press (carga moderada/leve, RIR 3-4, sem fadiga excêntrica excessiva)
-* 10 Push-up (ritmo controlado, protração escapular no topo)
-* 10 Z-Press (sentado no solo com pernas estendidas; recruta core e deltoide anterior com coluna neutra)
-
-### 3. WOD (Time Cap 20' — Carga: 40/29 kg)
-* 50 Abmat Sit-ups
-* 40 Box Jump Over *(Atenção à descida em step-down)*
-* 30 Power Snatch (quebrar em séries curtas, ex: 10/10/10 ou 6x5 com quadril explosivo)
-* 20 Thruster (ritmo respiratório contínuo, sem rebote descontrolado no fundo)
-* 30 Power Snatch
-* 40 Box Jump Over
-* 50 Abmat Sit-ups
+> [!NOTE]
+> **Status da Sessão:**
+> * **Box CrossFit (Parte 1):** ✅ **CONCLUÍDO À TARDE.** O atleta executou o Warm-up, a Skill (4 rounds de 10 Supinos + 10 Push-ups + 10 Z-Press) e o WOD metabólico de 20 minutos (Abmat sit-ups, Box Jump Overs, Snatches e Thrusters).
+> * **Ginásio EEFERP (Parte 2 — 17h às 18h | 1h):** ⏳ **EM ABERTO / EM EXECUÇÃO.** Com a mudança de planos e cancelamento do treino com a amiga, Gui realiza sua sessão pessoal de ginástica focada em controle motor fino, alavancas e descompressão articular.
 
 ---
 
-### 4. LABORATÓRIO DE BAR MUSCLE-UP (Pós-WOD: Gui como Coach & Amiga/Aluna)
-
-> [!IMPORTANT]
-> **Metodologia de Destrave & Lapidação Técnica:**
-> 
-> **A. Protocolo Didático para a Amiga/Aluna (Destravar o 1º BMU):**
-> 1. *Educativo 1 — Turnover na Barra Baixa com Elástico (4 séries de 3 a 5 reps):*
->    * Barra na altura do esterno/diafragma, pés no solo com assistência de banda média.
->    * Puxada para trás e para cima; no ápice, foco absoluto no reflexo de **virar os punhos (*knuckles over*) e projetar peito e queixo sobre a barra**.
->    * Elimina o medo subconsciente de bater na barra e automatiza o padrão neuromuscular.
-> 2. *Educativo 2 — Barra Alta com Spotting Biomecânico do Gui (3 a 4 tentativas):*
->    * Swing com hollow/arch amplo $\to$ puxada alta agressiva em direção ao esterno.
->    * **Spot do Gui:** No milissegundo em que os pés atingem o ápice e começam a descer, Gui aplica vetor de força diagonal (para cima e para frente) na região sacral/lombar baixa dela.
->    * Vence os 10-15% restantes da inércia para que ela encadeie o snap e encaixe o apoio frontal.
-> 
-> **B. Treino do Gui Lemos (Economia Estratégica para o Acroduo das 17h):**
-> * **ZERO exaustão.** Foco 90% em orientar e dar o spot técnico na aluna.
-> * Se treinar, apenas 2 a 3 micro-séries de 1 a 2 reps de Strict BMU na barra alta com superband média em hollow body perfeito, sem forçar dips pesados no topo.
+### PARTE 1: BOX CROSSFIT (REALIZADO ✅)
+* **Warm-up (2 Rounds):** 10 Floor Press + 5 Thrusters + 5 Muscle Snatch + 10 Box Step-up.
+* **Skill For Quality (4 Rounds — TC 15'):** 10 Bench Press + 10 Push-up + 10 Z-Press (@ autoregulação).
+* **WOD (TC 20' — 40/29 kg):** 50 Abmat + 40 Box Jump Over (step-down) + 30 Power Snatch + 20 Thruster + 30 Power Snatch + 40 Box Jump Over + 50 Abmat.
 
 ---
 
-### 5. ACRODUO & DANÇA ACROBÁTICA (17h00 às 18h30 — Volante Feminina ~58 kg)
+### PARTE 2: GINÁSIO EEFERP (17h às 18h | 60 min de Habilidades & Descompressão)
 
 > [!TIP]
-> **Diretrizes Biomecânicas para a Portagem com Fadiga Prévia:**
-> 1. **Empilhamento Ósseo Vertical (*Bone Stacking*):**
->    * Em todas as figuras de sustentação (L-base, foot-to-hand, hand-to-hand, trono): mantenha os cotovelos 100% estendidos e travados.
->    * O vetor de peso da volante (58 kg) deve ser transmitido axialmente pelos ossos (rádio/ulna $\to$ úmero $\to$ glenóide $\to$ coluna), **zerando qualquer momento fletor no tríceps braquial**.
-> 2. **Privilegiar L-Base e Transições Suaves de Chão:**
->    * A base deitada (L-base) poupa a fadiga lombar e dos membros inferiores acumulada no WOD.
->    * Nas transições em pé, use a cadência e o *timing* do impulso da volante; não tente "levantá-la no muque" usando os deltoides fadigados.
-> 3. **Blindagem do Menisco Lateral:**
->    * Em bases de solo ou semi-agachadas, mantenha as tíbias verticais e a pelve alinhada. Vetado fazer bases de torção com o pé esquerdo fixo no tatame.
+> **Diretrizes Biomecânicas para a Sessão de 1h Pós-CrossFit:**
+> 1. **Poupar Extensores de Cotovelo & Deltoide Anterior:** Como o tríceps e peitoral já trabalharam intensamente nas 120 reps de empurrar do Box, evite mergulhos (dips) pesados ou subidas de parada de mão em força bruta (presses).
+> 2. **Bar Muscle-Up com Padrão de Elite:** Use superband leve/média para focar na mecânica de **puxada alta ao esterno e virada simétrica dos dois cotovelos** com corpo 100% estendido em hollow. Se fizer kipping, foque na parábola suave.
+> 3. **Handstand — Alinhamento & Dedos:** Aproveite o tatame e canes para trabalhar sustentação estática (15s–30s) com foco em *bone stacking* (empilhamento ósseo) e controle tátil nas pontas dos dedos.
+> 4. **Descompressão Meniscal e Aquiles:** Dedique os 15 minutos finais para aliviar a compressão fêmoro-tibial dos 80 Box Jumps e estimular os tendões de Aquiles no degrau com pausa.
 
----
+#### Bloco 1: Ativação Escapular & Reset Glenoumeral (10 min)
+* **Dead Hang Parcial / Tração com Superband na Barra Alta:** 2x 45s por braço (abertura do espaço subacromial, soltura do peitoral menor e grande dorsal hipertonizados pós-Cross).
+* **Mobilidade Ativa de Punhos no Tatame:** 2x 10 reps (flexão, extensão e descarga axial progressiva).
 
-### 6. Descompressão Articular Imediata Pós-Acroduo
-* **Dead Hang Parcial (pontas dos pés no solo tirando 30% da carga):** 2x 45s (abertura do espaço subacromial e descompressão glenoumeral).
-* **Tração do Bíceps Femoral & Trato Iliotibial:** 2x 45s por perna (descompressão imediata da cabeça da fíbula e corno posterior do menisco lateral).
-* **Liberação de Punhos e Antebraços:** Alongamento suave de flexores/extensores do carpo.
+#### Bloco 2: Habilidades de Barra — Bar Muscle-Up & Oitavas (25 min)
+* **Bar Muscle-Up (Gui Lemos):** 4 a 5 micro-séries de 1 a 2 reps na barra alta. Foco em velocidade de turnover (*knuckles over*) e corpo compacto em hollow body. Descanso completo de 2 a 3 minutos entre séries.
+* **Oitavas na Barra Fixa (Glide Kip) ou Candlestick Hang:** 3 séries de 2 a 3 reps (extensão pura de ombro com grande dorsal e cotovelos travados em bloqueio ósseo).
+
+#### Bloco 3: Equilíbrio & Alinhamento — Parada de Mãos Livre (15 min)
+* **Handstand Livre no Tatame / Manjota:** 4 a 5 séries de 15 a 30s de sustentação. Foco em elevação escapular de serrátil anterior, cabeça neutra e ajuste fino nos dedos/punhos.
+
+#### Bloco 4: Descompressão Articular & Resgate Estrutural (10 min)
+* **Descompressão do Menisco Lateral Esquerdo:** 2x 45s por perna (tração fêmoro-tibial em decúbito dorsal com rotação interna suave da tíbia).
+* **Resgate do Tendão de Aquiles no Degrau (Sarcomerogênese):** 3 séries de 12 a 15 reps com pausa isométrica estrita de 3 a 4 segundos em dorsiflexão máxima sob carga no fundo.
 
 ---
 
