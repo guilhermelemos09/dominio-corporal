@@ -2475,20 +2475,29 @@
       padding: 2px 0 !important;
     }
 
-    /* Botão de Dica, Execução e Cuidados (Taxonomia Padronizada) */
+        /* Botão de Dica, Execução e Cuidados (Taxonomia Padronizada) */
     .btn-tip-cue {
       display: inline-flex;
       align-items: center;
       gap: 3.5px;
       font-size: 0.72rem;
       font-weight: 700;
-      padding: 2px 7.5px;
+      padding: 3px 8px;
       border-radius: 10px;
       cursor: pointer;
       text-decoration: none;
       vertical-align: middle;
-      margin-left: 6px;
       transition: all 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      touch-action: manipulation;
+    }
+    .ex-cues-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin: 6px 0 8px 0;
     }
     /* 💡 Dica (Amarelo / Âmbar) */
     .cue-dica {
@@ -2522,6 +2531,56 @@
       background: #f87171;
       color: #000;
       transform: scale(0.96);
+    }
+    /* ⚠️ Importante (Alerta Âmbar) */
+    .cue-importante, .cue-alerta {
+      background: rgba(251, 191, 36, 0.12);
+      border: 1px solid rgba(251, 191, 36, 0.4);
+      color: #fbbf24;
+    }
+    .cue-importante:hover, .cue-importante:active,
+    .cue-alerta:hover, .cue-alerta:active {
+      background: #fbbf24;
+      color: #000;
+      transform: scale(0.96);
+    }
+
+        /* Otimização de Largura Mobile (Quadros Mais Largos em Todo o App) */
+    @media (max-width: 600px) {
+      body {
+        padding: 10px 8px 115px 8px !important;
+      }
+      .section-card {
+        padding: 12px 10px !important;
+        margin-bottom: 12px !important;
+        border-radius: 12px !important;
+      }
+      .exercise-card {
+        padding: 12px 10px !important;
+        margin-bottom: 10px !important;
+      }
+      .callout-box {
+        padding: 10px 10px !important;
+      }
+      .wod-list-block {
+        padding: 10px 8px !important;
+      }
+      .training-day-card,
+      .student-profile-header-card,
+      .assessment-card-block,
+      .comparison-card,
+      .workout-summary-card,
+      .whatsapp-support-card,
+      .timer-app-card {
+        padding: 12px 10px !important;
+      }
+      .ex-title {
+        font-size: 0.92rem !important;
+      }
+      header {
+        padding: 14px 12px !important;
+        margin-bottom: 12px !important;
+      }
     }
 
     /* Popover Flutuante de Dicas & Observações Técnicas */
@@ -3017,7 +3076,7 @@
 
   </div>
 
-  <!-- ==================== TAB ATIVA: HOJE (TERÇA: BOX + LAB BMU COMPARTILHADO) ==================== -->
+    <!-- ==================== TAB ATIVA: HOJE (TERÇA: BOX + LAB BMU COMPARTILHADO) ==================== -->
   <div id="tab-terca" class="tab-content">
 
     <!-- Introdução Sucinta da Sessão -->
@@ -3026,7 +3085,7 @@
       <div>
         <div class="callout-topic-header" style="color: var(--accent-gold);">FOCO DO TREINO: TRIPLO ESTÍMULO (BOX + BMU + ACRODUO 17H)</div>
         <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
-          Box CrossFit (Skill empurrar + WOD) ➔ Lab BMU (foco 90% pedagógico na aluna) ➔ 17h Acroduo com volante feminina (~58 kg). Gestão estrita de energia, economia nos ombros e stacking articular!
+          Box CrossFit (Skill + WOD) ➔ Lab BMU (foco pedagógico) ➔ Acroduo 17h (~58 kg). Gestão estrita de ombros e alinhamento articular!
         </div>
       </div>
     </div>
@@ -3054,10 +3113,8 @@
         </div>
       </div>
 
-      <div class="bio-cue" style="border-left: 2px solid #ef4444; margin-bottom: 14px;">
-        <strong>⚠️ ALERTA DE FADIGA & AUTOREGULAÇÃO BIOMECÂNICA:</strong><br>
-        • <strong>Fadiga de Empurrar:</strong> A Skill totaliza 120 repetições de empurrar puro (Bench + Push-up + Z-press). Mantenha RIR 3-4 (reps de reserva) e carga moderada para não esgotar o tríceps antes do mergulho do BMU!<br>
-        • <strong>Blindagem Meniscal no WOD:</strong> Nos 80 Box Jump Overs, faça <em>step-down</em> obrigatório para anular o cisalhamento rotacional no menisco lateral esquerdo. Nos Thrusters, limite o agachamento a 90°. Nos Snatches, use extensão explosiva de quadril.
+      <div class="ex-cues-row" style="margin-bottom: 12px;">
+        <button type="button" class="btn-tip-cue cue-importante" onclick="openTip('Box CrossFit — Gestão de Energia & Menisco', '• Fadiga de Empurrar: A Skill tem 120 reps (Supino + Flexão + Z-press). Mantenha RIR 3-4 (carga moderada/leve) para poupar o tríceps para o BMU e Acroduo!\n\n• Menisco Lateral: Nos 80 Box Jump Overs, faça STEP-DOWN obrigatório (descer pisando um pé por vez, sem saltar de costas). Nos Thrusters, limite o agachamento a 90°.\n\n• Snatches: Carga de 40 kg com extensão explosiva de quadril (sem puxar com os braços).', '⚠️ Importante')">⚠️ Importante: Fadiga & Menisco</button>
       </div>
 
       <div class="exercise-card">
@@ -3066,10 +3123,10 @@
           <div class="wod-list-block">
             <div class="wod-block-badge">1. Warm Up (2 Rounds)</div>
             <ul class="wod-block-items">
-              <li>10 Floor Press (aquecimento peitoral e tríceps no chão)</li>
-              <li>5 Thrusters (barra leve / mecânica de quadril)</li>
-              <li>5 Muscle Snatch (trajetória vertical e pegada)</li>
-              <li>10 Box Step-up (extensão ativa de quadril)</li>
+              <li>10 Floor Press (chão)</li>
+              <li>5 Thrusters (barra leve)</li>
+              <li>5 Muscle Snatch (trajetória vertical)</li>
+              <li>10 Box Step-up (extensão ativa)</li>
             </ul>
           </div>
 
@@ -3081,12 +3138,12 @@
             <ul class="wod-block-items">
               <li>
                 <strong>10 Bench Press</strong> (Supino reto)
-                <button class="btn-tip-cue cue-execucao" onclick="openTip('Bench Press — Autoregulação', '• Carga: Moderada/leve (RIR 3-4).\n• Mecânica: Escápulas retraídas e deprimidas.\n• Objetivo: Preservar unidades motoras do tríceps para o BMU.', '🔧 Execução')">🔧 Execução</button>
+                <button type="button" class="btn-tip-cue cue-execucao" onclick="openTip('Bench Press — Autoregulação', '• Carga: Moderada/leve (RIR 3-4).\n• Mecânica: Escápulas retraídas e deprimidas.\n• Objetivo: Preservar unidades motoras do tríceps para o BMU.', '🔧 Execução')">🔧 Execução</button>
               </li>
               <li><strong>10 Push-up</strong> (Flexão de braço cadenciada)</li>
               <li>
                 <strong>10 Z-Press</strong> (Sentado no solo com pernas em L)
-                <button class="btn-tip-cue cue-execucao" onclick="openTip('Z-Press — Estabilidade do Core', '• Postura: Pernas estendidas no solo, pelve neutra.\n• Bloqueio: Empurrar vertical puro sem hiperextensão lombar.', '🔧 Execução')">🔧 Execução</button>
+                <button type="button" class="btn-tip-cue cue-execucao" onclick="openTip('Z-Press — Estabilidade do Core', '• Postura: Pernas estendidas no solo, pelve neutra.\n• Bloqueio: Empurrar vertical puro sem hiperextensão lombar.', '🔧 Execução')">🔧 Execução</button>
               </li>
             </ul>
           </div>
@@ -3100,12 +3157,12 @@
               <li>50 Abmat Sit-ups</li>
               <li>
                 <strong>40 Box Jump Over</strong>
-                <button class="btn-tip-cue cue-cuidados" onclick="openTip('Box Jump Over — Blindagem do Menisco & Aquiles', '• Descida: Faça STEP-DOWN (descer pisando um pé por vez).\n• Proibido: Jamais descer saltando de costas ou aterrissar em torção/rotação no caixote.\n• Joelhos: Manter no plano sagital estrito (sem valgo dinâmico).', '🛡️ Cuidados')">🛡️ Cuidados</button>
+                <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Box Jump Over — Blindagem Meniscal & Aquiles', '• Descida: Faça STEP-DOWN obrigatório (descer pisando um pé por vez).\n• Proibido: Jamais descer saltando de costas ou aterrissar em torção/rotação no caixote.\n• Joelhos: Manter no plano sagital estrito (sem valgo dinâmico).', '🛡️ Cuidados')">🛡️ Cuidados</button>
               </li>
-              <li><strong>30 Power Snatch</strong> (40 kg — quebrar em séries de 5 ou 10 com quadril dominante)</li>
+              <li><strong>30 Power Snatch</strong> (40 kg — quebrar em 5 ou 10 com quadril dominante)</li>
               <li>
                 <strong>20 Thruster</strong> (40 kg)
-                <button class="btn-tip-cue cue-cuidados" onclick="openTip('Thrusters — Gestão Articular', '• Profundidade: Coxas paralelas ao solo (90°).\n• Não desabe passivamente na flexão profunda para não comprimir o menisco lesionado.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+                <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Thrusters — Gestão Articular', '• Profundidade: Coxas paralelas ao solo (90°).\n• Não desabe passivamente na flexão profunda para não comprimir o menisco lesionado.', '🛡️ Cuidados')">🛡️ Cuidados</button>
               </li>
               <li><strong>30 Power Snatch</strong> (40 kg)</li>
               <li><strong>40 Box Jump Over</strong> (manter step-down)</li>
@@ -3131,7 +3188,7 @@
       </div>
     </div>
 
-    <!-- ==================== SEÇÃO 2: LAB MUSCLE-UP (GUI & AMIGA) ==================== -->
+    <!-- ==================== SEÇÃO 2: LAB MUSCLE-UP (GUI & ALUNA) ==================== -->
     <div class="section-card sec-forca">
       <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
         <div class="section-title-wrap">
@@ -3143,27 +3200,18 @@
         </div>
       </div>
 
-      <div class="bio-cue" style="border-left: 2px solid var(--brand-neon); margin-bottom: 14px;">
-        <strong>🔬 Racional Biomecânico do Treino Compartilhado:</strong><br>
-        • <strong>Gui:</strong> Padrão estrito em corpo estendido (hollow) com superband na barra alta. Força a ativação bilateral do grande dorsal e do peitoral maior, impedindo <em>chicken-wing</em> e mantendo o vetor puramente vertical.<br>
-        • <strong>Amiga:</strong> O turnover na barra baixa com elástico reprograma o reflexo motor de virar as mãos no topo antes de subir para a barra alta com o spot manual do Gui.
+      <div class="ex-cues-row" style="margin-bottom: 12px;">
+        <button type="button" class="btn-tip-cue cue-execucao" onclick="openTip('Racional Biomecânico do Treino Compartilhado', '• Gui: Padrão estrito em corpo estendido (hollow) com superband na barra alta. Ativação bilateral do grande dorsal e peitoral maior, sem chicken-wing e com vetor puramente vertical.\n\n• Aluna: O turnover na barra baixa com elástico reprograma o reflexo motor de virar as mãos no topo antes de subir para a barra alta com o spot manual do Gui.', '🔧 Execução')">🔧 Racional Biomecânico do Lab</button>
       </div>
 
       <!-- Ex ter-1: Reset Escapular -->
       <div class="exercise-card">
         <div class="ex-top">
-          <div>
-            <div class="ex-title">Reset Articular & Aquecimento Específico: Descompressão Subacromial & Peitoral Menor</div>
-            <div class="ex-chips">
-              <span class="chip">Superband na Barra Alta</span>
-              <span class="chip">Soltura de Dorsal</span>
-              <span class="chip">Espaço Subacromial</span>
-            </div>
-          </div>
+          <div class="ex-title">Reset Escapular & Aquecimento</div>
           <div class="ex-volume-badge">2x 45s / braço</div>
         </div>
-        <div class="bio-cue">
-          <strong>Abertura Articular Pré-BMU:</strong> Tracionar o braço com a superband alta inclinando o tronco à frente. Respirar fundo para abrir a cápsula glenoumeral e soltar a hipertonia antes de iniciar as puxadas de alta intensidade.
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-execucao" onclick="openTip('Reset Escapular — Abertura Glenoumeral', '• Tracionar o braço com a superband alta inclinando o tronco à frente.\n• Respirar fundo para abrir a cápsula glenoumeral e soltar a hipertonia do peitoral menor antes de iniciar as puxadas.', '🔧 Execução')">🔧 Execução</button>
         </div>
         <div class="ex-actions">
           <button class="btn-comment" id="btn-comment-ex-ter-1" onclick="toggleCommentBox('ex-ter-1')">
@@ -3185,31 +3233,20 @@
         </div>
       </div>
 
-      <!-- Ex ter-2: Treino Gui - Strict BMU com Elástico e Corpo Estendido -->
+      <!-- Ex ter-2: Strict Bar Muscle-Up -->
       <div class="exercise-card">
         <div class="ex-top">
-          <div>
-            <div class="ex-title">Treino Gui: Strict Bar Muscle-Up com Elástico na Barra Alta (Corpo Estendido)</div>
-            <div class="ex-chips">
-              <span class="chip">Gui Lemos</span>
-              <span class="chip">Superband Média/Leve</span>
-              <span class="chip">Hollow Body Estrito</span>
-              <span class="chip">Zero Chicken-Wing</span>
-            </div>
-          </div>
-          <div class="ex-volume-badge">4 a 5 micro-séries • 1-2 reps</div>
+          <div class="ex-title">Strict Bar Muscle-Up</div>
+          <div class="ex-volume-badge">4-5 séries • 1-2 reps</div>
         </div>
-        <div class="bio-cue">
-          <strong>Biomecânica da Puxada Estrita e Alinhamento:</strong><br>
-          1. <strong>Corpo Estendido em Hollow:</strong> Pés unidos à frente, glúteos e abdômen contraídos. Não dobre os joelhos e não quebre a lombar para trás.<br>
-          2. <strong>Puxada Alta ao Esterno:</strong> Puxe a barra o mais alto possível em direção ao abdômen superior/esterno, mantendo os punhos em ligeira pegada falsa (ou rolamento suave).<br>
-          3. <strong>Turnover Sincronizado:</strong> Gire os dois cotovelos estritamente no mesmo milissegundo por cima da barra com o peito projetando à frente. Se houver qualquer assimetria ou puxão isolado, interrompa a repetição.<br>
-          4. <strong>Descanso:</strong> 2 a 3 minutos completos entre cada série para recomposição de ATP-CP neural.
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-execucao" onclick="openTip('Strict BMU — Puxada Estrita & Alinhamento', '1. Corpo Estendido em Hollow: Pés unidos à frente, glúteos e abdômen contraídos. Não dobre os joelhos e não quebre a lombar para trás.\n\n2. Puxada Alta ao Esterno: Puxe a barra o mais alto possível em direção ao abdômen superior/esterno, com punhos em rolamento suave.\n\n3. Turnover Sincronizado: Gire os dois cotovelos estritamente no mesmo milissegundo por cima da barra com o peito à frente.\n\n4. Descanso: 2 a 3 minutos completos entre cada série para recomposição de ATP-CP neural.', '🔧 Execução')">🔧 Execução</button>
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Strict BMU — Proteção Articular', '• Se houver qualquer assimetria ou puxão isolado (chicken-wing), interrompa a repetição imediatamente para resguardar o ombro direito.\n\n• Mantenha o elástico sob tensão estável na descida excêntrica.', '🛡️ Cuidados')">🛡️ Cuidados</button>
         </div>
         <div class="ex-actions">
           <div style="display:flex; gap:6px; flex-wrap:wrap;">
             <button class="btn-video" onclick="openVideoModal('Kip Bar Muscle-Up (Gui Lemos)', '<b>Referência Técnica:</b> Trajetória parabólica, momento do peito sobre a barra e rotação simultânea das mãos e cotovelos na finalização.', 'Midia/gui_kip_muscle_up.mp4')">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Ver Vídeo Kip BMU
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Vídeo BMU
             </button>
             <button class="btn-comment" id="btn-comment-ex-ter-2" onclick="toggleCommentBox('ex-ter-2')">
               <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
@@ -3234,25 +3271,14 @@
         </div>
       </div>
 
-      <!-- Ex ter-3: Educativo Amiga - Transição na Barra Baixa com Elástico -->
+      <!-- Ex ter-3: Transição na Barra Baixa -->
       <div class="exercise-card">
         <div class="ex-top">
-          <div>
-            <div class="ex-title">Educativo Amiga: Transição de Muscle-Up na Barra Baixa com Elástico</div>
-            <div class="ex-chips">
-              <span class="chip">Amiga BMU</span>
-              <span class="chip">Barra no Peito/Quadril</span>
-              <span class="chip">Turnover dos Punhos</span>
-              <span class="chip">Sem Medo de Queda</span>
-            </div>
-          </div>
-          <div class="ex-volume-badge">4 séries • 3 a 5 reps</div>
+          <div class="ex-title">Transição na Barra Baixa (Aluna)</div>
+          <div class="ex-volume-badge">4 séries • 3-5 reps</div>
         </div>
-        <div class="bio-cue">
-          <strong>Por Que a Barra Baixa com Elástico Destrava o BMU Dela:</strong><br>
-          • <strong>O Gargalo Real:</strong> Alunos que estão quase tirando o BMU geralmente têm força de puxada suficiente, mas travam na transição por medo de bater a cabeça na barra ou por girar a pegada tarde demais.<br>
-          • <strong>Montagem:</strong> Barra baixa (na altura do esterno ou diafragma) com elástico horizontal ou sob os pés. Com os pés apoiados e elástico aliviando a carga, ela inicia a puxada para trás e para cima.<br>
-          • <strong>O Gatilho Neural:</strong> No topo da puxada, ela foca exclusivamente em <strong>rolar os nós dos dedos para cima da barra (knuckles over) e projetar a testa e o peito para frente</strong>, caindo na posição de apoio do mergulho (dip). Faça 4 séries com cadência suave até o movimento ser 100% automático!
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-execucao" onclick="openTip('Transição na Barra Baixa — Destrave do BMU', '• O Gargalo Real: Alunas que estão quase tirando o BMU geralmente travam no turnover por medo de bater na barra ou por girar a pegada tarde demais.\n\n• Montagem: Barra baixa (altura do diafragma) com elástico horizontal ou sob os pés.\n\n• Gatilho Neural: No topo da puxada, focar em rolar os nós dos dedos para cima da barra (knuckles over) e projetar o peito para frente no mergulho.', '🔧 Execução')">🔧 Execução</button>
         </div>
         <div class="ex-actions">
           <button class="btn-comment" id="btn-comment-ex-ter-3" onclick="toggleCommentBox('ex-ter-3')">
@@ -3276,26 +3302,14 @@
         </div>
       </div>
 
-      <!-- Ex ter-4: Tentativas da Amiga na Barra Alta com Spot do Gui -->
+      <!-- Ex ter-4: Barra Alta com Spot -->
       <div class="exercise-card">
         <div class="ex-top">
-          <div>
-            <div class="ex-title">Tentativas da Amiga na Barra Alta com Spot Biomecânico do Gui</div>
-            <div class="ex-chips">
-              <span class="chip">Amiga + Spot Gui</span>
-              <span class="chip">Barra Alta</span>
-              <span class="chip">Vetor Diagonal na Lombar</span>
-              <span class="chip">Destrave do Primeiro BMU</span>
-            </div>
-          </div>
-          <div class="ex-volume-badge">3 a 4 tentativas</div>
+          <div class="ex-title">Barra Alta com Spot (Aluna)</div>
+          <div class="ex-volume-badge">3-4 tentativas</div>
         </div>
-        <div class="bio-cue">
-          <strong>Como Dar o Spot Biomecânico Perfeito (Gui Lemos):</strong><br>
-          • Posicione-se ligeiramente atrás e ao lado dela.<br>
-          • Ela executa o swing e a puxada alta do kip normal.<br>
-          • <strong>No ápice da subida (o momento exato em que os pés começam a descer):</strong> Suas mãos entram na região sacral/lombar inferior dela. Aplique uma força diagonal firme: <em>para cima e para frente</em>.<br>
-          • Esse empurrão vence a inércia dos 10-15% que faltam, permitindo que ela faça o mesmo snap do peito e giro de punho que treinou na barra baixa. Se subir, comemore o 1º BMU!
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-execucao" onclick="openTip('Spot Biomecânico na Barra Alta (Gui Lemos)', '• Posicione-se ligeiramente atrás e ao lado dela.\n• Ela executa o swing e a puxada alta do kip normal.\n• No ápice da subida (quando os pés começam a descer), suas mãos entram na região sacral/lombar dela.\n• Aplique força diagonal: para cima e para frente, vencendo os 10-15% finais de inércia para ela realizar o snap do peito e o giro dos punhos.', '🔧 Execução')">🔧 Execução</button>
         </div>
         <div class="ex-actions">
           <button class="btn-comment" id="btn-comment-ex-ter-4" onclick="toggleCommentBox('ex-ter-4')">
@@ -3312,15 +3326,15 @@
         </div>
         <div id="comment-box-ex-ter-4" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas anotações (resultado das tentativas na barra alta):</span>
+            <span>👤 Suas anotações (ajuste do spot e percepção de altura):</span>
             <span class="save-indicator" id="save-status-ex-ter-4"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-ter-4" placeholder="Ex: Na 2ª tentativa passou o peito com spot leve! Quase encaixou livre..." oninput="saveExerciseNote('ex-ter-4', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-ter-4" placeholder="Ex: Spot firme na 2ª tentativa, ela quase encaixou o mergulho..." oninput="saveExerciseNote('ex-ter-4', this.value)"></textarea>
         </div>
       </div>
     </div>
 
-    <!-- ==================== SEÇÃO 3: ACRODUO & DANÇA ACROBÁTICA (17h00 às 18h30) ==================== -->
+    <!-- ==================== SEÇÃO 3: ACRODUO & FLUXO ACROBÁTICO (17h00) ==================== -->
     <div class="section-card sec-skills">
       <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
         <div class="section-title-wrap">
@@ -3332,28 +3346,17 @@
         </div>
       </div>
 
-      <div class="bio-cue" style="border-left: 2px solid var(--brand-neon); margin-bottom: 14px;">
-        <strong>🎪 Blindagem Biomecânica da Portagem pós-CrossFit:</strong><br>
-        • <strong>Bone Stacking Obrigatório:</strong> Cotovelos 100% estendidos nas sustentações para anular torque fletor no tríceps fadigado da Skill.<br>
-        • <strong>Privilegiar L-Base:</strong> Bases deitadas transmitem carga diretamente pela pelve ao chão, poupando a musculatura paravertebral e pernas.<br>
-        • <strong>Menisco Lateral:</strong> Em bases em pé, tíbias rigorosamente verticais. Vetado bases de pivô com torção do pé esquerdo no chão.
+      <div class="ex-cues-row" style="margin-bottom: 12px;">
+        <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Blindagem da Portagem pós-Box', '• Bone Stacking Obrigatório: Cotovelos 100% estendidos nas sustentações para anular torque fletor no tríceps fadigado da Skill.\n\n• Privilegiar L-Base: Bases deitadas transmitem carga diretamente pela pelve ao chão, poupando pernas e paravertebrais.\n\n• Menisco Lateral: Em bases em pé, tíbias rigorosamente verticais. Vetado bases de pivô com torção do pé esquerdo no solo.', '🛡️ Cuidados')">🛡️ Blindagem da Portagem</button>
       </div>
 
       <div class="exercise-card">
         <div class="ex-top">
-          <div>
-            <div class="ex-title">Portagem Dinâmica & Dança com Volante Feminina (~58 kg)</div>
-            <div class="ex-chips">
-              <span class="chip">Volante 58 kg</span>
-              <span class="chip">Transições de Fluxo</span>
-              <span class="chip">L-Base / Trono / Pés nas Mãos</span>
-              <span class="chip">Empilhamento Ósseo</span>
-            </div>
-          </div>
-          <div class="ex-volume-badge">Fluxo Contínuo</div>
+          <div class="ex-title">Portagem & Fluxo Acrobático</div>
+          <div class="ex-volume-badge">Volante 58 kg</div>
         </div>
-        <div class="bio-cue">
-          <strong>Diretrizes Técnicas:</strong> Use o timing e o momento pendular da parceira para as transições em vez de força bruta com os ombros fadigados. Foco em fluidez, respiração coordenada e conexão de peso.
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-execucao" onclick="openTip('Portagem com Volante Feminina (~58 kg)', '• Use o timing e o momento pendular da parceira para as transições em vez de força bruta com os ombros fadigados.\n• Foco em fluidez, respiração coordenada e conexão de peso.\n• Figuras sugeridas: L-Base, Trono, Pés nas Mãos e Transições de Solo.', '🔧 Execução')">🔧 Execução</button>
         </div>
         <div class="ex-actions">
           <button class="btn-comment" id="btn-comment-ex-ter-acro" onclick="toggleCommentBox('ex-ter-acro')">
@@ -3376,29 +3379,20 @@
     <div class="section-card sec-flexibilidade">
       <div class="section-header">
         <div class="section-title-wrap">
-          <span class="section-badge">Acessórios & Soltura</span>
-          <div class="section-title">Força de Mergulho na Barra & Descompressão Articular</div>
+          <span class="section-badge" style="background:rgba(192,132,252,0.12); color:#c084fc; border-color:rgba(192,132,252,0.3);">Descompressão Articular</span>
+          <div class="section-title">Protocolo Pós-Treino (Femorotibial & Lombar)</div>
         </div>
-        <span class="time-badge">2 blocos • 15 min</span>
+        <span class="time-badge">~15 min</span>
       </div>
 
       <!-- Ex ter-5: Straight Bar Dips + Lat Pushdown -->
       <div class="exercise-card">
         <div class="ex-top">
-          <div>
-            <div class="ex-title">Straight Bar Dips + Straight-Arm Banded Pushdown (Gui & Amiga)</div>
-            <div class="ex-chips">
-              <span class="chip">Dips na Barra Reta (Tríceps/Peitoral)</span>
-              <span class="chip">Puxada com Braço Reto no Elástico</span>
-              <span class="chip">Consolidação de Força</span>
-            </div>
-          </div>
+          <div class="ex-title">Dips na Barra + Puxada no Elástico</div>
           <div class="ex-volume-badge">3 séries • 4-6 dips + 10 pushdowns</div>
         </div>
-        <div class="bio-cue">
-          <strong>Consolidação da Transição & Finalização:</strong><br>
-          • <strong>Straight Bar Dips (4 a 6 reps):</strong> Em cima da barra reta (com pés apoiados se necessário para a amiga), descer com o peito tocando a barra e cotovelos fechados, empurrando até a extensão completa. Constrói a força do tríceps e peitoral menor na saída da transição.<br>
-          • <strong>Straight-Arm Pushdown (10 reps):</strong> Elástico amarrado no alto, segurar com braços esticados e abaixar até as coxas sem dobrar os cotovelos. Isola o grande dorsal e a cabeça longa do tríceps.
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-execucao" onclick="openTip('Dips na Barra & Puxada no Elástico', '• Straight Bar Dips (4 a 6 reps): Em cima da barra reta (com pés apoiados se necessário para a amiga), descer com o peito tocando a barra e cotovelos fechados, empurrando até a extensão completa. Constrói a força do tríceps e peitoral menor na saída da transição.\n\n• Straight-Arm Pushdown (10 reps): Elástico amarrado no alto, segurar com braços esticados e abaixar até as coxas sem dobrar os cotovelos. Isola o grande dorsal e a cabeça longa do tríceps.', '🔧 Execução')">🔧 Execução</button>
         </div>
         <div class="ex-actions">
           <button class="btn-comment" id="btn-comment-ex-ter-5" onclick="toggleCommentBox('ex-ter-5')">
@@ -3424,20 +3418,11 @@
       <!-- Ex ter-6: Descompressão Final -->
       <div class="exercise-card">
         <div class="ex-top">
-          <div>
-            <div class="ex-title">Descompressão Subacromial do Ombro & Alívio do Menisco Lateral</div>
-            <div class="ex-chips">
-              <span class="chip">Dead Hang com Ponta dos Pés</span>
-              <span class="chip">Abertura Subacromial</span>
-              <span class="chip">Tração Bíceps Femoral / TFL</span>
-            </div>
-          </div>
+          <div class="ex-title">Descompressão Articular & Alongamento</div>
           <div class="ex-volume-badge">2x 45s cada</div>
         </div>
-        <div class="bio-cue">
-          <strong>Neutralização Articular Imediata Pós-Treino:</strong><br>
-          1. <strong>Ombro:</strong> Suspensão passiva na barra com pontas dos pés no solo tirando 30% do peso. A gravidade abre o túnel subacromial, descomprimindo o tendão do supraespinhal.<br>
-          2. <strong>Joelho Esquerdo:</strong> Alongamento de bíceps femoral e fáscia lata com rotação interna da tíbia, liberando a tração na cabeça da fíbula e descomprimindo o menisco lateral.
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-execucao" onclick="openTip('Descompressão Meniscal & Ombro', '1. Ombro: Suspensão passiva na barra com pontas dos pés no solo tirando 30% do peso. A gravidade abre o túnel subacromial, descomprimindo o tendão do supraespinhal.\n\n2. Joelho Esquerdo: Alongamento de bíceps femoral e fáscia lata com rotação interna da tíbia, liberando a tração na cabeça da fíbula e descomprimindo o menisco lateral.', '🔧 Execução')">🔧 Execução</button>
         </div>
         <div class="ex-actions">
           <button class="btn-comment" id="btn-comment-ex-ter-6" onclick="toggleCommentBox('ex-ter-6')">
@@ -5469,13 +5454,13 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '42';
+    const APP_BUILD_VERSION = '43';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
         caches.keys().then((keys) => {
           keys.forEach((k) => {
-            if (k !== 'dominio-corporal-v42') caches.delete(k);
+            if (k !== 'dominio-corporal-v43') caches.delete(k);
           });
         });
       }
@@ -6781,7 +6766,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=42').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=43').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
@@ -6789,7 +6774,9 @@
         window.location.reload();
       });
     }
-    /* Funções do Popover Flutuante: 💡 Dica | 🔧 Execução | 🛡️ Cuidados */
+        /* Funções do Popover Flutuante: 💡 Dica | 🔧 Execução | 🛡️ Cuidados | ⚠️ Importante */
+    let tipPopoverOpenTime = 0;
+
     function openTip(title, contentText, category = '💡 Dica') {
       const overlay = document.getElementById('tipPopoverOverlay');
       const tagEl = document.querySelector('.tip-popover-tag');
@@ -6799,8 +6786,15 @@
       const okBtn = document.querySelector('.tip-popover-ok');
 
       if (overlay && titleEl && contentEl) {
+        tipPopoverOpenTime = Date.now();
         titleEl.textContent = title;
-        contentEl.textContent = contentText;
+        
+        // Formata quebras de linha com espaçamento confortável
+        contentEl.innerHTML = contentText.split(/\r?\n/).map(l => {
+          const t = l.trim();
+          if (!t) return '<div style="height:6px;"></div>';
+          return `<div style="margin-bottom:4px; line-height:1.55;">${t}</div>`;
+        }).join('');
 
         let tagText = '💡 DICA';
         let tagColor = '#facc15';
@@ -6820,6 +6814,12 @@
           cardBorder = 'rgba(248, 113, 113, 0.38)';
           btnBg = 'rgba(248, 113, 113, 0.15)';
           btnBorder = 'rgba(248, 113, 113, 0.4)';
+        } else if (category.includes('Importante') || category.includes('⚠️')) {
+          tagText = '⚠️ IMPORTANTE';
+          tagColor = '#fbbf24';
+          cardBorder = 'rgba(251, 191, 36, 0.4)';
+          btnBg = 'rgba(251, 191, 36, 0.15)';
+          btnBorder = 'rgba(251, 191, 36, 0.4)';
         }
 
         if (tagEl) {
@@ -6839,8 +6839,11 @@
       }
     }
 
-    function closeTipPopover(event) {
-      if (event && event.target && event.target !== event.currentTarget && !event.target.classList.contains('tip-popover-close') && !event.target.classList.contains('tip-popover-ok')) {
+    function closeTipPopover(event, force = false) {
+      if (!force && (Date.now() - tipPopoverOpenTime < 600)) {
+        return;
+      }
+      if (event && event.target && event.target !== event.currentTarget && !event.target.classList.contains('tip-popover-close') && !event.target.classList.contains('tip-popover-ok') && !force) {
         return;
       }
       const overlay = document.getElementById('tipPopoverOverlay');
@@ -6848,16 +6851,16 @@
     }
 
   </script>
-  <!-- Popover Flutuante de Dica Biomecânica / Observação Técnica -->
+    <!-- Popover Flutuante de Dica Biomecânica / Observação Técnica -->
   <div id="tipPopoverOverlay" class="tip-popover-overlay" onclick="closeTipPopover(event)" style="display:none;">
-    <div class="tip-popover-card">
+    <div class="tip-popover-card" onclick="event.stopPropagation();">
       <div class="tip-popover-header">
         <div class="tip-popover-tag">💡 Observação Técnica</div>
-        <button class="tip-popover-close" onclick="closeTipPopover()">&times;</button>
+        <button type="button" class="tip-popover-close" onclick="closeTipPopover(event, true)">&times;</button>
       </div>
       <div class="tip-popover-title" id="tipPopoverTitle">Strict Pull-up</div>
       <div class="tip-popover-content" id="tipPopoverContent"></div>
-      <button class="tip-popover-ok" onclick="closeTipPopover()">Entendido</button>
+      <button type="button" class="tip-popover-ok" onclick="closeTipPopover(event, true)">Entendido</button>
     </div>
   </div>
 </body>
