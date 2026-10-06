@@ -1,0 +1,20 @@
+[
+  {
+    "data": "2026-10-05",
+    "dia": "Segunda",
+    "treino": "Crossfit - Box",
+    "series_concluidas": 10,
+    "total_series": 10,
+    "aderencia_pct": 100,
+    "notas": "WOD cumprido com intensidade e joelho preservado"
+  },
+  {
+    "data": "2026-10-06",
+    "dia": "Terca",
+    "treino": "Box + Lab BMU + Acroduo",
+    "series_concluidas": 14,
+    "total_series": 14,
+    "aderencia_pct": 100,
+    "notas": "Turnover do BMU encaixado com corpo estendido; L-base no Acroduo sem sobrecarga"
+  }
+]
