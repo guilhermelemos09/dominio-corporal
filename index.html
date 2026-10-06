@@ -2766,8 +2766,10 @@
       gap: 4px !important;
     }
 
-    /* Dock Flutuante 2 em 1 OLED: Descanso em Cima, Progressão em Baixo */
+    /* Dock Flutuante 2 em 1 OLED: Exibido EXCLUSIVAMENTE em páginas de treino */
     .timer-dock {
+      display: none !important;
+      position: fixed;
       position: fixed;
       bottom: 14px;
       left: 14px;
@@ -2881,6 +2883,10 @@
     }
 
     /* Esconde o timer dock APENAS em views não-treino */
+    /* Mostra o dock APENAS quando estiver dentro de uma sessão de treino ativa */
+    body.in-day-workout .timer-dock {
+      display: flex !important;
+    }
     body.in-view-avaliacao .timer-dock,
     body.in-view-perfil .timer-dock,
     body.in-view-timers .timer-dock {
@@ -3477,7 +3483,7 @@
         <label class="finish-checkbox-label">
           <input type="checkbox" id="checkFinish-segunda" class="finish-checkbox-input" onchange="toggleFinishWorkoutBtn('segunda', this.checked)">
           <span class="finish-custom-checkbox"></span>
-          <span class="finish-checkbox-text">🏁 Finalizar sessão</span>
+          <span class="finish-checkbox-text">Finalizar sessão 🏁</span>
         </label>
         <button type="button" class="btn-send-coach" id="btnSendCoach-segunda" onclick="completeWorkoutSession('segunda')" disabled>
           <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
@@ -3854,7 +3860,7 @@
         <label class="finish-checkbox-label">
           <input type="checkbox" id="checkFinish-terca" class="finish-checkbox-input" onchange="toggleFinishWorkoutBtn('terca', this.checked)">
           <span class="finish-custom-checkbox"></span>
-          <span class="finish-checkbox-text">🏁 Finalizar sessão</span>
+          <span class="finish-checkbox-text">Finalizar sessão 🏁</span>
         </label>
         <button type="button" class="btn-send-coach" id="btnSendCoach-terca" onclick="completeWorkoutSession('terca')" disabled>
           <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
@@ -4818,72 +4824,420 @@
 
   <!-- ==================== TAB: ONTEM (QUARTA EEFERP - REGISTRO TÉCNICO & VÍDEO) ==================== -->
   <div id="tab-quarta" class="tab-content">
-    
-    <!-- Introdução Sucinta da Sessão -->
-    <div class="callout-box" style="border-left: 3px solid #38bdf8; padding: 12px 14px; margin-bottom: 12px;">
+
+    <!-- CABEÇALHO / METADADOS GERAIS: LOCAL E DURAÇÃO TOTAL -->
+    <div class="session-overall-meta">
+      <span class="meta-item">📍 Ginásio EEFERP-USP</span>
+      <span class="meta-item">⏳ ~120 min total</span>
+    </div>
+
+    <!-- QUADRO DE FOCO DO TREINO (Padrão: Emoji, Verde, Texto Corrido) -->
+    <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 12px 14px; margin-bottom: 12px;">
       <div class="callout-icon" style="font-size:1.15rem; margin-top:1px;">🎯</div>
       <div>
-        <div class="callout-topic-header" style="color: #38bdf8;">FOCO DO TREINO: GINÁSTICA & EQUILÍBRIO</div>
+        <div class="callout-topic-header" style="color: var(--brand-neon);">FOCO: GINÁSTICA & HANDSTAND</div>
         <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
-          Parada de Mãos (Handstand), alavancas na manjota (canes) e equilíbrio unilateral (One-Arm Croc).
+          Parada de mãos alinhada em bone stacking, subida contínua em força pura (Press to Handstand) e equilíbrio unilateral na manjota (One-Arm Croc).
         </div>
       </div>
     </div>
 
-    <!-- Barra de Progresso da Sessão (Destacada sob o Foco do Treino) -->
-    <div class="progress-section">
-      <div class="progress-labels">
-        <span>Progresso da Sessão</span>
-        <span class="progress-val-text">Análise & Treino Concluído</span>
-      </div>
-      <div class="progress-bar-bg">
-        <div class="progress-bar-fill" style="width: 100%;"></div>
-      </div>
+    <!-- BOTÃO POP-UP: IMPORTANTE (LEIA ANTES DE TREINAR) -->
+    <div style="margin-bottom: 14px;">
+      <button type="button" class="btn-important-banner" onclick="openTip('Orientações Articulares da Ginástica', '• Punhos: Aquecimento e carga progressiva antes de subir nos canes da manjota.
+• Ombro Operado: Depressão escapular ativa constante (empurrar o chão/canes para longe) para proteger o espaço subacromial.
+• Joelho & Menisco: Saídas controladas da parada de mãos com aterrissagem amortecida em tatame grosso, sem impacto brusco.', '⚠️ Importante')">
+        <span class="important-icon">⚠️</span>
+        <span>IMPORTANTE (LEIA ANTES DE TREINAR)</span>
+        <span class="important-arrow">›</span>
+      </button>
     </div>
 
-    <!-- Card de Análise do Vídeo da Manjota -->
-    <div class="section-card sec-skills">
+    <!-- ==================== SEÇÃO 1: ATIVAÇÃO ARTICULAR & CORE ==================== -->
+    <div class="section-card sec-ativacao">
       <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
         <div class="section-title-wrap">
-          <div class="section-title" style="font-size:0.95rem; font-weight:800; color:#fff;">Manjota & Parada de Mãos</div>
+          <div class="section-title" style="font-size:0.95rem; font-weight:800; color:#fff;">1. Ativação Articular & Core</div>
         </div>
         <div class="session-meta-chips">
-          <span class="meta-chip meta-chip-loc">📍 EEFERP-USP</span>
-          <span class="meta-chip meta-chip-time">⏱️ ~60 min</span>
+          <span class="meta-chip meta-chip-time">⏱️ ~25 min</span>
         </div>
       </div>
 
-      <div style="margin-bottom: 14px;">
-        <video controls playsinline preload="metadata" style="width: 100%; border-radius: 12px; max-height: 380px; background: #000; border: 1px solid var(--border-strong);" src="Midia/WhatsApp Video 2026-10-01 at 11.30.16.mp4"></video>
-        <div style="margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap;">
-          <a href="https://drive.google.com/file/d/1tNgCqQQXc_sA3WCwqryKIRbHE7mK8zZX/view?usp=sharing" target="_blank" class="btn-video" style="text-decoration: none;">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> 📱 Abrir Vídeo no Drive (Celular)
-          </a>
+      <!-- Ex q-1: Mobilidade de Punhos & Cápsula Glenoumeral -->
+      <div class="exercise-card">
+        <div class="ex-title">MOBILIDADE DE PUNHOS & ABERTURA GLENOUMERAL</div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2X 45" CADA</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Punhos</div>
+            <div class="set-pill" onclick="toggleSet(this)">Ombros</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Mobilidade de Punhos & Ombro', '• Punhos: Em 4 apoios com dedos virados para trás, transfira o peso suavemente para os calcanhares sem dobrar os cotovelos.
+• Glenoumeral: Tração com elástico alto inclinando o tronco à frente para descomprimir o túnel subacromial antes do peso corporal.', '🔧 Instruções')">🔧 Instruções</button>
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados com Carga no Punho', '• Respeite o limite elástico do punho sem movimentos balísticos bruscos.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-q-1" onclick="toggleCommentBox('ex-q-1')">
+            <span>💬 Dúvidas ou observações? Clique aqui</span>
+            <span class="comment-dot" id="dot-ex-q-1" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-q-1" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Observações de punhos e ombro:</span>
+            <span class="save-indicator" id="save-status-ex-q-1"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-q-1" placeholder="Ex: Punhos bem destravados, ombro livre..." oninput="saveExerciseNote('ex-q-1', this.value)"></textarea>
         </div>
       </div>
 
-      <div style="font-size: 0.84rem; line-height: 1.6; color: var(--text-muted);">
-        <p style="margin-bottom: 8px;"><strong style="color:#ffffff;">Decomposição Cinemática dos Movimentos:</strong></p>
-        <p style="margin-bottom: 6px;"><strong>1. L-Sit / V-Sit Inicial (00:01):</strong> Bloqueio articular completo de cotovelos e joelhos, flexão plantar rigorosa e depressão escapular ativa. Centro de massa estável entre os canes.</p>
-        <p style="margin-bottom: 6px;"><strong>2. Press to Straddle Handstand (00:03 - 00:05):</strong> Subida em força pura e contínua sem balanço ou salto balístico. Compressão pélvica de iliopsoas e translação precisa dos ombros à frente para criar contrapeso.</p>
-        <p style="margin-bottom: 6px;"><strong>3. Full Handstand Alinhado (00:11 - 00:19):</strong> Fechamento elegante unindo as pernas. Linha axilar aberta, elevação de serrátil e trapézio superior mantendo a vertical neutra por quase 10 segundos.</p>
-        <p style="margin-bottom: 6px;"><strong>4. Descida Excêntrica em Compressão para L-Sit (00:21 - 00:25):</strong> Passagem de pernas em <em>tuck/pike pass</em> controlada em câmera lenta, amortecendo a gravidade e travando no L-Sit no ar sem tocar o chão.</p>
-        <p style="margin-bottom: 6px;"><strong>5. Straddle Elbow Lever / Croc (00:28 - 00:31):</strong> Transição horizontal suave apoiando os cotovelos nos flexores/espinha ilíaca anterior.</p>
-        <p style="margin-bottom: 6px;"><strong style="color: #38bdf8;">6. One-Arm Croc Unilateral (00:32 - 00:39):</strong> O ponto alto do vídeo! Transferência total do centro de gravidade para o cane direito e sustentação com 1 único braço descolando o braço esquerdo por ~7 segundos. Torque anti-rotacional excepcional de oblíquos e quadrado lombar.</p>
-        <p><strong>7. Saída e Aterrissagem (00:41):</strong> Retorno limpo e aterrissagem bípede com total controle motor.</p>
+      <!-- Ex q-2: Hollow Body Rock & Arch Hold -->
+      <div class="exercise-card">
+        <div class="ex-title">HOLLOW BODY ROCK & ARCH HOLD</div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • 30" + 30"</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Hollow Body & Arch Body', '• Hollow: Lombar rigorosamente colada no chão, retroversão pélvica máxima, ponta dos pés esticada.
+• Arch: Contração de glúteos e eretores da espinha com queixo neutro.', '🔧 Instruções')">🔧 Instruções</button>
+          <button type="button" class="btn-tip-cue cue-dicas" onclick="openTip('Tensão do Core', '• Imagine que você é uma canoa rígida e indeformável balançando suavemente.', '💡 Dicas')">💡 Dicas</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-q-2" onclick="toggleCommentBox('ex-q-2')">
+            <span>💬 Dúvidas ou observações? Clique aqui</span>
+            <span class="comment-dot" id="dot-ex-q-2" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-q-2" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Observações do core:</span>
+            <span class="save-indicator" id="save-status-ex-q-2"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-q-2" placeholder="Ex: Lombar firme no chão, 3 séries completas..." oninput="saveExerciseNote('ex-q-2', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex q-3: Compressão em L-Sit no Solo -->
+      <div class="exercise-card">
+        <div class="ex-title">COMPRESSÃO EM L-SIT NO SOLO</div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • 15–20"</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Compressão L-Sit', '• Empurre o solo para baixo com as mãos ao lado das coxas gerando depressão e protração escapular ativa.
+• Pernas unidas, joelhos travados e ponta dos pés esticada sem tocar o chão.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-q-3" onclick="toggleCommentBox('ex-q-3')">
+            <span>💬 Dúvidas ou observações? Clique aqui</span>
+            <span class="comment-dot" id="dot-ex-q-3" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-q-3" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Observações de sustentação:</span>
+            <span class="save-indicator" id="save-status-ex-q-3"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-q-3" placeholder="Ex: 18" sustentados na 1ª série..." oninput="saveExerciseNote('ex-q-3', this.value)"></textarea>
+        </div>
       </div>
     </div>
-    <!-- Ação de Conclusão da Sessão -->
-    <div class="session-finish-container">
-      <button class="btn-toggle-workout-finish" id="btnFinish-quarta" onclick="toggleWorkoutComplete('quarta')">
-        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-        <span class="finish-text">Marcar Treino de Quarta como Concluído</span>
-      </button>
-      <button class="btn-back-hub-bottom" onclick="closeDedicatedView()">
-        ‹ Voltar à Lista de Treinos
-      </button>
+
+    <!-- ==================== SEÇÃO 2: HABILIDADE & EQUILÍBRIO (HANDSTAND & MANJOTA) ==================== -->
+    <div class="section-card sec-habilidade">
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+        <div class="section-title-wrap">
+          <div class="section-title" style="font-size:0.95rem; font-weight:800; color:#fff;">2. Habilidade & Equilíbrio (Manjota)</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~45 min</span>
+        </div>
+      </div>
+
+      <!-- Ex q-4: Full Handstand na Manjota -->
+      <div class="exercise-card">
+        <div class="ex-title">FULL HANDSTAND NA MANJOTA (CANES)</div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">4-5 SÉRIES • 20–30"</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 4</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 5</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Handstand em Bone Stacking', '• Linha neutra perfeita: punhos, cotovelos bloqueados, ombros abertos e pelve neutra.
+• Elevação de serrátil e trapézio superior empurrando os canes para longe.
+• Ajuste fino de microequilíbrio feito pela ponta dos dedos nos blocos.', '🔧 Instruções')">🔧 Instruções</button>
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Proteção Articular no Handstand', '• Se perder a linha e sentir sobrecarga anterior no ombro direito, desça suavemente e recupere o alinhamento.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue btn-video" onclick="openVideoModal('Manjota & Parada de Mãos (Gui Lemos)', '<b>Referência Técnica:</b> Subida contínua em força pura (Press to Handstand), alinhamento vertical estável e sustentação unilateral (One-Arm Croc).', 'Midia/WhatsApp Video 2026-10-01 at 11.30.16.mp4')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <span>Vídeo</span>
+          </button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-q-4" onclick="toggleCommentBox('ex-q-4')">
+            <span>💬 Dúvidas ou observações? Clique aqui</span>
+            <span class="comment-dot" id="dot-ex-q-4" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-q-4" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Observações do Handstand:</span>
+            <span class="save-indicator" id="save-status-ex-q-4"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-q-4" placeholder="Ex: Equilíbrio sólido por 25", ombro direito 100% confortável..." oninput="saveExerciseNote('ex-q-4', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex q-5: Press to Handstand -->
+      <div class="exercise-card">
+        <div class="ex-title">PRESS TO HANDSTAND (SUBIDA EM FORÇA PURA)</div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">4 SÉRIES • 2-3 REPS</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 4</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Press to Handstand', '• Início em straddle no solo ou nos canes.
+• Translação controlada dos ombros à frente para criar contrapeso de alavanca.
+• Compressão pélvica de iliopsoas elevando o quadril acima da base antes de unir as pernas no topo.', '🔧 Instruções')">🔧 Instruções</button>
+          <button type="button" class="btn-tip-cue cue-dicas" onclick="openTip('Gatilho Neural de Subida', '• Mantenha o olhar fixo entre os canes e suba sem pressa, sem nenhum salto balístico.', '💡 Dicas')">💡 Dicas</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-q-5" onclick="toggleCommentBox('ex-q-5')">
+            <span>💬 Dúvidas ou observações? Clique aqui</span>
+            <span class="comment-dot" id="dot-ex-q-5" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-q-5" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Observações da subida:</span>
+            <span class="save-indicator" id="save-status-ex-q-5"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-q-5" placeholder="Ex: Subidas limpas e contínuas sem impulso..." oninput="saveExerciseNote('ex-q-5', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex q-6: One-Arm Croc Unilateral -->
+      <div class="exercise-card">
+        <div class="ex-title">ONE-ARM CROC UNILATERAL (MANJOTA)</div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3-4 SÉRIES • 5–8" / LADO</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Braço D</div>
+            <div class="set-pill" onclick="toggleSet(this)">Braço E</div>
+            <div class="set-pill" onclick="toggleSet(this)">Braço D</div>
+            <div class="set-pill" onclick="toggleSet(this)">Braço E</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('One-Arm Croc', '• Transição horizontal suave apoiando o cotovelo de base na espinha ilíaca anterior.
+• Deslocamento lento do centro de massa para o cane de suporte.
+• Tirar a mão oposta mantendo forte contração anti-rotacional de oblíquos e pernas em straddle.', '🔧 Instruções')">🔧 Instruções</button>
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Estabilidade do Ombro no Croc', '• Bloqueie a cápsula articular com firmeza antes de soltar a segunda mão.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-q-6" onclick="toggleCommentBox('ex-q-6')">
+            <span>💬 Dúvidas ou observações? Clique aqui</span>
+            <span class="comment-dot" id="dot-ex-q-6" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-q-6" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Observações do equilíbrio unilateral:</span>
+            <span class="save-indicator" id="save-status-ex-q-6"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-q-6" placeholder="Ex: 7" cravados no braço direito com excelente torque..." oninput="saveExerciseNote('ex-q-6', this.value)"></textarea>
+        </div>
+      </div>
     </div>
-  </div>
+
+    <!-- ==================== SEÇÃO 3: FORTALECIMENTO ESPECÍFICO ==================== -->
+    <div class="section-card sec-forca">
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+        <div class="section-title-wrap">
+          <div class="section-title" style="font-size:0.95rem; font-weight:800; color:#fff;">3. Fortalecimento Específico</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~30 min</span>
+        </div>
+      </div>
+
+      <!-- Ex q-7: Handstand Push-Up Controlado -->
+      <div class="exercise-card">
+        <div class="ex-title">HANDSTAND PUSH-UP CONTROLADO (HSPU)</div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3-4 SÉRIES • 4-6 REPS</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 4</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('HSPU — Trajetória de Tripé', '• Descida em tripé com cabeça à frente das mãos formando um triângulo no solo.
+• Cotovelos fechados a 45° para resguardar o manguito e o labrum glenoidal.
+• Empurrão concêntrico até o bloqueio e depressão escapular completa.', '🔧 Instruções')">🔧 Instruções</button>
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cadência Excêntrica', '• 2 a 3 segundos de descida controlada sem impacto na cabeça.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-q-7" onclick="toggleCommentBox('ex-q-7')">
+            <span>💬 Dúvidas ou observações? Clique aqui</span>
+            <span class="comment-dot" id="dot-ex-q-7" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-q-7" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Observações do HSPU:</span>
+            <span class="save-indicator" id="save-status-ex-q-7"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-q-7" placeholder="Ex: 5 reps estritas com descida controlada..." oninput="saveExerciseNote('ex-q-7', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex q-8: Puxada em Corda / Rope Climb Técnico -->
+      <div class="exercise-card">
+        <div class="ex-title">PUXADA EM CORDA (ROPE CLIMB TÉCNICO)</div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • 2 SUBIDAS</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Subida 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Subida 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Subida 3</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Rope Climb Técnico', '• Puxada fechada mantendo as mãos próximas ao queixo/esterno para máxima potência dorsal.
+• Trava de pés segura (J-hook ou Spanish wrap) para apoiar o peso do corpo e poupar os joelhos.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-q-8" onclick="toggleCommentBox('ex-q-8')">
+            <span>💬 Dúvidas ou observações? Clique aqui</span>
+            <span class="comment-dot" id="dot-ex-q-8" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-q-8" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Observações da corda:</span>
+            <span class="save-indicator" id="save-status-ex-q-8"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-q-8" placeholder="Ex: Subidas limpas com pegada firme..." oninput="saveExerciseNote('ex-q-8', this.value)"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SEÇÃO 4: DESCOMPRESSÃO ARTICULAR & MOBILIDADE ==================== -->
+    <div class="section-card sec-flexibilidade">
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+        <div class="section-title-wrap">
+          <span class="section-badge" style="background:rgba(192,132,252,0.12); color:#c084fc; border-color:rgba(192,132,252,0.3);">Recuperação</span>
+          <div class="section-title">4. Descompressão Articular & Mobilidade</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~20 min</span>
+        </div>
+      </div>
+
+      <!-- Ex q-9: Suspensão Passiva na Barra -->
+      <div class="exercise-card">
+        <div class="ex-title">SUSPENSÃO PASSIVA NA BARRA</div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2X 45"</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Suspensão Passiva', '• Pendurado na barra com pontas dos pés no chão tirando 20% do peso corporal.
+• Relaxamento consciente de escápulas e lombar, permitindo que a gravidade abra o espaço subacromial.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-q-9" onclick="toggleCommentBox('ex-q-9')">
+            <span>💬 Dúvidas ou observações? Clique aqui</span>
+            <span class="comment-dot" id="dot-ex-q-9" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-q-9" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Sensações articulares pós-treino:</span>
+            <span class="save-indicator" id="save-status-ex-q-9"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-q-9" placeholder="Ex: Ombro livre, alívio total da tensão escapular..." oninput="saveExerciseNote('ex-q-9', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex q-10: Alongamento em Panqueca / Pancake Stretch -->
+      <div class="exercise-card">
+        <div class="ex-title">ALONGAMENTO EM PANQUECA (PANCAKE STRETCH)</div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2X 60"</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Pancake Stretch', '• Pernas em straddle amplo no chão, pelve em anteversão.
+• Flexão pura de quadril descendo o peito à frente sem curvar em excesso a lombar.
+• Respiração diafragmática profunda a cada expiração.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-q-10" onclick="toggleCommentBox('ex-q-10')">
+            <span>💬 Dúvidas ou observações? Clique aqui</span>
+            <span class="comment-dot" id="dot-ex-q-10" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-q-10" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Observações de flexibilidade:</span>
+            <span class="save-indicator" id="save-status-ex-q-10"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-q-10" placeholder="Ex: Boa amplitude nos adutores, lombar preservada..." oninput="saveExerciseNote('ex-q-10', this.value)"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card Clean de Finalização de Treino (Quarta) -->
+    <div class="workout-finish-clean-card" id="workoutFinishCard-quarta">
+      <div class="finish-controls-row">
+        <label class="finish-checkbox-label">
+          <input type="checkbox" id="checkFinish-quarta" class="finish-checkbox-input" onchange="toggleFinishWorkoutBtn('quarta', this.checked)">
+          <span class="finish-custom-checkbox"></span>
+          <span class="finish-checkbox-text">Finalizar sessão 🏁</span>
+        </label>
+        <button type="button" class="btn-send-coach" id="btnSendCoach-quarta" onclick="completeWorkoutSession('quarta')" disabled>
+          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          <span>Enviar para Coach</span>
+        </button>
+      </div>
+      <div id="completeFeedback-quarta" class="complete-feedback-box" style="display:none; width: 100%;">
+        ✅ Treino finalizado e relatório enviado com sucesso para o Coach!
+      </div>
+    </div>
+
+  </div><!-- end #tab-quarta -->
 
   </div><!-- end #mainTrainingView -->
 
@@ -5867,7 +6221,7 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '54';
+    const APP_BUILD_VERSION = '55';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
@@ -6148,7 +6502,15 @@
         setTimeout(() => { if (hdr) hdr.style.pointerEvents = ''; }, 450);
       }
 
-      document.body.classList.remove('in-dedicated-view');
+      document.body.classList.remove(
+        'in-dedicated-view',
+        'in-day-workout',
+        'in-view-avaliacao',
+        'in-view-perfil',
+        'in-view-timers',
+        'in-view-analises',
+        'in-view-evolucao'
+      );
       const topBar = document.getElementById('dedicatedTopBar');
       if (topBar) topBar.style.display = 'none';
 
