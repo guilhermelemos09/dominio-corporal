@@ -2616,17 +2616,17 @@
     <button class="btn-back-workout" id="btnDedicatedBack" onclick="handleDedicatedBackClick(event)">
       ‹ Voltar aos Treinos
     </button>
-    <div class="dedicated-bar-title" id="dedicatedBarTitle">Central de Timers</div>
+    <div class="dedicated-bar-title" id="dedicatedBarTitle">Domínio Corporal</div>
     <div style="width:24px;"></div>
   </div>
 
   <!-- Header Domínio Corporal (Preto OLED & Verde Neon) -->
   <header id="mainAppHeader">
     <div class="brand-top">
-      <div class="coach-profile-btn" onclick="openDedicatedView('perfil')" role="button" tabindex="0" aria-label="Abrir Perfil e Biografia de Gui Lemos">
+      <div class="coach-profile-btn" onclick="openDedicatedView('perfil')" role="button" tabindex="0" aria-label="Abrir Perfil do Coach Gui Lemos">
         <img src="gui_foto.jpg" onerror="this.onerror=null; this.src='icon-192.png';" alt="Domínio Corporal" class="coach-avatar">
         <span class="coach-name">Gui Lemos</span>
-        <span class="bio-badge">Bio & Perfil ↗</span>
+        <span class="bio-badge">Perfil do Coach ↗</span>
       </div>
       <div class="badge-sync" onclick="forceAppRefresh()" style="cursor: pointer;" title="Toque para sincronizar e atualizar o app">Sincronizado</div>
     </div>
@@ -4677,7 +4677,7 @@
           <span style="position:absolute; bottom:-4px; right:-4px; background:var(--brand-neon); color:#000; font-size:0.6rem; font-weight:900; padding:2px 6px; border-radius:10px; text-transform:uppercase;">Coach</span>
         </div>
         <div style="flex:1; min-width:200px;">
-          <div style="font-size:0.7rem; font-weight:800; color:var(--brand-neon); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:2px;">CRIADOR DO MÉTODO DOMÍNIO CORPORAL</div>
+          <div style="font-size:0.7rem; font-weight:800; color:var(--brand-neon); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:2px;">PERFIL DO COACH • DOMÍNIO CORPORAL</div>
           <h2 style="font-size:1.35rem; font-weight:800; color:#fff; margin:0 0 4px 0; line-height:1.2;">Guilherme de Paula Lemos</h2>
           <div style="font-size:0.78rem; color:#94a3b8; font-weight:600;">Treinamento Especializado • Biomecânica • Acrobacia</div>
         </div>
@@ -4692,7 +4692,7 @@
         • <strong>Mestrando em Biomecânica</strong> (EEFERP - USP)</p>
 
         <p style="margin:0 0 10px 0;"><strong style="color:#fff; font-size:0.88rem;">🤸‍♂️ Vivência Prática:</strong><br>
-        • <strong>20 anos de prática contínua</strong> em Parada de Mãos (Handstand), Calistenia, CrossFit, Ginástica Artística, Circo e Acrobacias de Solo.</p>
+        • <strong>15 anos de experiência</strong> em Parada de Mãos (Handstand), Calistenia, CrossFit, Ginástica Artística, Circo e Acrobacias de Solo.</p>
 
         <p style="margin:0;"><strong style="color:#fff; font-size:0.88rem;">🎯 Filosofia:</strong><br>
         <em>"Unir a precisão da ciência biomecânica à arte do domínio corporal."</em></p>
@@ -5418,7 +5418,7 @@
           • <strong>Mestrando em Biomecânica (EEFERP-USP)</strong></p>
 
           <p style="margin-bottom: 8px;"><strong style="color: #fff;">🤸‍♂️ Vivência Prática:</strong><br>
-          • <strong>20 anos de prática</strong> em Parada de Mãos (Handstand), Calistenia, CrossFit, Ginástica Artística, Circo e Acrobacias de Solo.</p>
+          • <strong>15 anos de experiência</strong> em Parada de Mãos (Handstand), Calistenia, CrossFit, Ginástica Artística, Circo e Acrobacias de Solo.</p>
 
           <p><strong style="color: #fff;">🎯 Filosofia:</strong><br>
           <em>"Unir a precisão da ciência biomecânica à arte do domínio corporal."</em></p>
@@ -5469,13 +5469,13 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '41';
+    const APP_BUILD_VERSION = '42';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
         caches.keys().then((keys) => {
           keys.forEach((k) => {
-            if (k !== 'dominio-corporal-v41') caches.delete(k);
+            if (k !== 'dominio-corporal-v42') caches.delete(k);
           });
         });
       }
@@ -5686,7 +5686,7 @@
         'timers': 'Central de Timers',
         'analises': 'Análise de Vídeos & Biomecânica',
         'evolucao': 'Evolução & Antropometria',
-        'perfil': 'Bio & Perfil do Coach',
+        'perfil': 'Perfil do Coach',
         'avaliacao': 'Ficha de Avaliação'
       };
       const titleEl = document.getElementById('dedicatedBarTitle');
@@ -6781,7 +6781,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=41').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=42').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
