@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dominio-corporal-v37';
+const CACHE_NAME = 'dominio-corporal-v38';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -59,9 +59,11 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
+  const isHtml = event.request.mode === 'navigate' || event.request.headers.get('accept')?.includes('text/html');
+
   // Network-first strategy for app files so Gui always gets latest training updates
   event.respondWith(
-    fetch(event.request)
+    (isHtml ? fetch(event.request, { cache: 'reload' }) : fetch(event.request))
       .then((networkResponse) => {
         // Clone and cache the fresh response
         if (networkResponse && networkResponse.status === 200) {
@@ -78,7 +80,7 @@ self.addEventListener('fetch', (event) => {
           if (cachedResponse) {
             return cachedResponse;
           }
-          if (event.request.headers.get('accept')?.includes('text/html')) {
+          if (isHtml) {
             return caches.match('./index.html');
           }
         });

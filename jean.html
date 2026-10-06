@@ -920,14 +920,14 @@
       user-select: none;
       -webkit-user-select: none;
       transition: all 0.2s ease;
-    }
-    .coach-profile-btn * {
-      pointer-events: none;
+      touch-action: manipulation;
+      position: relative;
+      z-index: 10;
     }
     .coach-profile-btn:hover, .coach-profile-btn:active {
       border-color: var(--brand-neon);
       background: var(--brand-neon-bg);
-      transform: translateY(-1px);
+      transform: scale(0.98);
     }
     .coach-avatar {
       width: 24px;
@@ -3576,7 +3576,7 @@
       msg += `\n-------------------------------------------\n`;
       msg += `_Enviado pelo App Domínio Corporal_`;
 
-      const phone = '5516997637744';
+      const phone = '5516981222356';
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
       window.open(url, '_blank');
 
@@ -3598,7 +3598,7 @@
     }
 
     function contactCoachWhatsApp() {
-      const phone = '5516997637744';
+      const phone = '5516981222356';
       const msg = `Olá Gui! Estou no app Domínio Corporal e tenho uma dúvida sobre os treinos:`;
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
       window.open(url, '_blank');
@@ -4411,7 +4411,7 @@
 
       msg += `\n_Enviado pelo App Domínio Corporal_`;
 
-      const phone = '5516997637744';
+      const phone = '5516981222356';
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
       window.open(url, '_blank');
     }
@@ -4426,7 +4426,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=37').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=38').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
