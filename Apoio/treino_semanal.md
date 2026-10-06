@@ -10,7 +10,7 @@
 * **Terça (06/10 - HOJE, Concluído ✅):** 
   * **Sessão Realizada:** Box CrossFit (Warm-up + Skill 120 reps empurrar: Supino 60kg, Push-ups, Z-Press 15kg @ autoregulação + WOD 20' com 30kg: Abmat sit-ups, 80 Box Jump Overs com step-down, Power Snatches e Thrusters).
   * **Noite (Decisão Estratégica):** Descanso / Regeneração Ativa (cortisol baixo, restauração glicogênica do SNC, videogame e aperfeiçoamento do app). Volume e intensidade preservados para a sessão nobre de quarta-feira.
-* **Quarta (07/10 - AMANHÃ, 17h às 19h):** Ginásio EEFERP (2h) — **Estrutura Completa de Ginástica Artística/Acrobática** (Ativação articular/escapular/meniscal + Habilidades de Parada de Mãos/Manjota/Press + Força Estrita/Front Lever/Resgate Aquiles + Mobilidade torácica/ombros). *Sem cardio (potência e capacidade de trabalho já estressadas no Box).*
+* **Quarta (07/10 - AMANHÃ, 17h às 19h):** Ginásio EEFERP (2h) — **Estrutura Completa de Ginástica Artística/Acrobática** (Ativação articular/core + Habilidades Handstand/Manjota/Press/Croc + Força Estrita HSPU & Tuck Front Lever Row + EMOM 12' Condicionamento + Mobilidade e Recuperação final).
 * **Quinta (08/10):** Dança Contemporânea na EEFERP + 1h Ginásio (Aperfeiçoamento de *Floorwork*/Giros no tatame ou Natação regenerativa soltura).
 * **Sexta (09/10):** Portagem de Força com Amigo (volante ~63 kg, bases em alinhamento de *bone stacking*) + 1h Ginástica no Ginásio (Argolas: RTO Support, RMU, Candle Kip, Felge to support) + **ZERO TREINO DE PERNAS** (Blindagem total para a viagem ao festival no fim de semana).
 * **Sábado e Domingo (10/10 e 11/10):** Viagem / Festival — Muitas horas em pé (membros inferiores e menisco 100% preservados pelo descanso de sexta).
@@ -47,16 +47,16 @@
 # Planejamento das Próximas Sessões da Semana
 
 ### Quarta-feira (07/10 — 17h às 19h | Ginásio EEFERP - 2h)
-* **Diretriz:** Sessão gímnica completa, finalizador de condicionamento e mobilidade final.
-* **1. Ativação (20 min):** Mobilidade de punhos e ombros, canoa e arco no solo, compressão no solo.
-* **2. Habilidade (45 min):** Parada de mãos alinhada na manjota, subida em força (press) e crocodilo na manjota.
-* **3. Fortalecimento (35 min):** Flexão em parada de mãos (HSPU) e puxada estrita na barra fixa (substituindo a corda inexistente no ginásio).
+* **Diretriz:** Sessão gímnica completa de elite, finalizador de condicionamento articularmente seguro e mobilidade profunda.
+* **1. Ativação (20 min):** Mobilidade de Punhos & Ombros, Hollow & Arch Hold, L-Sit no Solo.
+* **2. Habilidade (45 min):** Handstand na Manjota, Press to Handstand, One-Arm Croc na Manjota.
+* **3. Fortalecimento (35 min):** Handstand Push-up (HSPU) e Tuck Front Lever Row nas argolas.
 * **4. Condicionamento — EMOM 12' (12 min):** 3 rounds de 4 min com link direto de acionamento do Timer no app:
-  * *Min 1:* 12–15 Kettlebell Swings (foco em quadril e tíbia vertical, preservando o menisco).
-  * *Min 2:* 15 Abmat Sit-ups.
-  * *Min 3:* 8–10 Burpees suaves / Sprawls sem choque articular.
+  * *Min 1:* 12–15 Kettlebell Swings (foco em quadril explosivo e tíbia vertical, preservando o menisco).
+  * *Min 2:* 10–12 Toes-to-Bar.
+  * *Min 3:* 20m Bear Crawl controlado no tatame.
   * *Min 4:* Descanso.
-* **5. Mobilidade & Recuperação (15 min):** Suspensão passiva na barra e alongamento em panqueca.
+* **5. Mobilidade & Recuperação (15 min):** Suspensão Passiva na Barra e Pancake Stretch.
 
 ### Quinta-feira (08/10 — Dança EEFERP + 1h Ginásio)
 * **Dança Contemporânea (EEFERP):** Fluidez de solo (*floorwork*), passagens suaves sem choque patelar e giros em monobloco com o pé esquerdo para blindar o menisco.
