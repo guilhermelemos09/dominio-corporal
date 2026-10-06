@@ -914,7 +914,7 @@
       gap: 8px;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border-subtle);
-      padding: 5px 14px 5px 8px;
+      padding: 4px 12px 4px 6px;
       border-radius: 24px;
       cursor: pointer;
       text-decoration: none;
@@ -2622,12 +2622,13 @@
 
   <!-- Header Domínio Corporal (Preto OLED & Verde Neon) -->
   <header id="mainAppHeader">
-    <div class="brand-top" style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
-      <button type="button" id="btnCoachBio" class="coach-profile-btn" onclick="openBioModal(event)" aria-label="Abrir Perfil e Biografia de Gui Lemos">
+    <div class="brand-top">
+      <div class="coach-profile-btn" onclick="openBioModal(event)" role="button" tabindex="0" aria-label="Abrir Perfil e Biografia de Gui Lemos">
         <img src="gui_foto.jpg" onerror="this.onerror=null; this.src='icon-192.png';" alt="Domínio Corporal" class="coach-avatar">
-        <span class="coach-name">GUI LEMOS</span>
-        <span class="bio-badge">Bio ↗</span>
-      </button>
+        <span class="coach-name">Gui Lemos</span>
+        <span class="bio-badge">Bio & Perfil ↗</span>
+      </div>
+      <div class="badge-sync" onclick="forceAppRefresh()" style="cursor: pointer;" title="Toque para sincronizar e atualizar o app">Sincronizado</div>
     </div>
     <div class="brand">
       <h1>DOMÍNIO CORPORAL</h1>
@@ -5352,7 +5353,7 @@
   </div>
 
   <!-- Modal Bio Gui Lemos -->
-  <div id="bioModal" class="modal-overlay" onclick="handleOverlayClick(event)">
+  <div id="bioModal" class="modal-overlay" onclick="if(event.target === this) closeBioModal(event);">
     <div class="modal-card" onclick="event.stopPropagation();">
       <div class="modal-header">
         <div style="display:flex; align-items:center; gap:10px;">
@@ -5362,7 +5363,7 @@
             <span style="font-size:0.72rem; color:var(--brand-neon); font-weight:600;">@guilemos_dominiocorporal</span>
           </div>
         </div>
-        <button class="btn-close" type="button" onclick="closeBioModal(event, true)" aria-label="Fechar">&times;</button>
+        <button class="btn-close" type="button" onclick="closeBioModal(event)" aria-label="Fechar">&times;</button>
       </div>
       <div class="modal-body" style="padding: 20px;">
         <div style="text-align: center; margin-bottom: 16px;">
@@ -5390,13 +5391,9 @@
           Siga no Instagram @guilemos_dominiocorporal
         </a>
 
-        <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
-          <button type="button" class="btn-primary" onclick="closeBioModal(event, true)" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); color: #fff; font-weight: 700; padding: 10px; border-radius: 12px; font-size: 0.85rem; cursor: pointer; width: 100%;">
+        <div style="margin-top: 14px;">
+          <button type="button" onclick="closeBioModal(event)" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); color: #fff; font-weight: 700; padding: 12px; border-radius: 12px; font-size: 0.9rem; cursor: pointer; width: 100%;">
             Fechar Perfil
-          </button>
-          <button type="button" onclick="forceAppRefresh()" style="background: transparent; border: 1px dashed rgba(0,255,136,0.3); color: var(--brand-neon); font-size: 0.72rem; padding: 8px 12px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;">
-            <svg style="width:12px; height:12px; fill:currentColor;" viewBox="0 0 24 24"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
-            <span>Sincronizar Dados / Atualizar App (v39)</span>
           </button>
         </div>
       </div>
@@ -5434,13 +5431,13 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '39';
+    const APP_BUILD_VERSION = '40';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
         caches.keys().then((keys) => {
           keys.forEach((k) => {
-            if (k !== 'dominio-corporal-v39') caches.delete(k);
+            if (k !== 'dominio-corporal-v40') caches.delete(k);
           });
         });
       }
@@ -6609,43 +6606,28 @@
     }
 
     /* Modal de Bio Gui Lemos */
-    let bioModalOpenTime = 0;
-
-    function openBioModal(e) {
-      if (e) {
-        if (typeof e.stopPropagation === 'function') e.stopPropagation();
-        if (typeof e.preventDefault === 'function') e.preventDefault();
-      }
+    window.openBioModal = function(e) {
+      if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
       const m = document.getElementById('bioModal');
       if (m) {
-        bioModalOpenTime = Date.now();
         m.classList.add('active');
         m.style.setProperty('display', 'flex', 'important');
       }
-    }
+    };
 
-    function closeBioModal(e, force = false) {
-      if (!force && (Date.now() - bioModalOpenTime < 600)) return;
-      if (e && typeof e.stopPropagation === 'function') {
-        e.stopPropagation();
-      }
+    window.closeBioModal = function(e) {
+      if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
       const m = document.getElementById('bioModal');
       if (m) {
         m.classList.remove('active');
         m.style.setProperty('display', 'none', 'important');
       }
-    }
+    };
 
     function handleOverlayClick(e) {
       if (e && e.target) {
-        if (e.target.id === 'videoModal') {
-          closeVideoModal();
-        }
-        if (e.target.id === 'bioModal') {
-          if (Date.now() - bioModalOpenTime >= 800) {
-            closeBioModal(e, true);
-          }
-        }
+        if (e.target.id === 'videoModal') closeVideoModal();
+        if (e.target.id === 'bioModal') closeBioModal(e);
       }
     }
 
@@ -6763,16 +6745,12 @@
     checkIntakeGate();
 
     // Garante que o botão de Bio receba toques imediatos no mobile
-    const coachBtnEl = document.getElementById('btnCoachBio');
-    if (coachBtnEl) {
-      coachBtnEl.addEventListener('click', (ev) => openBioModal(ev));
-      coachBtnEl.addEventListener('touchend', (ev) => openBioModal(ev));
-    }
+    // Bio usa onclick nativo direto no HTML
 
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=39').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=40').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
