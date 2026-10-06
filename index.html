@@ -323,10 +323,11 @@
       border-radius: 20px;
     }
     .section-title {
-      font-size: 1rem;
-      font-weight: 700;
+      font-size: 0.95rem;
+      font-weight: 800;
       color: #ffffff;
-      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
     .time-badge {
       font-size: 0.72rem;
@@ -759,7 +760,28 @@
       color: var(--text-muted);
     }
     .callout-box strong { color: #ffffff; }
-    .callout-icon { font-size: 1.15rem; line-height: 1; flex-shrink: 0; margin-top: 1px; }
+    .callout-icon { font-size: 1.15rem; line-height: 1; flex-shrink: 0; margin-top: 2px; }
+    /* Foco do Treino / Foco do Dia: Palavras-chave em caixinhas cinzas */
+    .foco-keywords-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 7px;
+    }
+    .foco-keyword-chip {
+      display: inline-flex;
+      align-items: center;
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #e2e8f0;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      padding: 3px 9px;
+      border-radius: 6px;
+      line-height: 1.25;
+      text-transform: uppercase;
+    }
 
     /* Hero Feedback Técnico & Análise Cinemática */
     .analysis-hero-card {
@@ -3281,9 +3303,12 @@
     <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 12px 14px; margin-bottom: 12px;">
       <div class="callout-icon" style="font-size:1.15rem; margin-top:1px;">🎯</div>
       <div>
-        <div class="callout-topic-header" style="color: var(--brand-neon);">FOCO: CONDICIONAMENTO</div>
-        <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
-          Potência de puxada na barra (Skill EMOM 12') e condicionamento metabólico de alta densidade no Box.
+        <div class="callout-topic-header" style="color: var(--brand-neon);">FOCO DO DIA</div>
+        <div class="foco-keywords-wrap">
+          <span class="foco-keyword-chip">STRICT PULL-UP</span>
+          <span class="foco-keyword-chip">SKILL EMOM</span>
+          <span class="foco-keyword-chip">CONDICIONAMENTO METABÓLICO</span>
+          <span class="foco-keyword-chip">BLINDAGEM ARTICULAR</span>
         </div>
       </div>
     </div>
@@ -3294,7 +3319,7 @@
     <div class="section-card sec-cardio">
       <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
         <div class="section-title-wrap">
-          <div class="section-title" style="font-size:0.95rem; font-weight:800; color:#fff;">WOD do Box</div>
+          <div class="section-title">CONDICIONAMENTO</div>
         </div>
         <div class="session-meta-chips">
           <span class="meta-chip meta-chip-loc">📍 Box CrossFit</span>
@@ -3398,7 +3423,7 @@
       <div class="section-header">
         <div class="section-title-wrap">
           <span class="section-badge">Pós-WOD</span>
-          <div class="section-title">Neutralização Articular Imediata: Ombro Subacromial & Menisco Lateral</div>
+          <div class="section-title">RECUPERAÇÃO</div>
         </div>
         <span class="time-badge">2 blocos • 10 min</span>
       </div>
@@ -3510,9 +3535,13 @@
     <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 12px 14px; margin-bottom: 10px;">
       <div class="callout-icon" style="font-size:1.15rem; margin-top:1px;">🎯</div>
       <div>
-        <div class="callout-topic-header" style="color: var(--brand-neon);">FOCO: BMU & GESTÃO TÁTICA</div>
-        <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
-          Padrão estrito em corpo estendido para o Gui, rotação simultânea de punho na barra baixa para a aluna com spot manual e portagem em bone stacking no Acroduo.
+        <div class="callout-topic-header" style="color: var(--brand-neon);">FOCO DO DIA</div>
+        <div class="foco-keywords-wrap">
+          <span class="foco-keyword-chip">BAR MUSCLE-UP</span>
+          <span class="foco-keyword-chip">CORPO ESTENDIDO</span>
+          <span class="foco-keyword-chip">TURNOVER DE PUNHOS</span>
+          <span class="foco-keyword-chip">SPOT BIOMECÂNICO</span>
+          <span class="foco-keyword-chip">ACRODUO BONE STACKING</span>
         </div>
       </div>
     </div>
@@ -3530,7 +3559,7 @@
     <div class="section-card sec-cardio">
       <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
         <div class="section-title-wrap">
-          <div class="section-title" style="font-size:0.95rem; font-weight:800; color:#fff;">Box CrossFit: Warm-up, Skill & WOD</div>
+          <div class="section-title">CONDICIONAMENTO</div>
         </div>
         <div class="session-meta-chips">
           <span class="meta-chip meta-chip-time">⏱️ ~45 min</span>
@@ -3611,7 +3640,7 @@
     <div class="section-card sec-forca">
       <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
         <div class="section-title-wrap">
-          <div class="section-title" style="font-size:0.95rem; font-weight:800; color:#fff;">Laboratório Bar Muscle-Up</div>
+          <div class="section-title">HABILIDADES</div>
         </div>
         <div class="session-meta-chips">
           <span class="meta-chip meta-chip-time">⏱️ ~30 min</span>
@@ -3748,7 +3777,7 @@
     <div class="section-card sec-skills">
       <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
         <div class="section-title-wrap">
-          <div class="section-title" style="font-size:0.95rem; font-weight:800; color:#fff;">Acroduo & Fluxo Acrobático (17h)</div>
+          <div class="section-title">HABILIDADES</div>
         </div>
         <div class="session-meta-chips">
           <span class="meta-chip meta-chip-time">⏱️ 17h–18h30 (~90 min)</span>
@@ -3789,7 +3818,7 @@
       <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
         <div class="section-title-wrap">
           <span class="section-badge" style="background:rgba(192,132,252,0.12); color:#c084fc; border-color:rgba(192,132,252,0.3);">Descompressão Articular</span>
-          <div class="section-title">Protocolo Pós-Treino (Femorotibial & Lombar)</div>
+          <div class="section-title">RECUPERAÇÃO</div>
         </div>
         <div class="session-meta-chips">
           <span class="meta-chip meta-chip-time">⏱️ ~15 min</span>
@@ -3887,9 +3916,12 @@
     <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 12px 14px; margin-bottom: 12px;">
       <div class="callout-icon" style="font-size:1.15rem; margin-top:1px;">🛡️</div>
       <div>
-        <div class="callout-topic-header" style="color: var(--brand-neon);">FOCO DO TREINO: PORTAGEM + ARGOLAS (ZERO PERNAS)</div>
-        <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
-          Portagem de força com parceiro (63 kg) + 1h de Ginástica nas Argolas (RTO Support, Candle Kip, RMU e Felge). <strong>Zero treino de pernas</strong> para preservar o menisco e musculatura para a viagem ao festival no fim de semana.
+        <div class="callout-topic-header" style="color: var(--brand-neon);">FOCO DO DIA</div>
+        <div class="foco-keywords-wrap">
+          <span class="foco-keyword-chip">PORTAGEM ACRO</span>
+          <span class="foco-keyword-chip">STRICT RMU</span>
+          <span class="foco-keyword-chip">CANDLE KIPS</span>
+          <span class="foco-keyword-chip">ZERO IMPACTO MENISCAL</span>
         </div>
       </div>
     </div>
@@ -3909,7 +3941,7 @@
     <div class="section-card sec-ativacao">
       <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
         <div class="section-title-wrap">
-          <div class="section-title" style="font-size:0.95rem; font-weight:800; color:#fff;">Portagem & Argolas</div>
+          <div class="section-title">HABILIDADES</div>
         </div>
         <div class="session-meta-chips">
           <span class="meta-chip meta-chip-loc">📍 EEFERP-USP</span>
@@ -3993,7 +4025,7 @@
       <div class="section-header">
         <div class="section-title-wrap">
           <span class="section-badge">Habilidade</span>
-          <div class="section-title">Portagem, Dança & Argolas de Ginástica</div>
+          <div class="section-title">HABILIDADES</div>
         </div>
         <span class="time-badge">19 séries • 12h–14h</span>
       </div>
@@ -4208,7 +4240,7 @@
       <div class="section-header">
         <div class="section-title-wrap">
           <span class="section-badge">Fortalecimento</span>
-          <div class="section-title">Resgate Estrutural do Tendão de Aquiles</div>
+          <div class="section-title">FORTALECIMENTO</div>
         </div>
         <span class="time-badge">3 séries</span>
       </div>
@@ -4255,7 +4287,7 @@
       <div class="section-header">
         <div class="section-title-wrap">
           <span class="section-badge">Flexibilidade</span>
-          <div class="section-title">Descompressão Meniscal & Soltura Glenoumeral</div>
+          <div class="section-title">MOBILIDADE</div>
         </div>
         <span class="time-badge">4 séries • 10 min</span>
       </div>
@@ -4336,7 +4368,7 @@
       <div class="section-header">
         <div class="section-title-wrap">
           <span class="section-badge">Cardio</span>
-          <div class="section-title">CrossFit das 17h/18h — Adaptação Biomecânica "Versão Blindada"</div>
+          <div class="section-title">CONDICIONAMENTO</div>
         </div>
         <span class="time-badge">WOD Analisado • 20 min</span>
       </div>
@@ -4496,9 +4528,12 @@
     <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 12px 14px; margin-bottom: 12px;">
       <div class="callout-icon" style="font-size:1.15rem; margin-top:1px;">🎯</div>
       <div>
-        <div class="callout-topic-header" style="color: var(--brand-neon);">FOCO DO TREINO: DANÇA & FORÇA REAL</div>
-        <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
-          Potência de puxada na barra, alavancas nas argolas, aceleração terminal de glúteo e dança contemporânea.
+        <div class="callout-topic-header" style="color: var(--brand-neon);">FOCO DO DIA</div>
+        <div class="foco-keywords-wrap">
+          <span class="foco-keyword-chip">KIP MUSCLE-UP</span>
+          <span class="foco-keyword-chip">POTÊNCIA DE PUXADA</span>
+          <span class="foco-keyword-chip">ARGOLAS</span>
+          <span class="foco-keyword-chip">DANÇA CONTEMPORÂNEA</span>
         </div>
       </div>
     </div>
@@ -4518,7 +4553,7 @@
     <div class="section-card sec-skills">
       <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
         <div class="section-title-wrap">
-          <div class="section-title" style="font-size:0.95rem; font-weight:800; color:#fff;">Dança & Força Real</div>
+          <div class="section-title">CONDICIONAMENTO</div>
         </div>
         <div class="session-meta-chips">
           <span class="meta-chip meta-chip-loc">📍 Dança & EEFERP</span>
@@ -4611,7 +4646,7 @@
     <!-- ==================== BLOCO 2: ALAVANCA & CORE GÍMNICO ==================== -->
     <div class="section-card sec-forca">
       <div class="section-header">
-        <div class="section-title">Força de Alavanca & Core em Suspensão</div>
+        <div class="section-title">FORTALECIMENTO</div>
         <span class="time-badge">3 séries</span>
       </div>
 
@@ -4694,7 +4729,7 @@
     <!-- ==================== BLOCO 3: CADEIA POSTERIOR & AQUILES ==================== -->
     <div class="section-card sec-forca">
       <div class="section-header">
-        <div class="section-title">Cadeia Posterior, Glúteos & Resgate de Aquiles</div>
+        <div class="section-title">RECUPERAÇÃO</div>
         <span class="time-badge">8 séries</span>
       </div>
 
@@ -4831,13 +4866,17 @@
       <span class="meta-item">⏳ ~120 min total</span>
     </div>
 
-    <!-- QUADRO DE FOCO DO TREINO (Padrão: Emoji, Verde, Texto Corrido) -->
+    <!-- QUADRO DE FOCO DO TREINO: Palavras-chave em Caixinhas Cinzas -->
     <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 12px 14px; margin-bottom: 12px;">
-      <div class="callout-icon" style="font-size:1.15rem; margin-top:1px;">🎯</div>
-      <div>
-        <div class="callout-topic-header" style="color: var(--brand-neon);">FOCO: GINÁSTICA & HANDSTAND</div>
-        <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
-          Parada de mãos alinhada em bone stacking, subida contínua em força pura (Press to Handstand) e equilíbrio unilateral na manjota (One-Arm Croc).
+      <div class="callout-icon" style="font-size:1.15rem; margin-top:2px;">🎯</div>
+      <div style="flex: 1;">
+        <div class="callout-topic-header" style="color: var(--brand-neon);">FOCO DO DIA</div>
+        <div class="foco-keywords-wrap">
+          <span class="foco-keyword-chip">PARADA DE MÃOS</span>
+          <span class="foco-keyword-chip">BONE STACKING</span>
+          <span class="foco-keyword-chip">PRESS TO HANDSTAND</span>
+          <span class="foco-keyword-chip">MANJOTA</span>
+          <span class="foco-keyword-chip">ONE-ARM CROC</span>
         </div>
       </div>
     </div>
@@ -4857,7 +4896,7 @@
     <div class="section-card sec-ativacao">
       <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
         <div class="section-title-wrap">
-          <div class="section-title" style="font-size:0.95rem; font-weight:800; color:#fff;">1. Ativação Articular & Core</div>
+          <div class="section-title">ATIVAÇÃO</div>
         </div>
         <div class="session-meta-chips">
           <span class="meta-chip meta-chip-time">⏱️ ~25 min</span>
@@ -4960,7 +4999,7 @@
     <div class="section-card sec-habilidade">
       <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
         <div class="section-title-wrap">
-          <div class="section-title" style="font-size:0.95rem; font-weight:800; color:#fff;">2. Habilidade & Equilíbrio (Manjota)</div>
+          <div class="section-title">HABILIDADES</div>
         </div>
         <div class="session-meta-chips">
           <span class="meta-chip meta-chip-time">⏱️ ~45 min</span>
@@ -5076,7 +5115,7 @@
     <div class="section-card sec-forca">
       <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
         <div class="section-title-wrap">
-          <div class="section-title" style="font-size:0.95rem; font-weight:800; color:#fff;">3. Fortalecimento Específico</div>
+          <div class="section-title">FORTALECIMENTO</div>
         </div>
         <div class="session-meta-chips">
           <span class="meta-chip meta-chip-time">⏱️ ~30 min</span>
@@ -5151,8 +5190,7 @@
     <div class="section-card sec-flexibilidade">
       <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
         <div class="section-title-wrap">
-          <span class="section-badge" style="background:rgba(192,132,252,0.12); color:#c084fc; border-color:rgba(192,132,252,0.3);">Recuperação</span>
-          <div class="section-title">4. Descompressão Articular & Mobilidade</div>
+          <div class="section-title">MOBILIDADE</div>
         </div>
         <div class="session-meta-chips">
           <span class="meta-chip meta-chip-time">⏱️ ~20 min</span>
@@ -6221,7 +6259,7 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '55';
+    const APP_BUILD_VERSION = '56';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
