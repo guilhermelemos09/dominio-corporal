@@ -2676,17 +2676,23 @@
       z-index: 1000;
       transition: transform 0.25s ease, opacity 0.25s ease;
     }
+    .dock-timer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 7px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
     .dock-progress-row {
       display: flex;
       flex-direction: column;
       gap: 5px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 2px;
     }
     .dock-progress-labels {
       display: flex;
       justify-content: space-between;
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       font-weight: 800;
       color: #94a3b8;
       text-transform: uppercase;
@@ -2695,10 +2701,11 @@
     .dock-progress-labels #dockProgressText {
       color: var(--brand-neon);
       font-weight: 800;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
     }
     .dock-progress-bar-bg {
       background: rgba(255, 255, 255, 0.14); /* Fundo cinza visível */
-      height: 8px; /* Altura aumentada de 4px para 8px! */
+      height: 8px; /* Altura aumentada */
       border-radius: 6px;
       overflow: hidden;
     }
@@ -2709,11 +2716,6 @@
       border-radius: 6px;
       transition: width 0.25s ease;
       box-shadow: 0 0 8px var(--brand-neon-glow);
-    }
-    .dock-timer-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
     }
 
     /* Esconde o timer dock APENAS em views não-treino */
@@ -3310,31 +3312,27 @@
     </div>
 
     <!-- Card de Envio de Relatório WhatsApp -->
-        <!-- Card de Finalização de Treino & Registro de Dados (Segunda) -->
-    <div class="workout-summary-card" id="workoutSummaryCard-segunda">
-      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:8px;">
-        <div style="font-size: 1rem; font-weight: 800; color: #fff;">
-          🏁 Finalizar Sessão de Treino
-        </div>
-        <div class="workout-completion-counter" id="counter-summary-segunda" style="font-size:0.84rem; font-weight:800; color:var(--brand-neon); background:rgba(0,255,136,0.1); border:1px solid rgba(0,255,136,0.25); padding:4px 10px; border-radius:12px;">
-          0 / 4 séries concluídas (0%)
-        </div>
+            <!-- Card Clean de Finalização de Treino (Segunda) -->
+    <div class="workout-finish-clean-card" id="workoutFinishCard-segunda">
+      <div class="finish-controls-row">
+        <label class="finish-checkbox-label">
+          <input type="checkbox" id="checkFinish-segunda" class="finish-checkbox-input" onchange="toggleFinishWorkoutBtn('segunda', this.checked)">
+          <span class="finish-custom-checkbox"></span>
+          <span class="finish-checkbox-text">Finalizar sessão de treino?</span>
+        </label>
+        <button type="button" class="btn-send-coach" id="btnSendCoach-segunda" onclick="completeWorkoutSession('segunda')" disabled>
+          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          <span>Enviar para Coach</span>
+        </button>
       </div>
-      <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 14px; line-height: 1.5;">
-        Ao concluir, suas séries, cargas e observações são registradas e sincronizadas para o histórico e gráficos de consistência.
-      </p>
-      <button class="btn-complete-workout" onclick="completeWorkoutSession('segunda')">
-        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-        <span>Treino Concluído</span>
-      </button>
-      <div id="completeFeedback-segunda" class="complete-feedback-box" style="display:none;">
-        ✅ Treino registrado com sucesso no histórico e na consistência!
+      <div id="completeFeedback-segunda" class="complete-feedback-box" style="display:none; width: 100%;">
+        ✅ Treino finalizado e relatório enviado com sucesso para o Coach!
       </div>
     </div>
 
   </div>
 
-    <!-- ==================== TAB ATIVA: HOJE (TERÇA: BOX + LAB BMU COMPARTILHADO) ==================== -->
+  <!-- ==================== TAB ATIVA: HOJE (TERÇA: BOX + LAB BMU COMPARTILHADO) ==================== -->
   <div id="tab-terca" class="tab-content">
 
     <!-- CABEÇALHO / METADADOS GERAIS: LOCAL E DURAÇÃO TOTAL -->
@@ -3713,25 +3711,21 @@
       </div>
     </div>
 
-    <!-- Card de Finalização de Treino & Registro de Dados (Terça) -->
-    <div class="workout-summary-card" id="workoutSummaryCard-terca">
-      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:8px;">
-        <div style="font-size: 1rem; font-weight: 800; color: #fff;">
-          🏁 Finalizar Sessão de Treino
-        </div>
-        <div class="workout-completion-counter" id="counter-summary-terca" style="font-size:0.84rem; font-weight:800; color:var(--brand-neon); background:rgba(0,255,136,0.1); border:1px solid rgba(0,255,136,0.25); padding:4px 10px; border-radius:12px;">
-          0 / 20 séries concluídas (0%)
-        </div>
+        <!-- Card Clean de Finalização de Treino (Terça) -->
+    <div class="workout-finish-clean-card" id="workoutFinishCard-terca">
+      <div class="finish-controls-row">
+        <label class="finish-checkbox-label">
+          <input type="checkbox" id="checkFinish-terca" class="finish-checkbox-input" onchange="toggleFinishWorkoutBtn('terca', this.checked)">
+          <span class="finish-custom-checkbox"></span>
+          <span class="finish-checkbox-text">Finalizar sessão de treino?</span>
+        </label>
+        <button type="button" class="btn-send-coach" id="btnSendCoach-terca" onclick="completeWorkoutSession('terca')" disabled>
+          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          <span>Enviar para Coach</span>
+        </button>
       </div>
-      <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 14px; line-height: 1.5;">
-        Ao concluir, suas séries, cargas e observações são registradas e sincronizadas para o histórico e gráficos de consistência.
-      </p>
-      <button class="btn-complete-workout" onclick="completeWorkoutSession('terca')">
-        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-        <span>Treino Concluído</span>
-      </button>
-      <div id="completeFeedback-terca" class="complete-feedback-box" style="display:none;">
-        ✅ Treino registrado com sucesso no histórico e na consistência!
+      <div id="completeFeedback-terca" class="complete-feedback-box" style="display:none; width: 100%;">
+        ✅ Treino finalizado e relatório enviado com sucesso para o Coach!
       </div>
     </div>
 
@@ -5633,19 +5627,9 @@
 
   </div>
 
-    <!-- Cronômetro Flutuante OLED Stealth 2 em 1: Progresso + Descanso -->
+      <!-- Cronômetro Flutuante OLED Stealth 2 em 1: Descanso em Cima, Progressão em Baixo -->
   <div class="timer-dock" id="bottomTimerDock">
-    <!-- Linha de Progresso da Sessão Integrada -->
-    <div class="dock-progress-row" id="dockProgressRow">
-      <div class="dock-progress-labels">
-        <span>Sessão Ativa</span>
-        <span id="dockProgressText">0 de 0 séries (0%)</span>
-      </div>
-      <div class="dock-progress-bar-bg">
-        <div class="dock-progress-bar-fill" id="dockProgressFill" style="width: 0%;"></div>
-      </div>
-    </div>
-    <!-- Linha de Descanso do Timer -->
+    <!-- Linha Superior: Descanso do Timer -->
     <div class="dock-timer-row">
       <div class="timer-info">
         <span class="timer-caption">Descanso</span>
@@ -5656,6 +5640,16 @@
         <button type="button" class="btn-timer active" onclick="startTimer(90)">90s</button>
         <button type="button" class="btn-timer" onclick="startTimer(120)">120s</button>
         <button type="button" class="btn-timer btn-timer-reset" onclick="resetTimer()">Reset</button>
+      </div>
+    </div>
+    <!-- Linha Inferior: Progressão do Treino -->
+    <div class="dock-progress-row" id="dockProgressRow">
+      <div class="dock-progress-labels">
+        <span>PROGRESSÃO DO TREINO</span>
+        <span id="dockProgressText">0 de 0 séries (0%)</span>
+      </div>
+      <div class="dock-progress-bar-bg">
+        <div class="dock-progress-bar-fill" id="dockProgressFill" style="width: 0%;"></div>
       </div>
     </div>
   </div>
@@ -5756,13 +5750,13 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '49';
+    const APP_BUILD_VERSION = '51';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
         caches.keys().then((keys) => {
           keys.forEach((k) => {
-            if (k !== 'dominio-corporal-v49') caches.delete(k);
+            if (k !== 'dominio-corporal-v51') caches.delete(k);
           });
         });
       }
@@ -6839,6 +6833,13 @@
     }
 
     
+        function toggleFinishWorkoutBtn(dayId, isChecked) {
+      const btn = document.getElementById('btnSendCoach-' + dayId);
+      if (btn) {
+        btn.disabled = !isChecked;
+      }
+    }
+
     function completeWorkoutSession(dayId) {
       const completed = getCompletedWorkouts();
       completed[dayId] = true;
@@ -6876,6 +6877,11 @@
 
       if (typeof updateEvolucaoStats === 'function') updateEvolucaoStats();
       if (typeof updateWorkoutCompletionUI === 'function') updateWorkoutCompletionUI(dayId);
+      const btn = document.getElementById('btnSendCoach-' + dayId);
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = `<svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:currentColor;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>Enviado para Coach</span>`;
+      }
 
       const feedback = document.getElementById('completeFeedback-' + dayId);
       if (feedback) {
@@ -7132,7 +7138,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=49').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=51').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
