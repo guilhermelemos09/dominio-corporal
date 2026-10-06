@@ -7,9 +7,9 @@
 ## Estrutura Atualizada do Microciclo (05/10 a 11/10/2026)
 
 * **Segunda (05/10 - Concluído):** Box CrossFit (EMOM 12' Butterfly/Strict + Triplo AMRAP Wall Ball / DB Snatch / Clean & Jerk / Thrusters) + Descompressão.
-* **Terça (06/10 - HOJE):** 
-  * **Parte 1 (Concluída ✅):** Box CrossFit (Warm-up + Skill 120 reps empurrar @ autoregulação + WOD 20' Abmat/Box Jump/Snatch/Thruster).
-  * **Parte 2 (Agora, 17h–18h | Ginásio EEFERP - 1h):** Sessão Gímnica Individual de Habilidades & Força: Reset escapular na barra alta, Bar Muscle-Up (Strict em hollow com banda ou Kipping fluido), Parada de Mãos Livre (foco em alinhamento articular e equilíbrio estático nos dedos), Oitavas na barra (Glide Kip) e Descompressão articular profunda (menisco lateral + resgate do tendão de Aquiles no degrau).
+* **Terça (06/10 - HOJE, Concluído ✅):** 
+  * **Sessão Realizada:** Box CrossFit (Warm-up + Skill 120 reps empurrar: Supino 60kg, Push-ups, Z-Press 15kg @ autoregulação + WOD 20' com 30kg: Abmat sit-ups, 80 Box Jump Overs com step-down, Power Snatches e Thrusters).
+  * **Noite (Decisão Estratégica):** Descanso / Regeneração Ativa (cortisol baixo, restauração glicogênica do SNC, videogame e aperfeiçoamento do app). Volume e intensidade preservados para a sessão nobre de quarta-feira.
 * **Quarta (07/10 - AMANHÃ, 17h às 19h):** Ginásio EEFERP (2h) — **Estrutura Completa de Ginástica Artística/Acrobática** (Ativação articular/escapular/meniscal + Habilidades de Parada de Mãos/Manjota/Press + Força Estrita/Front Lever/Resgate Aquiles + Mobilidade torácica/ombros). *Sem cardio (potência e capacidade de trabalho já estressadas no Box).*
 * **Quinta (08/10):** Dança Contemporânea na EEFERP + 1h Ginásio (Aperfeiçoamento de *Floorwork*/Giros no tatame ou Natação regenerativa soltura).
 * **Sexta (09/10):** Portagem de Força com Amigo (volante ~63 kg, bases em alinhamento de *bone stacking*) + 1h Ginástica no Ginásio (Argolas: RTO Support, RMU, Candle Kip, Felge to support) + **ZERO TREINO DE PERNAS** (Blindagem total para a viagem ao festival no fim de semana).
@@ -17,13 +17,14 @@
 
 ---
 
-# Planejamento & Biomecânica de Hoje: Terça-feira (06/10/2026) — Box Feito + Ginásio 1h
+# Planejamento & Biomecânica de Hoje: Terça-feira (06/10/2026) — Box CrossFit Concluído ✅
 
 > [!NOTE]
 > **Status da Sessão:**
-> * **Box CrossFit (Parte 1):** ✅ **CONCLUÍDO À TARDE.** O atleta executou o Warm-up, a Skill (4 rounds de 10 Supinos + 10 Push-ups + 10 Z-Press) e o WOD metabólico de 20 minutos (Abmat sit-ups, Box Jump Overs, Snatches e Thrusters).
-> * **Ginásio EEFERP (Parte 2 — 17h às 18h | 1h):** ⏳ **EM ABERTO / EM EXECUÇÃO.** Com a mudança de planos e cancelamento do treino com a amiga, Gui realiza sua sessão pessoal de ginástica focada em controle motor fino, alavancas e descompressão articular.
+> * **Box CrossFit:** ✅ **CONCLUÍDO À TARDE.** O atleta executou o Warm-up, a Skill (Supino 60kg, Flexões, Z-Press 15kg) e o WOD metabólico regulado a 30kg com step-down nas caixas para preservar o corno posterior do menisco lateral.
+> * **Noite (Regeneração & Aperfeiçoamento):** 🎮 Decisão cirúrgica de poupar ombros e cotovelos de mais volume, restaurar glicogênio muscular e focar no aprimoramento do PWA Domínio Corporal.
 
+---
 ---
 
 ### PARTE 1: BOX CROSSFIT (REALIZADO ✅)
@@ -33,40 +34,29 @@
 
 ---
 
-### PARTE 2: GINÁSIO EEFERP (17h às 18h | 60 min de Habilidades & Descompressão)
+### PARTE 2: REGENERAÇÃO & COMPENSAÇÃO NA QUARTA (EEFERP 17h–19h)
 
 > [!TIP]
-> **Diretrizes Biomecânicas para a Sessão de 1h Pós-CrossFit:**
-> 1. **Poupar Extensores de Cotovelo & Deltoide Anterior:** Como o tríceps e peitoral já trabalharam intensamente nas 120 reps de empurrar do Box, evite mergulhos (dips) pesados ou subidas de parada de mão em força bruta (presses).
-> 2. **Bar Muscle-Up com Padrão de Elite:** Use superband leve/média para focar na mecânica de **puxada alta ao esterno e virada simétrica dos dois cotovelos** com corpo 100% estendido em hollow. Se fizer kipping, foque na parábola suave.
-> 3. **Handstand — Alinhamento & Dedos:** Aproveite o tatame e canes para trabalhar sustentação estática (15s–30s) com foco em *bone stacking* (empilhamento ósseo) e controle tátil nas pontas dos dedos.
-> 4. **Descompressão Meniscal e Aquiles:** Dedique os 15 minutos finais para aliviar a compressão fêmoro-tibial dos 80 Box Jumps e estimular os tendões de Aquiles no degrau com pausa.
-
-#### Bloco 1: Ativação Escapular & Reset Glenoumeral (10 min)
-* **Dead Hang Parcial / Tração com Superband na Barra Alta:** 2x 45s por braço (abertura do espaço subacromial, soltura do peitoral menor e grande dorsal hipertonizados pós-Cross).
-* **Mobilidade Ativa de Punhos no Tatame:** 2x 10 reps (flexão, extensão e descarga axial progressiva).
-
-#### Bloco 2: Habilidades de Barra — Bar Muscle-Up & Oitavas (25 min)
-* **Bar Muscle-Up (Gui Lemos):** 4 a 5 micro-séries de 1 a 2 reps na barra alta. Foco em velocidade de turnover (*knuckles over*) e corpo compacto em hollow body. Descanso completo de 2 a 3 minutos entre séries.
-* **Oitavas na Barra Fixa (Glide Kip) ou Candlestick Hang:** 3 séries de 2 a 3 reps (extensão pura de ombro com grande dorsal e cotovelos travados em bloqueio ósseo).
-
-#### Bloco 3: Equilíbrio & Alinhamento — Parada de Mãos Livre (15 min)
-* **Handstand Livre no Tatame / Manjota:** 4 a 5 séries de 15 a 30s de sustentação. Foco em elevação escapular de serrátil anterior, cabeça neutra e ajuste fino nos dedos/punhos.
-
-#### Bloco 4: Descompressão Articular & Resgate Estrutural (10 min)
-* **Descompressão do Menisco Lateral Esquerdo:** 2x 45s por perna (tração fêmoro-tibial em decúbito dorsal com rotação interna suave da tíbia).
-* **Resgate do Tendão de Aquiles no Degrau (Sarcomerogênese):** 3 séries de 12 a 15 reps com pausa isométrica estrita de 3 a 4 segundos em dorsiflexão máxima sob carga no fundo.
+> **Decisão Biomecânica de Autoregulação:**
+> Como os extensores de cotovelo, ombros e SNC já sofreram estresse considerável no Box (120 repetições de empurrar + 80 Box Jump Overs), o trabalho de Bar Muscle-Up, Handstand e Manjota foi estrategicamente alocado para a sessão nobre de **Quarta-feira (17h–19h, 2h dedicadas)** no Ginásio da EEFERP, permitindo execução em pico de potência neural e sem pré-exaustão.
+> 
+> *A noite de terça fica dedicada à queda de tônus simpático (videogame / descanso), restauração do glicogênio e aperfeiçoamento da plataforma Domínio Corporal.*
 
 ---
 
 # Planejamento das Próximas Sessões da Semana
 
 ### Quarta-feira (07/10 — 17h às 19h | Ginásio EEFERP - 2h)
-* **Diretriz:** Sessão completa gímnica. **Sem cardio.**
+* **Diretriz:** Sessão completa gímnica + finalizador metabólico controlado integrado com o Timer.
 * **1. Ativação (20 min):** Mobilidade de punhos nos blocos, serrátil anterior (scapular push-up em prancha), descompressão fêmoro-tibial do joelho esquerdo.
 * **2. Habilidade / Neural (45 min):** Handstand Livre (kick-up com alinhamento, shift de peso para One-Arm Handstand drills), Manjota/Canes (Press to Handstand a partir de L-Sit, transição para Elbow Lever / One-Arm Croc).
 * **3. Fortalecimento Estrutural / Core (35 min):** Alavanca de Front Lever (tucked/straddle holds ou Ice Cream Makers nas argolas), compressão pélvica suspensa (candlestick/vela), Sarcomerogênese dos tendões de Aquiles (panturrilha unilateral em degrau com pausa de 3-4s em dorsiflexão máxima sob carga).
-* **4. Mobilidade (20 min):** Hollowback na parede, abertura glenoumeral e torácica, dorsiflexão profunda.
+* **4. Mobilidade (15 min):** Hollowback na parede, abertura glenoumeral e torácica, dorsiflexão profunda.
+* **5. Cardio & Condicionamento — EMOM 12' (12 min):** Protocolo 3 rounds de 4 min com link direto de acionamento do Timer no app:
+  * *Minuto 1:* 12–15 KB Swings (foco em *hip hinge* dominante de glúteo, tíbia vertical sem pressão meniscal).
+  * *Minuto 2:* 15 Hollow Body Rocks ou Abmat Sit-ups explosivos.
+  * *Minuto 3:* 8–10 Sprawls suaves sem flexão brusca ou 40 saltos de corda amortecidos.
+  * *Minuto 4:* Descanso Total / Recuperação Ativa de FC.
 
 ### Quinta-feira (08/10 — Dança EEFERP + 1h Ginásio)
 * **Dança Contemporânea (EEFERP):** Fluidez de solo (*floorwork*), passagens suaves sem choque patelar e giros em monobloco com o pé esquerdo para blindar o menisco.
