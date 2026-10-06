@@ -272,7 +272,7 @@
 
     /* 3. Fortalecimento (Verde Neon) */
     .sec-forca, .sec-fortalecimento, .border-fortalecimento {
-      border-left-color: var(--brand-neon);
+      border-left-color: #38bdf8;
     }
     .sec-forca .section-badge, .sec-fortalecimento .section-badge, .border-fortalecimento .section-badge {
       background: var(--brand-neon-bg);
@@ -323,11 +323,64 @@
       border-radius: 20px;
     }
     .section-title {
-      font-size: 0.95rem;
-      font-weight: 800;
-      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      padding: 4px 12px;
+      border-radius: 7px;
+      border: 1.5px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.04);
+      color: #ffffff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      line-height: 1.25;
+    }
+
+    /* Molduras com as cores temáticas de cada card */
+    .sec-aquecimento .section-title,
+    .sec-ativacao .section-title,
+    .border-ativacao .section-title {
+      border-color: rgba(245, 158, 11, 0.55);
+      background: rgba(245, 158, 11, 0.10);
+      color: #fbbf24;
+      box-shadow: 0 0 10px rgba(245, 158, 11, 0.14);
+    }
+
+    .sec-skills .section-title,
+    .sec-habilidade .section-title,
+    .border-habilidade .section-title {
+      border-color: rgba(0, 255, 136, 0.55);
+      background: rgba(0, 255, 136, 0.08);
+      color: var(--brand-neon);
+      box-shadow: 0 0 10px rgba(0, 255, 136, 0.14);
+    }
+
+    .sec-forca .section-title,
+    .sec-fortalecimento .section-title,
+    .border-fortalecimento .section-title {
+      border-color: rgba(56, 189, 248, 0.55);
+      background: rgba(56, 189, 248, 0.10);
+      color: #38bdf8;
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.14);
+    }
+
+    .sec-flex .section-title,
+    .sec-flexibilidade .section-title,
+    .border-flexibilidade .section-title {
+      border-color: rgba(192, 132, 252, 0.55);
+      background: rgba(192, 132, 252, 0.10);
+      color: #c084fc;
+      box-shadow: 0 0 10px rgba(192, 132, 252, 0.14);
+    }
+
+    .sec-cardio .section-title,
+    .border-cardio .section-title {
+      border-color: rgba(251, 113, 133, 0.55);
+      background: rgba(251, 113, 133, 0.10);
+      color: #fb7185;
+      box-shadow: 0 0 10px rgba(251, 113, 133, 0.14);
     }
     .time-badge {
       font-size: 0.72rem;
@@ -6259,7 +6312,7 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '56';
+    const APP_BUILD_VERSION = '57';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
