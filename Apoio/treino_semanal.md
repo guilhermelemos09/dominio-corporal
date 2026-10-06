@@ -47,16 +47,16 @@
 # Planejamento das Próximas Sessões da Semana
 
 ### Quarta-feira (07/10 — 17h às 19h | Ginásio EEFERP - 2h)
-* **Diretriz:** Sessão completa gímnica + finalizador metabólico controlado integrado com o Timer.
-* **1. Ativação (20 min):** Mobilidade de punhos nos blocos, serrátil anterior (scapular push-up em prancha), descompressão fêmoro-tibial do joelho esquerdo.
-* **2. Habilidade / Neural (45 min):** Handstand Livre (kick-up com alinhamento, shift de peso para One-Arm Handstand drills), Manjota/Canes (Press to Handstand a partir de L-Sit, transição para Elbow Lever / One-Arm Croc).
-* **3. Fortalecimento Estrutural / Core (35 min):** Alavanca de Front Lever (tucked/straddle holds ou Ice Cream Makers nas argolas), compressão pélvica suspensa (candlestick/vela), Sarcomerogênese dos tendões de Aquiles (panturrilha unilateral em degrau com pausa de 3-4s em dorsiflexão máxima sob carga).
-* **4. Mobilidade (15 min):** Hollowback na parede, abertura glenoumeral e torácica, dorsiflexão profunda.
-* **5. Cardio & Condicionamento — EMOM 12' (12 min):** Protocolo 3 rounds de 4 min com link direto de acionamento do Timer no app:
-  * *Minuto 1:* 12–15 KB Swings (foco em *hip hinge* dominante de glúteo, tíbia vertical sem pressão meniscal).
-  * *Minuto 2:* 15 Hollow Body Rocks ou Abmat Sit-ups explosivos.
-  * *Minuto 3:* 8–10 Sprawls suaves sem flexão brusca ou 40 saltos de corda amortecidos.
-  * *Minuto 4:* Descanso Total / Recuperação Ativa de FC.
+* **Diretriz:** Sessão gímnica completa, finalizador de condicionamento e mobilidade final.
+* **1. Ativação (20 min):** Mobilidade de punhos e ombros, canoa e arco no solo, compressão no solo.
+* **2. Habilidade (45 min):** Parada de mãos alinhada na manjota, subida em força (press) e crocodilo na manjota.
+* **3. Fortalecimento (35 min):** Flexão em parada de mãos (HSPU) e puxada estrita na barra fixa (substituindo a corda inexistente no ginásio).
+* **4. Condicionamento — EMOM 12' (12 min):** 3 rounds de 4 min com link direto de acionamento do Timer no app:
+  * *Min 1:* 12–15 Kettlebell Swings (foco em quadril e tíbia vertical, preservando o menisco).
+  * *Min 2:* 15 Abmat Sit-ups.
+  * *Min 3:* 8–10 Burpees suaves / Sprawls sem choque articular.
+  * *Min 4:* Descanso.
+* **5. Mobilidade & Recuperação (15 min):** Suspensão passiva na barra e alongamento em panqueca.
 
 ### Quinta-feira (08/10 — Dança EEFERP + 1h Ginásio)
 * **Dança Contemporânea (EEFERP):** Fluidez de solo (*floorwork*), passagens suaves sem choque patelar e giros em monobloco com o pé esquerdo para blindar o menisco.
