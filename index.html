@@ -2791,8 +2791,16 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 16px;
       padding-bottom: 7px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .dock-timer-row .timer-info {
+      display: flex;
+      flex-direction: column;
+      padding-right: 14px;
+      border-right: 1px solid rgba(255, 255, 255, 0.10);
+      flex-shrink: 0;
     }
     .dock-timer-row .timer-caption {
       font-size: 0.62rem;
@@ -2817,7 +2825,7 @@
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid var(--border-subtle);
       color: var(--text-muted);
-      padding: 7px 12px;
+      padding: 6px 10px;
       border-radius: 12px;
       font-size: 0.76rem;
       font-weight: 700;
@@ -3267,7 +3275,7 @@
     <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 12px 14px; margin-bottom: 12px;">
       <div class="callout-icon" style="font-size:1.15rem; margin-top:1px;">🎯</div>
       <div>
-        <div class="callout-topic-header" style="color: var(--brand-neon);">FOCO DO TREINO: CONDICIONAMENTO</div>
+        <div class="callout-topic-header" style="color: var(--brand-neon);">FOCO: CONDICIONAMENTO</div>
         <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
           Potência de puxada na barra (Skill EMOM 12') e condicionamento metabólico de alta densidade no Box.
         </div>
@@ -3469,7 +3477,7 @@
         <label class="finish-checkbox-label">
           <input type="checkbox" id="checkFinish-segunda" class="finish-checkbox-input" onchange="toggleFinishWorkoutBtn('segunda', this.checked)">
           <span class="finish-custom-checkbox"></span>
-          <span class="finish-checkbox-text">Finalizar sessão</span>
+          <span class="finish-checkbox-text">🏁 Finalizar sessão</span>
         </label>
         <button type="button" class="btn-send-coach" id="btnSendCoach-segunda" onclick="completeWorkoutSession('segunda')" disabled>
           <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
@@ -3496,7 +3504,7 @@
     <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 12px 14px; margin-bottom: 10px;">
       <div class="callout-icon" style="font-size:1.15rem; margin-top:1px;">🎯</div>
       <div>
-        <div class="callout-topic-header" style="color: var(--brand-neon);">FOCO DO TREINO: LAB BMU & GESTÃO TÁTICA</div>
+        <div class="callout-topic-header" style="color: var(--brand-neon);">FOCO: BMU & GESTÃO TÁTICA</div>
         <div style="font-size: 0.84rem; line-height: 1.5; color: #cbd5e1;">
           Padrão estrito em corpo estendido para o Gui, rotação simultânea de punho na barra baixa para a aluna com spot manual e portagem em bone stacking no Acroduo.
         </div>
@@ -3846,7 +3854,7 @@
         <label class="finish-checkbox-label">
           <input type="checkbox" id="checkFinish-terca" class="finish-checkbox-input" onchange="toggleFinishWorkoutBtn('terca', this.checked)">
           <span class="finish-custom-checkbox"></span>
-          <span class="finish-checkbox-text">Finalizar sessão</span>
+          <span class="finish-checkbox-text">🏁 Finalizar sessão</span>
         </label>
         <button type="button" class="btn-send-coach" id="btnSendCoach-terca" onclick="completeWorkoutSession('terca')" disabled>
           <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
@@ -5859,7 +5867,7 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '53';
+    const APP_BUILD_VERSION = '54';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
