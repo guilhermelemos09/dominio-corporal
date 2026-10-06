@@ -2479,10 +2479,10 @@
     .btn-tip-cue {
       display: inline-flex;
       align-items: center;
-      gap: 3.5px;
-      font-size: 0.72rem;
+      gap: 4px;
+      font-size: 0.74rem;
       font-weight: 700;
-      padding: 3px 8px;
+      padding: 5px 10px;
       border-radius: 10px;
       cursor: pointer;
       text-decoration: none;
@@ -2491,6 +2491,7 @@
       -webkit-tap-highlight-color: transparent;
       user-select: none;
       touch-action: manipulation;
+      min-height: 28px;
     }
     .ex-cues-row {
       display: flex;
@@ -2765,7 +2766,7 @@
         <span class="coach-name">Gui Lemos</span>
         <span class="bio-badge">Perfil do Coach ↗</span>
       </div>
-      <div class="badge-sync" onclick="forceAppRefresh()" style="cursor: pointer;" title="Toque para sincronizar e atualizar o app">Sincronizado • v44</div>
+      <div class="badge-sync" onclick="forceAppRefresh()" style="cursor: pointer;" title="Toque para sincronizar e atualizar o app">Sincronizado • v45</div>
     </div>
     <div class="brand">
       <h1>DOMÍNIO CORPORAL</h1>
@@ -3279,7 +3280,7 @@
       </div>
 
       <div class="ex-cues-row" style="margin-bottom: 12px;">
-        <button type="button" class="btn-tip-cue cue-execucao" onclick="event.stopPropagation(); openTip('Racional Biomecânico do Treino Compartilhado', '• Gui: Padrão estrito em corpo estendido (hollow) com superband na barra alta. Ativação bilateral do grande dorsal e peitoral maior, sem chicken-wing e com vetor puramente vertical.\n\n• Aluna: O turnover na barra baixa com elástico reprograma o reflexo motor de virar as mãos no topo antes de subir para a barra alta com o spot manual do Gui.', '🔧 Execução')">🔧 Racional Biomecânico do Lab</button>
+        <button type="button" class="btn-tip-cue cue-execucao" onclick="event.stopPropagation(); openTip('Foco do Treino: Laboratório de BMU', '• Gui: Padrão estrito em corpo estendido (hollow) com superband na barra alta. Ativação bilateral do grande dorsal e peitoral maior, sem chicken-wing e com vetor puramente vertical.\n\n• Aluna: O turnover na barra baixa com elástico reprograma o reflexo motor de virar as mãos no topo antes de subir para a barra alta com o spot manual do Gui.', '🔧 Execução')">⚡ Foco do Treino</button>
       </div>
 
       <!-- Ex ter-1: Reset Escapular -->
@@ -3335,7 +3336,7 @@
         <div class="ex-bottom-actions">
           <button type="button" class="btn-video" onclick="event.stopPropagation(); openVideoModal('Kip Bar Muscle-Up (Gui Lemos)', '<b>Referência Técnica:</b> Trajetória parabólica, momento do peito sobre a barra e rotação simultânea das mãos e cotovelos na finalização.', 'Midia/gui_kip_muscle_up.mp4')">
             <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            <span>Vídeo Ilustrativo</span>
+            <span>Vídeo</span>
           </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-ter-2" onclick="event.stopPropagation(); toggleCommentBox('ex-ter-2')">
             <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
@@ -5549,13 +5550,13 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '44';
+    const APP_BUILD_VERSION = '45';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
         caches.keys().then((keys) => {
           keys.forEach((k) => {
-            if (k !== 'dominio-corporal-v44') caches.delete(k);
+            if (k !== 'dominio-corporal-v45') caches.delete(k);
           });
         });
       }
@@ -6861,7 +6862,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=44').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=45').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
@@ -6949,16 +6950,16 @@
     };
 
   </script>
-      <!-- Popover Flutuante de Dica Biomecânica / Observação Técnica -->
-  <div id="tipPopoverOverlay" class="tip-popover-overlay" onclick="closeTipPopover(event)" style="display:none;">
-    <div class="tip-popover-card" onclick="event.stopPropagation();">
-      <div class="tip-popover-header">
-        <div class="tip-popover-tag">💡 Observação Técnica</div>
-        <button type="button" class="tip-popover-close" onclick="closeTipPopover(event, true)">&times;</button>
+        <!-- Modal Flutuante de Orientações Técnicas (Execução / Cuidados / Importante / Foco) -->
+  <div id="tipPopoverOverlay" class="modal-overlay" onclick="closeTipPopover(event)" style="z-index: 30000 !important;">
+    <div class="modal-card" style="max-width: 440px; border-radius: 16px; border: 1px solid rgba(56, 189, 248, 0.45); padding: 18px 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.9), 0 0 25px rgba(56,189,248,0.2);" onclick="event.stopPropagation();">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 12px;">
+        <span class="tip-popover-tag" style="font-size:0.75rem; font-weight:800; letter-spacing:0.5px; text-transform:uppercase; color:#38bdf8;">🔧 EXECUÇÃO</span>
+        <button type="button" class="tip-popover-close" onclick="closeTipPopover(event, true)" style="background:transparent; border:none; color:#94a3b8; font-size:1.5rem; cursor:pointer; line-height:1; padding:4px 8px;">&times;</button>
       </div>
-      <div class="tip-popover-title" id="tipPopoverTitle">Strict Pull-up</div>
-      <div class="tip-popover-content" id="tipPopoverContent"></div>
-      <button type="button" class="tip-popover-ok" onclick="closeTipPopover(event, true)">Entendido</button>
+      <div id="tipPopoverTitle" style="font-size:1.05rem; font-weight:800; color:#fff; margin-bottom:12px; line-height:1.35;">Strict Bar Muscle-Up</div>
+      <div id="tipPopoverContent" style="font-size:0.88rem; color:#e2e8f0; line-height:1.6; margin-bottom:18px; max-height:60vh; overflow-y:auto;"></div>
+      <button type="button" class="tip-popover-ok" onclick="closeTipPopover(event, true)" style="width:100%; padding:10px; border-radius:10px; font-weight:700; font-size:0.86rem; cursor:pointer; background:rgba(56,189,248,0.18); border:1px solid rgba(56,189,248,0.45); color:#38bdf8;">Entendido</button>
     </div>
   </div>
 </body>
