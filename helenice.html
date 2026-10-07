@@ -3887,7 +3887,7 @@
         <span class="bio-badge">Perfil do Coach ↗</span>
       </div>
             <div class="header-action-group">
-        <button type="button" class="btn-notif-app" id="btnAppNotifications" onclick="toggleNotificationsModal()" title="Central de Notificações & Recados" aria-label="Notificações">
+        <button type="button" class="btn-notif-app" id="btnAppNotifications" onclick="toggleNotificationsModal()" title="Central de Notificações e Recados" aria-label="Notificações">
           <svg viewBox="0 0 24 24" class="notif-bell-icon">
             <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
           </svg>
@@ -4091,7 +4091,7 @@
 
   </div>
 
-  <!-- ==================== TAB: ONTEM (QUARTA EEFERP - REGISTRO TÉCNICO & VÍDEO) ==================== -->
+  <!-- ==================== TAB: QUARTA-FEIRA ==================== -->
   <div id="tab-quarta" class="tab-content">
     <div class="session-overall-meta">
       <span class="meta-item">📍 A Definir</span>
@@ -4327,7 +4327,7 @@
             </div>
             <div class="form-group">
               <label class="form-label" for="ass_local">Onde vai treinar? (Local)</label>
-              <input type="text" id="ass_local" class="form-input" placeholder="Ex: Box CrossFit, Academia, Casa..." oninput="autoSaveAssessmentDraft()">
+              <input type="text" id="ass_local" class="form-input" placeholder="Ex: Casa, Academia, Pilates, Parque..." oninput="autoSaveAssessmentDraft()">
             </div>
           </div>
         </div>
@@ -4387,7 +4387,7 @@
 
           <div class="form-group">
             <label class="form-label" for="ass_treino_atual">O que treina atualmente? (Modalidade, dias e duração)</label>
-            <textarea id="ass_treino_atual" class="form-textarea" rows="2" placeholder="Ex: CrossFit 3x por semana (1 hora) e corrida leve 1x no final de semana..." oninput="autoSaveAssessmentDraft()"></textarea>
+            <textarea id="ass_treino_atual" class="form-textarea" rows="2" placeholder="Ex: Caminhada, musculação leve, pilates 2x na semana, ou sedentária no momento..." oninput="autoSaveAssessmentDraft()"></textarea>
           </div>
 
           <div class="form-grid-3">
@@ -5012,7 +5012,8 @@
     </div>
   </div>
 
-  <!-- Modal de Notificações & Recados do Treinador -->
+  <!-- Modal de Notificações e Recados do Treinador -->
+    <!-- Modal de Notificações e Recados do Treinador -->
   <div id="notificationsModal" class="modal-overlay" onclick="if(event.target === this) closeNotificationsModal();">
     <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 480px;">
       <div class="modal-header">
@@ -5020,7 +5021,7 @@
           <span style="font-size:1.25rem;">🔔</span>
           <div>
             <h3 style="margin:0; font-size:1.02rem; color:#fff;">Recados e Notificações</h3>
-            <span style="font-size:0.75rem; color:#38bdf8; font-weight:600;" id="notifUnreadCountBadge">3 Novas Mensagens</span>
+            <span style="font-size:0.75rem; color:#38bdf8; font-weight:600;" id="notifUnreadCountBadge">1 Nova Mensagem</span>
           </div>
         </div>
         <button class="btn-close" type="button" onclick="closeNotificationsModal()" aria-label="Fechar">&times;</button>
@@ -5028,46 +5029,24 @@
       <div class="modal-body" style="padding: 16px 20px;">
         <div class="notif-list">
           
-          <!-- Notificação 0: Nova Análise de Habilidade (11x Butterfly Pull-Up) -->
-          <div class="notif-item unread" onclick="openAnalysisCardFromNotif('analysisCard-5', 'habilidades')">
-            <span class="notif-item-icon">⚡</span>
+          <!-- Notificação 1: Ficha de Avaliação Inicial -->
+          <div class="notif-item unread" onclick="closeNotificationsModal(); openDedicatedView('avaliacao');">
+            <span class="notif-item-icon">📋</span>
             <div style="flex:1; min-width:0;">
-              <div class="notif-item-title">Habilidade: Butterfly Pull-Up</div>
-              <div class="notif-item-desc">Série de 11 repetições contínuas analisada com diretrizes biomecânicas.</div>
-              <div class="notif-item-time">⏱️ Hoje • Barra Fixa</div>
+              <div class="notif-item-title">Ficha de Avaliação Inicial</div>
+              <div class="notif-item-desc">Preencha sua ficha para o Prof. Gui estruturar seus treinos sob medida.</div>
+              <div class="notif-item-time">⏱️ Hoje • Avaliação Obrigatória</div>
             </div>
             <span class="notif-item-arrow">›</span>
           </div>
 
-          <!-- Notificação 1: Recado no Mural -->
-          <div class="notif-item unread" onclick="openBulletinFromNotif()">
+          <!-- Notificação 2: Mural de Recados e Boas-Vindas -->
+          <div class="notif-item" onclick="closeNotificationsModal(); openDedicatedView('recados');">
             <span class="notif-item-icon">📢</span>
             <div style="flex:1; min-width:0;">
-              <div class="notif-item-title">Mural de Recados Atualizado</div>
-              <div class="notif-item-desc">Nova diretriz do treinador sobre envio de vídeos e foco nas puxadas.</div>
-              <div class="notif-item-time">⏱️ Hoje • Mural do Prof. Gui</div>
-            </div>
-            <span class="notif-item-arrow">›</span>
-          </div>
-
-          <!-- Notificação 2: Análise de Habilidade (Sequência na Manjota) -->
-          <div class="notif-item unread" onclick="openAnalysisCardFromNotif('analysisCard-3', 'habilidades')">
-            <span class="notif-item-icon">🏆</span>
-            <div style="flex:1; min-width:0;">
-              <div class="notif-item-title">Habilidade: Sequência na Manjota</div>
-              <div class="notif-item-desc">L-Sit to Handstand e Crocodile de 1 braço revisados com diretrizes biomecânicas.</div>
-              <div class="notif-item-time">⏱️ Hoje • Habilidade</div>
-            </div>
-            <span class="notif-item-arrow">›</span>
-          </div>
-
-          <!-- Notificação 3: Análise de Habilidade (Strict RMU Livre) -->
-          <div class="notif-item" onclick="openAnalysisCardFromNotif('analysisCard-2', 'habilidades')">
-            <span class="notif-item-icon">🤸‍♂️</span>
-            <div style="flex:1; min-width:0;">
-              <div class="notif-item-title">Habilidade: Strict RMU Livre</div>
-              <div class="notif-item-desc">Transição estrita nas argolas e Candle Kips com análise biomecânica e educativa.</div>
-              <div class="notif-item-time">⏱️ Ontem • Habilidade</div>
+              <div class="notif-item-title">Boas-vindas ao Domínio Corporal</div>
+              <div class="notif-item-desc">Confira o recado inicial do Prof. Gui Lemos no seu mural.</div>
+              <div class="notif-item-time">⏱️ Hoje • Mural do Treinador</div>
             </div>
             <span class="notif-item-arrow">›</span>
           </div>
@@ -5244,11 +5223,11 @@
       if (topBar) topBar.style.display = 'flex';
 
       const dayNames = {
-        'segunda': 'SEGUNDA • Crossfit',
-        'terca': 'TERÇA • Box CrossFit (Concluído ✅)',
-        'quarta': 'QUARTA • Ginástica EEFERP',
-        'quinta': 'QUINTA • Dança + Ginásio',
-        'sexta': 'SEXTA • Portagem + Argolas (Zero Pernas)'
+        'segunda': 'SEGUNDA-FEIRA',
+        'terca': 'TERÇA-FEIRA',
+        'quarta': 'QUARTA-FEIRA',
+        'quinta': 'QUINTA-FEIRA',
+        'sexta': 'SEXTA-FEIRA'
       };
 
       const titleEl = document.getElementById('dedicatedBarTitle');
@@ -6755,7 +6734,7 @@
       modal.classList.remove('active');
     }
 
-    // Central de Notificações & Recados
+    // Central de Notificações e Recados
     function toggleNotificationsModal() {
       const modal = document.getElementById('notificationsModal');
       if (!modal) return;
@@ -6816,11 +6795,11 @@
       let tabName = 'Treino';
 
       const dayNames = {
-        'segunda': 'Segunda-feira (Box CrossFit)',
-        'terca': 'Terça-feira (Box e Autoregulação)',
-        'quarta': 'Quarta-feira (Ginásio EEFERP e EMOM)',
-        'quinta': 'Quinta-feira (Dança e Floorwork)',
-        'sexta': 'Sexta-feira (Portagem & Argolas)'
+        'segunda': 'Segunda-feira',
+        'terca': 'Terça-feira',
+        'quarta': 'Quarta-feira',
+        'quinta': 'Quinta-feira',
+        'sexta': 'Sexta-feira'
       };
 
       if (dayId && typeof dayId === 'string') {
@@ -6983,7 +6962,7 @@
         <span class="tip-popover-tag" style="font-size:0.75rem; font-weight:800; letter-spacing:0.5px; text-transform:uppercase; color:#38bdf8;">🔧 EXECUÇÃO</span>
         <button type="button" class="tip-popover-close" onclick="closeTipPopover(event, true)" style="background:transparent; border:none; color:#94a3b8; font-size:1.5rem; cursor:pointer; line-height:1; padding:4px 8px;">&times;</button>
       </div>
-      <div id="tipPopoverTitle" style="font-size:1.05rem; font-weight:800; color:#fff; margin-bottom:12px; line-height:1.35;">Strict Bar Muscle-Up</div>
+      <div id="tipPopoverTitle" style="font-size:1.05rem; font-weight:800; color:#fff; margin-bottom:12px; line-height:1.35;">Orientações do Exercício</div>
       <div id="tipPopoverContent" style="font-size:0.88rem; color:#e2e8f0; line-height:1.6; margin-bottom:18px; max-height:60vh; overflow-y:auto;"></div>
       <button type="button" class="tip-popover-ok" onclick="closeTipPopover(event, true)" style="width:100%; padding:10px; border-radius:10px; font-weight:700; font-size:0.86rem; cursor:pointer; background:rgba(56,189,248,0.18); border:1px solid rgba(56,189,248,0.45); color:#38bdf8;">Entendido</button>
     </div>
