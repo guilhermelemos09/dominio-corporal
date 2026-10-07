@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dominio-corporal-v67';
+const CACHE_NAME = 'dominio-corporal-v68';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -7,12 +7,12 @@ const ASSETS_TO_CACHE = [
   './PRONTUARIO_E_HISTORICO_GUILHERME_LEMOS.xlsx',
   './jean.html',
   './manifest-jean.json',
-  './icon-192.png',
-  './icon-512.png',
-  './icon-pessoal-192.png',
-  './icon-pessoal-512.png',
-  './favicon.png',
-  './gui_foto.jpg',
+  './Midia/icon-192.png',
+  './Midia/icon-512.png',
+  './Midia/icon-pessoal-192.png',
+  './Midia/icon-pessoal-512.png',
+  './Midia/favicon.png',
+  './Midia/gui_foto.jpg',
   './Midia/comparacao_frontal_relaxado.jpg',
   './Midia/comparacao_duplo_biceps.jpg',
   './manifest.json',
