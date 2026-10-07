@@ -3344,7 +3344,7 @@
       gap: 4px;
     }
 
-    /* Botões de Pop-up Mais Discretos & Menos Saturados (Stealth Glass) */
+    /* Botões de Pop-up Monocromáticos (Estilo Clean Glass Idêntico ao Vídeo) */
     .btn-tip-cue, .btn-video {
       display: inline-flex;
       align-items: center;
@@ -3354,9 +3354,9 @@
       padding: 5px 10px;
       border-radius: 8px;
       cursor: pointer;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: #94a3b8;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #ffffff;
       transition: all 0.15s ease;
       text-decoration: none;
       -webkit-tap-highlight-color: transparent;
@@ -3364,41 +3364,23 @@
       touch-action: manipulation;
     }
     .btn-tip-cue:hover, .btn-video:hover {
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.14);
       color: #ffffff;
-      border-color: rgba(255, 255, 255, 0.22);
+      border-color: rgba(255, 255, 255, 0.35);
+      transform: translateY(-1px);
     }
     .btn-tip-cue:active, .btn-video:active {
       transform: scale(0.97);
     }
-    /* Cores e Ordem dos Botões de Cues: Cuidados (1º), Instruções (2º), Dicas (3º) */
+    /* Ordem dos Botões de Cues: Cuidados (1º), Instruções (2º), Dicas (3º) */
     .cue-cuidados, .cue-alerta {
       order: 1 !important;
-      background: rgba(249, 115, 22, 0.16) !important;
-      border: 1px solid rgba(249, 115, 22, 0.55) !important;
-      color: #fb923c !important;
-    }
-    .cue-cuidados:hover, .cue-alerta:hover {
-      background: rgba(249, 115, 22, 0.28) !important;
-      border-color: #f97316 !important;
-      color: #ffffff !important;
     }
     .cue-instrucoes {
       order: 2 !important;
-      background: rgba(56, 189, 248, 0.06);
-      border-color: rgba(56, 189, 248, 0.22);
-      color: #bae6fd;
     }
     .cue-dicas, .cue-dica, .cue-importante {
       order: 3 !important;
-      background: rgba(250, 204, 21, 0.06);
-      border-color: rgba(250, 204, 21, 0.22);
-      color: #fef08a;
-    }
-    .btn-video {
-      background: rgba(255, 255, 255, 0.06);
-      border-color: rgba(255, 255, 255, 0.18);
-      color: #ffffff;
     }
     .btn-video svg {
       width: 12px;
