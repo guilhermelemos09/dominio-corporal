@@ -338,7 +338,7 @@ def build_prontuario_workbook():
             'Validado ✅'
         ),
         (
-            '01/10/2026', 'Sequência Acrobática Completa (L-Sit -> Press -> Croc)', 'Manjota / Canes', '42s',
+            '01/10/2026', 'Sequência Acrobática Completa (L-Sit -> Press -> Croc)', 'Manjota', '42s',
             'Ginásio EEFERP', 'https://drive.google.com/file/d/1tNgCqQQXc_sA3WCwqryKIRbHE7mK8zZX/view?usp=sharing',
             'Entrada em L-sit estático suspenso, subida contínua sem embalo até a parada de mãos aberta, trava estável por 8s, descida controlada e encaixe do cotovelo na bacia para One-Arm Crocodile por 7s com o outro braço estendido.',
             'L-sit e subida na parada de mãos impecáveis. No apoio de um braço só (Crocodile), o quadril deu uma leve caída para o lado. O corpo precisa ficar reto como uma prancha paralela ao chão.',

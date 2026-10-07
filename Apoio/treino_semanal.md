@@ -86,11 +86,11 @@
 > [!NOTE]
 > **Status da Sessão:** O bloco de *Skills e Habilidades Neurais* foi executado com excelência absoluta. Como você precisou sair antes do término, o bloco de *Força e Hipertrofia Estrutural* foi removido da quarta-feira e integrado com upgrades criativos para a sessão de hoje (quinta-feira).
 
-### Análise Cinemática do Vídeo na Manjota (Canes):
+### Análise Cinemática do Vídeo na Manjota:
 1. **L-Sit / V-Sit Inicial (00:01 - 00:02):**
    * *Cinemática:* Excelente alavanca com cotovelos e joelhos em extensão estrita. Flexão plantar dos tornozelos perfeita, com depressão escapular ativa sustentando o tronco acima da linha das mãos.
 2. **Press to Straddle Handstand (00:03 - 00:05):**
-   * *Mecânica:* Subida concêntrica contínua em força pura, sem salto (*zero kick*). Compressão ativa de flexores de quadril (iliopsoas e reto femoral) e anteriorização controlada dos ombros para contrabalançar o peso da pelve e manter o centro de massa exatamente sobre os canes.
+   * *Mecânica:* Subida concêntrica contínua em força pura, sem salto (*zero kick*). Compressão ativa de flexores de quadril (iliopsoas e reto femoral) e anteriorização controlada dos ombros para contrabalançar o peso da pelve e manter o centro de massa exatamente sobre a manjota.
 3. **Straight Handstand Alinhado (00:11 - 00:19):**
    * *Alinhamento:* Abertura torácica com rotação externa glenoumeral e empuxo de escápula (elevação por trapézio superior e serrátil). Sustentação estável e estática por quase 10 segundos, com cabeça neutra e core compacto.
 4. **Descida Excêntrica em Compressão para L-Sit (00:21 - 00:27):**
@@ -98,7 +98,7 @@
 5. **Straddle Elbow Lever (Croc Duplo) (00:28 - 00:31):**
    * *Transição:* Inclinação anterior suave com apoio dos olecranos na região ântero-superior das cristas ilíacas, nivelando o plano sagital do corpo na horizontal.
 6. **One-Arm Croc Unilateral (00:32 - 00:39):**
-   * *O Clímax Técnico:* Deslocamento lateral de peso para o cane direito e liberação total do braço esquerdo por ~7 segundos. Torque anti-rotacional brutal de oblíquos interno/externo e quadrado lombar contra a gravidade. Sustentação limpa e estabilizada.
+   * *O Clímax Técnico:* Deslocamento lateral de peso para o apoio direito da manjota e liberação total do braço esquerdo por ~7 segundos. Torque anti-rotacional brutal de oblíquos interno/externo e quadrado lombar contra a gravidade. Sustentação limpa e estabilizada.
 7. **Saída e Aterrissagem (00:41):**
    * Pouso bípede com amortecimento suave e controle motor intacto.
 

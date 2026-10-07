@@ -121,7 +121,7 @@
 | :--- | :--- | :--- | :--- | :--- |
 | **02/10/2026** | Press Handstand no Ombro do Parceiro | 15s | Portagem & Handstand | `Midia/WhatsApp Video 2026-10-02 at 14.44.21.mp4` |
 | **02/10/2026** | 1x Strict RMU Livre + 2x Candle Kips | 25s | Argolas Altas | `Midia/WhatsApp Video 2026-10-02 at 14.44.18.mp4` |
-| **01/10/2026** | Sequência Acrobática Manjota (L-Sit → Press → Croc) | 42s | Manjota / Canes | `Midia/WhatsApp Video 2026-10-01 at 11.30.16.mp4` [Drive](https://drive.google.com/file/d/1tNgCqQQXc_sA3WCwqryKIRbHE7mK8zZX/view?usp=sharing) |
+| **01/10/2026** | Sequência Acrobática Manjota (L-Sit → Press → Croc) | 42s | Manjota | `Midia/WhatsApp Video 2026-10-01 at 11.30.16.mp4` [Drive](https://drive.google.com/file/d/1tNgCqQQXc_sA3WCwqryKIRbHE7mK8zZX/view?usp=sharing) |
 | **01/10/2026** | 4x Giros de Oitava Consecutivos (Glide Kips) | 4 reps | Barra Fixa Gímnica | `Midia/WhatsApp Video 2026-10-01 at 15.13.45.mp4` [Drive](https://drive.google.com/file/d/1o5mW2GK-qtiffr74zTQOUaQ4PBfOzfxI/view?usp=sharing) |
 | **05/10/2026** | Análise Antropométrica e Comparativo 97kg → 84kg | Fotos | Composição Corporal | `gui_foto.jpg` / `Midia/comparacao_frontal_relaxado.jpg` |
 
