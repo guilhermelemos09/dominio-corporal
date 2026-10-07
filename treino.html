@@ -2047,49 +2047,116 @@
        SEÇÃO TREINAMENTO & LISTA DE DIAS (HUB PRINCIPAL)
        =================================================== */
     
-    /* Botoes de Navegação Interna da Central de Evolução */
-    .evolucao-tabs-bar {
+    /* Grade de App para Evolução */
+    .evolucao-app-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+      margin-bottom: 24px;
+    }
+    .evol-app-btn {
+      background: linear-gradient(145deg, #11141a, #0c0e14);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 18px 10px;
       display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding-bottom: 8px;
-      margin-bottom: 16px;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-    }
-    .evolucao-tabs-bar::-webkit-scrollbar {
-      display: none;
-    }
-    .evol-nav-btn {
-      background: #11141a;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: #94a3b8;
-      padding: 8px 16px;
-      border-radius: 22px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-      outline: none;
-      -webkit-tap-highlight-color: transparent;
-      user-select: none;
-      -webkit-user-select: none;
-      display: inline-flex;
+      flex-direction: column;
       align-items: center;
-      gap: 6px;
+      justify-content: center;
+      text-align: center;
+      cursor: pointer;
+      aspect-ratio: 1 / 1;
+      min-height: 140px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
-    .evol-nav-btn:hover {
-      border-color: rgba(255, 255, 255, 0.35);
-      color: #ffffff;
-      transform: translateY(-1px);
+    .evol-app-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+      opacity: 0;
+      transition: opacity 0.2s ease;
     }
-    .evol-nav-btn.active {
-      background: var(--brand-neon);
-      color: #000000;
-      border-color: var(--brand-neon);
+    .evol-app-btn:hover, .evol-app-btn:active {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.22);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    }
+    .evol-app-btn:hover::before, .evol-app-btn:active::before {
+      opacity: 1;
+    }
+    .evol-app-icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      transition: transform 0.2s ease;
+    }
+    .evol-app-btn:hover .evol-app-icon-box, .evol-app-btn:active .evol-app-icon-box {
+      transform: scale(1.08);
+    }
+    .evol-app-icon-box.box-composicao {
+      background: rgba(0, 255, 136, 0.1);
+      border: 1px solid rgba(0, 255, 136, 0.3);
+      box-shadow: 0 0 16px rgba(0, 255, 136, 0.15);
+    }
+    .evol-app-icon-box.box-tecnica {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.15);
+    }
+    .evol-app-icon-box.box-recordes {
+      background: rgba(244, 63, 94, 0.1);
+      border: 1px solid rgba(244, 63, 94, 0.3);
+      box-shadow: 0 0 16px rgba(244, 63, 94, 0.15);
+    }
+    .evol-app-icon-box.box-relatorio {
+      background: rgba(168, 85, 247, 0.1);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      box-shadow: 0 0 16px rgba(168, 85, 247, 0.15);
+    }
+    .evol-app-icon-img {
+      width: 34px;
+      height: 34px;
+      object-fit: contain;
+      border-radius: 6px;
+      filter: drop-shadow(0 0 4px rgba(0, 255, 136, 0.4));
+    }
+    .evol-app-emoji {
+      font-size: 28px;
+      line-height: 1;
+    }
+    .evol-app-btn-title {
+      font-size: 0.85rem;
       font-weight: 800;
-      box-shadow: 0 0 16px var(--brand-neon-glow);
+      color: #ffffff;
+      line-height: 1.25;
+      margin-bottom: 4px;
+      letter-spacing: 0.01em;
+    }
+    .evol-app-btn-sub {
+      font-size: 0.68rem;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+    .evolucao-view-pane {
+      animation: fadeInPane 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes fadeInPane {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .training-hub-section {
@@ -6821,46 +6888,58 @@
     </div>
   </div>
 
-  <!-- ==================== TAB: EVOLUÇÃO, CONSISTÊNCIA & MÉTRICAS ==================== -->
+    <!-- ==================== TAB: EVOLUÇÃO, CONSISTÊNCIA E MÉTRICAS ==================== -->
   <div id="tab-evolucao" class="tab-content">
 
-    <!-- Banner Acesso Prontuário & Histórico Unificado (Planilha Visual & Excel) -->
-    <div style="margin-bottom:14px; padding:12px 14px; background:linear-gradient(135deg, rgba(15,23,42,0.95), rgba(30,41,59,0.95)); border:1px solid #334155; border-radius:12px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; box-shadow:0 4px 14px rgba(0,0,0,0.3);">
-      <div style="display:flex; align-items:center; gap:10px;">
-        <div style="font-size:24px;">📊</div>
-        <div>
-          <div style="font-size:0.85rem; font-weight:800; color:#fff;">Prontuário Técnico e Histórico</div>
-          <div style="font-size:0.73rem; color:#94a3b8;">Planilha oficial padrão mestrado com 4 abas (Prontuário, Histórico, Vídeos e Métricas)</div>
-        </div>
-      </div>
-      <div style="display:flex; gap:8px;">
-        <a href="prontuario_planilha_visual.html" target="_blank" style="display:inline-flex; align-items:center; gap:6px; padding:7px 13px; background:linear-gradient(135deg, #0284c7, #0369a1); border:1px solid #38bdf8; border-radius:8px; color:#fff; font-size:0.78rem; font-weight:700; text-decoration:none;">
-          <span>Visualizar Planilha</span>
-          <span>↗</span>
-        </a>
-        <a href="PRONTUARIO_E_HISTORICO_GUILHERME_LEMOS.xlsx" download style="display:inline-flex; align-items:center; gap:6px; padding:7px 13px; background:#107c41; border:1px solid #149b51; border-radius:8px; color:#fff; font-size:0.78rem; font-weight:700; text-decoration:none;">
-          <span>Baixar .xlsx</span>
-          <span>💾</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- Seletor de Tópicos da Central de Evolução -->
-    <div class="evolucao-tabs-bar">
-      <button class="evol-nav-btn active" id="btnEvol-composicao" onclick="switchEvolucaoPane('composicao', this)">
-        🧬 Composição Corporal
-      </button>
-      <button class="evol-nav-btn" id="btnEvol-tecnica" onclick="switchEvolucaoPane('tecnica', this)">
-        🤸 Aperfeiçoamento Técnico
-      </button>
-      <button class="evol-nav-btn" id="btnEvol-consistencia" onclick="switchEvolucaoPane('consistencia', this)">
-        📊 Consistência de Treino
-      </button>
-    </div>
-
-    <!-- PAINEL 3: COMPOSIÇÃO CORPORAL & ANTROPOMETRIA -->
-    <div id="pane-evol-composicao" class="evolucao-subpane" style="display:block;">
+    <!-- ==================== HUB DA CENTRAL DE EVOLUÇÃO (GRADE DE APP) ==================== -->
+    <div id="evolucaoHubMenu" class="evolucao-app-grid">
       
+      <!-- BOTÃO 1: COMPOSIÇÃO CORPORAL -->
+      <div class="evol-app-btn" onclick="openEvolucaoView('composicao')">
+        <div class="evol-app-icon-box box-composicao">
+          <img src="Midia/icon-192.png" alt="Composição Corporal" class="evol-app-icon-img">
+        </div>
+        <div class="evol-app-btn-title">Composição Corporal</div>
+        <div class="evol-app-btn-sub">Métricas e Fotos</div>
+      </div>
+
+      <!-- BOTÃO 2: PROGRESSÃO DE TÉCNICA -->
+      <div class="evol-app-btn" onclick="openEvolucaoView('tecnica')">
+        <div class="evol-app-icon-box box-tecnica">
+          <span class="evol-app-emoji">🛠️</span>
+        </div>
+        <div class="evol-app-btn-title">Progressão de Técnica</div>
+        <div class="evol-app-btn-sub">Marcos e Habilidades</div>
+      </div>
+
+      <!-- BOTÃO 3: CENTRAL DE RECORDES -->
+      <div class="evol-app-btn" onclick="openEvolucaoView('recordes')">
+        <div class="evol-app-icon-box box-recordes">
+          <span class="evol-app-emoji">💪</span>
+        </div>
+        <div class="evol-app-btn-title">Central de Recordes</div>
+        <div class="evol-app-btn-sub">1RM, PRs e Tempos</div>
+      </div>
+
+      <!-- BOTÃO 4: RELATÓRIO DO TREINAMENTO -->
+      <div class="evol-app-btn" onclick="openEvolucaoView('relatorio')">
+        <div class="evol-app-icon-box box-relatorio">
+          <span class="evol-app-emoji">📊</span>
+        </div>
+        <div class="evol-app-btn-title">Relatório do Treinamento</div>
+        <div class="evol-app-btn-sub">Volume e Consistência</div>
+      </div>
+
+    </div>
+
+    <!-- ==================== SUBPÁGINA: COMPOSIÇÃO CORPORAL ==================== -->
+    <div id="evolView-composicao" class="evolucao-view-pane" style="display:none;">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
+        <button type="button" class="btn-back-workout" onclick="closeEvolucaoView()">
+          ← Voltar para Evolução
+        </button>
+      </div>
+
       <!-- Aviso de Módulo Personalizado -->
       <div style="margin-bottom:12px; padding:8px 12px; background:rgba(251,191,36,0.08); border:1px solid rgba(251,191,36,0.25); border-radius:10px; font-size:0.75rem; color:#fbbf24;">
         ℹ️ <strong>Módulo Sob Medida:</strong> Este relatório de composição corporal é exibido especificamente para alunos com metas de peso, definição ou descompressão articular.
@@ -7002,11 +7081,17 @@
       </div>
     </div>
 
-    <!-- PAINEL 2: EVOLUÇÃO TÉCNICA (MARCOS & HABILIDADES) -->
-    <div id="pane-evol-tecnica" class="evolucao-subpane" style="display:none;">
+    <!-- ==================== SUBPÁGINA: PROGRESSÃO DE TÉCNICA ==================== -->
+    <div id="evolView-tecnica" class="evolucao-view-pane" style="display:none;">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
+        <button type="button" class="btn-back-workout" onclick="closeEvolucaoView()">
+          ← Voltar para Evolução
+        </button>
+      </div>
+
       <div class="evolucao-hero">
         <div class="evolucao-title">
-          <span>🤸 Aperfeiçoamento Técnico e Marcos</span>
+          <span>🤸 Progressão de Técnica e Marcos</span>
           <span class="evolucao-badge-delta">Avançado</span>
         </div>
         <p style="font-size:0.8rem; color:var(--text-muted); margin:6px 0 0;">
@@ -7014,7 +7099,7 @@
         </p>
       </div>
 
-      <!-- MARCO 1: HANDSTAND & MANJOTA -->
+      <!-- MARCO 1: HANDSTAND e MANJOTA -->
       <div class="comparison-card" style="margin-top:14px; border-left:3.5px solid #38bdf8;">
         <div class="comparison-card-header">
           <div class="comparison-card-title">1. Parada de Mãos (Handstand) e Alavancas na Manjota</div>
@@ -7030,7 +7115,7 @@
         </div>
       </div>
 
-      <!-- MARCO 2: STRICT RMU & TRANSICÕES -->
+      <!-- MARCO 2: STRICT RMU e TRANSICÕES -->
       <div class="comparison-card" style="border-left:3.5px solid var(--brand-neon);">
         <div class="comparison-card-header">
           <div class="comparison-card-title">2. Ring Muscle-Up Livre (Argolas Altas) e Transição</div>
@@ -7063,11 +7148,158 @@
       </div>
     </div>
 
-    <!-- PAINEL 1: CONSISTÊNCIA, FREQUÊNCIA E VOLUME DE TREINO -->
-    <div id="pane-evol-consistencia" class="evolucao-subpane" style="display:none;">
+    <!-- ==================== SUBPÁGINA: CENTRAL DE RECORDES ==================== -->
+    <div id="evolView-recordes" class="evolucao-view-pane" style="display:none;">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
+        <button type="button" class="btn-back-workout" onclick="closeEvolucaoView()">
+          ← Voltar para Evolução
+        </button>
+      </div>
+
       <div class="evolucao-hero">
         <div class="evolucao-title">
-          <span>📊 Consistência e Volume de Treino</span>
+          <span>💪 Central de Recordes (PR)</span>
+          <span class="evolucao-badge-delta" style="background:rgba(244,63,94,0.15); color:#f43f5e; border-color:rgba(244,63,94,0.3);">Recordes Pessoais</span>
+        </div>
+        <p style="font-size:0.8rem; color:var(--text-muted); margin:6px 0 0;">
+          Histórico e registro de cargas máximas (1RM), repetições máximas e melhores tempos.
+        </p>
+
+        <div class="metrics-summary-grid">
+          <div class="metric-summary-card">
+            <div class="metric-value" style="color:#f43f5e;">1RM</div>
+            <div class="metric-label">Carga Máxima</div>
+          </div>
+          <div class="metric-summary-card">
+            <div class="metric-value" style="color:var(--brand-neon);">Max Reps</div>
+            <div class="metric-label">Resistência</div>
+          </div>
+          <div class="metric-summary-card">
+            <div class="metric-value" style="color:#38bdf8;">PR Tempo</div>
+            <div class="metric-label">Isometrias e WODs</div>
+          </div>
+          <div class="metric-summary-card">
+            <div class="metric-value" style="color:#fbbf24;">Gímnico</div>
+            <div class="metric-label">Alavancas de Força</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEÇÃO 1: CARGAS MÁXIMAS (1RM) -->
+      <div class="comparison-card" style="margin-top:14px; border-left:3.5px solid #f43f5e;">
+        <div class="comparison-card-header">
+          <div class="comparison-card-title">🏋️ Cargas Máximas (1RM)</div>
+          <span style="font-size:0.75rem; color:#f43f5e; font-weight:700;">Força Pura</span>
+        </div>
+        <p style="font-size:0.78rem; color:var(--text-muted); margin-bottom:12px;">
+          Estimativas e marcas máximas para uma única repetição limpa:
+        </p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:10px;">
+          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px;">
+            <div style="font-size:0.72rem; color:var(--text-muted); margin-bottom:2px;">Back Squat</div>
+            <div style="font-size:1.1rem; font-weight:800; color:#fff;">-- kg</div>
+            <div style="font-size:0.68rem; color:#f43f5e;">1RM a registrar</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px;">
+            <div style="font-size:0.72rem; color:var(--text-muted); margin-bottom:2px;">Deadlift</div>
+            <div style="font-size:1.1rem; font-weight:800; color:#fff;">-- kg</div>
+            <div style="font-size:0.68rem; color:#f43f5e;">1RM a registrar</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px;">
+            <div style="font-size:0.72rem; color:var(--text-muted); margin-bottom:2px;">Supino Reto</div>
+            <div style="font-size:1.1rem; font-weight:800; color:#fff;">-- kg</div>
+            <div style="font-size:0.68rem; color:#f43f5e;">1RM a registrar</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px;">
+            <div style="font-size:0.72rem; color:var(--text-muted); margin-bottom:2px;">Strict Press</div>
+            <div style="font-size:1.1rem; font-weight:800; color:#fff;">-- kg</div>
+            <div style="font-size:0.68rem; color:#f43f5e;">1RM a registrar</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEÇÃO 2: REPETIÇÕES MÁXIMAS (MAX REPS) -->
+      <div class="comparison-card" style="margin-top:14px; border-left:3.5px solid var(--brand-neon);">
+        <div class="comparison-card-header">
+          <div class="comparison-card-title">⚡ Repetições Máximas (Unbroken)</div>
+          <span style="font-size:0.75rem; color:var(--brand-neon); font-weight:700;">Resistência Muscular</span>
+        </div>
+        <p style="font-size:0.78rem; color:var(--text-muted); margin-bottom:12px;">
+          Maior número de repetições consecutivas sem quebrar a série:
+        </p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:10px;">
+          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px;">
+            <div style="font-size:0.72rem; color:var(--text-muted); margin-bottom:2px;">Strict Pull-Up</div>
+            <div style="font-size:1.1rem; font-weight:800; color:#fff;">-- reps</div>
+            <div style="font-size:0.68rem; color:var(--brand-neon);">Sem impulso</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px;">
+            <div style="font-size:0.72rem; color:var(--text-muted); margin-bottom:2px;">Ring Dips</div>
+            <div style="font-size:1.1rem; font-weight:800; color:#fff;">-- reps</div>
+            <div style="font-size:0.68rem; color:var(--brand-neon);">Argolas</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px;">
+            <div style="font-size:0.72rem; color:var(--text-muted); margin-bottom:2px;">Flexões (Push-ups)</div>
+            <div style="font-size:1.1rem; font-weight:800; color:#fff;">-- reps</div>
+            <div style="font-size:0.68rem; color:var(--brand-neon);">Solo</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px;">
+            <div style="font-size:0.72rem; color:var(--text-muted); margin-bottom:2px;">Toes to Bar (T2B)</div>
+            <div style="font-size:1.1rem; font-weight:800; color:#fff;">-- reps</div>
+            <div style="font-size:0.68rem; color:var(--brand-neon);">Pés na barra</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEÇÃO 3: TEMPOS MÁXIMOS E ISOMETRIAS -->
+      <div class="comparison-card" style="margin-top:14px; border-left:3.5px solid #38bdf8;">
+        <div class="comparison-card-header">
+          <div class="comparison-card-title">⏱️ Tempos Máximos e Isometrias</div>
+          <span style="font-size:0.75rem; color:#38bdf8; font-weight:700;">Sustentação</span>
+        </div>
+        <p style="font-size:0.78rem; color:var(--text-muted); margin-bottom:12px;">
+          Tempos de sustentação isométrica e recordes de referência:
+        </p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:10px;">
+          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px;">
+            <div style="font-size:0.72rem; color:var(--text-muted); margin-bottom:2px;">Handstand Livre</div>
+            <div style="font-size:1.1rem; font-weight:800; color:#fff;">> 10s</div>
+            <div style="font-size:0.68rem; color:#38bdf8;">Sem apoio</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px;">
+            <div style="font-size:0.72rem; color:var(--text-muted); margin-bottom:2px;">One-Arm Croc (Manjota)</div>
+            <div style="font-size:1.1rem; font-weight:800; color:#fff;">7s</div>
+            <div style="font-size:0.68rem; color:#38bdf8;">1 braço</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px;">
+            <div style="font-size:0.72rem; color:var(--text-muted); margin-bottom:2px;">L-Sit Isométrico</div>
+            <div style="font-size:1.1rem; font-weight:800; color:#fff;">-- s</div>
+            <div style="font-size:0.68rem; color:#38bdf8;">Paralelas</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px;">
+            <div style="font-size:0.72rem; color:var(--text-muted); margin-bottom:2px;">Prancha Ventral</div>
+            <div style="font-size:1.1rem; font-weight:800; color:#fff;">-- s</div>
+            <div style="font-size:0.68rem; color:#38bdf8;">Hollow body</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:14px; padding:10px 12px; background:rgba(255,255,255,0.03); border:1px dashed rgba(255,255,255,0.15); border-radius:12px; text-align:center; font-size:0.76rem; color:var(--text-muted);">
+        💡 <strong>Módulo em Expansão:</strong> Em breve você poderá adicionar seus novos movimentos personalizados e registrar cada recorde com data e histórico de evolução!
+      </div>
+    </div>
+
+    <!-- ==================== SUBPÁGINA: RELATÓRIO DO TREINAMENTO ==================== -->
+    <div id="evolView-relatorio" class="evolucao-view-pane" style="display:none;">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
+        <button type="button" class="btn-back-workout" onclick="closeEvolucaoView()">
+          ← Voltar para Evolução
+        </button>
+      </div>
+
+      <div class="evolucao-hero">
+        <div class="evolucao-title">
+          <span>📊 Relatório do Treinamento e Volume</span>
           <span class="evolucao-badge-delta" id="evolAdherenceBadge">Ativo</span>
         </div>
         <p style="font-size:0.8rem; color:var(--text-muted); margin:6px 0 0;">
@@ -7163,10 +7395,9 @@
       </div>
     </div>
 
-
   </div>
 
-      <!-- Cronômetro Flutuante OLED Stealth 2 em 1: Descanso em Cima, Progressão em Baixo -->
+  <!-- Cronômetro Flutuante OLED Stealth 2 em 1: Descanso em Cima, Progressão em Baixo -->
   <div class="timer-dock" id="bottomTimerDock">
     <!-- Linha Superior: Descanso do Timer -->
     <div class="dock-timer-row">
@@ -7494,7 +7725,7 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '90';
+    const APP_BUILD_VERSION = '91';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
@@ -7675,21 +7906,48 @@
     }
 
     
-    function switchEvolucaoPane(paneId, btn) {
-      document.querySelectorAll('.evol-nav-btn').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.evolucao-subpane').forEach(p => p.style.display = 'none');
+    function openEvolucaoView(viewId) {
+      const hubMenu = document.getElementById('evolucaoHubMenu');
+      if (hubMenu) hubMenu.style.display = 'none';
 
-      const targetBtn = btn || document.getElementById('btnEvol-' + paneId);
-      if (targetBtn) targetBtn.classList.add('active');
+      const viewIds = ['composicao', 'tecnica', 'recordes', 'relatorio'];
+      viewIds.forEach(id => {
+        const el = document.getElementById('evolView-' + id);
+        if (el) {
+          el.style.display = (id === viewId) ? 'block' : 'none';
+        }
+      });
 
-      const targetPane = document.getElementById('pane-evol-' + paneId);
-      if (targetPane) {
-        targetPane.style.display = 'block';
-      }
-
-      if (paneId === 'consistencia') {
+      if (viewId === 'relatorio' && typeof updateEvolucaoStats === 'function') {
         updateEvolucaoStats();
       }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function closeEvolucaoView() {
+      const hubMenu = document.getElementById('evolucaoHubMenu');
+      if (hubMenu) hubMenu.style.display = 'grid';
+
+      const viewIds = ['composicao', 'tecnica', 'recordes', 'relatorio'];
+      viewIds.forEach(id => {
+        const el = document.getElementById('evolView-' + id);
+        if (el) el.style.display = 'none';
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function isAnyEvolViewOpen() {
+      const viewIds = ['composicao', 'tecnica', 'recordes', 'relatorio'];
+      return viewIds.some(id => {
+        const el = document.getElementById('evolView-' + id);
+        return el && el.style.display === 'block';
+      });
+    }
+
+    function switchEvolucaoPane(paneId) {
+      openEvolucaoView(paneId === 'consistencia' ? 'relatorio' : paneId);
     }
 
     function updateEvolucaoStats() {
@@ -7764,9 +8022,8 @@
         initTimerUI();
       }
       if (sectionId === 'evolucao') {
-        const defaultBtn = document.getElementById('btnEvol-composicao');
-        if (typeof switchEvolucaoPane === 'function') {
-          switchEvolucaoPane('composicao', defaultBtn);
+        if (typeof closeEvolucaoView === 'function') {
+          closeEvolucaoView();
         }
         if (typeof updateEvolucaoStats === 'function') {
           updateEvolucaoStats();
@@ -7817,6 +8074,9 @@
       // Esconde todas as abas
       document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
 
+      if (typeof closeEvolucaoView === 'function') {
+        closeEvolucaoView();
+      }
       renderTrainingHubDays();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -7829,6 +8089,11 @@
       // Se estava na tela de timers e veio de um treino de dia ativo, retorna diretamente para o treino!
       if (document.body.classList.contains('in-view-timers') && lastActiveDayTab) {
         openDayWorkout(lastActiveDayTab);
+        return;
+      }
+      // Se estava em uma subpágina de Evolução, volta para a Grade de Evolução
+      if (document.body.classList.contains('in-view-evolucao') && typeof isAnyEvolViewOpen === 'function' && isAnyEvolViewOpen()) {
+        closeEvolucaoView();
         return;
       }
       closeDedicatedView();
@@ -9243,7 +9508,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=90').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=91').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
