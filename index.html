@@ -2572,13 +2572,13 @@
     }
     .metrics-summary-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 8px;
       margin: 14px 0 6px;
     }
-    @media(min-width: 600px) {
+    @media(max-width: 500px) {
       .metrics-summary-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
       }
     }
     .metric-summary-card {
@@ -6067,11 +6067,11 @@
     </div>
 
     <!-- BANNER DE ENVIO DE VÍDEO SIMPLIFICADO -->
-    <div class="analysis-upload-banner" onclick="openSendVideoModal('Geral / Movimento Livre')" style="cursor: pointer;">
+    <div class="analysis-upload-banner" onclick="openSendVideoModal('')" style="cursor: pointer;">
       <div class="analysis-upload-banner-content">
         <div class="analysis-upload-title" style="margin: 0; letter-spacing: 0.5px; font-weight: 800;">ENVIAR VÍDEO PARA ANÁLISE</div>
       </div>
-      <button type="button" class="btn-analysis-upload-cta" onclick="event.stopPropagation(); openSendVideoModal('Geral / Movimento Livre')">
+      <button type="button" class="btn-analysis-upload-cta" onclick="event.stopPropagation(); openSendVideoModal('')">
         <span>ENVIAR VÍDEO</span>
       </button>
     </div>
@@ -6357,7 +6357,7 @@
         <div style="display:flex; gap:8px; flex-wrap:wrap;">
           <a href="prontuario_planilha_visual.html" target="_blank" class="btn-open-assessment-form" style="text-decoration:none; background:linear-gradient(135deg, #0284c7, #0369a1); border-color:#38bdf8;">
             <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 2h2v4h-2V5zm-4 0h2v4H8V5zm8 14H8v-2h8v2zm0-4H8v-2h8v2zm0-4H8v-2h8v2z"/></svg>
-            <span>Planilha & Histórico 📊</span>
+            <span>Planilha e Histórico 📊</span>
           </a>
           <button class="btn-open-assessment-form" onclick="openDedicatedView('avaliacao')">
             <svg viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
@@ -6379,10 +6379,6 @@
         <div class="metric-summary-card">
           <div class="metric-value" id="athleteProfileBF">~13.0%</div>
           <div class="metric-label">% Gordura (BF)</div>
-        </div>
-        <div class="metric-summary-card">
-          <div class="metric-value" id="athleteProfileIMC">26.5</div>
-          <div class="metric-label">IMC (kg/m²)</div>
         </div>
       </div>
     </div>
@@ -6411,7 +6407,7 @@
 
     <div class="section-card sec-forca" style="border-left: 3.5px solid var(--brand-neon);">
       <div class="section-header">
-        <div class="section-title">🛡️ Blindagem Escapular & Histórico Cirúrgico (Ombro Direito)</div>
+        <div class="section-title">🛡️ Blindagem Escapular e Histórico Cirúrgico (Ombro Direito)</div>
       </div>
       <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.65;">
         <p><strong>• Reconstrução de Confiança Neuromotora:</strong> A cirurgia prévia de supraespinhal e acrômio está anatomicamente curada. No entanto, o sistema nervoso central (SNC) preserva reflexos de autoproteção em paradas de mão e balanços de paralela com desaceleração brusca.</p>
@@ -6432,7 +6428,7 @@
 
     <div class="section-card" style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-left: 3.5px solid #fbbf24; border-radius: var(--radius-lg); padding: 14px 16px; margin-bottom: 14px;">
       <div class="section-header" style="margin-bottom: 8px;">
-        <div class="section-title" style="color: #fbbf24;">💊 Suporte Farmacológico & Recomposição (Tirzepatida)</div>
+        <div class="section-title" style="color: #fbbf24;">💊 Suporte Farmacológico e Recomposição (Tirzepatida)</div>
       </div>
       <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.65;">
         <p><strong>• Preservação de Massa Magra em Déficit:</strong> Sob suporte de tirzepatida para descompressão ponderal (97 kg ➔ 84 kg), o aporte proteico diário deve ser rigorosamente mantido alto (~1.8 a 2.2 g/kg), acompanhado de hidratação contínua e eletrólitos para sustentar a intensidade e volume dos blocos de força e calistenia.</p>
@@ -6441,7 +6437,7 @@
 
     <div class="section-card" style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-left: 3.5px solid #f43f5e; border-radius: var(--radius-lg); padding: 14px 16px; margin-bottom: 14px;">
       <div class="section-header" style="margin-bottom: 8px;">
-        <div class="section-title" style="color: #fca5a5;">🎯 Gestão de Fadiga & Cadência Semanal</div>
+        <div class="section-title" style="color: #fca5a5;">🎯 Gestão de Fadiga e Cadência Semanal</div>
       </div>
       <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.65;">
         <p><strong>• Equilíbrio Multi-modalidade:</strong> A rotina integrando Crossfit, Calistenia, Acrobacias e Dança exige precisão na gestão da fadiga sistêmica. Respeitar o dia de repouso programado e priorizar a precisão biomecânica em vez do volume exaustivo para blindar articulações e garantir evolução contínua.</p>
@@ -6456,7 +6452,7 @@
         <div class="assessment-badge">DOMÍNIO CORPORAL • AVALIAÇÃO INICIAL</div>
         <h1 class="assessment-title">Ficha de Avaliação do Aluno</h1>
         <p class="assessment-desc">
-          Preencha as informações abaixo para a prescrição personalizada do seu ciclo de treino. Ao finalizar, toque em <strong>Salvar & Enviar Ficha</strong> para encaminhar o relatório completo diretamente para o WhatsApp do Gui.
+          Preencha as informações abaixo para a prescrição personalizada do seu ciclo de treino. Ao finalizar, toque em <strong>Enviar Ficha</strong> para encaminhar o relatório completo diretamente para o WhatsApp do Gui.
         </p>
       </div>
       
@@ -6472,7 +6468,7 @@
         <div class="assessment-card-block">
           <div class="block-header">
             <span class="block-number">1</span>
-            <div class="block-title">Identificação & Rotina Diária</div>
+            <div class="block-title">Identificação e Rotina</div>
           </div>
 
           <div class="form-group">
@@ -6500,7 +6496,7 @@
           </div>
 
           <div class="form-group">
-            <label class="form-label" for="ass_rotina">Rotina Diária (Trabalho, Estresse & Sono)</label>
+            <label class="form-label" for="ass_rotina">Rotina Diária (Trabalho, Estresse e Sono)</label>
             <textarea id="ass_rotina" class="form-textarea" rows="2" placeholder="Ex: Trabalho 8h por dia no computador sentado, nível de estresse moderado, durmo em média 7h por noite..." oninput="autoSaveAssessmentDraft()"></textarea>
           </div>
 
@@ -6524,7 +6520,7 @@
         <div class="assessment-card-block" style="border-left: 3.5px solid #ef4444;">
           <div class="block-header">
             <span class="block-number" style="background:rgba(239,68,68,0.2); color:#ef4444;">2</span>
-            <div class="block-title">Histórico Clínico, Lesões & Saúde Geral</div>
+            <div class="block-title">Histórico Clínico e Lesões</div>
           </div>
           <p class="block-hint">
             Escreva livremente sobre qualquer cirurgia prévia, histórico de lesões (ombros, joelhos, coluna, punhos...), dores atuais, desconfortos ou restrições médicas que você possui:
@@ -6565,7 +6561,7 @@
         <div class="assessment-card-block" style="border-left: 3.5px solid #38bdf8;">
           <div class="block-header">
             <span class="block-number" style="background:rgba(56,189,248,0.2); color:#38bdf8;">3</span>
-            <div class="block-title">Bagagem Motora & Condicionamento Geral</div>
+            <div class="block-title">Bagagem Motora</div>
           </div>
 
           <div class="form-group">
@@ -6616,11 +6612,11 @@
           </div>
         </div>
 
-        <!-- BLOCO 4: OBJETIVOS DO CICLO & CONTEXTUALIZAÇÃO -->
+        <!-- BLOCO 4: OBJETIVOS DO TREINO -->
         <div class="assessment-card-block" style="border-left: 3.5px solid var(--brand-neon);">
           <div class="block-header">
             <span class="block-number" style="background:rgba(0,255,136,0.2); color:var(--brand-neon);">4</span>
-            <div class="block-title">Objetivos do Ciclo & Contextualização</div>
+            <div class="block-title">Objetivos do Treino</div>
           </div>
 
           <label class="form-label" style="margin-bottom:8px;">Pilares Prioritários (selecione quantos desejar):</label>
@@ -6648,7 +6644,7 @@
             <label class="check-pill">
               <input type="checkbox" name="pilares" value="Mobilidade & Flexibilidade" onchange="autoSaveAssessmentDraft()">
               <span class="check-box-custom"></span>
-              <span class="check-pill-text">Mobilidade & Flexibilidade</span>
+              <span class="check-pill-text">Mobilidade e Flexibilidade</span>
             </label>
           </div>
 
@@ -6673,7 +6669,7 @@
         <div class="assessment-submit-bar">
           <button type="submit" class="btn-submit-assessment">
             <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.24-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.49-.4-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.17-.48-.29z"/></svg>
-            <span>Salvar & Enviar Ficha para o Gui no WhatsApp</span>
+            <span>Enviar Ficha para o Gui no WhatsApp</span>
           </button>
           <div id="assessmentFeedbackMsg" style="display:none; margin-top:10px; padding:10px 14px; background:rgba(0,255,136,0.12); border:1px solid rgba(0,255,136,0.3); border-radius:10px; color:var(--brand-neon); font-size:0.82rem; font-weight:700; text-align:center;">
             ✓ Ficha salva no seu celular e enviada no WhatsApp com sucesso!
@@ -6833,16 +6829,12 @@
             <div class="metric-value" id="evolIntakeBF">~13.0%</div>
             <div class="metric-label">% Gordura (BF)</div>
           </div>
-          <div class="metric-summary-card">
-            <div class="metric-value" id="evolIntakeIMC">26.5 kg/m²</div>
-            <div class="metric-label">IMC Calculado</div>
-          </div>
         </div>
       </div>
 
       <div class="evolucao-hero">
         <div class="evolucao-title">
-          <span>📈 Composição Corporal & Descompressão Articular: Gui Lemos</span>
+          <span>📈 Composição Corporal: Gui Lemos</span>
           <span class="evolucao-badge-delta">97 kg ➔ 84 kg (-13 kg)</span>
         </div>
         <p style="font-size:0.8rem; color:var(--text-muted); margin:6px 0 0;">
@@ -6949,7 +6941,7 @@
     <div id="pane-evol-tecnica" class="evolucao-subpane" style="display:none;">
       <div class="evolucao-hero">
         <div class="evolucao-title">
-          <span>🤸 Aperfeiçoamento Técnico & Marcos Biomecânicos</span>
+          <span>🤸 Aperfeiçoamento Técnico e Marcos</span>
           <span class="evolucao-badge-delta">Avançado</span>
         </div>
         <p style="font-size:0.8rem; color:var(--text-muted); margin:6px 0 0;">
@@ -7010,7 +7002,7 @@
     <div id="pane-evol-consistencia" class="evolucao-subpane" style="display:none;">
       <div class="evolucao-hero">
         <div class="evolucao-title">
-          <span>📊 Relatório de Consistência de Treino & Volume</span>
+          <span>📊 Consistência e Volume de Treino</span>
           <span class="evolucao-badge-delta" id="evolAdherenceBadge">Ativo</span>
         </div>
         <p style="font-size:0.8rem; color:var(--text-muted); margin:6px 0 0;">
@@ -7171,7 +7163,7 @@
         <!-- Botão Principal WhatsApp -->
         <button type="button" class="btn-send-wpp-primary" onclick="confirmSendVideoWhatsApp()">
           <svg style="width:20px; height:20px; fill:currentColor;" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-          <span>Abrir WhatsApp & Enviar Vídeo</span>
+          <span>Abrir WhatsApp e Enviar Vídeo</span>
         </button>
 
         <!-- Toggle opcional de link externo (Drive/YouTube) -->
@@ -7658,11 +7650,11 @@
       if (topBar) topBar.style.display = 'flex';
 
       const titles = {
-        'timers': 'Central de Timers',
+        'timers': 'Timers',
         'analises': 'Análise de Vídeos',
-        'recados': 'Mural de Recados do Treinador',
-        'evolucao': 'Evolução & Antropometria',
-        'perfil': 'Ficha do Atleta & Diretrizes',
+        'recados': 'Mural de Recados',
+        'evolucao': 'Evolução',
+        'perfil': 'Ficha do Atleta',
         'avaliacao': 'Ficha de Avaliação'
       };
       const titleEl = document.getElementById('dedicatedBarTitle');
@@ -7899,35 +7891,25 @@
         const weightVal = parseFloat(data.peso) || 84.0;
         const heightVal = parseFloat(data.altura) || 178;
         const bfVal = (data.gordura !== undefined && data.gordura !== '') ? parseFloat(data.gordura) : null;
-        let imcStr = '26.5';
-        if (weightVal && heightVal && heightVal > 0) {
-          const imc = weightVal / Math.pow(heightVal / 100, 2);
-          imcStr = imc.toFixed(1);
-        }
-
         // Atualiza na Ficha do Atleta (tab-perfil)
         const nameEl = document.getElementById('athleteProfileName');
         const pWeightEl = document.getElementById('athleteProfileWeight');
         const pHeightEl = document.getElementById('athleteProfileHeight');
         const pBFEl = document.getElementById('athleteProfileBF');
-        const pIMCEl = document.getElementById('athleteProfileIMC');
 
         if (nameEl) nameEl.textContent = name;
         if (pWeightEl) pWeightEl.textContent = `${weightVal.toFixed(1)} kg`;
         if (pHeightEl) pHeightEl.textContent = `${heightVal} cm`;
         if (pBFEl) pBFEl.textContent = (bfVal !== null && !isNaN(bfVal)) ? `${bfVal.toFixed(1)}%` : '~13.0%';
-        if (pIMCEl) pIMCEl.textContent = imcStr;
 
         // Atualiza no Ponto de Partida da Central de Evolução (tab-evolucao)
         const eWeightEl = document.getElementById('evolIntakeWeight');
         const eHeightEl = document.getElementById('evolIntakeHeight');
         const eBFEl = document.getElementById('evolIntakeBF');
-        const eIMCEl = document.getElementById('evolIntakeIMC');
 
         if (eWeightEl) eWeightEl.textContent = `${weightVal.toFixed(1)} kg`;
         if (eHeightEl) eHeightEl.textContent = `${heightVal} cm`;
         if (eBFEl) eBFEl.textContent = (bfVal !== null && !isNaN(bfVal)) ? `${bfVal.toFixed(1)}%` : 'Não informado';
-        if (eIMCEl) eIMCEl.textContent = `${imcStr} kg/m²`;
       } catch (e) {
         console.error('Erro ao sincronizar métricas da avaliação:', e);
       }
@@ -7964,7 +7946,7 @@
       let msg = `*📋 DOMÍNIO CORPORAL | Ficha de Avaliação*\n`;
       msg += `-------------------------------------------\n\n`;
 
-      msg += `*👤 1. IDENTIFICAÇÃO & ROTINA*\n`;
+      msg += `*👤 1. IDENTIFICAÇÃO E ROTINA*\n`;
       msg += `• *Nome:* ${data.nome}\n`;
       if (data.nascimento) {
         const parts = data.nascimento.split('-');
@@ -7986,20 +7968,20 @@
       }
       if (data.local) msg += `• *Local de Treino:* ${data.local}\n\n`;
 
-      msg += `*🛡️ 2. HISTÓRICO CLÍNICO, LESÕES & SAÚDE*\n`;
+      msg += `*🛡️ 2. HISTÓRICO CLÍNICO E LESÕES*\n`;
       msg += `• *Cirurgias/Lesões/Dores:* ${data.historico_clinico ? data.historico_clinico : 'Nenhuma dor ou cirurgia relatada.'}\n`;
       if (data.medicamentos) msg += `• *Uso Contínuo de Remédios:* ${data.medicamentos}\n`;
       if (data.condicoes_cronicas) msg += `• *Condições de Saúde Crônicas:* ${data.condicoes_cronicas}\n`;
       msg += `\n`;
 
-      msg += `*🤸 3. BAGAGEM MOTORA & CONDICIONAMENTO*\n`;
+      msg += `*🤸 3. BAGAGEM MOTORA*\n`;
       if (data.historico_esportivo) msg += `• *Histórico Prévio:* ${data.historico_esportivo}\n`;
       if (data.treino_atual) msg += `• *Treino Atual:* ${data.treino_atual}\n`;
       msg += `• *Barra Fixa (Pull-ups):* ${data.pullups || 'Não informado'}\n`;
       msg += `• *Flexão de Solo (Push-ups):* ${data.pushups || 'Não informado'}\n`;
       msg += `• *Cardiorrespiratório:* ${data.cardio || 'Não informado'}\n\n`;
 
-      msg += `*🎯 4. OBJETIVOS DO CICLO & CONTEXTO*\n`;
+      msg += `*🎯 4. OBJETIVOS DO CICLO*\n`;
       if (data.pilares && data.pilares.length > 0) {
         msg += `• *Pilares Escolhidos:*\n`;
         data.pilares.forEach(p => { msg += `  ✓ ${p}\n`; });
@@ -8007,7 +7989,7 @@
         msg += `• *Pilares:* _Nenhum pilar específico assinalado._\n`;
       }
       if (data.contexto_metas) {
-        msg += `• *Contexto & Expectativas:*\n  "${data.contexto_metas}"\n`;
+        msg += `• *Contexto e Expectativas:*\n  "${data.contexto_metas}"\n`;
       }
       if (data.algo_mais) {
         msg += `• *Mais Algo Que Devo Saber:*\n  "${data.algo_mais}"\n`;
@@ -8865,9 +8847,15 @@
     let currentSendVideoExercise = '';
 
     window.openSendVideoModal = function(exerciseName) {
-      currentSendVideoExercise = exerciseName || 'Geral / Movimento Livre';
+      currentSendVideoExercise = (exerciseName && exerciseName !== 'Geral / Movimento Livre') ? exerciseName.trim() : '';
       const nameEl = document.getElementById('sendVideoExerciseName');
-      if (nameEl) nameEl.textContent = currentSendVideoExercise;
+      if (nameEl) {
+        if (currentSendVideoExercise) {
+          nameEl.textContent = currentSendVideoExercise;
+        } else {
+          nameEl.textContent = 'Envio para Avaliação Técnica';
+        }
+      }
 
       const driveContainer = document.getElementById('driveLinkContainer');
       if (driveContainer) driveContainer.style.display = 'none';
@@ -8890,7 +8878,12 @@
 
     window.confirmSendVideoWhatsApp = function() {
       const phone = '5516981222356';
-      const text = `Olá Gui! Acabei de gravar o vídeo da minha execução do exercício *${currentSendVideoExercise}*.\n\nSegue o vídeo anexo para sua análise técnica!`;
+      let text = '';
+      if (currentSendVideoExercise) {
+        text = `Olá Gui! Acabei de gravar o vídeo da minha execução do exercício *${currentSendVideoExercise}*.\n\nSegue o vídeo anexo para sua análise técnica!`;
+      } else {
+        text = `Olá Gui! Gravei um vídeo para você avaliar tecnicamente.\n\nSegue o vídeo anexo para sua análise!`;
+      }
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
       window.open(url, '_blank');
       closeSendVideoModal();
@@ -8904,7 +8897,12 @@
         alert('Por favor, cole o link do seu vídeo no campo antes de enviar.');
         return;
       }
-      const text = `Olá Gui! Gravei o vídeo da minha execução do exercício *${currentSendVideoExercise}*.\n\nSegue o link para sua análise técnica:\n${link}`;
+      let text = '';
+      if (currentSendVideoExercise) {
+        text = `Olá Gui! Gravei o vídeo da minha execução do exercício *${currentSendVideoExercise}*.\n\nSegue o link para sua análise técnica:\n${link}`;
+      } else {
+        text = `Olá Gui! Gravei um vídeo para você avaliar tecnicamente.\n\nSegue o link para sua análise técnica:\n${link}`;
+      }
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
       window.open(url, '_blank');
       closeSendVideoModal();
