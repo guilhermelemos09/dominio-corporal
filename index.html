@@ -1836,8 +1836,23 @@
       grid-template-columns: 1fr 1fr 1fr;
       gap: 12px;
     }
+    .form-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 680px) {
+      .form-grid-4 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
     @media (max-width: 580px) {
       .form-grid-2, .form-grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 480px) {
+      .form-grid-4 {
         grid-template-columns: 1fr;
       }
     }
@@ -3764,7 +3779,7 @@
   <!-- Header Domínio Corporal (Preto OLED & Verde Neon) -->
   <header id="mainAppHeader">
     <div class="brand-top">
-      <div class="coach-profile-btn" onclick="openDedicatedView('perfil')" role="button" tabindex="0" aria-label="Abrir Perfil do Coach Gui Lemos">
+      <div class="coach-profile-btn" onclick="openBioModal(event)" role="button" tabindex="0" aria-label="Abrir Perfil do Coach Gui Lemos">
         <img src="Midia/gui_foto.jpg" onerror="this.onerror=null; this.src='Midia/icon-192.png';" alt="Domínio Corporal" class="coach-avatar">
         <span class="coach-name">Gui Lemos</span>
         <span class="bio-badge">Perfil do Coach ↗</span>
@@ -6319,49 +6334,14 @@
   <!-- ==================== TAB: DIRETRIZES & REABILITAÇÃO ==================== -->
   <div id="tab-perfil" class="tab-content">
 
-    <!-- Card de Biografia & Credenciais do Coach Gui Lemos -->
-    <div class="coach-bio-hero-card" style="background: linear-gradient(135deg, rgba(17,24,39,0.95), rgba(15,23,42,0.98)); border: 1.5px solid rgba(0,255,136,0.3); border-radius: 20px; padding: 22px 18px; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 25px rgba(0,255,136,0.08);">
-      <div style="display:flex; align-items:center; gap:16px; margin-bottom:16px; flex-wrap:wrap;">
-        <div style="position:relative;">
-          <img src="Midia/gui_foto.jpg" onerror="this.onerror=null; this.src='Midia/icon-192.png';" alt="Gui Lemos" style="width:78px; height:78px; border-radius:50%; border:3px solid var(--brand-neon); box-shadow:0 0 20px var(--brand-neon-glow); object-fit:cover; display:block;">
-          <span style="position:absolute; bottom:-4px; right:-4px; background:var(--brand-neon); color:#000; font-size:0.6rem; font-weight:900; padding:2px 6px; border-radius:10px; text-transform:uppercase;">Coach</span>
-        </div>
-        <div style="flex:1; min-width:200px;">
-          <div style="font-size:0.7rem; font-weight:800; color:var(--brand-neon); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:2px;">PERFIL DO COACH • DOMÍNIO CORPORAL</div>
-          <h2 style="font-size:1.35rem; font-weight:800; color:#fff; margin:0 0 4px 0; line-height:1.2;">Guilherme de Paula Lemos</h2>
-          <div style="font-size:0.78rem; color:#94a3b8; font-weight:600;">Treinamento Especializado • Biomecânica • Acrobacia</div>
-        </div>
-      </div>
 
-      <!-- Credenciais Acadêmicas & Científicas -->
-      <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:14px; margin-bottom:14px; font-size:0.83rem; line-height:1.65; color:#cbd5e1;">
-        <p style="margin:0 0 10px 0;"><strong style="color:#fff; font-size:0.88rem;">🎓 Formação & Ciência:</strong><br>
-        • <strong>Farmacêutico-Bioquímico</strong> (FCFRP - USP)<br>
-        • <strong>Profissional de Educação Física</strong> (EEFERP - USP)<br>
-        • <strong>Especialista em Atividades Acrobáticas do Circo e da Ginástica</strong> (PUC-PR)<br>
-        • <strong>Mestrando em Biomecânica</strong> (EEFERP - USP)</p>
-
-        <p style="margin:0 0 10px 0;"><strong style="color:#fff; font-size:0.88rem;">🤸‍♂️ Vivência Prática:</strong><br>
-        • <strong>15 anos de experiência</strong> em Parada de Mãos (Handstand), Calistenia, CrossFit, Ginástica Artística, Circo e Acrobacias de Solo.</p>
-
-        <p style="margin:0;"><strong style="color:#fff; font-size:0.88rem;">🎯 Filosofia:</strong><br>
-        <em>"Unir a precisão da ciência biomecânica à arte do domínio corporal."</em></p>
-      </div>
-
-      <!-- Ações do Perfil -->
-      <div style="display:flex; gap:10px; flex-wrap:wrap;">
-        <a href="https://www.instagram.com/guilemos_dominiocorporal/" target="_blank" class="btn-instagram" style="flex:1; min-width:200px; margin:0; justify-content:center;">
-          <svg style="width:18px; height:18px; fill:currentColor;" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          <span>Instagram @guilemos_dominiocorporal</span>
-        </a>
-      </div>
-    </div>
-    <!-- Card de Acesso à Avaliação & Ficha Inicial -->
-    <div class="student-profile-header-card">
-      <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap;">
+    <!-- Card Principal: Ficha Técnica do Atleta -->
+    <div class="student-profile-header-card" style="background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(17,24,39,0.98)); border: 1.5px solid rgba(0,255,136,0.3); border-radius: 18px; padding: 20px 18px; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap; margin-bottom:16px;">
         <div>
-          <div style="font-size:0.7rem; font-weight:800; color:var(--brand-neon); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:4px;">FICHA TÉCNICA DO ATLETA</div>
-          <h2 style="font-size:1.15rem; font-weight:800; color:#fff; margin:0;">Guilherme de Paula Lemos</h2>
+          <div style="font-size:0.72rem; font-weight:800; color:var(--brand-neon); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:4px;">FICHA TÉCNICA DO ATLETA</div>
+          <h2 style="font-size:1.35rem; font-weight:800; color:#fff; margin:0 0 4px 0;" id="athleteProfileName">Guilherme de Paula Lemos</h2>
+          <div style="font-size:0.78rem; color:#94a3b8;">Atleta Domínio Corporal • Prescrição Individualizada</div>
         </div>
         <div style="display:flex; gap:8px; flex-wrap:wrap;">
           <a href="prontuario_planilha_visual.html" target="_blank" class="btn-open-assessment-form" style="text-decoration:none; background:linear-gradient(135deg, #0284c7, #0369a1); border-color:#38bdf8;">
@@ -6372,6 +6352,26 @@
             <svg viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
             <span>Ficha de Avaliação ↗</span>
           </button>
+        </div>
+      </div>
+
+      <!-- Grid de Métricas Atuais do Atleta -->
+      <div class="metrics-summary-grid" style="margin-bottom: 0;">
+        <div class="metric-summary-card">
+          <div class="metric-value" id="athleteProfileWeight">84.0 kg</div>
+          <div class="metric-label">Peso Atual</div>
+        </div>
+        <div class="metric-summary-card">
+          <div class="metric-value" id="athleteProfileHeight">178 cm</div>
+          <div class="metric-label">Altura</div>
+        </div>
+        <div class="metric-summary-card">
+          <div class="metric-value" id="athleteProfileBF">~13.0%</div>
+          <div class="metric-label">% Gordura (BF)</div>
+        </div>
+        <div class="metric-summary-card">
+          <div class="metric-value" id="athleteProfileIMC">26.5</div>
+          <div class="metric-label">IMC (kg/m²)</div>
         </div>
       </div>
     </div>
@@ -6469,7 +6469,7 @@
             <input type="text" id="ass_nome" class="form-input" placeholder="Seu nome completo" required oninput="autoSaveAssessmentDraft()">
           </div>
 
-          <div class="form-grid-3">
+          <div class="form-grid-4">
             <div class="form-group">
               <label class="form-label" for="ass_nascimento">Data de Nascimento <span class="req">*</span></label>
               <input type="date" id="ass_nascimento" class="form-input" required oninput="autoSaveAssessmentDraft()">
@@ -6481,6 +6481,10 @@
             <div class="form-group">
               <label class="form-label" for="ass_peso">Peso Atual (kg)</label>
               <input type="number" step="0.1" id="ass_peso" class="form-input" placeholder="Ex: 75.5" oninput="autoSaveAssessmentDraft()">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ass_gordura">% Gordura (% BF) <span style="font-size:0.7rem; color:var(--text-muted); font-weight:normal;">(opcional)</span></label>
+              <input type="number" step="0.1" min="3" max="60" id="ass_gordura" class="form-input" placeholder="Ex: 14.5" oninput="autoSaveAssessmentDraft()">
             </div>
           </div>
 
@@ -6772,6 +6776,41 @@
       <!-- Aviso de Módulo Personalizado -->
       <div style="margin-bottom:12px; padding:8px 12px; background:rgba(251,191,36,0.08); border:1px solid rgba(251,191,36,0.25); border-radius:10px; font-size:0.75rem; color:#fbbf24;">
         ℹ️ <strong>Módulo Sob Medida:</strong> Este relatório de composição corporal é exibido especificamente para alunos com metas de peso, definição ou descompressão articular.
+      </div>
+
+      <!-- Card: Dados de Entrada da Ficha de Avaliação (Alimentando a Evolução) -->
+      <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(56,189,248,0.25); border-radius: 16px; padding: 16px; margin-bottom: 16px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 12px; flex-wrap:wrap; gap:8px;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:1.1rem;">📋</span>
+            <div>
+              <div style="font-size:0.86rem; font-weight:800; color:#fff;">Ponto de Partida • Ficha de Avaliação</div>
+              <div style="font-size:0.72rem; color:var(--text-muted);">Métricas registradas na ficha inicial para alimentar e acompanhar sua evolução corporal</div>
+            </div>
+          </div>
+          <button type="button" onclick="openDedicatedView('avaliacao')" style="background:rgba(56,189,248,0.15); border:1px solid rgba(56,189,248,0.35); color:#38bdf8; font-size:0.75rem; font-weight:700; border-radius:8px; padding:6px 12px; cursor:pointer;">
+            ✏️ Atualizar Ficha
+          </button>
+        </div>
+
+        <div class="metrics-summary-grid" style="margin-bottom:0;">
+          <div class="metric-summary-card">
+            <div class="metric-value" id="evolIntakeWeight">84.0 kg</div>
+            <div class="metric-label">Peso Registrado</div>
+          </div>
+          <div class="metric-summary-card">
+            <div class="metric-value" id="evolIntakeHeight">178 cm</div>
+            <div class="metric-label">Altura</div>
+          </div>
+          <div class="metric-summary-card">
+            <div class="metric-value" id="evolIntakeBF">~13.0%</div>
+            <div class="metric-label">% Gordura (BF)</div>
+          </div>
+          <div class="metric-summary-card">
+            <div class="metric-value" id="evolIntakeIMC">26.5 kg/m²</div>
+            <div class="metric-label">IMC Calculado</div>
+          </div>
+        </div>
       </div>
 
       <div class="evolucao-hero">
@@ -7594,7 +7633,7 @@
         'analises': 'Análise de Vídeos',
         'recados': 'Mural de Recados do Treinador',
         'evolucao': 'Evolução & Antropometria',
-        'perfil': 'Perfil do Coach',
+        'perfil': 'Ficha do Atleta & Diretrizes',
         'avaliacao': 'Ficha de Avaliação'
       };
       const titleEl = document.getElementById('dedicatedBarTitle');
@@ -7607,6 +7646,12 @@
       const target = document.getElementById('tab-' + sectionId);
       if (target) {
         target.classList.add('active');
+      }
+
+      if (sectionId === 'perfil' || sectionId === 'evolucao') {
+        if (typeof syncAthleteMetricsFromIntake === 'function') {
+          syncAthleteMetricsFromIntake();
+        }
       }
 
       if (sectionId === 'analises' && typeof closeAnalysisCategoryView === 'function') {
@@ -7745,6 +7790,7 @@
         idade: idadeCalc,
         altura: document.getElementById('ass_altura')?.value.trim() || '',
         peso: document.getElementById('ass_peso')?.value.trim() || '',
+        gordura: document.getElementById('ass_gordura')?.value.trim() || '',
         rotina: document.getElementById('ass_rotina')?.value.trim() || '',
         dias_disponiveis: document.getElementById('ass_dias_disponiveis')?.value.trim() || '',
         duracao_disponivel: document.getElementById('ass_duracao_disponivel')?.value.trim() || '',
@@ -7768,6 +7814,7 @@
       try {
         const data = getAssessmentData();
         localStorage.setItem('dominio_student_intake', JSON.stringify(data));
+        syncAthleteMetricsFromIntake();
       } catch (e) {}
     }
 
@@ -7786,6 +7833,7 @@
         setVal('ass_nascimento', data.nascimento || data.data_nascimento || '');
         setVal('ass_altura', data.altura);
         setVal('ass_peso', data.peso);
+        setVal('ass_gordura', data.gordura);
         setVal('ass_rotina', data.rotina);
         setVal('ass_dias_disponiveis', data.dias_disponiveis || data.disponibilidade || '');
         setVal('ass_duracao_disponivel', data.duracao_disponivel || '');
@@ -7806,7 +7854,54 @@
             cb.checked = data.pilares.includes(cb.value);
           });
         }
+        syncAthleteMetricsFromIntake();
       } catch (e) {}
+    }
+
+    function syncAthleteMetricsFromIntake() {
+      try {
+        const raw = localStorage.getItem('dominio_student_intake');
+        let data = {};
+        if (raw) {
+          data = JSON.parse(raw);
+        }
+
+        const name = data.nome || 'Guilherme de Paula Lemos';
+        const weightVal = parseFloat(data.peso) || 84.0;
+        const heightVal = parseFloat(data.altura) || 178;
+        const bfVal = (data.gordura !== undefined && data.gordura !== '') ? parseFloat(data.gordura) : null;
+        let imcStr = '26.5';
+        if (weightVal && heightVal && heightVal > 0) {
+          const imc = weightVal / Math.pow(heightVal / 100, 2);
+          imcStr = imc.toFixed(1);
+        }
+
+        // Atualiza na Ficha do Atleta (tab-perfil)
+        const nameEl = document.getElementById('athleteProfileName');
+        const pWeightEl = document.getElementById('athleteProfileWeight');
+        const pHeightEl = document.getElementById('athleteProfileHeight');
+        const pBFEl = document.getElementById('athleteProfileBF');
+        const pIMCEl = document.getElementById('athleteProfileIMC');
+
+        if (nameEl) nameEl.textContent = name;
+        if (pWeightEl) pWeightEl.textContent = `${weightVal.toFixed(1)} kg`;
+        if (pHeightEl) pHeightEl.textContent = `${heightVal} cm`;
+        if (pBFEl) pBFEl.textContent = (bfVal !== null && !isNaN(bfVal)) ? `${bfVal.toFixed(1)}%` : '~13.0%';
+        if (pIMCEl) pIMCEl.textContent = imcStr;
+
+        // Atualiza no Ponto de Partida da Central de Evolução (tab-evolucao)
+        const eWeightEl = document.getElementById('evolIntakeWeight');
+        const eHeightEl = document.getElementById('evolIntakeHeight');
+        const eBFEl = document.getElementById('evolIntakeBF');
+        const eIMCEl = document.getElementById('evolIntakeIMC');
+
+        if (eWeightEl) eWeightEl.textContent = `${weightVal.toFixed(1)} kg`;
+        if (eHeightEl) eHeightEl.textContent = `${heightVal} cm`;
+        if (eBFEl) eBFEl.textContent = (bfVal !== null && !isNaN(bfVal)) ? `${bfVal.toFixed(1)}%` : 'Não informado';
+        if (eIMCEl) eIMCEl.textContent = `${imcStr} kg/m²`;
+      } catch (e) {
+        console.error('Erro ao sincronizar métricas da avaliação:', e);
+      }
     }
 
     function sendAssessmentToWhatsApp() {
@@ -7832,8 +7927,12 @@
       } else if (data.idade) {
         msg += `• *Idade:* ${data.idade} anos\n`;
       }
-      if (data.altura || data.peso) {
-        msg += `• *Físico:* ${data.altura ? `${data.altura} cm` : ''}${data.peso ? ` • ${data.peso} kg` : ''}\n`;
+      if (data.altura || data.peso || data.gordura) {
+        let fisicoParts = [];
+        if (data.altura) fisicoParts.push(`${data.altura} cm`);
+        if (data.peso) fisicoParts.push(`${data.peso} kg`);
+        if (data.gordura) fisicoParts.push(`${data.gordura}% BF`);
+        msg += `• *Físico:* ${fisicoParts.join(' • ')}\n`;
       }
       if (data.rotina) msg += `• *Rotina/Estresse/Sono:* ${data.rotina}\n`;
       if (data.dias_disponiveis || data.duracao_disponivel) {
@@ -7877,6 +7976,7 @@
 
       // Desbloqueia o aplicativo no dispositivo do aluno
       localStorage.setItem('dominio_assessment_completed', 'true');
+      syncAthleteMetricsFromIntake();
       updateDedicatedTopBarGate(true);
       const gateBanner = document.getElementById('assessmentGateBanner');
       if (gateBanner) gateBanner.style.display = 'none';
@@ -8697,7 +8797,14 @@
     }
 
     /* Modal de Bio Gui Lemos */
-    window.openBioModal = function(e) { if (e && typeof e.stopPropagation === 'function') e.stopPropagation(); openDedicatedView('perfil'); };
+    window.openBioModal = function(e) {
+      if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
+      const m = document.getElementById('bioModal');
+      if (m) {
+        m.classList.add('active');
+        m.style.removeProperty('display');
+      }
+    };
 
     window.closeBioModal = function(e) {
       if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
@@ -9003,6 +9110,7 @@
     loadAllNotes();
     initTimerUI();
     checkIntakeGate();
+    syncAthleteMetricsFromIntake();
 
     // Garante que o botão de Bio receba toques imediatos no mobile
     // Bio usa onclick nativo direto no HTML
