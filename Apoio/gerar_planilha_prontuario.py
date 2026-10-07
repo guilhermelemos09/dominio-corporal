@@ -296,7 +296,7 @@ def build_prontuario_workbook():
     ws3.views.sheetView[0].showGridLines = True
     ws3.freeze_panes = 'C3'
 
-    ws3.merge_cells('A1:I1')
+    ws3.merge_cells('A1:J1')
     ws3['A1'] = 'DOMÍNIO CORPORAL | REGISTRO DE VÍDEOS, LINKS DO DRIVE & ANÁLISES CINEMÁTICAS'
     ws3['A1'].font = FONT_TITLE
     ws3['A1'].fill = NAVY_FILL
@@ -306,7 +306,8 @@ def build_prontuario_workbook():
     headers_s3 = [
         'Data', 'Movimento / Gesto', 'Categoria', 'Duração',
         'Aparelho / Local', 'Link do Arquivo (Drive / Mídia)',
-        'Na Prática (O que acontece)', 'Base Científica & Origem', 'Status'
+        'Na Prática (O que acontece)', 'Base Científica & Origem',
+        'Follow-up (Ajustes & Educativos)', 'Status'
     ]
 
     for col_idx, h in enumerate(headers_s3, start=1):
@@ -321,42 +322,47 @@ def build_prontuario_workbook():
         (
             '02/10/2026', 'Press Handstand no Ombro do Parceiro', 'Portagem & Handstand', '15s',
             'Box CrossFit', 'Midia/WhatsApp Video 2026-10-02 at 14.44.21.mp4',
-            'Subida suave sem salto flutuando o quadril sobre a base. Alinhamento perpendicular impecável e descida macia.',
-            'Empilhamento ósseo (bone stacking). Translação escapular projeta centro de gravidade sobre clavículas da base; desaceleração por peitoral menor.',
+            'O parceiro de baixo mantém joelhos semifletidos para estabilidade. O Gui apoia nos ombros dele, projeta o tronco à frente e sobe o quadril sem salto. No topo, abre em straddle mantendo o alinhamento sobre a coluna da base e desce suavemente.',
+            'Empilhamento ósseo com absorção da carga axial (~84 kg) pela base; translação escapular que projeta o centro de gravidade sobre as clavículas; desaceleração excêntrica conduzida por peitoral menor e trapézio inferior.',
+            'Ajuste fino: reduzir sutilmente a anteversão pélvica na abertura das pernas. Educativo: press to handstand com apoio na parede na paralela baixa (3x3 com pausa de 3s). Próximo passo: subida com pernas unidas (pike press).',
             'Validado ✅'
         ),
         (
             '02/10/2026', '1x Strict RMU Livre + 2x Candle Kips', 'Argolas Altas', '25s',
             'Box CrossFit', 'Midia/WhatsApp Video 2026-10-02 at 14.44.18.mp4',
-            'Retorno triunfal após 2 anos preservando o ombro. False grip firme, passagem de cotovelos colados e subida em vela fluída.',
-            'Flexão ulnocarpal elimina braço de alavanca parasita; adução de ombro rente às costelas e conversão de energia angular no candle kip.',
+            'Retorno às argolas com subida estrita. Pegada falsa com punho flexionado, puxada até o peito na altura das mãos e cotovelos colados sem impulso de pernas. Em seguida, descida em vela e balanço com braços esticados para retornar ao apoio.',
+            'Flexão ulnocarpal profunda elimina defasagem mecânica do punho, poupando a articulação glenoumeral no ombro operado e inserção do tríceps; candle kip converte energia potencial em momento angular por tração estendida.',
+            'Ajuste fino: manter pernas e pontas dos pés ativas na transição do dip. Educativo: transições lentas na argola baixa com pés no solo (3x5 reps). Próximo passo: séries de 2 a 3 repetições estritas consecutivas.',
             'Validado ✅'
         ),
         (
             '01/10/2026', 'Sequência Acrobática Completa (L-Sit -> Press -> Croc)', 'Manjota / Canes', '42s',
             'Ginásio EEFERP', 'https://drive.google.com/file/d/1tNgCqQQXc_sA3WCwqryKIRbHE7mK8zZX/view?usp=sharing',
-            'Início em L-sit, subida lenta em straddle press sem embalo, trava perfeita de 10s e One-Arm Croc cravado por 7 segundos.',
-            'Fulcro no olécrano e espinha ilíaca ântero-superior; torque rotacional severo contra a gravidade sustentado por oblíquos contralaterais.',
+            'Entrada em L-sit estático suspenso, subida contínua sem embalo até a parada de mãos aberta, trava estável por 8s, descida controlada e encaixe do cotovelo na bacia para One-Arm Crocodile por 7s com o outro braço estendido.',
+            'Força concêntrica de flexores de quadril e deltóide anterior com elevação escapular mantida; apoio do olécrano na espinha ilíaca ântero-superior e torque anti-rotacional neutralizado por oblíquos contralaterais.',
+            'Ajuste fino: nivelar o tronco paralelamente ao solo no Crocodile. Educativo: isometria na manjota com apoio de 2 dedos da mão livre (3x 8-10s por lado). Próximo passo: transição de volta para duas mãos sem tocar o solo.',
             'Validado ✅'
         ),
         (
             '01/10/2026', '4x Giros de Oitava Consecutivos (Glide Kips)', 'Barra Fixa', '4 reps',
             'Ginásio EEFERP', 'https://drive.google.com/file/d/1o5mW2GK-qtiffr74zTQOUaQ4PBfOzfxI/view?usp=sharing',
-            'Balanço elástico rente ao solo, fechamento pélvico colando pés na barra e elevação em bloqueio ósseo com troca rápida de punhos.',
-            'Extensão pura de ombro com grande dorsal e tríceps longo; timing na reversão do pêndulo angular da ginástica artística.',
+            'Balanço amplo perto do chão, flexão de quadril aproximando as canelas da barra no retorno do pêndulo e puxada com cotovelos estendidos até o apoio sobre a barra, encadeando 4 repetições contínuas com ritmo constante.',
+            'Timing na reversão do pêndulo angular encurtando o raio de rotação para ascensão vertical; extensão de ombro com grande dorsal e tríceps cabeça longa com rápida troca de punhos por cima do eixo.',
+            'Ajuste fino: abrir o peito na subida ao apoio para entrar com os ombros projetados à frente. Educativo: balanço de oitava com bola medicinal leve entre tornozelos (3x6 reps). Próximo passo: saída da oitava ligada em giro para trás.',
             'Validado ✅'
         ),
         (
             '05/10/2026', 'Evolução Antropométrica e Comparativo 97kg -> 84kg', 'Composição Corporal', 'Fotos',
             'Clínica / Box', 'Midia/comparacao_frontal_relaxado.jpg | gui_foto.jpg',
-            'Perda visível de gordura abdominal e preservação de tônus muscular, confirmando -13kg de massa gorda sem atrofia.',
-            'Descompressão de 40-50kg no platô tibial por ciclo de passo/agachamento; aumento expressivo de W/kg.',
+            'Comparativo fotográfico evidenciando redução da adiposidade abdominal e definição do contorno muscular em 95 dias de acompanhamento, com preservação da estrutura muscular em tronco e braços.',
+            'Estímulo tensional frequente e aporte proteico de 2.0 a 2.4 g/kg preservando massa magra; descompressão de 40 a 50 kg no platô tibial por ciclo de passo/agachamento (-13 kg acumulados).',
+            'Ajuste fino: manter taxa de perda controlada (~0.8 a 1.0 kg/sem) com bioimpedância mensal. Conduta sugerida: refeed limpo sincronizado com treinos de alta densidade. Próximo passo: consolidação em 80-82 kg com 14% de gordura.',
             'Validado ✅'
         )
     ]
 
     for r_idx, v in enumerate(videos_data, start=3):
-        ws3.row_dimensions[r_idx].height = 42
+        ws3.row_dimensions[r_idx].height = 44
         is_zebra = (r_idx % 2 == 0)
         row_fill = ZEBRA_FILL if is_zebra else None
         
@@ -366,9 +372,9 @@ def build_prontuario_workbook():
             cell.border = THIN_BORDER
             if row_fill: cell.fill = row_fill
             
-            if c_idx in [1, 3, 4, 5, 9]:
+            if c_idx in [1, 3, 4, 5, 10]:
                 cell.alignment = Alignment(horizontal='center', vertical='center')
-                if c_idx == 9:
+                if c_idx == 10:
                     cell.font = FONT_SUCCESS
                     cell.fill = SUCCESS_FILL
             elif c_idx == 6:
@@ -377,7 +383,7 @@ def build_prontuario_workbook():
             else:
                 cell.alignment = Alignment(horizontal='left', vertical='center', wrap_text=True)
 
-    col_widths_s3 = [12, 30, 22, 12, 16, 38, 42, 44, 14]
+    col_widths_s3 = [12, 30, 22, 12, 16, 38, 42, 44, 46, 14]
     for idx, w in enumerate(col_widths_s3, start=1):
         ws3.column_dimensions[get_column_letter(idx)].width = w
 
