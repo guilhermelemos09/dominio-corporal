@@ -3200,6 +3200,229 @@
       fill: currentColor;
     }
 
+    /* Agrupador de Ações no Header (Sino de Notificações + Refresh) */
+    .header-action-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-notif-app {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: #38bdf8;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      -webkit-tap-highlight-color: transparent;
+      padding: 0;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .btn-notif-app:hover {
+      background: rgba(56, 189, 248, 0.18);
+      border-color: #38bdf8;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+      transform: scale(1.05);
+    }
+    .btn-notif-app:active {
+      transform: scale(0.92);
+    }
+    .notif-bell-icon {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+    .notif-badge-dot {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #fb7185;
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #000;
+      box-shadow: 0 0 8px rgba(251, 113, 133, 0.6);
+      animation: pulseNotif 2s infinite ease-in-out;
+    }
+    @keyframes pulseNotif {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); box-shadow: 0 0 12px rgba(251, 113, 133, 0.9); }
+    }
+
+    /* Mural de Recados do Treinador */
+    .coach-bulletin-card {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.95) 100%);
+      border: 1.5px solid rgba(56, 189, 248, 0.35);
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+    .coach-bulletin-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, #38bdf8, var(--brand-neon));
+    }
+    .coach-bulletin-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .coach-bulletin-profile {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+    .coach-bulletin-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid var(--brand-neon);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .coach-bulletin-title {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .coach-bulletin-meta {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+    .coach-bulletin-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      border-radius: 12px;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .coach-bulletin-body {
+      font-size: 0.82rem;
+      color: #e2e8f0;
+      line-height: 1.55;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    /* Filtros de Categoria de Análises */
+    .analysis-filter-bar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      margin-bottom: 16px;
+      padding-bottom: 4px;
+    }
+    .analysis-filter-bar::-webkit-scrollbar { display: none; }
+    .analysis-filter-pill {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      border-radius: 20px;
+      padding: 7px 14px;
+      font-size: 0.77rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .analysis-filter-pill:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+    .analysis-filter-pill.active {
+      background: rgba(56, 189, 248, 0.14);
+      border-color: #38bdf8;
+      color: #38bdf8;
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
+    }
+
+    /* Lista de Notificações */
+    .notif-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .notif-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 12px 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .notif-item:hover {
+      background: rgba(56, 189, 248, 0.08);
+      border-color: rgba(56, 189, 248, 0.3);
+      transform: translateX(2px);
+    }
+    .notif-item.unread {
+      border-left: 3px solid #38bdf8;
+      background: rgba(56, 189, 248, 0.05);
+    }
+    .notif-item-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .notif-item-title {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+    .notif-item-desc {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      margin-bottom: 4px;
+    }
+    .notif-item-time {
+      font-size: 0.68rem;
+      color: #38bdf8;
+      font-weight: 600;
+    }
+    .notif-item-arrow {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-left: auto;
+    }
+
     /* Meta Geral de Local e Duração sob o Cabeçalho */
     .session-overall-meta {
       display: flex;
@@ -3696,11 +3919,19 @@
         <span class="coach-name">Gui Lemos</span>
         <span class="bio-badge">Perfil do Coach ↗</span>
       </div>
-            <button type="button" class="btn-refresh-app" onclick="forceAppRefresh()" title="Sincronizar e atualizar o app" aria-label="Atualizar app">
-        <svg viewBox="0 0 24 24" class="refresh-icon">
-          <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
-        </svg>
-      </button>
+            <div class="header-action-group">
+        <button type="button" class="btn-notif-app" id="btnAppNotifications" onclick="toggleNotificationsModal()" title="Central de Notificações & Recados" aria-label="Notificações">
+          <svg viewBox="0 0 24 24" class="notif-bell-icon">
+            <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+          </svg>
+          <span class="notif-badge-dot" id="headerNotifBadge">1</span>
+        </button>
+        <button type="button" class="btn-refresh-app" onclick="forceAppRefresh()" title="Sincronizar e atualizar o app" aria-label="Atualizar app">
+          <svg viewBox="0 0 24 24" class="refresh-icon">
+            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+          </svg>
+        </button>
+      </div>
     </div>
     <div class="brand">
       <h1>DOMÍNIO CORPORAL</h1>
@@ -3974,7 +4205,7 @@
         <div class="ex-actions">
           <div class="ex-actions-btns">
             <button class="btn-comment" id="btn-comment-ex-seg-box" onclick="toggleCommentBox('ex-seg-box')">
-              <span>💬 Observações</span>
+              <span>💬 Observações?</span>
               <span class="comment-dot" id="dot-ex-seg-box" style="display:none;"></span>
             </button>
             <button type="button" class="btn-send-video" onclick="openSendVideoModal('Sessão Segunda • CrossFit Box')">
@@ -4022,7 +4253,7 @@
         <div class="ex-actions">
           <div class="ex-actions-btns">
             <button class="btn-comment" id="btn-comment-ex-seg-4" onclick="toggleCommentBox('ex-seg-4')">
-              <span>💬 Observações</span>
+              <span>💬 Observações?</span>
               <span class="comment-dot" id="dot-ex-seg-4" style="display:none;"></span>
             </button>
             <button type="button" class="btn-send-video" onclick="openSendVideoModal('Reset Articular Pós-WOD')">
@@ -4065,7 +4296,7 @@
         <div class="ex-actions">
           <div class="ex-actions-btns">
             <button class="btn-comment" id="btn-comment-ex-seg-5" onclick="toggleCommentBox('ex-seg-5')">
-              <span>💬 Observações</span>
+              <span>💬 Observações?</span>
               <span class="comment-dot" id="dot-ex-seg-5" style="display:none;"></span>
             </button>
             <button type="button" class="btn-send-video" onclick="openSendVideoModal('Descompressão Subacromial & Menisco Lateral')">
@@ -4204,7 +4435,7 @@
 
         <div class="ex-bottom-actions" style="margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border-subtle);">
           <button type="button" class="btn-comment" id="btn-comment-ex-ter-box" onclick="toggleCommentBox('ex-ter-box')">
-            <span>💬 Observações</span>
+            <span>💬 Observações?</span>
             <span class="comment-dot" id="dot-ex-ter-box" style="display:none;"></span>
           </button>
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Sessão Terça • Box CrossFit')">
@@ -4307,7 +4538,7 @@
         <div class="ex-actions">
           <div class="ex-actions-btns">
             <button class="btn-comment" id="btn-comment-ex-sex-1" onclick="toggleCommentBox('ex-sex-1')">
-              <span>💬 Observações</span>
+              <span>💬 Observações?</span>
               <span class="comment-dot" id="dot-ex-sex-1" style="display:none;"></span>
             </button>
             <button type="button" class="btn-send-video" onclick="openSendVideoModal('Mobilidade de Punhos (Sexta)')">
@@ -4348,7 +4579,7 @@
         <div class="ex-actions">
           <div class="ex-actions-btns">
             <button class="btn-comment" id="btn-comment-ex-sex-2" onclick="toggleCommentBox('ex-sex-2')">
-              <span>💬 Observações</span>
+              <span>💬 Observações?</span>
               <span class="comment-dot" id="dot-ex-sex-2" style="display:none;"></span>
             </button>
             <button type="button" class="btn-send-video" onclick="openSendVideoModal('Ponte Glútea Unilateral')">
@@ -4401,7 +4632,7 @@
         <div class="ex-actions">
           <div class="ex-actions-btns">
             <button class="btn-comment" id="btn-comment-ex-sex-3" onclick="toggleCommentBox('ex-sex-3')">
-              <span>💬 Observações</span>
+              <span>💬 Observações?</span>
               <span class="comment-dot" id="dot-ex-sex-3" style="display:none;"></span>
             </button>
             <button type="button" class="btn-send-video" onclick="openSendVideoModal('Portagem com Parceiro 63 kg')">
@@ -4446,7 +4677,7 @@
         <div class="ex-actions">
           <div class="ex-actions-btns">
             <button class="btn-comment" id="btn-comment-ex-sex-4" onclick="toggleCommentBox('ex-sex-4')">
-              <span>💬 Observações</span>
+              <span>💬 Observações?</span>
               <span class="comment-dot" id="dot-ex-sex-4" style="display:none;"></span>
             </button>
             <button type="button" class="btn-send-video" onclick="openSendVideoModal('Dança Contemporânea')">
@@ -4494,7 +4725,7 @@
           </div>
           <div class="ex-actions-btns">
             <button class="btn-comment" id="btn-comment-ex-sex-5" onclick="toggleCommentBox('ex-sex-5')">
-              <span>💬 Observações</span>
+              <span>💬 Observações?</span>
               <span class="comment-dot" id="dot-ex-sex-5" style="display:none;"></span>
             </button>
             <button type="button" class="btn-send-video" onclick="openSendVideoModal('RTO Support Hold nas Argolas')">
@@ -4543,7 +4774,7 @@
           </div>
           <div class="ex-actions-btns">
             <button class="btn-comment" id="btn-comment-ex-sex-6" onclick="toggleCommentBox('ex-sex-6')">
-              <span>💬 Observações</span>
+              <span>💬 Observações?</span>
               <span class="comment-dot" id="dot-ex-sex-6" style="display:none;"></span>
             </button>
             <button type="button" class="btn-send-video" onclick="openSendVideoModal('Ring Muscle-Up Strict Transição')">
@@ -4592,7 +4823,7 @@
           </div>
           <div class="ex-actions-btns">
             <button class="btn-comment" id="btn-comment-ex-sex-7" onclick="toggleCommentBox('ex-sex-7')">
-              <span>💬 Observações</span>
+              <span>💬 Observações?</span>
               <span class="comment-dot" id="dot-ex-sex-7" style="display:none;"></span>
             </button>
             <button type="button" class="btn-send-video" onclick="openSendVideoModal('Rolamento para Trás nas Argolas')">
@@ -4645,7 +4876,7 @@
         <div class="ex-actions">
           <div class="ex-actions-btns">
             <button class="btn-comment" id="btn-comment-ex-sex-8" onclick="toggleCommentBox('ex-sex-8')">
-              <span>💬 Observações</span>
+              <span>💬 Observações?</span>
               <span class="comment-dot" id="dot-ex-sex-8" style="display:none;"></span>
             </button>
             <button type="button" class="btn-send-video" onclick="openSendVideoModal('Elevação de Panturrilha em Degrau')">
@@ -4698,7 +4929,7 @@
         <div class="ex-actions">
           <div class="ex-actions-btns">
             <button class="btn-comment" id="btn-comment-ex-sex-9" onclick="toggleCommentBox('ex-sex-9')">
-              <span>💬 Observações</span>
+              <span>💬 Observações?</span>
               <span class="comment-dot" id="dot-ex-sex-9" style="display:none;"></span>
             </button>
             <button type="button" class="btn-send-video" onclick="openSendVideoModal('Descompressão do Menisco Lateral')">
@@ -4739,7 +4970,7 @@
         <div class="ex-actions">
           <div class="ex-actions-btns">
             <button class="btn-comment" id="btn-comment-ex-sex-10" onclick="toggleCommentBox('ex-sex-10')">
-              <span>💬 Observações</span>
+              <span>💬 Observações?</span>
               <span class="comment-dot" id="dot-ex-sex-10" style="display:none;"></span>
             </button>
             <button type="button" class="btn-send-video" onclick="openSendVideoModal('Abertura Torácica & Extensão Glenoumeral')">
@@ -4802,7 +5033,7 @@
         <div class="ex-actions">
           <div class="ex-actions-btns">
             <button class="btn-comment" id="btn-comment-ex-cf-1" onclick="toggleCommentBox('ex-cf-1')">
-              <span>💬 Observações</span>
+              <span>💬 Observações?</span>
               <span class="comment-dot" id="dot-ex-cf-1" style="display:none;"></span>
             </button>
             <button type="button" class="btn-send-video" onclick="openSendVideoModal('Warm-up CrossFit Adaptado')">
@@ -4845,7 +5076,7 @@
         <div class="ex-actions">
           <div class="ex-actions-btns">
             <button class="btn-comment" id="btn-comment-ex-cf-2" onclick="toggleCommentBox('ex-cf-2')">
-              <span>💬 Observações</span>
+              <span>💬 Observações?</span>
               <span class="comment-dot" id="dot-ex-cf-2" style="display:none;"></span>
             </button>
             <button type="button" class="btn-send-video" onclick="openSendVideoModal('Skill AMRAP 10\' CrossFit')">
@@ -4892,7 +5123,7 @@
         <div class="ex-actions">
           <div class="ex-actions-btns">
             <button class="btn-comment" id="btn-comment-ex-cf-3" onclick="toggleCommentBox('ex-cf-3')">
-              <span>💬 Observações</span>
+              <span>💬 Observações?</span>
               <span class="comment-dot" id="dot-ex-cf-3" style="display:none;"></span>
             </button>
             <button type="button" class="btn-send-video" onclick="openSendVideoModal('WOD For Time 20\' CrossFit')">
@@ -4997,7 +5228,7 @@
         <div class="ex-actions">
           <div class="ex-actions-btns">
             <button class="btn-comment" id="btn-comment-ex-qui-1" onclick="toggleCommentBox('ex-qui-1')">
-              <span>💬 Observações</span>
+              <span>💬 Observações?</span>
               <span class="comment-dot" id="dot-ex-qui-1" style="display:none;"></span>
             </button>
             <button type="button" class="btn-send-video" onclick="openSendVideoModal('Kip Muscle-Up na Barra')">
@@ -5048,7 +5279,7 @@
         <div class="ex-actions">
           <div class="ex-actions-btns">
             <button class="btn-comment" id="btn-comment-ex-qui-2" onclick="toggleCommentBox('ex-qui-2')">
-              <span>💬 Observações</span>
+              <span>💬 Observações?</span>
               <span class="comment-dot" id="dot-ex-qui-2" style="display:none;"></span>
             </button>
             <button type="button" class="btn-send-video" onclick="openSendVideoModal('Giro de Oitava na Barra Fixa')">
@@ -5104,7 +5335,7 @@
           </div>
           <div class="ex-actions-btns">
             <button class="btn-comment" id="btn-comment-ex-qui-3" onclick="toggleCommentBox('ex-qui-3')">
-              <span>💬 Observações</span>
+              <span>💬 Observações?</span>
               <span class="comment-dot" id="dot-ex-qui-3" style="display:none;"></span>
             </button>
             <button type="button" class="btn-send-video" onclick="openSendVideoModal('Ice Cream Makers nas Argolas')">
@@ -5145,7 +5376,7 @@
         <div class="ex-actions">
           <div class="ex-actions-btns">
             <button class="btn-comment" id="btn-comment-ex-qui-4" onclick="toggleCommentBox('ex-qui-4')">
-              <span>💬 Observações</span>
+              <span>💬 Observações?</span>
               <span class="comment-dot" id="dot-ex-qui-4" style="display:none;"></span>
             </button>
             <button type="button" class="btn-send-video" onclick="openSendVideoModal('Hanging Leg Raise para Vela')">
@@ -5194,7 +5425,7 @@
         <div class="ex-actions">
           <div class="ex-actions-btns">
             <button class="btn-comment" id="btn-comment-ex-qui-5" onclick="toggleCommentBox('ex-qui-5')">
-              <span>💬 Observações</span>
+              <span>💬 Observações?</span>
               <span class="comment-dot" id="dot-ex-qui-5" style="display:none;"></span>
             </button>
             <button type="button" class="btn-send-video" onclick="openSendVideoModal('Banded Kettlebell Swing')">
@@ -5237,7 +5468,7 @@
         <div class="ex-actions">
           <div class="ex-actions-btns">
             <button class="btn-comment" id="btn-comment-ex-qui-6" onclick="toggleCommentBox('ex-qui-6')">
-              <span>💬 Observações</span>
+              <span>💬 Observações?</span>
               <span class="comment-dot" id="dot-ex-qui-6" style="display:none;"></span>
             </button>
             <button type="button" class="btn-send-video" onclick="openSendVideoModal('Romanian Deadlift com Kettlebell')">
@@ -5278,7 +5509,7 @@
         <div class="ex-actions">
           <div class="ex-actions-btns">
             <button class="btn-comment" id="btn-comment-ex-qui-7" onclick="toggleCommentBox('ex-qui-7')">
-              <span>💬 Observações</span>
+              <span>💬 Observações?</span>
               <span class="comment-dot" id="dot-ex-qui-7" style="display:none;"></span>
             </button>
             <button type="button" class="btn-send-video" onclick="openSendVideoModal('Elevação de Panturrilha em Degrau')">
@@ -5377,7 +5608,7 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-q-1" onclick="toggleCommentBox('ex-q-1')">
-            <span>💬 Observações</span>
+            <span>💬 Observações?</span>
             <span class="comment-dot" id="dot-ex-q-1" style="display:none;"></span>
           </button>
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Mobilidade de Punhos & Ombros')">
@@ -5411,7 +5642,7 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-q-2" onclick="toggleCommentBox('ex-q-2')">
-            <span>💬 Observações</span>
+            <span>💬 Observações?</span>
             <span class="comment-dot" id="dot-ex-q-2" style="display:none;"></span>
           </button>
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Hollow & Arch Hold')">
@@ -5444,7 +5675,7 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-q-3" onclick="toggleCommentBox('ex-q-3')">
-            <span>💬 Observações</span>
+            <span>💬 Observações?</span>
             <span class="comment-dot" id="dot-ex-q-3" style="display:none;"></span>
           </button>
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('L-Sit no Solo')">
@@ -5496,7 +5727,7 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-q-4" onclick="toggleCommentBox('ex-q-4')">
-            <span>💬 Observações</span>
+            <span>💬 Observações?</span>
             <span class="comment-dot" id="dot-ex-q-4" style="display:none;"></span>
           </button>
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Handstand na Manjota')">
@@ -5531,7 +5762,7 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-q-5" onclick="toggleCommentBox('ex-q-5')">
-            <span>💬 Observações</span>
+            <span>💬 Observações?</span>
             <span class="comment-dot" id="dot-ex-q-5" style="display:none;"></span>
           </button>
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Press to Handstand')">
@@ -5566,7 +5797,7 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-q-6" onclick="toggleCommentBox('ex-q-6')">
-            <span>💬 Observações</span>
+            <span>💬 Observações?</span>
             <span class="comment-dot" id="dot-ex-q-6" style="display:none;"></span>
           </button>
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('One-Arm Croc na Manjota')">
@@ -5613,7 +5844,7 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-q-7" onclick="toggleCommentBox('ex-q-7')">
-            <span>💬 Observações</span>
+            <span>💬 Observações?</span>
             <span class="comment-dot" id="dot-ex-q-7" style="display:none;"></span>
           </button>
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Handstand Push-up (HSPU)')">
@@ -5652,7 +5883,7 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-q-8" onclick="toggleCommentBox('ex-q-8')">
-            <span>💬 Observações</span>
+            <span>💬 Observações?</span>
             <span class="comment-dot" id="dot-ex-q-8" style="display:none;"></span>
           </button>
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Tuck Front Lever Row')">
@@ -5721,7 +5952,7 @@
 
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-q-cardio" onclick="toggleCommentBox('ex-q-cardio')">
-            <span>💬 Observações</span>
+            <span>💬 Observações?</span>
             <span class="comment-dot" id="dot-ex-q-cardio" style="display:none;"></span>
           </button>
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('EMOM 12\' • Condicionamento')">
@@ -5765,7 +5996,7 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-q-9" onclick="toggleCommentBox('ex-q-9')">
-            <span>💬 Observações</span>
+            <span>💬 Observações?</span>
             <span class="comment-dot" id="dot-ex-q-9" style="display:none;"></span>
           </button>
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Suspensão Passiva na Barra')">
@@ -5797,7 +6028,7 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-q-10" onclick="toggleCommentBox('ex-q-10')">
-            <span>💬 Observações</span>
+            <span>💬 Observações?</span>
             <span class="comment-dot" id="dot-ex-q-10" style="display:none;"></span>
           </button>
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Pancake Stretch')">
@@ -5863,6 +6094,23 @@
       </div>
     </div>
 
+    <!-- MURAL DE RECADOS DO PROF. GUI LEMOS -->
+    <div class="coach-bulletin-card" id="coachBulletinCard">
+      <div class="coach-bulletin-header">
+        <div class="coach-bulletin-profile">
+          <img src="Midia/gui_foto.jpg" onerror="this.onerror=null; this.src='Midia/icon-192.png';" alt="Prof. Gui Lemos" class="coach-bulletin-avatar">
+          <div>
+            <div class="coach-bulletin-title">Mural de Recados & Devolutivas do Treinador</div>
+            <div class="coach-bulletin-meta">Prof. Guilherme Lemos • Atualizado em 07/10</div>
+          </div>
+        </div>
+        <span class="coach-bulletin-badge">📢 Ativo</span>
+      </div>
+      <div class="coach-bulletin-body">
+        <strong>🎯 Diretriz da Semana:</strong> Priorize o alinhamento da escápula no <em>Tuck Front Lever Row</em> e a descida controlada no <em>HSPU</em>. Sempre que tiver dúvida de execução ou quiser avaliar uma carga nova, suba o vídeo pelo botão abaixo para mapearmos a biomecânica juntos!
+      </div>
+    </div>
+
     <!-- BANNER DE ENVIO DE VÍDEO PARA ANÁLISE BIOMECÂNICA -->
     <div class="analysis-upload-banner">
       <div class="analysis-upload-banner-content">
@@ -5880,8 +6128,21 @@
       </button>
     </div>
 
+    <!-- BARRA DE FILTROS DE CATEGORIA -->
+    <div class="analysis-filter-bar">
+      <button type="button" class="analysis-filter-pill active" id="filterPillAll" onclick="filterAnalysisCategory('todos')">
+        <span>Todos (5)</span>
+      </button>
+      <button type="button" class="analysis-filter-pill" id="filterPillSkills" onclick="filterAnalysisCategory('habilidades')">
+        <span>🏆 Habilidades & Marcos (4)</span>
+      </button>
+      <button type="button" class="analysis-filter-pill" id="filterPillCorrections" onclick="filterAnalysisCategory('correcoes')">
+        <span>🔍 Execução de Exercícios (1)</span>
+      </button>
+    </div>
+
     <!-- VÍDEO 1: PRESS HANDSTAND NO OMBRO DO PARCEIRO -->
-    <div class="analysis-accordion-card" id="analysisCard-1">
+    <div class="analysis-accordion-card" id="analysisCard-1" data-category="habilidades">
       <button type="button" class="analysis-accordion-trigger" onclick="toggleAnalysisAccordion('analysisCard-1')">
         <div style="flex: 1; min-width: 0;">
           <div class="analysis-card-meta-top">
@@ -5926,7 +6187,7 @@
     </div>
 
     <!-- VÍDEO 2: STRICT RMU LIVRE + 2x CANDLE KIPS -->
-    <div class="analysis-accordion-card" id="analysisCard-2">
+    <div class="analysis-accordion-card" id="analysisCard-2" data-category="habilidades">
       <button type="button" class="analysis-accordion-trigger" onclick="toggleAnalysisAccordion('analysisCard-2')">
         <div style="flex: 1; min-width: 0;">
           <div class="analysis-card-meta-top">
@@ -5971,7 +6232,7 @@
     </div>
 
     <!-- VÍDEO 3: MANJOTA (L-SIT -> PRESS -> CROC) -->
-    <div class="analysis-accordion-card" id="analysisCard-3">
+    <div class="analysis-accordion-card" id="analysisCard-3" data-category="habilidades">
       <button type="button" class="analysis-accordion-trigger" onclick="toggleAnalysisAccordion('analysisCard-3')">
         <div style="flex: 1; min-width: 0;">
           <div class="analysis-card-meta-top">
@@ -6020,7 +6281,7 @@
     </div>
 
     <!-- VÍDEO 4: OITAVAS NA BARRA -->
-    <div class="analysis-accordion-card" id="analysisCard-4">
+    <div class="analysis-accordion-card" id="analysisCard-4" data-category="habilidades">
       <button type="button" class="analysis-accordion-trigger" onclick="toggleAnalysisAccordion('analysisCard-4')">
         <div style="flex: 1; min-width: 0;">
           <div class="analysis-card-meta-top">
@@ -6063,6 +6324,47 @@
             <strong style="color: #38bdf8;">Base científica:</strong><br>
             • <strong>Compressão Pélvica & Timing:</strong> Flexão de iliopsoas aproximando as tíbias da barra no exato instante de reversão do raio pendular, transferindo velocidade angular para a ascensão vertical.<br>
             • <strong>Straight-Arm Press Down:</strong> Extensão de ombro com latíssimo do dorso e tríceps cabeça longa mantendo cotovelos estendidos, combinada à rápida troca de punhos (*wrist shift*) por cima do eixo da barra.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VÍDEO 5: EXECUÇÃO DE EXERCÍCIO - TUCK FRONT LEVER ROW -->
+    <div class="analysis-accordion-card" id="analysisCard-5" data-category="correcoes">
+      <button type="button" class="analysis-accordion-trigger" onclick="toggleAnalysisAccordion('analysisCard-5')">
+        <div style="flex: 1; min-width: 0;">
+          <div class="analysis-card-meta-top">
+            <span class="analysis-card-badge" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border-color: rgba(56, 189, 248, 0.4);">🔍 Execução de Exercício • Puxada Horizontal</span>
+            <span class="analysis-card-date">📅 Quarta 07/10</span>
+            <span class="analysis-card-time">⏱️ Devolutiva de Execução</span>
+          </div>
+          <div class="analysis-card-title">Tuck Front Lever Row — Alinhamento Escapular & Pelve</div>
+          <div class="analysis-card-desc">Retração escapular prévia • Manutenção do quadril neutro sem hiperextensão lombar</div>
+        </div>
+        <div class="analysis-chevron">
+          <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+        </div>
+      </button>
+      <div class="analysis-accordion-body">
+        <div style="margin-bottom: 12px; margin-top: 6px;">
+          <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; border: 1px solid var(--border-strong); background: #000;">
+            <iframe src="https://www.youtube.com/embed/kplP75nBuT4" title="Tuck Front Lever Row Tutorial & Correção" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top:0; left: 0; width: 100%; height: 100%;"></iframe>
+          </div>
+          <div style="margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap;">
+            <a href="https://www.youtube.com/watch?v=kplP75nBuT4" target="_blank" class="btn-video" style="text-decoration: none; color: #ff0000; border-color: rgba(255,0,0,0.3); background: rgba(255,0,0,0.08);">
+              <svg viewBox="0 0 24 24" style="fill: currentColor; width: 14px; height: 14px;"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg> 🎬 Abrir Referência no YouTube
+            </a>
+          </div>
+        </div>
+        <div style="font-size: 0.84rem; line-height: 1.6; color: var(--text-muted);">
+          <p style="margin-bottom: 8px;"><strong style="color:#ffffff;">Análise & Devolutiva do Treinador:</strong></p>
+          <div style="margin-bottom: 10px; padding: 10px 12px; background: rgba(0,255,136,0.04); border-radius: 8px; border-left: 2.5px solid var(--brand-neon);">
+            <strong style="color: #00ff88;">Na prática:</strong><br>
+            Ao realizar a remada na posição tucked, puxe a barra ou argolas em direção ao umbigo focando em esmagar as escápulas atrás antes de dobrar os cotovelos. Mantenha os joelhos recolhidos na altura do peito e o quadril alinhado com os ombros, sem deixar o bumbum cair ou a lombar arquear para compensar.
+          </div>
+          <div style="padding: 10px 12px; background: rgba(251,191,36,0.04); border-radius: 8px; border-left: 2.5px solid #fbbf24;">
+            <strong style="color: #fbbf24;">Diagnóstico:</strong><br>
+            Na metade final da puxada, os cotovelos abriram um pouco para fora e o quadril desceu cerca de 10° a 15°. Na próxima sessão, mantenha os cotovelos raspando as costelas e concentre a força em puxar com a musculatura das costas, mantendo o abdômen e glúteos travados para o corpo permanecer na horizontal perfeita.
           </div>
         </div>
       </div>
@@ -7056,6 +7358,70 @@
         <button type="button" class="btn-submit-assessment" onclick="startIntakeGate()" style="margin: 0; width: 100%;">
           <span>📝 Preencher Minha Ficha Agora ➔</span>
         </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Notificações & Recados do Treinador -->
+  <div id="notificationsModal" class="modal-overlay" onclick="if(event.target === this) closeNotificationsModal();">
+    <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 480px;">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="font-size:1.25rem;">🔔</span>
+          <div>
+            <h3 style="margin:0; font-size:1.02rem; color:#fff;">Recados & Notificações</h3>
+            <span style="font-size:0.75rem; color:#38bdf8; font-weight:600;" id="notifUnreadCountBadge">2 Novas Mensagens</span>
+          </div>
+        </div>
+        <button class="btn-close" type="button" onclick="closeNotificationsModal()" aria-label="Fechar">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 16px 20px;">
+        <div class="notif-list">
+          
+          <!-- Notificação 1: Devolutiva de Exercício -->
+          <div class="notif-item unread" onclick="openAnalysisCardFromNotif('analysisCard-5')">
+            <span class="notif-item-icon">🔍</span>
+            <div style="flex:1; min-width:0;">
+              <div class="notif-item-title">Devolutiva: Tuck Front Lever Row</div>
+              <div class="notif-item-desc">Prof. Gui analisou o alinhamento escapular e pelve da sua puxada horizontal.</div>
+              <div class="notif-item-time">⏱️ Hoje • Execução de Exercício</div>
+            </div>
+            <span class="notif-item-arrow">›</span>
+          </div>
+
+          <!-- Notificação 2: Recado no Mural -->
+          <div class="notif-item unread" onclick="openBulletinFromNotif()">
+            <span class="notif-item-icon">📢</span>
+            <div style="flex:1; min-width:0;">
+              <div class="notif-item-title">Mural de Recados Atualizado</div>
+              <div class="notif-item-desc">Nova diretriz do treinador sobre envio de vídeos e foco nas puxadas.</div>
+              <div class="notif-item-time">⏱️ Hoje • Mural do Prof. Gui</div>
+            </div>
+            <span class="notif-item-arrow">›</span>
+          </div>
+
+          <!-- Notificação 3: Análise de Habilidade -->
+          <div class="notif-item" onclick="openAnalysisCardFromNotif('analysisCard-3')">
+            <span class="notif-item-icon">🏆</span>
+            <div style="flex:1; min-width:0;">
+              <div class="notif-item-title">Análise: Sequência na Manjota</div>
+              <div class="notif-item-desc">L-Sit to Handstand e Crocodile de 1 braço revisados com diretrizes biomecânicas.</div>
+              <div class="notif-item-time">⏱️ 01/10 • Habilidade & Marco</div>
+            </div>
+            <span class="notif-item-arrow">›</span>
+          </div>
+
+        </div>
+
+        <!-- Rodapé do Modal -->
+        <div style="margin-top: 16px; display:flex; justify-content:space-between; align-items:center; border-top: 1px solid var(--border-subtle); padding-top: 12px;">
+          <button type="button" onclick="markAllNotificationsAsRead()" style="background:none; border:none; color:var(--text-muted); font-size:0.75rem; cursor:pointer; text-decoration:underline;">
+            ✓ Marcar todas como lidas
+          </button>
+          <button type="button" onclick="closeNotificationsModal()" style="background:rgba(255,255,255,0.08); border:1px solid var(--border-subtle); color:#fff; font-size:0.78rem; font-weight:600; padding:6px 14px; border-radius:8px; cursor:pointer;">
+            Fechar
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -8762,6 +9128,95 @@
       if (wasActive) {
         const vid = card.querySelector('video');
         if (vid) vid.pause();
+      }
+    }
+
+    // Filtros de Categoria em Análises (Todos / Habilidades & Marcos / Correções & Dúvidas)
+    function filterAnalysisCategory(cat) {
+      const pillAll = document.getElementById('filterPillAll');
+      const pillSkills = document.getElementById('filterPillSkills');
+      const pillCorrections = document.getElementById('filterPillCorrections');
+
+      if (pillAll) pillAll.classList.toggle('active', cat === 'todos');
+      if (pillSkills) pillSkills.classList.toggle('active', cat === 'habilidades');
+      if (pillCorrections) pillCorrections.classList.toggle('active', cat === 'correcoes');
+
+      const cards = document.querySelectorAll('.analysis-accordion-card');
+      cards.forEach(card => {
+        const cardCat = card.getAttribute('data-category');
+        if (cat === 'todos' || cardCat === cat) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Central de Notificações & Recados
+    function toggleNotificationsModal() {
+      const modal = document.getElementById('notificationsModal');
+      if (!modal) return;
+      const isActive = modal.classList.contains('active');
+      if (isActive) {
+        closeNotificationsModal();
+      } else {
+        modal.style.setProperty('display', 'flex', 'important');
+        modal.classList.add('active');
+      }
+    }
+
+    function closeNotificationsModal() {
+      const modal = document.getElementById('notificationsModal');
+      if (!modal) return;
+      modal.style.setProperty('display', 'none', 'important');
+      modal.classList.remove('active');
+    }
+
+    function openAnalysisCardFromNotif(cardId) {
+      closeNotificationsModal();
+      if (typeof switchTab === 'function') {
+        switchTab('analises');
+      }
+      // Garante que o card esteja visível (seja exibindo 'todos' ou a categoria específica)
+      const targetCard = document.getElementById(cardId);
+      if (targetCard) {
+        const cardCat = targetCard.getAttribute('data-category');
+        if (cardCat) {
+          filterAnalysisCategory(cardCat);
+        } else {
+          filterAnalysisCategory('todos');
+        }
+        if (!targetCard.classList.contains('active')) {
+          targetCard.classList.add('active');
+        }
+        setTimeout(() => {
+          targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 180);
+      }
+    }
+
+    function openBulletinFromNotif() {
+      closeNotificationsModal();
+      if (typeof switchTab === 'function') {
+        switchTab('analises');
+      }
+      const bulletin = document.getElementById('coachBulletinCard');
+      if (bulletin) {
+        setTimeout(() => {
+          bulletin.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 180);
+      }
+    }
+
+    function markAllNotificationsAsRead() {
+      const unreadItems = document.querySelectorAll('.notif-item.unread');
+      unreadItems.forEach(item => item.classList.remove('unread'));
+      const headerBadge = document.getElementById('headerNotifBadge');
+      if (headerBadge) headerBadge.style.display = 'none';
+      const countBadge = document.getElementById('notifUnreadCountBadge');
+      if (countBadge) {
+        countBadge.textContent = '0 Novas Mensagens';
+        countBadge.style.color = 'var(--text-muted)';
       }
     }
 
