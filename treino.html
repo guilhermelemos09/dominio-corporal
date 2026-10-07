@@ -480,7 +480,7 @@
       color: #ffffff;
       padding: 3px 9px;
       border-radius: 7px;
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.15s ease;
@@ -547,7 +547,7 @@
       color: var(--text-muted);
       padding: 6px 11px;
       border-radius: 8px;
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.15s ease;
@@ -1555,6 +1555,15 @@
       align-items: center;
       gap: 6px;
       flex-wrap: wrap;
+    }
+    .goals-lead-label {
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: #94a3b8;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-right: 2px;
+      user-select: none;
     }
     .goal-chip {
       display: inline-flex;
@@ -3362,23 +3371,26 @@
     .btn-tip-cue:active, .btn-video:active {
       transform: scale(0.97);
     }
-    /* Cores suaves e discretas (não gritam na tela) */
+    /* Cores e Ordem dos Botões de Cues: Cuidados (1º), Instruções (2º), Dicas (3º) */
+    .cue-cuidados, .cue-alerta {
+      order: 1 !important;
+      background: rgba(249, 115, 22, 0.16) !important;
+      border: 1px solid rgba(249, 115, 22, 0.55) !important;
+      color: #fb923c !important;
+    }
+    .cue-cuidados:hover, .cue-alerta:hover {
+      background: rgba(249, 115, 22, 0.28) !important;
+      border-color: #f97316 !important;
+      color: #ffffff !important;
+    }
     .cue-instrucoes {
+      order: 2 !important;
       background: rgba(56, 189, 248, 0.06);
       border-color: rgba(56, 189, 248, 0.22);
       color: #bae6fd;
     }
-    .cue-cuidados, .cue-alerta {
-      background: rgba(249, 115, 22, 0.08);
-      border-color: rgba(249, 115, 22, 0.28);
-      color: #fdba74;
-    }
-    .cue-cuidados:hover, .cue-alerta:hover {
-      background: rgba(249, 115, 22, 0.16);
-      border-color: rgba(249, 115, 22, 0.45);
-      color: #ffedd5;
-    }
     .cue-dicas, .cue-dica, .cue-importante {
+      order: 3 !important;
       background: rgba(250, 204, 21, 0.06);
       border-color: rgba(250, 204, 21, 0.22);
       color: #fef08a;
@@ -3861,6 +3873,7 @@
         </button>
       </div>
       <div class="goals-chips-row">
+        <span class="goals-lead-label">METAS:</span>
         <span class="goal-chip">Definição Muscular</span>
         <span class="goal-chip">Aperfeiçoar Habilidades</span>
         <span class="goal-chip">Recuperação Joelho</span>
@@ -5523,8 +5536,8 @@
           </div>
         </div>
         <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Mobilidade de Punhos & Ombro', '• Punhos: Fique de quatro no chão com os dedos virados para trás (na direção dos joelhos). Transfira o peso do corpo de leve para trás, sem dobrar os cotovelos, até sentir puxar o antebraço.\n• Ombros: Prenda um elástico no alto, segure com um braço e incline o tronco para a frente, deixando o elástico puxar seu braço para cima com calma e relaxando o peito em direção ao chão.\n\nBase científica:\n• Mecânica Articular do Punho (Kapandji): Restaura a dorsiflexão fisiológica (~85-90°) por estiramento dos flexores do carpo, reduzindo a sobrecarga na fibrocartilagem triangular nos blocos da manjota.\n• Tração Axial Glenoumeral: A tração elástica longitudinal induz descompressão capsular temporária, facilitando a circulação de líquido sinovial antes de receber carga de sustentação.', '🔧 Instruções')">🔧 Instruções</button>
           <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados com Carga no Punho', '• Nunca faça movimentos bruscos ou trancos quando os dedos estiverem virados para trás. Vá devagar e pare se sentir pontada fina.\n\nBase científica:\n• Viscoelasticidade do Colágeno (Biomecânica Tecidual): O tecido conjuntivo capsulo-ligamentar dos punhos exige deformação mecânica gradual (creep elástico). Forças dinâmicas bruscas superam o limite de escoamento e provocam micro-lesões nos ligamentos radiocarpais.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Mobilidade de Punhos & Ombro', '• Punhos: Fique de quatro no chão com os dedos virados para trás (na direção dos joelhos). Transfira o peso do corpo de leve para trás, sem dobrar os cotovelos, até sentir puxar o antebraço.\n• Ombros: Prenda um elástico no alto, segure com um braço e incline o tronco para a frente, deixando o elástico puxar seu braço para cima com calma e relaxando o peito em direção ao chão.\n\nBase científica:\n• Mecânica Articular do Punho (Kapandji): Restaura a dorsiflexão fisiológica (~85-90°) por estiramento dos flexores do carpo, reduzindo a sobrecarga na fibrocartilagem triangular nos blocos da manjota.\n• Tração Axial Glenoumeral: A tração elástica longitudinal induz descompressão capsular temporária, facilitando a circulação de líquido sinovial antes de receber carga de sustentação.', '🔧 Instruções')">🔧 Instruções</button>
         </div>
         <div class="ex-bottom-actions">
             <button type="button" class="btn-send-video" onclick="openSendVideoModal('Mobilidade de Punhos & Ombros')">
@@ -5643,8 +5656,8 @@
           </div>
         </div>
         <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Handstand na Manjota', '• Suba nos blocos e empurre os apoios para baixo com firmeza, como se quisesse afastar as orelhas dos ombros e crescer em direção ao teto.\n• Trave cotovelos sem dobrar nada, aperte o bumbum e aponte os pés para cima como uma flecha.\n• O equilíbrio fino é controlado pela ponta dos dedos nos blocos, igual a gente aperta os dedos dos pés no chão para não desequilibrar.\n\nBase científica:\n• Empilhamento Ósseo (Bone Stacking): Minimização do custo energético neuromuscular alinhando os centros articulares sob a gravidade (punho-cotovelo-ombro-pelve-tornozelo).\n• Alavanca Proprioceptiva da Manjota (Escola Circense Clássica): Os blocos ampliam o braço de momento para os flexores do carpo em relação ao solo plano, otimizando o ajuste postural fino do centro de massa.', '🔧 Instruções')">🔧 Instruções</button>
           <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Proteção Articular no Handstand', '• Se cansar e seu ombro começar a afundar ou seu corpo entortar para a frente, desça na hora. Não lute torto para não sobrecarregar o ombro direito.\n\nBase científica:\n• Insuficiência de Elevação Escapular (Kapandji): A fadiga do serrátil anterior permite a translação anterior da cabeça umeral, gerando compressão mecânica do supraespinhal contra o arco coracoacromial no ombro operado.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Handstand na Manjota', '• Suba nos blocos e empurre os apoios para baixo com firmeza, como se quisesse afastar as orelhas dos ombros e crescer em direção ao teto.\n• Trave cotovelos sem dobrar nada, aperte o bumbum e aponte os pés para cima como uma flecha.\n• O equilíbrio fino é controlado pela ponta dos dedos nos blocos, igual a gente aperta os dedos dos pés no chão para não desequilibrar.\n\nBase científica:\n• Empilhamento Ósseo (Bone Stacking): Minimização do custo energético neuromuscular alinhando os centros articulares sob a gravidade (punho-cotovelo-ombro-pelve-tornozelo).\n• Alavanca Proprioceptiva da Manjota (Escola Circense Clássica): Os blocos ampliam o braço de momento para os flexores do carpo em relação ao solo plano, otimizando o ajuste postural fino do centro de massa.', '🔧 Instruções')">🔧 Instruções</button>
         </div>
         <div class="ex-bottom-actions">
             <button type="button" class="btn-send-video" onclick="openSendVideoModal('Handstand na Manjota')">
@@ -5713,8 +5726,8 @@
           </div>
         </div>
         <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('One-Arm Croc na Manjota', '• Encaixe o cotovelo de um braço bem no ossinho da frente da bacia (crista ilíaca) e incline o corpo na horizontal, feito uma prancha deitada.\n• Abra bem as pernas no ar para equilibrar o peso, trave a barriga e descole a outra mão do bloco bem devagarzinho.\n\nBase científica:\n• Fulcro de Equilíbrio & Alavanca de 1ª Classe (Cinesiologia Circense): O cotovelo atua como fulcro mecânico sob o centro de massa da pelve. A retirada da mão de apoio impõe torque rotacional severo contra a gravidade, neutralizado por contração extrema de oblíquos e quadrado lombar contralaterais.', '🔧 Instruções')">🔧 Instruções</button>
           <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Estabilidade do Ombro no Croc', '• Mantenha o ombro de apoio travado e firme antes de soltar a segunda mão. Se o cotovelo escorregar do osso da bacia, aborte na hora.\n\nBase científica:\n• Estabilidade da Cápsula Glenoumeral Anterior: O desencaixe inadvertido do cotovelo na pelve cria momento de adução horizontal abrupto no ombro sob carga corporal unilateral, exigindo travamento articular estrito.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('One-Arm Croc na Manjota', '• Encaixe o cotovelo de um braço bem no ossinho da frente da bacia (crista ilíaca) e incline o corpo na horizontal, feito uma prancha deitada.\n• Abra bem as pernas no ar para equilibrar o peso, trave a barriga e descole a outra mão do bloco bem devagarzinho.\n\nBase científica:\n• Fulcro de Equilíbrio & Alavanca de 1ª Classe (Cinesiologia Circense): O cotovelo atua como fulcro mecânico sob o centro de massa da pelve. A retirada da mão de apoio impõe torque rotacional severo contra a gravidade, neutralizado por contração extrema de oblíquos e quadrado lombar contralaterais.', '🔧 Instruções')">🔧 Instruções</button>
         </div>
         <div class="ex-bottom-actions">
             <button type="button" class="btn-send-video" onclick="openSendVideoModal('One-Arm Croc na Manjota')">
@@ -5760,8 +5773,8 @@
           </div>
         </div>
         <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Handstand Push-up (HSPU)', '• Ao descer, leve a cabeça um pouco à frente das mãos formando o desenho de um triângulo no chão (nunca desça a cabeça na mesma linha reta das mãos).\n• Aponte os cotovelos para trás (a 45°), sem deixar abrir para os lados como asas de frango. Empurre o chão até esticar os braços e crescer os ombros.\n\nBase científica:\n• Plano Escapular de Movimento (Scaption, Kapandji & Neer): A trajetória em tripé posiciona o úmero a ~30-45° anterior ao plano frontal, mantendo a bolsa e o tendão do supraespinhal no ponto de maior diâmetro do espaço subacromial, eliminando atrito mecânico.\n• Alinhamento do Vetor de Força: O empurrão final em elevação escapular bloqueia a articulação pelo serrátil anterior, transferindo a carga do músculo para a estrutura óssea.', '🔧 Instruções')">🔧 Instruções</button>
           <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cadência Excêntrica', '• Desça devagar em 2 a 3 segundos, como se fosse pousar a cabeça numa almofada macia. Nunca despenque de cabeça no chão.\n\nBase científica:\n• Absorção de Carga na Coluna Cervical: O controle excêntrico controlado previne forças de compressão axial súbita nos corpos vertebrais cervicais (C4-C7) e maximiza o tempo sob tensão do tríceps e peitoral superior para ganho de hipertrofia estrutural.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Handstand Push-up (HSPU)', '• Ao descer, leve a cabeça um pouco à frente das mãos formando o desenho de um triângulo no chão (nunca desça a cabeça na mesma linha reta das mãos).\n• Aponte os cotovelos para trás (a 45°), sem deixar abrir para os lados como asas de frango. Empurre o chão até esticar os braços e crescer os ombros.\n\nBase científica:\n• Plano Escapular de Movimento (Scaption, Kapandji & Neer): A trajetória em tripé posiciona o úmero a ~30-45° anterior ao plano frontal, mantendo a bolsa e o tendão do supraespinhal no ponto de maior diâmetro do espaço subacromial, eliminando atrito mecânico.\n• Alinhamento do Vetor de Força: O empurrão final em elevação escapular bloqueia a articulação pelo serrátil anterior, transferindo a carga do músculo para a estrutura óssea.', '🔧 Instruções')">🔧 Instruções</button>
         </div>
         <div class="ex-bottom-actions">
             <button type="button" class="btn-send-video" onclick="openSendVideoModal('Handstand Push-up (HSPU)')">
@@ -5800,8 +5813,8 @@
           </div>
         </div>
         <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Tuck Front Lever Row nas Argolas', '• Pendure nas argolas baixas, puxe os joelhos colados no peito e fique deitado de costas paralelo ao chão (corpo na horizontal).\n• Puxe as argolas até as costelas trazendo os cotovelos para trás e espremendo as costas. Depois, estique os braços controlando a descida sem deixar o bumbum cair.\n\nBase científica:\n• Puxada Horizontal em Cadeia Fechada (Overcoming Gravity): Alta ativação de grande dorsal, redondo maior, rombóides e trapézio médio associada a torque isométrico de anti-extensão do core, gerando contraponto biomecânico essencial aos empurrões verticais do HSPU.\n• Braço de Alavanca Ajustável: Posição tuck (joelhos no peito) reduz o comprimento do momento de resistência corporal, permitindo execução concêntrica completa sem compensação lombar.', '🔧 Instruções')">🔧 Instruções</button>
           <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Depressão Escapular', '• Mantenha os ombros longe das orelhas o tempo todo e o pescoço solto. Se começar a encolher o pescoço ou o bumbum despencar, termine a série.\n\nBase científica:\n• Evitação de Compensação do Trapézio Superior: A perda da depressão escapular ativa transfere a carga de tração para o elevador da escápula e feixes superiores do trapézio, gerando sobrecarga postural e compressão cervicotorácica.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Tuck Front Lever Row nas Argolas', '• Pendure nas argolas baixas, puxe os joelhos colados no peito e fique deitado de costas paralelo ao chão (corpo na horizontal).\n• Puxe as argolas até as costelas trazendo os cotovelos para trás e espremendo as costas. Depois, estique os braços controlando a descida sem deixar o bumbum cair.\n\nBase científica:\n• Puxada Horizontal em Cadeia Fechada (Overcoming Gravity): Alta ativação de grande dorsal, redondo maior, rombóides e trapézio médio associada a torque isométrico de anti-extensão do core, gerando contraponto biomecânico essencial aos empurrões verticais do HSPU.\n• Braço de Alavanca Ajustável: Posição tuck (joelhos no peito) reduz o comprimento do momento de resistência corporal, permitindo execução concêntrica completa sem compensação lombar.', '🔧 Instruções')">🔧 Instruções</button>
         </div>
         <div class="ex-bottom-actions">
             <button type="button" class="btn-send-video" onclick="openSendVideoModal('Tuck Front Lever Row')">
@@ -5826,9 +5839,8 @@
     <!-- ==================== SEÇÃO 4: CONDICIONAMENTO ==================== -->
     <div class="section-card sec-cardio" style="border-left: 3.5px solid var(--sec-cardio);">
       <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
-        <div class="section-title-wrap" style="display:flex; align-items:center; gap:8px;">
+        <div class="section-title-wrap">
           <div class="section-title" style="color:var(--sec-cardio);">CONDICIONAMENTO</div>
-          <span class="section-badge" style="background:rgba(251,113,133,0.12); color:var(--sec-cardio); border:1px solid rgba(251,113,133,0.3); font-size:0.7rem; font-weight:800;">EMOM 12'</span>
         </div>
         <div class="session-meta-chips">
           <span class="meta-chip meta-chip-time" style="color:var(--sec-cardio); border-color:rgba(251,113,133,0.4);">⏱️ 12 min</span>
@@ -5867,7 +5879,7 @@
           </button>
         </div>
 
-        <div class="ex-cues-row" style="margin-top:8px;">
+        <div class="ex-cues-row">
           <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Orientações do EMOM 12\'', '• O objetivo é terminar o exercício de cada minuto em ~40 a 45 segundos, para sobrar 15 a 20 segundos de descanso antes de virar o minuto.\n• KB Swing: Jogue o bumbum para trás como se fosse fechar uma gaveta com o quadril. A força do balanço vem da pancada do bumbum para a frente, não da força dos braços!\n• Toes-to-Bar: Puxe os pés na barra controlando o retorno sem ficar balançando solto no ar.\n• Bear Crawl: Ande de quatro no tatame com passos curtos e o bumbum baixo, com calma e precisão.\n\nBase científica:\n• Padrão de Dobradiça de Quadril (Hip Hinge, Stuart McGill): O KB Swing com tíbias estritamente verticais transfere o momento de força para o glúteo máximo e isquiotibiais, gerando zero translação anterior da tíbia e poupando 100% o menisco lateral.\n• Estabilidade Escapular & Core na Locomoção Quadrúpede: O Bear Crawl induz protração escapular ativa contínua do serrátil anterior e estabilização reflexa do core com baixíssimo impacto articular.', '🔧 Instruções')">🔧 Instruções</button>
           <button type="button" class="btn-tip-cue cue-dicas" onclick="openTip('Autoregulação no EMOM', '• Respire no compasso: solte o ar na subida do swing e na subida dos pés na barra. Se faltar tempo para descansar antes do minuto virar, diminua 2 repetições para respirar bem.\n\nBase científica:\n• Gestão da Via Glicolítica & Acidose: Manter a pausa passiva de 15 a 20 segundos garante a ressíntese parcial de fosfocreatina (PCr) e tamponamento de prótons H+, preservando a coordenação neuromuscular e evitando falhas técnicas nos rounds finais.', '💡 Dicas')">💡 Dicas</button>
         </div>
@@ -6070,24 +6082,20 @@
   <!-- ==================== TAB: ANÁLISE DE VÍDEOS ==================== -->
   <div id="tab-analises" class="tab-content">
 
-    <!-- HERO: FEEDBACK TÉCNICO & ANÁLISE CINEMÁTICA -->
+    <!-- HERO: FEEDBACK TÉCNICO -->
     <div class="analysis-hero-card">
       <div class="analysis-hero-img-wrap" onclick="window.open('Midia/gui_analisando_handstand.jpg', '_blank')" style="cursor: pointer;" title="Toque para ampliar foto">
         <img src="Midia/gui_analise_blend.jpg" alt="Prof. Gui Lemos analisando movimento">
       </div>
       <div class="analysis-hero-body">
-        <div class="analysis-hero-tag">
-          <svg style="width:10px; height:10px; fill:currentColor;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
-          Feedback Técnico e Movimento
-        </div>
-        <div class="analysis-hero-title">Análise de Vídeos</div>
+        <div class="analysis-hero-title">Feedback Técnico</div>
         <div class="analysis-hero-desc">
-          Mapeamento detalhado de ângulos, alavancas e trajetórias para identificar compensações e prescrever ajustes precisos em qualquer movimento acrobático, gímnico ou de força.
+          Mapeamento biomecânico para identificar compensações e prescrever ajustes precisos na sua execução.
         </div>
         <div class="analysis-hero-chips">
-          <span class="analysis-hero-chip">📐 Ângulos e Alavancas</span>
-          <span class="analysis-hero-chip">⚡ Correção de Compensações</span>
-          <span class="analysis-hero-chip">🎯 Educativos para Pontos Fracos</span>
+          <span class="analysis-hero-chip">📐 Biomecânica</span>
+          <span class="analysis-hero-chip">⚡ Ajustes</span>
+          <span class="analysis-hero-chip">🎯 Educativos</span>
         </div>
       </div>
     </div>
@@ -6457,7 +6465,6 @@
       <h3 style="font-size: 1.15rem; font-weight: 800; color: #fff; margin: 0; letter-spacing: -0.01em;">
         🎯 Orientações Gerais
       </h3>
-      <span style="font-size: 0.72rem; font-weight: 700; color: var(--brand-neon); background: rgba(0, 255, 136, 0.1); border: 1px solid rgba(0, 255, 136, 0.25); padding: 3px 8px; border-radius: 12px; text-transform: uppercase;">Prescrição Sob Medida</span>
     </div>
 
     <!-- Cards de Orientações Gerais Baseadas na Ficha Preenchida -->
