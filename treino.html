@@ -17,12 +17,12 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Domínio Corporal Gui">
   <meta name="theme-color" content="#000000">
-  <link rel="icon" type="image/png" sizes="192x192" href="Midia/icon-pessoal-192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="Midia/icon-pessoal-512.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="Midia/icon-pessoal-192.png">
-  <link rel="apple-touch-icon" sizes="192x192" href="Midia/icon-pessoal-192.png">
-  <link rel="apple-touch-icon" sizes="512x512" href="Midia/icon-pessoal-512.png">
-  <link rel="shortcut icon" href="Midia/icon-pessoal-192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="Midia/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="Midia/icon-512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="Midia/icon-192.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="Midia/icon-192.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="Midia/icon-512.png">
+  <link rel="shortcut icon" href="Midia/favicon.png">
 
   <!-- Fonte Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -7719,13 +7719,13 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '93';
+    const APP_BUILD_VERSION = '94';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
         caches.keys().then((keys) => {
           keys.forEach((k) => {
-            if (k !== 'dominio-corporal-v90') caches.delete(k);
+            if (k !== 'dominio-corporal-v94') caches.delete(k);
           });
         });
       }
@@ -9502,7 +9502,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=93').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=94').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });

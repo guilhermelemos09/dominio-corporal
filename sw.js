@@ -1,50 +1,37 @@
-const CACHE_NAME = 'dominio-corporal-v93';
+const CACHE_NAME = 'dominio-corporal-v94';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './treino.html',
-  './prontuario_planilha_visual.html',
-  './PRONTUARIO_E_HISTORICO_GUILHERME_LEMOS.xlsx',
-  './jean.html',
-  './manifest-jean.json',
+  './manifest.json',
   './Midia/icon-192.png',
   './Midia/icon-512.png',
   './Midia/icon-pessoal-192.png',
   './Midia/icon-pessoal-512.png',
+  './Midia/favicon.png',
   './Midia/icon_evol_composicao.png',
   './Midia/icon_evol_tecnica.png',
   './Midia/icon_evol_recordes.png',
   './Midia/icon_evol_relatorio.png',
-  './Midia/favicon.png',
-  './Midia/gui_foto.jpg',
-  './Midia/comparacao_frontal_relaxado.jpg',
-  './Midia/comparacao_duplo_biceps.jpg',
-  './manifest.json',
-  './manifest-pessoal.json'
+  'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap'
 ];
 
-// Install: precache app shell safely without failing on network/font issues
+// Install: precache app shell
 self.addEventListener('install', (event) => {
-  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      return Promise.allSettled(
-        ASSETS_TO_CACHE.map((url) =>
-          cache.add(url).catch((err) => console.warn('Cache fallback for ' + url, err))
-        )
-      );
-    })
+      return cache.addAll(ASSETS_TO_CACHE);
+    }).then(() => self.skipWaiting())
   );
 });
 
-// Activate: clean up old caches immediately and take control
+// Activate: clean up old caches
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) => {
       return Promise.all(
         keys.map((key) => {
           if (key !== CACHE_NAME) {
-            console.log('Purging legacy cache:', key);
             return caches.delete(key);
           }
         })
@@ -53,9 +40,8 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Fetch: network first with offline fallback for html, cache first for fonts
+// Fetch: network first with offline fallback for html, cache first for fonts e midias
 self.addEventListener('fetch', (event) => {
-  // Ignore non-GET requests
   if (event.request.method !== 'GET') return;
 
   const url = new URL(event.request.url);
@@ -65,13 +51,10 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  const isHtml = event.request.mode === 'navigate' || event.request.headers.get('accept')?.includes('text/html');
-
   // Network-first strategy for app files so Gui always gets latest training updates
   event.respondWith(
-    (isHtml ? fetch(event.request, { cache: 'reload' }) : fetch(event.request))
+    fetch(event.request)
       .then((networkResponse) => {
-        // Clone and cache the fresh response
         if (networkResponse && networkResponse.status === 200) {
           const responseClone = networkResponse.clone();
           caches.open(CACHE_NAME).then((cache) => {
@@ -81,12 +64,11 @@ self.addEventListener('fetch', (event) => {
         return networkResponse;
       })
       .catch(() => {
-        // Fallback to cache if offline
         return caches.match(event.request).then((cachedResponse) => {
           if (cachedResponse) {
             return cachedResponse;
           }
-          if (isHtml) {
+          if (event.request.headers.get('accept')?.includes('text/html')) {
             return caches.match('./index.html');
           }
         });

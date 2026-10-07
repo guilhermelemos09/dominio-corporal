@@ -1,8 +1,8 @@
 {
-  "id": "/dominio-corporal-gui",
-  "name": "Domínio Corporal Gui",
-  "short_name": "Domínio Corporal Gui",
-  "description": "Desafie a gravidade, domine seu corpo - Gui Lemos",
+  "id": "/treino-gui",
+  "name": "Dominio Corporal - Gui Lemos",
+  "short_name": "Dominio Corporal",
+  "description": "Treino de alta performance e biomecanica do movimento - Gui Lemos",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
