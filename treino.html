@@ -6268,19 +6268,18 @@
     </div>
 
     <!-- BANNER DE ENVIO DE VÍDEO SIMPLIFICADO -->
-    <div class="analysis-upload-banner">
+    <div class="analysis-upload-banner" onclick="openSendVideoModal('Geral / Movimento Livre')" style="cursor: pointer;">
       <div class="analysis-upload-banner-content">
         <div class="analysis-upload-banner-icon">
           <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4zM14 13h-3v3H9v-3H6v-2h3V8h2v3h3v2z"/></svg>
         </div>
         <div class="analysis-upload-banner-text">
-          <div class="analysis-upload-title">Enviar Vídeo para Análise</div>
-          <div class="analysis-upload-sub">Envie gravações de exercícios ou movimentos para avaliação técnica.</div>
+          <div class="analysis-upload-title" style="margin: 0; letter-spacing: 0.5px; font-weight: 800;">ENVIAR VÍDEO PARA ANÁLISE</div>
         </div>
       </div>
-      <button type="button" class="btn-analysis-upload-cta" onclick="openSendVideoModal('Geral / Movimento Livre')">
+      <button type="button" class="btn-analysis-upload-cta" onclick="event.stopPropagation(); openSendVideoModal('Geral / Movimento Livre')">
         <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-        <span>Enviar Vídeo</span>
+        <span>ENVIAR VÍDEO</span>
       </button>
     </div>
 
