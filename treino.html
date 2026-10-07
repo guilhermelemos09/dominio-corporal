@@ -553,6 +553,7 @@
       width: 13px;
       height: 13px;
       fill: currentColor;
+      flex-shrink: 0;
     }
     .comment-dot {
       width: 6px;
@@ -561,6 +562,164 @@
       background: var(--brand-neon);
       box-shadow: 0 0 6px var(--brand-neon);
       margin-left: 2px;
+    }
+
+    /* Botão de Envio de Vídeo para Análise */
+    .btn-send-video {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: rgba(56, 189, 248, 0.07);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #7dd3fc;
+      padding: 6px 11px;
+      border-radius: 8px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      position: relative;
+      white-space: nowrap;
+    }
+    .btn-send-video:hover {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: #38bdf8;
+      color: #ffffff;
+    }
+    .btn-send-video:active { transform: scale(0.97); }
+    .btn-send-video svg {
+      width: 13px;
+      height: 13px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* Agrupador de Ações em Linha */
+    .ex-actions-btns {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+    .ex-bottom-actions .btn-comment,
+    .ex-bottom-actions .btn-send-video,
+    .ex-actions-btns .btn-comment,
+    .ex-actions-btns .btn-send-video {
+      flex: 1 1 0;
+      min-width: 0;
+      justify-content: center;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    /* Banner de Envio de Vídeo na Aba de Análises */
+    .analysis-upload-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 18px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(37, 211, 102, 0.08) 100%);
+      border: 1.5px solid rgba(56, 189, 248, 0.35);
+      border-radius: 14px;
+      margin-bottom: 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      flex-wrap: wrap;
+    }
+    .analysis-upload-banner-content {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex: 1 1 260px;
+      min-width: 0;
+    }
+    .analysis-upload-banner-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(56, 189, 248, 0.18);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #38bdf8;
+      flex-shrink: 0;
+    }
+    .analysis-upload-banner-icon svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+    .analysis-upload-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 3px;
+    }
+    .analysis-upload-sub {
+      font-size: 0.77rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+    .btn-analysis-upload-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #0284c7 0%, #25D366 100%);
+      color: #ffffff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
+      white-space: nowrap;
+      transition: all 0.15s ease;
+      flex-shrink: 0;
+    }
+    .btn-analysis-upload-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4);
+    }
+    .btn-analysis-upload-cta:active {
+      transform: scale(0.97);
+    }
+    .btn-analysis-upload-cta svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    /* Botão Principal no Modal WhatsApp */
+    .btn-send-wpp-primary {
+      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #25D366;
+      color: #0b1e13;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+      transition: all 0.15s ease;
+    }
+    .btn-send-wpp-primary:hover {
+      background: #22bf5b;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45);
+    }
+    .btn-send-wpp-primary:active {
+      transform: scale(0.98);
     }
 
     /* Gaveta de Comentários */
@@ -3167,7 +3326,8 @@
       align-items: center;
       justify-content: flex-start;
       gap: 8px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      width: 100%;
     }
     .set-pill {
       min-width: 36px;
@@ -3580,10 +3740,16 @@
         </div>
 
         <div class="ex-actions">
-          <button class="btn-comment" id="btn-comment-ex-seg-box" onclick="toggleCommentBox('ex-seg-box')">
-            <span>💬 Dúvidas ou observações? Clique aqui</span>
-            <span class="comment-dot" id="dot-ex-seg-box" style="display:none;"></span>
-          </button>
+          <div class="ex-actions-btns">
+            <button class="btn-comment" id="btn-comment-ex-seg-box" onclick="toggleCommentBox('ex-seg-box')">
+              <span>💬 Observações</span>
+              <span class="comment-dot" id="dot-ex-seg-box" style="display:none;"></span>
+            </button>
+            <button type="button" class="btn-send-video" onclick="openSendVideoModal('Sessão Segunda • CrossFit Box')">
+              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+            </button>
+          </div>
         </div>
         <div id="comment-box-ex-seg-box" class="comment-drawer" style="display: none;">
           <div class="comment-header">
@@ -3622,10 +3788,16 @@
           <strong>Abertura Articular Rápida:</strong> Segure a superband alta com o braço estendido e incline o tronco para a frente, deixando o elástico tracionar a articulação glenoumeral para cima e para fora. Respire fundo para soltar a hipertonia do grande dorsal e do peitoral menor após os pull-ups do WOD.
         </div>
         <div class="ex-actions">
-          <button class="btn-comment" id="btn-comment-ex-seg-4" onclick="toggleCommentBox('ex-seg-4')">
-            <span>💬 Dúvidas ou observações? Clique aqui</span>
-            <span class="comment-dot" id="dot-ex-seg-4" style="display:none;"></span>
-          </button>
+          <div class="ex-actions-btns">
+            <button class="btn-comment" id="btn-comment-ex-seg-4" onclick="toggleCommentBox('ex-seg-4')">
+              <span>💬 Observações</span>
+              <span class="comment-dot" id="dot-ex-seg-4" style="display:none;"></span>
+            </button>
+            <button type="button" class="btn-send-video" onclick="openSendVideoModal('Reset Articular Pós-WOD')">
+              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+            </button>
+          </div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Braço D</div>
             <div class="set-pill" onclick="toggleSet(this)">Braço E</div>
@@ -3659,10 +3831,16 @@
           2. <strong>Joelho Esquerdo:</strong> Alongamento de bíceps femoral e fáscia lata com rotação interna da tíbia, liberando a tração na cabeça da fíbula e descomprimindo o menisco lateral após os 90 Wall Balls.
         </div>
         <div class="ex-actions">
-          <button class="btn-comment" id="btn-comment-ex-seg-5" onclick="toggleCommentBox('ex-seg-5')">
-            <span>💬 Dúvidas ou observações? Clique aqui</span>
-            <span class="comment-dot" id="dot-ex-seg-5" style="display:none;"></span>
-          </button>
+          <div class="ex-actions-btns">
+            <button class="btn-comment" id="btn-comment-ex-seg-5" onclick="toggleCommentBox('ex-seg-5')">
+              <span>💬 Observações</span>
+              <span class="comment-dot" id="dot-ex-seg-5" style="display:none;"></span>
+            </button>
+            <button type="button" class="btn-send-video" onclick="openSendVideoModal('Descompressão Subacromial & Menisco Lateral')">
+              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+            </button>
+          </div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
@@ -3794,8 +3972,12 @@
 
         <div class="ex-bottom-actions" style="margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border-subtle);">
           <button type="button" class="btn-comment" id="btn-comment-ex-ter-box" onclick="toggleCommentBox('ex-ter-box')">
-            <span>💬 Suas anotações do Box</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-ter-box" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Sessão Terça • Box CrossFit')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-ter-box" class="comment-drawer" style="display: none;">
@@ -3891,10 +4073,16 @@
           <strong>Preparação Articular:</strong> Círculos lentos e transferências anteroposteriores de carga em prancha no solo para preparar o fibrocartilagem triangular dos punhos para a carga compressiva do parceiro (63 kg). Associar a protração escapular ativa para recrutar o serrátil anterior.
         </div>
         <div class="ex-actions">
-          <button class="btn-comment" id="btn-comment-ex-sex-1" onclick="toggleCommentBox('ex-sex-1')">
-            <span>💬 Dúvidas ou observações? Clique aqui</span>
-            <span class="comment-dot" id="dot-ex-sex-1" style="display:none;"></span>
-          </button>
+          <div class="ex-actions-btns">
+            <button class="btn-comment" id="btn-comment-ex-sex-1" onclick="toggleCommentBox('ex-sex-1')">
+              <span>💬 Observações</span>
+              <span class="comment-dot" id="dot-ex-sex-1" style="display:none;"></span>
+            </button>
+            <button type="button" class="btn-send-video" onclick="openSendVideoModal('Mobilidade de Punhos (Sexta)')">
+              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+            </button>
+          </div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1</div>
             <div class="set-pill" onclick="toggleSet(this)">2</div>
@@ -3926,10 +4114,16 @@
           <strong>Estabilidade no Plano Frontal:</strong> Ativação de glúteo médio/máximo para travar o alinhamento fêmoro-tibial e impedir o valgo dinâmico ao sustentar ou elevar o parceiro. Liberação breve do trato iliotibial e bíceps femoral para desanuviar a fíbula esquerda.
         </div>
         <div class="ex-actions">
-          <button class="btn-comment" id="btn-comment-ex-sex-2" onclick="toggleCommentBox('ex-sex-2')">
-            <span>💬 Dúvidas ou observações? Clique aqui</span>
-            <span class="comment-dot" id="dot-ex-sex-2" style="display:none;"></span>
-          </button>
+          <div class="ex-actions-btns">
+            <button class="btn-comment" id="btn-comment-ex-sex-2" onclick="toggleCommentBox('ex-sex-2')">
+              <span>💬 Observações</span>
+              <span class="comment-dot" id="dot-ex-sex-2" style="display:none;"></span>
+            </button>
+            <button type="button" class="btn-send-video" onclick="openSendVideoModal('Ponte Glútea Unilateral')">
+              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+            </button>
+          </div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1</div>
             <div class="set-pill" onclick="toggleSet(this)">2</div>
@@ -3973,10 +4167,16 @@
           <strong>Alinhamento Biomecânico (Stacking):</strong> Punho, cotovelo e ombro rigorosamente na mesma linha vertical da gravidade. A sustentação deve ocorrer por compressão óssea direta, eliminando braço de momento sobre os flexores de cotovelo (protege o tríceps esquerdo) e reduzindo a sobrecarga glenoumeral no supraespinhal operado. Nas subidas e bases, faça flexão de quadril (hip hinge) com tíbias verticais, nunca agache profundamente flexionando o joelho esquerdo.
         </div>
         <div class="ex-actions">
-          <button class="btn-comment" id="btn-comment-ex-sex-3" onclick="toggleCommentBox('ex-sex-3')">
-            <span>💬 Dúvidas ou observações? Clique aqui</span>
-            <span class="comment-dot" id="dot-ex-sex-3" style="display:none;"></span>
-          </button>
+          <div class="ex-actions-btns">
+            <button class="btn-comment" id="btn-comment-ex-sex-3" onclick="toggleCommentBox('ex-sex-3')">
+              <span>💬 Observações</span>
+              <span class="comment-dot" id="dot-ex-sex-3" style="display:none;"></span>
+            </button>
+            <button type="button" class="btn-send-video" onclick="openSendVideoModal('Portagem com Parceiro 63 kg')">
+              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+            </button>
+          </div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1</div>
             <div class="set-pill" onclick="toggleSet(this)">2</div>
@@ -4012,10 +4212,16 @@
           <strong>Fluidez & Preservação Articular:</strong> Executar 3 passagens completas focando na continuidade do movimento e dinâmica do peso. No trabalho de chão (*floorwork*), transfira o peso pelas escápulas e bordo lateral das coxas, sem pancada direta de patela no solo e sem torção tibial. Aterrissagens de saltos suaves na ponta dos pés para proteger os tendões de Aquiles operados.
         </div>
         <div class="ex-actions">
-          <button class="btn-comment" id="btn-comment-ex-sex-4" onclick="toggleCommentBox('ex-sex-4')">
-            <span>💬 Dúvidas ou observações? Clique aqui</span>
-            <span class="comment-dot" id="dot-ex-sex-4" style="display:none;"></span>
-          </button>
+          <div class="ex-actions-btns">
+            <button class="btn-comment" id="btn-comment-ex-sex-4" onclick="toggleCommentBox('ex-sex-4')">
+              <span>💬 Observações</span>
+              <span class="comment-dot" id="dot-ex-sex-4" style="display:none;"></span>
+            </button>
+            <button type="button" class="btn-send-video" onclick="openSendVideoModal('Dança Contemporânea')">
+              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+            </button>
+          </div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1</div>
             <div class="set-pill" onclick="toggleSet(this)">2</div>
@@ -4049,13 +4255,19 @@
           <strong>Coadjuvação do Manguito:</strong> Apoio em suspensão nas argolas girando as mãos para fora (45° a 90°). Cotovelos em bloqueio ósseo completo (extensão total), escápulas ativamente em depressão e protração. Isso gera torque de rotação externa que centraliza a cabeça umeral na glenoide, fortalecendo o supraespinhal e bíceps cabeça longa sem choque excêntrico.
         </div>
         <div class="ex-actions">
-          <div style="display:flex; gap:6px; flex-wrap:wrap;">
+          <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom: 8px;">
             <button class="btn-video" onclick="openVideoModal('RTO Support Hold — Argolas', '<b>Mecânica Chave:</b> Rotação externa das argolas (45° a 90°), cotovelos 100% estendidos com bloqueio ósseo, depressão e protração escapular ativa. Reconstrução de estabilidade do manguito e supraespinhal operado.', 'https://www.youtube.com/embed/5Hj0m-e98_8')">
               <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Ver Técnica
             </button>
+          </div>
+          <div class="ex-actions-btns">
             <button class="btn-comment" id="btn-comment-ex-sex-5" onclick="toggleCommentBox('ex-sex-5')">
-              <span>💬 Dúvidas ou observações? Clique aqui</span>
+              <span>💬 Observações</span>
               <span class="comment-dot" id="dot-ex-sex-5" style="display:none;"></span>
+            </button>
+            <button type="button" class="btn-send-video" onclick="openSendVideoModal('RTO Support Hold nas Argolas')">
+              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
             </button>
           </div>
           <div class="sets-container">
@@ -4070,7 +4282,7 @@
             <span>👤 Suas anotações (tempo sustentado, ombro direito):</span>
             <span class="save-indicator" id="save-status-ex-sex-5"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-sex-5" placeholder="Ex: 18" cravados, rotação a 60°, ombro estável..." oninput="saveExerciseNote('ex-sex-5', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-sex-5" placeholder="Ex: 18&quot; cravados, rotação a 60°, ombro estável..." oninput="saveExerciseNote('ex-sex-5', this.value)"></textarea>
         </div>
       </div>
 
@@ -4092,13 +4304,19 @@
           <strong>Padrão Motor Limpo:</strong> Utilizar pegada falsa profunda (*false grip*) com argolas coladas no esterno. Puxar até o peito encostar nos anéis e realizar a transição veloz projetando a cabeça e ombros para frente, mantendo os cotovelos raspando nas costelas. Usar apoio de ponta de pé ou banda leve se necessário para priorizar a cinemática estrita e zero impacto no tríceps esquerdo.
         </div>
         <div class="ex-actions">
-          <div style="display:flex; gap:6px; flex-wrap:wrap;">
+          <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom: 8px;">
             <button class="btn-video" onclick="openVideoModal('Ring Muscle-Up (RMU Strict) — Transição', '<b>Mecânica Chave:</b> Pegada falsa profunda nos punhos. Puxada alta com argolas coladas ao esterno e transição de cotovelos rente às costelas jogando os ombros à frente sem chute balístico.', 'https://www.youtube.com/embed/5Hj0m-e98_8')">
               <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Ver Técnica
             </button>
+          </div>
+          <div class="ex-actions-btns">
             <button class="btn-comment" id="btn-comment-ex-sex-6" onclick="toggleCommentBox('ex-sex-6')">
-              <span>💬 Dúvidas ou observações? Clique aqui</span>
+              <span>💬 Observações</span>
               <span class="comment-dot" id="dot-ex-sex-6" style="display:none;"></span>
+            </button>
+            <button type="button" class="btn-send-video" onclick="openSendVideoModal('Ring Muscle-Up Strict Transição')">
+              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
             </button>
           </div>
           <div class="sets-container">
@@ -4135,13 +4353,19 @@
           <strong>Consciência Acrobática em Suspensão:</strong> Realizar nas argolas em altura média sobre colchão gímnico. Puxar em vela invertida, passar a pelve em rotação posterior com depressão escapular ativa e buscar a estabilização no apoio ou suspensão sem choque brusco. Excelente transferência proprioceptiva para o repertório acrobático.
         </div>
         <div class="ex-actions">
-          <div style="display:flex; gap:6px; flex-wrap:wrap;">
+          <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom: 8px;">
             <button class="btn-video" onclick="openVideoModal('Rolamento para Trás nas Argolas (Felge)', '<b>Mecânica Chave:</b> Puxada em vela invertida com compressão abdominal, conduzindo a rotação posterior com depressão escapular ativa até o apoio sobre colchão de proteção.', 'https://www.youtube.com/embed/5Hj0m-e98_8')">
               <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Ver Técnica
             </button>
+          </div>
+          <div class="ex-actions-btns">
             <button class="btn-comment" id="btn-comment-ex-sex-7" onclick="toggleCommentBox('ex-sex-7')">
-              <span>💬 Dúvidas ou observações? Clique aqui</span>
+              <span>💬 Observações</span>
               <span class="comment-dot" id="dot-ex-sex-7" style="display:none;"></span>
+            </button>
+            <button type="button" class="btn-send-video" onclick="openSendVideoModal('Rolamento para Trás nas Argolas')">
+              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
             </button>
           </div>
           <div class="sets-container">
@@ -4187,10 +4411,16 @@
           <strong>Protocolo Mandatório de Resgate:</strong> Pausa estrita de 3 a 4 segundos no fundo da dorsiflexão máxima do degrau antes de cada subida concêntrica. O estiramento sob alta tensão passiva-ativa adiciona sarcômeros em série nos fascículos encurtados pós-sutura, recuperando o comprimento fisiológico e o stiffness elástico para impulsão vertical.
         </div>
         <div class="ex-actions">
-          <button class="btn-comment" id="btn-comment-ex-sex-8" onclick="toggleCommentBox('ex-sex-8')">
-            <span>💬 Dúvidas ou observações? Clique aqui</span>
-            <span class="comment-dot" id="dot-ex-sex-8" style="display:none;"></span>
-          </button>
+          <div class="ex-actions-btns">
+            <button class="btn-comment" id="btn-comment-ex-sex-8" onclick="toggleCommentBox('ex-sex-8')">
+              <span>💬 Observações</span>
+              <span class="comment-dot" id="dot-ex-sex-8" style="display:none;"></span>
+            </button>
+            <button type="button" class="btn-send-video" onclick="openSendVideoModal('Elevação de Panturrilha em Degrau')">
+              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+            </button>
+          </div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1</div>
             <div class="set-pill" onclick="toggleSet(this)">2</div>
@@ -4202,7 +4432,7 @@
             <span>👤 Suas anotações (pausa isométrica, tensão no tendão):</span>
             <span class="save-indicator" id="save-status-ex-sex-8"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-sex-8" placeholder="Ex: Pausa de 4" respeitada, queimação profunda no sóleo..." oninput="saveExerciseNote('ex-sex-8', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-sex-8" placeholder="Ex: Pausa de 4&quot; respeitada, queimação profunda no sóleo..." oninput="saveExerciseNote('ex-sex-8', this.value)"></textarea>
         </div>
       </div>
     </div>
@@ -4234,10 +4464,16 @@
           <strong>Abertura Articular:</strong> Tracionar a perna esquerda estendida em adução e leve rotação interna para alongar o bíceps femoral e o trato iliotibial. Essa manobra diminui a tração sobre a cabeça da fíbula e abre espaço no platô tibial lateral, eliminando a sensação de compressão ou atrito ("pedrinha").
         </div>
         <div class="ex-actions">
-          <button class="btn-comment" id="btn-comment-ex-sex-9" onclick="toggleCommentBox('ex-sex-9')">
-            <span>💬 Dúvidas ou observações? Clique aqui</span>
-            <span class="comment-dot" id="dot-ex-sex-9" style="display:none;"></span>
-          </button>
+          <div class="ex-actions-btns">
+            <button class="btn-comment" id="btn-comment-ex-sex-9" onclick="toggleCommentBox('ex-sex-9')">
+              <span>💬 Observações</span>
+              <span class="comment-dot" id="dot-ex-sex-9" style="display:none;"></span>
+            </button>
+            <button type="button" class="btn-send-video" onclick="openSendVideoModal('Descompressão do Menisco Lateral')">
+              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+            </button>
+          </div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1</div>
             <div class="set-pill" onclick="toggleSet(this)">2</div>
@@ -4269,10 +4505,16 @@
           <strong>Neutralização de Tensões:</strong> Mãos nas argolas baixas atrás do corpo com expiração profunda, deixando a caixa torácica se expandir. Reequilibra o complexo do ombro após a alta demanda tensional das sustentações em RTO e portagem.
         </div>
         <div class="ex-actions">
-          <button class="btn-comment" id="btn-comment-ex-sex-10" onclick="toggleCommentBox('ex-sex-10')">
-            <span>💬 Dúvidas ou observações? Clique aqui</span>
-            <span class="comment-dot" id="dot-ex-sex-10" style="display:none;"></span>
-          </button>
+          <div class="ex-actions-btns">
+            <button class="btn-comment" id="btn-comment-ex-sex-10" onclick="toggleCommentBox('ex-sex-10')">
+              <span>💬 Observações</span>
+              <span class="comment-dot" id="dot-ex-sex-10" style="display:none;"></span>
+            </button>
+            <button type="button" class="btn-send-video" onclick="openSendVideoModal('Abertura Torácica & Extensão Glenoumeral')">
+              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+            </button>
+          </div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1</div>
             <div class="set-pill" onclick="toggleSet(this)">2</div>
@@ -4326,10 +4568,16 @@
           <strong>Aquecimento Articular:</strong> Movimentos soltos e controlados com anilha de 5 a 10 kg, sem choque articular e sem descer o joelho no chão nos lunges (use step-up na caixa baixa).
         </div>
         <div class="ex-actions">
-          <button class="btn-comment" id="btn-comment-ex-cf-1" onclick="toggleCommentBox('ex-cf-1')">
-            <span>💬 Dúvidas ou observações? Clique aqui</span>
-            <span class="comment-dot" id="dot-ex-cf-1" style="display:none;"></span>
-          </button>
+          <div class="ex-actions-btns">
+            <button class="btn-comment" id="btn-comment-ex-cf-1" onclick="toggleCommentBox('ex-cf-1')">
+              <span>💬 Observações</span>
+              <span class="comment-dot" id="dot-ex-cf-1" style="display:none;"></span>
+            </button>
+            <button type="button" class="btn-send-video" onclick="openSendVideoModal('Warm-up CrossFit Adaptado')">
+              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+            </button>
+          </div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1</div>
             <div class="set-pill" onclick="toggleSet(this)">2</div>
@@ -4363,10 +4611,16 @@
           <strong>Ajuste Obrigatório:</strong> Substituir a rosca francesa por tríceps corda na polia ou coice com halteres leves para não estirar sob carga a cabeça longa do tríceps esquerdo. Crucifixo inverso e remada reforçam o romboide e deltoide posterior.
         </div>
         <div class="ex-actions">
-          <button class="btn-comment" id="btn-comment-ex-cf-2" onclick="toggleCommentBox('ex-cf-2')">
-            <span>💬 Dúvidas ou observações? Clique aqui</span>
-            <span class="comment-dot" id="dot-ex-cf-2" style="display:none;"></span>
-          </button>
+          <div class="ex-actions-btns">
+            <button class="btn-comment" id="btn-comment-ex-cf-2" onclick="toggleCommentBox('ex-cf-2')">
+              <span>💬 Observações</span>
+              <span class="comment-dot" id="dot-ex-cf-2" style="display:none;"></span>
+            </button>
+            <button type="button" class="btn-send-video" onclick="openSendVideoModal('Skill AMRAP 10\' CrossFit')">
+              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+            </button>
+          </div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">1</div>
             <div class="set-pill" onclick="toggleSet(this)">2</div>
@@ -4404,10 +4658,16 @@
           • <strong>Round 10:</strong> 10 DB Clean & Press + 10 Wall Ball no banco (ou 10 cal Remo) + 10 KB Swings Russos + 10 Box Step-ups + 15 Single Unders (ou 8 cal Bike).
         </div>
         <div class="ex-actions">
-          <button class="btn-comment" id="btn-comment-ex-cf-3" onclick="toggleCommentBox('ex-cf-3')">
-            <span>💬 Dúvidas ou observações? Clique aqui</span>
-            <span class="comment-dot" id="dot-ex-cf-3" style="display:none;"></span>
-          </button>
+          <div class="ex-actions-btns">
+            <button class="btn-comment" id="btn-comment-ex-cf-3" onclick="toggleCommentBox('ex-cf-3')">
+              <span>💬 Observações</span>
+              <span class="comment-dot" id="dot-ex-cf-3" style="display:none;"></span>
+            </button>
+            <button type="button" class="btn-send-video" onclick="openSendVideoModal('WOD For Time 20\' CrossFit')">
+              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+            </button>
+          </div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">40</div>
             <div class="set-pill" onclick="toggleSet(this)">20</div>
@@ -4503,22 +4763,28 @@
           <strong>Potência Dinâmica:</strong> Puxada balística com transição rápida de cotovelos sobre a barra. Recrutamento explosivo de grande dorsal e peitoral com desaceleração do tríceps no dip.
         </div>
         <div class="ex-actions">
-          <button class="btn-comment" id="btn-comment-ex-q-1" onclick="toggleCommentBox('ex-q-1')">
-            <span>💬 Dúvidas ou observações? Clique aqui</span>
-            <span class="comment-dot" id="dot-ex-q-1" style="display:none;"></span>
-          </button>
+          <div class="ex-actions-btns">
+            <button class="btn-comment" id="btn-comment-ex-qui-1" onclick="toggleCommentBox('ex-qui-1')">
+              <span>💬 Observações</span>
+              <span class="comment-dot" id="dot-ex-qui-1" style="display:none;"></span>
+            </button>
+            <button type="button" class="btn-send-video" onclick="openSendVideoModal('Kip Muscle-Up na Barra')">
+              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+            </button>
+          </div>
           <div class="sets-container">
             <div class="set-pill done" onclick="toggleSet(this)">1</div>
             <div class="set-pill done" onclick="toggleSet(this)">2</div>
             <div class="set-pill done" onclick="toggleSet(this)">3</div>
           </div>
         </div>
-        <div id="comment-box-ex-q-1" class="comment-drawer" style="display: none;">
+        <div id="comment-box-ex-qui-1" class="comment-drawer" style="display: none;">
           <div class="comment-header">
             <span>👤 Suas anotações (cargas, sensações, dores):</span>
-            <span class="save-indicator" id="save-status-ex-q-1"></span>
+            <span class="save-indicator" id="save-status-ex-qui-1"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-q-1" placeholder="Ex: Carga usada, sensações, observações de treino..." oninput="saveExerciseNote('ex-q-1', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-qui-1" placeholder="Ex: Carga usada, sensações, observações de treino..." oninput="saveExerciseNote('ex-qui-1', this.value)"></textarea>
         </div>
       </div>
 
@@ -4548,22 +4814,28 @@
           </div>
         </div>
         <div class="ex-actions">
-          <button class="btn-comment" id="btn-comment-ex-q-2" onclick="toggleCommentBox('ex-q-2')">
-            <span>💬 Dúvidas ou observações? Clique aqui</span>
-            <span class="comment-dot" id="dot-ex-q-2" style="display:none;"></span>
-          </button>
+          <div class="ex-actions-btns">
+            <button class="btn-comment" id="btn-comment-ex-qui-2" onclick="toggleCommentBox('ex-qui-2')">
+              <span>💬 Observações</span>
+              <span class="comment-dot" id="dot-ex-qui-2" style="display:none;"></span>
+            </button>
+            <button type="button" class="btn-send-video" onclick="openSendVideoModal('Giro de Oitava na Barra Fixa')">
+              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+            </button>
+          </div>
           <div class="sets-container">
             <div class="set-pill done" onclick="toggleSet(this)">1</div>
             <div class="set-pill done" onclick="toggleSet(this)">2</div>
             <div class="set-pill done" onclick="toggleSet(this)">3</div>
           </div>
         </div>
-        <div id="comment-box-ex-q-2" class="comment-drawer" style="display: none;">
+        <div id="comment-box-ex-qui-2" class="comment-drawer" style="display: none;">
           <div class="comment-header">
             <span>👤 Suas anotações (cargas, sensações, dores):</span>
-            <span class="save-indicator" id="save-status-ex-q-2"></span>
+            <span class="save-indicator" id="save-status-ex-qui-2"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-q-2" placeholder="Ex: Carga usada, sensações, observações de treino..." oninput="saveExerciseNote('ex-q-2', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-qui-2" placeholder="Ex: Carga usada, sensações, observações de treino..." oninput="saveExerciseNote('ex-qui-2', this.value)"></textarea>
         </div>
       </div>
     </div>
@@ -4593,13 +4865,19 @@
           <strong>Alavanca Horizontal:</strong> Transição fluida entre extensão de ombro em alavanca e flexão concêntrica em cadeia fechada, mantendo o corpo horizontal e o reto abdominal sob tensão isométrica máxima.
         </div>
         <div class="ex-actions">
-          <div style="display:flex; gap:6px; flex-wrap:wrap;">
+          <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom: 8px;">
             <button class="btn-video" onclick="openVideoModal('Ice Cream Makers — Alavanca & Puxada', '<b>Mecânica Chave:</b> Transição contínua entre extensão de ombro em braço esticado (Front Lever) e flexão em cadeia fechada (Chin-Up). Pelve rigorosamente alinhada na horizontal.', 'https://www.youtube.com/embed/5kQWqFz9a5c')">
               <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Ver Técnica
             </button>
-            <button class="btn-comment" id="btn-comment-ex-q-3" onclick="toggleCommentBox('ex-q-3')">
-              <span>💬 Dúvidas ou observações? Clique aqui</span>
-              <span class="comment-dot" id="dot-ex-q-3" style="display:none;"></span>
+          </div>
+          <div class="ex-actions-btns">
+            <button class="btn-comment" id="btn-comment-ex-qui-3" onclick="toggleCommentBox('ex-qui-3')">
+              <span>💬 Observações</span>
+              <span class="comment-dot" id="dot-ex-qui-3" style="display:none;"></span>
+            </button>
+            <button type="button" class="btn-send-video" onclick="openSendVideoModal('Ice Cream Makers nas Argolas')">
+              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
             </button>
           </div>
           <div class="sets-container">
@@ -4607,12 +4885,12 @@
             <div class="set-pill done" onclick="toggleSet(this)">2</div>
           </div>
         </div>
-        <div id="comment-box-ex-q-3" class="comment-drawer" style="display: none;">
+        <div id="comment-box-ex-qui-3" class="comment-drawer" style="display: none;">
           <div class="comment-header">
             <span>👤 Suas anotações (cargas, sensações, dores):</span>
-            <span class="save-indicator" id="save-status-ex-q-3"></span>
+            <span class="save-indicator" id="save-status-ex-qui-3"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-q-3" placeholder="Ex: Carga usada, sensações, observações de treino..." oninput="saveExerciseNote('ex-q-3', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-qui-3" placeholder="Ex: Carga usada, sensações, observações de treino..." oninput="saveExerciseNote('ex-qui-3', this.value)"></textarea>
         </div>
       </div>
 
@@ -4633,20 +4911,26 @@
           <strong>Compressão e Alavanca Vertical:</strong> Elevação ativa de pernas com transição vertical em vela nas argolas. Força anti-gravitacional pura de cadeia anterior e depressão escapular.
         </div>
         <div class="ex-actions">
-          <button class="btn-comment" id="btn-comment-ex-q-4" onclick="toggleCommentBox('ex-q-4')">
-            <span>💬 Dúvidas ou observações? Clique aqui</span>
-            <span class="comment-dot" id="dot-ex-q-4" style="display:none;"></span>
-          </button>
+          <div class="ex-actions-btns">
+            <button class="btn-comment" id="btn-comment-ex-qui-4" onclick="toggleCommentBox('ex-qui-4')">
+              <span>💬 Observações</span>
+              <span class="comment-dot" id="dot-ex-qui-4" style="display:none;"></span>
+            </button>
+            <button type="button" class="btn-send-video" onclick="openSendVideoModal('Hanging Leg Raise para Vela')">
+              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+            </button>
+          </div>
           <div class="sets-container">
             <div class="set-pill done" onclick="toggleSet(this)">1</div>
           </div>
         </div>
-        <div id="comment-box-ex-q-4" class="comment-drawer" style="display: none;">
+        <div id="comment-box-ex-qui-4" class="comment-drawer" style="display: none;">
           <div class="comment-header">
             <span>👤 Suas anotações (cargas, sensações, dores):</span>
-            <span class="save-indicator" id="save-status-ex-q-4"></span>
+            <span class="save-indicator" id="save-status-ex-qui-4"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-q-4" placeholder="Ex: Carga usada, sensações, observações de treino..." oninput="saveExerciseNote('ex-q-4', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-qui-4" placeholder="Ex: Carga usada, sensações, observações de treino..." oninput="saveExerciseNote('ex-qui-4', this.value)"></textarea>
         </div>
       </div>
     </div>
@@ -4676,10 +4960,16 @@
           <strong>Aceleração Terminal:</strong> A superband ancorada impõe pico de resistência justamente no ponto de máxima extensão de quadril (*lockout*). Disparo de glúteo máximo sem qualquer cisalhamento patelofemoral ou meniscal.
         </div>
         <div class="ex-actions">
-          <button class="btn-comment" id="btn-comment-ex-q-5" onclick="toggleCommentBox('ex-q-5')">
-            <span>💬 Dúvidas ou observações? Clique aqui</span>
-            <span class="comment-dot" id="dot-ex-q-5" style="display:none;"></span>
-          </button>
+          <div class="ex-actions-btns">
+            <button class="btn-comment" id="btn-comment-ex-qui-5" onclick="toggleCommentBox('ex-qui-5')">
+              <span>💬 Observações</span>
+              <span class="comment-dot" id="dot-ex-qui-5" style="display:none;"></span>
+            </button>
+            <button type="button" class="btn-send-video" onclick="openSendVideoModal('Banded Kettlebell Swing')">
+              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+            </button>
+          </div>
           <div class="sets-container">
             <div class="set-pill done" onclick="toggleSet(this)">1</div>
             <div class="set-pill done" onclick="toggleSet(this)">2</div>
@@ -4687,12 +4977,12 @@
             <div class="set-pill done" onclick="toggleSet(this)">4</div>
           </div>
         </div>
-        <div id="comment-box-ex-q-5" class="comment-drawer" style="display: none;">
+        <div id="comment-box-ex-qui-5" class="comment-drawer" style="display: none;">
           <div class="comment-header">
             <span>👤 Suas anotações (cargas, sensações, dores):</span>
-            <span class="save-indicator" id="save-status-ex-q-5"></span>
+            <span class="save-indicator" id="save-status-ex-qui-5"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-q-5" placeholder="Ex: Carga usada, sensações, observações de treino..." oninput="saveExerciseNote('ex-q-5', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-qui-5" placeholder="Ex: Carga usada, sensações, observações de treino..." oninput="saveExerciseNote('ex-qui-5', this.value)"></textarea>
         </div>
       </div>
 
@@ -4713,21 +5003,27 @@
           <strong>Dominância de Quadril:</strong> Tíbias verticais, joelhos semifletidos (~20°). Carrega glúteo e posteriores sob tensão passiva sem flexão profunda que pressione o menisco lateral rompido.
         </div>
         <div class="ex-actions">
-          <button class="btn-comment" id="btn-comment-ex-q-6" onclick="toggleCommentBox('ex-q-6')">
-            <span>💬 Dúvidas ou observações? Clique aqui</span>
-            <span class="comment-dot" id="dot-ex-q-6" style="display:none;"></span>
-          </button>
+          <div class="ex-actions-btns">
+            <button class="btn-comment" id="btn-comment-ex-qui-6" onclick="toggleCommentBox('ex-qui-6')">
+              <span>💬 Observações</span>
+              <span class="comment-dot" id="dot-ex-qui-6" style="display:none;"></span>
+            </button>
+            <button type="button" class="btn-send-video" onclick="openSendVideoModal('Romanian Deadlift com Kettlebell')">
+              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+            </button>
+          </div>
           <div class="sets-container">
             <div class="set-pill done" onclick="toggleSet(this)">1</div>
             <div class="set-pill done" onclick="toggleSet(this)">2</div>
           </div>
         </div>
-        <div id="comment-box-ex-q-6" class="comment-drawer" style="display: none;">
+        <div id="comment-box-ex-qui-6" class="comment-drawer" style="display: none;">
           <div class="comment-header">
             <span>👤 Suas anotações (cargas, sensações, dores):</span>
-            <span class="save-indicator" id="save-status-ex-q-6"></span>
+            <span class="save-indicator" id="save-status-ex-qui-6"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-q-6" placeholder="Ex: Carga usada, sensações, observações de treino..." oninput="saveExerciseNote('ex-q-6', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-qui-6" placeholder="Ex: Carga usada, sensações, observações de treino..." oninput="saveExerciseNote('ex-qui-6', this.value)"></textarea>
         </div>
       </div>
 
@@ -4748,21 +5044,27 @@
           <strong>Protocolo de Resgate:</strong> Pausa profunda no fundo do degrau estirando os fascículos sob carga para estimular a adição de sarcômeros em série no gastrocnêmio e sóleo.
         </div>
         <div class="ex-actions">
-          <button class="btn-comment" id="btn-comment-ex-q-7" onclick="toggleCommentBox('ex-q-7')">
-            <span>💬 Dúvidas ou observações? Clique aqui</span>
-            <span class="comment-dot" id="dot-ex-q-7" style="display:none;"></span>
-          </button>
+          <div class="ex-actions-btns">
+            <button class="btn-comment" id="btn-comment-ex-qui-7" onclick="toggleCommentBox('ex-qui-7')">
+              <span>💬 Observações</span>
+              <span class="comment-dot" id="dot-ex-qui-7" style="display:none;"></span>
+            </button>
+            <button type="button" class="btn-send-video" onclick="openSendVideoModal('Elevação de Panturrilha em Degrau')">
+              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+            </button>
+          </div>
           <div class="sets-container">
             <div class="set-pill done" onclick="toggleSet(this)">1</div>
             <div class="set-pill done" onclick="toggleSet(this)">2</div>
           </div>
         </div>
-        <div id="comment-box-ex-q-7" class="comment-drawer" style="display: none;">
+        <div id="comment-box-ex-qui-7" class="comment-drawer" style="display: none;">
           <div class="comment-header">
             <span>👤 Suas anotações (cargas, sensações, dores):</span>
-            <span class="save-indicator" id="save-status-ex-q-7"></span>
+            <span class="save-indicator" id="save-status-ex-qui-7"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-q-7" placeholder="Ex: Carga usada, sensações, observações de treino..." oninput="saveExerciseNote('ex-q-7', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-qui-7" placeholder="Ex: Carga usada, sensações, observações de treino..." oninput="saveExerciseNote('ex-qui-7', this.value)"></textarea>
         </div>
       </div>
     </div>
@@ -4843,8 +5145,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-q-1" onclick="toggleCommentBox('ex-q-1')">
-            <span>💬 Dúvidas ou observações? Clique aqui</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-q-1" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Mobilidade de Punhos & Ombros')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-q-1" class="comment-drawer" style="display: none;">
@@ -4873,8 +5179,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-q-2" onclick="toggleCommentBox('ex-q-2')">
-            <span>💬 Dúvidas ou observações? Clique aqui</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-q-2" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Hollow & Arch Hold')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-q-2" class="comment-drawer" style="display: none;">
@@ -4898,12 +5208,16 @@
           </div>
         </div>
         <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('L-Sit no Solo', '• Sente no chão com as pernas esticadas e unidas à sua frente. Apoie as mãos no chão ao lado das coxas.\n• Empurre o chão com toda a força para baixo até seu bumbum e suas pernas saírem do chão ao mesmo tempo. Trave os joelhos e aponte a pontinha dos pés!\n\nBase científica:\n• Depressão Escapular & Alavanca de Terceiro Grau (Overcoming Gravity): Demanda pico de força isométrica dos depressores escapulares (peitoral menor e feixes inferiores do trapézio) e flexores de quadril (iliopsoas e reto femoral).\n• Compressão Pélvica: Aproxima a pelve do tórax sob grande momento de resistência criado pelo peso das pernas estendidas à frente.', '🔧 Instruções')">🔧 Instruções</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('L-Sit no Solo', '• Sente no chão com as pernas esticadas e unitas à sua frente. Apoie as mãos no chão ao lado das coxas.\n• Empurre o chão com toda a força para baixo até seu bumbum e suas pernas saírem do chão ao mesmo tempo. Trave os joelhos e aponte a pontinha dos pés!\n\nBase científica:\n• Depressão Escapular & Alavanca de Terceiro Grau (Overcoming Gravity): Demanda pico de força isométrica dos depressores escapulares (peitoral menor e feixes inferiores do trapézio) e flexores de quadril (iliopsoas e reto femoral).\n• Compressão Pélvica: Aproxima a pelve do tórax sob grande momento de resistência criado pelo peso das pernas estendidas à frente.', '🔧 Instruções')">🔧 Instruções</button>
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-q-3" onclick="toggleCommentBox('ex-q-3')">
-            <span>💬 Dúvidas ou observações? Clique aqui</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-q-3" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('L-Sit no Solo')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-q-3" class="comment-drawer" style="display: none;">
@@ -4950,8 +5264,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-q-4" onclick="toggleCommentBox('ex-q-4')">
-            <span>💬 Dúvidas ou observações? Clique aqui</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-q-4" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Handstand na Manjota')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-q-4" class="comment-drawer" style="display: none;">
@@ -4981,8 +5299,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-q-5" onclick="toggleCommentBox('ex-q-5')">
-            <span>💬 Dúvidas ou observações? Clique aqui</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-q-5" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Press to Handstand')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-q-5" class="comment-drawer" style="display: none;">
@@ -5012,8 +5334,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-q-6" onclick="toggleCommentBox('ex-q-6')">
-            <span>💬 Dúvidas ou observações? Clique aqui</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-q-6" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('One-Arm Croc na Manjota')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-q-6" class="comment-drawer" style="display: none;">
@@ -5055,8 +5381,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-q-7" onclick="toggleCommentBox('ex-q-7')">
-            <span>💬 Dúvidas ou observações? Clique aqui</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-q-7" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Handstand Push-up (HSPU)')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-q-7" class="comment-drawer" style="display: none;">
@@ -5090,8 +5420,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-q-8" onclick="toggleCommentBox('ex-q-8')">
-            <span>💬 Dúvidas ou observações? Clique aqui</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-q-8" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Tuck Front Lever Row')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-q-8" class="comment-drawer" style="display: none;">
@@ -5155,8 +5489,12 @@
 
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-q-cardio" onclick="toggleCommentBox('ex-q-cardio')">
-            <span>💬 Observações do Condicionamento</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-q-cardio" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('EMOM 12\' • Condicionamento')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-q-cardio" class="comment-drawer" style="display: none;">
@@ -5195,8 +5533,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-q-9" onclick="toggleCommentBox('ex-q-9')">
-            <span>💬 Dúvidas ou observações? Clique aqui</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-q-9" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Suspensão Passiva na Barra')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-q-9" class="comment-drawer" style="display: none;">
@@ -5223,8 +5565,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-q-10" onclick="toggleCommentBox('ex-q-10')">
-            <span>💬 Dúvidas ou observações? Clique aqui</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-q-10" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Pancake Stretch')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-q-10" class="comment-drawer" style="display: none;">
@@ -5283,6 +5629,23 @@
           <span class="analysis-hero-chip">🎯 Educativos para Pontos Fracos</span>
         </div>
       </div>
+    </div>
+
+    <!-- BANNER DE ENVIO DE VÍDEO PARA ANÁLISE BIOMECÂNICA -->
+    <div class="analysis-upload-banner">
+      <div class="analysis-upload-banner-content">
+        <div class="analysis-upload-banner-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4zM14 13h-3v3H9v-3H6v-2h3V8h2v3h3v2z"/></svg>
+        </div>
+        <div class="analysis-upload-banner-text">
+          <div class="analysis-upload-title">Enviar Vídeo para Análise Biomecânica</div>
+          <div class="analysis-upload-sub">Gravou sua execução e quer uma avaliação técnica com diagnóstico, pontos fracos e educativos? Envie para o Prof. Gui Lemos.</div>
+        </div>
+      </div>
+      <button type="button" class="btn-analysis-upload-cta" onclick="openSendVideoModal('Geral / Movimento Livre')">
+        <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+        <span>📹 Enviar Vídeo para Análise</span>
+      </button>
     </div>
 
     <!-- VÍDEO 1: PRESS HANDSTAND NO OMBRO DO PARCEIRO -->
@@ -6227,6 +6590,62 @@
       </div>
       <div class="dock-progress-bar-bg">
         <div class="dock-progress-bar-fill" id="dockProgressFill" style="width: 0%;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Envio de Vídeo para Análise Biomecânica -->
+  <div id="sendVideoModal" class="modal-overlay" onclick="if(event.target === this) closeSendVideoModal();">
+    <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 480px;">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="font-size:1.2rem;">📹</span>
+          <div>
+            <h3 style="margin:0; font-size:1.02rem; color:#fff;">Enviar Vídeo para Análise</h3>
+            <span id="sendVideoExerciseName" style="font-size:0.75rem; color:#38bdf8; font-weight:600;">Exercício Selecionado</span>
+          </div>
+        </div>
+        <button class="btn-close" type="button" onclick="closeSendVideoModal()" aria-label="Fechar">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 18px 20px;">
+        <p style="font-size:0.84rem; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
+          Grave sua execução e envie diretamente para o <strong>Prof. Gui Lemos</strong> para receber uma análise biomecânica com diagnóstico de pontos fracos e educativos corretivos.
+        </p>
+
+        <!-- Dicas de Gravação para Melhor Análise -->
+        <div style="background:rgba(56,189,248,0.06); border:1px solid rgba(56,189,248,0.25); border-radius:10px; padding:12px 14px; margin-bottom:16px;">
+          <div style="font-size:0.8rem; font-weight:700; color:#38bdf8; margin-bottom:6px; display:flex; align-items:center; gap:6px;">
+            <span>💡 Dicas para uma boa filmagem:</span>
+          </div>
+          <ul style="margin:0; padding-left:18px; font-size:0.77rem; color:#cbd5e1; line-height:1.55;">
+            <li>Enquadre o <strong>corpo inteiro</strong> (da cabeça aos pés).</li>
+            <li>Grave em ângulo <strong>lateral ou diagonal (45°)</strong>.</li>
+            <li>Apoie o celular em local estável e com boa iluminação.</li>
+          </ul>
+        </div>
+
+        <!-- Ação 1: Enviar pelo WhatsApp (Mais Rápido) -->
+        <button type="button" class="btn-send-wpp-primary" onclick="confirmSendVideoWhatsApp()">
+          <svg style="width:20px; height:20px; fill:currentColor;" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          <span>Abrir WhatsApp & Enviar Vídeo</span>
+        </button>
+
+        <!-- Ação 2: Alternativa Link do Drive / YouTube -->
+        <div style="margin-top:14px; text-align:center;">
+          <button type="button" class="btn-link-toggle" onclick="toggleDriveLinkInput()" style="background:none; border:none; color:var(--text-muted); font-size:0.77rem; cursor:pointer; text-decoration:underline;">
+            Já subiu o vídeo no Drive ou YouTube? Clique para colar o link
+          </button>
+        </div>
+
+        <div id="driveLinkContainer" style="display:none; margin-top:12px; padding-top:12px; border-top:1px dashed var(--border-subtle);">
+          <label style="display:block; font-size:0.76rem; color:var(--text-muted); margin-bottom:6px;">Link do Google Drive / YouTube:</label>
+          <div style="display:flex; gap:6px;">
+            <input type="url" id="sendVideoExternalUrl" placeholder="https://drive.google.com/... ou https://youtu.be/..." style="flex:1; background:rgba(0,0,0,0.4); border:1px solid var(--border-subtle); border-radius:8px; padding:8px 10px; font-size:0.8rem; color:#fff;">
+            <button type="button" onclick="sendVideoWithLinkWhatsApp()" style="background:#38bdf8; color:#000; border:none; border-radius:8px; padding:0 12px; font-weight:700; font-size:0.78rem; cursor:pointer;">
+              Enviar
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -7672,10 +8091,60 @@
       }
     };
 
+    /* Modal de Envio de Vídeo para Análise Biomecânica */
+    let currentSendVideoExercise = '';
+
+    window.openSendVideoModal = function(exerciseName) {
+      currentSendVideoExercise = exerciseName || 'Geral / Movimento Livre';
+      const nameEl = document.getElementById('sendVideoExerciseName');
+      if (nameEl) nameEl.textContent = currentSendVideoExercise;
+      
+      const driveContainer = document.getElementById('driveLinkContainer');
+      if (driveContainer) driveContainer.style.display = 'none';
+      const inputEl = document.getElementById('sendVideoExternalUrl');
+      if (inputEl) inputEl.value = '';
+
+      const modal = document.getElementById('sendVideoModal');
+      if (modal) modal.classList.add('active');
+    };
+
+    window.closeSendVideoModal = function() {
+      const modal = document.getElementById('sendVideoModal');
+      if (modal) modal.classList.remove('active');
+    };
+
+    window.toggleDriveLinkInput = function() {
+      const c = document.getElementById('driveLinkContainer');
+      if (c) c.style.display = (c.style.display === 'none') ? 'block' : 'none';
+    };
+
+    window.confirmSendVideoWhatsApp = function() {
+      const phone = '5516981222356';
+      const text = `Olá Gui! Acabei de gravar o vídeo da minha execução do exercício *${currentSendVideoExercise}*.\n\nSegue o vídeo anexo para sua análise biomecânica!`;
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+      window.open(url, '_blank');
+      closeSendVideoModal();
+    };
+
+    window.sendVideoWithLinkWhatsApp = function() {
+      const linkInput = document.getElementById('sendVideoExternalUrl');
+      const link = (linkInput ? linkInput.value.trim() : '');
+      const phone = '5516981222356';
+      if (!link) {
+        alert('Por favor, cole o link do seu vídeo no campo antes de enviar.');
+        return;
+      }
+      const text = `Olá Gui! Gravei o vídeo da minha execução do exercício *${currentSendVideoExercise}*.\n\nSegue o link para sua análise biomecânica:\n${link}`;
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+      window.open(url, '_blank');
+      closeSendVideoModal();
+    };
+
     function handleOverlayClick(e) {
       if (e && e.target) {
         if (e.target.id === 'videoModal') closeVideoModal();
         if (e.target.id === 'bioModal') closeBioModal(e);
+        if (e.target.id === 'sendVideoModal') closeSendVideoModal();
       }
     }
 
@@ -7684,6 +8153,7 @@
       if (e.key === 'Escape') {
         closeBioModal(e);
         closeVideoModal();
+        closeSendVideoModal();
       }
     });
 
