@@ -306,8 +306,8 @@ def build_prontuario_workbook():
     headers_s3 = [
         'Data', 'Movimento / Gesto', 'Categoria', 'Duração',
         'Aparelho / Local', 'Link do Arquivo (Drive / Mídia)',
-        'Na Prática (O que acontece)', 'Base Científica & Origem',
-        'Diagnóstico (O que ajustar)', 'Exercícios Sugeridos', 'Status'
+        'Na Prática (O que acontece)', 'Diagnóstico (O que ajustar)',
+        'Exercícios Sugeridos', 'Base Científica & Origem', 'Status'
     ]
 
     for col_idx, h in enumerate(headers_s3, start=1):
@@ -323,45 +323,45 @@ def build_prontuario_workbook():
             '02/10/2026', 'Press Handstand no Ombro do Parceiro', 'Portagem & Handstand', '15s',
             'Box CrossFit', 'Midia/WhatsApp Video 2026-10-02 at 14.44.21.mp4',
             'O parceiro de baixo mantém joelhos semifletidos para estabilidade. O Gui apoia nos ombros dele, projeta o tronco à frente e sobe o quadril sem salto. No topo, abre em straddle mantendo o alinhamento sobre a coluna da base e desce suavemente.',
-            'Empilhamento ósseo com absorção da carga axial (~84 kg) pela base; translação escapular que projeta o centro de gravidade sobre as clavículas; desaceleração excêntrica conduzida por peitoral menor e trapézio inferior.',
             'A subida foi muito suave e estável. No topo, ao abrir as pernas, o quadril empina um pouco para trás e a lombar curva de leve. Basta travar bem a barriga e o bumbum para a coluna subir reta.',
             '• Press na paralela baixa com costas na parede (3x3 com pausa de 3s no topo).\n• Subida no ombro com pernas unidas (pike press) para ganhar mais força de compressão.',
+            'Empilhamento ósseo com absorção da carga axial (~84 kg) pela base; translação escapular que projeta o centro de gravidade sobre as clavículas; desaceleração excêntrica conduzida por peitoral menor e trapézio inferior.',
             'Validado ✅'
         ),
         (
             '02/10/2026', '1x Strict RMU Livre + 2x Candle Kips', 'Argolas Altas', '25s',
             'Box CrossFit', 'Midia/WhatsApp Video 2026-10-02 at 14.44.18.mp4',
             'Retorno às argolas com subida estrita. Pegada falsa com punho flexionado, puxada até o peito na altura das mãos e cotovelos colados sem impulso de pernas. Em seguida, descida em vela e balanço com braços esticados para retornar ao apoio.',
-            'Flexão ulnocarpal profunda elimina defasagem mecânica do punho, poupando a articulação glenoumeral no ombro operado e inserção do tríceps; candle kip converte energia potencial em momento angular por tração estendida.',
             'Subida de força muito segura para o ombro operado. Na passagem para empurrar o apoio, os joelhos deram uma leve dobrada. As pernas devem ficar 100% esticadas e pontas dos pés ativas.',
             '• Transições lentas na argola baixa com pés no chão (3x5 reps com cotovelos colados).\n• Séries de 2 a 3 repetições estritas consecutivas mantendo a pegada falsa firme.',
+            'Flexão ulnocarpal profunda elimina defasagem mecânica do punho, poupando a articulação glenoumeral no ombro operado e inserção do tríceps; candle kip converte energia potencial em momento angular por tração estendida.',
             'Validado ✅'
         ),
         (
             '01/10/2026', 'Sequência Acrobática Completa (L-Sit -> Press -> Croc)', 'Manjota / Canes', '42s',
             'Ginásio EEFERP', 'https://drive.google.com/file/d/1tNgCqQQXc_sA3WCwqryKIRbHE7mK8zZX/view?usp=sharing',
             'Entrada em L-sit estático suspenso, subida contínua sem embalo até a parada de mãos aberta, trava estável por 8s, descida controlada e encaixe do cotovelo na bacia para One-Arm Crocodile por 7s com o outro braço estendido.',
-            'Força concêntrica de flexores de quadril e deltóide anterior com elevação escapular mantida; apoio do olécrano na espinha ilíaca ântero-superior e torque anti-rotacional neutralizado por oblíquos contralaterais.',
             'L-sit e subida na parada de mãos impecáveis. No apoio de um braço só (Crocodile), o quadril deu uma leve caída para o lado. O corpo precisa ficar reto como uma prancha paralela ao chão.',
             '• Isometria na manjota com apoio de apenas 2 dedos da mão livre (3x 8-10s por lado).\n• Retorno do Crocodile para as duas mãos sem encostar os pés no chão.',
+            'Força concêntrica de flexores de quadril e deltóide anterior com elevação escapular mantida; apoio do olécrano na espinha ilíaca ântero-superior e torque anti-rotacional neutralizado por oblíquos contralaterais.',
             'Validado ✅'
         ),
         (
             '01/10/2026', '4x Giros de Oitava Consecutivos (Glide Kips)', 'Barra Fixa', '4 reps',
             'Ginásio EEFERP', 'https://drive.google.com/file/d/1o5mW2GK-qtiffr74zTQOUaQ4PBfOzfxI/view?usp=sharing',
             'Balanço amplo perto do chão, flexão de quadril aproximando as canelas da barra no retorno do pêndulo e puxada com cotovelos estendidos até o apoio sobre a barra, encadeando 4 repetições contínuas com ritmo constante.',
-            'Timing na reversão do pêndulo angular encurtando o raio de rotação para ascensão vertical; extensão de ombro com grande dorsal e tríceps cabeça longa com rápida troca de punhos por cima do eixo.',
             'Excelente ritmo nas 4 repetições. Na subida em cima da barra, o peito ainda sobe um pouco recolhido. Abra o peito e projete os ombros à frente da barra para embalar fácil na repetição seguinte.',
             '• Balanço de oitava segurando bola medicinal leve entre os tornozelos (3x6 reps).\n• Saída da oitava ligada direto no giro de apoio para trás na barra.',
+            'Timing na reversão do pêndulo angular encurtando o raio de rotação para ascensão vertical; extensão de ombro com grande dorsal e tríceps cabeça longa com rápida troca de punhos por cima do eixo.',
             'Validado ✅'
         ),
         (
             '05/10/2026', 'Evolução Antropométrica e Comparativo 97kg -> 84kg', 'Composição Corporal', 'Fotos',
             'Clínica / Box', 'Midia/comparacao_frontal_relaxado.jpg | gui_foto.jpg',
             'Comparativo fotográfico evidenciando redução da adiposidade abdominal e definição do contorno muscular em 95 dias de acompanhamento, com preservação da estrutura muscular em tronco e braços.',
-            'Estímulo tensional frequente e aporte proteico de 2.0 a 2.4 g/kg preservando massa magra; descompressão de 40 a 50 kg no platô tibial por ciclo de passo/agachamento (-13 kg acumulados).',
             'Perda de peso consistente e com ótima retenção de massa muscular. Manter a disciplina para não acelerar demais e garantir a preservação da força nas habilidades gímnicas.',
             '• Manter ingestão proteica alta (2.0-2.4 g/kg) e hidratação rigorosa.\n• Refeed limpo sincronizado com dias de treinos mais pesados na EEFERP.',
+            'Estímulo tensional frequente e aporte proteico de 2.0 a 2.4 g/kg preservando massa magra; descompressão de 40 a 50 kg no platô tibial por ciclo de passo/agachamento (-13 kg acumulados).',
             'Validado ✅'
         )
     ]

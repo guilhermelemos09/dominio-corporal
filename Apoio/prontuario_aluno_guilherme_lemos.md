@@ -129,43 +129,43 @@
 
 1. **Press Handstand no Ombro do Parceiro (02/10/2026 - 15s)**
    * **Na prática:** O parceiro de baixo mantém joelhos semifletidos para estabilidade. O Gui apoia nos ombros dele, projeta o tronco à frente e sobe o quadril sem salto. No topo, abre em straddle mantendo o alinhamento sobre a coluna da base e desce suavemente.
-   * **Base científica:** Empilhamento ósseo com absorção da carga axial (~84 kg) pela base; translação escapular que projeta o centro de gravidade sobre as clavículas; desaceleração excêntrica conduzida por peitoral menor e trapézio inferior.
    * **Diagnóstico:** A subida foi muito suave e estável. No topo, ao abrir as pernas, o quadril empina um pouco para trás e a lombar curva de leve. Basta travar bem a barriga e o bumbum para a coluna subir reta.
    * **Exercícios sugeridos:**
      • *Press na paralela baixa com costas na parede:* 3x3 com pausa de 3s no topo para treinar o abdômen travado.
      • *Subida no ombro com pernas unidas (pike press):* Para desenvolver ainda mais força de compressão no abdômen.
+   * **Base científica:** Empilhamento ósseo com absorção da carga axial (~84 kg) pela base; translação escapular que projeta o centro de gravidade sobre as clavículas; desaceleração excêntrica conduzida por peitoral menor e trapézio inferior.
 
 2. **1x Strict RMU Livre + 2x Candle Kips (02/10/2026 - 25s)**
    * **Na prática:** Retorno às argolas com subida estrita. Pegada falsa com punho flexionado, puxada até o peito na altura das mãos e cotovelos colados sem impulso de pernas. Em seguida, descida em vela e balanço com braços esticados para retornar ao apoio.
-   * **Base científica:** Flexão ulnocarpal profunda elimina defasagem mecânica do punho, poupando a articulação glenoumeral no ombro operado e inserção do tríceps; candle kip converte energia potencial em momento angular por tração estendida.
    * **Diagnóstico:** Subida de força muito segura para o ombro operado. Na passagem para empurrar o apoio, os joelhos deram uma leve dobrada. As pernas devem ficar 100% esticadas e pontas dos pés ativas.
    * **Exercícios sugeridos:**
      • *Transições lentas na argola baixa com pés no chão:* 3x5 reps focando na passagem com cotovelos colados.
      • *Séries de RMU estrito seguidas:* 2 a 3 repetições consecutivas mantendo a pegada falsa firme durante a descida.
+   * **Base científica:** Flexão ulnocarpal profunda elimina defasagem mecânica do punho, poupando a articulação glenoumeral no ombro operado e inserção do tríceps; candle kip converte energia potencial em momento angular por tração estendida.
 
 3. **Sequência Acrobática Completa na Manjota (01/10/2026 - 42s)**
    * **Na prática:** Entrada em L-sit estático suspenso, subida contínua sem embalo até a parada de mãos aberta, trava estável por 8s, descida controlada e encaixe do cotovelo na bacia para One-Arm Crocodile por 7s com o outro braço estendido.
-   * **Base científica:** Força concêntrica de flexores de quadril e deltóide anterior com elevação escapular mantida; apoio do olécrano na espinha ilíaca ântero-superior e torque anti-rotacional neutralizado por oblíquos contralaterais.
    * **Diagnóstico:** L-sit e subida na parada de mãos impecáveis. No apoio de um braço só (Crocodile), o quadril deu uma leve caída para o lado. O corpo precisa ficar reto como uma prancha paralela ao chão.
    * **Exercícios sugeridos:**
      • *Isometria na manjota com apoio de apenas 2 dedos da mão livre:* 3x 8-10s por lado para nivelar a força do abdômen.
      • *Retorno com duas mãos:* Voltar do Crocodile para o apoio de duas mãos sem encostar os pés no chão.
+   * **Base científica:** Força concêntrica de flexores de quadril e deltóide anterior com elevação escapular mantida; apoio do olécrano na espinha ilíaca ântero-superior e torque anti-rotacional neutralizado por oblíquos contralaterais.
 
 4. **4x Giros de Oitava Consecutivos (01/10/2026 - 4 reps)**
    * **Na prática:** Balanço amplo perto do chão, flexão de quadril aproximando as canelas da barra no retorno do pêndulo e puxada com cotovelos estendidos até o apoio sobre a barra, encadeando 4 repetições contínuas com ritmo constante.
-   * **Base científica:** Timing na reversão do pêndulo angular encurtando o raio de rotação para ascensão vertical; extensão de ombro com grande dorsal e tríceps cabeça longa com rápida troca de punhos por cima do eixo.
    * **Diagnóstico:** Excelente ritmo nas 4 repetições. Na subida em cima da barra, o peito ainda sobe um pouco recolhido. Abra o peito e projete os ombros à frente da barra para embalar fácil na repetição seguinte.
    * **Exercícios sugeridos:**
      • *Balanço de oitava com bola medicinal leve entre os tornozelos:* 3x6 reps forçando as pernas unidas.
      • *Saída da oitava ligada direto no giro de apoio para trás na barra.*
+   * **Base científica:** Timing na reversão do pêndulo angular encurtando o raio de rotação para ascensão vertical; extensão de ombro com grande dorsal e tríceps cabeça longa com rápida troca de punhos por cima do eixo.
 
 5. **Evolução Antropométrica e Comparativo 97kg ➔ 84kg (05/10/2026)**
    * **Na prática:** Comparativo fotográfico evidenciando redução da adiposidade abdominal e definição do contorno muscular em 95 dias de acompanhamento, com preservação da estrutura muscular em tronco e braços.
-   * **Base científica:** Estímulo tensional frequente e aporte proteico de 2.0 a 2.4 g/kg preservando massa magra; descompressão de 40 a 50 kg no platô tibial por ciclo de passo/agachamento (-13 kg acumulados).
    * **Diagnóstico:** Perda de peso consistente e com ótima retenção de massa muscular. Manter a disciplina para não acelerar demais e garantir a preservação da força nas habilidades gímnicas.
    * **Exercícios sugeridos:**
      • *Manter ingestão proteica alta (2.0-2.4 g/kg) e hidratação rigorosa.*
      • *Refeed limpo sincronizado com dias de treinos mais pesados na EEFERP.*
+   * **Base científica:** Estímulo tensional frequente e aporte proteico de 2.0 a 2.4 g/kg preservando massa magra; descompressão de 40 a 50 kg no platô tibial por ciclo de passo/agachamento (-13 kg acumulados).
 
 ---
 _Documento gerado e atualizado continuamente pela plataforma Domínio Corporal._
