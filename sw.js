@@ -13,6 +13,8 @@ const ASSETS_TO_CACHE = [
   './Midia/icon_evol_tecnica.png',
   './Midia/icon_evol_recordes.png',
   './Midia/icon_evol_relatorio.png',
+  './helenice.html',
+  './manifest-helenice.json',
   'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap'
 ];
 
