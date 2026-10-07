@@ -2094,42 +2094,43 @@
     .evol-app-btn:hover::before, .evol-app-btn:active::before {
       opacity: 1;
     }
-    .evol-app-icon-box {
-      width: 64px;
-      height: 64px;
-      border-radius: 16px;
+    .evol-app-icon-wrap {
+      width: 78px;
+      height: 78px;
+      border-radius: 18px;
+      overflow: hidden;
+      margin-bottom: 10px;
+      background: #000000;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 12px;
-      transition: all 0.22s ease;
+      position: relative;
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .evol-app-btn:hover .evol-app-icon-box, .evol-app-btn:active .evol-app-icon-box {
-      transform: scale(1.08);
+    .evol-app-btn:hover .evol-app-icon-wrap, .evol-app-btn:active .evol-app-icon-wrap {
+      transform: scale(1.05);
     }
-    .evol-app-icon-box.box-composicao {
-      background: rgba(249, 115, 22, 0.1);
-      border: 1px solid rgba(249, 115, 22, 0.35);
-      box-shadow: 0 0 18px rgba(249, 115, 22, 0.18);
-      color: #fb923c;
+    .evol-app-icon-wrap.wrap-composicao {
+      border: 1.5px solid rgba(255, 122, 0, 0.45);
+      box-shadow: 0 0 20px rgba(255, 122, 0, 0.22);
     }
-    .evol-app-icon-box.box-tecnica {
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.35);
-      box-shadow: 0 0 18px rgba(56, 189, 248, 0.18);
-      color: #38bdf8;
+    .evol-app-icon-wrap.wrap-tecnica {
+      border: 1.5px solid rgba(0, 210, 255, 0.45);
+      box-shadow: 0 0 20px rgba(0, 210, 255, 0.22);
     }
-    .evol-app-icon-box.box-recordes {
-      background: rgba(244, 63, 94, 0.1);
-      border: 1px solid rgba(244, 63, 94, 0.35);
-      box-shadow: 0 0 18px rgba(244, 63, 94, 0.18);
-      color: #f43f5e;
+    .evol-app-icon-wrap.wrap-recordes {
+      border: 1.5px solid rgba(255, 42, 95, 0.45);
+      box-shadow: 0 0 20px rgba(255, 42, 95, 0.22);
     }
-    .evol-app-icon-box.box-relatorio {
-      background: rgba(192, 132, 252, 0.1);
-      border: 1px solid rgba(192, 132, 252, 0.35);
-      box-shadow: 0 0 18px rgba(192, 132, 252, 0.18);
-      color: #c084fc;
+    .evol-app-icon-wrap.wrap-relatorio {
+      border: 1.5px solid rgba(184, 69, 255, 0.45);
+      box-shadow: 0 0 20px rgba(184, 69, 255, 0.22);
+    }
+    .evol-app-icon-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
     .evol-app-btn-title {
       font-size: 0.85rem;
@@ -6887,95 +6888,37 @@
     <!-- ==================== HUB DA CENTRAL DE EVOLUÇÃO (GRADE DE APP) ==================== -->
     <div id="evolucaoHubMenu" class="evolucao-app-grid">
       
-      <!-- BOTÃO 1: COMPOSIÇÃO CORPORAL (LARANJA - HOMEM VITRUVIANO DELINEADO) -->
+      <!-- BOTÃO 1: COMPOSIÇÃO CORPORAL (HOMEM VITRUVIANO DA VINCI NEON LARANJA) -->
       <div class="evol-app-btn" onclick="openEvolucaoView('composicao')">
-        <div class="evol-app-icon-box box-composicao">
-          <svg viewBox="0 0 48 48" style="width:44px; height:44px; fill:none; stroke:#fb923c; stroke-linecap:round; stroke-linejoin:round;">
-            <!-- Círculo e Quadrado Geométricos de Leonardo da Vinci -->
-            <circle cx="24" cy="24" r="22" stroke="#fb923c" stroke-width="1.3" opacity="0.45"/>
-            <rect x="8.5" y="8.5" width="31" height="31" stroke="#fb923c" stroke-width="1.1" opacity="0.25" rx="1"/>
-            <!-- Cabeça -->
-            <circle cx="24" cy="11.5" r="3.2" stroke="#fb923c" stroke-width="1.8" fill="rgba(251,146,60,0.15)"/>
-            <!-- Tronco -->
-            <line x1="24" y1="14.7" x2="24" y2="27" stroke="#fb923c" stroke-width="2"/>
-            <!-- Braços Horizontais -->
-            <line x1="6.5" y1="18.5" x2="41.5" y2="18.5" stroke="#fb923c" stroke-width="1.9"/>
-            <!-- Braços Elevados (2ª Posição Vitruviana) -->
-            <line x1="9.5" y1="12.5" x2="24" y2="18.5" stroke="#fb923c" stroke-width="1.5"/>
-            <line x1="38.5" y1="12.5" x2="24" y2="18.5" stroke="#fb923c" stroke-width="1.5"/>
-            <!-- Pernas Verticais -->
-            <line x1="24" y1="27" x2="19.5" y2="43.5" stroke="#fb923c" stroke-width="1.9"/>
-            <line x1="24" y1="27" x2="28.5" y2="43.5" stroke="#fb923c" stroke-width="1.9"/>
-            <!-- Pernas Abertas (2ª Posição Vitruviana) -->
-            <line x1="24" y1="27" x2="12" y2="39.5" stroke="#fb923c" stroke-width="1.5"/>
-            <line x1="24" y1="27" x2="36" y2="39.5" stroke="#fb923c" stroke-width="1.5"/>
-          </svg>
+        <div class="evol-app-icon-wrap wrap-composicao">
+          <img src="Midia/icon_evol_composicao.png" alt="Composição Corporal" class="evol-app-icon-img">
         </div>
         <div class="evol-app-btn-title">Composição Corporal</div>
         <div class="evol-app-btn-sub">Métricas e Fotos</div>
       </div>
 
-      <!-- BOTÃO 2: PROGRESSÃO DE TÉCNICA (AZUL - FERRAMENTAS DELINEADAS) -->
+      <!-- BOTÃO 2: PROGRESSÃO DE TÉCNICA (FERRAMENTAS CRUZADAS NEON AZUL) -->
       <div class="evol-app-btn" onclick="openEvolucaoView('tecnica')">
-        <div class="evol-app-icon-box box-tecnica">
-          <svg viewBox="0 0 48 48" style="width:44px; height:44px; fill:none; stroke:#38bdf8; stroke-linecap:round; stroke-linejoin:round;">
-            <!-- Martelo (Diagonal /) -->
-            <line x1="12" y1="36" x2="29" y2="19" stroke="#38bdf8" stroke-width="2.6"/>
-            <path d="M26 12 L36 22 L38 20 L35 17 L39 13 L35 9 L31 13 L28 10 Z" stroke="#38bdf8" stroke-width="1.8" fill="rgba(56,189,248,0.15)"/>
-            <!-- Chave Inglesa (Diagonal \) -->
-            <line x1="36" y1="36" x2="19" y2="19" stroke="#38bdf8" stroke-width="2.6"/>
-            <path d="M12 16 A6 6 0 1 1 18 10 L15 13 L13 11 L10 14 Z" stroke="#38bdf8" stroke-width="1.8" fill="rgba(56,189,248,0.15)"/>
-            <circle cx="24" cy="24" r="2" stroke="#38bdf8" stroke-width="1.5" fill="#11141a"/>
-          </svg>
+        <div class="evol-app-icon-wrap wrap-tecnica">
+          <img src="Midia/icon_evol_tecnica.png" alt="Progressão de Técnica" class="evol-app-icon-img">
         </div>
         <div class="evol-app-btn-title">Progressão de Técnica</div>
         <div class="evol-app-btn-sub">Marcos e Habilidades</div>
       </div>
 
-      <!-- BOTÃO 3: CENTRAL DE RECORDES (VERMELHO - MUQUE / BÍCEPS DELINEADO) -->
+      <!-- BOTÃO 3: CENTRAL DE RECORDES (MUQUE / BÍCEPS NEON VERMELHO) -->
       <div class="evol-app-btn" onclick="openEvolucaoView('recordes')">
-        <div class="evol-app-icon-box box-recordes">
-          <svg viewBox="0 0 48 48" style="width:44px; height:44px; fill:none; stroke:#f43f5e; stroke-linecap:round; stroke-linejoin:round;">
-            <!-- Punho Fechado -->
-            <path d="M16 14 C16 11, 19 9, 22 9 C25 9, 27 11, 27 14 L27 18 L16 18 Z" stroke="#f43f5e" stroke-width="1.8" fill="rgba(244,63,94,0.15)"/>
-            <line x1="20" y1="9" x2="20" y2="14" stroke="#f43f5e" stroke-width="1.4"/>
-            <line x1="23.5" y1="9" x2="23.5" y2="14" stroke="#f43f5e" stroke-width="1.4"/>
-            <path d="M27 13 C29 13, 30 15, 29 17 L27 18" stroke="#f43f5e" stroke-width="1.6"/>
-            <!-- Antebraço Vertical -->
-            <path d="M16 18 L16 26" stroke="#f43f5e" stroke-width="2.2"/>
-            <path d="M28 18 L28 25" stroke="#f43f5e" stroke-width="2.2"/>
-            <!-- Pico Muscular do Bíceps -->
-            <path d="M16 25 C12 25, 9 29, 9 34 C9 38, 13 41, 18 41" stroke="#f43f5e" stroke-width="2.2" fill="rgba(244,63,94,0.12)"/>
-            <!-- Cotovelo e Tríceps -->
-            <path d="M28 25 C32 27, 39 31, 39 36 C39 40, 36 41, 31 41" stroke="#f43f5e" stroke-width="2.2"/>
-            <!-- Base do Braço / Ombro -->
-            <line x1="18" y1="41" x2="31" y2="41" stroke="#f43f5e" stroke-width="2.2"/>
-            <!-- Linha de Definição Muscular -->
-            <path d="M16 29 C18 31, 21 32, 24 31" stroke="#f43f5e" stroke-width="1.6" opacity="0.7"/>
-          </svg>
+        <div class="evol-app-icon-wrap wrap-recordes">
+          <img src="Midia/icon_evol_recordes.png" alt="Central de Recordes" class="evol-app-icon-img">
         </div>
         <div class="evol-app-btn-title">Central de Recordes</div>
         <div class="evol-app-btn-sub">1RM, PRs e Tempos</div>
       </div>
 
-      <!-- BOTÃO 4: RELATÓRIO DO TREINAMENTO (ROXO - GRÁFICO DELINEADO) -->
+      <!-- BOTÃO 4: RELATÓRIO DO TREINAMENTO (GRÁFICO ANALYTICS NEON ROXO) -->
       <div class="evol-app-btn" onclick="openEvolucaoView('relatorio')">
-        <div class="evol-app-icon-box box-relatorio">
-          <svg viewBox="0 0 48 48" style="width:44px; height:44px; fill:none; stroke:#c084fc; stroke-linecap:round; stroke-linejoin:round;">
-            <!-- Eixos do Gráfico -->
-            <line x1="8" y1="40" x2="42" y2="40" stroke="#c084fc" stroke-width="2"/>
-            <line x1="8" y1="8" x2="8" y2="40" stroke="#c084fc" stroke-width="2"/>
-            <!-- Barras Translúcidas de Volume -->
-            <rect x="13" y="27" width="5" height="13" rx="1.5" stroke="#c084fc" stroke-width="1.6" fill="rgba(192,132,252,0.15)"/>
-            <rect x="22" y="20" width="5" height="20" rx="1.5" stroke="#c084fc" stroke-width="1.6" fill="rgba(192,132,252,0.15)"/>
-            <rect x="31" y="14" width="5" height="26" rx="1.5" stroke="#c084fc" stroke-width="1.6" fill="rgba(192,132,252,0.15)"/>
-            <!-- Linha de Tendência Ascendente com Pontos de Análise -->
-            <path d="M10 32 L15.5 25 L24.5 18 L33.5 11 L41 8" stroke="#c084fc" stroke-width="2.4"/>
-            <circle cx="15.5" cy="25" r="2" fill="#c084fc"/>
-            <circle cx="24.5" cy="18" r="2" fill="#c084fc"/>
-            <circle cx="33.5" cy="11" r="2" fill="#c084fc"/>
-            <polygon points="41,8 36,8 39,13" fill="#c084fc" stroke="none"/>
-          </svg>
+        <div class="evol-app-icon-wrap wrap-relatorio">
+          <img src="Midia/icon_evol_relatorio.png" alt="Relatório do Treinamento" class="evol-app-icon-img">
         </div>
         <div class="evol-app-btn-title">Relatório do Treinamento</div>
         <div class="evol-app-btn-sub">Volume e Consistência</div>
@@ -7776,7 +7719,7 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '92';
+    const APP_BUILD_VERSION = '93';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
@@ -9559,7 +9502,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=92').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=93').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });

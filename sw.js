@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dominio-corporal-v92';
+const CACHE_NAME = 'dominio-corporal-v93';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -11,6 +11,10 @@ const ASSETS_TO_CACHE = [
   './Midia/icon-512.png',
   './Midia/icon-pessoal-192.png',
   './Midia/icon-pessoal-512.png',
+  './Midia/icon_evol_composicao.png',
+  './Midia/icon_evol_tecnica.png',
+  './Midia/icon_evol_recordes.png',
+  './Midia/icon_evol_relatorio.png',
   './Midia/favicon.png',
   './Midia/gui_foto.jpg',
   './Midia/comparacao_frontal_relaxado.jpg',
