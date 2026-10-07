@@ -1849,6 +1849,17 @@
       border-color: var(--brand-neon);
       color: var(--brand-neon);
     }
+    .tool-pill.pill-recados {
+      border-color: rgba(251, 191, 36, 0.35);
+    }
+    .tool-pill.pill-recados svg {
+      fill: #fbbf24;
+    }
+    .tool-pill.pill-recados:hover {
+      background: rgba(251, 191, 36, 0.18);
+      border-color: #fbbf24;
+      color: #fbbf24;
+    }
     .tool-pill.pill-diretrizes {
       border-color: rgba(251, 191, 36, 0.35);
     }
@@ -3975,6 +3986,10 @@
           <svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
           <span>Evolução</span>
         </button>
+        <button class="tool-pill pill-recados" onclick="openDedicatedView('recados')" title="Mural de Recados & Devolutivas">
+          <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+          <span>Recados</span>
+        </button>
       </div>
     </div>
 
@@ -5876,7 +5891,7 @@
         <div class="ex-cues-row">
           <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Tuck Front Lever Row nas Argolas', '• Pendure nas argolas baixas, puxe os joelhos colados no peito e fique deitado de costas paralelo ao chão (corpo na horizontal).\n• Puxe as argolas até as costelas trazendo os cotovelos para trás e espremendo as costas. Depois, estique os braços controlando a descida sem deixar o bumbum cair.\n\nBase científica:\n• Puxada Horizontal em Cadeia Fechada (Overcoming Gravity): Alta ativação de grande dorsal, redondo maior, rombóides e trapézio médio associada a torque isométrico de anti-extensão do core, gerando contraponto biomecânico essencial aos empurrões verticais do HSPU.\n• Braço de Alavanca Ajustável: Posição tuck (joelhos no peito) reduz o comprimento do momento de resistência corporal, permitindo execução concêntrica completa sem compensação lombar.', '🔧 Instruções')">🔧 Instruções</button>
           <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Depressão Escapular', '• Mantenha os ombros longe das orelhas o tempo todo e o pescoço solto. Se começar a encolher o pescoço ou o bumbum despencar, termine a série.\n\nBase científica:\n• Evitação de Compensação do Trapézio Superior: A perda da depressão escapular ativa transfere a carga de tração para o elevador da escápula e feixes superiores do trapézio, gerando sobrecarga postural e compressão cervicotorácica.', '🛡️ Cuidados')">🛡️ Cuidados</button>
-          <button type="button" class="btn-tip-cue btn-video" onclick="openVideoModal('Tuck Front Lever Row', '<b>Mecânica Chave:</b> Puxada horizontal estrita com joelhos no peito nas argolas, corpo estritamente paralelo ao solo, cotovelos rentes ao tronco e escápulas deprimidas ativamente.', 'https://www.youtube.com/watch?v=kplP75nBuT4&pp=ygUUdHVjayBmcm9udCBsZXZlciByb3c%3D')">
+          <button type="button" class="btn-tip-cue btn-video" onclick="openVideoModal('Tuck Front Lever Row', '<b>Mecânica Chave:</b> Puxada horizontal estrita com joelhos no peito nas argolas, corpo estritamente paralelo ao solo, cotovelos rentes ao tronco e escápulas deprimidas ativamente.<br><br><b>Recomendações:</b> Mantenha as escápulas aduzidas e deprimidas antes de iniciar a tração; foque em puxar com os dorsais sem estufar a lombar.', 'https://www.youtube.com/watch?v=kplP75nBuT4')">
             <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             <span>Vídeo</span>
           </button>
@@ -6069,6 +6084,82 @@
   </div><!-- end #mainTrainingView -->
 
 
+  <!-- ==================== TAB: MURAL DE RECADOS & COMUNICADOS ==================== -->
+  <div id="tab-recados" class="tab-content">
+
+    <!-- Card de Cabeçalho do Mural -->
+    <div class="coach-bulletin-card" style="margin-bottom: 20px;">
+      <div class="coach-bulletin-header">
+        <div class="coach-bulletin-profile">
+          <img src="Midia/gui_foto.jpg" onerror="this.onerror=null; this.src='Midia/icon-192.png';" alt="Prof. Gui Lemos" class="coach-bulletin-avatar">
+          <div>
+            <div class="coach-bulletin-title">Mural de Recados & Devolutivas</div>
+            <div class="coach-bulletin-meta">Prof. Guilherme Lemos • Atualizado em 07/10</div>
+          </div>
+        </div>
+        <span class="coach-bulletin-badge">📢 Ativo</span>
+      </div>
+      <div class="coach-bulletin-body">
+        <strong>🎯 Diretriz da Semana:</strong> Priorize o alinhamento escapular no <em>Tuck Front Lever Row</em> e a descida controlada no <em>HSPU</em>. Sempre que tiver dúvida de execução ou quiser avaliar uma carga nova, envie seu vídeo pelo botão <strong>📹 Enviar Vídeo</strong> nos exercícios do treino para alinharmos a biomecânica!
+      </div>
+    </div>
+
+    <!-- Lista de Comunicados e Recados Recentes -->
+    <div style="display:flex; flex-direction:column; gap:16px; margin-bottom: 30px;">
+      
+      <!-- Recado 1: Orientações de Gravação para Análise -->
+      <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 16px; padding: 18px 16px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:1.1rem;">📹</span>
+            <span style="font-size:0.88rem; font-weight:700; color:#fff;">Como Gravar Vídeos para Análise</span>
+          </div>
+          <span style="font-size:0.7rem; color:#38bdf8; background:rgba(56,189,248,0.1); border:1px solid rgba(56,189,248,0.3); padding:3px 8px; border-radius:6px; font-weight:600;">Diretriz Técnica</span>
+        </div>
+        <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.55;">
+          Para garantir máxima precisão biomecânica nas análises:
+          <ul style="margin:8px 0 0 0; padding-left:18px; color:#cbd5e1;">
+            <li><strong>Enquadramento:</strong> Posicione a câmera na diagonal (45°) ou lateral, pegando o corpo inteiro.</li>
+            <li><strong>Volume de filmagem:</strong> Grave 2 a 3 repetições limpas da série principal.</li>
+            <li><strong>Envio fácil:</strong> Use o botão <em>📹 Enviar Vídeo</em> presente em cada exercício do seu treino diário.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Recado 2: Gestão do Ombro e Joelho -->
+      <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 16px; padding: 18px 16px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:1.1rem;">🛡️</span>
+            <span style="font-size:0.88rem; font-weight:700; color:#fff;">Cuidados Articulares & Reabilitação</span>
+          </div>
+          <span style="font-size:0.7rem; color:var(--brand-neon); background:rgba(0,255,136,0.1); border:1px solid rgba(0,255,136,0.3); padding:3px 8px; border-radius:6px; font-weight:600;">Saúde Articular</span>
+        </div>
+        <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.55;">
+          • <strong>Ombro Direito:</strong> Mantenha a pegada falsa firme e não negligencie a suspensão passiva descompressiva na barra ao final das sessões.<br>
+          • <strong>Joelho Esquerdo:</strong> Priorize a descida excêntrica lenta (3-4 segundos) e o foco no vasto medial oblíquo (VMO) nos agachamentos e afundos.
+        </div>
+      </div>
+
+      <!-- Recado 3: Canal Direto de Dúvidas -->
+      <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 16px; padding: 18px 16px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:1.1rem;">💬</span>
+            <span style="font-size:0.88rem; font-weight:700; color:#fff;">Dúvidas Rápidas & Feedback</span>
+          </div>
+          <span style="font-size:0.7rem; color:#fbbf24; background:rgba(251,191,36,0.1); border:1px solid rgba(251,191,36,0.3); padding:3px 8px; border-radius:6px; font-weight:600;">Comunicação</span>
+        </div>
+        <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.55;">
+          Sentiu qualquer dor incomum, travamento ou dúvida sobre a progressão de carga de um exercício? Anote no botão <strong>💬 Observações?</strong> do exercício ou envie uma mensagem direta pelo WhatsApp.
+        </div>
+      </div>
+
+    </div>
+
+  </div><!-- end #tab-recados -->
+
+
   <!-- ==================== TAB: ANÁLISE DE VÍDEOS & BIOMECÂNICA ==================== -->
   <div id="tab-analises" class="tab-content">
 
@@ -6094,23 +6185,6 @@
       </div>
     </div>
 
-    <!-- MURAL DE RECADOS DO PROF. GUI LEMOS -->
-    <div class="coach-bulletin-card" id="coachBulletinCard">
-      <div class="coach-bulletin-header">
-        <div class="coach-bulletin-profile">
-          <img src="Midia/gui_foto.jpg" onerror="this.onerror=null; this.src='Midia/icon-192.png';" alt="Prof. Gui Lemos" class="coach-bulletin-avatar">
-          <div>
-            <div class="coach-bulletin-title">Mural de Recados & Devolutivas do Treinador</div>
-            <div class="coach-bulletin-meta">Prof. Guilherme Lemos • Atualizado em 07/10</div>
-          </div>
-        </div>
-        <span class="coach-bulletin-badge">📢 Ativo</span>
-      </div>
-      <div class="coach-bulletin-body">
-        <strong>🎯 Diretriz da Semana:</strong> Priorize o alinhamento da escápula no <em>Tuck Front Lever Row</em> e a descida controlada no <em>HSPU</em>. Sempre que tiver dúvida de execução ou quiser avaliar uma carga nova, suba o vídeo pelo botão abaixo para mapearmos a biomecânica juntos!
-      </div>
-    </div>
-
     <!-- BANNER DE ENVIO DE VÍDEO PARA ANÁLISE BIOMECÂNICA -->
     <div class="analysis-upload-banner">
       <div class="analysis-upload-banner-content">
@@ -6128,18 +6202,53 @@
       </button>
     </div>
 
-    <!-- BARRA DE FILTROS DE CATEGORIA -->
-    <div class="analysis-filter-bar">
-      <button type="button" class="analysis-filter-pill active" id="filterPillAll" onclick="filterAnalysisCategory('todos')">
-        <span>Todos (5)</span>
-      </button>
-      <button type="button" class="analysis-filter-pill" id="filterPillSkills" onclick="filterAnalysisCategory('habilidades')">
-        <span>🏆 Habilidades & Marcos (4)</span>
-      </button>
-      <button type="button" class="analysis-filter-pill" id="filterPillCorrections" onclick="filterAnalysisCategory('correcoes')">
-        <span>🔍 Execução de Exercícios (1)</span>
-      </button>
+    <!-- HUB DE CATEGORIAS DE ANÁLISES (ESTILO CARDS DE TREINO) -->
+    <div id="analysisHubMenu" class="training-days-list" style="margin-top: 14px; margin-bottom: 24px;">
+      
+      <!-- CARD 1: HABILIDADES -->
+      <div class="training-day-card" id="analysisCardBtn-habilidades" onclick="openAnalysisCategoryView('habilidades')" style="border-left: 4px solid var(--brand-neon);">
+        <div class="day-card-left">
+          <div class="day-card-name-row">
+            <span class="day-name" style="color: #fff; font-weight: 800; letter-spacing: 0.5px;">HABILIDADES</span>
+            <span class="day-today-badge" style="background: rgba(0,255,136,0.15); color: var(--brand-neon); border-color: rgba(0,255,136,0.3);">4 Vídeos</span>
+          </div>
+          <div class="day-focus-desc">Acrobacias, paradas de mão e movimentos gímnicos avançados</div>
+          <div class="day-meta-pill">🤸‍♂️ Portagem • Argolas • Manjota • Barra</div>
+        </div>
+        <div class="day-card-right">
+          <div class="day-status-pill status-pending">
+            <span class="status-icon">›</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2: EXECUÇÃO DE EXERCÍCIOS -->
+      <div class="training-day-card" id="analysisCardBtn-exercicios" onclick="openAnalysisCategoryView('exercicios')" style="border-left: 4px solid #38bdf8;">
+        <div class="day-card-left">
+          <div class="day-card-name-row">
+            <span class="day-name" style="color: #fff; font-weight: 800; letter-spacing: 0.5px;">EXECUÇÃO DE EXERCÍCIOS</span>
+            <span class="day-today-badge" style="background: rgba(56,189,248,0.15); color: #38bdf8; border-color: rgba(56,189,248,0.3);">Treino Diário</span>
+          </div>
+          <div class="day-focus-desc">Vídeos de execução enviados pelo aluno, correções de forma e alinhamento</div>
+          <div class="day-meta-pill">🔍 Dúvidas de execução • Devolutivas técnicas</div>
+        </div>
+        <div class="day-card-right">
+          <div class="day-status-pill status-pending">
+            <span class="status-icon">›</span>
+          </div>
+        </div>
+      </div>
+
     </div>
+
+    <!-- ==================== SUBPÁGINA: HABILIDADES ==================== -->
+    <div id="analysisView-habilidades" style="display:none;">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
+        <button type="button" class="btn-back-workout" onclick="closeAnalysisCategoryView()">
+          ← Voltar para Análises
+        </button>
+        <span style="font-weight: 800; font-size: 0.92rem; color: #fff; letter-spacing: 0.5px;">HABILIDADES</span>
+      </div>
 
     <!-- VÍDEO 1: PRESS HANDSTAND NO OMBRO DO PARCEIRO -->
     <div class="analysis-accordion-card" id="analysisCard-1" data-category="habilidades">
@@ -6329,46 +6438,38 @@
       </div>
     </div>
 
-    <!-- VÍDEO 5: EXECUÇÃO DE EXERCÍCIO - TUCK FRONT LEVER ROW -->
-    <div class="analysis-accordion-card" id="analysisCard-5" data-category="correcoes">
-      <button type="button" class="analysis-accordion-trigger" onclick="toggleAnalysisAccordion('analysisCard-5')">
-        <div style="flex: 1; min-width: 0;">
-          <div class="analysis-card-meta-top">
-            <span class="analysis-card-badge" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border-color: rgba(56, 189, 248, 0.4);">🔍 Execução de Exercício • Puxada Horizontal</span>
-            <span class="analysis-card-date">📅 Quarta 07/10</span>
-            <span class="analysis-card-time">⏱️ Devolutiva de Execução</span>
-          </div>
-          <div class="analysis-card-title">Tuck Front Lever Row — Alinhamento Escapular & Pelve</div>
-          <div class="analysis-card-desc">Retração escapular prévia • Manutenção do quadril neutro sem hiperextensão lombar</div>
+    </div><!-- end #analysisView-habilidades -->
+
+    <!-- ==================== SUBPÁGINA: EXECUÇÃO DE EXERCÍCIOS ==================== -->
+    <div id="analysisView-exercicios" style="display:none;">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
+        <button type="button" class="btn-back-workout" onclick="closeAnalysisCategoryView()">
+          ← Voltar para Análises
+        </button>
+        <span style="font-weight: 800; font-size: 0.92rem; color: #fff; letter-spacing: 0.5px;">EXECUÇÃO DE EXERCÍCIOS</span>
+      </div>
+
+      <!-- Banner Rápido de Envio de Vídeo de Exercício -->
+      <div style="background: rgba(56,189,248,0.06); border: 1px solid rgba(56,189,248,0.25); border-radius: 14px; padding: 14px 16px; margin-bottom: 18px; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+        <div style="flex:1; min-width:200px;">
+          <div style="font-size:0.88rem; font-weight:800; color:#fff; margin-bottom:2px;">Dúvida de Execução no Treino?</div>
+          <div style="font-size:0.75rem; color:var(--text-muted); line-height:1.4;">Grave o exercício e envie para o Prof. Gui Lemos receber no Google Drive e mapear sua biomecânica.</div>
         </div>
-        <div class="analysis-chevron">
-          <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-        </div>
-      </button>
-      <div class="analysis-accordion-body">
-        <div style="margin-bottom: 12px; margin-top: 6px;">
-          <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; border: 1px solid var(--border-strong); background: #000;">
-            <iframe src="https://www.youtube.com/embed/kplP75nBuT4" title="Tuck Front Lever Row Tutorial & Correção" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top:0; left: 0; width: 100%; height: 100%;"></iframe>
-          </div>
-          <div style="margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap;">
-            <a href="https://www.youtube.com/watch?v=kplP75nBuT4" target="_blank" class="btn-video" style="text-decoration: none; color: #ff0000; border-color: rgba(255,0,0,0.3); background: rgba(255,0,0,0.08);">
-              <svg viewBox="0 0 24 24" style="fill: currentColor; width: 14px; height: 14px;"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg> 🎬 Abrir Referência no YouTube
-            </a>
-          </div>
-        </div>
-        <div style="font-size: 0.84rem; line-height: 1.6; color: var(--text-muted);">
-          <p style="margin-bottom: 8px;"><strong style="color:#ffffff;">Análise & Devolutiva do Treinador:</strong></p>
-          <div style="margin-bottom: 10px; padding: 10px 12px; background: rgba(0,255,136,0.04); border-radius: 8px; border-left: 2.5px solid var(--brand-neon);">
-            <strong style="color: #00ff88;">Na prática:</strong><br>
-            Ao realizar a remada na posição tucked, puxe a barra ou argolas em direção ao umbigo focando em esmagar as escápulas atrás antes de dobrar os cotovelos. Mantenha os joelhos recolhidos na altura do peito e o quadril alinhado com os ombros, sem deixar o bumbum cair ou a lombar arquear para compensar.
-          </div>
-          <div style="padding: 10px 12px; background: rgba(251,191,36,0.04); border-radius: 8px; border-left: 2.5px solid #fbbf24;">
-            <strong style="color: #fbbf24;">Diagnóstico:</strong><br>
-            Na metade final da puxada, os cotovelos abriram um pouco para fora e o quadril desceu cerca de 10° a 15°. Na próxima sessão, mantenha os cotovelos raspando as costelas e concentre a força em puxar com a musculatura das costas, mantendo o abdômen e glúteos travados para o corpo permanecer na horizontal perfeita.
-          </div>
+        <button type="button" class="btn-analysis-upload-cta" style="margin:0; padding:9px 15px; font-size:0.8rem; background:rgba(56,189,248,0.2); border-color:#38bdf8; color:#38bdf8;" onclick="openSendVideoModal('Dúvida de Execução no Treino')">
+          <svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+          <span>📹 Enviar Vídeo do Exercício</span>
+        </button>
+      </div>
+
+      <!-- Estado Vazio / Orientação -->
+      <div style="text-align:center; padding: 34px 18px; background: rgba(255,255,255,0.02); border: 1px dashed var(--border-subtle); border-radius: 16px; margin-bottom:20px;">
+        <div style="font-size:2.2rem; margin-bottom:10px;">🔍</div>
+        <div style="font-size:0.98rem; font-weight:800; color:#fff; margin-bottom:6px;">Histórico de Execuções & Correções</div>
+        <div style="font-size:0.82rem; color:var(--text-muted); max-width:440px; margin:0 auto; line-height:1.55;">
+          Os vídeos de exercícios enviados por você (pelo botão <em>📹 Enviar Vídeo</em> nos treinos ou pelo botão acima) serão analisados e as devolutivas técnicas diretas aparecerão aqui.
         </div>
       </div>
-    </div>
+    </div><!-- end #analysisView-exercicios -->
 
   </div>
 
@@ -7378,18 +7479,7 @@
       <div class="modal-body" style="padding: 16px 20px;">
         <div class="notif-list">
           
-          <!-- Notificação 1: Devolutiva de Exercício -->
-          <div class="notif-item unread" onclick="openAnalysisCardFromNotif('analysisCard-5')">
-            <span class="notif-item-icon">🔍</span>
-            <div style="flex:1; min-width:0;">
-              <div class="notif-item-title">Devolutiva: Tuck Front Lever Row</div>
-              <div class="notif-item-desc">Prof. Gui analisou o alinhamento escapular e pelve da sua puxada horizontal.</div>
-              <div class="notif-item-time">⏱️ Hoje • Execução de Exercício</div>
-            </div>
-            <span class="notif-item-arrow">›</span>
-          </div>
-
-          <!-- Notificação 2: Recado no Mural -->
+          <!-- Notificação 1: Recado no Mural -->
           <div class="notif-item unread" onclick="openBulletinFromNotif()">
             <span class="notif-item-icon">📢</span>
             <div style="flex:1; min-width:0;">
@@ -7400,13 +7490,24 @@
             <span class="notif-item-arrow">›</span>
           </div>
 
-          <!-- Notificação 3: Análise de Habilidade -->
-          <div class="notif-item" onclick="openAnalysisCardFromNotif('analysisCard-3')">
+          <!-- Notificação 2: Análise de Habilidade (Sequência na Manjota) -->
+          <div class="notif-item unread" onclick="openAnalysisCardFromNotif('analysisCard-3', 'habilidades')">
             <span class="notif-item-icon">🏆</span>
             <div style="flex:1; min-width:0;">
-              <div class="notif-item-title">Análise: Sequência na Manjota</div>
+              <div class="notif-item-title">Habilidade: Sequência na Manjota</div>
               <div class="notif-item-desc">L-Sit to Handstand e Crocodile de 1 braço revisados com diretrizes biomecânicas.</div>
-              <div class="notif-item-time">⏱️ 01/10 • Habilidade & Marco</div>
+              <div class="notif-item-time">⏱️ Hoje • Habilidade</div>
+            </div>
+            <span class="notif-item-arrow">›</span>
+          </div>
+
+          <!-- Notificação 3: Análise de Habilidade (Strict RMU Livre) -->
+          <div class="notif-item" onclick="openAnalysisCardFromNotif('analysisCard-2', 'habilidades')">
+            <span class="notif-item-icon">🤸‍♂️</span>
+            <div style="flex:1; min-width:0;">
+              <div class="notif-item-title">Habilidade: Strict RMU Livre</div>
+              <div class="notif-item-desc">Transição estrita nas argolas e Candle Kips com análise biomecânica e educativa.</div>
+              <div class="notif-item-time">⏱️ Ontem • Habilidade</div>
             </div>
             <span class="notif-item-arrow">›</span>
           </div>
@@ -7428,7 +7529,7 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '57';
+    const APP_BUILD_VERSION = '58';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
@@ -7662,6 +7763,7 @@
       const titles = {
         'timers': 'Central de Timers',
         'analises': 'Análise de Vídeos & Biomecânica',
+        'recados': 'Mural de Recados do Treinador',
         'evolucao': 'Evolução & Antropometria',
         'perfil': 'Perfil do Coach',
         'avaliacao': 'Ficha de Avaliação'
@@ -7676,6 +7778,10 @@
       const target = document.getElementById('tab-' + sectionId);
       if (target) {
         target.classList.add('active');
+      }
+
+      if (sectionId === 'analises' && typeof closeAnalysisCategoryView === 'function') {
+        closeAnalysisCategoryView();
       }
 
       if (sectionId === 'timers' && typeof initTimerUI === 'function') {
@@ -7996,7 +8102,7 @@
       renderTrainingHubDays();
     }
     function switchTab(tabId) {
-      if (['timers', 'analises', 'evolucao', 'perfil'].includes(tabId)) {
+      if (['timers', 'analises', 'recados', 'evolucao', 'perfil', 'avaliacao'].includes(tabId)) {
         openDedicatedView(tabId);
         return;
       }
@@ -9131,25 +9237,43 @@
       }
     }
 
-    // Filtros de Categoria em Análises (Todos / Habilidades & Marcos / Correções & Dúvidas)
-    function filterAnalysisCategory(cat) {
-      const pillAll = document.getElementById('filterPillAll');
-      const pillSkills = document.getElementById('filterPillSkills');
-      const pillCorrections = document.getElementById('filterPillCorrections');
+    // Navegação de Subpáginas em Análises (HABILIDADES vs EXECUÇÃO DE EXERCÍCIOS)
+    function openAnalysisCategoryView(category) {
+      const hubMenu = document.getElementById('analysisHubMenu');
+      const heroCard = document.querySelector('.analysis-hero-card');
+      const uploadBanner = document.querySelector('.analysis-upload-banner');
+      const viewHabilidades = document.getElementById('analysisView-habilidades');
+      const viewExercicios = document.getElementById('analysisView-exercicios');
 
-      if (pillAll) pillAll.classList.toggle('active', cat === 'todos');
-      if (pillSkills) pillSkills.classList.toggle('active', cat === 'habilidades');
-      if (pillCorrections) pillCorrections.classList.toggle('active', cat === 'correcoes');
+      if (hubMenu) hubMenu.style.display = 'none';
+      if (heroCard) heroCard.style.display = 'none';
+      if (uploadBanner) uploadBanner.style.display = 'none';
 
-      const cards = document.querySelectorAll('.analysis-accordion-card');
-      cards.forEach(card => {
-        const cardCat = card.getAttribute('data-category');
-        if (cat === 'todos' || cardCat === cat) {
-          card.style.display = '';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+      if (category === 'habilidades') {
+        if (viewHabilidades) viewHabilidades.style.display = 'block';
+        if (viewExercicios) viewExercicios.style.display = 'none';
+      } else if (category === 'exercicios') {
+        if (viewExercicios) viewExercicios.style.display = 'block';
+        if (viewHabilidades) viewHabilidades.style.display = 'none';
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function closeAnalysisCategoryView() {
+      const hubMenu = document.getElementById('analysisHubMenu');
+      const heroCard = document.querySelector('.analysis-hero-card');
+      const uploadBanner = document.querySelector('.analysis-upload-banner');
+      const viewHabilidades = document.getElementById('analysisView-habilidades');
+      const viewExercicios = document.getElementById('analysisView-exercicios');
+
+      if (viewHabilidades) viewHabilidades.style.display = 'none';
+      if (viewExercicios) viewExercicios.style.display = 'none';
+
+      if (hubMenu) hubMenu.style.display = 'flex';
+      if (heroCard) heroCard.style.display = '';
+      if (uploadBanner) uploadBanner.style.display = '';
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     // Central de Notificações & Recados
@@ -9172,20 +9296,14 @@
       modal.classList.remove('active');
     }
 
-    function openAnalysisCardFromNotif(cardId) {
+    function openAnalysisCardFromNotif(cardId, category = 'habilidades') {
       closeNotificationsModal();
-      if (typeof switchTab === 'function') {
-        switchTab('analises');
+      if (typeof openDedicatedView === 'function') {
+        openDedicatedView('analises');
       }
-      // Garante que o card esteja visível (seja exibindo 'todos' ou a categoria específica)
+      openAnalysisCategoryView(category);
       const targetCard = document.getElementById(cardId);
       if (targetCard) {
-        const cardCat = targetCard.getAttribute('data-category');
-        if (cardCat) {
-          filterAnalysisCategory(cardCat);
-        } else {
-          filterAnalysisCategory('todos');
-        }
         if (!targetCard.classList.contains('active')) {
           targetCard.classList.add('active');
         }
@@ -9197,14 +9315,8 @@
 
     function openBulletinFromNotif() {
       closeNotificationsModal();
-      if (typeof switchTab === 'function') {
-        switchTab('analises');
-      }
-      const bulletin = document.getElementById('coachBulletinCard');
-      if (bulletin) {
-        setTimeout(() => {
-          bulletin.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 180);
+      if (typeof openDedicatedView === 'function') {
+        openDedicatedView('recados');
       }
     }
 
