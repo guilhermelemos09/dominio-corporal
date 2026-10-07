@@ -486,18 +486,11 @@ def build_prontuario_workbook():
     for idx, w in enumerate(col_widths_s4, start=1):
         ws4.column_dimensions[get_column_letter(idx)].width = w
 
-    # Destinations
-    out_dir_dados = r'C:\Users\Gui\Documents\TREINO_GUI\Dados'
-    out_dir_apoio = r'C:\Users\Gui\Documents\TREINO_GUI\Apoio'
-    os.makedirs(out_dir_dados, exist_ok=True)
-    os.makedirs(out_dir_apoio, exist_ok=True)
-
-    dest_dados = os.path.join(out_dir_dados, 'PRONTUARIO_E_HISTORICO_GUILHERME_LEMOS.xlsx')
-    dest_apoio = os.path.join(out_dir_apoio, 'PRONTUARIO_E_HISTORICO_GUILHERME_LEMOS.xlsx')
-
-    wb.save(dest_dados)
-    wb.save(dest_apoio)
-    print(f'Sucesso! Arquivo Excel gerado em:\n  - {dest_dados}\n  - {dest_apoio}')
+    # Destination: project root for direct 1-click consultation
+    root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    dest_path = os.path.join(root_dir, 'PRONTUARIO_E_HISTORICO_GUILHERME_LEMOS.xlsx')
+    wb.save(dest_path)
+    print(f'Sucesso! Planilha gerada na raiz de consultas em:\n  - {dest_path}')
 
 if __name__ == '__main__':
     build_prontuario_workbook()

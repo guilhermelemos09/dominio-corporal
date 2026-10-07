@@ -1,9 +1,10 @@
-const CACHE_NAME = 'dominio-corporal-v65';
+const CACHE_NAME = 'dominio-corporal-v66';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './treino.html',
-  './Dados/prontuario_planilha_visual.html',
+  './prontuario_planilha_visual.html',
+  './PRONTUARIO_E_HISTORICO_GUILHERME_LEMOS.xlsx',
   './jean.html',
   './manifest-jean.json',
   './icon-192.png',
