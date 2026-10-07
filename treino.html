@@ -722,6 +722,238 @@
       transform: scale(0.98);
     }
 
+    /* Modal de Envio: Abas de Opções (Upload Direto vs WhatsApp) */
+    .modal-tab-nav {
+      display: flex;
+      gap: 6px;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 4px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+      border: 1px solid var(--border-subtle);
+    }
+    .modal-tab-btn {
+      flex: 1;
+      padding: 8px 10px;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.77rem;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+    .modal-tab-btn.active {
+      background: rgba(56, 189, 248, 0.16);
+      color: #38bdf8;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+    }
+
+    /* Dropzone de Upload */
+    .upload-dropzone {
+      border: 2px dashed rgba(56, 189, 248, 0.4);
+      border-radius: 12px;
+      padding: 20px 14px;
+      text-align: center;
+      background: rgba(56, 189, 248, 0.03);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    .upload-dropzone:hover, .upload-dropzone.dragover {
+      border-color: #38bdf8;
+      background: rgba(56, 189, 248, 0.08);
+      transform: translateY(-1px);
+    }
+    .upload-dropzone-icon {
+      font-size: 2rem;
+      margin-bottom: 6px;
+      display: inline-block;
+    }
+    .upload-dropzone-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .upload-dropzone-sub {
+      font-size: 0.73rem;
+      color: var(--text-muted);
+    }
+
+    /* Detalhes do arquivo selecionado */
+    .upload-file-details {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin-top: 10px;
+    }
+    .upload-file-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      flex: 1;
+    }
+    .upload-file-icon {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .upload-file-name {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #fff;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .upload-file-meta {
+      font-size: 0.7rem;
+      color: #38bdf8;
+    }
+    .btn-remove-file {
+      background: rgba(251, 113, 133, 0.15);
+      border: 1px solid rgba(251, 113, 133, 0.3);
+      color: #fb7185;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    /* Textarea de Notas do Aluno */
+    .upload-notes-textarea {
+      width: 100%;
+      box-sizing: border-box;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 0.78rem;
+      color: #fff;
+      margin-top: 10px;
+      resize: vertical;
+      min-height: 50px;
+      font-family: inherit;
+    }
+    .upload-notes-textarea:focus {
+      outline: none;
+      border-color: #38bdf8;
+    }
+
+    /* Barra de Progresso */
+    .upload-progress-wrap {
+      margin-top: 12px;
+    }
+    .upload-progress-bar-bg {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      height: 8px;
+      overflow: hidden;
+      position: relative;
+    }
+    .upload-progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #0284c7, #38bdf8, #25D366);
+      border-radius: 8px;
+      transition: width 0.3s ease;
+    }
+    .upload-progress-status {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 6px;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    /* Botão de Envio para o Drive */
+    .btn-upload-drive-action {
+      width: 100%;
+      background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+      color: #020617;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 16px rgba(2, 132, 199, 0.35);
+    }
+    .btn-upload-drive-action:hover:not(:disabled) {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(56, 189, 248, 0.45);
+    }
+    .btn-upload-drive-action:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Card de Sucesso */
+    .upload-success-card {
+      background: rgba(37, 211, 102, 0.08);
+      border: 1.5px solid rgba(37, 211, 102, 0.35);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      margin-top: 10px;
+      animation: fadeIn 0.3s ease;
+    }
+    .upload-success-icon {
+      font-size: 2rem;
+      margin-bottom: 4px;
+    }
+    .upload-success-title {
+      font-size: 0.94rem;
+      font-weight: 800;
+      color: #25D366;
+      margin-bottom: 4px;
+    }
+    .upload-success-desc {
+      font-size: 0.77rem;
+      color: #cbd5e1;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+    .upload-success-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      padding: 8px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.76rem;
+      font-weight: 700;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      margin-bottom: 10px;
+    }
+
     /* Gaveta de Comentários */
     .comment-drawer {
       margin-top: 10px;
@@ -6596,7 +6828,7 @@
 
   <!-- Modal de Envio de Vídeo para Análise Biomecânica -->
   <div id="sendVideoModal" class="modal-overlay" onclick="if(event.target === this) closeSendVideoModal();">
-    <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 480px;">
+    <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 500px;">
       <div class="modal-header">
         <div style="display:flex; align-items:center; gap:8px;">
           <span style="font-size:1.2rem;">📹</span>
@@ -6607,43 +6839,127 @@
         </div>
         <button class="btn-close" type="button" onclick="closeSendVideoModal()" aria-label="Fechar">&times;</button>
       </div>
-      <div class="modal-body" style="padding: 18px 20px;">
-        <p style="font-size:0.84rem; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">
-          Grave sua execução e envie diretamente para o <strong>Prof. Gui Lemos</strong> para receber uma análise biomecânica com diagnóstico de pontos fracos e educativos corretivos.
-        </p>
-
-        <!-- Dicas de Gravação para Melhor Análise -->
-        <div style="background:rgba(56,189,248,0.06); border:1px solid rgba(56,189,248,0.25); border-radius:10px; padding:12px 14px; margin-bottom:16px;">
-          <div style="font-size:0.8rem; font-weight:700; color:#38bdf8; margin-bottom:6px; display:flex; align-items:center; gap:6px;">
-            <span>💡 Dicas para uma boa filmagem:</span>
-          </div>
-          <ul style="margin:0; padding-left:18px; font-size:0.77rem; color:#cbd5e1; line-height:1.55;">
-            <li>Enquadre o <strong>corpo inteiro</strong> (da cabeça aos pés).</li>
-            <li>Grave em ângulo <strong>lateral ou diagonal (45°)</strong>.</li>
-            <li>Apoie o celular em local estável e com boa iluminação.</li>
-          </ul>
-        </div>
-
-        <!-- Ação 1: Enviar pelo WhatsApp (Mais Rápido) -->
-        <button type="button" class="btn-send-wpp-primary" onclick="confirmSendVideoWhatsApp()">
-          <svg style="width:20px; height:20px; fill:currentColor;" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-          <span>Abrir WhatsApp & Enviar Vídeo</span>
-        </button>
-
-        <!-- Ação 2: Alternativa Link do Drive / YouTube -->
-        <div style="margin-top:14px; text-align:center;">
-          <button type="button" class="btn-link-toggle" onclick="toggleDriveLinkInput()" style="background:none; border:none; color:var(--text-muted); font-size:0.77rem; cursor:pointer; text-decoration:underline;">
-            Já subiu o vídeo no Drive ou YouTube? Clique para colar o link
+      <div class="modal-body" style="padding: 16px 20px;">
+        <!-- Navegação de Abas -->
+        <div class="modal-tab-nav">
+          <button type="button" class="modal-tab-btn active" id="tabBtnUploadDrive" onclick="switchSendVideoTab('drive')">
+            <span>📤 Subir no App (Drive)</span>
+          </button>
+          <button type="button" class="modal-tab-btn" id="tabBtnUploadWpp" onclick="switchSendVideoTab('wpp')">
+            <span>💬 WhatsApp</span>
           </button>
         </div>
 
-        <div id="driveLinkContainer" style="display:none; margin-top:12px; padding-top:12px; border-top:1px dashed var(--border-subtle);">
-          <label style="display:block; font-size:0.76rem; color:var(--text-muted); margin-bottom:6px;">Link do Google Drive / YouTube:</label>
-          <div style="display:flex; gap:6px;">
-            <input type="url" id="sendVideoExternalUrl" placeholder="https://drive.google.com/... ou https://youtu.be/..." style="flex:1; background:rgba(0,0,0,0.4); border:1px solid var(--border-subtle); border-radius:8px; padding:8px 10px; font-size:0.8rem; color:#fff;">
-            <button type="button" onclick="sendVideoWithLinkWhatsApp()" style="background:#38bdf8; color:#000; border:none; border-radius:8px; padding:0 12px; font-weight:700; font-size:0.78rem; cursor:pointer;">
-              Enviar
+        <!-- ABA 1: UPLOAD DIRETO NO APP VIA GOOGLE DRIVE (OPÇÃO 2) -->
+        <div id="sendVideoTabDrive" class="send-video-tab-content">
+          <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:12px; line-height:1.45;">
+            Envie seu vídeo diretamente pelo app. Ele será salvo na sua pasta no <strong>Google Drive</strong> e o <strong>Prof. Gui Lemos</strong> será notificado imediatamente para análise.
+          </p>
+
+          <!-- Dropzone Interativa -->
+          <div class="upload-dropzone" id="uploadDropzone" onclick="document.getElementById('videoFileInput').click();">
+            <input type="file" id="videoFileInput" accept="video/*" style="display:none;" onchange="handleVideoFileSelect(event)">
+            <div class="upload-dropzone-icon">📁</div>
+            <div class="upload-dropzone-title">Toque para selecionar ou gravar o vídeo</div>
+            <div class="upload-dropzone-sub">Formatos: MP4, MOV, WEBM (ideal até 35MB • 2-3 reps)</div>
+          </div>
+
+          <!-- Detalhes do Arquivo Selecionado -->
+          <div id="uploadFileDetails" class="upload-file-details" style="display:none;">
+            <div class="upload-file-info">
+              <span class="upload-file-icon">🎬</span>
+              <div style="min-width:0;">
+                <div class="upload-file-name" id="uploadFileName">meu_video.mp4</div>
+                <div class="upload-file-meta" id="uploadFileMeta">0.0 MB</div>
+              </div>
+            </div>
+            <button type="button" class="btn-remove-file" onclick="clearSelectedVideoFile()" title="Remover">&times;</button>
+          </div>
+
+          <!-- Observações do Aluno -->
+          <div style="margin-top:10px;">
+            <textarea id="uploadVideoNotes" class="upload-notes-textarea" placeholder="Dúvidas, dores ou sensações sobre esta execução? (opcional)"></textarea>
+          </div>
+
+          <!-- Barra de Progresso do Upload -->
+          <div id="uploadProgressWrap" class="upload-progress-wrap" style="display:none;">
+            <div class="upload-progress-bar-bg">
+              <div class="upload-progress-bar-fill" id="uploadProgressBarFill"></div>
+            </div>
+            <div class="upload-progress-status">
+              <span id="uploadStatusText">Preparando vídeo...</span>
+              <span id="uploadProgressPercent">0%</span>
+            </div>
+          </div>
+
+          <!-- Botão de Disparo do Upload -->
+          <button type="button" class="btn-upload-drive-action" id="btnUploadDriveAction" onclick="submitVideoToGoogleDrive()">
+            <svg style="width:18px; height:18px; fill:currentColor;" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+            <span>Subir Vídeo de Análise</span>
+          </button>
+
+          <!-- Card de Sucesso -->
+          <div id="uploadSuccessCard" class="upload-success-card" style="display:none;">
+            <div class="upload-success-icon">✅</div>
+            <div class="upload-success-title">Vídeo Enviado com Sucesso!</div>
+            <div class="upload-success-desc">
+              O vídeo já está salvo com segurança na sua pasta no Google Drive. O Prof. Gui Lemos recebeu uma notificação por e-mail e em breve sua análise biomecânica será adicionada aqui no app.
+            </div>
+            <div>
+              <a id="uploadDriveFileLink" href="#" target="_blank" class="upload-success-link">
+                <span>📁 Ver no Google Drive</span> ↗
+              </a>
+            </div>
+            <button type="button" class="btn-send-wpp-primary" style="margin-top:6px; font-size:0.82rem; padding:10px 14px;" onclick="notifyUploadOnWhatsApp()">
+              <span>Avisar no WhatsApp (Opcional)</span>
             </button>
+          </div>
+
+          <!-- Link discreto para configuração da URL da API -->
+          <div style="margin-top:12px; text-align:center;">
+            <button type="button" onclick="promptDriveScriptUrl()" style="background:none; border:none; color:var(--text-muted); font-size:0.7rem; cursor:pointer; text-decoration:underline;">
+              ⚙️ Configurar / Alterar URL do Google Apps Script
+            </button>
+          </div>
+        </div>
+
+        <!-- ABA 2: ENVIO VIA WHATSAPP (OPÇÃO 1) -->
+        <div id="sendVideoTabWpp" class="send-video-tab-content" style="display:none;">
+          <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:12px; line-height:1.45;">
+            Prefere enviar diretamente no chat do WhatsApp ou o vídeo é maior que 35MB? Envie por lá e anexamos o vídeo na conversa.
+          </p>
+
+          <!-- Dicas de Gravação -->
+          <div style="background:rgba(56,189,248,0.06); border:1px solid rgba(56,189,248,0.25); border-radius:10px; padding:10px 12px; margin-bottom:14px;">
+            <div style="font-size:0.77rem; font-weight:700; color:#38bdf8; margin-bottom:4px;">
+              💡 Dicas para a filmagem:
+            </div>
+            <ul style="margin:0; padding-left:16px; font-size:0.74rem; color:#cbd5e1; line-height:1.45;">
+              <li>Enquadre o corpo inteiro (da cabeça aos pés).</li>
+              <li>Grave em ângulo lateral ou diagonal (45°).</li>
+              <li>Execute 2 a 3 repetições limpas.</li>
+            </ul>
+          </div>
+
+          <button type="button" class="btn-send-wpp-primary" onclick="confirmSendVideoWhatsApp()">
+            <svg style="width:18px; height:18px; fill:currentColor;" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span>Abrir WhatsApp & Enviar Vídeo</span>
+          </button>
+
+          <div style="margin-top:14px; text-align:center;">
+            <button type="button" class="btn-link-toggle" onclick="toggleDriveLinkInput()" style="background:none; border:none; color:var(--text-muted); font-size:0.75rem; cursor:pointer; text-decoration:underline;">
+              Já subiu no seu Drive ou YouTube? Cole o link aqui
+            </button>
+          </div>
+
+          <div id="driveLinkContainer" style="display:none; margin-top:10px; padding-top:10px; border-top:1px dashed var(--border-subtle);">
+            <label style="display:block; font-size:0.74rem; color:var(--text-muted); margin-bottom:5px;">Link do Google Drive / YouTube:</label>
+            <div style="display:flex; gap:6px;">
+              <input type="url" id="sendVideoExternalUrl" placeholder="https://drive.google.com/... ou https://youtu.be/..." style="flex:1; background:rgba(0,0,0,0.4); border:1px solid var(--border-subtle); border-radius:8px; padding:7px 10px; font-size:0.78rem; color:#fff;">
+              <button type="button" onclick="sendVideoWithLinkWhatsApp()" style="background:#38bdf8; color:#000; border:none; border-radius:8px; padding:0 12px; font-weight:700; font-size:0.76rem; cursor:pointer;">
+                Enviar
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -8091,14 +8407,54 @@
       }
     };
 
-    /* Modal de Envio de Vídeo para Análise Biomecânica */
+    /* Modal de Envio de Vídeo para Análise Biomecânica (Opção 2 Drive + Opção 1 WhatsApp) */
     let currentSendVideoExercise = '';
+    let selectedVideoFile = null;
+    let lastUploadedFileUrl = '';
+
+    function getDriveScriptUrl() {
+      return localStorage.getItem('dominio_drive_upload_url') || '';
+    }
+
+    window.promptDriveScriptUrl = function() {
+      const current = getDriveScriptUrl();
+      const input = prompt(
+        'Cole a URL do seu App da Web do Google Apps Script (terminada em /exec):\n\n' +
+        'Dica: O script pronto está no arquivo google_drive_uploader.gs do seu projeto.',
+        current
+      );
+      if (input !== null) {
+        const clean = input.trim();
+        if (clean) {
+          localStorage.setItem('dominio_drive_upload_url', clean);
+          alert('✅ URL do Google Apps Script salva com sucesso!');
+        } else {
+          localStorage.removeItem('dominio_drive_upload_url');
+          alert('URL removida.');
+        }
+      }
+    };
 
     window.openSendVideoModal = function(exerciseName) {
       currentSendVideoExercise = exerciseName || 'Geral / Movimento Livre';
       const nameEl = document.getElementById('sendVideoExerciseName');
       if (nameEl) nameEl.textContent = currentSendVideoExercise;
       
+      // Reseta estado do upload
+      clearSelectedVideoFile();
+      switchSendVideoTab('drive');
+
+      const successCard = document.getElementById('uploadSuccessCard');
+      if (successCard) successCard.style.display = 'none';
+      const dropzone = document.getElementById('uploadDropzone');
+      if (dropzone) dropzone.style.display = 'block';
+      const actionBtn = document.getElementById('btnUploadDriveAction');
+      if (actionBtn) {
+        actionBtn.style.display = 'flex';
+        actionBtn.disabled = false;
+        actionBtn.innerHTML = '<svg style="width:18px; height:18px; fill:currentColor;" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg> <span>Subir Vídeo de Análise</span>';
+      }
+
       const driveContainer = document.getElementById('driveLinkContainer');
       if (driveContainer) driveContainer.style.display = 'none';
       const inputEl = document.getElementById('sendVideoExternalUrl');
@@ -8111,6 +8467,192 @@
     window.closeSendVideoModal = function() {
       const modal = document.getElementById('sendVideoModal');
       if (modal) modal.classList.remove('active');
+    };
+
+    window.switchSendVideoTab = function(tab) {
+      const btnDrive = document.getElementById('tabBtnUploadDrive');
+      const btnWpp = document.getElementById('tabBtnUploadWpp');
+      const contentDrive = document.getElementById('sendVideoTabDrive');
+      const contentWpp = document.getElementById('sendVideoTabWpp');
+
+      if (tab === 'drive') {
+        if (btnDrive) btnDrive.classList.add('active');
+        if (btnWpp) btnWpp.classList.remove('active');
+        if (contentDrive) contentDrive.style.display = 'block';
+        if (contentWpp) contentWpp.style.display = 'none';
+      } else {
+        if (btnWpp) btnWpp.classList.add('active');
+        if (btnDrive) btnDrive.classList.remove('active');
+        if (contentWpp) contentWpp.style.display = 'block';
+        if (contentDrive) contentDrive.style.display = 'none';
+      }
+    };
+
+    window.handleVideoFileSelect = function(e) {
+      const files = e.target.files;
+      if (!files || !files.length) return;
+      selectedVideoFile = files[0];
+
+      const sizeMb = (selectedVideoFile.size / (1024 * 1024)).toFixed(1);
+      const nameEl = document.getElementById('uploadFileName');
+      const metaEl = document.getElementById('uploadFileMeta');
+      const detailsEl = document.getElementById('uploadFileDetails');
+      const dropzone = document.getElementById('uploadDropzone');
+
+      if (nameEl) nameEl.textContent = selectedVideoFile.name;
+      if (metaEl) metaEl.textContent = `${sizeMb} MB • Pronto para envio`;
+      if (detailsEl) detailsEl.style.display = 'flex';
+      if (dropzone) dropzone.style.display = 'none';
+
+      // Aviso se arquivo for muito grande para payload base64 (> 35MB)
+      if (selectedVideoFile.size > 35 * 1024 * 1024) {
+        if (metaEl) {
+          metaEl.innerHTML = `<span style="color:#fb7185;">${sizeMb} MB (Muito pesado). Recomendado enviar via WhatsApp.</span>`;
+        }
+        alert('⚠️ Este vídeo tem mais de 35MB. Para vídeos muito longos, recomendamos enviar diretamente pela aba WhatsApp ou cortar um trecho curto de 2 a 3 repetições.');
+      }
+    };
+
+    window.clearSelectedVideoFile = function() {
+      selectedVideoFile = null;
+      const fileInput = document.getElementById('videoFileInput');
+      if (fileInput) fileInput.value = '';
+      const detailsEl = document.getElementById('uploadFileDetails');
+      if (detailsEl) detailsEl.style.display = 'none';
+      const dropzone = document.getElementById('uploadDropzone');
+      if (dropzone) dropzone.style.display = 'block';
+      const notesEl = document.getElementById('uploadVideoNotes');
+      if (notesEl) {
+        notesEl.value = '';
+        notesEl.style.display = 'block';
+      }
+      const progressWrap = document.getElementById('uploadProgressWrap');
+      if (progressWrap) progressWrap.style.display = 'none';
+    };
+
+    window.submitVideoToGoogleDrive = async function() {
+      if (!selectedVideoFile) {
+        alert('Por favor, selecione ou grave um vídeo primeiro.');
+        return;
+      }
+
+      let scriptUrl = getDriveScriptUrl();
+      if (!scriptUrl) {
+        const input = prompt(
+          'Para habilitar o upload direto no Google Drive, cole a URL da sua implantação do Google Apps Script (terminada em /exec):\n\n' +
+          '(O script pronto está salvo no arquivo google_drive_uploader.gs do projeto!)'
+        );
+        if (!input || !input.trim()) {
+          alert('Sem a URL do Google Apps Script configurada, você pode enviar o vídeo pelo WhatsApp usando a aba ao lado!');
+          switchSendVideoTab('wpp');
+          return;
+        }
+        scriptUrl = input.trim();
+        localStorage.setItem('dominio_drive_upload_url', scriptUrl);
+      }
+
+      const actionBtn = document.getElementById('btnUploadDriveAction');
+      const progressWrap = document.getElementById('uploadProgressWrap');
+      const progressFill = document.getElementById('uploadProgressBarFill');
+      const statusText = document.getElementById('uploadStatusText');
+      const percentText = document.getElementById('uploadProgressPercent');
+      const notesEl = document.getElementById('uploadVideoNotes');
+      const notes = notesEl ? notesEl.value.trim() : '';
+
+      if (actionBtn) {
+        actionBtn.disabled = true;
+        actionBtn.innerHTML = '⏳ Processando envio...';
+      }
+      if (progressWrap) progressWrap.style.display = 'block';
+      if (progressFill) progressFill.style.width = '15%';
+      if (statusText) statusText.textContent = 'Lendo e codificando arquivo de vídeo...';
+      if (percentText) percentText.textContent = '15%';
+
+      try {
+        // Converte vídeo em base64
+        const base64Data = await new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result);
+          reader.onerror = (err) => reject(err);
+          reader.readAsDataURL(selectedVideoFile);
+        });
+
+        if (progressFill) progressFill.style.width = '45%';
+        if (statusText) statusText.textContent = 'Enviando com segurança para o Google Drive...';
+        if (percentText) percentText.textContent = '45%';
+
+        const payload = {
+          studentName: 'Guilherme Lemos',
+          exerciseName: currentSendVideoExercise,
+          notes: notes,
+          mimeType: selectedVideoFile.type || 'video/mp4',
+          base64: base64Data
+        };
+
+        if (progressFill) progressFill.style.width = '70%';
+        if (statusText) statusText.textContent = 'Salvando na pasta e notificando por e-mail...';
+        if (percentText) percentText.textContent = '70%';
+
+        // Envia para o Google Apps Script usando Content-Type text/plain para evitar OPTIONS preflight
+        const response = await fetch(scriptUrl, {
+          method: 'POST',
+          body: JSON.stringify(payload)
+        });
+
+        const result = await response.json();
+
+        if (result.status === 'success') {
+          if (progressFill) progressFill.style.width = '100%';
+          if (statusText) statusText.textContent = 'Concluído com sucesso!';
+          if (percentText) percentText.textContent = '100%';
+
+          lastUploadedFileUrl = result.fileUrl || '';
+
+          // Salva histórico de uploads local
+          const history = JSON.parse(localStorage.getItem('dominio_uploaded_videos') || '[]');
+          history.unshift({
+            exercise: currentSendVideoExercise,
+            date: new Date().toISOString(),
+            url: lastUploadedFileUrl,
+            fileName: result.fileName
+          });
+          localStorage.setItem('dominio_uploaded_videos', JSON.stringify(history.slice(0, 30)));
+
+          setTimeout(() => {
+            if (progressWrap) progressWrap.style.display = 'none';
+            if (actionBtn) actionBtn.style.display = 'none';
+            const detailsEl = document.getElementById('uploadFileDetails');
+            if (detailsEl) detailsEl.style.display = 'none';
+            const notesContainer = document.getElementById('uploadVideoNotes');
+            if (notesContainer) notesContainer.style.display = 'none';
+
+            const successCard = document.getElementById('uploadSuccessCard');
+            const linkEl = document.getElementById('uploadDriveFileLink');
+            if (linkEl && lastUploadedFileUrl) {
+              linkEl.href = lastUploadedFileUrl;
+            }
+            if (successCard) successCard.style.display = 'block';
+          }, 600);
+        } else {
+          throw new Error(result.message || 'Erro desconhecido ao processar no Drive.');
+        }
+
+      } catch (err) {
+        console.error('Erro no upload para Google Drive:', err);
+        alert('❌ Falha no upload para o Google Drive:\n' + err.message + '\n\nVocê pode enviar agora mesmo pelo WhatsApp na aba ao lado!');
+        if (progressWrap) progressWrap.style.display = 'none';
+        if (actionBtn) {
+          actionBtn.disabled = false;
+          actionBtn.innerHTML = 'Tentar Novamente ou Enviar por WhatsApp';
+        }
+      }
+    };
+
+    window.notifyUploadOnWhatsApp = function() {
+      const phone = '5516981222356';
+      const text = `Olá Gui! Acabei de subir o vídeo do exercício *${currentSendVideoExercise}* diretamente no app via Google Drive.\n\nLink do vídeo no Drive:\n${lastUploadedFileUrl || 'Salvo na sua pasta de vídeos!'}`;
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+      window.open(url, '_blank');
     };
 
     window.toggleDriveLinkInput = function() {
