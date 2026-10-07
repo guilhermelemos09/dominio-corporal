@@ -7572,27 +7572,75 @@
     }
 
     /* Modal de Vídeo */
+    function formatVideoEmbedUrl(url) {
+      if (!url) return '';
+      let clean = url.trim();
+
+      // Google Drive: converter links de compartilhamento /view ou /open para /preview embed
+      if (clean.includes('drive.google.com')) {
+        let fileId = '';
+        if (clean.includes('/file/d/')) {
+          fileId = clean.split('/file/d/')[1].split('/')[0].split('?')[0];
+        } else if (clean.includes('id=')) {
+          fileId = clean.split('id=')[1].split('&')[0];
+        }
+        if (fileId) {
+          return `https://drive.google.com/file/d/${fileId}/preview`;
+        }
+      }
+
+      // YouTube Shorts: youtube.com/shorts/ID
+      if (clean.includes('youtube.com/shorts/')) {
+        const id = clean.split('shorts/')[1].split(/[?&#]/)[0];
+        return `https://www.youtube.com/embed/${id}?autoplay=1`;
+      }
+
+      // YouTube encurtado: youtu.be/ID
+      if (clean.includes('youtu.be/')) {
+        const id = clean.split('youtu.be/')[1].split(/[?&#]/)[0];
+        return `https://www.youtube.com/embed/${id}?autoplay=1`;
+      }
+
+      // YouTube normal: watch?v=ID
+      if (clean.includes('youtube.com/watch')) {
+        const match = clean.match(/[?&]v=([^&#]+)/);
+        if (match && match[1]) {
+          return `https://www.youtube.com/embed/${match[1]}?autoplay=1`;
+        }
+      }
+
+      return clean;
+    }
+
     function openVideoModal(title, desc, videoUrl) {
       document.getElementById('modalTitle').innerText = title;
       document.getElementById('modalDesc').innerHTML = desc;
       const iframe = document.getElementById('videoIframe');
       const player = document.getElementById('videoPlayer');
       
-      if (videoUrl.includes('.mp4')) {
-        iframe.style.display = 'none';
-        iframe.src = '';
-        player.style.display = 'block';
-        player.src = videoUrl;
-        player.load();
-        player.play().catch(() => {});
+      const isDirectVideo = /\.(mp4|webm|mov)($|\?)/i.test(videoUrl) || videoUrl.startsWith('Midia/');
+      
+      if (isDirectVideo) {
+        if (iframe) {
+          iframe.style.display = 'none';
+          iframe.src = '';
+        }
+        if (player) {
+          player.style.display = 'block';
+          player.src = videoUrl;
+          player.load();
+          player.play().catch(() => {});
+        }
       } else {
         if (player) {
           player.pause();
           player.src = '';
           player.style.display = 'none';
         }
-        iframe.style.display = 'block';
-        iframe.src = videoUrl;
+        if (iframe) {
+          iframe.style.display = 'block';
+          iframe.src = formatVideoEmbedUrl(videoUrl);
+        }
       }
       document.getElementById('videoModal').classList.add('active');
     }
