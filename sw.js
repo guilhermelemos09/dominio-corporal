@@ -1,8 +1,9 @@
-const CACHE_NAME = 'dominio-corporal-v64';
+const CACHE_NAME = 'dominio-corporal-v65';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './treino.html',
+  './Dados/prontuario_planilha_visual.html',
   './jean.html',
   './manifest-jean.json',
   './icon-192.png',
