@@ -296,7 +296,7 @@ def build_prontuario_workbook():
     ws3.views.sheetView[0].showGridLines = True
     ws3.freeze_panes = 'C3'
 
-    ws3.merge_cells('A1:J1')
+    ws3.merge_cells('A1:K1')
     ws3['A1'] = 'DOMÍNIO CORPORAL | REGISTRO DE VÍDEOS, LINKS DO DRIVE & ANÁLISES CINEMÁTICAS'
     ws3['A1'].font = FONT_TITLE
     ws3['A1'].fill = NAVY_FILL
@@ -307,7 +307,7 @@ def build_prontuario_workbook():
         'Data', 'Movimento / Gesto', 'Categoria', 'Duração',
         'Aparelho / Local', 'Link do Arquivo (Drive / Mídia)',
         'Na Prática (O que acontece)', 'Base Científica & Origem',
-        'Follow-up (Ajustes & Educativos)', 'Status'
+        'Diagnóstico (O que ajustar)', 'Exercícios Sugeridos', 'Status'
     ]
 
     for col_idx, h in enumerate(headers_s3, start=1):
@@ -324,7 +324,8 @@ def build_prontuario_workbook():
             'Box CrossFit', 'Midia/WhatsApp Video 2026-10-02 at 14.44.21.mp4',
             'O parceiro de baixo mantém joelhos semifletidos para estabilidade. O Gui apoia nos ombros dele, projeta o tronco à frente e sobe o quadril sem salto. No topo, abre em straddle mantendo o alinhamento sobre a coluna da base e desce suavemente.',
             'Empilhamento ósseo com absorção da carga axial (~84 kg) pela base; translação escapular que projeta o centro de gravidade sobre as clavículas; desaceleração excêntrica conduzida por peitoral menor e trapézio inferior.',
-            'Ajuste fino: reduzir sutilmente a anteversão pélvica na abertura das pernas. Educativo: press to handstand com apoio na parede na paralela baixa (3x3 com pausa de 3s). Próximo passo: subida com pernas unidas (pike press).',
+            'A subida foi muito suave e estável. No topo, ao abrir as pernas, o quadril empina um pouco para trás e a lombar curva de leve. Basta travar bem a barriga e o bumbum para a coluna subir reta.',
+            '• Press na paralela baixa com costas na parede (3x3 com pausa de 3s no topo).\n• Subida no ombro com pernas unidas (pike press) para ganhar mais força de compressão.',
             'Validado ✅'
         ),
         (
@@ -332,7 +333,8 @@ def build_prontuario_workbook():
             'Box CrossFit', 'Midia/WhatsApp Video 2026-10-02 at 14.44.18.mp4',
             'Retorno às argolas com subida estrita. Pegada falsa com punho flexionado, puxada até o peito na altura das mãos e cotovelos colados sem impulso de pernas. Em seguida, descida em vela e balanço com braços esticados para retornar ao apoio.',
             'Flexão ulnocarpal profunda elimina defasagem mecânica do punho, poupando a articulação glenoumeral no ombro operado e inserção do tríceps; candle kip converte energia potencial em momento angular por tração estendida.',
-            'Ajuste fino: manter pernas e pontas dos pés ativas na transição do dip. Educativo: transições lentas na argola baixa com pés no solo (3x5 reps). Próximo passo: séries de 2 a 3 repetições estritas consecutivas.',
+            'Subida de força muito segura para o ombro operado. Na passagem para empurrar o apoio, os joelhos deram uma leve dobrada. As pernas devem ficar 100% esticadas e pontas dos pés ativas.',
+            '• Transições lentas na argola baixa com pés no chão (3x5 reps com cotovelos colados).\n• Séries de 2 a 3 repetições estritas consecutivas mantendo a pegada falsa firme.',
             'Validado ✅'
         ),
         (
@@ -340,7 +342,8 @@ def build_prontuario_workbook():
             'Ginásio EEFERP', 'https://drive.google.com/file/d/1tNgCqQQXc_sA3WCwqryKIRbHE7mK8zZX/view?usp=sharing',
             'Entrada em L-sit estático suspenso, subida contínua sem embalo até a parada de mãos aberta, trava estável por 8s, descida controlada e encaixe do cotovelo na bacia para One-Arm Crocodile por 7s com o outro braço estendido.',
             'Força concêntrica de flexores de quadril e deltóide anterior com elevação escapular mantida; apoio do olécrano na espinha ilíaca ântero-superior e torque anti-rotacional neutralizado por oblíquos contralaterais.',
-            'Ajuste fino: nivelar o tronco paralelamente ao solo no Crocodile. Educativo: isometria na manjota com apoio de 2 dedos da mão livre (3x 8-10s por lado). Próximo passo: transição de volta para duas mãos sem tocar o solo.',
+            'L-sit e subida na parada de mãos impecáveis. No apoio de um braço só (Crocodile), o quadril deu uma leve caída para o lado. O corpo precisa ficar reto como uma prancha paralela ao chão.',
+            '• Isometria na manjota com apoio de apenas 2 dedos da mão livre (3x 8-10s por lado).\n• Retorno do Crocodile para as duas mãos sem encostar os pés no chão.',
             'Validado ✅'
         ),
         (
@@ -348,7 +351,8 @@ def build_prontuario_workbook():
             'Ginásio EEFERP', 'https://drive.google.com/file/d/1o5mW2GK-qtiffr74zTQOUaQ4PBfOzfxI/view?usp=sharing',
             'Balanço amplo perto do chão, flexão de quadril aproximando as canelas da barra no retorno do pêndulo e puxada com cotovelos estendidos até o apoio sobre a barra, encadeando 4 repetições contínuas com ritmo constante.',
             'Timing na reversão do pêndulo angular encurtando o raio de rotação para ascensão vertical; extensão de ombro com grande dorsal e tríceps cabeça longa com rápida troca de punhos por cima do eixo.',
-            'Ajuste fino: abrir o peito na subida ao apoio para entrar com os ombros projetados à frente. Educativo: balanço de oitava com bola medicinal leve entre tornozelos (3x6 reps). Próximo passo: saída da oitava ligada em giro para trás.',
+            'Excelente ritmo nas 4 repetições. Na subida em cima da barra, o peito ainda sobe um pouco recolhido. Abra o peito e projete os ombros à frente da barra para embalar fácil na repetição seguinte.',
+            '• Balanço de oitava segurando bola medicinal leve entre os tornozelos (3x6 reps).\n• Saída da oitava ligada direto no giro de apoio para trás na barra.',
             'Validado ✅'
         ),
         (
@@ -356,13 +360,14 @@ def build_prontuario_workbook():
             'Clínica / Box', 'Midia/comparacao_frontal_relaxado.jpg | gui_foto.jpg',
             'Comparativo fotográfico evidenciando redução da adiposidade abdominal e definição do contorno muscular em 95 dias de acompanhamento, com preservação da estrutura muscular em tronco e braços.',
             'Estímulo tensional frequente e aporte proteico de 2.0 a 2.4 g/kg preservando massa magra; descompressão de 40 a 50 kg no platô tibial por ciclo de passo/agachamento (-13 kg acumulados).',
-            'Ajuste fino: manter taxa de perda controlada (~0.8 a 1.0 kg/sem) com bioimpedância mensal. Conduta sugerida: refeed limpo sincronizado com treinos de alta densidade. Próximo passo: consolidação em 80-82 kg com 14% de gordura.',
+            'Perda de peso consistente e com ótima retenção de massa muscular. Manter a disciplina para não acelerar demais e garantir a preservação da força nas habilidades gímnicas.',
+            '• Manter ingestão proteica alta (2.0-2.4 g/kg) e hidratação rigorosa.\n• Refeed limpo sincronizado com dias de treinos mais pesados na EEFERP.',
             'Validado ✅'
         )
     ]
 
     for r_idx, v in enumerate(videos_data, start=3):
-        ws3.row_dimensions[r_idx].height = 44
+        ws3.row_dimensions[r_idx].height = 46
         is_zebra = (r_idx % 2 == 0)
         row_fill = ZEBRA_FILL if is_zebra else None
         
@@ -372,9 +377,9 @@ def build_prontuario_workbook():
             cell.border = THIN_BORDER
             if row_fill: cell.fill = row_fill
             
-            if c_idx in [1, 3, 4, 5, 10]:
+            if c_idx in [1, 3, 4, 5, 11]:
                 cell.alignment = Alignment(horizontal='center', vertical='center')
-                if c_idx == 10:
+                if c_idx == 11:
                     cell.font = FONT_SUCCESS
                     cell.fill = SUCCESS_FILL
             elif c_idx == 6:
@@ -383,7 +388,7 @@ def build_prontuario_workbook():
             else:
                 cell.alignment = Alignment(horizontal='left', vertical='center', wrap_text=True)
 
-    col_widths_s3 = [12, 30, 22, 12, 16, 38, 42, 44, 46, 14]
+    col_widths_s3 = [12, 30, 20, 10, 16, 34, 40, 42, 40, 40, 14]
     for idx, w in enumerate(col_widths_s3, start=1):
         ws3.column_dimensions[get_column_letter(idx)].width = w
 
