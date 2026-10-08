@@ -7617,46 +7617,57 @@
       <div class="modal-body" style="padding: 16px 20px;">
         <div class="notif-list">
           
-          <!-- Notificação 0: Nova Análise de Habilidade (11x Butterfly Pull-Up) -->
-          <div class="notif-item unread" onclick="openAnalysisCardFromNotif('analysisCard-5', 'habilidades')">
-            <span class="notif-item-icon">⚡</span>
+          <!-- Notificação 0: Nova Análise de Habilidade (Pike Press nas Bengalas) -->
+          <div class="notif-item unread" data-notif-id="notif-analysis-9" onclick="openAnalysisCardFromNotif('analysisCard-9', 'habilidades', 'notif-analysis-9')">
+            <span class="notif-item-icon">🤸‍♂️</span>
             <div style="flex:1; min-width:0;">
-              <div class="notif-item-title">Habilidade: Butterfly Pull-Up</div>
-              <div class="notif-item-desc">Série de 11 repetições contínuas analisada com diretrizes biomecânicas.</div>
-              <div class="notif-item-time">⏱️ Hoje • Barra Fixa</div>
+              <div class="notif-item-title">Habilidade: Pike Press nas Bengalas</div>
+              <div class="notif-item-desc">Subida estrita e descida para L-Sit analisada com diretrizes biomecânicas.</div>
+              <div class="notif-item-time">⏱️ Hoje • Handstand e Pranchas</div>
             </div>
             <span class="notif-item-arrow">›</span>
           </div>
 
-          <!-- Notificação 1: Recado no Mural -->
-          <div class="notif-item unread" onclick="openBulletinFromNotif()">
+          <!-- Notificação 1: Nova Análise de Habilidade (Bar Pullover e Giro de Quadril) -->
+          <div class="notif-item unread" data-notif-id="notif-analysis-8" onclick="openAnalysisCardFromNotif('analysisCard-8', 'habilidades', 'notif-analysis-8')">
+            <span class="notif-item-icon">⚡</span>
+            <div style="flex:1; min-width:0;">
+              <div class="notif-item-title">Habilidade: Bar Pullover e Giro de Quadril</div>
+              <div class="notif-item-desc">Tração pélvica colada e apoio superior analisados nos ângulos frontal e 45°.</div>
+              <div class="notif-item-time">⏱️ Quarta • Barra Fixa</div>
+            </div>
+            <span class="notif-item-arrow">›</span>
+          </div>
+
+          <!-- Notificação 2: Memória Automática de Séries -->
+          <div class="notif-item unread" data-notif-id="notif-feat-series-memory" onclick="dismissSingleNotification('notif-feat-series-memory')">
+            <span class="notif-item-icon">💾</span>
+            <div style="flex:1; min-width:0;">
+              <div class="notif-item-title">Novo: Memória de Séries Automática</div>
+              <div class="notif-item-desc">Suas séries marcadas durante o treino agora ficam salvas mesmo se fechar o app por acidente.</div>
+              <div class="notif-item-time">⏱️ Hoje • Sistema do App</div>
+            </div>
+            <span class="notif-item-arrow">›</span>
+          </div>
+
+          <!-- Notificação 3: Mural de Recados Atualizado -->
+          <div class="notif-item" data-notif-id="notif-mural-recados" onclick="openBulletinFromNotif('notif-mural-recados')">
             <span class="notif-item-icon">📢</span>
             <div style="flex:1; min-width:0;">
               <div class="notif-item-title">Mural de Recados Atualizado</div>
               <div class="notif-item-desc">Nova diretriz do treinador sobre envio de vídeos e foco nas puxadas.</div>
-              <div class="notif-item-time">⏱️ Hoje • Mural do Prof. Gui</div>
+              <div class="notif-item-time">⏱️ Recente • Mural do Prof. Gui</div>
             </div>
             <span class="notif-item-arrow">›</span>
           </div>
 
-          <!-- Notificação 2: Análise de Habilidade (Sequência na Manjota) -->
-          <div class="notif-item unread" onclick="openAnalysisCardFromNotif('analysisCard-3', 'habilidades')">
-            <span class="notif-item-icon">🏆</span>
+          <!-- Notificação 4: Análise de Habilidade (11x Butterfly Pull-Up) -->
+          <div class="notif-item" data-notif-id="notif-analysis-5" onclick="openAnalysisCardFromNotif('analysisCard-5', 'habilidades', 'notif-analysis-5')">
+            <span class="notif-item-icon">⚡</span>
             <div style="flex:1; min-width:0;">
-              <div class="notif-item-title">Habilidade: Sequência na Manjota</div>
-              <div class="notif-item-desc">L-Sit to Handstand e Crocodile de 1 braço revisados com diretrizes biomecânicas.</div>
-              <div class="notif-item-time">⏱️ Hoje • Habilidade</div>
-            </div>
-            <span class="notif-item-arrow">›</span>
-          </div>
-
-          <!-- Notificação 3: Análise de Habilidade (Strict RMU Livre) -->
-          <div class="notif-item" onclick="openAnalysisCardFromNotif('analysisCard-2', 'habilidades')">
-            <span class="notif-item-icon">🤸‍♂️</span>
-            <div style="flex:1; min-width:0;">
-              <div class="notif-item-title">Habilidade: Strict RMU Livre</div>
-              <div class="notif-item-desc">Transição estrita nas argolas e Candle Kips com análise biomecânica e educativa.</div>
-              <div class="notif-item-time">⏱️ Ontem • Habilidade</div>
+              <div class="notif-item-title">Habilidade: Butterfly Pull-Up</div>
+              <div class="notif-item-desc">Série de 11 repetições contínuas analisada com diretrizes biomecânicas.</div>
+              <div class="notif-item-time">⏱️ Barra Fixa • Concluído</div>
             </div>
             <span class="notif-item-arrow">›</span>
           </div>
@@ -7678,13 +7689,13 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '113';
+    const APP_BUILD_VERSION = '114';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
         caches.keys().then((keys) => {
           keys.forEach((k) => {
-            if (k !== 'dominio-corporal-v113') caches.delete(k);
+            if (k !== 'dominio-corporal-v114') caches.delete(k);
           });
         });
       }
@@ -8986,12 +8997,73 @@
       if ('vibrate' in navigator) navigator.vibrate([100, 50, 100]);
     }
 
+    // Persistência das Séries no LocalStorage (Memória de Treino)
+    function getSavedMarkedSets() {
+      try {
+        const data = localStorage.getItem('dominio_saved_sets');
+        return data ? JSON.parse(data) : {};
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function saveMarkedSets(saved) {
+      try {
+        localStorage.setItem('dominio_saved_sets', JSON.stringify(saved));
+      } catch (e) {}
+    }
+
+    function getOrAssignSetId(pill) {
+      if (pill.dataset && pill.dataset.setId) return pill.dataset.setId;
+      const tab = pill.closest('.tab-content');
+      const tabId = tab ? (tab.id || 'tab') : 'general';
+      const allPillsInTab = tab ? tab.querySelectorAll('.set-pill') : document.querySelectorAll('.set-pill');
+      const idx = Array.prototype.indexOf.call(allPillsInTab, pill);
+      const setId = `${tabId}_set_${idx >= 0 ? idx : 0}`;
+      pill.dataset.setId = setId;
+      return setId;
+    }
+
     function toggleSet(btn) {
       btn.classList.toggle('done');
       if (btn.classList.contains('done') && 'vibrate' in navigator) {
         navigator.vibrate(35);
       }
+
+      const setId = getOrAssignSetId(btn);
+      if (setId) {
+        const saved = getSavedMarkedSets();
+        if (btn.classList.contains('done')) {
+          saved[setId] = true;
+        } else {
+          delete saved[setId];
+        }
+        saveMarkedSets(saved);
+      }
+
       updateProgress();
+      if (typeof updateEvolucaoStats === 'function') updateEvolucaoStats();
+    }
+
+    function initSetPillsMemory() {
+      const saved = getSavedMarkedSets();
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        const tabId = tab.id || 'tab';
+        const pills = tab.querySelectorAll('.set-pill');
+        pills.forEach((pill, idx) => {
+          const setId = `${tabId}_set_${idx}`;
+          pill.dataset.setId = setId;
+          if (saved.hasOwnProperty(setId)) {
+            if (saved[setId]) {
+              pill.classList.add('done');
+            } else {
+              pill.classList.remove('done');
+            }
+          }
+        });
+      });
+      updateProgress();
+      if (typeof updateEvolucaoStats === 'function') updateEvolucaoStats();
     }
 
         function updateProgress() {
@@ -9511,7 +9583,35 @@
     // Central de Notificações e Recados
     // Central de Notificações e Recados gerenciada por window.openNotificationsModal / window.closeNotificationsModal
 
-    function openAnalysisCardFromNotif(cardId, category = 'habilidades') {
+    // Central de Notificações e Recados com Persistência
+    function getReadNotifications() {
+      try {
+        const data = localStorage.getItem('dominio_read_notifications');
+        return data ? JSON.parse(data) : {};
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function saveReadNotifications(readMap) {
+      try {
+        localStorage.setItem('dominio_read_notifications', JSON.stringify(readMap));
+      } catch (e) {}
+    }
+
+    function dismissSingleNotification(notifId) {
+      if (notifId) {
+        const readMap = getReadNotifications();
+        readMap[notifId] = true;
+        saveReadNotifications(readMap);
+        updateNotificationsUI();
+      }
+    }
+
+    function openAnalysisCardFromNotif(cardId, category = 'habilidades', notifId = null) {
+      if (notifId) {
+        dismissSingleNotification(notifId);
+      }
       closeNotificationsModal();
       if (typeof openDedicatedView === 'function') {
         openDedicatedView('analises');
@@ -9531,7 +9631,10 @@
       }
     }
 
-    function openBulletinFromNotif() {
+    function openBulletinFromNotif(notifId = null) {
+      if (notifId) {
+        dismissSingleNotification(notifId);
+      }
       closeNotificationsModal();
       if (typeof openDedicatedView === 'function') {
         openDedicatedView('recados');
@@ -9539,14 +9642,50 @@
     }
 
     function markAllNotificationsAsRead() {
-      const unreadItems = document.querySelectorAll('.notif-item.unread');
-      unreadItems.forEach(item => item.classList.remove('unread'));
+      const readMap = getReadNotifications();
+      const allNotifItems = document.querySelectorAll('.notif-item[data-notif-id]');
+      allNotifItems.forEach(item => {
+        const id = item.getAttribute('data-notif-id');
+        if (id) readMap[id] = true;
+        item.classList.remove('unread');
+      });
+      saveReadNotifications(readMap);
+      updateNotificationsUI();
+    }
+
+    function updateNotificationsUI() {
+      const readMap = getReadNotifications();
+      const notifItems = document.querySelectorAll('.notif-item[data-notif-id]');
+      let unreadCount = 0;
+
+      notifItems.forEach(item => {
+        const id = item.getAttribute('data-notif-id');
+        if (id && readMap[id]) {
+          item.classList.remove('unread');
+        } else if (item.classList.contains('unread')) {
+          unreadCount++;
+        }
+      });
+
       const headerBadge = document.getElementById('headerNotifBadge');
-      if (headerBadge) headerBadge.style.display = 'none';
+      if (headerBadge) {
+        if (unreadCount > 0) {
+          headerBadge.textContent = unreadCount > 9 ? '9+' : unreadCount;
+          headerBadge.style.display = 'flex';
+        } else {
+          headerBadge.style.display = 'none';
+        }
+      }
+
       const countBadge = document.getElementById('notifUnreadCountBadge');
       if (countBadge) {
-        countBadge.textContent = '0 Novas Mensagens';
-        countBadge.style.color = 'var(--text-muted)';
+        if (unreadCount > 0) {
+          countBadge.textContent = `${unreadCount} ${unreadCount === 1 ? 'Nova Mensagem' : 'Novas Mensagens'}`;
+          countBadge.style.color = '#38bdf8';
+        } else {
+          countBadge.textContent = '0 Novas Mensagens';
+          countBadge.style.color = 'var(--text-muted)';
+        }
       }
     }
 
@@ -9604,6 +9743,8 @@
     initTimerUI();
     checkIntakeGate();
     syncAthleteMetricsFromIntake();
+    initSetPillsMemory();
+    updateNotificationsUI();
 
     // Garante que o botão de Bio e Notificações recebam cliques e toques imediatos no mobile
     const coachBtn = document.getElementById('btnCoachBio') || document.querySelector('.coach-profile-btn');
@@ -9627,7 +9768,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=113').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=114').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });

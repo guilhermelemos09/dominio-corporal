@@ -1734,11 +1734,13 @@
     }
 
     /* Cores de borda por dia */
-    #dayCard-segunda::before { background: var(--brand-neon); }
-    #dayCard-terca::before { background: var(--accent-gold); }
-    #dayCard-quarta::before { background: #38bdf8; }
-    #dayCard-quinta::before { background: #c084fc; }
-    #dayCard-sexta::before { background: #f43f5e; }
+    #dayCard-segunda::before,
+    #dayCard-terca::before,
+    #dayCard-quarta::before,
+    #dayCard-quinta::before,
+    #dayCard-sexta::before {
+      background: var(--brand-neon);
+    }
 
     .day-card-left {
       display: flex;

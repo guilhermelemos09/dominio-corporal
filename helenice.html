@@ -2374,11 +2374,13 @@
     }
 
     /* Cores de borda por dia */
-    #dayCard-segunda::before { background: var(--brand-neon); }
-    #dayCard-terca::before { background: var(--accent-gold); }
-    #dayCard-quarta::before { background: #38bdf8; }
-    #dayCard-quinta::before { background: #c084fc; }
-    #dayCard-sexta::before { background: #f43f5e; }
+    #dayCard-segunda::before,
+    #dayCard-terca::before,
+    #dayCard-quarta::before,
+    #dayCard-quinta::before,
+    #dayCard-sexta::before {
+      background: var(--brand-neon);
+    }
 
     .day-card-left {
       display: flex;
@@ -5423,8 +5425,19 @@
       <div class="modal-body" style="padding: 16px 20px;">
         <div class="notif-list">
           
+          <!-- Notificação 0: Novo Recurso de Treino (Memória de Séries e Visual) -->
+          <div class="notif-item unread" data-notif-id="helenice-notif-features" onclick="dismissSingleNotification('helenice-notif-features')">
+            <span class="notif-item-icon">💾</span>
+            <div style="flex:1; min-width:0;">
+              <div class="notif-item-title">Memória de Séries e Novo Visual</div>
+              <div class="notif-item-desc">Séries marcadas no treino agora ficam salvas automaticamente, e o visual dos dias foi padronizado em verde sóbrio.</div>
+              <div class="notif-item-time">⏱️ Hoje • Sistema do App</div>
+            </div>
+            <span class="notif-item-arrow">›</span>
+          </div>
+
           <!-- Notificação 1: Ficha de Avaliação Inicial -->
-          <div class="notif-item unread" onclick="closeNotificationsModal(event, true); openDedicatedView('avaliacao');">
+          <div class="notif-item unread" data-notif-id="helenice-notif-avaliacao" onclick="dismissSingleNotification('helenice-notif-avaliacao'); closeNotificationsModal(event, true); openDedicatedView('avaliacao');">
             <span class="notif-item-icon">📋</span>
             <div style="flex:1; min-width:0;">
               <div class="notif-item-title">Ficha de Avaliação Inicial</div>
@@ -5435,12 +5448,12 @@
           </div>
 
           <!-- Notificação 2: Mural de Recados e Boas-Vindas -->
-          <div class="notif-item" onclick="closeNotificationsModal(event, true); openDedicatedView('recados');">
+          <div class="notif-item" data-notif-id="helenice-notif-recados" onclick="dismissSingleNotification('helenice-notif-recados'); closeNotificationsModal(event, true); openDedicatedView('recados');">
             <span class="notif-item-icon">📢</span>
             <div style="flex:1; min-width:0;">
               <div class="notif-item-title">Boas-vindas ao Domínio Corporal</div>
               <div class="notif-item-desc">Confira o recado inicial do Prof. Gui Lemos no seu mural.</div>
-              <div class="notif-item-time">⏱️ Hoje • Mural do Treinador</div>
+              <div class="notif-item-time">⏱️ Recente • Mural do Treinador</div>
             </div>
             <span class="notif-item-arrow">›</span>
           </div>
@@ -5462,13 +5475,13 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '112';
+    const APP_BUILD_VERSION = '114';
     if (localStorage.getItem('dominio_helenice_dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_helenice_dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
         caches.keys().then((keys) => {
           keys.forEach((k) => {
-            if (k !== 'dominio-corporal-v112') caches.delete(k);
+            if (k !== 'dominio-alunos-v114') caches.delete(k);
           });
         });
       }
@@ -6754,12 +6767,73 @@
       if ('vibrate' in navigator) navigator.vibrate([100, 50, 100]);
     }
 
+    // Persistência das Séries no LocalStorage (Memória de Treino da Helenice)
+    function getSavedMarkedSets() {
+      try {
+        const data = localStorage.getItem('dominio_helenice_saved_sets');
+        return data ? JSON.parse(data) : {};
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function saveMarkedSets(saved) {
+      try {
+        localStorage.setItem('dominio_helenice_saved_sets', JSON.stringify(saved));
+      } catch (e) {}
+    }
+
+    function getOrAssignSetId(pill) {
+      if (pill.dataset && pill.dataset.setId) return pill.dataset.setId;
+      const tab = pill.closest('.tab-content');
+      const tabId = tab ? (tab.id || 'tab') : 'general';
+      const allPillsInTab = tab ? tab.querySelectorAll('.set-pill') : document.querySelectorAll('.set-pill');
+      const idx = Array.prototype.indexOf.call(allPillsInTab, pill);
+      const setId = `${tabId}_set_${idx >= 0 ? idx : 0}`;
+      pill.dataset.setId = setId;
+      return setId;
+    }
+
     function toggleSet(btn) {
       btn.classList.toggle('done');
       if (btn.classList.contains('done') && 'vibrate' in navigator) {
         navigator.vibrate(35);
       }
+
+      const setId = getOrAssignSetId(btn);
+      if (setId) {
+        const saved = getSavedMarkedSets();
+        if (btn.classList.contains('done')) {
+          saved[setId] = true;
+        } else {
+          delete saved[setId];
+        }
+        saveMarkedSets(saved);
+      }
+
       updateProgress();
+      if (typeof updateEvolucaoStats === 'function') updateEvolucaoStats();
+    }
+
+    function initSetPillsMemory() {
+      const saved = getSavedMarkedSets();
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        const tabId = tab.id || 'tab';
+        const pills = tab.querySelectorAll('.set-pill');
+        pills.forEach((pill, idx) => {
+          const setId = `${tabId}_set_${idx}`;
+          pill.dataset.setId = setId;
+          if (saved.hasOwnProperty(setId)) {
+            if (saved[setId]) {
+              pill.classList.add('done');
+            } else {
+              pill.classList.remove('done');
+            }
+          }
+        });
+      });
+      updateProgress();
+      if (typeof updateEvolucaoStats === 'function') updateEvolucaoStats();
     }
 
         function updateProgress() {
@@ -7287,15 +7361,76 @@
       }
     }
 
+    // Central de Notificações com Persistência da Aluna Helenice
+    function getReadNotifications() {
+      try {
+        const data = localStorage.getItem('dominio_helenice_read_notifications');
+        return data ? JSON.parse(data) : {};
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function saveReadNotifications(readMap) {
+      try {
+        localStorage.setItem('dominio_helenice_read_notifications', JSON.stringify(readMap));
+      } catch (e) {}
+    }
+
+    function dismissSingleNotification(notifId) {
+      if (notifId) {
+        const readMap = getReadNotifications();
+        readMap[notifId] = true;
+        saveReadNotifications(readMap);
+        updateNotificationsUI();
+      }
+    }
+
     function markAllNotificationsAsRead() {
-      const unreadItems = document.querySelectorAll('.notif-item.unread');
-      unreadItems.forEach(item => item.classList.remove('unread'));
+      const readMap = getReadNotifications();
+      const allNotifItems = document.querySelectorAll('.notif-item[data-notif-id]');
+      allNotifItems.forEach(item => {
+        const id = item.getAttribute('data-notif-id');
+        if (id) readMap[id] = true;
+        item.classList.remove('unread');
+      });
+      saveReadNotifications(readMap);
+      updateNotificationsUI();
+    }
+
+    function updateNotificationsUI() {
+      const readMap = getReadNotifications();
+      const notifItems = document.querySelectorAll('.notif-item[data-notif-id]');
+      let unreadCount = 0;
+
+      notifItems.forEach(item => {
+        const id = item.getAttribute('data-notif-id');
+        if (id && readMap[id]) {
+          item.classList.remove('unread');
+        } else if (item.classList.contains('unread')) {
+          unreadCount++;
+        }
+      });
+
       const headerBadge = document.getElementById('headerNotifBadge');
-      if (headerBadge) headerBadge.style.display = 'none';
+      if (headerBadge) {
+        if (unreadCount > 0) {
+          headerBadge.textContent = unreadCount > 9 ? '9+' : unreadCount;
+          headerBadge.style.display = 'flex';
+        } else {
+          headerBadge.style.display = 'none';
+        }
+      }
+
       const countBadge = document.getElementById('notifUnreadCountBadge');
       if (countBadge) {
-        countBadge.textContent = '0 Novas Mensagens';
-        countBadge.style.color = 'var(--text-muted)';
+        if (unreadCount > 0) {
+          countBadge.textContent = `${unreadCount} ${unreadCount === 1 ? 'Nova Mensagem' : 'Novas Mensagens'}`;
+          countBadge.style.color = '#38bdf8';
+        } else {
+          countBadge.textContent = '0 Novas Mensagens';
+          countBadge.style.color = 'var(--text-muted)';
+        }
       }
     }
 
@@ -7369,6 +7504,8 @@
     initTimerUI();
     checkIntakeGate();
     syncAthleteMetricsFromIntake();
+    initSetPillsMemory();
+    updateNotificationsUI();
 
     // Garante que o botão de Bio e Notificações recebam cliques e toques imediatos no mobile
     const coachBtn = document.getElementById('btnCoachBio') || document.querySelector('.coach-profile-btn');
@@ -7392,7 +7529,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=112').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=114').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
