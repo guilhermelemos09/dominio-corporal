@@ -1,8 +1,8 @@
 {
   "id": "/dominio-corporal-helenice",
-  "name": "Domínio Corporal | Helenice",
+  "name": "Domínio Corporal | Helenice de Paula Lemos",
   "short_name": "Domínio Corporal | Helenice",
-  "description": "Treinamento Especializado e Biomecanica do Movimento - Helenice",
+  "description": "Treinamento Especializado e Biomecanica do Movimento - Helenice de Paula Lemos",
   "start_url": "./helenice.html",
   "scope": "./",
   "display": "standalone",

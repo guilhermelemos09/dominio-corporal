@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Domínio Corporal | Helenice</title>
+  <title>Domínio Corporal | Helenice de Paula Lemos</title>
 
   <!-- Cache Control Meta Tags -->
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -15,7 +15,7 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Domínio Corporal | Helenice">
+  <meta name="apple-mobile-web-app-title" content="Domínio Corporal | Helenice de Paula Lemos">
   <meta name="theme-color" content="#000000">
   <link rel="icon" type="image/png" sizes="192x192" href="Midia/icon-192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="Midia/icon-512.png">
@@ -1497,70 +1497,146 @@
 
     /* Card do Aluno & Objetivos Clean (Acima da Barra dos Dias) */
     .goals-overview-card {
-      background: #11141a;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 9px 12px;
-      margin-bottom: 10px;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.45);
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 12px 14px 10px 14px;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
-    .goals-card-header {
+    .athlete-name-row {
+      margin-bottom: 6px;
+    }
+    .athlete-full-name {
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.04em;
+      margin: 0;
+      cursor: pointer;
+      text-transform: uppercase;
+      line-height: 1.2;
+      display: inline-block;
+      transition: color 0.15s ease;
+    }
+    .athlete-full-name:hover {
+      color: var(--brand-neon);
+    }
+    .athlete-actions-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+    .sober-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6.5px;
+      background: #ffffff;
+      border: 1px solid #ffffff;
+      color: #000000;
+      padding: 6.5px 14px;
+      border-radius: 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      box-shadow: 0 2px 8px rgba(255, 255, 255, 0.12);
+    }
+    .sober-action-btn:hover {
+      background: #f1f5f9;
+      border-color: #f1f5f9;
+      color: #000000;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.22);
+    }
+    .sober-action-btn:active {
+      transform: scale(0.97);
+      background: #e2e8f0;
+    }
+    .sober-action-btn svg {
+      width: 14px;
+      height: 14px;
+      fill: #000000;
+      opacity: 0.95;
+    }
+    .sober-action-btn .arrow-indicator {
+      font-size: 0.74rem;
+      font-weight: 800;
+      opacity: 0.85;
+      margin-left: 2px;
+      color: #000000;
+      transition: transform 0.2s ease;
+    }
+    .sober-action-btn.active .arrow-indicator {
+      transform: rotate(180deg);
+    }
+
+    /* Drawer Retrátil de Metas */
+    .metas-drawer {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      margin-bottom: 6px;
+      animation: fadeIn 0.2s ease;
+    }
+    .metas-drawer-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 7px;
+      margin-bottom: 8px;
     }
-    .goals-card-title {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .goals-title-text {
-      font-size: 0.8rem;
+    .metas-drawer-badge {
+      font-size: 0.65rem;
       font-weight: 800;
       letter-spacing: 0.06em;
+      color: #94a3b8;
       text-transform: uppercase;
-      color: #ff4d4d;
-      text-shadow: 0 0 10px rgba(255, 77, 77, 0.45);
     }
-    .goals-student-card-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 5.5px;
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.32);
-      color: #38bdf8;
-      padding: 3.5px 9px;
-      border-radius: 12px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.01em;
+    .metas-drawer-close {
+      font-size: 0.75rem;
+      color: #64748b;
       cursor: pointer;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 2px 4px;
     }
-    .goals-student-card-btn svg {
-      width: 13px;
-      height: 13px;
-      fill: #38bdf8;
-      transition: transform 0.2s ease;
-    }
-    .goals-student-card-btn .arrow-indicator {
-      font-size: 0.72rem;
-      font-weight: 800;
-      opacity: 0.85;
-      transition: transform 0.2s ease;
-    }
-    .goals-student-card-btn:hover {
-      background: rgba(56, 189, 248, 0.22);
-      border-color: #38bdf8;
+    .metas-drawer-close:hover {
       color: #ffffff;
-      transform: translateY(-1px);
     }
-    .goals-student-card-btn:hover svg {
-      fill: #ffffff;
+    .metas-chips-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
     }
-    .goals-student-card-btn:active {
-      transform: scale(0.96);
+    .goal-chip-item {
+      font-size: 0.76rem;
+      color: #cbd5e1;
+      line-height: 1.4;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 5px 9px;
+      border-radius: 6px;
+    }
+
+    /* Seção de Ferramentas */
+    .tools-container-wrap {
+      margin-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 8px;
+    }
+    .tools-section-title {
+      font-size: 0.66rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: #94a3b8;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      padding-left: 2px;
     }
 
     .goals-chips-row {
@@ -3923,46 +3999,64 @@
   <!-- Container Principal dos Treinos -->
   <div id="mainTrainingView">
 
-    <!-- Card do Aluno & Objetivos Clean -->
+    <!-- Card do Aluno & Ferramentas Clean -->
     <div class="goals-overview-card" id="goalsOverviewCard">
-      <div class="goals-card-header">
-        <div class="goals-card-title">
-          <span class="goals-title-text" style="color: #ef4444; cursor: pointer;" onclick="openDedicatedView('perfil')" title="Abrir Perfil / Bio da Aluna">HELENICE</span>
-        </div>
-        <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
-          <button class="goals-student-card-btn" onclick="openDedicatedView('perfil')" title="Abrir Perfil e Diretrizes da Aluna">
-            <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-            <span>Perfil / Bio</span>
-            <span class="arrow-indicator">↗</span>
-          </button>
-          <button class="goals-student-card-btn" onclick="openDedicatedView('avaliacao')" title="Abrir Ficha de Avaliação">
-            <svg viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-            <span>Avaliação</span>
-            <span class="arrow-indicator">↗</span>
-          </button>
-        </div>
-      </div>
-      <div class="goals-chips-row">
-        <span class="goals-lead-label">METAS:</span>
-        <span class="goal-chip">Avaliação Inicial</span>
-        <span class="goal-chip">Saúde e Longevidade</span>
-        <span class="goal-chip">Em Definição</span>
+      <!-- Linha 1: Nome Completo do Aluno em Destaque -->
+      <div class="athlete-name-row">
+        <h2 class="athlete-full-name" onclick="openDedicatedView('perfil')" title="Abrir Perfil da Aluna">HELENICE DE PAULA LEMOS</h2>
       </div>
 
-      <!-- Barra de Ferramentas / Recursos dentro do Card do Aluno -->
-      <div class="header-tools-bar" style="margin-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 8px;">
-        <button class="tool-pill pill-timers" onclick="openDedicatedView('timers')" title="Abrir Timers de Treino">
-          <svg viewBox="0 0 24 24"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
-          <span>Timers</span>
+      <!-- Linha 2: Botões Sóbrios de Ação (Perfil da Aluna + Avaliação + Metas) -->
+      <div class="athlete-actions-row">
+        <button type="button" class="sober-action-btn" onclick="openDedicatedView('perfil')" title="Abrir Perfil e Diretrizes da Aluna">
+          <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          <span>Perfil da Aluna</span>
+          <span class="arrow-indicator">↗</span>
         </button>
-        <button class="tool-pill pill-analises" onclick="openDedicatedView('analises')" title="Análise de Vídeos">
-          <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 12.5v-9l6 4.5-6 4.5z"/></svg>
-          <span>Análises</span>
+
+        <button type="button" class="sober-action-btn" onclick="openDedicatedView('avaliacao')" title="Abrir Ficha de Avaliação">
+          <svg viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+          <span>Avaliação</span>
+          <span class="arrow-indicator">↗</span>
         </button>
-        <button class="tool-pill pill-evolucao" onclick="openDedicatedView('evolucao')" title="Evolução Corporal">
-          <svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
-          <span>Evolução</span>
+
+        <button type="button" class="sober-action-btn" id="btnToggleMetas" onclick="toggleMetasDrawer()" title="Ver Tópicos e Metas do Ciclo">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+          <span>Metas</span>
+          <span class="arrow-indicator" id="metasArrow">▾</span>
         </button>
+      </div>
+
+      <!-- Drawer Retrátil de Metas do Ciclo -->
+      <div id="metasDrawer" class="metas-drawer" style="display: none;">
+        <div class="metas-drawer-header">
+          <span class="metas-drawer-badge">🎯 Metas do Ciclo</span>
+          <span class="metas-drawer-close" onclick="toggleMetasDrawer()">✕</span>
+        </div>
+        <div class="metas-chips-list">
+          <span class="goal-chip-item">📋 Avaliação Inicial e Diagnóstico de Saúde</span>
+          <span class="goal-chip-item">🌿 Saúde, Mobilidade e Longevidade Ativa</span>
+          <span class="goal-chip-item">⚡ Adaptação Muscular e Consciência Postural</span>
+        </div>
+      </div>
+
+      <!-- Seção de Ferramentas com Título em Caixa Alta -->
+      <div class="tools-container-wrap">
+        <div class="tools-section-title">FERRAMENTAS</div>
+        <div class="header-tools-bar" style="margin-top: 0; padding-top: 0;">
+          <button class="tool-pill pill-timers" onclick="openDedicatedView('timers')" title="Abrir Timers de Treino">
+            <svg viewBox="0 0 24 24"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
+            <span>Timers</span>
+          </button>
+          <button class="tool-pill pill-analises" onclick="openDedicatedView('analises')" title="Análise de Vídeos">
+            <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 12.5v-9l6 4.5-6 4.5z"/></svg>
+            <span>Análises</span>
+          </button>
+          <button class="tool-pill pill-evolucao" onclick="openDedicatedView('evolucao')" title="Evolução Corporal">
+            <svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+            <span>Evolução</span>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -4149,7 +4243,7 @@
         <span class="coach-bulletin-badge">📢 Ativo</span>
       </div>
       <div class="coach-bulletin-body">
-        <strong>👋 Bem-vinda ao seu App, Helenice!</strong><br>
+        <strong>👋 Bem-vinda ao seu App, Helenice de Paula Lemos!</strong><br>
         Este é o seu espaço exclusivo de treinamento no Domínio Corporal. O primeiro passo é responder à sua <strong>Ficha de Avaliação Inicial</strong>. Assim que você enviar, vou analisar seu histórico e estruturar sua rotina de treinos personalizada com segurança e foco na sua saúde e longevidade!
       </div>
     </div>
@@ -4236,7 +4330,7 @@
       <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap; margin-bottom:16px;">
         <div>
           <div style="font-size:0.72rem; font-weight:800; color:var(--brand-neon); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:4px;">FICHA TÉCNICA DA ALUNA</div>
-          <h2 style="font-size:1.35rem; font-weight:800; color:#fff; margin:0 0 4px 0;" id="athleteProfileName">Helenice</h2>
+          <h2 style="font-size:1.35rem; font-weight:800; color:#fff; margin:0 0 4px 0;" id="athleteProfileName">Helenice de Paula Lemos</h2>
           <div style="font-size:0.78rem; color:#94a3b8;">Aluna Domínio Corporal • Prescrição Individualizada</div>
         </div>
         <div style="display:flex; gap:8px; flex-wrap:wrap;">
@@ -4677,7 +4771,7 @@
 
       <div class="evolucao-hero">
         <div class="evolucao-title">
-          <span>📈 Composição Corporal: Helenice</span>
+          <span>📈 Composição Corporal: Helenice de Paula Lemos</span>
           <span class="evolucao-badge-delta">Acompanhamento</span>
         </div>
         <p style="font-size:0.82rem; color:var(--text-muted); margin:8px 0 0; line-height: 1.55;">
@@ -4711,7 +4805,7 @@
 
       <div style="background: rgba(255,255,255,0.03); border: 1px dashed rgba(255,255,255,0.15); border-radius: 14px; padding: 28px 16px; text-align: center; margin-top: 16px;">
         <span style="font-size: 2rem;">🎯</span>
-        <div style="font-size: 0.95rem; font-weight: 700; color: #fff; margin-top: 8px;">Marcos Técnicos da Helenice</div>
+        <div style="font-size: 0.95rem; font-weight: 700; color: #fff; margin-top: 8px;">Marcos Técnicos da Helenice de Paula Lemos</div>
         <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 6px; line-height: 1.5; max-width: 320px; margin-left: auto; margin-right: auto;">
           Conforme as aulas forem acontecendo, suas conquistas nos movimentos e ajustes de postura serão documentados aqui.
         </div>
@@ -5088,13 +5182,13 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '96';
+    const APP_BUILD_VERSION = '103';
     if (localStorage.getItem('dominio_helenice_dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_helenice_dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
         caches.keys().then((keys) => {
           keys.forEach((k) => {
-            if (k !== 'dominio-corporal-v96') caches.delete(k);
+            if (k !== 'dominio-corporal-v103') caches.delete(k);
           });
         });
       }
@@ -6845,7 +6939,7 @@
       const sessionCount = Object.values(completed).filter(Boolean).length || 1;
 
       let msg = `🏋️‍♂️ *DOMÍNIO CORPORAL | Sessão Realizada!*\n\n`;
-      msg += `👤 *Aluno(a):* Helenice\n`;
+      msg += `👤 *Aluno(a):* Helenice de Paula Lemos\n`;
       msg += `📅 *Data:* ${today}\n`;
       msg += `⚡ *Treino:* ${tabName}\n`;
       msg += `🔢 *Sessão nº:* ${sessionCount}\n`;
@@ -6857,6 +6951,22 @@
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
       window.open(url, '_blank');
     }
+
+    /* Alterna gaveta de Metas do Ciclo */
+    window.toggleMetasDrawer = function() {
+      const d = document.getElementById('metasDrawer');
+      const btn = document.getElementById('btnToggleMetas');
+      if (!d) return;
+      const isHidden = (d.style.display === 'none' || d.style.display === '');
+      d.style.display = isHidden ? 'block' : 'none';
+      if (btn) {
+        if (isHidden) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      }
+    };
 
     // Inicializa contador de progresso, labels calibrados e notas salvas
     if (localStorage.getItem('dominio_helenice_dominio_assessment_completed') === null) {
@@ -6880,7 +6990,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=96').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=103').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
