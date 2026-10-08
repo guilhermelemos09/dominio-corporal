@@ -3518,17 +3518,28 @@
       flex-shrink: 0;
     }
 
-    /* Linha 2: Foco do Treino, Local e Duração (Tudo na mesma linha) */
+    /* Metadados da Sessão: Linha 1 Foco / Linha 2 Local e Duração */
     .session-overall-meta {
       display: flex;
-      align-items: center;
-      gap: 8px 12px;
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 7px;
       margin-bottom: 14px;
+    }
+    .session-foco-line {
+      display: flex;
+      align-items: center;
+    }
+    .session-info-line {
+      display: flex;
+      align-items: center;
+      gap: 8px 14px;
       font-size: 0.78rem;
       font-weight: 600;
       color: #94a3b8;
+      flex-wrap: wrap;
     }
+    .session-info-line .meta-item,
     .session-overall-meta .meta-item {
       display: inline-flex;
       align-items: center;
@@ -4264,15 +4275,19 @@
   <!-- ==================== TAB ATIVA: HOJE (SEGUNDA: BOX À TARDE) ==================== -->
   <div id="tab-segunda" class="tab-content">
 
-    <!-- FOCO DO TREINO, LOCAL E DURAÇÃO (TUDO NA MESMA LINHA) -->
+    <!-- LINHA 1: FOCO DO TREINO | LINHA 2: LOCAL E DURAÇÃO -->
     <div class="session-overall-meta">
-      <button type="button" class="btn-foco-treino" onclick="openFocoTreino('segunda')" title="Ver Foco do Treino">
+      <div class="session-foco-line">
+        <button type="button" class="btn-foco-treino" onclick="openFocoTreino('segunda')" title="Ver Foco do Treino">
         <span class="foco-icon">🎯</span>
         <span>Foco do Treino</span>
         <span class="foco-arrow">↗</span>
       </button>
-      <span class="meta-item">📍 Box CrossFit</span>
-      <span class="meta-item">⏳ ~50 min</span>
+      </div>
+      <div class="session-info-line">
+        <span class="meta-item">📍 Box CrossFit</span>
+        <span class="meta-item">⏳ ~50 min</span>
+      </div>
     </div>
 
     <!-- Progresso gerenciado no dock flutuante -->
@@ -4505,15 +4520,19 @@
   <!-- ==================== TAB ATIVA: HOJE (TERÇA: BOX + LAB BMU COMPARTILHADO) ==================== -->
   <div id="tab-terca" class="tab-content">
 
-    <!-- FOCO DO TREINO, LOCAL E DURAÇÃO (TUDO NA MESMA LINHA) -->
+    <!-- LINHA 1: FOCO DO TREINO | LINHA 2: LOCAL E DURAÇÃO -->
     <div class="session-overall-meta">
-      <button type="button" class="btn-foco-treino" onclick="openFocoTreino('terca')" title="Ver Foco do Treino">
+      <div class="session-foco-line">
+        <button type="button" class="btn-foco-treino" onclick="openFocoTreino('terca')" title="Ver Foco do Treino">
         <span class="foco-icon">🎯</span>
         <span>Foco do Treino</span>
         <span class="foco-arrow">↗</span>
       </button>
-      <span class="meta-item">📍 Box CrossFit</span>
-      <span class="meta-item">⏳ Concluído ✅</span>
+      </div>
+      <div class="session-info-line">
+        <span class="meta-item">📍 Box CrossFit</span>
+        <span class="meta-item">⏳ Concluído ✅</span>
+      </div>
     </div>
 
     <!-- ==================== SEÇÃO 1: BOX CROSSFIT (REALIZADO) ==================== -->
@@ -4619,15 +4638,19 @@
   <!-- ==================== TAB: ONTEM (QUARTA BOX CROSSFIT - REALIZADO) ==================== -->
   <div id="tab-quarta" class="tab-content">
 
-    <!-- FOCO DO TREINO, LOCAL E DURAÇÃO (TUDO NA MESMA LINHA) -->
+    <!-- LINHA 1: FOCO DO TREINO | LINHA 2: LOCAL E DURAÇÃO -->
     <div class="session-overall-meta">
-      <button type="button" class="btn-foco-treino" onclick="openFocoTreino('quarta')" title="Ver Foco do Treino">
+      <div class="session-foco-line">
+        <button type="button" class="btn-foco-treino" onclick="openFocoTreino('quarta')" title="Ver Foco do Treino">
         <span class="foco-icon">🎯</span>
         <span>Foco do Treino</span>
         <span class="foco-arrow">↗</span>
       </button>
-      <span class="meta-item">📍 Box CrossFit</span>
-      <span class="meta-item">⏳ Concluído ✅</span>
+      </div>
+      <div class="session-info-line">
+        <span class="meta-item">📍 Box CrossFit</span>
+        <span class="meta-item">⏳ Concluído ✅</span>
+      </div>
     </div>
 
     <!-- ==================== SEÇÃO 1: BOX CROSSFIT (REALIZADO) ==================== -->
@@ -4747,15 +4770,19 @@
   <!-- ==================== TAB: HOJE (QUINTA: DANÇA + GINÁSTICA HANDSTAND) ==================== -->
   <div id="tab-quinta" class="tab-content">
 
-    <!-- FOCO DO TREINO, LOCAL E DURAÇÃO (TUDO NA MESMA LINHA) -->
+    <!-- LINHA 1: FOCO DO TREINO | LINHA 2: LOCAL E DURAÇÃO -->
     <div class="session-overall-meta">
-      <button type="button" class="btn-foco-treino" onclick="openFocoTreino('quinta')" title="Ver Foco do Treino">
+      <div class="session-foco-line">
+        <button type="button" class="btn-foco-treino" onclick="openFocoTreino('quinta')" title="Ver Foco do Treino">
         <span class="foco-icon">🎯</span>
         <span>Foco do Treino</span>
         <span class="foco-arrow">↗</span>
       </button>
-      <span class="meta-item">📍 Ginásio EEFERP e Sala de Dança</span>
-      <span class="meta-item">⏳ 12h–14h e 18h30–19h30</span>
+      </div>
+      <div class="session-info-line">
+        <span class="meta-item">📍 Ginásio EEFERP e Sala de Dança</span>
+        <span class="meta-item">⏳ 12h–14h e 18h30–19h30</span>
+      </div>
     </div>
 
     <!-- Card de Cronograma de Hoje (Quinta-feira) -->
@@ -5266,15 +5293,19 @@ Base científica:
   <!-- ==================== TAB: SEXTA (ARGOLAS DA SEMANA E PORTAGEM) ==================== -->
   <div id="tab-sexta" class="tab-content">
 
-    <!-- FOCO DO TREINO, LOCAL E DURAÇÃO (TUDO NA MESMA LINHA) -->
+    <!-- LINHA 1: FOCO DO TREINO | LINHA 2: LOCAL E DURAÇÃO -->
     <div class="session-overall-meta">
-      <button type="button" class="btn-foco-treino" onclick="openFocoTreino('sexta')" title="Ver Foco do Treino">
+      <div class="session-foco-line">
+        <button type="button" class="btn-foco-treino" onclick="openFocoTreino('sexta')" title="Ver Foco do Treino">
         <span class="foco-icon">🎯</span>
         <span>Foco do Treino</span>
         <span class="foco-arrow">↗</span>
       </button>
-      <span class="meta-item">📍 Ginásio EEFERP</span>
-      <span class="meta-item">⏳ 12h–14h (~120 min)</span>
+      </div>
+      <div class="session-info-line">
+        <span class="meta-item">📍 Ginásio EEFERP</span>
+        <span class="meta-item">⏳ 12h–14h (~120 min)</span>
+      </div>
     </div>
 
     <!-- Barra de Progresso da Sessão -->
