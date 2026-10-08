@@ -2334,12 +2334,14 @@
       transform: scale(0.98);
     }
 
-    /* Cores de borda por dia */
-    #dayCard-segunda::before { background: var(--brand-neon); }
-    #dayCard-terca::before { background: var(--accent-gold); }
-    #dayCard-quarta::before { background: #38bdf8; }
-    #dayCard-quinta::before { background: #c084fc; }
-    #dayCard-sexta::before { background: #f43f5e; }
+    /* Cores de borda por dia: padronizado no verde neon sóbrio (igual segunda-feira) */
+    #dayCard-segunda::before,
+    #dayCard-terca::before,
+    #dayCard-quarta::before,
+    #dayCard-quinta::before,
+    #dayCard-sexta::before {
+      background: var(--brand-neon);
+    }
 
     .day-card-left {
       display: flex;
@@ -7676,13 +7678,13 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '112';
+    const APP_BUILD_VERSION = '113';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
         caches.keys().then((keys) => {
           keys.forEach((k) => {
-            if (k !== 'dominio-corporal-v112') caches.delete(k);
+            if (k !== 'dominio-corporal-v113') caches.delete(k);
           });
         });
       }
@@ -9625,7 +9627,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=112').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=113').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
