@@ -1744,13 +1744,13 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 6.5px;
+      gap: 7px;
       background: #11141a;
       border: 1px solid rgba(255, 255, 255, 0.16);
       color: #ffffff;
-      padding: 7.5px 14px;
+      padding: 8px 14px;
       border-radius: 20px;
-      font-size: 0.8rem;
+      font-size: 0.88rem;
       font-weight: 800;
       letter-spacing: 0.01em;
       cursor: pointer;
@@ -1760,8 +1760,8 @@
       box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
     }
     .tool-pill svg {
-      width: 15px;
-      height: 15px;
+      width: 16px;
+      height: 16px;
       fill: #38bdf8;
       transition: transform 0.2s ease;
     }
@@ -4232,9 +4232,6 @@
 
       <!-- Drawer Retrátil de Metas do Ciclo -->
       <div id="metasDrawer" class="metas-drawer" style="display: none;">
-        <div class="metas-drawer-header">
-          <span class="metas-drawer-close" onclick="toggleMetasDrawer()">✕</span>
-        </div>
         <div class="metas-chips-list">
           <span class="goal-chip-item">📋 Avaliação Inicial e Diagnóstico de Saúde</span>
           <span class="goal-chip-item">🌿 Saúde, Mobilidade e Longevidade Ativa</span>
@@ -5608,7 +5605,7 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '117';
+    const APP_BUILD_VERSION = '118';
     if (localStorage.getItem('dominio_helenice_dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_helenice_dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
@@ -7662,7 +7659,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=117').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=118').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
