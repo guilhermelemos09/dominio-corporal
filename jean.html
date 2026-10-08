@@ -3469,13 +3469,13 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '111';
+    const APP_BUILD_VERSION = '112';
     if (localStorage.getItem('dominio_jean_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_jean_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
         caches.keys().then((keys) => {
           keys.forEach((k) => {
-            if (k !== 'dominio-corporal-v110') caches.delete(k);
+            if (k !== 'dominio-corporal-v112') caches.delete(k);
           });
         });
       }
@@ -4824,21 +4824,19 @@
     checkIntakeGate();
 
     // Garante que o botão de Bio receba toques imediatos no mobile
-    const coachBtn = document.querySelector('.coach-profile-btn') || document.getElementById('btnCoachBio');
+    const coachBtn = document.getElementById('btnCoachBio') || document.querySelector('.coach-profile-btn');
     if (coachBtn) {
-      coachBtn.addEventListener('click', (e) => {
-        openBioModal(e);
-      });
+      coachBtn.addEventListener('click', (e) => { openBioModal(e); });
       coachBtn.addEventListener('touchend', (e) => {
-        e.preventDefault();
+        if (typeof e.preventDefault === 'function') e.preventDefault();
         openBioModal(e);
-      });
+      }, { passive: false });
     }
 
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=111').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=112').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });

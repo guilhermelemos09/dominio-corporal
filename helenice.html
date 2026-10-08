@@ -1477,7 +1477,7 @@
       z-index: 100;
     }
     .coach-profile-btn * {
-      pointer-events: none;
+      pointer-events: none !important;
     }
     .coach-profile-btn:hover, .coach-profile-btn:active {
       border-color: var(--brand-neon);
@@ -3333,6 +3333,9 @@
       align-items: center;
       gap: 8px;
     }
+    .btn-notif-app * {
+      pointer-events: none !important;
+    }
     .btn-notif-app {
       display: inline-flex;
       align-items: center;
@@ -4036,13 +4039,13 @@
   <!-- Header Domínio Corporal (Preto OLED & Verde Neon) -->
   <header id="mainAppHeader">
     <div class="brand-top">
-      <div id="btnCoachBio" class="coach-profile-btn" onclick="openBioModal(event)" role="button" tabindex="0" aria-label="Abrir Perfil do Coach Gui Lemos">
-        <img src="Midia/gui_foto.jpg" onerror="this.onerror=null; this.src='Midia/icon-192.png';" alt="Domínio Corporal" class="coach-avatar">
+      <button type="button" id="btnCoachBio" class="coach-profile-btn" onclick="openBioModal(event)" aria-label="Abrir Perfil do Coach Gui Lemos">
+        <img src="Midia/gui_foto.jpg" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='../Midia/gui_foto.jpg';}else{this.onerror=null;this.src='Midia/icon-192.png';}" alt="Domínio Corporal" class="coach-avatar">
         <span class="coach-name">Gui Lemos</span>
         <span class="bio-badge">Perfil do Coach ↗</span>
-      </div>
+      </button>
             <div class="header-action-group">
-        <button type="button" class="btn-notif-app" id="btnAppNotifications" onclick="toggleNotificationsModal()" title="Central de Notificações e Recados" aria-label="Notificações">
+        <button type="button" class="btn-notif-app" id="btnAppNotifications" onclick="openNotificationsModal(event)" title="Central de Notificações e Recados" aria-label="Notificações">
           <svg viewBox="0 0 24 24" class="notif-bell-icon">
             <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
           </svg>
@@ -4355,15 +4358,19 @@
   <!-- ==================== TAB: ANÁLISE DE VÍDEOS ==================== -->
   <div id="tab-analises" class="tab-content">
 
-    <!-- HERO: FEEDBACK TÉCNICO -->
+    <!-- HERO: FEEDBACK TÉCNICO & ANÁLISE CINEMÁTICA -->
     <div class="analysis-hero-card">
       <div class="analysis-hero-img-wrap" onclick="window.open('Midia/gui_analisando_handstand.jpg', '_blank')" style="cursor: pointer;" title="Toque para ampliar foto">
-        <img src="Midia/gui_analise_blend.jpg" onerror="this.onerror=null; this.src='Midia/gui_foto.jpg';" alt="Prof. Gui Lemos analisando movimento">
+        <img src="Midia/gui_analise_blend.jpg" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='../Midia/gui_analise_blend.jpg';}else{this.onerror=null;this.src='Midia/gui_foto.jpg';}" alt="Prof. Gui Lemos analisando movimento">
       </div>
       <div class="analysis-hero-body">
-        <div class="analysis-hero-title">Feedback Técnico</div>
+        <div class="analysis-hero-tag">
+          <svg style="width:10px; height:10px; fill:currentColor;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+          Feedback Técnico e Análise Cinemática
+        </div>
+        <div class="analysis-hero-title">Precisão Biomecânica do Movimento</div>
         <div class="analysis-hero-desc">
-          Mapeamento biomecânico para identificar compensações e prescrever ajustes precisos na sua execução.
+          Mapeamento detalhado de ângulos, alavancas e trajetórias para identificar compensações e prescrever ajustes precisos na sua evolução.
         </div>
         <div class="analysis-hero-chips">
           <span class="analysis-hero-chip">📐 Biomecânica</span>
@@ -4412,7 +4419,7 @@
     <!-- ==================== SUBPÁGINA: HABILIDADES ==================== -->
     <div id="analysisView-habilidades" style="display:none;">
 
-      <!-- MENU DE CATEGORIAS DE HABILIDADES (BOTÕES ESTILO TRAINING-DAY-CARD) -->
+      <!-- MENU DE CATEGORIAS DE HABILIDADES (BOTÕES SÓBRIOS PADRÃO VERDE SEM DESCRIÇÃO) -->
       <div id="skillsCategoriesMenu">
         <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
           <button type="button" class="btn-back-workout" onclick="closeAnalysisCategoryView()">
@@ -4542,7 +4549,7 @@
           <span id="skillsCurrentCategoryTitle" style="font-weight: 800; font-size: 0.88rem; color: #fff; letter-spacing: 0.5px; text-transform: uppercase;">TODAS AS HABILIDADES</span>
         </div>
 
-        <!-- Barra rápida de troca de categoria (opcional para navegação rápida) -->
+        <!-- Barra rápida de troca de categoria -->
         <div class="skills-subnav-scroll">
           <div class="skills-subnav">
             <button type="button" class="skills-subnav-btn active" data-filter="all" onclick="filterSkillsCategory('all')">TODOS</button>
@@ -4555,13 +4562,13 @@
           </div>
         </div>
 
-        <!-- Estado Vazio / Limpo para a Aluna -->
+        <!-- Estado Vazio / Limpo para o Aluno -->
         <div id="skillsEmptyState" style="text-align:center; padding: 36px 18px; background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.12); border-radius: 14px; margin: 16px 0;">
           <div style="font-size: 1.8rem; margin-bottom: 6px;">🎥</div>
           <div style="font-weight: 700; color: #fff; font-size: 0.92rem; margin-bottom: 4px;">Nenhum vídeo nesta categoria no momento</div>
           <div style="font-size: 0.78rem; color: var(--text-muted); max-width: 380px; margin: 0 auto; line-height: 1.5;">Novas análises e evoluções gravadas para este tipo de habilidade aparecerão aqui.</div>
         </div>
-    </div><!-- end #skillsCardsView -->
+      </div><!-- end #skillsCardsView -->
     </div><!-- end #analysisView-habilidades -->
 
     <!-- ==================== SUBPÁGINA: EXECUÇÃO DE EXERCÍCIOS ==================== -->
@@ -5401,7 +5408,7 @@
 
   <!-- Modal de Notificações e Recados do Treinador -->
     <!-- Modal de Notificações e Recados do Treinador -->
-  <div id="notificationsModal" class="modal-overlay" onclick="if(event.target === this) closeNotificationsModal();">
+  <div id="notificationsModal" class="modal-overlay" onclick="if(event.target === this) closeNotificationsModal(event);">
     <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 480px;">
       <div class="modal-header">
         <div style="display:flex; align-items:center; gap:8px;">
@@ -5411,13 +5418,13 @@
             <span style="font-size:0.75rem; color:#38bdf8; font-weight:600;" id="notifUnreadCountBadge">1 Nova Mensagem</span>
           </div>
         </div>
-        <button class="btn-close" type="button" onclick="closeNotificationsModal()" aria-label="Fechar">&times;</button>
+        <button class="btn-close" type="button" onclick="closeNotificationsModal(event, true)" aria-label="Fechar">&times;</button>
       </div>
       <div class="modal-body" style="padding: 16px 20px;">
         <div class="notif-list">
           
           <!-- Notificação 1: Ficha de Avaliação Inicial -->
-          <div class="notif-item unread" onclick="closeNotificationsModal(); openDedicatedView('avaliacao');">
+          <div class="notif-item unread" onclick="closeNotificationsModal(event, true); openDedicatedView('avaliacao');">
             <span class="notif-item-icon">📋</span>
             <div style="flex:1; min-width:0;">
               <div class="notif-item-title">Ficha de Avaliação Inicial</div>
@@ -5428,7 +5435,7 @@
           </div>
 
           <!-- Notificação 2: Mural de Recados e Boas-Vindas -->
-          <div class="notif-item" onclick="closeNotificationsModal(); openDedicatedView('recados');">
+          <div class="notif-item" onclick="closeNotificationsModal(event, true); openDedicatedView('recados');">
             <span class="notif-item-icon">📢</span>
             <div style="flex:1; min-width:0;">
               <div class="notif-item-title">Boas-vindas ao Domínio Corporal</div>
@@ -5445,7 +5452,7 @@
           <button type="button" onclick="markAllNotificationsAsRead()" style="background:none; border:none; color:var(--text-muted); font-size:0.75rem; cursor:pointer; text-decoration:underline;">
             ✓ Marcar todas como lidas
           </button>
-          <button type="button" onclick="closeNotificationsModal()" style="background:rgba(255,255,255,0.08); border:1px solid var(--border-subtle); color:#fff; font-size:0.78rem; font-weight:600; padding:6px 14px; border-radius:8px; cursor:pointer;">
+          <button type="button" onclick="closeNotificationsModal(event, true)" style="background:rgba(255,255,255,0.08); border:1px solid var(--border-subtle); color:#fff; font-size:0.78rem; font-weight:600; padding:6px 14px; border-radius:8px; cursor:pointer;">
             Fechar
           </button>
         </div>
@@ -5455,13 +5462,13 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '111';
+    const APP_BUILD_VERSION = '112';
     if (localStorage.getItem('dominio_helenice_dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_helenice_dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
         caches.keys().then((keys) => {
           keys.forEach((k) => {
-            if (k !== 'dominio-corporal-v110') caches.delete(k);
+            if (k !== 'dominio-corporal-v112') caches.delete(k);
           });
         });
       }
@@ -6911,7 +6918,6 @@
         if (typeof e.stopPropagation === 'function') e.stopPropagation();
         if (typeof e.preventDefault === 'function') e.preventDefault();
       }
-      if (document.body.classList.contains('in-dedicated-view')) return;
       const m = document.getElementById('bioModal');
       if (m) {
         bioModalOpenTime = Date.now();
@@ -6921,12 +6927,52 @@
     };
 
     window.closeBioModal = function(e, force = false) {
-      if (!force && (Date.now() - bioModalOpenTime < 450)) return;
+      if (!force && (Date.now() - bioModalOpenTime < 650)) return;
       if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
       const m = document.getElementById('bioModal');
       if (m) {
         m.style.setProperty('display', 'none', 'important');
         m.classList.remove('active');
+      }
+    };
+
+    /* Central de Notificações e Recados */
+    let notifModalOpenTime = 0;
+    window.openNotificationsModal = function(e) {
+      if (e) {
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+      }
+      const modal = document.getElementById('notificationsModal');
+      if (modal) {
+        notifModalOpenTime = Date.now();
+        modal.style.setProperty('display', 'flex', 'important');
+        modal.classList.add('active');
+      }
+    };
+
+    window.closeNotificationsModal = function(e, force = false) {
+      if (!force && (Date.now() - notifModalOpenTime < 650)) return;
+      if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
+      const modal = document.getElementById('notificationsModal');
+      if (modal) {
+        modal.style.setProperty('display', 'none', 'important');
+        modal.classList.remove('active');
+      }
+    };
+
+    window.toggleNotificationsModal = function(e) {
+      if (e) {
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+      }
+      const modal = document.getElementById('notificationsModal');
+      if (!modal) return;
+      const isActive = modal.classList.contains('active') || modal.style.display === 'flex';
+      if (isActive) {
+        window.closeNotificationsModal(e, true);
+      } else {
+        window.openNotificationsModal(e);
       }
     };
 
@@ -7215,24 +7261,7 @@
     }
 
     // Central de Notificações e Recados
-    function toggleNotificationsModal() {
-      const modal = document.getElementById('notificationsModal');
-      if (!modal) return;
-      const isActive = modal.classList.contains('active');
-      if (isActive) {
-        closeNotificationsModal();
-      } else {
-        modal.style.setProperty('display', 'flex', 'important');
-        modal.classList.add('active');
-      }
-    }
-
-    function closeNotificationsModal() {
-      const modal = document.getElementById('notificationsModal');
-      if (!modal) return;
-      modal.style.setProperty('display', 'none', 'important');
-      modal.classList.remove('active');
-    }
+    // Central de Notificações e Recados gerenciada por window.openNotificationsModal / window.closeNotificationsModal
 
     function openAnalysisCardFromNotif(cardId, category = 'habilidades') {
       closeNotificationsModal();
@@ -7240,9 +7269,6 @@
         openDedicatedView('analises');
       }
       openAnalysisCategoryView(category);
-      if (category === 'habilidades') {
-        openSkillCategoryCards('all');
-      }
       const targetCard = document.getElementById(cardId);
       if (targetCard) {
         if (!targetCard.classList.contains('active')) {
@@ -7344,22 +7370,29 @@
     checkIntakeGate();
     syncAthleteMetricsFromIntake();
 
-    // Garante que o botão de Bio receba toques imediatos no mobile
-    const coachBtn = document.querySelector('.coach-profile-btn') || document.getElementById('btnCoachBio');
+    // Garante que o botão de Bio e Notificações recebam cliques e toques imediatos no mobile
+    const coachBtn = document.getElementById('btnCoachBio') || document.querySelector('.coach-profile-btn');
     if (coachBtn) {
-      coachBtn.addEventListener('click', (e) => {
-        openBioModal(e);
-      });
+      coachBtn.addEventListener('click', (e) => { openBioModal(e); });
       coachBtn.addEventListener('touchend', (e) => {
-        e.preventDefault();
+        if (typeof e.preventDefault === 'function') e.preventDefault();
         openBioModal(e);
-      });
+      }, { passive: false });
+    }
+
+    const notifBtn = document.getElementById('btnAppNotifications') || document.querySelector('.btn-notif-app');
+    if (notifBtn) {
+      notifBtn.addEventListener('click', (e) => { openNotificationsModal(e); });
+      notifBtn.addEventListener('touchend', (e) => {
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+        openNotificationsModal(e);
+      }, { passive: false });
     }
 
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=111').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=112').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
