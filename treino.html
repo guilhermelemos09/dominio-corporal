@@ -1535,9 +1535,9 @@
       display: inline-flex;
       align-items: center;
       gap: 6.5px;
-      background: #ffffff;
-      border: 1px solid #ffffff;
-      color: #000000;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #ffffff;
       padding: 6.5px 14px;
       border-radius: 10px;
       font-size: 0.78rem;
@@ -1547,23 +1547,27 @@
       transition: all 0.15s ease;
       user-select: none;
       -webkit-tap-highlight-color: transparent;
-      box-shadow: 0 2px 8px rgba(255, 255, 255, 0.12);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
     }
     .sober-action-btn:hover {
-      background: #f1f5f9;
-      border-color: #f1f5f9;
-      color: #000000;
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.3);
+      color: #ffffff;
       transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.22);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     }
     .sober-action-btn:active {
       transform: scale(0.97);
-      background: #e2e8f0;
+      background: rgba(255, 255, 255, 0.16);
+    }
+    .sober-action-btn.active {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.32);
     }
     .sober-action-btn svg {
       width: 14px;
       height: 14px;
-      fill: #000000;
+      fill: #ffffff;
       opacity: 0.95;
     }
     .sober-action-btn .arrow-indicator {
@@ -1571,7 +1575,7 @@
       font-weight: 800;
       opacity: 0.85;
       margin-left: 2px;
-      color: #000000;
+      color: #ffffff;
       transition: transform 0.2s ease;
     }
     .sober-action-btn.active .arrow-indicator {
@@ -7462,13 +7466,13 @@ Base científica:
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '105';
+    const APP_BUILD_VERSION = '106';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
         caches.keys().then((keys) => {
           keys.forEach((k) => {
-            if (k !== 'dominio-corporal-v105') caches.delete(k);
+            if (k !== 'dominio-corporal-v106') caches.delete(k);
           });
         });
       }
@@ -9268,7 +9272,7 @@ Base científica:
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=105').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=106').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
@@ -9370,39 +9374,39 @@ Base científica:
       const focos = {
         'segunda': {
           title: 'Foco do Treino • Segunda-feira',
-          text: '• STRICT PULL-UP: Ativação concêntrica de grande dorsal sem balanço.
+          text: `• STRICT PULL-UP: Ativação concêntrica de grande dorsal sem balanço.
 • SKILL EMOM: Consistência motora e precisão sob intervalo fixo.
 • CONDICIONAMENTO METABÓLICO: Gestão de intensidade e respiração no WOD.
-• BLINDAGEM ARTICULAR: Ângulo meniscal controlado a 90° e estabilidade escapular.'
+• BLINDAGEM ARTICULAR: Ângulo meniscal controlado a 90° e estabilidade escapular.`
         },
         'terca': {
           title: 'Foco do Treino • Terça-feira',
-          text: '• BOX CROSSFIT CONCLUÍDO: 120 repetições de empurrar carga realizadas com sucesso.
+          text: `• BOX CROSSFIT CONCLUÍDO: 120 repetições de empurrar carga realizadas com sucesso.
 • AUTOREGULAÇÃO BIOMECÂNICA: Decisão de transferir a ginástica pesada para quarta com frescor neural.
-• REGENERAÇÃO ATIVA: Descanso noturno e restauração dos motoneurônios para rendimento máximo.'
+• REGENERAÇÃO ATIVA: Descanso noturno e restauração dos motoneurônios para rendimento máximo.`
         },
         'quarta': {
           title: 'Foco do Treino • Quarta-feira',
-          text: '• SESSÃO NO BOX CONCLUÍDA: Treino realizado no Box CrossFit por gestão de tempo.
+          text: `• SESSÃO NO BOX CONCLUÍDA: Treino realizado no Box CrossFit por gestão de tempo.
 • WARM UP: 2 rounds de Hollow rocks, Arch rocks, V-ups alternados e Beat swings.
-• SKILL EMOM 12\': 5 Strict Pull-overs adaptados no Min 1 e 10 Toes-to-Bar no Min 2.
-• WOD FOR TIME: 30-20-10 T2B, DB Box Step Up (15kg) e DB Devil Press (15kg) com Time Cap de 18\'.
-• PRESERVAÇÃO: Descida controlada no passo (step-down) para zero impacto meniscal.'
+• SKILL EMOM 12': 5 Strict Pull-overs adaptados no Min 1 e 10 Toes-to-Bar no Min 2.
+• WOD FOR TIME: 30-20-10 T2B, DB Box Step Up (15kg) e DB Devil Press (15kg) com Time Cap de 18'.
+• PRESERVAÇÃO: Descida controlada no passo (step-down) para zero impacto meniscal.`
         },
         'quinta': {
           title: 'Foco do Treino • Quinta-feira',
-          text: '• CRONOGRAMA DO DIA: 12h-13h Contemporâneo | 13h-14h Ginástica | 18h30-19h30 Contemporâneo Intermediário.
+          text: `• CRONOGRAMA DO DIA: 12h-13h Contemporâneo | 13h-14h Ginástica | 18h30-19h30 Contemporâneo Intermediário.
 • HANDSTAND DA SEMANA (13h-14h): Parada de mãos com empilhamento ósseo (stacking) punho-cotovelo-ombro na gravidade.
 • MANJOTA e CONTROLE: Sustentação na manjota, Press to Handstand estrito e One-Arm Croc.
 • FORTALECIMENTO: HSPU com cadência excêntrica de 2-3s e remadas de compensação escapular.
-• DANÇA CONTEMPORÂNEA: Floorwork macio e giros sem pivô forçado no joelho esquerdo.'
+• DANÇA CONTEMPORÂNEA: Floorwork macio e giros sem pivô forçado no joelho esquerdo.`
         },
         'sexta': {
           title: 'Foco do Treino • Sexta-feira',
-          text: '• ARGOLAS DA SEMANA: Bloco completo nas argolas médias e altas (RTO Support Hold, RMU Strict com falsa pegada, Ice Cream Makers, Vela invertida e Felge).
+          text: `• ARGOLAS DA SEMANA: Bloco completo nas argolas médias e altas (RTO Support Hold, RMU Strict com falsa pegada, Ice Cream Makers, Vela invertida e Felge).
 • ESTABILIDADE GLENOUMERAL: Rotação externa ativa de 45° a 90° protegendo o tendão operado.
 • PORTAGEM ACRO: Bone stacking rígido e dominância de quadril sem flexão aguda do joelho.
-• BLINDAGEM MENISCAL: Aterrissagens exclusivamente em tatame ou colchão complacente.'
+• BLINDAGEM MENISCAL: Aterrissagens exclusivamente em tatame ou colchão complacente.`
         }
       };
 
@@ -9416,56 +9420,56 @@ Base científica:
       const importantes = {
         'segunda': {
           title: 'Orientações e Blindagem Articular',
-          text: '• Joelho e Menisco: No Box, em todos os agachamentos e descidas de caixa, faça descida no passo (step down), sem impacto de queda para trás.
+          text: `• Joelho e Menisco: No Box, em todos os agachamentos e descidas de caixa, faça descida no passo (step down), sem impacto de queda para trás.
 • Barra Fixa: Mantenha ativação de escápulas na subida do strict pull-up sem trancos repentinos no ombro.
 
 Base científica:
 • Preservação Meniscal: O impacto em queda livre gera picos de cisalhamento sobre a fibrocartilagem meniscal lateral. O passo controlado dissipa 100% dessa energia.
-• Centralização Umeral: O acoplamento precoce do trapézio inferior estabiliza a cabeça do úmero na cavidade glenoide sob sobrecarga de tração.',
+• Centralização Umeral: O acoplamento precoce do trapézio inferior estabiliza a cabeça do úmero na cavidade glenoide sob sobrecarga de tração.`,
           category: '⚠️ Importante'
         },
         'terca': {
           title: 'Balanço da Terça-feira | Autoregulação',
-          text: '• Box Feito com Sucesso: 120 repetições de empurrar carga (Supino 60kg, flexões e Z-Press 15kg) e WOD com 30kg descendo da caixa no passo para blindar o joelho.
+          text: `• Box Feito com Sucesso: 120 repetições de empurrar carga (Supino 60kg, flexões e Z-Press 15kg) e WOD com 30kg descendo da caixa no passo para blindar o joelho.
 • Decisão Inteligente: O treino de ginástica artística pesada foi transferido para quarta-feira (17h–19h no Ginásio EEFERP), quando seu corpo estará zerado e descansado.
 • Noite Livre: Descanso em casa, videogame e boa alimentação para diminuir o cansaço e recuperar os músculos.
 
 Base científica:
 • Fadiga Central e Gestão de Carga Neural: Após 120 repetições concêntricas de membros superiores e acidose metabólica no WOD, os motoneurônios do tríceps e deltóide entram em período refratário.
-• Princípio da Autoregulação Biomecânica: Empilhar parada de mãos de alta alavanca e BMU na mesma noite elevaria o risco articular no ombro direito operado. A compensação na quarta com frescor neural assegura rendimento técnico máximo.',
+• Princípio da Autoregulação Biomecânica: Empilhar parada de mãos de alta alavanca e BMU na mesma noite elevaria o risco articular no ombro direito operado. A compensação na quarta com frescor neural assegura rendimento técnico máximo.`,
           category: '✅ Sessão Concluída'
         },
         'quarta': {
           title: 'Balanço da Quarta-feira | Box CrossFit',
-          text: '• Box Feito com Sucesso: Ajuste ágil de rotina por tempo. Treino metabólico e de tração executado no Box.
+          text: `• Box Feito com Sucesso: Ajuste ágil de rotina por tempo. Treino metabólico e de tração executado no Box.
 • Adaptação Biomecânica Perfeita: Substituição de strict T2B por strict pull-over no Min 1 do EMOM protegeu a alavanca de puxada mantendo o estímulo estrito de grande dorsal e core.
 • Cargas no WOD: 15 kg nos DB Box Step Ups e DB Devil Press. Step-down indispensável para preservar o menisco lateral.
 
 Base científica:
 • Cadeia Cinética Fechada e Puxada Estrita: O strict pull-over recruta dorsais e peitoral sob momento controlado, reduzindo forças de cisalhamento anterior na cabeça umeral operada.
-• Dissipação de Impacto: A descida controlada da caixa dissipa as forças de reação do solo, blindando o platô tibial esquerdo.',
+• Dissipação de Impacto: A descida controlada da caixa dissipa as forças de reação do solo, blindando o platô tibial esquerdo.`,
           category: '✅ Sessão Concluída'
         },
         'quinta': {
           title: 'Orientações e Cronograma de Quinta-feira',
-          text: '• Rotina do Dia: 12h–13h Dança Contemporânea | 13h–14h Ginástica (Handstand) | 18h30–19h30 Contemporâneo Intermediário.
+          text: `• Rotina do Dia: 12h–13h Dança Contemporânea | 13h–14h Ginástica (Handstand) | 18h30–19h30 Contemporâneo Intermediário.
 • Handstand na Manjota (13h–14h): Mantenha sempre o empurrão do solo/blocos para afastar os ombros das orelhas. Desça antes da perda de alinhamento para blindar o supraespinhal.
 • Dança Contemporânea: No trabalho de chão (12h e 18h30), transfira carga pelas escápulas e bordo lateral das coxas, sem pancada direta de patela no solo e sem torções em pivô.
 
 Base científica:
 • Elevação Escapular no Handstand (Kapandji): Serrátil anterior ativo mantém o espaço subacromial amplo no ombro direito.
-• Cinemática em Solo: Contato contínuo com solo distribui pressão hidrostática sinovial, poupando a fibrocartilagem meniscal.',
+• Cinemática em Solo: Contato contínuo com solo distribui pressão hidrostática sinovial, poupando a fibrocartilagem meniscal.`,
           category: '⚠️ Importante'
         },
         'sexta': {
           title: 'Orientações para a Sessão de Argolas',
-          text: '• Argolas da Semana: Falsa pegada firme com punho sobre a madeira antes da puxada estrita no RMU. Nos apoios (RTO Support), trave os cotovelos e faça rotação externa de 45° a 90°.
+          text: `• Argolas da Semana: Falsa pegada firme com punho sobre a madeira antes da puxada estrita no RMU. Nos apoios (RTO Support), trave os cotovelos e faça rotação externa de 45° a 90°.
 • Portagem Acro: Mantenha sempre a dobradiça de quadril (hip hinge) com tíbias verticais ao receber o flyer, usando glúteos e core, nunca os joelhos projetados à frente.
 • Aterrissagens: Sempre em tatame ou colchão de alta complacência.
 
 Base científica:
 • Torque Rotacional Glenoumeral: A rotação externa das argolas centraliza a cabeça umeral na glenoide, fortalecendo o manguito sem impacto subacromial.
-• Vetor de Carga Vertical: A tíbia vertical neutraliza momentos de flexão anterior no joelho, anulando forças de cisalhamento.',
+• Vetor de Carga Vertical: A tíbia vertical neutraliza momentos de flexão anterior no joelho, anulando forças de cisalhamento.`,
           category: '⚠️ Importante'
         }
       };
