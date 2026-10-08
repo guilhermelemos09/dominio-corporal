@@ -1,20 +1,25 @@
-const CACHE_NAME = 'dominio-corporal-v108';
+const CACHE_NAME = 'dominio-corporal-v109';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './treino.html',
+  './helenice.html',
+  './jean.html',
   './manifest.json',
+  './manifest-helenice.json',
+  './manifest-jean.json',
   './Midia/icon-192.png',
   './Midia/icon-512.png',
   './Midia/icon-pessoal-192.png',
   './Midia/icon-pessoal-512.png',
   './Midia/favicon.png',
+  './Midia/gui_foto.jpg',
+  './Midia/gui_analise_blend.jpg',
+  './Midia/gui_analisando_handstand.jpg',
   './Midia/icon_evol_composicao.png',
   './Midia/icon_evol_tecnica.png',
   './Midia/icon_evol_recordes.png',
   './Midia/icon_evol_relatorio.png',
-  './helenice.html',
-  './manifest-helenice.json',
   'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap'
 ];
 

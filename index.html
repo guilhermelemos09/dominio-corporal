@@ -1141,6 +1141,51 @@
       }
     }
 
+    /* Subnavegação de Categorias de Habilidades */
+    .skills-subnav-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin-bottom: 16px;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .skills-subnav-scroll::-webkit-scrollbar {
+      display: none;
+    }
+    .skills-subnav {
+      display: inline-flex;
+      gap: 8px;
+      min-width: max-content;
+    }
+    .skills-subnav-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .skills-subnav-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+    .skills-subnav-btn.active {
+      background: rgba(0, 255, 136, 0.12);
+      border-color: var(--brand-neon);
+      color: var(--brand-neon);
+      font-weight: 800;
+      box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
+    }
+
     /* Accordion de Análise de Vídeos */
     .analysis-accordion-card {
       background: rgba(18, 22, 28, 0.95);
@@ -4012,7 +4057,7 @@
   <!-- Header Domínio Corporal (Preto OLED & Verde Neon) -->
   <header id="mainAppHeader">
     <div class="brand-top">
-      <div class="coach-profile-btn" onclick="openBioModal(event)" role="button" tabindex="0" aria-label="Abrir Perfil do Coach Gui Lemos">
+      <div id="btnCoachBio" class="coach-profile-btn" onclick="openBioModal(event)" role="button" tabindex="0" aria-label="Abrir Perfil do Coach Gui Lemos">
         <img src="Midia/gui_foto.jpg" onerror="this.onerror=null; this.src='Midia/icon-192.png';" alt="Domínio Corporal" class="coach-avatar">
         <span class="coach-name">Gui Lemos</span>
         <span class="bio-badge">Perfil do Coach ↗</span>
@@ -5710,7 +5755,7 @@
     <!-- HERO: FEEDBACK TÉCNICO -->
     <div class="analysis-hero-card">
       <div class="analysis-hero-img-wrap" onclick="window.open('Midia/gui_analisando_handstand.jpg', '_blank')" style="cursor: pointer;" title="Toque para ampliar foto">
-        <img src="Midia/gui_analise_blend.jpg" alt="Prof. Gui Lemos analisando movimento">
+        <img src="Midia/gui_analise_blend.jpg" onerror="this.onerror=null; this.src='Midia/gui_foto.jpg';" alt="Prof. Gui Lemos analisando movimento">
       </div>
       <div class="analysis-hero-body">
         <div class="analysis-hero-title">Feedback Técnico</div>
@@ -5772,8 +5817,21 @@
         <span style="font-weight: 800; font-size: 0.92rem; color: #fff; letter-spacing: 0.5px;">HABILIDADES</span>
       </div>
 
+      <!-- Divisão por Tipos de Habilidades -->
+      <div class="skills-subnav-scroll">
+        <div class="skills-subnav">
+          <button type="button" class="skills-subnav-btn active" data-filter="all" onclick="filterSkillsCategory('all')">TODOS</button>
+          <button type="button" class="skills-subnav-btn" data-filter="handstands" onclick="filterSkillsCategory('handstands')">HANDSTANDS</button>
+          <button type="button" class="skills-subnav-btn" data-filter="barra_fixa" onclick="filterSkillsCategory('barra_fixa')">BARRA FIXA</button>
+          <button type="button" class="skills-subnav-btn" data-filter="argolas" onclick="filterSkillsCategory('argolas')">ARGOLAS</button>
+          <button type="button" class="skills-subnav-btn" data-filter="pranchas" onclick="filterSkillsCategory('pranchas')">PRANCHAS</button>
+          <button type="button" class="skills-subnav-btn" data-filter="acroduo" onclick="filterSkillsCategory('acroduo')">ACRODUO</button>
+          <button type="button" class="skills-subnav-btn" data-filter="danca" onclick="filterSkillsCategory('danca')">DANÇA</button>
+        </div>
+      </div>
+
     <!-- VÍDEO 5: 11x BUTTERFLY PULL-UPS (NOVO) -->
-    <div class="analysis-accordion-card" id="analysisCard-5" data-category="habilidades">
+    <div class="analysis-accordion-card" id="analysisCard-5" data-category="habilidades" data-subtypes="barra_fixa">
       <button type="button" class="analysis-accordion-trigger" onclick="toggleAnalysisAccordion('analysisCard-5')">
         <div style="flex: 1; min-width: 0;">
           <div class="analysis-card-meta-top">
@@ -5821,7 +5879,7 @@
     </div>
 
     <!-- VÍDEO 1: PRESS HANDSTAND NO OMBRO DO PARCEIRO -->
-    <div class="analysis-accordion-card" id="analysisCard-1" data-category="habilidades">
+    <div class="analysis-accordion-card" id="analysisCard-1" data-category="habilidades" data-subtypes="handstands acroduo">
       <button type="button" class="analysis-accordion-trigger" onclick="toggleAnalysisAccordion('analysisCard-1')">
         <div style="flex: 1; min-width: 0;">
           <div class="analysis-card-meta-top">
@@ -5866,7 +5924,7 @@
     </div>
 
     <!-- VÍDEO 2: STRICT RMU LIVRE + 2x CANDLE KIPS -->
-    <div class="analysis-accordion-card" id="analysisCard-2" data-category="habilidades">
+    <div class="analysis-accordion-card" id="analysisCard-2" data-category="habilidades" data-subtypes="argolas">
       <button type="button" class="analysis-accordion-trigger" onclick="toggleAnalysisAccordion('analysisCard-2')">
         <div style="flex: 1; min-width: 0;">
           <div class="analysis-card-meta-top">
@@ -5911,7 +5969,7 @@
     </div>
 
     <!-- VÍDEO 3: MANJOTA (L-SIT -> PRESS -> CROC) -->
-    <div class="analysis-accordion-card" id="analysisCard-3" data-category="habilidades">
+    <div class="analysis-accordion-card" id="analysisCard-3" data-category="habilidades" data-subtypes="handstands pranchas">
       <button type="button" class="analysis-accordion-trigger" onclick="toggleAnalysisAccordion('analysisCard-3')">
         <div style="flex: 1; min-width: 0;">
           <div class="analysis-card-meta-top">
@@ -5960,7 +6018,7 @@
     </div>
 
     <!-- VÍDEO 4: OITAVAS NA BARRA -->
-    <div class="analysis-accordion-card" id="analysisCard-4" data-category="habilidades">
+    <div class="analysis-accordion-card" id="analysisCard-4" data-category="habilidades" data-subtypes="barra_fixa danca">
       <button type="button" class="analysis-accordion-trigger" onclick="toggleAnalysisAccordion('analysisCard-4')">
         <div style="flex: 1; min-width: 0;">
           <div class="analysis-card-meta-top">
@@ -6006,6 +6064,107 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- VÍDEO 6: BAR MUSCLE-UP (BMU) -->
+    <div class="analysis-accordion-card" id="analysisCard-6" data-category="habilidades" data-subtypes="barra_fixa">
+      <button type="button" class="analysis-accordion-trigger" onclick="toggleAnalysisAccordion('analysisCard-6')">
+        <div style="flex: 1; min-width: 0;">
+          <div class="analysis-card-meta-top">
+            <span class="analysis-card-badge">Barra Fixa</span>
+            <span class="analysis-card-date">📅 Análise Técnica</span>
+            <span class="analysis-card-time">⏱️ 12s</span>
+          </div>
+          <div class="analysis-card-title">Bar Muscle-Up (BMU) — Linha em Arco e Transição</div>
+          <div class="analysis-card-desc">Puxada em arco (linha C) • Pés colados • Transição simultânea dos dois cotovelos</div>
+        </div>
+        <div class="analysis-chevron">
+          <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+        </div>
+      </button>
+      <div class="analysis-accordion-body">
+        <div style="margin-bottom: 12px; margin-top: 6px;">
+          <video controls playsinline preload="metadata" style="width: 100%; border-radius: 12px; max-height: 380px; background: #000; border: 1px solid var(--border-strong);" src="Midia/gui_kip_muscle_up.mp4"></video>
+        </div>
+        <div style="font-size: 0.84rem; line-height: 1.6; color: var(--text-muted);">
+          <p style="margin-bottom: 8px;"><strong style="color:#ffffff;">Análise Cinemática do Bar Muscle-Up (BMU):</strong></p>
+          <div style="margin-bottom: 10px; padding: 10px 12px; background: rgba(0,255,136,0.04); border-radius: 8px; border-left: 2.5px solid var(--brand-neon);">
+            <strong style="color: #00ff88;">Na prática:</strong><br>
+            Execução de referência demonstrada pelo Prof. Gui Lemos. O swing inicial estabelece um arco hollow amplo e agressivo. A subida é iniciada com uma puxada em arco mirando o umbigo na barra, com elevação simultânea da pelve e transição imediata e simétrica de ambos os cotovelos sobre a barra, finalizando com mergulho rígido e extensão controlada.
+          </div>
+          <div style="margin-bottom: 10px; padding: 10px 12px; background: rgba(251,191,36,0.04); border-radius: 8px; border-left: 2.5px solid #fbbf24;">
+            <strong style="color: #fbbf24;">Diagnóstico:</strong><br>
+            • <strong>Pés Colados e Tensão Distal:</strong> Manter as pernas estendidas e pés unidos garante maior transferência de velocidade angular.<br>
+            • <strong>Transição Simétrica:</strong> Virar ambos os cotovelos ao mesmo tempo protege a tenodese e o labrum contra assimetrias rotacionais.<br>
+            • <strong>Trajetória em C:</strong> Evitar puxar verticalmente para cima; o movimento descreve um arco ao redor do eixo da barra.
+          </div>
+          <div style="margin-bottom: 10px; padding: 10px 12px; background: rgba(167,139,250,0.04); border-radius: 8px; border-left: 2.5px solid #a78bfa;">
+            <strong style="color: #a78bfa;">Exercícios sugeridos:</strong><br>
+            • <strong>Kip Swing em Hollow/Arch:</strong> Séries de 5 a 6 repetições focando na amplitude de ombros e timing de quadril.<br>
+            • <strong>Puxada Alta ao Esterno:</strong> Puxar a barra mirando na altura do diafragma para consolidar a trajetória da transição.<br>
+            • <strong>Jumping BMU na barra baixa:</strong> Treinar o encaixe rápido do peito e virada dos cotovelos com menor sobrecarga.
+          </div>
+          <div style="padding: 10px 12px; background: rgba(56,189,248,0.04); border-radius: 8px; border-left: 2.5px solid #38bdf8;">
+            <strong style="color: #38bdf8;">Base científica:</strong><br>
+            • <strong>Conservação do Momento Angular:</strong> O balanço inicial gera energia cinética rotacional que é convertida em energia potencial vertical no turnover.<br>
+            • <strong>Ativação do Grande Dorsal e Peitoral Maior:</strong> A puxada em arco recruta latíssimo do dorso em extensão fechada, aliviando o estresse na articulação glenoumeral.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VÍDEO 7: HANDSTAND & CINEMÁTICA VICON 3D -->
+    <div class="analysis-accordion-card" id="analysisCard-7" data-category="habilidades" data-subtypes="handstands">
+      <button type="button" class="analysis-accordion-trigger" onclick="toggleAnalysisAccordion('analysisCard-7')">
+        <div style="flex: 1; min-width: 0;">
+          <div class="analysis-card-meta-top">
+            <span class="analysis-card-badge">Handstand</span>
+            <span class="analysis-card-date">📅 Laboratório Biomecânico</span>
+            <span class="analysis-card-time">⏱️ 35s</span>
+          </div>
+          <div class="analysis-card-title">Handstand e Alinhamento Biomecânico — Vicon 3D</div>
+          <div class="analysis-card-desc">Linha de prumo perfeita • Elevação escapular a 180° • Retroversão pélvica e CoM neutro</div>
+        </div>
+        <div class="analysis-chevron">
+          <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+        </div>
+      </button>
+      <div class="analysis-accordion-body">
+        <div style="margin-bottom: 12px; margin-top: 6px;">
+          <video controls playsinline preload="metadata" style="width: 100%; border-radius: 12px; max-height: 380px; background: #000; border: 1px solid var(--border-strong);" poster="Midia/gui_analisando_handstand.jpg" src="Midia/gui_handstand_analise.mp4"></video>
+        </div>
+        <div style="font-size: 0.84rem; line-height: 1.6; color: var(--text-muted);">
+          <p style="margin-bottom: 8px;"><strong style="color:#ffffff;">Análise Cinemática do Handstand (Parada de Mão):</strong></p>
+          <div style="margin-bottom: 10px; padding: 10px 12px; background: rgba(0,255,136,0.04); border-radius: 8px; border-left: 2.5px solid var(--brand-neon);">
+            <strong style="color: #00ff88;">Na prática:</strong><br>
+            Alinhamento biomecânico de referência em laboratório de movimento com tecnologia de captura 3D Vicon. O Prof. Gui Lemos demonstra o empilhamento ósseo perfeito (punho, cotovelo, ombro, pelve e tornozelos) com abertura axilar completa, cabeça neutra e microajustes contínuos pelas pontas dos dedos no solo.
+          </div>
+          <div style="margin-bottom: 10px; padding: 10px 12px; background: rgba(251,191,36,0.04); border-radius: 8px; border-left: 2.5px solid #fbbf24;">
+            <strong style="color: #fbbf24;">Diagnóstico:</strong><br>
+            • <strong>Ângulo Glenoumeral:</strong> Abertura de 180° sem compensação de extensão lombar.<br>
+            • <strong>Retroversão Pélvica:</strong> Ativação de glúteos e transverso abdominal eliminando a postura em "banana".<br>
+            • <strong>Pressão Digital em Garra:</strong> O centro de massa é gerido pela pressão dos dedos, usando o flexor profundo dos dedos como freio mecânico anterior.
+          </div>
+          <div style="margin-bottom: 10px; padding: 10px 12px; background: rgba(167,139,250,0.04); border-radius: 8px; border-left: 2.5px solid #a78bfa;">
+            <strong style="color: #a78bfa;">Exercícios sugeridos:</strong><br>
+            • <strong>Chest-to-Wall Handstand:</strong> 3 séries de 30 a 45s colado na parede com o peito voltado para ela, focando em empurrar o chão para cima.<br>
+            • <strong>Elevações Escapulares em Parada:</strong> Shrugs em apoio invertido para fortalecer trapézio superior e serrátil.<br>
+            • <strong>Wrist Conditioning:</strong> Mobilidade de flexores e extensores de punho com descarga progressiva de peso.
+          </div>
+          <div style="padding: 10px 12px; background: rgba(56,189,248,0.04); border-radius: 8px; border-left: 2.5px solid #38bdf8;">
+            <strong style="color: #38bdf8;">Base científica:</strong><br>
+            • <strong>Polígono de Sustentação & CoM:</strong> O equilíbrio invertido é mantido quando a projeção vertical do centro de massa (CoM) recai dentro da base delimitada pelas mãos.<br>
+            • <strong>Empilhamento Articular:</strong> A verticalidade pura anula momentos fletores sobre o cotovelo e ombro, transferindo a carga compressiva diretamente pela estrutura esquelética.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Estado Vazio ao Filtrar Habilidades -->
+    <div id="skillsEmptyState" style="display:none; text-align:center; padding: 32px 18px; background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.12); border-radius: 14px; margin: 16px 0;">
+      <div style="font-size: 1.8rem; margin-bottom: 6px;">🎥</div>
+      <div style="font-weight: 700; color: #fff; font-size: 0.92rem; margin-bottom: 4px;">Nenhum vídeo nesta categoria no momento</div>
+      <div style="font-size: 0.78rem; color: var(--text-muted); max-width: 380px; margin: 0 auto; line-height: 1.5;">Novas análises e evoluções gravadas para este tipo de habilidade aparecerão aqui.</div>
     </div>
 
     </div><!-- end #analysisView-habilidades -->
@@ -7294,13 +7453,13 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '108';
+    const APP_BUILD_VERSION = '109';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
         caches.keys().then((keys) => {
           keys.forEach((k) => {
-            if (k !== 'dominio-corporal-v108') caches.delete(k);
+            if (k !== 'dominio-corporal-v109') caches.delete(k);
           });
         });
       }
@@ -8760,16 +8919,23 @@
     }
 
     /* Modal de Bio Gui Lemos */
+    let bioModalOpenTime = 0;
     window.openBioModal = function(e) {
-      if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
+      if (e) {
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+      }
+      if (document.body.classList.contains('in-dedicated-view')) return;
       const m = document.getElementById('bioModal');
       if (m) {
+        bioModalOpenTime = Date.now();
         m.style.setProperty('display', 'flex', 'important');
         m.classList.add('active');
       }
     };
 
-    window.closeBioModal = function(e) {
+    window.closeBioModal = function(e, force = false) {
+      if (!force && (Date.now() - bioModalOpenTime < 450)) return;
       if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
       const m = document.getElementById('bioModal');
       if (m) {
@@ -8957,6 +9123,7 @@
       if (category === 'habilidades') {
         if (viewHabilidades) viewHabilidades.style.display = 'block';
         if (viewExercicios) viewExercicios.style.display = 'none';
+        if (typeof filterSkillsCategory === 'function') filterSkillsCategory('all');
       } else if (category === 'exercicios') {
         if (viewExercicios) viewExercicios.style.display = 'block';
         if (viewHabilidades) viewHabilidades.style.display = 'none';
@@ -8980,6 +9147,40 @@
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    // Filtro de Subcategorias de Habilidades (HANDSTANDS, BARRA FIXA, ARGOLAS, PRANCHAS, ACRODUO, DANÇA)
+    window.filterSkillsCategory = function(type) {
+      const container = document.getElementById('analysisView-habilidades');
+      if (!container) return;
+
+      const btns = container.querySelectorAll('.skills-subnav-btn');
+      btns.forEach(btn => {
+        if (btn.getAttribute('data-filter') === type) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      const cards = container.querySelectorAll('.analysis-accordion-card');
+      let visibleCount = 0;
+      cards.forEach(card => {
+        const subtypes = (card.getAttribute('data-subtypes') || '').split(/\s+/);
+        if (type === 'all' || subtypes.includes(type)) {
+          card.style.display = '';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+          const vid = card.querySelector('video');
+          if (vid && !vid.paused) vid.pause();
+        }
+      });
+
+      const emptyEl = document.getElementById('skillsEmptyState');
+      if (emptyEl) {
+        emptyEl.style.display = (visibleCount === 0) ? 'block' : 'none';
+      }
+    };
 
     // Modal de Instruções de Uso do App
     function openAppInstructionsModal() {
@@ -9108,9 +9309,13 @@
     syncAthleteMetricsFromIntake();
 
     // Garante que o botão de Bio receba toques imediatos no mobile
-    const coachBtn = document.querySelector('.coach-profile-btn');
+    const coachBtn = document.querySelector('.coach-profile-btn') || document.getElementById('btnCoachBio');
     if (coachBtn) {
       coachBtn.addEventListener('click', (e) => {
+        openBioModal(e);
+      });
+      coachBtn.addEventListener('touchend', (e) => {
+        e.preventDefault();
         openBioModal(e);
       });
     }
@@ -9118,7 +9323,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=108').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=109').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });

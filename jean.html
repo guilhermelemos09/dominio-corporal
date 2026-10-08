@@ -2803,7 +2803,7 @@
   <!-- Header Domínio Corporal (Preto OLED & Verde Neon) -->
   <header id="mainAppHeader">
     <div class="brand-top">
-      <button type="button" class="coach-profile-btn" onclick="openBioModal(event)" aria-label="Abrir Perfil e Biografia de Gui Lemos">
+      <button type="button" id="btnCoachBio" class="coach-profile-btn" onclick="openBioModal(event)" aria-label="Abrir Perfil e Biografia de Gui Lemos">
         <img src="Midia/gui_foto.jpg" onerror="this.onerror=null; this.src='Midia/icon-192.png';" alt="Domínio Corporal" class="coach-avatar">
         <span class="coach-name">GUI LEMOS</span>
         <span class="bio-badge">Bio ↗</span>
@@ -2930,7 +2930,7 @@
     <!-- HERO: FEEDBACK TÉCNICO & ANÁLISE CINEMÁTICA -->
     <div class="analysis-hero-card">
       <div class="analysis-hero-img-wrap" onclick="window.open('Midia/gui_analisando_handstand.jpg', '_blank')" style="cursor: pointer;" title="Toque para ampliar foto">
-        <img src="Midia/gui_analise_blend.jpg" alt="Prof. Gui Lemos analisando movimento">
+        <img src="Midia/gui_analise_blend.jpg" onerror="this.onerror=null; this.src='Midia/gui_foto.jpg';" alt="Prof. Gui Lemos analisando movimento">
       </div>
       <div class="analysis-hero-body">
         <div class="analysis-hero-tag">
@@ -3469,13 +3469,13 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '106';
+    const APP_BUILD_VERSION = '109';
     if (localStorage.getItem('dominio_jean_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_jean_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
         caches.keys().then((keys) => {
           keys.forEach((k) => {
-            if (k !== 'dominio-corporal-v106') caches.delete(k);
+            if (k !== 'dominio-corporal-v109') caches.delete(k);
           });
         });
       }
@@ -4661,26 +4661,28 @@
     let bioModalOpenTime = 0;
 
     function openBioModal(e) {
-      if (e && typeof e.stopPropagation === 'function') {
-        e.stopPropagation();
+      if (e) {
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+        if (typeof e.preventDefault === 'function') e.preventDefault();
       }
+      if (document.body.classList.contains('in-dedicated-view')) return;
       const m = document.getElementById('bioModal');
       if (m) {
         bioModalOpenTime = Date.now();
+        m.style.setProperty('display', 'flex', 'important');
         m.classList.add('active');
-        m.style.display = 'flex';
       }
     }
 
-    function closeBioModal(e) {
-      if (Date.now() - bioModalOpenTime < 350) return;
+    function closeBioModal(e, force = false) {
+      if (!force && (Date.now() - bioModalOpenTime < 450)) return;
       if (e && typeof e.stopPropagation === 'function') {
         e.stopPropagation();
       }
       const m = document.getElementById('bioModal');
       if (m) {
+        m.style.setProperty('display', 'none', 'important');
         m.classList.remove('active');
-        m.style.display = 'none';
       }
     }
 
@@ -4821,10 +4823,22 @@
     initTimerUI();
     checkIntakeGate();
 
+    // Garante que o botão de Bio receba toques imediatos no mobile
+    const coachBtn = document.querySelector('.coach-profile-btn') || document.getElementById('btnCoachBio');
+    if (coachBtn) {
+      coachBtn.addEventListener('click', (e) => {
+        openBioModal(e);
+      });
+      coachBtn.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        openBioModal(e);
+      });
+    }
+
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=106').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=109').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
