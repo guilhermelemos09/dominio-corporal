@@ -3493,7 +3493,7 @@
       flex-shrink: 0;
     }
 
-    /* Linha 2: Foco no Treino, Local e Duração (Tudo na mesma linha) */
+    /* Linha 2: Foco do Treino, Local e Duração (Tudo na mesma linha) */
     .session-overall-meta {
       display: flex;
       align-items: center;
@@ -3517,7 +3517,7 @@
       background: rgba(0, 255, 136, 0.08);
       border: 1px solid rgba(0, 255, 136, 0.28);
       color: var(--brand-neon);
-      font-size: 0.73rem;
+      font-size: 0.78rem;
       font-weight: 700;
       padding: 2.5px 8.5px;
       border-radius: 999px;
@@ -3538,11 +3538,11 @@
       transform: scale(0.96);
     }
     .btn-foco-treino .foco-icon {
-      font-size: 0.78rem;
+      font-size: 0.82rem;
       line-height: 1;
     }
     .btn-foco-treino .foco-arrow {
-      font-size: 0.72rem;
+      font-size: 0.76rem;
       font-weight: 800;
       opacity: 0.85;
       line-height: 1;
@@ -4246,11 +4246,11 @@
       <span class="important-arrow">›</span>
     </button>
 
-    <!-- LINHA 2: FOCO NO TREINO, LOCAL E DURAÇÃO (TUDO NA MESMA LINHA) -->
+    <!-- LINHA 2: FOCO DO TREINO, LOCAL E DURAÇÃO (TUDO NA MESMA LINHA) -->
     <div class="session-overall-meta">
-      <button type="button" class="btn-foco-treino" onclick="openFocoTreino('segunda')" title="Ver Foco no Treino">
+      <button type="button" class="btn-foco-treino" onclick="openFocoTreino('segunda')" title="Ver Foco do Treino">
         <span class="foco-icon">🎯</span>
-        <span>Foco no Treino</span>
+        <span>Foco do Treino</span>
         <span class="foco-arrow">↗</span>
       </button>
       <span class="meta-item">📍 Box CrossFit</span>
@@ -4494,11 +4494,11 @@
       <span class="important-arrow">›</span>
     </button>
 
-    <!-- LINHA 2: FOCO NO TREINO, LOCAL E DURAÇÃO (TUDO NA MESMA LINHA) -->
+    <!-- LINHA 2: FOCO DO TREINO, LOCAL E DURAÇÃO (TUDO NA MESMA LINHA) -->
     <div class="session-overall-meta">
-      <button type="button" class="btn-foco-treino" onclick="openFocoTreino('terca')" title="Ver Foco no Treino">
+      <button type="button" class="btn-foco-treino" onclick="openFocoTreino('terca')" title="Ver Foco do Treino">
         <span class="foco-icon">🎯</span>
-        <span>Foco no Treino</span>
+        <span>Foco do Treino</span>
         <span class="foco-arrow">↗</span>
       </button>
       <span class="meta-item">📍 Box CrossFit</span>
@@ -4615,11 +4615,11 @@
       <span class="important-arrow">›</span>
     </button>
 
-    <!-- LINHA 2: FOCO NO TREINO, LOCAL E DURAÇÃO (TUDO NA MESMA LINHA) -->
+    <!-- LINHA 2: FOCO DO TREINO, LOCAL E DURAÇÃO (TUDO NA MESMA LINHA) -->
     <div class="session-overall-meta">
-      <button type="button" class="btn-foco-treino" onclick="openFocoTreino('sexta')" title="Ver Foco no Treino">
+      <button type="button" class="btn-foco-treino" onclick="openFocoTreino('sexta')" title="Ver Foco do Treino">
         <span class="foco-icon">🎯</span>
-        <span>Foco no Treino</span>
+        <span>Foco do Treino</span>
         <span class="foco-arrow">↗</span>
       </button>
       <span class="meta-item">📍 Box CrossFit</span>
@@ -5303,11 +5303,11 @@
       <span class="important-arrow">›</span>
     </button>
 
-    <!-- LINHA 2: FOCO NO TREINO, LOCAL E DURAÇÃO (TUDO NA MESMA LINHA) -->
+    <!-- LINHA 2: FOCO DO TREINO, LOCAL E DURAÇÃO (TUDO NA MESMA LINHA) -->
     <div class="session-overall-meta">
-      <button type="button" class="btn-foco-treino" onclick="openFocoTreino('quinta')" title="Ver Foco no Treino">
+      <button type="button" class="btn-foco-treino" onclick="openFocoTreino('quinta')" title="Ver Foco do Treino">
         <span class="foco-icon">🎯</span>
-        <span>Foco no Treino</span>
+        <span>Foco do Treino</span>
         <span class="foco-arrow">↗</span>
       </button>
       <span class="meta-item">📍 Box CrossFit</span>
@@ -5685,14 +5685,14 @@
       <span class="important-arrow">›</span>
     </button>
 
-    <!-- LINHA 2: FOCO NO TREINO, LOCAL E DURAÇÃO (TUDO NA MESMA LINHA) -->
+    <!-- LINHA 2: FOCO DO TREINO, LOCAL E DURAÇÃO (TUDO NA MESMA LINHA) -->
     <div class="session-overall-meta">
-      <button type="button" class="btn-foco-treino" onclick="openFocoTreino('quarta')" title="Ver Foco no Treino">
+      <button type="button" class="btn-foco-treino" onclick="openFocoTreino('quarta')" title="Ver Foco do Treino">
         <span class="foco-icon">🎯</span>
-        <span>Foco no Treino</span>
+        <span>Foco do Treino</span>
         <span class="foco-arrow">↗</span>
       </button>
-      <span class="meta-item">📍 Ginásio EEFERP-USP</span>
+      <span class="meta-item">📍 Ginásio EEFERP</span>
       <span class="meta-item">⏳ ~120 min</span>
     </div>
 
@@ -7851,13 +7851,13 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '101';
+    const APP_BUILD_VERSION = '102';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
         caches.keys().then((keys) => {
           keys.forEach((k) => {
-            if (k !== 'dominio-corporal-v101') caches.delete(k);
+            if (k !== 'dominio-corporal-v102') caches.delete(k);
           });
         });
       }
@@ -9655,7 +9655,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=101').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=102').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
@@ -9732,7 +9732,7 @@
         btnBg = 'rgba(251, 191, 36, 0.18)';
         btnBorder = 'rgba(251, 191, 36, 0.45)';
       } else if (category.includes('Foco') || category.includes('🎯')) {
-        tagText = '🎯 FOCO NO TREINO';
+        tagText = '🎯 FOCO DO TREINO';
         tagColor = '#00ff88';
         cardBorder = 'rgba(0, 255, 136, 0.45)';
         btnBg = 'rgba(0, 255, 136, 0.18)';
@@ -9756,30 +9756,30 @@
     window.openFocoTreino = function(dayId) {
       const focos = {
         'segunda': {
-          title: 'Foco no Treino • Segunda-feira',
+          title: 'Foco do Treino • Segunda-feira',
           text: '• STRICT PULL-UP: Ativação concêntrica de grande dorsal sem balanço.\n• SKILL EMOM: Consistência motora e precisão sob intervalo fixo.\n• CONDICIONAMENTO METABÓLICO: Gestão de intensidade e respiração no WOD.\n• BLINDAGEM ARTICULAR: Ângulo meniscal controlado a 90° e estabilidade escapular.'
         },
         'terca': {
-          title: 'Foco no Treino • Terça-feira',
+          title: 'Foco do Treino • Terça-feira',
           text: '• BOX CROSSFIT CONCLUÍDO: 120 repetições de empurrar carga realizadas com sucesso.\n• AUTOREGULAÇÃO BIOMECÂNICA: Decisão de transferir a ginástica pesada para quarta com frescor neural.\n• REGENERAÇÃO ATIVA: Descanso noturno e restauração dos motoneurônios para rendimento máximo.'
         },
         'quarta': {
-          title: 'Foco no Treino • Quarta-feira',
+          title: 'Foco do Treino • Quarta-feira',
           text: '• PARADA DE MÃOS: Alinhamento vertical punho-cotovelo-ombro (stacking) na gravidade.\n• EMPILHAMENTO ÓSSEO: Sustentação por compressão esquelética direta sem fadiga prematura.\n• SUBIDA EM FORÇA: Press to Handstand com controle fino de alavanca.\n• MANJOTA e CROCODILO: Estabilidade de punho e controle postural nos aparelhos baixos.\n• CONDICIONAMENTO 12\': Gestão de ritmo e potência final.'
         },
         'quinta': {
-          title: 'Foco no Treino • Quinta-feira',
+          title: 'Foco do Treino • Quinta-feira',
           text: '• KIP MUSCLE-UP: Transição ágil de punhos por cima da barra e aproveitamento pendular.\n• POTÊNCIA DE PUXADA: Puxada alta concêntrica com braço reto na alavanca.\n• ARGOLAS: Estabilidade glenoumeral e sustentação em apoio frontal.\n• DANÇA CONTEMPORÂNEA: Trabalho de chão fluido com rotação protegida no joelho.'
         },
         'sexta': {
-          title: 'Foco no Treino • Sexta-feira',
+          title: 'Foco do Treino • Sexta-feira',
           text: '• PORTAGEM ACRO: Base firme em hip hinge com tíbias verticais, sem sobrecarga no menisco.\n• STRICT RMU: Transição estrita nas argolas com falsa pegada estável.\n• CANDLE KIPS: Extensão potente de quadril e elevação do centro de massa.\n• ZERO IMPACTO MENISCAL: Amortecimento de aterrissagem em solo de alta complacência.'
         }
       };
 
       const foco = focos[dayId];
       if (foco && typeof openTip === 'function') {
-        openTip(foco.title, foco.text, '🎯 Foco no Treino');
+        openTip(foco.title, foco.text, '🎯 Foco do Treino');
       }
     };
 
