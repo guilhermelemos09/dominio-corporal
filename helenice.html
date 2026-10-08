@@ -4027,6 +4027,138 @@
       color: #000;
     }
 
+  
+    /* Card do Aluno em Destaque (Fundo Branco com Tipografia e Botões em Contraste Sóbrio) */
+    .athlete-highlight-card {
+      background: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+      color: #0f172a;
+    }
+    .athlete-highlight-card .athlete-name-row {
+      margin-bottom: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .athlete-highlight-card .athlete-full-name {
+      font-size: 1.15rem;
+      font-weight: 850;
+      color: #0a0d14;
+      letter-spacing: -0.015em;
+      margin: 0;
+      cursor: pointer;
+      display: inline-block;
+      transition: color 0.15s ease;
+    }
+    .athlete-highlight-card .athlete-full-name:hover {
+      color: #059669;
+    }
+    .athlete-highlight-card .athlete-actions-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 2px;
+    }
+    .athlete-highlight-card .sober-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6.5px;
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      color: #ffffff;
+      padding: 7px 14px;
+      border-radius: 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.25);
+    }
+    .athlete-highlight-card .sober-action-btn:hover {
+      background: #1e293b;
+      border-color: #334155;
+      color: #ffffff;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.35);
+    }
+    .athlete-highlight-card .sober-action-btn:active {
+      transform: scale(0.97);
+      background: #020617;
+    }
+    .athlete-highlight-card .sober-action-btn.active {
+      background: #1e293b;
+      border-color: #475569;
+    }
+    .athlete-highlight-card .sober-action-btn svg {
+      width: 14px;
+      height: 14px;
+      fill: #ffffff;
+      opacity: 0.95;
+    }
+    .athlete-highlight-card .sober-action-btn .arrow-indicator {
+      font-size: 0.74rem;
+      font-weight: 800;
+      opacity: 0.85;
+      margin-left: 2px;
+      color: #ffffff;
+      transition: transform 0.2s ease;
+    }
+    .athlete-highlight-card .sober-action-btn.active .arrow-indicator {
+      transform: rotate(180deg);
+    }
+
+    /* Drawer de Metas dentro do Card Branco */
+    .athlete-highlight-card .metas-drawer {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin-top: 10px;
+      margin-bottom: 4px;
+      animation: fadeIn 0.2s ease;
+    }
+    .athlete-highlight-card .metas-drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .athlete-highlight-card .metas-drawer-badge {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      color: #475569;
+      text-transform: uppercase;
+    }
+    .athlete-highlight-card .metas-drawer-close {
+      font-size: 0.75rem;
+      color: #64748b;
+      cursor: pointer;
+      padding: 2px 4px;
+    }
+    .athlete-highlight-card .metas-drawer-close:hover {
+      color: #0f172a;
+    }
+    .athlete-highlight-card .goal-chip-item {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      color: #0f172a;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Oculta o card do atleta quando em visão dedicada */
+    body.in-dedicated-view #athleteHighlightCard {
+      display: none !important;
+    }
+
   </style>
 </head>
 <body>
@@ -4070,8 +4202,8 @@
   <!-- Container Principal dos Treinos -->
   <div id="mainTrainingView">
 
-    <!-- Card do Aluno & Ferramentas Clean -->
-    <div class="goals-overview-card" id="goalsOverviewCard">
+    <!-- Card do Aluno em Destaque (Fundo Branco Clean) -->
+    <div class="athlete-highlight-card" id="athleteHighlightCard">
       <!-- Linha 1: Nome Completo do Aluno em Destaque -->
       <div class="athlete-name-row">
         <h2 class="athlete-full-name" onclick="openDedicatedView('perfil')" title="Abrir Perfil da Aluna">HELENICE DE PAULA LEMOS</h2>
@@ -4110,7 +4242,10 @@
           <span class="goal-chip-item">⚡ Adaptação Muscular e Consciência Postural</span>
         </div>
       </div>
+    </div>
 
+    <!-- Seção de Ferramentas Clean (Mantém Fundo Escuro Normal) -->
+    <div class="goals-overview-card tools-overview-card" id="goalsOverviewCard">
       <!-- Seção de Ferramentas com Título em Caixa Alta -->
       <div class="tools-container-wrap">
         <div class="tools-section-title">FERRAMENTAS</div>
@@ -5475,13 +5610,13 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '114';
+    const APP_BUILD_VERSION = '115';
     if (localStorage.getItem('dominio_helenice_dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_helenice_dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
         caches.keys().then((keys) => {
           keys.forEach((k) => {
-            if (k !== 'dominio-alunos-v114') caches.delete(k);
+            if (k !== 'dominio-alunos-v115') caches.delete(k);
           });
         });
       }
@@ -7529,7 +7664,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=114').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=115').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
