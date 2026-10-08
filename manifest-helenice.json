@@ -1,7 +1,7 @@
 {
   "id": "/dominio-corporal-helenice",
-  "name": "Dominio Corporal - Helenice",
-  "short_name": "Helenice",
+  "name": "Domínio Corporal | Helenice",
+  "short_name": "Domínio Corporal | Helenice",
   "description": "Treinamento Especializado e Biomecanica do Movimento - Helenice",
   "start_url": "./helenice.html",
   "scope": "./",

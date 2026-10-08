@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Dominio Corporal - Jean</title>
+  <title>Domínio Corporal | Jean Hilário</title>
 
   <!-- PWA & Mobile App Meta Tags -->
   <link rel="manifest" href="manifest-jean.json">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Dominio Corporal - Jean">
+  <meta name="apple-mobile-web-app-title" content="Domínio Corporal | Jean Hilário">
   <meta name="theme-color" content="#000000">
-  <link rel="icon" type="image/png" sizes="192x192" href="Midia/icon-pessoal-192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="Midia/icon-pessoal-512.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="Midia/icon-pessoal-192.png">
-  <link rel="apple-touch-icon" sizes="192x192" href="Midia/icon-pessoal-192.png">
-  <link rel="apple-touch-icon" sizes="512x512" href="Midia/icon-pessoal-512.png">
-  <link rel="shortcut icon" href="Midia/icon-pessoal-192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="Midia/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="Midia/icon-512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="Midia/icon-192.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="Midia/icon-192.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="Midia/icon-512.png">
+  <link rel="shortcut icon" href="Midia/favicon.png">
 
   <!-- Fonte Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -4496,7 +4496,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=38').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=96').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });

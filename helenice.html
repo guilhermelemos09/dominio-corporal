@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Dominio Corporal - Helenice</title>
+  <title>Domínio Corporal | Helenice</title>
 
   <!-- Cache Control Meta Tags -->
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -15,7 +15,7 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Helenice">
+  <meta name="apple-mobile-web-app-title" content="Domínio Corporal | Helenice">
   <meta name="theme-color" content="#000000">
   <link rel="icon" type="image/png" sizes="192x192" href="Midia/icon-192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="Midia/icon-512.png">
@@ -1426,6 +1426,12 @@
       -webkit-user-select: none;
       touch-action: manipulation;
       transition: all 0.2s ease;
+      pointer-events: auto !important;
+      position: relative;
+      z-index: 100;
+    }
+    .coach-profile-btn * {
+      pointer-events: none;
     }
     .coach-profile-btn:hover, .coach-profile-btn:active {
       border-color: var(--brand-neon);
@@ -3921,13 +3927,20 @@
     <div class="goals-overview-card" id="goalsOverviewCard">
       <div class="goals-card-header">
         <div class="goals-card-title">
-          <span class="goals-title-text" style="color: #ef4444; cursor: pointer;" onclick="openDedicatedView('perfil')" title="Abrir Perfil / Bio">HELENICE</span>
+          <span class="goals-title-text" style="color: #ef4444; cursor: pointer;" onclick="openDedicatedView('perfil')" title="Abrir Perfil / Bio da Aluna">HELENICE</span>
         </div>
-        <button class="goals-student-card-btn" onclick="openDedicatedView('avaliacao')" title="Abrir Ficha de Avaliação">
-          <svg viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-          <span>Ficha da Aluna</span>
-          <span class="arrow-indicator">↗</span>
-        </button>
+        <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+          <button class="goals-student-card-btn" onclick="openDedicatedView('perfil')" title="Abrir Perfil e Diretrizes da Aluna">
+            <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+            <span>Perfil / Bio</span>
+            <span class="arrow-indicator">↗</span>
+          </button>
+          <button class="goals-student-card-btn" onclick="openDedicatedView('avaliacao')" title="Abrir Ficha de Avaliação">
+            <svg viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+            <span>Avaliação</span>
+            <span class="arrow-indicator">↗</span>
+          </button>
+        </div>
       </div>
       <div class="goals-chips-row">
         <span class="goals-lead-label">METAS:</span>
@@ -5075,13 +5088,13 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '95';
+    const APP_BUILD_VERSION = '96';
     if (localStorage.getItem('dominio_helenice_dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_helenice_dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
         caches.keys().then((keys) => {
           keys.forEach((k) => {
-            if (k !== 'dominio-corporal-v95') caches.delete(k);
+            if (k !== 'dominio-corporal-v96') caches.delete(k);
           });
         });
       }
@@ -5333,7 +5346,15 @@
       closeVideoModal();
 
       document.body.classList.add('in-dedicated-view');
-      document.body.classList.remove('in-view-avaliacao', 'in-view-perfil', 'in-view-timers', 'in-day-workout');
+      document.body.classList.remove(
+        'in-view-avaliacao',
+        'in-view-perfil',
+        'in-view-timers',
+        'in-view-analises',
+        'in-view-evolucao',
+        'in-view-recados',
+        'in-day-workout'
+      );
       document.body.classList.add('in-view-' + sectionId);
       const topBar = document.getElementById('dedicatedTopBar');
       if (topBar) topBar.style.display = 'flex';
@@ -5393,10 +5414,6 @@
     }
 
     function closeDedicatedView() {
-      if (localStorage.getItem('dominio_helenice_dominio_assessment_completed') !== 'true') {
-        alert('🔒 Para liberar o acesso aos seus treinos, você precisa primeiro preencher e enviar a Ficha de Avaliação.');
-        return;
-      }
       closeBioModal();
       closeVideoModal();
 
@@ -6525,8 +6542,8 @@
       if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
       const m = document.getElementById('bioModal');
       if (m) {
+        m.style.setProperty('display', 'flex', 'important');
         m.classList.add('active');
-        m.style.removeProperty('display');
       }
     };
 
@@ -6534,8 +6551,8 @@
       if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
       const m = document.getElementById('bioModal');
       if (m) {
-        m.classList.remove('active');
         m.style.setProperty('display', 'none', 'important');
+        m.classList.remove('active');
       }
     };
 
@@ -6853,12 +6870,17 @@
     syncAthleteMetricsFromIntake();
 
     // Garante que o botão de Bio receba toques imediatos no mobile
-    // Bio usa onclick nativo direto no HTML
+    const coachBtn = document.querySelector('.coach-profile-btn');
+    if (coachBtn) {
+      coachBtn.addEventListener('click', (e) => {
+        openBioModal(e);
+      });
+    }
 
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=95').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=96').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
