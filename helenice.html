@@ -1638,7 +1638,7 @@
     }
     .metas-drawer-header {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
       margin-bottom: 8px;
     }
@@ -1675,9 +1675,9 @@
 
     /* Seção de Ferramentas */
     .tools-container-wrap {
-      margin-top: 10px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      padding-top: 8px;
+      margin-top: 0;
+      border-top: none;
+      padding-top: 0;
     }
     .tools-section-title {
       font-size: 0.66rem;
@@ -4127,7 +4127,7 @@
     }
     .athlete-highlight-card .metas-drawer-header {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
       margin-bottom: 8px;
     }
@@ -4233,7 +4233,6 @@
       <!-- Drawer Retrátil de Metas do Ciclo -->
       <div id="metasDrawer" class="metas-drawer" style="display: none;">
         <div class="metas-drawer-header">
-          <span class="metas-drawer-badge">🎯 Metas do Ciclo</span>
           <span class="metas-drawer-close" onclick="toggleMetasDrawer()">✕</span>
         </div>
         <div class="metas-chips-list">
@@ -4244,12 +4243,12 @@
       </div>
     </div>
 
-    <!-- Seção de Ferramentas Clean (Mantém Fundo Escuro Normal) -->
-    <div class="goals-overview-card tools-overview-card" id="goalsOverviewCard">
-      <!-- Seção de Ferramentas com Título em Caixa Alta -->
-      <div class="tools-container-wrap">
-        <div class="tools-section-title">FERRAMENTAS</div>
-        <div class="header-tools-bar" style="margin-top: 0; padding-top: 0;">
+    <!-- SEÇÃO DE FERRAMENTAS -->
+    <div class="training-hub-section tools-hub-section" id="goalsOverviewCard" style="margin-top: 14px; margin-bottom: 16px;">
+      <div class="training-section-header" style="margin-bottom: 8px;">
+        <h2 class="training-section-title">FERRAMENTAS</h2>
+      </div>
+      <div class="header-tools-bar" style="margin-top: 0; padding-top: 0;">
           <button class="tool-pill pill-timers" onclick="openDedicatedView('timers')" title="Abrir Timers de Treino">
             <svg viewBox="0 0 24 24"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
             <span>Timers</span>
@@ -4263,7 +4262,6 @@
             <span>Evolução</span>
           </button>
         </div>
-      </div>
     </div>
 
     <!-- SEÇÃO PRINCIPAL: TREINAMENTO (LISTA DE SESSÕES) -->
@@ -5610,7 +5608,7 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '115';
+    const APP_BUILD_VERSION = '116';
     if (localStorage.getItem('dominio_helenice_dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_helenice_dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
@@ -7664,7 +7662,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=115').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=116').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
