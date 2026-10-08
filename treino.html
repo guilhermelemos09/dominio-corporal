@@ -3442,101 +3442,111 @@
     }
 
     /* Meta Geral de Local e Duração sob o Cabeçalho */
-    /* Linha 1: Botões de Ação Pop-up do Treino (Foco no Treino + Importante) */
-    .session-actions-row {
+    /* Linha 1: Botão Pop-up Sóbrio no Topo (Ocupando Linha Inteira) */
+    .btn-important-banner {
       display: flex;
       align-items: center;
-      gap: 8px;
+      justify-content: space-between;
+      gap: 10px;
       width: 100%;
-      margin-bottom: 9px;
-    }
-    .btn-session-action {
-      flex: 1;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 5.5px;
-      padding: 7px 10px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 9px 13px;
       border-radius: 10px;
-      font-size: 0.76rem;
-      font-weight: 700;
-      font-family: inherit;
+      color: #e2e8f0;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
       cursor: pointer;
       transition: all 0.15s ease;
-      user-select: none;
       -webkit-tap-highlight-color: transparent;
-      white-space: nowrap;
-      min-width: 0;
+      user-select: none;
+      touch-action: manipulation;
+      margin-bottom: 10px;
       box-sizing: border-box;
       text-decoration: none;
     }
-    .btn-session-action:active {
-      transform: scale(0.97);
-    }
-    .btn-session-action .action-icon {
-      font-size: 0.82rem;
-      line-height: 1;
-      flex-shrink: 0;
-    }
-    .btn-session-action .action-text {
-      white-space: nowrap;
-    }
-    .btn-session-action .action-arrow {
-      font-size: 0.74rem;
-      line-height: 1;
-      flex-shrink: 0;
-      margin-left: 1px;
-    }
-
-    /* Variante: Foco no Treino (Neon Clean) */
-    .btn-action-foco {
-      background: rgba(0, 255, 136, 0.08);
-      border: 1px solid rgba(0, 255, 136, 0.28);
-      color: var(--brand-neon);
-    }
-    .btn-action-foco:hover {
-      background: rgba(0, 255, 136, 0.16);
-      border-color: var(--brand-neon);
-      transform: translateY(-1px);
-    }
-    .btn-action-foco .action-arrow {
-      opacity: 0.85;
-      font-weight: 800;
-    }
-
-    /* Variante: Importante (Sóbrio Clean Glass) */
-    .btn-action-importante {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: #e2e8f0;
-    }
-    .btn-action-importante:hover {
+    .btn-important-banner:hover, .btn-important-banner:active {
       background: rgba(255, 255, 255, 0.08);
       border-color: rgba(255, 255, 255, 0.24);
       color: #ffffff;
       transform: translateY(-1px);
     }
-    .btn-action-importante .action-arrow {
+    .important-icon {
+      font-size: 1.05rem;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    .important-text {
+      flex: 1;
+      text-align: left;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .important-arrow {
+      font-size: 0.88rem;
       color: #94a3b8;
       opacity: 0.75;
+      margin-left: auto;
+      line-height: 1;
+      flex-shrink: 0;
     }
 
-    /* Linha 2: Meta Geral de Local e Duração Total */
+    /* Linha 2: Foco no Treino, Local e Duração (Tudo na mesma linha) */
     .session-overall-meta {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 8px 12px;
       flex-wrap: wrap;
       margin-bottom: 14px;
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       font-weight: 600;
       color: #94a3b8;
     }
     .session-overall-meta .meta-item {
       display: inline-flex;
       align-items: center;
-      gap: 4.5px;
+      gap: 4px;
       white-space: nowrap;
+    }
+    .btn-foco-treino {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(0, 255, 136, 0.08);
+      border: 1px solid rgba(0, 255, 136, 0.28);
+      color: var(--brand-neon);
+      font-size: 0.73rem;
+      font-weight: 700;
+      padding: 2.5px 8.5px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.15s ease;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    .btn-foco-treino:hover {
+      background: rgba(0, 255, 136, 0.16);
+      border-color: var(--brand-neon);
+      transform: translateY(-1px);
+    }
+    .btn-foco-treino:active {
+      transform: scale(0.96);
+    }
+    .btn-foco-treino .foco-icon {
+      font-size: 0.78rem;
+      line-height: 1;
+    }
+    .btn-foco-treino .foco-arrow {
+      font-size: 0.72rem;
+      font-weight: 800;
+      opacity: 0.85;
+      line-height: 1;
+      margin-left: 1px;
     }
 
     /* Botões de Pop-up Monocromáticos (Estilo Clean Glass Idêntico ao Vídeo) */
@@ -4229,24 +4239,22 @@
   <!-- ==================== TAB ATIVA: HOJE (SEGUNDA: BOX À TARDE) ==================== -->
   <div id="tab-segunda" class="tab-content">
 
-    <!-- LINHA 1: BOTÕES DE AÇÃO POP-UP (FOCO NO TREINO + IMPORTANTE) -->
-    <div class="session-actions-row">
-      <button type="button" class="btn-session-action btn-action-foco" onclick="openFocoTreino('segunda')" title="Ver Foco no Treino">
-        <span class="action-icon">🎯</span>
-        <span class="action-text">Foco no Treino</span>
-        <span class="action-arrow">↗</span>
-      </button>
-      <button type="button" class="btn-session-action btn-action-importante" onclick="openImportanteTreino('segunda')" title="Orientações e Cuidados Articulares">
-        <span class="action-icon">⚠️</span>
-        <span class="action-text">Importante</span>
-        <span class="action-arrow">↗</span>
-      </button>
-    </div>
+    <!-- LINHA 1: BOTÃO IMPORTANTE (OCUPANDO A LINHA INTEIRA NO TOPO) -->
+    <button type="button" class="btn-important-banner" onclick="openImportanteTreino('segunda')" title="Orientações e Cuidados Articulares">
+      <span class="important-icon">⚠️</span>
+      <span class="important-text">Importante (Orientações e cuidados articulares)</span>
+      <span class="important-arrow">›</span>
+    </button>
 
-    <!-- LINHA 2: LOCAL E DURAÇÃO TOTAL -->
+    <!-- LINHA 2: FOCO NO TREINO, LOCAL E DURAÇÃO (TUDO NA MESMA LINHA) -->
     <div class="session-overall-meta">
+      <button type="button" class="btn-foco-treino" onclick="openFocoTreino('segunda')" title="Ver Foco no Treino">
+        <span class="foco-icon">🎯</span>
+        <span>Foco no Treino</span>
+        <span class="foco-arrow">↗</span>
+      </button>
       <span class="meta-item">📍 Box CrossFit</span>
-      <span class="meta-item">⏳ ~50 min total</span>
+      <span class="meta-item">⏳ ~50 min</span>
     </div>
 
     <!-- Progresso gerenciado no dock flutuante -->
@@ -4479,24 +4487,22 @@
   <!-- ==================== TAB ATIVA: HOJE (TERÇA: BOX + LAB BMU COMPARTILHADO) ==================== -->
   <div id="tab-terca" class="tab-content">
 
-    <!-- LINHA 1: BOTÕES DE AÇÃO POP-UP (FOCO NO TREINO + IMPORTANTE) -->
-    <div class="session-actions-row">
-      <button type="button" class="btn-session-action btn-action-foco" onclick="openFocoTreino('terca')" title="Ver Foco no Treino">
-        <span class="action-icon">🎯</span>
-        <span class="action-text">Foco no Treino</span>
-        <span class="action-arrow">↗</span>
-      </button>
-      <button type="button" class="btn-session-action btn-action-importante" onclick="openImportanteTreino('terca')" title="Balanço da Terça-feira | Autoregulação">
-        <span class="action-icon">✅</span>
-        <span class="action-text">Importante</span>
-        <span class="action-arrow">↗</span>
-      </button>
-    </div>
+    <!-- LINHA 1: BOTÃO IMPORTANTE (OCUPANDO A LINHA INTEIRA NO TOPO) -->
+    <button type="button" class="btn-important-banner" onclick="openImportanteTreino('terca')" title="Balanço da Terça-feira | Autoregulação">
+      <span class="important-icon">✅</span>
+      <span class="important-text">Sessão finalizada no Box • Regeneração ativa</span>
+      <span class="important-arrow">›</span>
+    </button>
 
-    <!-- LINHA 2: LOCAL E DURAÇÃO TOTAL -->
+    <!-- LINHA 2: FOCO NO TREINO, LOCAL E DURAÇÃO (TUDO NA MESMA LINHA) -->
     <div class="session-overall-meta">
+      <button type="button" class="btn-foco-treino" onclick="openFocoTreino('terca')" title="Ver Foco no Treino">
+        <span class="foco-icon">🎯</span>
+        <span>Foco no Treino</span>
+        <span class="foco-arrow">↗</span>
+      </button>
       <span class="meta-item">📍 Box CrossFit</span>
-      <span class="meta-item">⏳ Concluído com Sucesso ✅</span>
+      <span class="meta-item">⏳ Concluído ✅</span>
     </div>
 
     <!-- ==================== SEÇÃO 1: BOX CROSSFIT (REALIZADO) ==================== -->
@@ -4602,24 +4608,22 @@
   <!-- ==================== TAB: SEXTA (PORTAGEM, DANÇA | ARGOLAS) ==================== -->
   <div id="tab-sexta" class="tab-content">
 
-    <!-- LINHA 1: BOTÕES DE AÇÃO POP-UP (FOCO NO TREINO + IMPORTANTE) -->
-    <div class="session-actions-row">
-      <button type="button" class="btn-session-action btn-action-foco" onclick="openFocoTreino('sexta')" title="Ver Foco no Treino">
-        <span class="action-icon">🎯</span>
-        <span class="action-text">Foco no Treino</span>
-        <span class="action-arrow">↗</span>
-      </button>
-      <button type="button" class="btn-session-action btn-action-importante" onclick="openImportanteTreino('sexta')" title="Orientações e Cuidados Articulares">
-        <span class="action-icon">⚠️</span>
-        <span class="action-text">Importante</span>
-        <span class="action-arrow">↗</span>
-      </button>
-    </div>
+    <!-- LINHA 1: BOTÃO IMPORTANTE (OCUPANDO A LINHA INTEIRA NO TOPO) -->
+    <button type="button" class="btn-important-banner" onclick="openImportanteTreino('sexta')" title="Orientações e Cuidados Articulares">
+      <span class="important-icon">⚠️</span>
+      <span class="important-text">Importante (Orientações e cuidados articulares)</span>
+      <span class="important-arrow">›</span>
+    </button>
 
-    <!-- LINHA 2: LOCAL E DURAÇÃO TOTAL -->
+    <!-- LINHA 2: FOCO NO TREINO, LOCAL E DURAÇÃO (TUDO NA MESMA LINHA) -->
     <div class="session-overall-meta">
+      <button type="button" class="btn-foco-treino" onclick="openFocoTreino('sexta')" title="Ver Foco no Treino">
+        <span class="foco-icon">🎯</span>
+        <span>Foco no Treino</span>
+        <span class="foco-arrow">↗</span>
+      </button>
       <span class="meta-item">📍 Box CrossFit</span>
-      <span class="meta-item">⏳ ~50 min total</span>
+      <span class="meta-item">⏳ ~50 min</span>
     </div>
 
     <!-- Barra de Progresso da Sessão (Destacada sob o Foco do Treino) -->
@@ -5292,24 +5296,22 @@
   <!-- ==================== TAB: QUINTA (DANÇA | FORÇA REAL EXECUTADA) ==================== -->
   <div id="tab-quinta" class="tab-content">
 
-    <!-- LINHA 1: BOTÕES DE AÇÃO POP-UP (FOCO NO TREINO + IMPORTANTE) -->
-    <div class="session-actions-row">
-      <button type="button" class="btn-session-action btn-action-foco" onclick="openFocoTreino('quinta')" title="Ver Foco no Treino">
-        <span class="action-icon">🎯</span>
-        <span class="action-text">Foco no Treino</span>
-        <span class="action-arrow">↗</span>
-      </button>
-      <button type="button" class="btn-session-action btn-action-importante" onclick="openImportanteTreino('quinta')" title="Orientações e Cuidados Articulares">
-        <span class="action-icon">⚠️</span>
-        <span class="action-text">Importante</span>
-        <span class="action-arrow">↗</span>
-      </button>
-    </div>
+    <!-- LINHA 1: BOTÃO IMPORTANTE (OCUPANDO A LINHA INTEIRA NO TOPO) -->
+    <button type="button" class="btn-important-banner" onclick="openImportanteTreino('quinta')" title="Orientações e Cuidados Articulares">
+      <span class="important-icon">⚠️</span>
+      <span class="important-text">Importante (Orientações e cuidados articulares)</span>
+      <span class="important-arrow">›</span>
+    </button>
 
-    <!-- LINHA 2: LOCAL E DURAÇÃO TOTAL -->
+    <!-- LINHA 2: FOCO NO TREINO, LOCAL E DURAÇÃO (TUDO NA MESMA LINHA) -->
     <div class="session-overall-meta">
+      <button type="button" class="btn-foco-treino" onclick="openFocoTreino('quinta')" title="Ver Foco no Treino">
+        <span class="foco-icon">🎯</span>
+        <span>Foco no Treino</span>
+        <span class="foco-arrow">↗</span>
+      </button>
       <span class="meta-item">📍 Box CrossFit</span>
-      <span class="meta-item">⏳ ~50 min total</span>
+      <span class="meta-item">⏳ ~50 min</span>
     </div>
 
     <!-- Barra de Progresso da Sessão (Destacada sob o Foco do Treino) -->
@@ -5676,24 +5678,22 @@
   <!-- ==================== TAB: ONTEM (QUARTA EEFERP - REGISTRO TÉCNICO | VÍDEO) ==================== -->
   <div id="tab-quarta" class="tab-content">
 
-    <!-- LINHA 1: BOTÕES DE AÇÃO POP-UP (FOCO NO TREINO + IMPORTANTE) -->
-    <div class="session-actions-row">
-      <button type="button" class="btn-session-action btn-action-foco" onclick="openFocoTreino('quarta')" title="Ver Foco no Treino">
-        <span class="action-icon">🎯</span>
-        <span class="action-text">Foco no Treino</span>
-        <span class="action-arrow">↗</span>
-      </button>
-      <button type="button" class="btn-session-action btn-action-importante" onclick="openImportanteTreino('quarta')" title="Orientações Articulares da Ginástica">
-        <span class="action-icon">⚠️</span>
-        <span class="action-text">Importante</span>
-        <span class="action-arrow">↗</span>
-      </button>
-    </div>
+    <!-- LINHA 1: BOTÃO IMPORTANTE (OCUPANDO A LINHA INTEIRA NO TOPO) -->
+    <button type="button" class="btn-important-banner" onclick="openImportanteTreino('quarta')" title="Orientações Articulares da Ginástica">
+      <span class="important-icon">⚠️</span>
+      <span class="important-text">Importante (Leia antes de treinar)</span>
+      <span class="important-arrow">›</span>
+    </button>
 
-    <!-- LINHA 2: LOCAL E DURAÇÃO TOTAL -->
+    <!-- LINHA 2: FOCO NO TREINO, LOCAL E DURAÇÃO (TUDO NA MESMA LINHA) -->
     <div class="session-overall-meta">
+      <button type="button" class="btn-foco-treino" onclick="openFocoTreino('quarta')" title="Ver Foco no Treino">
+        <span class="foco-icon">🎯</span>
+        <span>Foco no Treino</span>
+        <span class="foco-arrow">↗</span>
+      </button>
       <span class="meta-item">📍 Ginásio EEFERP-USP</span>
-      <span class="meta-item">⏳ ~120 min total</span>
+      <span class="meta-item">⏳ ~120 min</span>
     </div>
 
     <!-- ==================== SEÇÃO 1: ATIVAÇÃO ARTICULAR & CORE ==================== -->
@@ -7851,13 +7851,13 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '100';
+    const APP_BUILD_VERSION = '101';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
         caches.keys().then((keys) => {
           keys.forEach((k) => {
-            if (k !== 'dominio-corporal-v100') caches.delete(k);
+            if (k !== 'dominio-corporal-v101') caches.delete(k);
           });
         });
       }
@@ -9655,7 +9655,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=100').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=101').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
