@@ -3442,58 +3442,101 @@
     }
 
     /* Meta Geral de Local e Duração sob o Cabeçalho */
+    /* Linha 1: Botões de Ação Pop-up do Treino (Foco no Treino + Importante) */
+    .session-actions-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      margin-bottom: 9px;
+    }
+    .btn-session-action {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5.5px;
+      padding: 7px 10px;
+      border-radius: 10px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      white-space: nowrap;
+      min-width: 0;
+      box-sizing: border-box;
+      text-decoration: none;
+    }
+    .btn-session-action:active {
+      transform: scale(0.97);
+    }
+    .btn-session-action .action-icon {
+      font-size: 0.82rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .btn-session-action .action-text {
+      white-space: nowrap;
+    }
+    .btn-session-action .action-arrow {
+      font-size: 0.74rem;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-left: 1px;
+    }
+
+    /* Variante: Foco no Treino (Neon Clean) */
+    .btn-action-foco {
+      background: rgba(0, 255, 136, 0.08);
+      border: 1px solid rgba(0, 255, 136, 0.28);
+      color: var(--brand-neon);
+    }
+    .btn-action-foco:hover {
+      background: rgba(0, 255, 136, 0.16);
+      border-color: var(--brand-neon);
+      transform: translateY(-1px);
+    }
+    .btn-action-foco .action-arrow {
+      opacity: 0.85;
+      font-weight: 800;
+    }
+
+    /* Variante: Importante (Sóbrio Clean Glass) */
+    .btn-action-importante {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #e2e8f0;
+    }
+    .btn-action-importante:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.24);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+    .btn-action-importante .action-arrow {
+      color: #94a3b8;
+      opacity: 0.75;
+    }
+
+    /* Linha 2: Meta Geral de Local e Duração Total */
     .session-overall-meta {
       display: flex;
       align-items: center;
-      gap: 8px 10px;
+      gap: 14px;
       flex-wrap: wrap;
-      margin-bottom: 12px;
-      font-size: 0.78rem;
+      margin-bottom: 14px;
+      font-size: 0.82rem;
       font-weight: 600;
       color: #94a3b8;
     }
     .session-overall-meta .meta-item {
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      white-space: nowrap;
-    }
-    .btn-foco-treino {
-      display: inline-flex;
-      align-items: center;
       gap: 4.5px;
-      background: rgba(0, 255, 136, 0.08);
-      border: 1px solid rgba(0, 255, 136, 0.28);
-      color: var(--brand-neon);
-      font-size: 0.73rem;
-      font-weight: 700;
-      padding: 3px 9px;
-      border-radius: 999px;
-      cursor: pointer;
-      font-family: inherit;
-      transition: all 0.15s ease;
-      user-select: none;
-      -webkit-tap-highlight-color: transparent;
       white-space: nowrap;
-    }
-    .btn-foco-treino:hover {
-      background: rgba(0, 255, 136, 0.16);
-      border-color: var(--brand-neon);
-      transform: translateY(-1px);
-    }
-    .btn-foco-treino:active {
-      transform: scale(0.96);
-    }
-    .btn-foco-treino .foco-icon {
-      font-size: 0.78rem;
-      line-height: 1;
-    }
-    .btn-foco-treino .foco-arrow {
-      font-size: 0.72rem;
-      font-weight: 800;
-      opacity: 0.85;
-      line-height: 1;
-      margin-left: 1px;
     }
 
     /* Botões de Pop-up Monocromáticos (Estilo Clean Glass Idêntico ao Vídeo) */
@@ -4186,15 +4229,24 @@
   <!-- ==================== TAB ATIVA: HOJE (SEGUNDA: BOX À TARDE) ==================== -->
   <div id="tab-segunda" class="tab-content">
 
-    <!-- CABEÇALHO / METADADOS GERAIS: FOCO DO TREINO, LOCAL E DURAÇÃO -->
-    <div class="session-overall-meta">
-      <button type="button" class="btn-foco-treino" onclick="openFocoTreino('segunda')" title="Ver Foco do Treino">
-        <span class="foco-icon">🎯</span>
-        <span>Foco do Treino</span>
-        <span class="foco-arrow">↗</span>
+    <!-- LINHA 1: BOTÕES DE AÇÃO POP-UP (FOCO NO TREINO + IMPORTANTE) -->
+    <div class="session-actions-row">
+      <button type="button" class="btn-session-action btn-action-foco" onclick="openFocoTreino('segunda')" title="Ver Foco no Treino">
+        <span class="action-icon">🎯</span>
+        <span class="action-text">Foco no Treino</span>
+        <span class="action-arrow">↗</span>
       </button>
+      <button type="button" class="btn-session-action btn-action-importante" onclick="openImportanteTreino('segunda')" title="Orientações e Cuidados Articulares">
+        <span class="action-icon">⚠️</span>
+        <span class="action-text">Importante</span>
+        <span class="action-arrow">↗</span>
+      </button>
+    </div>
+
+    <!-- LINHA 2: LOCAL E DURAÇÃO TOTAL -->
+    <div class="session-overall-meta">
       <span class="meta-item">📍 Box CrossFit</span>
-      <span class="meta-item">⏳ ~50 min</span>
+      <span class="meta-item">⏳ ~50 min total</span>
     </div>
 
     <!-- Progresso gerenciado no dock flutuante -->
@@ -4427,24 +4479,24 @@
   <!-- ==================== TAB ATIVA: HOJE (TERÇA: BOX + LAB BMU COMPARTILHADO) ==================== -->
   <div id="tab-terca" class="tab-content">
 
-    <!-- CABEÇALHO / METADADOS GERAIS: FOCO DO TREINO, LOCAL E DURAÇÃO -->
-    <div class="session-overall-meta">
-      <button type="button" class="btn-foco-treino" onclick="openFocoTreino('terca')" title="Ver Foco do Treino">
-        <span class="foco-icon">🎯</span>
-        <span>Foco do Treino</span>
-        <span class="foco-arrow">↗</span>
+    <!-- LINHA 1: BOTÕES DE AÇÃO POP-UP (FOCO NO TREINO + IMPORTANTE) -->
+    <div class="session-actions-row">
+      <button type="button" class="btn-session-action btn-action-foco" onclick="openFocoTreino('terca')" title="Ver Foco no Treino">
+        <span class="action-icon">🎯</span>
+        <span class="action-text">Foco no Treino</span>
+        <span class="action-arrow">↗</span>
       </button>
-      <span class="meta-item">📍 Box CrossFit</span>
-      <span class="meta-item">⏳ Concluído ✅</span>
+      <button type="button" class="btn-session-action btn-action-importante" onclick="openImportanteTreino('terca')" title="Balanço da Terça-feira | Autoregulação">
+        <span class="action-icon">✅</span>
+        <span class="action-text">Importante</span>
+        <span class="action-arrow">↗</span>
+      </button>
     </div>
 
-    <!-- CARD INFORMATIVO: SESSÃO DO DIA FINALIZADA -->
-    <div style="margin-bottom: 14px;">
-      <button type="button" class="btn-important-banner" onclick="openTip('Balanço da Terça-feira | Autoregulação', '• Box Feito com Sucesso: 120 repetições de empurrar carga (Supino 60kg, flexões e Z-Press 15kg) e WOD com 30kg descendo da caixa no passo para blindar o joelho.\n• Decisão Inteligente: O treino de ginástica artística pesada foi transferido para quarta-feira (17h–19h no Ginásio EEFERP), quando seu corpo estará zerado e descansado.\n• Noite Livre: Descanso em casa, videogame e boa alimentação para diminuir o cansaço e recuperar os músculos.\n\nBase científica:\n• Fadiga Central e Gestão de Carga Neural: Após 120 repetições concêntricas de membros superiores e acidose metabólica no WOD, os motoneurônios do tríceps e deltóide entram em período refratário.\n• Princípio da Autoregulação Biomecânica: Empilhar parada de mãos de alta alavanca e BMU na mesma noite elevaria o risco articular no ombro direito operado. A compensação na quarta com frescor neural assegura rendimento técnico máximo.', '✅ Sessão Concluída')">
-        <span class="important-icon">✅</span>
-        <span class="important-text">Sessão finalizada no Box • Regeneração ativa</span>
-        <span class="important-arrow">›</span>
-      </button>
+    <!-- LINHA 2: LOCAL E DURAÇÃO TOTAL -->
+    <div class="session-overall-meta">
+      <span class="meta-item">📍 Box CrossFit</span>
+      <span class="meta-item">⏳ Concluído com Sucesso ✅</span>
     </div>
 
     <!-- ==================== SEÇÃO 1: BOX CROSSFIT (REALIZADO) ==================== -->
@@ -4550,15 +4602,24 @@
   <!-- ==================== TAB: SEXTA (PORTAGEM, DANÇA | ARGOLAS) ==================== -->
   <div id="tab-sexta" class="tab-content">
 
-    <!-- CABEÇALHO / METADADOS GERAIS: FOCO DO TREINO, LOCAL E DURAÇÃO -->
-    <div class="session-overall-meta">
-      <button type="button" class="btn-foco-treino" onclick="openFocoTreino('sexta')" title="Ver Foco do Treino">
-        <span class="foco-icon">🎯</span>
-        <span>Foco do Treino</span>
-        <span class="foco-arrow">↗</span>
+    <!-- LINHA 1: BOTÕES DE AÇÃO POP-UP (FOCO NO TREINO + IMPORTANTE) -->
+    <div class="session-actions-row">
+      <button type="button" class="btn-session-action btn-action-foco" onclick="openFocoTreino('sexta')" title="Ver Foco no Treino">
+        <span class="action-icon">🎯</span>
+        <span class="action-text">Foco no Treino</span>
+        <span class="action-arrow">↗</span>
       </button>
+      <button type="button" class="btn-session-action btn-action-importante" onclick="openImportanteTreino('sexta')" title="Orientações e Cuidados Articulares">
+        <span class="action-icon">⚠️</span>
+        <span class="action-text">Importante</span>
+        <span class="action-arrow">↗</span>
+      </button>
+    </div>
+
+    <!-- LINHA 2: LOCAL E DURAÇÃO TOTAL -->
+    <div class="session-overall-meta">
       <span class="meta-item">📍 Box CrossFit</span>
-      <span class="meta-item">⏳ ~50 min</span>
+      <span class="meta-item">⏳ ~50 min total</span>
     </div>
 
     <!-- Barra de Progresso da Sessão (Destacada sob o Foco do Treino) -->
@@ -5231,15 +5292,24 @@
   <!-- ==================== TAB: QUINTA (DANÇA | FORÇA REAL EXECUTADA) ==================== -->
   <div id="tab-quinta" class="tab-content">
 
-    <!-- CABEÇALHO / METADADOS GERAIS: FOCO DO TREINO, LOCAL E DURAÇÃO -->
-    <div class="session-overall-meta">
-      <button type="button" class="btn-foco-treino" onclick="openFocoTreino('quinta')" title="Ver Foco do Treino">
-        <span class="foco-icon">🎯</span>
-        <span>Foco do Treino</span>
-        <span class="foco-arrow">↗</span>
+    <!-- LINHA 1: BOTÕES DE AÇÃO POP-UP (FOCO NO TREINO + IMPORTANTE) -->
+    <div class="session-actions-row">
+      <button type="button" class="btn-session-action btn-action-foco" onclick="openFocoTreino('quinta')" title="Ver Foco no Treino">
+        <span class="action-icon">🎯</span>
+        <span class="action-text">Foco no Treino</span>
+        <span class="action-arrow">↗</span>
       </button>
+      <button type="button" class="btn-session-action btn-action-importante" onclick="openImportanteTreino('quinta')" title="Orientações e Cuidados Articulares">
+        <span class="action-icon">⚠️</span>
+        <span class="action-text">Importante</span>
+        <span class="action-arrow">↗</span>
+      </button>
+    </div>
+
+    <!-- LINHA 2: LOCAL E DURAÇÃO TOTAL -->
+    <div class="session-overall-meta">
       <span class="meta-item">📍 Box CrossFit</span>
-      <span class="meta-item">⏳ ~50 min</span>
+      <span class="meta-item">⏳ ~50 min total</span>
     </div>
 
     <!-- Barra de Progresso da Sessão (Destacada sob o Foco do Treino) -->
@@ -5606,24 +5676,24 @@
   <!-- ==================== TAB: ONTEM (QUARTA EEFERP - REGISTRO TÉCNICO | VÍDEO) ==================== -->
   <div id="tab-quarta" class="tab-content">
 
-    <!-- CABEÇALHO / METADADOS GERAIS: FOCO DO TREINO, LOCAL E DURAÇÃO -->
-    <div class="session-overall-meta">
-      <button type="button" class="btn-foco-treino" onclick="openFocoTreino('quarta')" title="Ver Foco do Treino">
-        <span class="foco-icon">🎯</span>
-        <span>Foco do Treino</span>
-        <span class="foco-arrow">↗</span>
+    <!-- LINHA 1: BOTÕES DE AÇÃO POP-UP (FOCO NO TREINO + IMPORTANTE) -->
+    <div class="session-actions-row">
+      <button type="button" class="btn-session-action btn-action-foco" onclick="openFocoTreino('quarta')" title="Ver Foco no Treino">
+        <span class="action-icon">🎯</span>
+        <span class="action-text">Foco no Treino</span>
+        <span class="action-arrow">↗</span>
       </button>
-      <span class="meta-item">📍 Ginásio EEFERP-USP</span>
-      <span class="meta-item">⏳ ~120 min</span>
+      <button type="button" class="btn-session-action btn-action-importante" onclick="openImportanteTreino('quarta')" title="Orientações Articulares da Ginástica">
+        <span class="action-icon">⚠️</span>
+        <span class="action-text">Importante</span>
+        <span class="action-arrow">↗</span>
+      </button>
     </div>
 
-    <!-- BOTÃO POP-UP: IMPORTANTE (LEIA ANTES DE TREINAR) -->
-    <div style="margin-bottom: 14px;">
-      <button type="button" class="btn-important-banner" onclick="openTip('Orientações Articulares da Ginástica', '• Punhos: Não chegue subindo direto na manjota. Esquente e apoie o peso do corpo aos poucos no solo antes.\n• Ombro Operado: Mantenha sempre o ombro empurrando o chão para longe (ombros longe das orelhas). Nunca relaxe desabando o peso no osso do ombro.\n• Joelho e Menisco: Ao sair da parada de mãos, aterrisse macio com as duas pernas no colchão grosso, sem bater o calcanhar seco.\n\nBase científica:\n• Preservação Subacromial (Neer e Rockwood): A depressão escapular ativa constante (peitoral menor e trapézio inferior) amplia o espaço subacromial, prevenindo o pinçamento do tendão do supraespinhal operado.\n• Absorção de Força de Reação do Solo (USP Biomecânica): Dissipação da energia em solo de alta complacência (tatame gímnico) neutraliza picos de cisalhamento sobre o menisco lateral esquerdo rompido.', '⚠️ Importante')">
-        <span class="important-icon">⚠️</span>
-        <span class="important-text">Importante (Leia antes de treinar)</span>
-        <span class="important-arrow">›</span>
-      </button>
+    <!-- LINHA 2: LOCAL E DURAÇÃO TOTAL -->
+    <div class="session-overall-meta">
+      <span class="meta-item">📍 Ginásio EEFERP-USP</span>
+      <span class="meta-item">⏳ ~120 min total</span>
     </div>
 
     <!-- ==================== SEÇÃO 1: ATIVAÇÃO ARTICULAR & CORE ==================== -->
@@ -7781,13 +7851,13 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '99';
+    const APP_BUILD_VERSION = '100';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
         caches.keys().then((keys) => {
           keys.forEach((k) => {
-            if (k !== 'dominio-corporal-v99') caches.delete(k);
+            if (k !== 'dominio-corporal-v100') caches.delete(k);
           });
         });
       }
@@ -9585,7 +9655,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=99').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=100').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
@@ -9662,7 +9732,13 @@
         btnBg = 'rgba(251, 191, 36, 0.18)';
         btnBorder = 'rgba(251, 191, 36, 0.45)';
       } else if (category.includes('Foco') || category.includes('🎯')) {
-        tagText = '🎯 FOCO DO TREINO';
+        tagText = '🎯 FOCO NO TREINO';
+        tagColor = '#00ff88';
+        cardBorder = 'rgba(0, 255, 136, 0.45)';
+        btnBg = 'rgba(0, 255, 136, 0.18)';
+        btnBorder = 'rgba(0, 255, 136, 0.45)';
+      } else if (category.includes('Concluída') || category.includes('✅')) {
+        tagText = '✅ SESSÃO CONCLUÍDA';
         tagColor = '#00ff88';
         cardBorder = 'rgba(0, 255, 136, 0.45)';
         btnBg = 'rgba(0, 255, 136, 0.18)';
@@ -9680,30 +9756,65 @@
     window.openFocoTreino = function(dayId) {
       const focos = {
         'segunda': {
-          title: 'Foco do Treino • Segunda-feira',
+          title: 'Foco no Treino • Segunda-feira',
           text: '• STRICT PULL-UP: Ativação concêntrica de grande dorsal sem balanço.\n• SKILL EMOM: Consistência motora e precisão sob intervalo fixo.\n• CONDICIONAMENTO METABÓLICO: Gestão de intensidade e respiração no WOD.\n• BLINDAGEM ARTICULAR: Ângulo meniscal controlado a 90° e estabilidade escapular.'
         },
         'terca': {
-          title: 'Foco do Treino • Terça-feira',
+          title: 'Foco no Treino • Terça-feira',
           text: '• BOX CROSSFIT CONCLUÍDO: 120 repetições de empurrar carga realizadas com sucesso.\n• AUTOREGULAÇÃO BIOMECÂNICA: Decisão de transferir a ginástica pesada para quarta com frescor neural.\n• REGENERAÇÃO ATIVA: Descanso noturno e restauração dos motoneurônios para rendimento máximo.'
         },
         'quarta': {
-          title: 'Foco do Treino • Quarta-feira',
+          title: 'Foco no Treino • Quarta-feira',
           text: '• PARADA DE MÃOS: Alinhamento vertical punho-cotovelo-ombro (stacking) na gravidade.\n• EMPILHAMENTO ÓSSEO: Sustentação por compressão esquelética direta sem fadiga prematura.\n• SUBIDA EM FORÇA: Press to Handstand com controle fino de alavanca.\n• MANJOTA e CROCODILO: Estabilidade de punho e controle postural nos aparelhos baixos.\n• CONDICIONAMENTO 12\': Gestão de ritmo e potência final.'
         },
         'quinta': {
-          title: 'Foco do Treino • Quinta-feira',
+          title: 'Foco no Treino • Quinta-feira',
           text: '• KIP MUSCLE-UP: Transição ágil de punhos por cima da barra e aproveitamento pendular.\n• POTÊNCIA DE PUXADA: Puxada alta concêntrica com braço reto na alavanca.\n• ARGOLAS: Estabilidade glenoumeral e sustentação em apoio frontal.\n• DANÇA CONTEMPORÂNEA: Trabalho de chão fluido com rotação protegida no joelho.'
         },
         'sexta': {
-          title: 'Foco do Treino • Sexta-feira',
+          title: 'Foco no Treino • Sexta-feira',
           text: '• PORTAGEM ACRO: Base firme em hip hinge com tíbias verticais, sem sobrecarga no menisco.\n• STRICT RMU: Transição estrita nas argolas com falsa pegada estável.\n• CANDLE KIPS: Extensão potente de quadril e elevação do centro de massa.\n• ZERO IMPACTO MENISCAL: Amortecimento de aterrissagem em solo de alta complacência.'
         }
       };
 
       const foco = focos[dayId];
       if (foco && typeof openTip === 'function') {
-        openTip(foco.title, foco.text, '🎯 Foco do Treino');
+        openTip(foco.title, foco.text, '🎯 Foco no Treino');
+      }
+    };
+
+    window.openImportanteTreino = function(dayId) {
+      const importantes = {
+        'segunda': {
+          title: 'Orientações e Blindagem Articular',
+          text: '• Joelho e Menisco: No Box, em todos os agachamentos e descidas de caixa, faça descida no passo (step down), sem impacto de queda para trás.\n• Barra Fixa: Mantenha ativação de escápulas na subida do strict pull-up sem trancos repentinos no ombro.\n\nBase científica:\n• Preservação Meniscal: O impacto em queda livre gera picos de cisalhamento sobre a fibrocartilagem meniscal lateral. O passo controlado dissipa 100% dessa energia.\n• Centralização Umeral: O acoplamento precoce do trapézio inferior estabiliza a cabeça do úmero na cavidade glenoide sob sobrecarga de tração.',
+          category: '⚠️ Importante'
+        },
+        'terca': {
+          title: 'Balanço da Terça-feira | Autoregulação',
+          text: '• Box Feito com Sucesso: 120 repetições de empurrar carga (Supino 60kg, flexões e Z-Press 15kg) e WOD com 30kg descendo da caixa no passo para blindar o joelho.\n• Decisão Inteligente: O treino de ginástica artística pesada foi transferido para quarta-feira (17h–19h no Ginásio EEFERP), quando seu corpo estará zerado e descansado.\n• Noite Livre: Descanso em casa, videogame e boa alimentação para diminuir o cansaço e recuperar os músculos.\n\nBase científica:\n• Fadiga Central e Gestão de Carga Neural: Após 120 repetições concêntricas de membros superiores e acidose metabólica no WOD, os motoneurônios do tríceps e deltóide entram em período refratário.\n• Princípio da Autoregulação Biomecânica: Empilhar parada de mãos de alta alavanca e BMU na mesma noite elevaria o risco articular no ombro direito operado. A compensação na quarta com frescor neural assegura rendimento técnico máximo.',
+          category: '✅ Sessão Concluída'
+        },
+        'quarta': {
+          title: 'Orientações Articulares da Ginástica',
+          text: '• Punhos: Não chegue subindo direto na manjota. Esquente e apoie o peso do corpo aos poucos no solo antes.\n• Ombro Operado: Mantenha sempre o ombro empurrando o chão para longe (ombros longe das orelhas). Nunca relaxe desabando o peso no osso do ombro.\n• Joelho e Menisco: Ao sair da parada de mãos, aterrisse macio com as duas pernas no colchão grosso, sem bater o calcanhar seco.\n\nBase científica:\n• Preservação Subacromial (Neer e Rockwood): A depressão escapular ativa constante (peitoral menor e trapézio inferior) amplia o espaço subacromial, prevenindo o pinçamento do tendão do supraespinhal operado.\n• Absorção de Força de Reação do Solo (USP Biomecânica): Dissipação da energia em solo de alta complacência (tatame gímnico) neutraliza picos de cisalhamento sobre o menisco lateral esquerdo rompido.',
+          category: '⚠️ Importante'
+        },
+        'quinta': {
+          title: 'Orientações e Cuidados Articulares',
+          text: '• Barra e Transição (BMU): Transição com rotação rápida de punhos e peito por cima da barra sem travar o cotovelo em ângulo desvantajoso.\n• Dança Contemporânea: Trabalho de chão suave, distribuindo o peso na coxa e lateral do quadril, evitando torção em pivô no joelho esquerdo.\n\nBase científica:\n• Torque Rotacional Glenoumeral: A transição dinâmica no Kip Muscle-Up exige pico de rotação interna sob carga; manter cotovelos fechados diminui o momento de torção sobre a cápsula anterior.\n• Cinemática em Solo: Contato contínuo com solo distribui pressão hidrostática sinovial, poupando a fibrocartilagem meniscal.',
+          category: '⚠️ Importante'
+        },
+        'sexta': {
+          title: 'Orientações e Cuidados Articulares',
+          text: '• Portagem Acro: Mantenha sempre a dobradiça de quadril (hip hinge) com tíbias verticais ao receber o flyer, usando glúteos e core, nunca os joelhos projetados à frente.\n• Argolas e RMU: Falsa pegada firme com punho sobre a madeira antes da puxada estrita.\n• Aterrissagens: Sempre em colchão ou tatame de alta absorção, amortecendo com os dois pés juntos.\n\nBase científica:\n• Vetor de Carga Vertical: A tíbia vertical neutraliza momentos de flexão anterior no joelho, anulando forças de cisalhamento anterior e compressão no menisco lateral.',
+          category: '⚠️ Importante'
+        }
+      };
+
+      const imp = importantes[dayId];
+      if (imp && typeof openTip === 'function') {
+        openTip(imp.title, imp.text, imp.category);
       }
     };
 
