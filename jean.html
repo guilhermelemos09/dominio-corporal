@@ -43,6 +43,7 @@
       --brand-neon-bg: rgba(0, 255, 136, 0.08);
 
       /* Cores Funcionais Discretas (Mínimo Estrito) */
+      --accent-gold: #f59e0b;          /* Amarelo Ouro / Terça-feira */
       --sec-aquecimento: #f59e0b;      /* Ativação: Amarelo Ouro / Warm Gold */
       --sec-skills: #00ff88;           /* Habilidade: Verde Neon */
       --sec-forca: #00ff88;            /* Fortalecimento: Verde Neon */
@@ -1819,27 +1820,29 @@
       margin-top: 18px;
       background: linear-gradient(135deg, #0d1612 0%, #0a110e 100%);
       border: 1px solid rgba(37, 211, 102, 0.28);
-      border-radius: 16px;
-      padding: 14px 16px;
+      border-radius: 14px;
+      padding: 11px 14px;
       display: flex;
-      gap: 14px;
+      gap: 12px;
       align-items: center;
       cursor: pointer;
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      box-sizing: border-box;
+      min-height: 68px;
     }
     .whatsapp-support-card:hover {
       transform: translateY(-2px);
       border-color: #25d366;
-      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.2);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.2);
     }
     .whatsapp-support-card:active {
       transform: scale(0.98);
     }
     .wpp-card-icon-wrap {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
+      width: 40px;
+      height: 40px;
+      border-radius: 11px;
       background: rgba(37, 211, 102, 0.14);
       display: flex;
       align-items: center;
@@ -1847,40 +1850,124 @@
       flex-shrink: 0;
     }
     .wpp-card-icon-wrap svg {
-      width: 24px;
-      height: 24px;
+      width: 22px;
+      height: 22px;
       fill: #25d366;
     }
     .wpp-card-info {
       flex: 1;
+      min-width: 0;
     }
     .wpp-card-title {
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       font-weight: 800;
       color: #ffffff;
       letter-spacing: 0.02em;
       margin-bottom: 2px;
+      line-height: 1.2;
     }
     .wpp-card-desc {
-      font-size: 0.76rem;
+      font-size: 0.73rem;
       color: #94a3b8;
-      line-height: 1.4;
-      margin-bottom: 6px;
+      line-height: 1.3;
+      margin-bottom: 3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .wpp-card-btn-inline {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
+      gap: 4px;
       color: #25d366;
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       font-weight: 800;
       letter-spacing: 0.02em;
+      line-height: 1.2;
     }
     .wpp-card-btn-inline .wpp-arrow {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       transition: transform 0.2s ease;
     }
     .whatsapp-support-card:hover .wpp-arrow {
+      transform: translate(2px, -2px);
+    }
+
+    /* Card de Instruções de Uso do App */
+    .instructions-support-card {
+      margin-top: 10px;
+      background: linear-gradient(135deg, #0d1520 0%, #0a1017 100%);
+      border: 1px solid rgba(56, 189, 248, 0.28);
+      border-radius: 14px;
+      padding: 11px 14px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      box-sizing: border-box;
+      min-height: 68px;
+    }
+    .instructions-support-card:hover {
+      transform: translateY(-2px);
+      border-color: #38bdf8;
+      box-shadow: 0 6px 20px rgba(56, 189, 248, 0.2);
+    }
+    .instructions-support-card:active {
+      transform: scale(0.98);
+    }
+    .instr-card-icon-wrap {
+      width: 40px;
+      height: 40px;
+      border-radius: 11px;
+      background: rgba(56, 189, 248, 0.14);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .instr-card-icon-wrap svg {
+      width: 22px;
+      height: 22px;
+      fill: #38bdf8;
+    }
+    .instr-card-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .instr-card-title {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.02em;
+      margin-bottom: 2px;
+      line-height: 1.2;
+    }
+    .instr-card-desc {
+      font-size: 0.73rem;
+      color: #94a3b8;
+      line-height: 1.3;
+      margin-bottom: 3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .instr-card-btn-inline {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: #38bdf8;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+    }
+    .instr-card-btn-inline .instr-arrow {
+      font-size: 0.78rem;
+      transition: transform 0.2s ease;
+    }
+    .instructions-support-card:hover .instr-arrow {
       transform: translate(2px, -2px);
     }
 
@@ -2801,6 +2888,36 @@
           ⏳ Aguardando liberação do Treinador
         </div>
       </div>
+
+      <!-- Card de Contato WhatsApp com o Treinador -->
+      <div class="whatsapp-support-card" onclick="contactCoachWhatsApp()">
+        <div class="wpp-card-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c4.54 0 8.24 3.7 8.24 8.24 0 2.2-.86 4.28-2.42 5.84a8.188 8.188 0 0 1-5.82 2.41c-1.45 0-2.87-.38-4.13-1.11l-.3-.18-3.12.82.83-3.04-.2-.31a8.175 8.175 0 0 1-1.25-4.43c0-4.54 3.7-8.24 8.25-8.24zm4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+        </div>
+        <div class="wpp-card-info">
+          <div class="wpp-card-title">Dúvidas sobre o Treino</div>
+          <div class="wpp-card-desc">Fale direto com o Gui no WhatsApp.</div>
+          <div class="wpp-card-btn-inline">
+            <span>Falar no WhatsApp</span>
+            <span class="wpp-arrow">↗</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card de Instruções de Uso do App -->
+      <div class="instructions-support-card" onclick="openAppInstructionsModal()">
+        <div class="instr-card-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16h-2v-2h2v2zm1.07-7.75l-.9.92C12.45 11.9 12 12.5 12 14h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+        </div>
+        <div class="instr-card-info">
+          <div class="instr-card-title">Instruções de Uso</div>
+          <div class="instr-card-desc">Guia rápido das ferramentas do app.</div>
+          <div class="instr-card-btn-inline">
+            <span>Ver Instruções</span>
+            <span class="instr-arrow">↗</span>
+          </div>
+        </div>
+      </div>
     </div>
 
   <!-- ==================== TAB: ANÁLISE DE VÍDEOS & BIOMECÂNICA ==================== -->
@@ -3274,9 +3391,91 @@
         </button>
       </div>
     </div>
+  <!-- Modal de Instruções de Uso do App -->
+  <div id="instructionsModal" class="modal-overlay" onclick="if(event.target === this) closeAppInstructionsModal();">
+    <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 520px;">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span style="font-size:1.3rem;">📖</span>
+          <div>
+            <h3 style="margin:0; font-size:1.02rem; color:#fff;">Como Usar o App Domínio Corporal</h3>
+            <span style="font-size:0.75rem; color:#38bdf8; font-weight:600;">Guia Prático do Aluno</span>
+          </div>
+        </div>
+        <button class="btn-close" type="button" onclick="closeAppInstructionsModal()" aria-label="Fechar">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 18px 20px; line-height:1.55;">
+        
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+            <div style="font-size: 0.88rem; font-weight: 800; color: var(--brand-neon); margin-bottom: 4px; display:flex; align-items:center; gap:6px;">
+              <span>🏋️‍♂️</span> 1. Rotina de Treino Diária
+            </div>
+            <div style="font-size: 0.78rem; color: #cbd5e1;">
+              Toque no dia da semana (Segunda a Sexta) para abrir seus exercícios. Conforme for realizando cada série, marque os círculos para salvar sua execução e equilibrar o volume de treino.
+            </div>
+          </div>
+
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+            <div style="font-size: 0.88rem; font-weight: 800; color: #38bdf8; margin-bottom: 4px; display:flex; align-items:center; gap:6px;">
+              <span>⏱️</span> 2. Central de Timers
+            </div>
+            <div style="font-size: 0.78rem; color: #cbd5e1;">
+              Na barra superior, acesse <strong>Timers</strong> para cronômetros esportivos: WOD / For Time, Tabata (20s/10s), EMOM e Cronômetro Livre com contagem sonora que funciona offline.
+            </div>
+          </div>
+
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+            <div style="font-size: 0.88rem; font-weight: 800; color: #a78bfa; margin-bottom: 4px; display:flex; align-items:center; gap:6px;">
+              <span>📹</span> 3. Análise e Envio de Vídeos
+            </div>
+            <div style="font-size: 0.78rem; color: #cbd5e1;">
+              Acesse <strong>Análises</strong> para ver vídeos comentados de <em>Habilidades</em> e <em>Execução de Exercícios</em>. Para mandar um vídeo com dúvida técnica ou nova carga, clique em <strong>📹 Enviar Vídeo</strong> nos exercícios ou no botão de envio rápido.
+            </div>
+          </div>
+
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+            <div style="font-size: 0.88rem; font-weight: 800; color: #fbbf24; margin-bottom: 4px; display:flex; align-items:center; gap:6px;">
+              <span>📊</span> 4. Evolução e Antropometria
+            </div>
+            <div style="font-size: 0.78rem; color: #cbd5e1;">
+              Veja fotos de evolução, histórico de cargas e testes físicos clicando em <strong>Evolução</strong> na barra superior.
+            </div>
+          </div>
+
+          <div style="background: rgba(37, 211, 102, 0.08); border: 1px solid rgba(37, 211, 102, 0.25); border-radius: 12px; padding: 12px 14px;">
+            <div style="font-size: 0.88rem; font-weight: 800; color: #25d366; margin-bottom: 4px; display:flex; align-items:center; gap:6px;">
+              <span>💬</span> 5. Suporte Direto no WhatsApp
+            </div>
+            <div style="font-size: 0.78rem; color: #cbd5e1;">
+              Sentiu dor articular, desconforto ou dúvida nas alavancas? Use o botão do WhatsApp no fim da página para falar direto com o treinador Prof. Gui Lemos.
+            </div>
+          </div>
+
+        </div>
+
+        <button type="button" class="btn-send-wpp-primary" onclick="closeAppInstructionsModal()" style="margin-top:16px; width:100%; background:rgba(56,189,248,0.2); border:1px solid #38bdf8; color:#38bdf8; padding:11px; font-weight:800; border-radius:10px; cursor:pointer;">
+          <span>✓ Entendido, fechar instruções</span>
+        </button>
+
+      </div>
+    </div>
   </div>
 
   <script>
+    // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
+    const APP_BUILD_VERSION = '104';
+    if (localStorage.getItem('dominio_jean_build_ver') !== APP_BUILD_VERSION) {
+      localStorage.setItem('dominio_jean_build_ver', APP_BUILD_VERSION);
+      if ('caches' in window) {
+        caches.keys().then((keys) => {
+          keys.forEach((k) => {
+            if (k !== 'dominio-corporal-v104') caches.delete(k);
+          });
+        });
+      }
+    }
     let lastActiveDayTab = 'segunda';
 
     function switchDayTab(dayId) {
@@ -3719,6 +3918,20 @@
       const msg = `Olá Gui! Estou no app Domínio Corporal e tenho uma dúvida sobre os treinos:`;
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
       window.open(url, '_blank');
+    }
+
+    function openAppInstructionsModal() {
+      const modal = document.getElementById('instructionsModal');
+      if (!modal) return;
+      modal.style.setProperty('display', 'flex', 'important');
+      modal.classList.add('active');
+    }
+
+    function closeAppInstructionsModal() {
+      const modal = document.getElementById('instructionsModal');
+      if (!modal) return;
+      modal.style.setProperty('display', 'none', 'important');
+      modal.classList.remove('active');
     }
 
     function openDedicatedTimerWithMode(mode, minutes, title, notes) {
@@ -4607,7 +4820,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=96').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=104').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
