@@ -4700,52 +4700,9 @@
       <span class="meta-item">⏳ 12h–14h e 18h30–19h30</span>
     </div>
 
-    <!-- Card de Cronograma de Hoje (Quinta-feira) -->
-    <div style="background: linear-gradient(135deg, rgba(192, 132, 252, 0.08) 0%, rgba(13, 21, 32, 0.7) 100%); border: 1px solid rgba(192, 132, 252, 0.28); border-radius: 14px; padding: 14px 16px; margin-bottom: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);">
-      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom: 10px;">
-        <span style="font-size:0.76rem; font-weight:800; letter-spacing:0.06em; color:#c084fc; text-transform:uppercase;">📅 Cronograma de Hoje (Quinta-feira)</span>
-        <span style="font-size:0.7rem; font-weight:700; color:var(--brand-neon); background:rgba(0,255,136,0.12); padding:2px 8px; border-radius:6px; border:1px solid rgba(0,255,136,0.3);">3 Atividades</span>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:8px;">
-        <div style="display:flex; align-items:center; gap:10px; padding:8px 10px; background:rgba(255,255,255,0.03); border-radius:8px; border:1px solid rgba(255,255,255,0.06);">
-          <span style="font-size:1rem;">🩰</span>
-          <div style="flex:1;">
-            <div style="font-size:0.82rem; font-weight:700; color:#fff;">Dança Contemporânea</div>
-            <div style="font-size:0.72rem; color:#94a3b8;">Aquecimento corporal, mobilidade e preparação de solo</div>
-          </div>
-          <span style="font-size:0.76rem; font-weight:800; color:#c084fc; font-family:monospace; background:rgba(192,132,252,0.12); padding:3px 8px; border-radius:6px;">12:00 – 13:00</span>
-        </div>
-        <div style="display:flex; align-items:center; gap:10px; padding:8px 10px; background:rgba(56,189,248,0.08); border-radius:8px; border:1px solid rgba(56,189,248,0.25);">
-          <span style="font-size:1rem;">🤸</span>
-          <div style="flex:1;">
-            <div style="font-size:0.82rem; font-weight:800; color:#38bdf8;">Ginástica: Handstand da Semana</div>
-            <div style="font-size:0.72rem; color:#bae6fd;">Manjota, Press to Handstand, One-Arm Croc e HSPU</div>
-          </div>
-          <span style="font-size:0.76rem; font-weight:800; color:#38bdf8; font-family:monospace; background:rgba(56,189,248,0.15); padding:3px 8px; border-radius:6px;">13:00 – 14:00</span>
-        </div>
-        <div style="display:flex; align-items:center; gap:10px; padding:8px 10px; background:rgba(255,255,255,0.03); border-radius:8px; border:1px solid rgba(255,255,255,0.06);">
-          <span style="font-size:1rem;">🎭</span>
-          <div style="flex:1;">
-            <div style="font-size:0.82rem; font-weight:700; color:#fff;">Contemporâneo Intermediário</div>
-            <div style="font-size:0.72rem; color:#94a3b8;">Sequências coreográficas, fluidez e alinhamento articular</div>
-          </div>
-          <span style="font-size:0.76rem; font-weight:800; color:#c084fc; font-family:monospace; background:rgba(192,132,252,0.12); padding:3px 8px; border-radius:6px;">18:30 – 19:30</span>
-        </div>
-      </div>
-    </div>
+    <!-- Progresso gerenciado no dock flutuante -->
 
-    <!-- Barra de Progresso da Sessão -->
-    <div class="progress-section">
-      <div class="progress-labels">
-        <span>Progresso da Sessão de Ginástica</span>
-        <span class="progress-val-text">0 de 21 séries (0%)</span>
-      </div>
-      <div class="progress-bar-bg">
-        <div class="progress-bar-fill" style="width: 0%;"></div>
-      </div>
-    </div>
-
-    <!-- ==================== SEÇÃO 1: ATIVAÇÃO ARTICULAR & CORE ==================== -->
+    <!-- ==================== SEÇÃO 1: ATIVAÇÃO ARTICULAR E CORE ==================== -->
     <div class="section-card sec-ativacao">
       <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
         <div class="section-title-wrap">
@@ -4857,7 +4814,7 @@
       </div>
     </div>
 
-    <!-- ==================== SEÇÃO 2: HABILIDADE & EQUILÍBRIO (HANDSTAND & MANJOTA) ==================== -->
+    <!-- ==================== SEÇÃO 2: HABILIDADE E EQUILÍBRIO (HANDSTAND E MANJOTA) ==================== -->
     <div class="section-card sec-habilidade">
       <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
         <div class="section-title-wrap">
@@ -4866,6 +4823,14 @@
         <div class="session-meta-chips">
           <span class="meta-chip meta-chip-time">⏱️ ~30 min</span>
         </div>
+      </div>
+
+      <!-- Disparador Rápido do Cronômetro para o Handstand -->
+      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
+        <button type="button" class="btn-wod-timer-trigger" onclick="openHandstandTimer()">
+          <svg style="width:14px; height:14px; fill:currentColor;" viewBox="0 0 24 24"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
+          <span>⏱️ Iniciar Cronômetro (Handstand) ↗</span>
+        </button>
       </div>
 
       <!-- Ex qui-4: Handstand na Manjota -->
@@ -5112,13 +5077,7 @@
       </div>
     </div>
 
-    <!-- Botão de Timer -->
-    <div style="margin-top: 14px; margin-bottom: 8px;">
-      <button type="button" class="btn-wod-timer-trigger" style="width:100%; justify-content:center; padding:12px 16px; font-size:0.88rem; background:rgba(56,189,248,0.15); border:1.5px solid #38bdf8; box-shadow:0 0 16px rgba(56,189,248,0.25); border-radius:10px; cursor:pointer;" onclick="openHandstandTimer()">
-        <svg style="width:18px; height:18px; fill:currentColor;" viewBox="0 0 24 24"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
-        <span>⏱️ ABRIR CRONÔMETRO DE TREINO ↗</span>
-      </button>
-    </div>
+
 
     <!-- Card Clean de Finalização de Treino (Quinta) -->
     <div class="workout-finish-clean-card" id="workoutFinishCard-quinta">
@@ -5149,16 +5108,7 @@
       <span class="meta-item">⏳ 12h–14h (~120 min)</span>
     </div>
 
-    <!-- Barra de Progresso da Sessão -->
-    <div class="progress-section">
-      <div class="progress-labels">
-        <span>Progresso da Sessão</span>
-        <span class="progress-val-text">0 de 27 séries (0%)</span>
-      </div>
-      <div class="progress-bar-bg">
-        <div class="progress-bar-fill" style="width: 0%;"></div>
-      </div>
-    </div>
+    <!-- Progresso gerenciado no dock flutuante -->
 
     <!-- ==================== SEÇÃO 1: ATIVAÇÃO ==================== -->
     <div class="section-card sec-ativacao">
@@ -5256,11 +5206,13 @@
 
     <!-- ==================== SEÇÃO 2: PORTAGEM ACROBÁTICA ==================== -->
     <div class="section-card sec-habilidade">
-      <div class="section-header">
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
         <div class="section-title-wrap">
           <div class="section-title">PORTAGEM ACROBÁTICA</div>
         </div>
-        <span class="time-badge">5 séries • 12h–13h</span>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ 12h–13h (5 séries)</span>
+        </div>
       </div>
 
       <!-- Ex sex-3: Portagem 63 kg -->
@@ -5311,11 +5263,13 @@
 
     <!-- ==================== SEÇÃO 3: PARTE DAS ARGOLAS DA SEMANA ==================== -->
     <div class="section-card sec-skills" style="border-left: 3px solid #38bdf8;">
-      <div class="section-header">
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
         <div class="section-title-wrap">
           <div class="section-title" style="color:#38bdf8;">ARGOLAS DA SEMANA</div>
         </div>
-        <span class="time-badge">16 séries • 13h–14h</span>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time" style="color:#38bdf8; border-color:rgba(56,189,248,0.3);">⏱️ 13h–14h (16 séries)</span>
+        </div>
       </div>
 
       <!-- Ex sex-4: RTO Support Hold -->
@@ -5556,13 +5510,15 @@
       </div>
     </div>
 
-    <!-- ==================== SEÇÃO 4: RECUPERAÇÃO & MOBILIDADE ==================== -->
+    <!-- ==================== SEÇÃO 4: RECUPERAÇÃO E MOBILIDADE ==================== -->
     <div class="section-card sec-flexibilidade">
-      <div class="section-header">
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
         <div class="section-title-wrap">
           <div class="section-title">MOBILIDADE E RECUPERAÇÃO</div>
         </div>
-        <span class="time-badge">5 séries • ~15 min</span>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~15 min (5 séries)</span>
+        </div>
       </div>
 
       <!-- Ex sex-9: Panturrilha Aquiles -->
@@ -7338,13 +7294,13 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '107';
+    const APP_BUILD_VERSION = '108';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
         caches.keys().then((keys) => {
           keys.forEach((k) => {
-            if (k !== 'dominio-corporal-v107') caches.delete(k);
+            if (k !== 'dominio-corporal-v108') caches.delete(k);
           });
         });
       }
@@ -9162,7 +9118,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=107').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=108').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
