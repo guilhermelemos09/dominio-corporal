@@ -1904,6 +1904,66 @@
       font-size: 0.78rem;
       transition: transform 0.2s ease;
     }
+    
+    /* Ajuda Contextual nas Páginas (Link discreto sublinhado) */
+    .contextual-help-wrap {
+      text-align: center;
+      margin: 18px 0 20px 0;
+      padding: 6px 0;
+    }
+    .btn-contextual-help {
+      background: none;
+      border: none;
+      color: #94a3b8;
+      font-size: 0.78rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      padding: 6px 12px;
+      border-radius: 8px;
+    }
+    .btn-contextual-help span {
+      opacity: 0.85;
+    }
+    .btn-contextual-help u {
+      color: #38bdf8;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 500;
+    }
+    .btn-contextual-help:hover {
+      color: #ffffff;
+      background: rgba(56, 189, 248, 0.08);
+    }
+    .btn-contextual-help:hover u {
+      color: var(--brand-neon, #00ff88);
+    }
+    .help-tab-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #94a3b8;
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .help-tab-btn.active {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: #38bdf8;
+      color: #38bdf8;
+    }
+    .help-tab-btn:hover:not(.active) {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+    }
+
     .whatsapp-support-card:hover .wpp-arrow {
       transform: translate(2px, -2px);
     }
@@ -2913,22 +2973,10 @@
           </div>
         </div>
       </div>
-
-      <!-- Card de Instruções de Uso do App -->
-      <div class="instructions-support-card" onclick="openAppInstructionsModal()">
-        <div class="instr-card-icon-wrap">
-          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16h-2v-2h2v2zm1.07-7.75l-.9.92C12.45 11.9 12 12.5 12 14h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
-        </div>
-        <div class="instr-card-info">
-          <div class="instr-card-title">Instruções de Uso</div>
-          <div class="instr-card-desc">Guia rápido das ferramentas do app.</div>
-          <div class="instr-card-btn-inline">
-            <span>Ver Instruções</span>
-            <span class="instr-arrow">↗</span>
-          </div>
-        </div>
-      </div>
     </div>
+    </div><!-- end #mainTrainingView -->
+
+
 
   <!-- ==================== TAB: ANÁLISE DE VÍDEOS & BIOMECÂNICA ==================== -->
   <div id="tab-analises" class="tab-content">
@@ -2962,6 +3010,13 @@
       <p style="font-size: 0.82rem; color: #94a3b8; line-height: 1.6; max-width: 460px; margin: 0 auto;">
         Conforme você gravar suas execuções nos treinos, o treinador <strong>Gui Lemos</strong> publicará aqui os seus vídeos com traçados biomecânicos e feedbacks técnicos.
       </p>
+    </div>
+  
+    <!-- Ajuda Contextual da Página de Análise de Vídeos -->
+    <div class="contextual-help-wrap" style="margin-top: 24px; margin-bottom: 30px;">
+      <button type="button" class="btn-contextual-help" onclick="openContextualHelp('analises')">
+        <span>precisa de ajuda?</span> <u>acesse as instruções</u>
+      </button>
     </div>
   </div>
 
@@ -3282,6 +3337,8 @@
     </div>
   </div>
 
+    </div><!-- end #tab-timers -->
+
   <!-- ==================== TAB: EVOLUÇÃO, CONSISTÊNCIA & MÉTRICAS ==================== -->
   <div id="tab-evolucao" class="tab-content">
     <div style="background: rgba(255,255,255,0.02); border: 1.5px dashed rgba(0, 255, 136, 0.3); border-radius: 18px; padding: 36px 20px; text-align: center; margin-top: 10px;">
@@ -3295,6 +3352,13 @@
       <div style="display: inline-flex; align-items: center; gap: 8px; font-size: 0.78rem; font-weight: 700; color: var(--brand-neon); background: rgba(0, 255, 136, 0.08); border: 1px solid rgba(0, 255, 136, 0.25); padding: 7px 16px; border-radius: 20px;">
         🚀 Módulo será ativado com os primeiros treinos
       </div>
+    </div>
+  
+    <!-- Ajuda Contextual da Página de Evolução -->
+    <div class="contextual-help-wrap" style="margin-top: 24px; margin-bottom: 40px;">
+      <button type="button" class="btn-contextual-help" onclick="openContextualHelp('evolucao')">
+        <span>precisa de ajuda?</span> <u>acesse as instruções</u>
+      </button>
     </div>
   </div>
 
@@ -3401,6 +3465,8 @@
         </button>
       </div>
     </div>
+    </div><!-- end #intakeGateModal -->
+
   <!-- Modal de Instruções de Uso do App -->
   <div id="instructionsModal" class="modal-overlay" onclick="if(event.target === this) closeAppInstructionsModal();">
     <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 520px;">
@@ -3474,8 +3540,133 @@
   </div>
 
   <script>
+
+    /* =========================================================================
+       SISTEMA DE NAVEGAÇÃO INTERNA & SUPORTE AO BOTÃO VOLTAR DO CELULAR (PWA)
+       Permite que o botão físico / gesto "Voltar" do smartphone retorne para a tela
+       ou modal anterior dentro do app em vez de fechar ou recarregar o aplicativo.
+       ========================================================================= */
+    let isHandlingPopState = false;
+
+    // Inicializa o estado raiz do app no histórico caso ainda não exista
+    try {
+      if (!window.history.state || !window.history.state.isAppRoot) {
+        window.history.replaceState({ isAppRoot: true, page: 'home' }, '', window.location.pathname + window.location.search);
+      }
+    } catch (e) {}
+
+    // Registra entrada de nível no histórico (tela, dia, subpágina ou modal)
+    window.pushAppHistoryState = function(type, data = {}, hash = '') {
+      if (isHandlingPopState) return;
+      try {
+        const stateObj = { isAppSubpage: true, type: type, ...data };
+        const newHash = hash ? (hash.startsWith('#') ? hash : '#' + hash) : '';
+        window.history.pushState(stateObj, '', newHash || (window.location.pathname + window.location.search));
+      } catch (e) {}
+    };
+
+    // Desempilha histórico se o fechamento partiu de clique do usuário na tela (botão Voltar ou X)
+    window.popAppHistoryState = function(expectedType = null) {
+      if (isHandlingPopState) return false;
+      try {
+        if (window.history.state && window.history.state.isAppSubpage) {
+          if (!expectedType || window.history.state.type === expectedType) {
+            window.history.back();
+            return true;
+          }
+        }
+      } catch (e) {}
+      return false;
+    };
+
+    // Função central que executa a regressão de 1 nível quando o celular aciona o botão Voltar
+    window.handleAppBackNavigation = function() {
+      // 1. Prioridade Máxima: Modais e Popovers Abertos
+      const modalChecks = [
+        { id: 'tipPopoverOverlay', close: () => { const el = document.getElementById('tipPopoverOverlay'); if (el) el.style.display = 'none'; } },
+        { id: 'welcomeAppModal', close: () => { if (typeof closeWelcomeAppModal === 'function') closeWelcomeAppModal(true); } },
+        { id: 'contextualHelpModal', close: () => { if (typeof closeContextualHelp === 'function') closeContextualHelp(true); } },
+        { id: 'notificationsModal', close: () => { if (typeof closeNotificationsModal === 'function') closeNotificationsModal(null, true, true); } },
+        { id: 'sendVideoModal', close: () => { if (typeof closeSendVideoModal === 'function') closeSendVideoModal(true); } },
+        { id: 'videoModal', close: () => { if (typeof closeVideoModal === 'function') closeVideoModal(true); } },
+        { id: 'bioModal', close: () => { if (typeof closeBioModal === 'function') closeBioModal(true); } },
+        { id: 'intakeGateModal', close: () => { const el = document.getElementById('intakeGateModal'); if (el) el.classList.remove('active'); } }
+      ];
+
+      for (const item of modalChecks) {
+        const el = document.getElementById(item.id);
+        if (!el) continue;
+        const isVisible = (el.classList && el.classList.contains('active')) ||
+                          (el.style && (el.style.display === 'flex' || el.style.display === 'block'));
+        if (isVisible) {
+          item.close();
+          return true; // Fechou o modal aberto
+        }
+      }
+
+      // 2. Gaveta de Metas
+      const metasDrawer = document.getElementById('metasDrawer');
+      if (metasDrawer && metasDrawer.style.display === 'block') {
+        if (typeof toggleMetasDrawer === 'function') toggleMetasDrawer();
+        return true;
+      }
+
+      // 3. Subpáginas dentro de Análises (Cards de Habilidades -> Menu de Habilidades -> Hub de Análises)
+      const skillsCards = document.getElementById('skillsCardsView');
+      if (skillsCards && skillsCards.style.display === 'block') {
+        if (typeof backToSkillsCategoryMenu === 'function') {
+          backToSkillsCategoryMenu(true);
+          return true;
+        }
+      }
+
+      const viewHabilidades = document.getElementById('analysisView-habilidades');
+      const viewExercicios = document.getElementById('analysisView-exercicios');
+      if ((viewHabilidades && viewHabilidades.style.display === 'block') ||
+          (viewExercicios && viewExercicios.style.display === 'block')) {
+        if (typeof closeAnalysisCategoryView === 'function') {
+          closeAnalysisCategoryView(true);
+          return true;
+        }
+      }
+
+      // 4. Subpáginas dentro de Evolução (Composição, Técnica, Recordes, Relatório)
+      if (typeof isAnyEvolViewOpen === 'function' && isAnyEvolViewOpen()) {
+        if (typeof closeEvolucaoView === 'function') {
+          closeEvolucaoView(true);
+          return true;
+        }
+      }
+
+      // 5. Em treino do dia ou central dedicada (Timers, Análises, Evolução, Perfil, Avaliação)
+      if (document.body.classList.contains('in-dedicated-view') || document.body.classList.contains('in-day-workout')) {
+        // Se estava em timers e veio de um treino ativo, retorna diretamente para o treino do dia!
+        if (document.body.classList.contains('in-view-timers') && typeof lastActiveDayTab !== 'undefined' && lastActiveDayTab) {
+          openDayWorkout(lastActiveDayTab);
+          return true;
+        }
+        if (typeof closeDedicatedView === 'function') {
+          closeDedicatedView(true);
+          return true;
+        }
+      }
+
+      // 6. Raiz do app: Nada mais a voltar internamente
+      return false;
+    };
+
+    // Escuta evento popstate do navegador (botão voltar do celular ou gesto de swipe-back)
+    window.addEventListener('popstate', function(event) {
+      isHandlingPopState = true;
+      try {
+        window.handleAppBackNavigation();
+      } finally {
+        setTimeout(() => { isHandlingPopState = false; }, 80);
+      }
+    });
+
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '120';
+    const APP_BUILD_VERSION = '121';
     if (localStorage.getItem('dominio_jean_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_jean_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
@@ -3551,6 +3742,9 @@
       if (localStorage.getItem('dominio_assessment_completed') !== 'true') {
         const modal = document.getElementById('intakeGateModal');
         if (modal) modal.classList.add('active');
+        if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'welcomeAppModal' }, 'boas-vindas');
+      if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'contextualHelpModal' }, 'ajuda');
+      if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'videoModal' }, 'video');
         return;
       }
       lastActiveDayTab = dayId;
@@ -3582,6 +3776,7 @@
       updateWorkoutCompletionUI(dayId);
       updateProgress();
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (typeof pushAppHistoryState === 'function') pushAppHistoryState('day', { dayId: dayId }, 'treino-' + dayId);
     }
 
     
@@ -3682,9 +3877,10 @@
       }
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (typeof pushAppHistoryState === 'function') pushAppHistoryState('dedicated', { sectionId: sectionId }, sectionId);
     }
 
-    function closeDedicatedView() {
+    function closeDedicatedView(fromPopState = false) {
       if (localStorage.getItem('dominio_assessment_completed') !== 'true') {
         alert('🔒 Para liberar o acesso aos seus treinos, você precisa primeiro preencher e enviar a Ficha de Avaliação.');
         return;
@@ -3715,7 +3911,18 @@
         if (typeof e.stopPropagation === 'function') e.stopPropagation();
         if (typeof e.preventDefault === 'function') e.preventDefault();
       }
-      closeDedicatedView();
+      if (typeof popAppHistoryState === 'function' && popAppHistoryState()) {
+        return;
+      }
+      if (document.body.classList.contains('in-view-timers') && typeof lastActiveDayTab !== 'undefined' && lastActiveDayTab) {
+        openDayWorkout(lastActiveDayTab);
+        return;
+      }
+      if (document.body.classList.contains('in-view-evolucao') && typeof isAnyEvolViewOpen === 'function' && isAnyEvolViewOpen()) {
+        closeEvolucaoView(true);
+        return;
+      }
+      closeDedicatedView(true);
     }
 
     function updateDedicatedTopBarGate(isUnlocked) {
@@ -4683,7 +4890,6 @@
         container.style.display = 'block';
       }
     }
-    }
 
     /* Modal de Bio Gui Lemos */
     let bioModalOpenTime = 0;
@@ -4862,7 +5068,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=120').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=121').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
@@ -4928,7 +5134,92 @@
       if (overlay) overlay.style.display = 'none';
     }
 
-  </script>
+  
+// Modal de Ajuda Contextual do App
+    window.openContextualHelp = function(topic) {
+      const modal = document.getElementById('contextualHelpModal');
+      if (!modal) return;
+      
+      const currentTopic = topic || 'treinos';
+      
+      const tabs = modal.querySelectorAll('.help-tab-btn');
+      tabs.forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-topic') === currentTopic);
+      });
+      
+      const panels = modal.querySelectorAll('.help-topic-panel');
+      panels.forEach(p => {
+        p.style.display = (p.getAttribute('data-topic') === currentTopic) ? 'block' : 'none';
+      });
+      
+      const titleEl = document.getElementById('contextualHelpTitle');
+      const subEl = document.getElementById('contextualHelpSubtitle');
+      const iconEl = document.getElementById('contextualHelpIcon');
+      
+      if (currentTopic === 'analises') {
+        if (iconEl) iconEl.textContent = '📹';
+        if (titleEl) titleEl.textContent = 'Instruções: Análise de Vídeos';
+        if (subEl) subEl.textContent = 'Envio e Diagnóstico Biomecânico';
+      } else if (currentTopic === 'evolucao') {
+        if (iconEl) iconEl.textContent = '📊';
+        if (titleEl) titleEl.textContent = 'Instruções: Evolução e Metas';
+        if (subEl) subEl.textContent = 'Histórico, Métricas e Recordes';
+      } else {
+        if (iconEl) iconEl.textContent = '🏋️‍♂️';
+        if (titleEl) titleEl.textContent = 'Como Utilizar os Treinos';
+        if (subEl) subEl.textContent = 'Guia da Rotina Diária e Séries';
+      }
+      
+      modal.style.setProperty('display', 'flex', 'important');
+      modal.classList.add('active');
+    };
+
+    window.closeContextualHelp = function(fromPopState = false) {
+      if (!fromPopState && typeof popAppHistoryState === 'function' && popAppHistoryState('modal')) return;
+      const modal = document.getElementById('contextualHelpModal');
+      if (modal) {
+        modal.style.setProperty('display', 'none', 'important');
+        modal.classList.remove('active');
+      }
+    };
+
+    window.switchHelpTopic = function(topic) {
+      window.openContextualHelp(topic);
+    };
+
+    window.openAppInstructionsModal = function() {
+      window.openContextualHelp('treinos');
+    };
+
+    window.closeAppInstructionsModal = function() {
+      window.closeContextualHelp();
+    };
+
+    // Modal de Boas-Vindas & Panorama do App
+    window.openWelcomeAppModal = function(notifId = null) {
+      if (notifId && typeof dismissSingleNotification === 'function') {
+        dismissSingleNotification(notifId);
+      }
+      if (typeof closeNotificationsModal === 'function') {
+        closeNotificationsModal(null, true);
+      }
+      const modal = document.getElementById('welcomeAppModal');
+      if (modal) {
+        modal.style.setProperty('display', 'flex', 'important');
+        modal.classList.add('active');
+      }
+    };
+
+    window.closeWelcomeAppModal = function(fromPopState = false) {
+      if (!fromPopState && typeof popAppHistoryState === 'function' && popAppHistoryState('modal')) return;
+      const modal = document.getElementById('welcomeAppModal');
+      if (modal) {
+        modal.style.setProperty('display', 'none', 'important');
+        modal.classList.remove('active');
+      }
+    };
+
+</script>
   <!-- Popover Flutuante de Dica Biomecânica / Observação Técnica -->
   <div id="tipPopoverOverlay" class="tip-popover-overlay" onclick="closeTipPopover(event)" style="display:none;">
     <div class="tip-popover-card">
