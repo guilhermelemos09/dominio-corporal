@@ -4416,90 +4416,41 @@
 
       <!-- Card Unificado de Roteiro do Box -->
       <div class="exercise-card">
-        <!-- Roteiro da Sessão em Formato de Lista Estruturada -->
-        <div class="wod-list-container">
-          <!-- Bloco 1: Aquecimento -->
-          <div class="wod-list-block">
-            <div class="wod-block-badge">1. Aquecimento Articular & Core (2 rounds)</div>
-            <ul class="wod-block-items">
-              <li>10 Hollow Rocks</li>
-              <li>10 Arch Rocks (Superman)</li>
-              <li>10 Scapular Pull-ups</li>
-              <li>10 Beat Swings na barra</li>
-            </ul>
+        <div class="ex-title">ROTEIRO DE CONDICIONAMENTO • BOX CROSSFIT</div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 BLOCOS • ~50 MIN</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Aquecimento</div>
+            <div class="set-pill" onclick="toggleSet(this)">Skill EMOM</div>
+            <div class="set-pill" onclick="toggleSet(this)">Triplo AMRAP</div>
           </div>
-
-          <!-- Bloco 2: Skill EMOM -->
-          <div class="wod-list-block">
-            <div class="wod-block-badge">
-              <span>2. Skill EMOM 12' (4 rounds)</span>
-            </div>
-            <ul class="wod-block-items">
-              <li>
-                <strong>Minuto 1:</strong> 5 Strict Pull-up
-                <button class="btn-tip-cue cue-instrucoes" onclick="openTip('Strict Pull-up — Alinhamento & Pegada', '• Segure na barra um pouco além da largura dos ombros.\n• Antes de dobrar os braços, dê uma puxada nos ombros para baixo (como se quisesse guardar as escápulas nos bolsos de trás da calça).\n• Suba o peito até o queixo passar da barra com as pernas unidas e ponta dos pés esticada, sem dar tranco de quadril.\n\nBase científica:\n• Ritmo Escapuloumeral & Ativação de Dorsal (Kapandji): A retração e depressão escapular prévia coloca o grande dorsal e redondo maior em vantagem mecânica de tensão-comprimento, evitando a anteriorização da cabeça umeral e poupando a bursa subacromial.\n• Alinhamento em Hollow Body (Ginástica Olímpica): A retroversão pélvica elimina a extensão lombar compensatória, transformando o corpo em um monobloco rígido sob a barra.', '🔧 Instruções')">🔧 Instruções</button>
-              </li>
-              <li>
-                <strong>Minuto 2:</strong> 10 Pull-up (Butterfly ou Kipping)
-              </li>
-              <li><strong>Minuto 3:</strong> Descanso Total</li>
-            </ul>
-          </div>
-
-          <!-- Bloco 3: Triplo AMRAP -->
-          <div class="wod-list-block">
-            <div class="wod-block-badge">
-              <span>3. Triplo AMRAP Metabólico (15' WOD + 2' Rest)</span>
-            </div>
-            <ul class="wod-block-items">
-              <li>
-                <strong>AMRAP 6':</strong> 40 Wall Ball (6/9 kg)
-                <button class="btn-tip-cue cue-cuidados" onclick="openTip('Wall Balls — Proteção Meniscal', '• Na descida do agachamento, pare rigorosamente quando suas coxas ficarem paralelas ao chão (formando 90° no joelho). Nunca desabe de vez no fundo!\n• Empurre o chão com força total pelos calcanhares e use a pancada do bumbum para subir e arremessar a bola na parede.\n\nBase científica:\n• Biomecânica Meniscal (USP & Kapandji): A flexão de joelho além dos 90° sob carga externa amplifica exponencialmente o estresse de cisalhamento e compressão no corno posterior do menisco lateral.\n• Braço de Alavanca de Quadril: Limitar o agachamento a 90° com tíbias verticais recruta prioritariamente o glúteo máximo, neutralizando a translação anterior excessiva da tíbia provocada pelo quadríceps.', '🛡️ Cuidados')">🛡️ Cuidados</button>
-                <div style="font-size:0.8rem; color:#94a3b8; margin-top:3px;">
-                  ➔ No tempo restante: 6 Pull-ups + 8 Burpees over DB + 10 DB Snatch
-                </div>
-              </li>
-              <li class="wod-item-rest">☕ <em>Rest 1'</em></li>
-              <li>
-                <strong>AMRAP 5':</strong> 30 Wall Ball (6/9 kg)
-                <div style="font-size:0.8rem; color:#94a3b8; margin-top:3px;">
-                  ➔ No tempo restante: 6 Pull-ups + 8 Burpees over DB + 10 DB Hang Clean & Jerk
-                </div>
-              </li>
-              <li class="wod-item-rest">☕ <em>Rest 1'</em></li>
-              <li>
-                <strong>AMRAP 4':</strong> 20 Wall Ball (6/9 kg)
-                <div style="font-size:0.8rem; color:#94a3b8; margin-top:3px;">
-                  ➔ No tempo restante: 6 Pull-ups + 8 Burpees over DB + 10 DB Thruster
-                </div>
-              </li>
-            </ul>
-          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Wall Balls — Proteção Meniscal', '• Na descida do agachamento, pare rigorosamente quando suas coxas ficarem paralelas ao chão (formando 90° no joelho). Nunca desabe de vez no fundo!\n• Empurre o chão com força total pelos calcanhares e use a contração do glúteo para subir e arremessar a bola na parede.\n\nBase científica:\n• Biomecânica Meniscal (USP e Kapandji): A flexão de joelho além dos 90° sob carga externa amplifica exponencialmente o estresse de cisalhamento e compressão no corno posterior do menisco lateral.\n• Braço de Alavanca de Quadril: Limitar o agachamento a 90° com tíbias verticais recruta prioritariamente o glúteo máximo, neutralizando a translação anterior excessiva da tíbia provocada pelo quadríceps.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Roteiro da Sessão Box CrossFit', '1. Aquecimento Articular e Core (2 rounds):\n• 10 Hollow Rocks\n• 10 Arch Rocks (Superman)\n• 10 Scapular Pull-ups\n• 10 Beat Swings na barra\n\n2. Skill EMOM 12\' (4 rounds):\n• Minuto 1: 5 Strict Pull-up (segure além da largura dos ombros, escápulas deprimidas, corpo em hollow body sem tranco)\n• Minuto 2: 10 Pull-up (Butterfly ou Kipping)\n• Minuto 3: Descanso Total\n\n3. Triplo AMRAP Metabólico (15\' WOD + 2\' Rest):\n• AMRAP 6\': 40 Wall Ball (6/9 kg) ➔ No tempo restante: 6 Pull-ups + 8 Burpees over DB + 10 DB Snatch\n• Rest 1\'\n• AMRAP 5\': 30 Wall Ball (6/9 kg) ➔ No tempo restante: 6 Pull-ups + 8 Burpees over DB + 10 DB Hang Clean e Jerk\n• Rest 1\'\n• AMRAP 4\': 20 Wall Ball (6/9 kg) ➔ No tempo restante: 6 Pull-ups + 8 Burpees over DB + 10 DB Thruster', '🔧 Instruções')">🔧 Instruções</button>
         </div>
 
         <!-- Disparadores Rápidos para os Timers do WOD -->
-        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;">
-          <button class="btn-wod-timer-trigger" onclick="openDedicatedTimerWithMode('emom', 12, 'Skill EMOM 12\' • Strict e Butterfly', '• Min 1: 5 Strict Pull-up\n• Min 2: 10 Pull-up (Butterfly/Kipping)\n• Min 3: Descanso Total\n(Total: 4 rounds completos)')">
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
+          <button type="button" class="btn-wod-timer-trigger" onclick="openDedicatedTimerWithMode('emom', 12, 'Skill EMOM 12\' • Strict e Butterfly', '• Min 1: 5 Strict Pull-up\n• Min 2: 10 Pull-up (Butterfly/Kipping)\n• Min 3: Descanso Total\n(Total: 4 rounds completos)')">
             <svg style="width:14px; height:14px; fill:currentColor;" viewBox="0 0 24 24"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
             <span>⏱️ Iniciar Timer EMOM 12' ↗</span>
           </button>
-          <button class="btn-wod-timer-trigger" onclick="openDedicatedTimerWithMode('amrap', 6, 'AMRAP 1 (6 min) • Wall Balls e Snatch', '• 40 Wall Ball (6/9 kg)\n• Tempo restante: 6 Pull-up + 8 Burpees over DB + 10 DB Snatch\n\n(A seguir: Rest 1\' ➔ AMRAP 5\' ➔ Rest 1\' ➔ AMRAP 4\')')">
+          <button type="button" class="btn-wod-timer-trigger" onclick="openDedicatedTimerWithMode('amrap', 6, 'AMRAP 1 (6 min) • Wall Balls e Snatch', '• 40 Wall Ball (6/9 kg)\n• Tempo restante: 6 Pull-up + 8 Burpees over DB + 10 DB Snatch\n\n(A seguir: Rest 1\' ➔ AMRAP 5\' ➔ Rest 1\' ➔ AMRAP 4\')')">
             <svg style="width:14px; height:14px; fill:currentColor;" viewBox="0 0 24 24"><path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.05.5-9 4.77-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.01-4.09l-2.49-1.46C16.14 17.84 14.21 19 12 19z"/></svg>
             <span>⚡ Iniciar Timer AMRAP 6' ↗</span>
           </button>
         </div>
 
-        <div class="ex-actions">
-          <div class="ex-actions-btns">
-              <button type="button" class="btn-send-video" onclick="openSendVideoModal('Sessão Segunda • CrossFit Box')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-              <span>Enviar sua execução</span>
-            </button>
-            <button class="btn-comment" id="btn-comment-ex-seg-box" onclick="toggleCommentBox('ex-seg-box')">
-              <span>💬 Observações?</span>
-              <span class="comment-dot" id="dot-ex-seg-box" style="display:none;"></span>
-            </button>
-          </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Sessão Segunda • CrossFit Box')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-seg-box" onclick="toggleCommentBox('ex-seg-box')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-seg-box" style="display:none;"></span>
+          </button>
         </div>
         <div id="comment-box-ex-seg-box" class="comment-drawer" style="display: none;">
           <div class="comment-header">
@@ -4513,45 +4464,38 @@
 
     <!-- ==================== SEÇÃO 2: NEUTRALIZAÇÃO ARTICULAR & DESCOMPRESSÃO ==================== -->
     <div class="section-card sec-flexibilidade">
-      <div class="section-header">
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
         <div class="section-title-wrap">
-          <span class="section-badge">Pós-WOD</span>
           <div class="section-title">RECUPERAÇÃO</div>
         </div>
-        <span class="time-badge">2 blocos • 10 min</span>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ 2 blocos • 10 min</span>
+        </div>
       </div>
 
       <!-- Ex 2.1: Reset Articular Subacromial -->
       <div class="exercise-card">
-        <div class="ex-top">
-          <div>
-            <div class="ex-title">Reset Articular Pós-WOD: Descompressão Subacromial e Peitoral Menor</div>
-            <div class="ex-chips">
-              <span class="chip">Elástico na Barra Alta</span>
-              <span class="chip">Soltura de Grande Dorsal</span>
-              <span class="chip">Espaço Subacromial</span>
-            </div>
-          </div>
+        <div class="ex-title">RESET ARTICULAR PÓS-WOD: DESCOMPRESSÃO SUBACROMIAL E PEITORAL MENOR</div>
+        <div class="ex-volume-sets-row">
           <div class="ex-volume-badge">2X 45" / BRAÇO</div>
-        </div>
-        <div class="bio-cue">
-          <strong>Abertura Articular Rápida:</strong> Segure a superband alta com o braço estendido e incline o tronco para a frente, deixando o elástico tracionar a articulação glenoumeral para cima e para fora. Respire fundo para soltar a hipertonia do grande dorsal e do peitoral menor após os pull-ups do WOD.
-        </div>
-        <div class="ex-actions">
-          <div class="ex-actions-btns">
-              <button type="button" class="btn-send-video" onclick="openSendVideoModal('Reset Articular Pós-WOD')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-              <span>Enviar sua execução</span>
-            </button>
-            <button class="btn-comment" id="btn-comment-ex-seg-4" onclick="toggleCommentBox('ex-seg-4')">
-              <span>💬 Observações?</span>
-              <span class="comment-dot" id="dot-ex-seg-4" style="display:none;"></span>
-            </button>
-          </div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Braço D</div>
             <div class="set-pill" onclick="toggleSet(this)">Braço E</div>
           </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Alívio Articular Subacromial', '• Segure a superband alta sem dar trancos. Deixe a tração agir suavemente com respiração profunda para soltar a hipertonia do grande dorsal e do peitoral menor após os pull-ups do WOD.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Reset Articular Pós-WOD', '• Segure a superband alta com o braço estendido e incline o tronco para a frente, deixando o elástico tracionar a articulação glenoumeral para cima e para fora.\n• Respire fundo para soltar a hipertonia do grande dorsal e do peitoral menor após os pull-ups do WOD.\n\nBase científica:\n• Tração Axial Glenoumeral: A tração elástica longitudinal induz descompressão capsular temporária, aliviando o espaço subacromial e facilitando a recuperação articular.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Reset Articular Pós-WOD')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-seg-4" onclick="toggleCommentBox('ex-seg-4')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-seg-4" style="display:none;"></span>
+          </button>
         </div>
         <div id="comment-box-ex-seg-4" class="comment-drawer" style="display: none;">
           <div class="comment-header">
@@ -4564,37 +4508,27 @@
 
       <!-- Ex 2.2: Descompressão Subacromial & Menisco Lateral -->
       <div class="exercise-card">
-        <div class="ex-top">
-          <div>
-            <div class="ex-title">Descompressão Subacromial do Ombro e Alívio do Menisco Lateral</div>
-            <div class="ex-chips">
-              <span class="chip">Dead Hang com Ponta dos Pés</span>
-              <span class="chip">Abertura Subacromial</span>
-              <span class="chip">Tração Bíceps Femoral / TFL</span>
-            </div>
-          </div>
+        <div class="ex-title">DESCOMPRESSÃO SUBACROMIAL DO OMBRO E ALÍVIO DO MENISCO LATERAL</div>
+        <div class="ex-volume-sets-row">
           <div class="ex-volume-badge">2X 45" CADA</div>
-        </div>
-        <div class="bio-cue">
-          <strong>Neutralização Articular Imediata Pós-Treino:</strong><br>
-          1. <strong>Ombro Esquerdo:</strong> Suspensão passiva na barra com pontas dos pés no solo tirando 30% do peso. Permite que a gravidade abra o túnel subacromial, descomprimindo o tendão do supraespinhal após o alto estresse do WOD.<br>
-          2. <strong>Joelho Esquerdo:</strong> Alongamento de bíceps femoral e fáscia lata com rotação interna da tíbia, liberando a tração na cabeça da fíbula e descomprimindo o menisco lateral após os 90 Wall Balls.
-        </div>
-        <div class="ex-actions">
-          <div class="ex-actions-btns">
-              <button type="button" class="btn-send-video" onclick="openSendVideoModal('Descompressão Subacromial & Menisco Lateral')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-              <span>Enviar sua execução</span>
-            </button>
-            <button class="btn-comment" id="btn-comment-ex-seg-5" onclick="toggleCommentBox('ex-seg-5')">
-              <span>💬 Observações?</span>
-              <span class="comment-dot" id="dot-ex-seg-5" style="display:none;"></span>
-            </button>
-          </div>
           <div class="sets-container">
-            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
-            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Ombro E</div>
+            <div class="set-pill" onclick="toggleSet(this)">Joelho E</div>
           </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Preservação Meniscal e Suspensão', '• No Dead Hang, apoie as pontas dos pés no solo tirando 30% do peso para evitar estiramento brusco do ombro.\n• No joelho, mantenha a perna estendida em rotação interna suave, sem torções bruscas.\n\nBase científica:\n• Alívio de Cisalhamento: Desacopla a tração da cabeça da fíbula e reduz a pressão sobre o corno posterior do menisco lateral.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Neutralização Articular Imediata Pós-Treino', '1. Ombro Esquerdo: Suspensão passiva na barra com pontas dos pés no solo tirando 30% do peso. Permite que a gravidade abra o túnel subacromial, descomprimindo o tendão do supraespinhal após o alto estresse do WOD.\n2. Joelho Esquerdo: Alongamento de bíceps femoral e fáscia lata com rotação interna da tíbia, liberando a tração na cabeça da fíbula e descomprimindo o menisco lateral após os Wall Balls.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Descompressão Subacromial & Menisco Lateral')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-seg-5" onclick="toggleCommentBox('ex-seg-5')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-seg-5" style="display:none;"></span>
+          </button>
         </div>
         <div id="comment-box-ex-seg-5" class="comment-drawer" style="display: none;">
           <div class="comment-header">
@@ -4606,8 +4540,7 @@
       </div>
     </div>
 
-    <!-- Card de Envio de Relatório WhatsApp -->
-            <!-- Card Clean de Finalização de Treino (Segunda) -->
+    <!-- Card Clean de Finalização de Treino (Segunda) -->
     <div class="workout-finish-clean-card" id="workoutFinishCard-segunda">
       <div class="finish-controls-row">
         <label class="finish-checkbox-label">
@@ -4655,55 +4588,28 @@
           <span style="font-size:0.82rem; color:var(--brand-neon); font-weight:700;">Treino do Box (Warm-up, Skill & WOD) Realizado com Sucesso!</span>
         </div>
 
-        <div class="wod-list-container">
-          <!-- Bloco 1: Warm Up -->
-          <div class="wod-list-block">
-            <div class="wod-block-badge">1. WARM UP (2 ROUNDS) — FEITO</div>
-            <ul class="wod-block-items">
-              <li>10 Floor Press (chão)</li>
-              <li>5 Thrusters (barra leve)</li>
-              <li>5 Muscle Snatch (trajetória vertical)</li>
-              <li>10 Box Step-up (extensão ativa)</li>
-            </ul>
-          </div>
-
-          <!-- Bloco 2: Skill For Quality -->
-          <div class="wod-list-block">
-            <div class="wod-block-badge">
-              <span>2. SKILL: FOR QUALITY (4 ROUNDS) — FEITO</span>
-            </div>
-            <ul class="wod-block-items">
-              <li><strong>10 BENCH PRESS</strong> (Supino reto — Feito com 60 kg)</li>
-              <li><strong>10 PUSH-UP</strong> (Flexão de braço cadenciada)</li>
-              <li><strong>10 Z-PRESS</strong> (Sentado no solo com pernas em L — Feito com 15 kg)</li>
-            </ul>
-          </div>
-
-          <!-- Bloco 3: WOD -->
-          <div class="wod-list-block">
-            <div class="wod-block-badge">
-              <span>3. WOD (TIME CAP 20' • SCALED 30 KG) — FEITO</span>
-            </div>
-            <ul class="wod-block-items">
-              <li>50 Abmat Sit-ups</li>
-              <li>40 Box Jump Over (com step-down para preservação do menisco)</li>
-              <li>30 Power Snatch (30 kg)</li>
-              <li>20 Thruster (30 kg)</li>
-              <li>30 Power Snatch (30 kg)</li>
-              <li>40 Box Jump Over (com step-down)</li>
-              <li>50 Abmat Sit-ups</li>
-            </ul>
+        <div class="ex-title">ROTEIRO DE TERÇA • CONDICIONAMENTO & FORÇA</div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 BLOCOS • SCALED 30 KG</div>
+          <div class="sets-container">
+            <div class="set-pill done" onclick="toggleSet(this)">Warm Up</div>
+            <div class="set-pill done" onclick="toggleSet(this)">Skill 4R</div>
+            <div class="set-pill done" onclick="toggleSet(this)">WOD 20'</div>
           </div>
         </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Preservação do Joelho no Box Jump', '• Box Jump Over realizado com descida no passo (step-down) mandatório para eliminar o impacto de desaceleração excêntrica sobre o menisco lateral esquerdo.\n\nBase científica:\n• Amortecimento de Força de Reação do Solo: O step-down reduz a força vertical de 3-4x o peso corporal para 1x, eliminando choque mecânico no corno posterior do menisco.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Roteiro da Terça no Box (Realizado)', '1. Warm Up (2 rounds):\n• 10 Floor Press (chão)\n• 5 Thrusters (barra leve)\n• 5 Muscle Snatch (trajetória vertical)\n• 10 Box Step-up (extensão ativa)\n\n2. Skill: For Quality (4 rounds):\n• 10 Bench Press (Supino reto — Feito com 60 kg)\n• 10 Push-up (Flexão de braço cadenciada)\n• 10 Z-Press (Sentado no solo com pernas em L — Feito com 15 kg)\n\n3. WOD (Time Cap 20\' • Scaled 30 kg):\n• 50 Abmat Sit-ups\n• 40 Box Jump Over (com step-down para preservação do menisco)\n• 30 Power Snatch (30 kg)\n• 20 Thruster (30 kg)\n• 30 Power Snatch (30 kg)\n• 40 Box Jump Over (com step-down)\n• 50 Abmat Sit-ups', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
 
-        <div class="ex-bottom-actions" style="margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border-subtle);">
-          <button type="button" class="btn-comment" id="btn-comment-ex-ter-box" onclick="toggleCommentBox('ex-ter-box')">
-            <span>💬 Observações?</span>
-            <span class="comment-dot" id="dot-ex-ter-box" style="display:none;"></span>
-          </button>
+        <div class="ex-bottom-actions">
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Sessão Terça • Box CrossFit')">
             <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
             <span>Enviar Vídeo</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-ter-box" onclick="toggleCommentBox('ex-ter-box')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-ter-box" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-ter-box" class="comment-drawer" style="display: none;">
@@ -4764,69 +4670,28 @@
           <span style="font-size:0.82rem; color:var(--brand-neon); font-weight:700;">Treino do Box (Warm-up, Skill e WOD) Realizado com Sucesso!</span>
         </div>
 
-        <div class="wod-list-container">
-          <!-- Bloco 1: Warm Up -->
-          <div class="wod-list-block">
-            <div class="wod-block-badge">1. WARM UP (2 ROUNDS) — FEITO</div>
-            <ul class="wod-block-items">
-              <li>10 Hollow Rocks (tensão estrita de core em retroversão pélvica)</li>
-              <li>10 Arch Rocks / Superman (ativação dos eretores da espinha e glúteos)</li>
-              <li>10 V-ups alternados (flexão de tronco dinâmica sem estresse lombar)</li>
-              <li>10 Beat Swings na barra (balanço gímnico com protração e depressão escapular)</li>
-            </ul>
-            <div class="sets-container" style="margin-top:10px;">
-              <div class="set-pill done" onclick="toggleSet(this)">Round 1</div>
-              <div class="set-pill done" onclick="toggleSet(this)">Round 2</div>
-            </div>
-          </div>
-
-          <!-- Bloco 2: Skill EMOM 12' -->
-          <div class="wod-list-block">
-            <div class="wod-block-badge">
-              <span>2. SKILL: T2B • EMOM 12' (PRA QUEM JÁ FAZ) — FEITO</span>
-            </div>
-            <div style="font-size:0.75rem; color:#38bdf8; margin-bottom:6px; font-weight:700;">
-              ⚡ Adaptação do Gui: 5 strict pull-overs no lugar de strict T2B no Min 1
-            </div>
-            <ul class="wod-block-items">
-              <li><strong>Min 1:</strong> 5 Strict Pull-overs (Adaptação técnica estrita de puxada / barra)</li>
-              <li><strong>Min 2:</strong> 10 Toes-to-Bar (Compressão pélvica rítmica)</li>
-              <li><strong>Min 3:</strong> Descanso ativo (Rest)</li>
-            </ul>
-            <div class="sets-container" style="margin-top:10px;">
-              <div class="set-pill done" onclick="toggleSet(this)">Min 1–3</div>
-              <div class="set-pill done" onclick="toggleSet(this)">Min 4–6</div>
-              <div class="set-pill done" onclick="toggleSet(this)">Min 7–9</div>
-              <div class="set-pill done" onclick="toggleSet(this)">Min 10–12</div>
-            </div>
-          </div>
-
-          <!-- Bloco 3: WOD -->
-          <div class="wod-list-block">
-            <div class="wod-block-badge">
-              <span>3. WOD: FOR TIME (30 - 20 - 10 • CARGA 15 KG • TIME CAP 18') — FEITO</span>
-            </div>
-            <ul class="wod-block-items">
-              <li><strong>Toes To Bar</strong> (30 - 20 - 10 reps)</li>
-              <li><strong>DB Box Step Up com 15 kg</strong> (30 - 20 - 10 reps • descida no passo para preservação do menisco)</li>
-              <li><strong>DB Devil Press com 15 kg</strong> (30 - 20 - 10 reps • transição burpee e elevação de halteres)</li>
-            </ul>
-            <div class="sets-container" style="margin-top:10px;">
-              <div class="set-pill done" onclick="toggleSet(this)">Série 30</div>
-              <div class="set-pill done" onclick="toggleSet(this)">Série 20</div>
-              <div class="set-pill done" onclick="toggleSet(this)">Série 10</div>
-            </div>
+        <div class="ex-title">ROTEIRO DE QUARTA • T2B EMOM & FOR TIME</div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 BLOCOS • CARGA 15 KG</div>
+          <div class="sets-container">
+            <div class="set-pill done" onclick="toggleSet(this)">Warm Up</div>
+            <div class="set-pill done" onclick="toggleSet(this)">EMOM 12'</div>
+            <div class="set-pill done" onclick="toggleSet(this)">WOD 18'</div>
           </div>
         </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Adaptações e Preservação Articular', '• Adaptação do Gui: 5 strict pull-overs no lugar de strict T2B no Min 1 do EMOM para proteger a tenodese do bíceps.\n• Descida da caixa no passo (step-down) nos DB Box Step-ups para preservação do menisco lateral.\n\nBase científica:\n• Proteção do Bíceps Cabeça Longa e Menisco: A tração estrita do pull-over distribui a força no grande dorsal, poupando a fixação bicipital contra a glenoide.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Roteiro de Quarta no Box (Realizado)', '1. Warm Up (2 rounds):\n• 10 Hollow Rocks (tensão estrita de core em retroversão pélvica)\n• 10 Arch Rocks / Superman (ativação dos eretores da espinha e glúteos)\n• 10 V-ups alternados (flexão de tronco dinâmica sem estresse lombar)\n• 10 Beat Swings na barra (balanço gímnico com protração e depressão escapular)\n\n2. Skill: T2B • EMOM 12\' (4 rounds):\n• Min 1: 5 Strict Pull-overs (Adaptação técnica estrita de puxada / barra)\n• Min 2: 10 Toes-to-Bar (Compressão pélvica rítmica)\n• Min 3: Descanso ativo (Rest)\n\n3. WOD: For Time (30 - 20 - 10 • Halteres 15 kg • Time Cap 18\'):\n• Toes To Bar (30 - 20 - 10 reps)\n• DB Box Step Up com 15 kg (30 - 20 - 10 reps com step-down)\n• DB Devil Press com 15 kg (30 - 20 - 10 reps)', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
 
-        <div class="ex-bottom-actions" style="margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border-subtle);">
-          <button type="button" class="btn-comment" id="btn-comment-ex-qua-box" onclick="toggleCommentBox('ex-qua-box')">
-            <span>💬 Observações?</span>
-            <span class="comment-dot" id="dot-ex-qua-box" style="display:none;"></span>
-          </button>
+        <div class="ex-bottom-actions">
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Sessão Quarta • Box CrossFit')">
             <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
             <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-qua-box" onclick="toggleCommentBox('ex-qua-box')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-qua-box" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-qua-box" class="comment-drawer" style="display: none;">
@@ -4834,7 +4699,7 @@
             <span>👤 Suas observações sobre o WOD e Skill de Quarta no Box:</span>
             <span class="save-indicator" id="save-status-ex-qua-box"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-qua-box" placeholder="Ex: Treino realizado no Box por tempo. Carga no WOD com halteres de 15kg. Strict pull-over no Min 1 do EMOM protegendo a tenodese. Descida no passo da caixa..." oninput="saveExerciseNote('ex-qua-box', this.value)">Treino feito no Box CrossFit por tempo. Carga no WOD com halteres de 15 kg. Strict pull over estrito no minuto 1 do EMOM protegendo a tenodese do bíceps. Descida da caixa no passo (step-down) para preservar o menisco lateral.</textarea>
+          <textarea class="comment-textarea" id="note-ex-qua-box" placeholder="Ex: Treino realizado no Box por tempo..." oninput="saveExerciseNote('ex-qua-box', this.value)">Treino feito no Box CrossFit por tempo. Carga no WOD com halteres de 15 kg. Strict pull over estrito no minuto 1 do EMOM protegendo a tenodese do bíceps. Descida da caixa no passo (step-down) para preservar o menisco lateral.</textarea>
         </div>
       </div>
     </div>
@@ -5291,35 +5156,27 @@
 
       <!-- Ex sex-1: Mobilidade de Punhos + Scapular Push-ups -->
       <div class="exercise-card">
-        <div class="ex-top">
-          <div>
-            <div class="ex-title">Mobilidade Dinâmica de Punhos + Scapular Push-ups (Serrátil)</div>
-            <div class="ex-chips">
-              <span class="chip">Flexores e Extensores</span>
-              <span class="chip">Serrátil Anterior</span>
-              <span class="chip">Pré-Argolas e Portagem</span>
-            </div>
-          </div>
+        <div class="ex-title">MOBILIDADE DINÂMICA DE PUNHOS E SCAPULAR PUSH-UPS</div>
+        <div class="ex-volume-sets-row">
           <div class="ex-volume-badge">2X 10 REPS</div>
-        </div>
-        <div class="bio-cue">
-          <strong>Preparação Articular:</strong> Círculos lentos e transferências anteroposteriores de carga em prancha no solo para preparar a fibrocartilagem triangular dos punhos para a carga compressiva do parceiro (63 kg) e das argolas. Associar a protração escapular ativa para recrutar o serrátil anterior.
-        </div>
-        <div class="ex-actions">
-          <div class="ex-actions-btns">
-            <button type="button" class="btn-send-video" onclick="openSendVideoModal('Mobilidade de Punhos (Sexta)')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-              <span>Enviar sua execução</span>
-            </button>
-            <button class="btn-comment" id="btn-comment-ex-sex-1" onclick="toggleCommentBox('ex-sex-1')">
-              <span>💬 Observações?</span>
-              <span class="comment-dot" id="dot-ex-sex-1" style="display:none;"></span>
-            </button>
-          </div>
           <div class="sets-container">
-            <div class="set-pill" onclick="toggleSet(this)">1</div>
-            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
           </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados com Carga no Punho e Escápulas', '• Faça círculos suaves e sem trancos. Se sentir qualquer pontada fina na fibrocartilagem triangular dos punhos, reduza a amplitude imediatamente.\n\nBase científica:\n• Viscoelasticidade do Colágeno (Biomecânica Tecidual): O tecido fibrocartilaginoso capsulo-ligamentar dos punhos exige deformação mecânica gradual (creep elástico). Prepara os punhos para a carga compressiva do parceiro (63 kg) e das argolas sem sobrecarga nos ligamentos radiocarpais.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Mobilidade de Punhos e Scapular Push-ups', '• Em posição de prancha no solo, realize círculos lentos e transferências anteroposteriores de carga.\n• Associe a protração escapular ativa no topo (empurrando o chão e afastando as escápulas) para recrutar o serrátil anterior antes das suspensões.\n\nBase científica:\n• Estabilidade da Cintura Escapular: A protração ativa recruta o serrátil anterior, essencial para fixação da escápula contra o gradil costal durante suspensões e apoios nas argolas e na portagem.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Mobilidade de Punhos (Sexta)')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-sex-1" onclick="toggleCommentBox('ex-sex-1')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-sex-1" style="display:none;"></span>
+          </button>
         </div>
         <div id="comment-box-ex-sex-1" class="comment-drawer" style="display: none;">
           <div class="comment-header">
@@ -5332,35 +5189,27 @@
 
       <!-- Ex sex-2: Ativação Pélvica & Descompressão do Menisco Lateral -->
       <div class="exercise-card">
-        <div class="ex-top">
-          <div>
-            <div class="ex-title">Ponte Glútea Unilateral + Descompressão da Fáscia Lateral</div>
-            <div class="ex-chips">
-              <span class="chip">Glúteo Médio e Máximo</span>
-              <span class="chip">Anti-Valgo</span>
-              <span class="chip">Menisco Esquerdo</span>
-            </div>
-          </div>
+        <div class="ex-title">PONTE GLÚTEA UNILATERAL E DESCOMPRESSÃO DA FÁSCIA LATERAL</div>
+        <div class="ex-volume-sets-row">
           <div class="ex-volume-badge">2X 10 REPS + SOLTURA</div>
-        </div>
-        <div class="bio-cue">
-          <strong>Estabilidade no Plano Frontal:</strong> Ativação de glúteo médio/máximo para travar o alinhamento fêmoro-tibial e impedir o valgo dinâmico ao sustentar ou elevar o parceiro. Liberação breve do trato iliotibial e bíceps femoral para desanuviar a fíbula esquerda.
-        </div>
-        <div class="ex-actions">
-          <div class="ex-actions-btns">
-            <button type="button" class="btn-send-video" onclick="openSendVideoModal('Ponte Glútea Unilateral')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-              <span>Enviar sua execução</span>
-            </button>
-            <button class="btn-comment" id="btn-comment-ex-sex-2" onclick="toggleCommentBox('ex-sex-2')">
-              <span>💬 Observações?</span>
-              <span class="comment-dot" id="dot-ex-sex-2" style="display:none;"></span>
-            </button>
-          </div>
           <div class="sets-container">
-            <div class="set-pill" onclick="toggleSet(this)">1</div>
-            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Perna D</div>
+            <div class="set-pill" onclick="toggleSet(this)">Perna E</div>
           </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Proteção do Joelho Esquerdo e Alinhamento', '• Mantenha o joelho apontado rigorosamente na linha do segundo dedo do pé, sem deixar oscilar para dentro (valgo dinâmico).\n\nBase científica:\n• Cinemática Fêmoro-Tibial: O controle ativo do alinhamento neutraliza as forças de cisalhamento lateral sobre o menisco operado.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Ponte Glútea Unilateral e Descompressão', '• Deitado de costas, apoie um pé no solo com joelho a 90° e eleve a outra perna. Suba o quadril contraindo o glúteo no topo com firmeza.\n• Realize a descompressão da fáscia lateral com liberação breve do trato iliotibial e bíceps femoral para desanuviar a cabeça da fíbula esquerda.\n\nBase científica:\n• Ativação de Glúteo Médio e Máximo: Bloqueia o valgo dinâmico e fornece estabilidade no plano frontal para sustentar ou elevar o parceiro na portagem.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Ponte Glútea Unilateral')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-sex-2" onclick="toggleCommentBox('ex-sex-2')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-sex-2" style="display:none;"></span>
+          </button>
         </div>
         <div id="comment-box-ex-sex-2" class="comment-drawer" style="display: none;">
           <div class="comment-header">
@@ -5385,39 +5234,30 @@
 
       <!-- Ex sex-3: Portagem 63 kg -->
       <div class="exercise-card">
-        <div class="ex-top">
-          <div>
-            <div class="ex-title">Portagem com Parceiro (63 kg) — Figuras Estáticas e Stacking Ósseo</div>
-            <div class="ex-chips">
-              <span class="chip">12h00 às 13h00</span>
-              <span class="chip">Stacking Ósseo Rigoroso</span>
-              <span class="chip">Acrobalance 63 kg</span>
-              <span class="chip">Dominância de Quadril</span>
-            </div>
-          </div>
+        <div class="ex-title">PORTAGEM COM PARCEIRO (63 KG) — FIGURAS ESTÁTICAS E STACKING ÓSSEO</div>
+        <div class="ex-volume-sets-row">
           <div class="ex-volume-badge">5 SÉRIES SUSTENTADAS</div>
-        </div>
-        <div class="bio-cue">
-          <strong>Alinhamento Biomecânico (Stacking):</strong> Punho, cotovelo e ombro rigorosamente na mesma linha vertical da gravidade. A sustentação deve ocorrer por compressão óssea direta, eliminando braço de momento sobre os flexores de cotovelo (protege o tríceps esquerdo) e reduzindo a sobrecarga glenoumeral no supraespinhal operado. Nas subidas e bases, faça flexão de quadril (hip hinge) com tíbias verticais, nunca agache profundamente flexionando o joelho esquerdo.
-        </div>
-        <div class="ex-actions">
-          <div class="ex-actions-btns">
-            <button type="button" class="btn-send-video" onclick="openSendVideoModal('Portagem com Parceiro 63 kg')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-              <span>Enviar sua execução</span>
-            </button>
-            <button class="btn-comment" id="btn-comment-ex-sex-3" onclick="toggleCommentBox('ex-sex-3')">
-              <span>💬 Observações?</span>
-              <span class="comment-dot" id="dot-ex-sex-3" style="display:none;"></span>
-            </button>
-          </div>
           <div class="sets-container">
-            <div class="set-pill" onclick="toggleSet(this)">1</div>
-            <div class="set-pill" onclick="toggleSet(this)">2</div>
-            <div class="set-pill" onclick="toggleSet(this)">3</div>
-            <div class="set-pill" onclick="toggleSet(this)">4</div>
-            <div class="set-pill" onclick="toggleSet(this)">5</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 4</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 5</div>
           </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Proteção Articular na Portagem', '• Nas subidas e bases, faça flexão de quadril (hip hinge) com tíbias rigorosamente verticais. Nunca agache profundamente flexionando o joelho esquerdo além de 90°.\n• Se o parceiro perder o equilíbrio, desça com segurança sem tentar salvar com braços dobrados.\n\nBase científica:\n• Blindagem de Tríceps e Manguito: Braço totalmente estendido transfere a força por compressão axial esquelética, eliminando torque de flexão sobre a inserção tricipital e o supraespinhal operado.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Stacking Ósseo na Portagem (63 kg)', '• Empilhe punho, cotovelo e ombro rigorosamente na mesma linha vertical da gravidade (Bone Stacking).\n• A sustentação deve ocorrer por compressão óssea direta, eliminando braço de momento sobre os flexores de cotovelo (protege o tríceps esquerdo) e reduzindo a sobrecarga glenoumeral no supraespinhal.\n\nBase científica:\n• Empilhamento Ósseo Vertical (Acrobacia de Solo): A transmissão direta de forças ao longo do eixo diafisário dos ossos longos minimiza o recrutamento metabólico e preserva tendões sob sobrecarga externa.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Portagem com Parceiro 63 kg')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-sex-3" onclick="toggleCommentBox('ex-sex-3')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-sex-3" style="display:none;"></span>
+          </button>
         </div>
         <div id="comment-box-ex-sex-3" class="comment-drawer" style="display: none;">
           <div class="comment-header">
@@ -5442,43 +5282,34 @@
 
       <!-- Ex sex-4: RTO Support Hold -->
       <div class="exercise-card">
-        <div class="ex-top">
-          <div>
-            <div class="ex-title">
-              <span>RTO Support Hold nas Argolas (Rings Turned Out 45°–90°)</span>
-              <button type="button" class="btn-video" onclick="openVideoModal('RTO Support Hold — Argolas', '<b>Mecânica Chave:</b> Rotação externa das argolas (45° a 90°), cotovelos 100% estendidos com bloqueio ósseo, depressão e protração escapular ativa. Reconstrução de estabilidade do manguito e supraespinhal operado.', 'https://www.youtube.com/embed/5Hj0m-e98_8')">
-                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
-              </button>
-            </div>
-            <div class="ex-chips">
-              <span class="chip">13h00 às 13h15</span>
-              <span class="chip">Argolas Altas e Médias</span>
-              <span class="chip">Estabilidade Glenoumeral</span>
-              <span class="chip">Supraespinhal Operado</span>
-            </div>
-          </div>
+        <div class="ex-title">
+          <span>RTO SUPPORT HOLD NAS ARGOLAS (45°–90°)</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('RTO Support Hold — Argolas', '<b>Mecânica Chave:</b> Rotação externa das argolas (45° a 90°), cotovelos 100% estendidos com bloqueio ósseo, depressão e protração escapular ativa. Reconstrução de estabilidade do manguito e supraespinhal operado.', 'https://www.youtube.com/embed/5Hj0m-e98_8')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
           <div class="ex-volume-badge">4X 15–20"</div>
-        </div>
-        <div class="bio-cue">
-          <strong>Coadjuvação do Manguito:</strong> Apoio em suspensão nas argolas girando as mãos para fora (45° a 90°). Cotovelos em bloqueio ósseo completo (extensão total), escápulas ativamente em depressão e protração. Isso gera torque de rotação externa que centraliza a cabeça umeral na glenoide, fortalecendo o supraespinhal e bíceps cabeça longa sem choque excêntrico.
-        </div>
-        <div class="ex-actions">
-          <div class="ex-actions-btns">
-            <button type="button" class="btn-send-video" onclick="openSendVideoModal('RTO Support Hold nas Argolas')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-              <span>Enviar sua execução</span>
-            </button>
-            <button class="btn-comment" id="btn-comment-ex-sex-4" onclick="toggleCommentBox('ex-sex-4')">
-              <span>💬 Observações?</span>
-              <span class="comment-dot" id="dot-ex-sex-4" style="display:none;"></span>
-            </button>
-          </div>
           <div class="sets-container">
-            <div class="set-pill" onclick="toggleSet(this)">1</div>
-            <div class="set-pill" onclick="toggleSet(this)">2</div>
-            <div class="set-pill" onclick="toggleSet(this)">3</div>
-            <div class="set-pill" onclick="toggleSet(this)">4</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 4</div>
           </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Proteção Glenoumeral no RTO', '• Nunca dobre os cotovelos durante o apoio. Se não conseguir sustentar a rotação externa com braços esticados, reduza o ângulo para 45° ou encerre a série.\n\nBase científica:\n• Torque de Rotação Externa: Cotovelos em bloqueio ósseo completo centralizam a cabeça umeral na fossa glenoide, fortalecendo a cápsula anterior e o tendão do supraespinhal sem choque excêntrico.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('RTO Support Hold nas Argolas', '• Apoio em suspensão nas argolas girando as mãos para fora (45° a 90°).\n• Cotovelos em bloqueio ósseo completo (extensão total), escápulas ativamente em depressão e protração para criar torque protetor.\n\nBase científica:\n• Coadjuvação do Manguito Rotador: A rotação externa forçada recruta infraespinhal e redondo menor em co-contração com o serrátil anterior, criando estabilização reflexa tridimensional.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('RTO Support Hold nas Argolas')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-sex-4" onclick="toggleCommentBox('ex-sex-4')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-sex-4" style="display:none;"></span>
+          </button>
         </div>
         <div id="comment-box-ex-sex-4" class="comment-drawer" style="display: none;">
           <div class="comment-header">
@@ -5491,43 +5322,34 @@
 
       <!-- Ex sex-5: Ring Muscle-Up Estrito Transição -->
       <div class="exercise-card">
-        <div class="ex-top">
-          <div>
-            <div class="ex-title">
-              <span>Ring Muscle-Up (RMU Strict) — Transição com Falsa Pegada</span>
-              <button type="button" class="btn-video" onclick="openVideoModal('Ring Muscle-Up (RMU Strict) — Transição', '<b>Mecânica Chave:</b> Pegada falsa profunda nos punhos. Puxada alta com argolas coladas ao esterno e transição de cotovelos rente às costelas jogando os ombros à frente sem chute balístico.', 'https://www.youtube.com/embed/5Hj0m-e98_8')">
-                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
-              </button>
-            </div>
-            <div class="ex-chips">
-              <span class="chip">13h15 às 13h30</span>
-              <span class="chip">False Grip Estrita</span>
-              <span class="chip">Transição Pura</span>
-              <span class="chip">Proteção do Tríceps</span>
-            </div>
-          </div>
+        <div class="ex-title">
+          <span>RING MUSCLE-UP (RMU STRICT) — TRANSIÇÃO COM FALSE GRIP</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Ring Muscle-Up (RMU Strict) — Transição', '<b>Mecânica Chave:</b> Pegada falsa profunda nos punhos. Puxada alta com argolas coladas ao esterno e transição de cotovelos rente às costelas jogando os ombros à frente sem chute balístico.', 'https://www.youtube.com/embed/5Hj0m-e98_8')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
           <div class="ex-volume-badge">4X 2 REPS</div>
-        </div>
-        <div class="bio-cue">
-          <strong>Padrão Motor Limpo:</strong> Utilizar pegada falsa profunda (*false grip*) com argolas coladas no esterno. Puxar até o peito encostar nos anéis e realizar a transição veloz projetando a cabeça e ombros para frente, mantendo os cotovelos raspando nas costelas. Priorizar cinemática estrita e zero impacto no tríceps esquerdo.
-        </div>
-        <div class="ex-actions">
-          <div class="ex-actions-btns">
-            <button type="button" class="btn-send-video" onclick="openSendVideoModal('Ring Muscle-Up Strict Transição')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-              <span>Enviar sua execução</span>
-            </button>
-            <button class="btn-comment" id="btn-comment-ex-sex-5" onclick="toggleCommentBox('ex-sex-5')">
-              <span>💬 Observações?</span>
-              <span class="comment-dot" id="dot-ex-sex-5" style="display:none;"></span>
-            </button>
-          </div>
           <div class="sets-container">
-            <div class="set-pill" onclick="toggleSet(this)">1</div>
-            <div class="set-pill" onclick="toggleSet(this)">2</div>
-            <div class="set-pill" onclick="toggleSet(this)">3</div>
-            <div class="set-pill" onclick="toggleSet(this)">4</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 4</div>
           </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Proteção do Tríceps e Cinemática Estrita', '• Zero impulso ou chute balístico (kipping). A transição deve ser pura e cadenciada para evitar tranco na inserção tricipital esquerda.\n\nBase científica:\n• Força Concêntrica Estrita: A ausência de desaceleração abrupta poupa o tendão do tríceps e a bursa olecraniana.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Ring Muscle-Up Strict com Falsa Pegada', '• Utilizar pegada falsa profunda (false grip) com argolas coladas no esterno.\n• Puxar até o peito encostar nos anéis e realizar a transição veloz projetando a cabeça e ombros para frente, mantendo os cotovelos raspando nas costelas. Priorizar cinemática estrita e zero impacto no tríceps esquerdo.\n\nBase científica:\n• Vetor de Puxada e Transição de Momento: Manter os anéis junto ao centro de massa reduz o braço de alavanca desfavorável, permitindo rotação articular suave dos cotovelos sem sobrecarga ligamentar.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Ring Muscle-Up Strict Transição')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-sex-5" onclick="toggleCommentBox('ex-sex-5')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-sex-5" style="display:none;"></span>
+          </button>
         </div>
         <div id="comment-box-ex-sex-5" class="comment-drawer" style="display: none;">
           <div class="comment-header">
@@ -5540,42 +5362,33 @@
 
       <!-- Ex sex-6: Ice Cream Makers nas Argolas Altas -->
       <div class="exercise-card">
-        <div class="ex-top">
-          <div>
-            <div class="ex-title">
-              <span>Ice Cream Makers nas Argolas Altas</span>
-              <button type="button" class="btn-video" onclick="openVideoModal('Ice Cream Makers — Alavanca & Puxada', '<b>Mecânica Chave:</b> Transição contínua entre extensão de ombro em braço esticado (Front Lever) e flexão em cadeia fechada (Chin-Up). Pelve rigorosamente alinhada na horizontal.', 'https://www.youtube.com/embed/5kQWqFz9a5c')">
-                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
-              </button>
-            </div>
-            <div class="ex-chips">
-              <span class="chip">13h30 às 13h40</span>
-              <span class="chip">Front Lever to Chin-Up</span>
-              <span class="chip">Grande Dorsal e Bíceps</span>
-              <span class="chip">Core Anti-Extensão</span>
-            </div>
-          </div>
+        <div class="ex-title">
+          <span>ICE CREAM MAKERS NAS ARGOLAS ALTAS</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Ice Cream Makers — Alavanca & Puxada', '<b>Mecânica Chave:</b> Transição contínua entre extensão de ombro em braço esticado (Front Lever) e flexão em cadeia fechada (Chin-Up). Pelve rigorosamente alinhada na horizontal.', 'https://www.youtube.com/embed/5kQWqFz9a5c')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
           <div class="ex-volume-badge">3X 6 REPS</div>
-        </div>
-        <div class="bio-cue">
-          <strong>Alavanca Horizontal:</strong> Transição fluida entre extensão de ombro em alavanca e flexão concêntrica em cadeia fechada, mantendo o corpo horizontal e o reto abdominal sob tensão isométrica máxima.
-        </div>
-        <div class="ex-actions">
-          <div class="ex-actions-btns">
-            <button type="button" class="btn-send-video" onclick="openSendVideoModal('Ice Cream Makers nas Argolas')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-              <span>Enviar sua execução</span>
-            </button>
-            <button class="btn-comment" id="btn-comment-ex-sex-6" onclick="toggleCommentBox('ex-sex-6')">
-              <span>💬 Observações?</span>
-              <span class="comment-dot" id="dot-ex-sex-6" style="display:none;"></span>
-            </button>
-          </div>
           <div class="sets-container">
-            <div class="set-pill" onclick="toggleSet(this)">1</div>
-            <div class="set-pill" onclick="toggleSet(this)">2</div>
-            <div class="set-pill" onclick="toggleSet(this)">3</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
           </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Alinhamento Pélvico e Tensão Dorsal', '• Não permita que a pelve afunde em extensão lombar. Se o corpo perder a linha horizontal rígida, encurte a alavanca flexionando levemente os joelhos.\n\nBase científica:\n• Torque Anti-Extensão Lombar: A alavanca horizontal impõe momento fletor na coluna lombar neutralizado pela co-contração do reto abdominal e oblíquos.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Ice Cream Makers nas Argolas', '• Transição fluida entre extensão de ombro em alavanca (Front Lever) e flexão concêntrica em cadeia fechada (Chin-Up).\n• Mantenha o corpo horizontal e o reto abdominal sob tensão isométrica máxima durante todo o arco.\n\nBase científica:\n• Alavanca Dinâmica em Cadeia Fechada: Alterna solicitação isométrica extrema de grande dorsal e tríceps cabeça longa com contração concêntrica potente de flexores de cotovelo.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Ice Cream Makers nas Argolas')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-sex-6" onclick="toggleCommentBox('ex-sex-6')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-sex-6" style="display:none;"></span>
+          </button>
         </div>
         <div id="comment-box-ex-sex-6" class="comment-drawer" style="display: none;">
           <div class="comment-header">
@@ -5588,37 +5401,28 @@
 
       <!-- Ex sex-7: Hanging Leg Raise para Vela Invertida -->
       <div class="exercise-card">
-        <div class="ex-top">
-          <div>
-            <div class="ex-title">Hanging Leg Raise para Vela nas Argolas (Candlestick Hang)</div>
-            <div class="ex-chips">
-              <span class="chip">13h40 às 13h50</span>
-              <span class="chip">Reto Abdominal</span>
-              <span class="chip">Compressão Pélvica</span>
-              <span class="chip">Vela Invertida</span>
-            </div>
-          </div>
+        <div class="ex-title">HANGING LEG RAISE PARA VELA NAS ARGOLAS (CANDLESTICK HANG)</div>
+        <div class="ex-volume-sets-row">
           <div class="ex-volume-badge">2-3X 6 REPS</div>
-        </div>
-        <div class="bio-cue">
-          <strong>Compressão e Alavanca Vertical:</strong> Elevação ativa de pernas com transição vertical em vela nas argolas. Força anti-gravitacional pura de cadeia anterior e depressão escapular.
-        </div>
-        <div class="ex-actions">
-          <div class="ex-actions-btns">
-            <button type="button" class="btn-send-video" onclick="openSendVideoModal('Hanging Leg Raise para Vela')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-              <span>Enviar sua execução</span>
-            </button>
-            <button class="btn-comment" id="btn-comment-ex-sex-7" onclick="toggleCommentBox('ex-sex-7')">
-              <span>💬 Observações?</span>
-              <span class="comment-dot" id="dot-ex-sex-7" style="display:none;"></span>
-            </button>
-          </div>
           <div class="sets-container">
-            <div class="set-pill" onclick="toggleSet(this)">1</div>
-            <div class="set-pill" onclick="toggleSet(this)">2</div>
-            <div class="set-pill" onclick="toggleSet(this)">3</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
           </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Descida Controlada e Tensão de Ombros', '• Controle a descida vértebra por vértebra, sem despencar as pernas ou dar chicotada na lombar. Ombros sempre ativos e longe das orelhas.\n\nBase científica:\n• Controle Excêntrico de Flexores de Quadril: A descida desacelerada previne hiperlordose lombar reativa e protege os ligamentos sacroilíacos.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Candlestick Hang nas Argolas', '• Elevação ativa de pernas com transição vertical em vela nas argolas.\n• Força anti-gravitacional pura de cadeia anterior e depressão escapular constante.\n\nBase científica:\n• Compressão Pélvica & Força Anti-Gravitacional: Requer contração concêntrica de reto abdominal, iliopsoas e depressão escapular ativa para sustentação da massa corporal invertida.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Hanging Leg Raise para Vela')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-sex-7" onclick="toggleCommentBox('ex-sex-7')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-sex-7" style="display:none;"></span>
+          </button>
         </div>
         <div id="comment-box-ex-sex-7" class="comment-drawer" style="display: none;">
           <div class="comment-header">
@@ -5631,42 +5435,33 @@
 
       <!-- Ex sex-8: Rolamento para Trás nas Argolas -->
       <div class="exercise-card">
-        <div class="ex-top">
-          <div>
-            <div class="ex-title">
-              <span>Rolamento para Trás nas Argolas (Backward Roll / Felge to Support)</span>
-              <button type="button" class="btn-video" onclick="openVideoModal('Rolamento para Trás nas Argolas (Felge)', '<b>Mecânica Chave:</b> Puxada em vela invertida com compressão abdominal, conduzindo a rotação posterior com depressão escapular ativa até o apoio sobre colchão de proteção.', 'https://www.youtube.com/embed/5Hj0m-e98_8')">
-                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
-              </button>
-            </div>
-            <div class="ex-chips">
-              <span class="chip">13h50 às 14h00</span>
-              <span class="chip">Argolas Médias</span>
-              <span class="chip">Sobre Colchão</span>
-              <span class="chip">Propriocepção Aérea</span>
-            </div>
-          </div>
+        <div class="ex-title">
+          <span>ROLAMENTO PARA TRÁS NAS ARGOLAS (BACKWARD ROLL / FELGE)</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Rolamento para Trás nas Argolas (Felge)', '<b>Mecânica Chave:</b> Puxada em vela invertida com compressão abdominal, conduzindo a rotação posterior com depressão escapular ativa até o apoio sobre colchão de proteção.', 'https://www.youtube.com/embed/5Hj0m-e98_8')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
           <div class="ex-volume-badge">3X 2–3 REPS</div>
-        </div>
-        <div class="bio-cue">
-          <strong>Consciência Acrobática em Suspensão:</strong> Realizar nas argolas em altura média sobre colchão gímnico. Puxar em vela invertida, passar a pelve em rotação posterior com depressão escapular ativa e buscar a estabilização no apoio ou suspensão sem choque brusco.
-        </div>
-        <div class="ex-actions">
-          <div class="ex-actions-btns">
-            <button type="button" class="btn-send-video" onclick="openSendVideoModal('Rolamento para Trás nas Argolas')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-              <span>Enviar sua execução</span>
-            </button>
-            <button class="btn-comment" id="btn-comment-ex-sex-8" onclick="toggleCommentBox('ex-sex-8')">
-              <span>💬 Observações?</span>
-              <span class="comment-dot" id="dot-ex-sex-8" style="display:none;"></span>
-            </button>
-          </div>
           <div class="sets-container">
-            <div class="set-pill" onclick="toggleSet(this)">1</div>
-            <div class="set-pill" onclick="toggleSet(this)">2</div>
-            <div class="set-pill" onclick="toggleSet(this)">3</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
           </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Segurança e Colchão de Proteção', '• Realize sempre em altura média e com colchão gímnico posicionado abaixo. Nunca solte a pegada das argolas durante a rotação.\n\nBase científica:\n• Amortecimento e Margem de Segurança: Reduz o impacto articular caso haja perda da aceleração angular na passagem da pelve.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Rolamento para Trás nas Argolas', '• Realizar nas argolas em altura média sobre colchão gímnico.\n• Puxar em vela invertida, passar a pelve em rotação posterior com depressão escapular ativa e buscar a estabilização no apoio ou suspensão sem choque brusco.\n\nBase científica:\n• Consciência Acrobática e Torque Rotacional: Demanda sincronia de depressão escapular ativa com ativação de core anterior e posterior durante a transição espacial aérea.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Rolamento para Trás nas Argolas')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-sex-8" onclick="toggleCommentBox('ex-sex-8')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-sex-8" style="display:none;"></span>
+          </button>
         </div>
         <div id="comment-box-ex-sex-8" class="comment-drawer" style="display: none;">
           <div class="comment-header">
@@ -5691,36 +5486,28 @@
 
       <!-- Ex sex-9: Panturrilha Aquiles -->
       <div class="exercise-card">
-        <div class="ex-top">
-          <div>
-            <div class="ex-title">ELEVAÇÃO DE PANTURRILHA EM DEGRAU COM PAUSA PROFUNDA DE 3-4"</div>
-            <div class="ex-chips">
-              <span class="chip">Sarcomerogênese em Série</span>
-              <span class="chip">Aquiles 8 Anos</span>
-              <span class="chip">Pausa em Dorsiflexão Máxima</span>
-            </div>
-          </div>
+        <div class="ex-title">ELEVAÇÃO DE PANTURRILHA EM DEGRAU COM PAUSA PROFUNDA DE 3-4"</div>
+        <div class="ex-volume-sets-row">
           <div class="ex-volume-badge">3X 12–15 REPS</div>
-        </div>
-        <div class="bio-cue">
-          <strong>Protocolo Mandatório de Resgate:</strong> Pausa estrita de 3 a 4 segundos no fundo da dorsiflexão máxima do degrau antes de cada subida concêntrica. O estiramento sob alta tensão passiva-ativa adiciona sarcômeros em série nos fascículos encurtados pós-sutura, recuperando o comprimento fisiológico e o stiffness elástico para impulsão vertical.
-        </div>
-        <div class="ex-actions">
-          <div class="ex-actions-btns">
-            <button type="button" class="btn-send-video" onclick="openSendVideoModal('Elevação de Panturrilha em Degrau')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-              <span>Enviar sua execução</span>
-            </button>
-            <button class="btn-comment" id="btn-comment-ex-sex-9" onclick="toggleCommentBox('ex-sex-9')">
-              <span>💬 Observações?</span>
-              <span class="comment-dot" id="dot-ex-sex-9" style="display:none;"></span>
-            </button>
-          </div>
           <div class="sets-container">
-            <div class="set-pill" onclick="toggleSet(this)">1</div>
-            <div class="set-pill" onclick="toggleSet(this)">2</div>
-            <div class="set-pill" onclick="toggleSet(this)">3</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
           </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cadência e Pausa Mandatória', '• Não use rebote ou mola elástica no fundo. A pausa estrita de 3 a 4 segundos com calcanhar totalmente afundado é obrigatória para desativar o reflexo miotático.\n\nBase científica:\n• Dissipação de Energia Elástica: A pausa no fundo elimina a contribuição passiva do ciclo alongamento-encurtamento, transferindo 100% da carga para os fascículos contráteis do complexo gastrocnêmio-sóleo.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Protocolo de Elevação com Pausa Isométrica', '• Na beira de um degrau, desça o calcanhar até a dorsiflexão máxima e congele a posição por 3 a 4 segundos cronometrados.\n• Suba com potência máxima até a ponta dos pés, contraindo a panturrilha no topo por 1 segundo.\n\nBase científica:\n• Sarcomerogênese em Série (Aquiles Pós-Sutura): O estiramento mecânico estático prolongado sob carga induz a adição longitudinal de novos sarcômeros nos fascículos musculares encurtados pós-cirurgia, restaurando o comprimento funcional e o stiffness fisiológico do tendão calcâneo.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Elevação de Panturrilha em Degrau')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-sex-9" onclick="toggleCommentBox('ex-sex-9')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-sex-9" style="display:none;"></span>
+          </button>
         </div>
         <div id="comment-box-ex-sex-9" class="comment-drawer" style="display: none;">
           <div class="comment-header">
@@ -5733,35 +5520,27 @@
 
       <!-- Ex sex-10: Descompressão Menisco Lateral e Abertura Torácica -->
       <div class="exercise-card">
-        <div class="ex-top">
-          <div>
-            <div class="ex-title">Descompressão do Menisco Lateral e Abertura Torácica</div>
-            <div class="ex-chips">
-              <span class="chip">Menisco Lateral Esquerdo</span>
-              <span class="chip">Trato Iliotibial</span>
-              <span class="chip">Argolas Baixas</span>
-            </div>
-          </div>
+        <div class="ex-title">DESCOMPRESSÃO DO MENISCO LATERAL E ABERTURA TORÁCICA</div>
+        <div class="ex-volume-sets-row">
           <div class="ex-volume-badge">2X 45" / LADO</div>
-        </div>
-        <div class="bio-cue">
-          <strong>Abertura Articular e Descompressão:</strong> Tracionar a perna esquerda estendida em adução e leve rotação interna para alongar o bíceps femoral e o trato iliotibial, abrindo espaço no platô tibial lateral. Em seguida, extensão suave glenoumeral nas argolas baixas para reequilíbrio da cintura escapular.
-        </div>
-        <div class="ex-actions">
-          <div class="ex-actions-btns">
-            <button type="button" class="btn-send-video" onclick="openSendVideoModal('Descompressão do Menisco Lateral')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-              <span>Enviar sua execução</span>
-            </button>
-            <button class="btn-comment" id="btn-comment-ex-sex-10" onclick="toggleCommentBox('ex-sex-10')">
-              <span>💬 Observações?</span>
-              <span class="comment-dot" id="dot-ex-sex-10" style="display:none;"></span>
-            </button>
-          </div>
           <div class="sets-container">
-            <div class="set-pill" onclick="toggleSet(this)">1</div>
-            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Lado D</div>
+            <div class="set-pill" onclick="toggleSet(this)">Lado E</div>
           </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Tração Suave sem Forçar Valgo', '• A rotação da tíbia deve ser suave e descompressiva. Não puxe a articulação em torção abrupta.\n\nBase científica:\n• Preservação Capsuloligamentar: Movimento passivo desacelerado respeita o limiar de propriocepção dos mecanorreceptores articulares.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Descompressão Meniscal e Abertura Torácica', '• Tracione a perna esquerda estendida em adução e leve rotação interna para alongar o bíceps femoral e o trato iliotibial, abrindo espaço no platô tibial lateral.\n• Em seguida, realize extensão suave glenoumeral nas argolas baixas para reequilíbrio da cintura escapular.\n\nBase científica:\n• Descompressão do Compartimento Lateral: O relaxamento do tendão do bíceps femoral e fáscia lata alivia a tração na cabeça fibular, diminuindo a pressão de contato no corno posterior do menisco lateral.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Descompressão do Menisco Lateral')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-sex-10" onclick="toggleCommentBox('ex-sex-10')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-sex-10" style="display:none;"></span>
+          </button>
         </div>
         <div id="comment-box-ex-sex-10" class="comment-drawer" style="display: none;">
           <div class="comment-header">
@@ -5794,7 +5573,6 @@
   </div><!-- end #tab-sexta -->
 
   </div><!-- end #mainTrainingView -->
-
 
   <!-- ==================== TAB: MURAL DE RECADOS & COMUNICADOS ==================== -->
   <div id="tab-recados" class="tab-content">
@@ -7807,7 +7585,7 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '120';
+    const APP_BUILD_VERSION = '121';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
@@ -9886,7 +9664,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=120').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=121').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
