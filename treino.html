@@ -7846,6 +7846,131 @@
   </div>
 
   <script>
+
+    /* =========================================================================
+       SISTEMA DE NAVEGAÇÃO INTERNA & SUPORTE AO BOTÃO VOLTAR DO CELULAR (PWA)
+       Permite que o botão físico / gesto "Voltar" do smartphone retorne para a tela
+       ou modal anterior dentro do app em vez de fechar ou recarregar o aplicativo.
+       ========================================================================= */
+    let isHandlingPopState = false;
+
+    // Inicializa o estado raiz do app no histórico caso ainda não exista
+    try {
+      if (!window.history.state || !window.history.state.isAppRoot) {
+        window.history.replaceState({ isAppRoot: true, page: 'home' }, '', window.location.pathname + window.location.search);
+      }
+    } catch (e) {}
+
+    // Registra entrada de nível no histórico (tela, dia, subpágina ou modal)
+    window.pushAppHistoryState = function(type, data = {}, hash = '') {
+      if (isHandlingPopState) return;
+      try {
+        const stateObj = { isAppSubpage: true, type: type, ...data };
+        const newHash = hash ? (hash.startsWith('#') ? hash : '#' + hash) : '';
+        window.history.pushState(stateObj, '', newHash || (window.location.pathname + window.location.search));
+      } catch (e) {}
+    };
+
+    // Desempilha histórico se o fechamento partiu de clique do usuário na tela (botão Voltar ou X)
+    window.popAppHistoryState = function(expectedType = null) {
+      if (isHandlingPopState) return false;
+      try {
+        if (window.history.state && window.history.state.isAppSubpage) {
+          if (!expectedType || window.history.state.type === expectedType) {
+            window.history.back();
+            return true;
+          }
+        }
+      } catch (e) {}
+      return false;
+    };
+
+    // Função central que executa a regressão de 1 nível quando o celular aciona o botão Voltar
+    window.handleAppBackNavigation = function() {
+      // 1. Prioridade Máxima: Modais e Popovers Abertos
+      const modalChecks = [
+        { id: 'tipPopoverOverlay', close: () => { const el = document.getElementById('tipPopoverOverlay'); if (el) el.style.display = 'none'; } },
+        { id: 'welcomeAppModal', close: () => { if (typeof closeWelcomeAppModal === 'function') closeWelcomeAppModal(true); } },
+        { id: 'contextualHelpModal', close: () => { if (typeof closeContextualHelp === 'function') closeContextualHelp(true); } },
+        { id: 'notificationsModal', close: () => { if (typeof closeNotificationsModal === 'function') closeNotificationsModal(null, true, true); } },
+        { id: 'sendVideoModal', close: () => { if (typeof closeSendVideoModal === 'function') closeSendVideoModal(true); } },
+        { id: 'videoModal', close: () => { if (typeof closeVideoModal === 'function') closeVideoModal(true); } },
+        { id: 'bioModal', close: () => { if (typeof closeBioModal === 'function') closeBioModal(true); } },
+        { id: 'intakeGateModal', close: () => { const el = document.getElementById('intakeGateModal'); if (el) el.classList.remove('active'); } }
+      ];
+
+      for (const item of modalChecks) {
+        const el = document.getElementById(item.id);
+        if (!el) continue;
+        const isVisible = (el.classList && el.classList.contains('active')) ||
+                          (el.style && (el.style.display === 'flex' || el.style.display === 'block'));
+        if (isVisible) {
+          item.close();
+          return true; // Fechou o modal aberto
+        }
+      }
+
+      // 2. Gaveta de Metas
+      const metasDrawer = document.getElementById('metasDrawer');
+      if (metasDrawer && metasDrawer.style.display === 'block') {
+        if (typeof toggleMetasDrawer === 'function') toggleMetasDrawer();
+        return true;
+      }
+
+      // 3. Subpáginas dentro de Análises (Cards de Habilidades -> Menu de Habilidades -> Hub de Análises)
+      const skillsCards = document.getElementById('skillsCardsView');
+      if (skillsCards && skillsCards.style.display === 'block') {
+        if (typeof backToSkillsCategoryMenu === 'function') {
+          backToSkillsCategoryMenu(true);
+          return true;
+        }
+      }
+
+      const viewHabilidades = document.getElementById('analysisView-habilidades');
+      const viewExercicios = document.getElementById('analysisView-exercicios');
+      if ((viewHabilidades && viewHabilidades.style.display === 'block') ||
+          (viewExercicios && viewExercicios.style.display === 'block')) {
+        if (typeof closeAnalysisCategoryView === 'function') {
+          closeAnalysisCategoryView(true);
+          return true;
+        }
+      }
+
+      // 4. Subpáginas dentro de Evolução (Composição, Técnica, Recordes, Relatório)
+      if (typeof isAnyEvolViewOpen === 'function' && isAnyEvolViewOpen()) {
+        if (typeof closeEvolucaoView === 'function') {
+          closeEvolucaoView(true);
+          return true;
+        }
+      }
+
+      // 5. Em treino do dia ou central dedicada (Timers, Análises, Evolução, Perfil, Avaliação)
+      if (document.body.classList.contains('in-dedicated-view') || document.body.classList.contains('in-day-workout')) {
+        // Se estava em timers e veio de um treino ativo, retorna diretamente para o treino do dia!
+        if (document.body.classList.contains('in-view-timers') && typeof lastActiveDayTab !== 'undefined' && lastActiveDayTab) {
+          openDayWorkout(lastActiveDayTab);
+          return true;
+        }
+        if (typeof closeDedicatedView === 'function') {
+          closeDedicatedView(true);
+          return true;
+        }
+      }
+
+      // 6. Raiz do app: Nada mais a voltar internamente
+      return false;
+    };
+
+    // Escuta evento popstate do navegador (botão voltar do celular ou gesto de swipe-back)
+    window.addEventListener('popstate', function(event) {
+      isHandlingPopState = true;
+      try {
+        window.handleAppBackNavigation();
+      } finally {
+        setTimeout(() => { isHandlingPopState = false; }, 80);
+      }
+    });
+
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
     const APP_BUILD_VERSION = '121';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
@@ -7995,6 +8120,12 @@
       if (localStorage.getItem('dominio_assessment_completed') !== 'true') {
         const modal = document.getElementById('intakeGateModal');
         if (modal) modal.classList.add('active');
+        if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'bioModal' }, 'bio');
+        if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'welcomeAppModal' }, 'boas-vindas');
+      if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'contextualHelpModal' }, 'ajuda');
+        if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'notificationsModal' }, 'notificacoes');
+        if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'sendVideoModal' }, 'enviar-video');
+      if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'videoModal' }, 'video');
         return;
       }
       lastActiveDayTab = dayId;
@@ -8027,10 +8158,12 @@
       updateWorkoutCompletionUI(dayId);
       updateProgress();
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (typeof pushAppHistoryState === 'function') pushAppHistoryState('day', { dayId: dayId }, 'treino-' + dayId);
     }
 
     
     function openEvolucaoView(viewId) {
+      if (typeof pushAppHistoryState === 'function') pushAppHistoryState('evolView', { viewId }, 'evolucao-' + viewId);
       const hubMenu = document.getElementById('evolucaoHubMenu');
       if (hubMenu) hubMenu.style.display = 'none';
 
@@ -8049,7 +8182,8 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function closeEvolucaoView() {
+    function closeEvolucaoView(fromPopState = false) {
+      if (!fromPopState && typeof popAppHistoryState === 'function' && popAppHistoryState('evolView')) return;
       const hubMenu = document.getElementById('evolucaoHubMenu');
       if (hubMenu) hubMenu.style.display = 'grid';
 
@@ -8164,9 +8298,10 @@
       }
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (typeof pushAppHistoryState === 'function') pushAppHistoryState('dedicated', { sectionId: sectionId }, sectionId);
     }
 
-    function closeDedicatedView() {
+    function closeDedicatedView(fromPopState = false) {
       if (localStorage.getItem('dominio_assessment_completed') !== 'true') {
         alert('🔒 Para liberar o acesso aos seus treinos, você precisa primeiro preencher e enviar a Ficha de Avaliação.');
         return;
@@ -8210,17 +8345,18 @@
         if (typeof e.stopPropagation === 'function') e.stopPropagation();
         if (typeof e.preventDefault === 'function') e.preventDefault();
       }
-      // Se estava na tela de timers e veio de um treino de dia ativo, retorna diretamente para o treino!
-      if (document.body.classList.contains('in-view-timers') && lastActiveDayTab) {
+      if (typeof popAppHistoryState === 'function' && popAppHistoryState()) {
+        return;
+      }
+      if (document.body.classList.contains('in-view-timers') && typeof lastActiveDayTab !== 'undefined' && lastActiveDayTab) {
         openDayWorkout(lastActiveDayTab);
         return;
       }
-      // Se estava em uma subpágina de Evolução, volta para a Grade de Evolução
       if (document.body.classList.contains('in-view-evolucao') && typeof isAnyEvolViewOpen === 'function' && isAnyEvolViewOpen()) {
-        closeEvolucaoView();
+        closeEvolucaoView(true);
         return;
       }
-      closeDedicatedView();
+      closeDedicatedView(true);
     }
 
     function updateDedicatedTopBarGate(isUnlocked) {
@@ -9362,7 +9498,8 @@
       document.getElementById('videoModal').classList.add('active');
     }
 
-    function closeVideoModal() {
+    function closeVideoModal(fromPopState = false) {
+      if (!fromPopState && typeof popAppHistoryState === 'function' && popAppHistoryState('modal')) return;
       document.getElementById('videoModal').classList.remove('active');
       const iframe = document.getElementById('videoIframe');
       const player = document.getElementById('videoPlayer');
@@ -9413,7 +9550,8 @@
       }
     };
 
-    window.closeNotificationsModal = function(e, force = false) {
+    window.closeNotificationsModal = function(e, force = false, fromPopState = false) {
+      if (!fromPopState && typeof popAppHistoryState === 'function' && popAppHistoryState('modal')) return;
       if (!force && (Date.now() - notifModalOpenTime < 650)) return;
       if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
       const modal = document.getElementById('notificationsModal');
@@ -9477,7 +9615,8 @@
       if (modal) modal.classList.add('active');
     };
 
-    window.closeSendVideoModal = function() {
+    window.closeSendVideoModal = function(fromPopState = false) {
+      if (!fromPopState && typeof popAppHistoryState === 'function' && popAppHistoryState('modal')) return;
       const modal = document.getElementById('sendVideoModal');
       if (modal) modal.classList.remove('active');
     };
@@ -9604,6 +9743,7 @@
 
     // Navegação de Subpáginas em Análises (HABILIDADES vs EXECUÇÃO DE EXERCÍCIOS)
     function openAnalysisCategoryView(category) {
+      if (typeof pushAppHistoryState === 'function') pushAppHistoryState('analysisCategory', { category }, 'analises-' + category);
       const hubMenu = document.getElementById('analysisHubMenu');
       const heroCard = document.querySelector('.analysis-hero-card');
       const uploadBanner = document.querySelector('.analysis-upload-banner');
@@ -9628,7 +9768,7 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function closeAnalysisCategoryView() {
+    function closeAnalysisCategoryView(fromPopState = false) {
       const hubMenu = document.getElementById('analysisHubMenu');
       const heroCard = document.querySelector('.analysis-hero-card');
       const uploadBanner = document.querySelector('.analysis-upload-banner');
@@ -9655,6 +9795,7 @@
 
     // Acessar os Cards de uma Subcategoria de Habilidades
     window.openSkillCategoryCards = function(type) {
+      if (typeof pushAppHistoryState === 'function') pushAppHistoryState('skillsCards', { type }, 'skills-' + type);
       const skillsMenu = document.getElementById('skillsCategoriesMenu');
       const skillsCards = document.getElementById('skillsCardsView');
       if (skillsMenu) skillsMenu.style.display = 'none';
@@ -9664,7 +9805,8 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    window.backToSkillsCategoryMenu = function() {
+    window.backToSkillsCategoryMenu = function(fromPopState = false) {
+      if (!fromPopState && typeof popAppHistoryState === 'function' && popAppHistoryState('skillsCards')) return;
       const skillsMenu = document.getElementById('skillsCategoriesMenu');
       const skillsCards = document.getElementById('skillsCardsView');
       if (skillsCards) skillsCards.style.display = 'none';
@@ -9765,7 +9907,8 @@
       modal.classList.add('active');
     };
 
-    window.closeContextualHelp = function() {
+    window.closeContextualHelp = function(fromPopState = false) {
+      if (!fromPopState && typeof popAppHistoryState === 'function' && popAppHistoryState('modal')) return;
       const modal = document.getElementById('contextualHelpModal');
       if (modal) {
         modal.style.setProperty('display', 'none', 'important');
@@ -9800,7 +9943,8 @@
       }
     };
 
-    window.closeWelcomeAppModal = function() {
+    window.closeWelcomeAppModal = function(fromPopState = false) {
+      if (!fromPopState && typeof popAppHistoryState === 'function' && popAppHistoryState('modal')) return;
       const modal = document.getElementById('welcomeAppModal');
       if (modal) {
         modal.style.setProperty('display', 'none', 'important');
