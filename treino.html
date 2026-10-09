@@ -33,10 +33,10 @@
     :root {
       /* Base Preto Puro OLED */
       --bg: #000000;
-      --card-bg: #0c0c0c;
-      --card-inner: #131313;
-      --border-subtle: #1e1e1e;
-      --border-strong: #2c2c2c;
+      --card-bg: #11141a;
+      --card-inner: #11141a;
+      --border-subtle: rgba(255, 255, 255, 0.1);
+      --border-strong: rgba(255, 255, 255, 0.22);
       
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
@@ -241,13 +241,13 @@
        SISTEMA DOS PILARES (PRETO OLED + VERDE NEON HERO)
        =================================================== */
     .section-card {
-      background: var(--card-bg);
-      border-radius: var(--radius-lg);
+      background: #11141a;
+      border-radius: 14px;
       padding: 16px;
       margin-bottom: 16px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-      border: 1px solid var(--border-subtle);
-      border-left: 3.5px solid var(--brand-neon);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-left: 4px solid var(--brand-neon);
       position: relative;
     }
 
@@ -395,12 +395,21 @@
 
     /* Cards Internos de Exercício */
     .exercise-card {
-      background: var(--card-inner);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
+      background: #11141a;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
       padding: 14px 16px;
       margin-bottom: 12px;
       transition: all 0.2s ease;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+    }
+    .section-card .exercise-card {
+      background: #151922;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+    }
+    .section-card .exercise-card:hover {
+      background: #181e28;
+      border-color: rgba(255, 255, 255, 0.2);
     }
     .exercise-card:last-child { margin-bottom: 0; }
     .exercise-card:hover {
@@ -1710,7 +1719,7 @@
       border: 1px solid rgba(255, 255, 255, 0.16);
       color: #ffffff;
       padding: 8px 14px;
-      border-radius: 20px;
+      border-radius: 10px;
       font-size: 0.88rem;
       font-weight: 800;
       letter-spacing: 0.01em;
@@ -4288,7 +4297,7 @@
               <span class="day-today-badge" id="todayBadge-terca" style="display:none;">Hoje</span>
             </div>
             <div class="day-focus-desc">CrossFit</div>
-            <div class="day-meta-pill">📍 Box CrossFit • ⏱️ Concluído</div>
+            <div class="day-meta-pill">📍 Box CrossFit • ⏱️ 50 min</div>
           </div>
           <div class="day-card-right">
             <div class="day-status-pill status-done" id="statusPill-terca">
@@ -4305,7 +4314,7 @@
               <span class="day-today-badge" id="todayBadge-quarta" style="display:none;">Hoje</span>
             </div>
             <div class="day-focus-desc">CrossFit</div>
-            <div class="day-meta-pill">📍 Box CrossFit • ⏱️ Concluído</div>
+            <div class="day-meta-pill">📍 Box CrossFit • ⏱️ 50 min</div>
           </div>
           <div class="day-card-right">
             <div class="day-status-pill status-done" id="statusPill-quarta">
@@ -7798,7 +7807,7 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '119';
+    const APP_BUILD_VERSION = '120';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
@@ -7957,7 +7966,7 @@
       const dayNames = {
         'segunda': 'Segunda-feira (Box CrossFit)',
         'terca': 'Terça-feira (Box e Autoregulação)',
-        'quarta': 'Quarta-feira (Box CrossFit • Concluído)',
+        'quarta': 'Quarta-feira (Box CrossFit)',
         'quinta': 'Quinta-feira (Handstand e Contemporâneo)',
         'sexta': 'Sexta-feira (Argolas e Portagem)'
       };
@@ -9877,7 +9886,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=119').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=120').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
