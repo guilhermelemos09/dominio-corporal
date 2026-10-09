@@ -6073,7 +6073,7 @@
       <!-- BOTÃO 1: COMPOSIÇÃO CORPORAL (HOMEM VITRUVIANO DA VINCI NEON LARANJA) -->
       <div class="evol-app-btn" onclick="openEvolucaoView('composicao')">
         <div class="evol-app-icon-wrap wrap-composicao">
-          <img src="Midia/icon_evol_composicao.png" alt="Composição Corporal" class="evol-app-icon-img">
+          <img src="Midia/icon_evol_composicao.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='../Midia/icon_evol_composicao.png';}" alt="Composição Corporal" class="evol-app-icon-img">
         </div>
         <div class="evol-app-btn-title">Composição Corporal</div>
         <div class="evol-app-btn-sub">Métricas e Fotos</div>
@@ -6082,7 +6082,7 @@
       <!-- BOTÃO 2: PROGRESSÃO DE TÉCNICA (FERRAMENTAS CRUZADAS NEON AZUL) -->
       <div class="evol-app-btn" onclick="openEvolucaoView('tecnica')">
         <div class="evol-app-icon-wrap wrap-tecnica">
-          <img src="Midia/icon_evol_tecnica.png" alt="Progressão de Técnica" class="evol-app-icon-img">
+          <img src="Midia/icon_evol_tecnica.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='../Midia/icon_evol_tecnica.png';}" alt="Progressão de Técnica" class="evol-app-icon-img">
         </div>
         <div class="evol-app-btn-title">Progressão de Técnica</div>
         <div class="evol-app-btn-sub">Marcos e Habilidades</div>
@@ -6091,7 +6091,7 @@
       <!-- BOTÃO 3: CENTRAL DE RECORDES (MUQUE / BÍCEPS NEON VERMELHO) -->
       <div class="evol-app-btn" onclick="openEvolucaoView('recordes')">
         <div class="evol-app-icon-wrap wrap-recordes">
-          <img src="Midia/icon_evol_recordes.png" alt="Central de Recordes" class="evol-app-icon-img">
+          <img src="Midia/icon_evol_recordes.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='../Midia/icon_evol_recordes.png';}" alt="Central de Recordes" class="evol-app-icon-img">
         </div>
         <div class="evol-app-btn-title">Central de Recordes</div>
         <div class="evol-app-btn-sub">1RM, PRs e Tempos</div>
@@ -6100,7 +6100,7 @@
       <!-- BOTÃO 4: RELATÓRIO DO TREINAMENTO (GRÁFICO ANALYTICS NEON ROXO) -->
       <div class="evol-app-btn" onclick="openEvolucaoView('relatorio')">
         <div class="evol-app-icon-wrap wrap-relatorio">
-          <img src="Midia/icon_evol_relatorio.png" alt="Relatório do Treinamento" class="evol-app-icon-img">
+          <img src="Midia/icon_evol_relatorio.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='../Midia/icon_evol_relatorio.png';}" alt="Relatório do Treinamento" class="evol-app-icon-img">
         </div>
         <div class="evol-app-btn-title">Relatório do Treinamento</div>
         <div class="evol-app-btn-sub">Volume e Consistência</div>
@@ -7010,12 +7010,6 @@
       if (localStorage.getItem('dominio_helenice_dominio_assessment_completed') !== 'true') {
         const modal = document.getElementById('intakeGateModal');
         if (modal) modal.classList.add('active');
-        if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'bioModal' }, 'bio');
-        if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'welcomeAppModal' }, 'boas-vindas');
-      if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'contextualHelpModal' }, 'ajuda');
-        if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'notificationsModal' }, 'notificacoes');
-        if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'sendVideoModal' }, 'enviar-video');
-      if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'videoModal' }, 'video');
         return;
       }
       lastActiveDayTab = dayId;
