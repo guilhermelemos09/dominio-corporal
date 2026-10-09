@@ -3638,6 +3638,29 @@
     }
 
     /* Metadados da Sessão: Local e Duração */
+    
+    /* Botão Popup ORIENTAÇÕES (Inline com Local e Duração) */
+    .btn-orientacoes-popup {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 255, 136, 0.08);
+      border: 1px solid rgba(0, 255, 136, 0.35);
+      color: var(--brand-neon);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      line-height: 1;
+    }
+    .btn-orientacoes-popup:hover {
+      background: rgba(0, 255, 136, 0.16);
+      border-color: var(--brand-neon);
+      transform: translateY(-1px);
+    }
     .session-overall-meta {
       display: flex;
       align-items: center;
@@ -10328,7 +10351,6 @@
       const okBtn = overlay.querySelector('.tip-popover-ok');
 
       tipPopoverOpenTime = Date.now();
-      if (titleEl) titleEl.textContent = title;
       
       if (contentEl) {
         const text = contentText || '';
@@ -10394,6 +10416,18 @@
       }
 
       if (tagEl) { tagEl.textContent = tagText; tagEl.style.color = tagColor; }
+
+      if (titleEl) {
+        const cleanTitle = (title || '').trim();
+        const cleanTag = (tagText || '').replace(/^[^\w\sÀ-Úa-z0-9]+\s*/, '').trim();
+        if (!cleanTitle || cleanTitle.toUpperCase() === 'ORIENTAÇÕES' || cleanTitle.toUpperCase() === cleanTag.toUpperCase()) {
+          titleEl.style.display = 'none';
+          titleEl.textContent = '';
+        } else {
+          titleEl.style.display = 'block';
+          titleEl.textContent = cleanTitle;
+        }
+      }
       if (cardEl) { cardEl.style.borderColor = cardBorder; }
       if (okBtn) { okBtn.style.color = tagColor; okBtn.style.background = btnBg; okBtn.style.borderColor = btnBorder; }
 

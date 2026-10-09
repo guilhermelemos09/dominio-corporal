@@ -5539,17 +5539,20 @@ Segue o vídeo anexo para sua análise!`;
       const cardEl = document.querySelector('.tip-popover-card');
       const okBtn = document.querySelector('.tip-popover-ok');
 
-      if (overlay && titleEl && contentEl) {
-        titleEl.textContent = title;
-        contentEl.textContent = contentText;
-
+      if (overlay && contentEl) {
         let tagText = '💡 DICA';
         let tagColor = '#facc15';
         let cardBorder = 'rgba(250, 204, 21, 0.35)';
         let btnBg = 'rgba(250, 204, 21, 0.15)';
         let btnBorder = 'rgba(250, 204, 21, 0.4)';
 
-        if (category.includes('Execução') || category.includes('🔧')) {
+        if (category.includes('ORIENTAÇÕES') || category.includes('Orientações')) {
+          tagText = '🛡️ ORIENTAÇÕES';
+          tagColor = 'var(--brand-neon)';
+          cardBorder = 'rgba(0, 255, 136, 0.45)';
+          btnBg = 'rgba(0, 255, 136, 0.18)';
+          btnBorder = 'rgba(0, 255, 136, 0.45)';
+        } else if (category.includes('Execução') || category.includes('Instruções') || category.includes('🔧')) {
           tagText = '🔧 EXECUÇÃO';
           tagColor = '#38bdf8';
           cardBorder = 'rgba(56, 189, 248, 0.35)';
@@ -5567,6 +5570,21 @@ Segue o vídeo anexo para sua análise!`;
           tagEl.textContent = tagText;
           tagEl.style.color = tagColor;
         }
+
+        if (titleEl) {
+          const cleanTitle = (title || '').trim();
+          const cleanTag = (tagText || '').replace(/^[^\w\sÀ-Úa-z0-9]+\s*/, '').trim();
+          if (!cleanTitle || cleanTitle.toUpperCase() === 'ORIENTAÇÕES' || cleanTitle.toUpperCase() === cleanTag.toUpperCase()) {
+            titleEl.style.display = 'none';
+            titleEl.textContent = '';
+          } else {
+            titleEl.style.display = 'block';
+            titleEl.textContent = cleanTitle;
+          }
+        }
+
+        contentEl.textContent = contentText;
+
         if (cardEl) {
           cardEl.style.borderColor = cardBorder;
         }

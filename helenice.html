@@ -4383,18 +4383,14 @@
 
   <!-- ==================== TAB ATIVA: SEGUNDA ==================== -->
   <div id="tab-segunda" class="tab-content">
-    <!-- LOCAL E DURAÇÃO DA SESSÃO -->
+    <!-- LOCAL, DURAÇÃO E ORIENTAÇÕES DA SESSÃO -->
     <div class="session-overall-meta">
-      <span class="meta-item">📍 Academia do Prédio (SP)</span>
-      <span class="meta-item">⏳ ~50 a 60 min</span>
-    </div>
-
-    <!-- BOTÃO POPUP: ORIENTAÇÕES -->
-    <div style="margin: 8px 0 16px 0;">
       <button type="button" class="btn-orientacoes-popup" onclick="openOrientacoesTreino('segunda')">
         <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
         <span>ORIENTAÇÕES</span>
       </button>
+      <span class="meta-item">📍 Academia do Prédio (SP)</span>
+      <span class="meta-item">⏳ ~50 a 60 min</span>
     </div>
 
     <!-- ==================== SEÇÃO 1: ATIVAÇÃO ==================== -->
@@ -4846,18 +4842,14 @@
 
     <!-- ==================== TAB ATIVA: QUARTA ==================== -->
   <div id="tab-quarta" class="tab-content">
-    <!-- LOCAL E DURAÇÃO DA SESSÃO -->
+    <!-- LOCAL, DURAÇÃO E ORIENTAÇÕES DA SESSÃO -->
     <div class="session-overall-meta">
-      <span class="meta-item">📍 Academia do Prédio (SP)</span>
-      <span class="meta-item">⏳ ~50 a 60 min</span>
-    </div>
-
-    <!-- BOTÃO POPUP: ORIENTAÇÕES -->
-    <div style="margin: 8px 0 16px 0;">
       <button type="button" class="btn-orientacoes-popup" onclick="openOrientacoesTreino('quarta')">
         <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
         <span>ORIENTAÇÕES</span>
       </button>
+      <span class="meta-item">📍 Academia do Prédio (SP)</span>
+      <span class="meta-item">⏳ ~50 a 60 min</span>
     </div>
 
     <!-- ==================== SEÇÃO 1: ATIVAÇÃO ==================== -->
@@ -8520,7 +8512,7 @@
         '• <u><strong style="color:var(--brand-neon);">Zero Impacto nos Pés:</strong></u> Aquecimento cardiovascular 100% na bike para proteger a sola dos pés e lubrificar os joelhos.',
         '• <u><strong style="color:var(--brand-neon);">Pausas Confortáveis:</strong></u> Descanse de 60 a 90 segundos entre as séries para recuperar plenamente o fôlego.'
       ].join('\n');
-      openTip('ORIENTAÇÕES', conteudo, '🛡️ ORIENTAÇÕES');
+      openTip('', conteudo, '🛡️ ORIENTAÇÕES');
     };
 
     window.closeSendVideoModal = function(fromPopState = false) {
@@ -9096,7 +9088,6 @@
       const okBtn = overlay.querySelector('.tip-popover-ok');
 
       tipPopoverOpenTime = Date.now();
-      if (titleEl) titleEl.textContent = title;
       
       if (contentEl) {
         const text = contentText || '';
@@ -9156,6 +9147,18 @@
       }
 
       if (tagEl) { tagEl.textContent = tagText; tagEl.style.color = tagColor; }
+
+      if (titleEl) {
+        const cleanTitle = (title || '').trim();
+        const cleanTag = (tagText || '').replace(/^[^\w\sÀ-Úa-z0-9]+\s*/, '').trim();
+        if (!cleanTitle || cleanTitle.toUpperCase() === 'ORIENTAÇÕES' || cleanTitle.toUpperCase() === cleanTag.toUpperCase()) {
+          titleEl.style.display = 'none';
+          titleEl.textContent = '';
+        } else {
+          titleEl.style.display = 'block';
+          titleEl.textContent = cleanTitle;
+        }
+      }
       if (cardEl) { cardEl.style.borderColor = cardBorder; }
       if (okBtn) { okBtn.style.color = tagColor; okBtn.style.background = btnBg; okBtn.style.borderColor = btnBorder; }
 
