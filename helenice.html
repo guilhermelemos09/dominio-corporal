@@ -2544,6 +2544,66 @@
       font-size: 0.78rem;
       transition: transform 0.2s ease;
     }
+    
+    /* Ajuda Contextual nas Páginas (Link discreto sublinhado) */
+    .contextual-help-wrap {
+      text-align: center;
+      margin: 18px 0 20px 0;
+      padding: 6px 0;
+    }
+    .btn-contextual-help {
+      background: none;
+      border: none;
+      color: #94a3b8;
+      font-size: 0.78rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      padding: 6px 12px;
+      border-radius: 8px;
+    }
+    .btn-contextual-help span {
+      opacity: 0.85;
+    }
+    .btn-contextual-help u {
+      color: #38bdf8;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 500;
+    }
+    .btn-contextual-help:hover {
+      color: #ffffff;
+      background: rgba(56, 189, 248, 0.08);
+    }
+    .btn-contextual-help:hover u {
+      color: var(--brand-neon, #00ff88);
+    }
+    .help-tab-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #94a3b8;
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .help-tab-btn.active {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: #38bdf8;
+      color: #38bdf8;
+    }
+    .help-tab-btn:hover:not(.active) {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+    }
+
     .whatsapp-support-card:hover .wpp-arrow {
       transform: translate(2px, -2px);
     }
@@ -4301,25 +4361,17 @@
         </div>
       </div>
 
-      <!-- Card de Instruções de Uso do App -->
-      <div class="instructions-support-card" onclick="openAppInstructionsModal()">
-        <div class="instr-card-icon-wrap">
-          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16h-2v-2h2v2zm1.07-7.75l-.9.92C12.45 11.9 12 12.5 12 14h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
-        </div>
-        <div class="instr-card-info">
-          <div class="instr-card-title">Instruções de Uso</div>
-          <div class="instr-card-desc">Guia rápido das ferramentas do app.</div>
-          <div class="instr-card-btn-inline">
-            <span>Ver Instruções</span>
-            <span class="instr-arrow">↗</span>
-          </div>
-        </div>
+      <!-- Ajuda Contextual dos Treinos -->
+      <div class="contextual-help-wrap" style="margin-top: 14px; margin-bottom: 24px;">
+        <button type="button" class="btn-contextual-help" onclick="openContextualHelp('treinos')">
+          <span>precisa de ajuda?</span> <u>acesse as instruções</u>
+        </button>
       </div>
     </div>
 
 
 
-    <!-- ==================== TAB ATIVA: SEGUNDA ==================== -->
+  <!-- ==================== TAB ATIVA: SEGUNDA ==================== -->
   <div id="tab-segunda" class="tab-content">
     <!-- LOCAL E DURAÇÃO DA SESSÃO -->
     <div class="session-overall-meta">
@@ -4357,27 +4409,15 @@
       <div class="exercise-card">
         <div class="ex-title">
           <span>BIKE ERGOMÉTRICA</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Bike Ergométrica (Aquecimento Suave)', '<b>Execução:</b> Suba na bike e ajuste a altura do banco até a linha do ossinho do seu quadril. Pedale em ritmo suave e contínuo (aquecimento), numa velocidade em que você consiga conversar sem ficar sem ar. Mantenha os pés bem apoiados nos pedais e o corpo relaxado, sem apoiar todo o peso nos punhos.<br><br><b>Cuidados:</b> Não use carga pesada no pedal para não forçar as articulações dos joelhos. Mantenha a respiração sempre livre e fluida, sem prender o ar.<br><br><b>Base científica:</b> A bicicleta elimina as forças de reação do solo que agridem o calcâneo e a fáscia plantar na esteira. O movimento cíclico sem impacto promove a difusão do líquido sinovial nas articulações do joelho e quadril, reduzindo o atrito em articulações com osteoartrite.', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
+          </button>
         </div>
         <div class="ex-volume-sets-row">
           <div class="ex-volume-badge">1 SÉRIE • 6-8 MIN</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Aquecimento 6-8 min</div>
           </div>
-        </div>
-        <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Bike Ergométrica', '• Não use carga pesada no pedal para não forçar as articulações dos joelhos.
-• Mantenha a respiração sempre livre e fluida, sem prender o ar.
-
-Base científica:
-• Pressão de Contato Retropatelar: Cargas elevadas em cadência reduzida aumentam o estresse de cisalhamento patelofemoral, contraindicado para osteoartrite.
-• Estabilidade Pressórica: A respiração ritmada evita aumentos agudos da pressão arterial sistólica em alunas hipertensas.', '🛡️ Cuidados')">🛡️ Cuidados</button>
-          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Bike Ergométrica', '• Suba na bike e ajuste a altura do banco até a linha do ossinho do seu quadril.
-• Pedale em ritmo suave e contínuo, numa velocidade em que você consiga conversar sem ficar sem ar.
-• Mantenha o pé todo apoiado no pedal e o corpo relaxado, sem apoiar todo o peso nos punhos.
-
-Base científica:
-• Cadeia Cinética Fechada e Ausência de Impacto: A bicicleta elimina as forças de reação do solo (GRF) que agridem o calcâneo e a fáscia plantar na esteira.
-• Lubrificação da Cartilagem Articular: O movimento cíclico sem impacto promove a difusão do líquido sinovial nas articulações do joelho e quadril, reduzindo o atrito em articulações com osteoartrite.', '🔧 Instruções')">🔧 Instruções</button>
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Bike Ergométrica')">
@@ -4402,8 +4442,8 @@ Base científica:
       <div class="exercise-card">
         <div class="ex-title">
           <span>GATO E CAMELO (CAT-COW)</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('Gato e Camelo (Cat-Cow)', '<b>Na prática:</b> Movimento lento e suave em quatro apoios, alternando o arqueamento das costas para cima e para baixo no ritmo da respiração.<br><br><b>Base científica:</b> Mobilização espinhal multissegmentar, promovendo descompressão discal por embebição hidrostática e redução da rigidez miofascial paravertebral na fibromialgia.', 'https://youtu.be/LIVJZZyZ2qM')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Gato e Camelo (Cat-Cow)', '<b>Execução:</b> Movimento lento e suave em quatro apoios, alternando o arqueamento das costas para cima e para baixo no ritmo da respiração. Puxe o ar devagar pelo nariz enquanto empina suavemente o bumbum e abre o peito olhando para a frente. Solte todo o ar pela boca curvando a coluna para o teto, como um gato arrepiado, soltando a cabeça para baixo.<br><br><b>Cuidados:</b> Faça o movimento com calma e sem dar trancos na coluna ou no pescoço. Se sentir qualquer desconforto nos joelhos apoiados no chão, dobre o colchonete ou coloque uma almofada por baixo.<br><br><b>Base científica:</b> Mobilização espinhal multissegmentar, promovendo descompressão discal por embebição hidrostática e estimulação de mecanorreceptores e proprioceptores da coluna vertebral, aliviando o tônus muscular defensivo comum na fibromialgia.', 'https://youtu.be/LIVJZZyZ2qM')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -4412,19 +4452,6 @@ Base científica:
             <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
           </div>
-        </div>
-        <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Gato e Camelo', '• Faça o movimento com calma e sem dar trancos na coluna ou no pescoço.
-• Se sentir qualquer desconforto nos joelhos apoiados no chão, dobre o colchonete ou coloque uma almofada por baixo.
-
-Base científica:
-• Proteção Articular Facetária: Evitar extremos articulares bruscos previne compressão das facetas articulares em vértebras com osteoartrite.', '🛡️ Cuidados')">🛡️ Cuidados</button>
-          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Gato e Camelo', '• Fique de quatro apoios no colchonete com as mãos alinhadas aos ombros e joelhos alinhados ao quadril.
-• Puxe o ar devagar pelo nariz enquanto empina suavemente o bumbum e abre o peito olhando para a frente.
-• Solte todo o ar pela boca curvando a coluna para o teto, como um gato arrepiado, soltando a cabeça para baixo.
-
-Base científica:
-• Mobilização Articular Segmentar: A alternância contínua entre flexão e extensão fisiológicas estimula os mecanorreceptores e proprioceptores da coluna vertebral, aliviando o tônus muscular defensivo comum na fibromialgia.', '🔧 Instruções')">🔧 Instruções</button>
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Gato e Camelo (Cat-Cow)')">
@@ -4449,8 +4476,8 @@ Base científica:
       <div class="exercise-card">
         <div class="ex-title">
           <span>PONTE DE GLÚTEOS</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('Ponte de Glúteos', '<b>Na prática:</b> Deitada de barriga para cima com joelhos dobrados, aperte o bumbum e suba o quadril até alinhar o corpo, segurando 2 segundos no alto.<br><br><b>Base científica:</b> Ativação isolada e potente do glúteo máximo e estabilização lombopélvica, sem compressão axial sobre as articulações da coluna vertebral.', 'https://www.youtube.com/shorts/RrU4zx4ysnI')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Ponte de Glúteos', '<b>Execução:</b> Deitada de barriga para cima com joelhos dobrados e pés firmes no chão, aperte o bumbum e suba o quadril até alinhar o corpo, segurando 2 segundos no alto a cada repetição antes de descer com controle.<br><br><b>Cuidados:</b> A força deve vir exclusivamente do bumbum e calcanhares; não force a lombar nem arqueie as costas em excesso no topo.<br><br><b>Base científica:</b> Ativação isolada e potente do glúteo máximo e estabilização lombopélvica, sem compressão axial sobre as articulações da coluna vertebral e sem impacto nos joelhos.', 'https://www.youtube.com/shorts/RrU4zx4ysnI')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -4459,21 +4486,6 @@ Base científica:
             <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
           </div>
-        </div>
-        <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Ponte de Glúteos', '• Não suba o quadril além do alinhamento natural do corpo para não arquear a lombar.
-• Solte o ar ao subir o quadril e inspire ao retornar ao chão. Nunca prenda a respiração.
-
-Base científica:
-• Prevenção de Hiperextensão Lombar: Manter a pelve estável protege as vértebras L5-S1.
-• Respiração Anti-Valsalva: A expiração ativa na fase concêntrica impede picos transitórios na pressão arterial.', '🛡️ Cuidados')">🛡️ Cuidados</button>
-          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Ponte de Glúteos', '• Deite-se de barriga para cima, dobre os joelhos e apoie a sola dos pés firme no chão, na largura dos quadris.
-• Aperte bem o bumbum e suba o quadril até formar uma linha reta entre as coxas e o peito.
-• Segure 2 segundos no alto com o bumbum bem firme e desça devagar até o chão.
-
-Base científica:
-• Recrutamento do Glúteo Máximo: A extensão de quadril ativa a musculatura extensora primária sem aplicar carga gravitacional vertical sobre os discos intervertebrais.
-• Estabilidade da Pelve: O ganho de força glútea neutraliza o estresse de cisalhamento na articulação sacroilíaca.', '🔧 Instruções')">🔧 Instruções</button>
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Ponte de Glúteos')">
@@ -4511,8 +4523,8 @@ Base científica:
       <div class="exercise-card">
         <div class="ex-title">
           <span>SENTA E LEVANTA (BOX SQUAT)</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('Senta e Levanta (Box Squat)', '<b>Na prática:</b> Em frente ao banco ou cadeira, sente controlando a descida e levante empurrando o chão pelos calcanhares com o peito aberto.<br><br><b>Base científica:</b> Recrutamento funcional de membros inferiores com ativação de GLUT-4 para sensibilidade à insulina e preservação da autonomia motora.', 'https://www.youtube.com/shorts/49_20NXycwE')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Senta e Levanta (Box Squat)', '<b>Execução:</b> Em frente ao banco ou cadeira firme, com os pés afastados na largura do quadril, desça com o peito aberto e tronco firme até tocar o assento suavemente e levante empurrando o chão com força total pelos calcanhares.<br><br><b>Cuidados:</b> Não desabe no banco ao sentar nem deixe os joelhos fecharem para dentro ao levantar (mantenha os joelhos alinhados com a ponta dos pés).<br><br><b>Base científica:</b> Recrutamento funcional de membros inferiores com controle biomecânico de profundidade, ativação de transportadores GLUT-4 para sensibilidade à insulina e fortalecimento protetor de quadríceps para osteoartrite.', 'https://www.youtube.com/shorts/49_20NXycwE')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -4522,21 +4534,6 @@ Base científica:
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
           </div>
-        </div>
-        <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Senta e Levanta', '• Mantenha os joelhos sempre apontando na mesma direção das pontas dos pés, sem deixar os joelhos encostarem um no outro.
-• Solte o ar soprando pela boca durante toda a subida!
-
-Base científica:
-• Prevenção do Valgo Dinâmico: Manter o alinhamento fêmoro-tibial evita a sobrecarga assimétrica nos meniscos e na cartilagem patelar com osteoartrite.
-• Respiração Contínua: Protege o sistema cardiovascular contra picos pressóricos repentinos.', '🛡️ Cuidados')">🛡️ Cuidados</button>
-          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Senta e Levanta', '• Posicione-se de costas para uma cadeira ou banco firme, com os pés afastados na largura dos ombros.
-• Dobre os joelhos e empurre o quadril para trás como se fosse sentar, mantendo o peito erguido.
-• Toque suavemente o bumbum no banco sem relaxar o corpo e suba de volta com firmeza empurrando os calcanhares no chão.
-
-Base científica:
-• Translocação de GLUT-4 por Via Muscular: O trabalho de grandes grupos musculares (quadríceps e glúteos) estimula a captação de glicose plasmática independente de insulina, auxiliando no controle do pré-diabetes.
-• Padrão Motor de Autonomia: Fortalece o reflexo extensor indispensável para sentar, levantar e manter o equilíbrio na longevidade.', '🔧 Instruções')">🔧 Instruções</button>
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Senta e Levanta (Box Squat)')">
@@ -4561,8 +4558,8 @@ Base científica:
       <div class="exercise-card">
         <div class="ex-title">
           <span>REMADA APOIADA NO BANCO</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('Remada Apoiada no Banco', '<b>Na prática:</b> Com o peito apoiado no banco inclinado e halteres leves, puxe os cotovelos para trás trazendo os pesos perto da cintura e apertando as escápulas.<br><br><b>Base científica:</b> Fortalecimento dos retratores escapulares e dorsais com descompressão axial completa da coluna lombar pelo suporte torácico.', 'https://www.youtube.com/shorts/hfY9VAd6koc')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Remada Apoiada no Banco', '<b>Execução:</b> Com o peito apoiado no banco inclinado e halteres leves ou elástico, puxe trazendo os cotovelos para trás e aproximando as escápulas com suavidade, retornando devagar.<br><br><b>Cuidados:</b> Mantenha os ombros relaxados para baixo (longe das orelhas) durante toda a puxada; não dê trancos nem sobrecarregue o pescoço.<br><br><b>Base científica:</b> Fortalecimento de romboides e latíssimo do dorso com suporte torácico anterior, eliminando qualquer sobrecarga cisalhante na coluna lombar para alunas com dor crônica.', 'https://www.youtube.com/shorts/hfY9VAd6koc')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -4572,20 +4569,6 @@ Base científica:
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
           </div>
-        </div>
-        <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Remada Apoiada', '• Mantenha o pescoço neutro e os ombros longe das orelhas, sem encolher o pescoço durante a puxada.
-• Solte o ar ao puxar os pesinhos e inspire ao descer.
-
-Base científica:
-• Ritmo Escapuloumeral e Descompressão Cervical: Evita a ativação excessiva do músculo levantador da escápula e do trapézio superior, prevenindo dores de cabeça tensionais e cervicalgias.', '🛡️ Cuidados')">🛡️ Cuidados</button>
-          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Remada Apoiada', '• Deite o peito no encosto do banco inclinado segurando um pesinho leve em cada mão.
-• Puxe os cotovelos para trás junto às costelas, aproximando as escápulas nas costas como se quisesse espremer uma folha de papel entre elas.
-• Desça os pesos devagar e com controle até os braços ficarem estendidos.
-
-Base científica:
-• Apoio Torácico e Neutralidade Lombar: O suporte esternal do banco elimina qualquer estresse gravitacional ou compressivo na coluna lombar, permitindo trabalho dorsal isolado e 100% seguro.
-• Retração Escapular e Postura: Fortalece romboides e trapézio médio, auxiliando no alinhamento postural da coluna e aliviando a tensão da fibromialgia.', '🔧 Instruções')">🔧 Instruções</button>
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Remada Apoiada no Banco')">
@@ -4610,8 +4593,8 @@ Base científica:
       <div class="exercise-card">
         <div class="ex-title">
           <span>FLEXÃO INCLINADA NO BANCO</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('Flexão Inclinada no Banco', '<b>Na prática:</b> Mãos apoiadas no banco firme, corpo alinhado em prancha. Desça o peito até próximo ao banco e empurre de volta estendendo os braços.<br><br><b>Base científica:</b> Exercício de empurrar horizontal com carga atenuada pela inclinação, fortalecendo peitoral, deltoide anterior, tríceps e estabilização de core.', 'https://www.youtube.com/shorts/I1E6ow5CbVU')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Flexão Inclinada no Banco', '<b>Execução:</b> Mãos apoiadas no banco firme na largura dos ombros, corpo alinhado em prancha suave da cabeça aos pés. Desça o peito em direção ao banco com cotovelos a 45° e empurre de volta com firmeza.<br><br><b>Cuidados:</b> Mantenha o abdômen e glúteos acionados o tempo todo; não deixe a bacia cair nem a lombar arcar durante o movimento.<br><br><b>Base científica:</b> Recrutamento da cadeia anterior de empurrar com diminuição significativa do braço de momento da gravidade, permitindo adaptação do manguito rotador e tríceps sem impacto acromial.', 'https://www.youtube.com/shorts/I1E6ow5CbVU')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -4621,20 +4604,6 @@ Base científica:
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
           </div>
-        </div>
-        <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Flexão Inclinada', '• Não deixe a barriga ou a cintura despencarem para baixo; mantenha o corpo firme como uma tábua.
-• Aponte os cotovelos a cerca de 45 graus para trás (formando uma seta com o corpo, nunca abrindo na linha dos ombros).
-
-Base científica:
-• Proteção do Espaço Subacromial: Manter os braços a 45° evita o atrito do tendão do supraespinhal contra o acrômio, prevenindo inflamações no manguito rotador.', '🛡️ Cuidados')">🛡️ Cuidados</button>
-          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Flexão Inclinada', '• Apoie as mãos firmes na borda do banco, numa largura um pouco maior que os ombros, com o corpo reto da cabeça aos calcanhares.
-• Dobre os braços levando o peito em direção ao banco com controle.
-• Empurre o banco com força estendendo os braços de volta à posição inicial.
-
-Base científica:
-• Vantagem Mecânica no Plano Inclinado: A inclinação reduz o percentual do peso corporal suspenso em relação ao chão, permitindo a execução com amplitude anatômica perfeita e sem sobrecarga articular excessiva.
-• Coativação de Core: Exige ativação isométrica do reto abdominal e transverso do abdômen para impedir a lordose compensatória.', '🔧 Instruções')">🔧 Instruções</button>
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Flexão Inclinada no Banco')">
@@ -4659,8 +4628,8 @@ Base científica:
       <div class="exercise-card">
         <div class="ex-title">
           <span>ABDUÇÃO DE QUADRIL DEITADA</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('Abdução de Quadril Deitada', '<b>Na prática:</b> Deitada de lado no colchonete, eleve a perna de cima em linha reta com a ponta do pé para a frente, fortalecendo a lateral do quadril.<br><br><b>Base científica:</b> Fortalecimento seletivo do glúteo médio, músculo estabilizador da pelve e principal protetor biomecânico contra desalinhamentos e dores no joelho.', 'https://www.youtube.com/shorts/7HWdwvAQFuY')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Abdução de Quadril Deitada', '<b>Execução:</b> Deitada de lado no colchonete com corpo alinhado, eleve a perna de cima em direção ao teto de forma controlada, segurando 1 segundo no alto com a ponta do pé apontada para frente, e desça suavemente.<br><br><b>Cuidados:</b> Mantenha o quadril firme e alinhado; não role a bacia para trás nem balance o tronco para ajudar na subida.<br><br><b>Base científica:</b> Ativação seletiva e sem impacto articular do glúteo médio, essencial na manutenção da marcha estável e no combate ao valgismo dinâmico em quadris e joelhos com osteoartrite.', 'https://www.youtube.com/shorts/7HWdwvAQFuY')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -4671,20 +4640,6 @@ Base científica:
             <div class="set-pill" onclick="toggleSet(this)">Lado E - Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Lado E - Série 2</div>
           </div>
-        </div>
-        <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Abdução de Quadril', '• Não role a bacia ou o corpo para trás na hora de subir a perna. O tronco deve ficar firme e imóvel.
-• Faça o movimento devagar, sentindo a lateral do bumbum queimar suavemente.
-
-Base científica:
-• Isolamento do Glúteo Médio Posterior: Rolar a pelve para trás substitui a ação do glúteo pelo tensor da fáscia lata e reto femoral, anulando o objetivo de estabilização articular.', '🛡️ Cuidados')">🛡️ Cuidados</button>
-          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Abdução de Quadril', '• Deite-se de lado no colchonete, com o corpo alinhado e a cabeça apoiada confortavelmente no braço de baixo.
-• Mantenha as pernas estendidas e a ponta do pé de cima virada para a frente (não para cima).
-• Eleve a perna de cima com calma até a altura do quadril, segure 1 segundo e desça bem devagar.
-
-Base científica:
-• Estabilização do Plano Frontal: O glúteo médio é o responsável por impedir a queda da hemipelve oposta ao caminhar (neutralizando o sinal de Trendelenburg).
-• Absorção de Cargas: Um glúteo médio forte reduz o estresse compressivo sobre a articulação do joelho ao caminhar e subir escadas.', '🔧 Instruções')">🔧 Instruções</button>
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Abdução de Quadril Deitada')">
@@ -4709,8 +4664,8 @@ Base científica:
       <div class="exercise-card">
         <div class="ex-title">
           <span>PANTURRILHA EM PÉ COM APOIO</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('Panturrilha em Pé com Apoio', '<b>Na prática:</b> Em pé com as mãos apoiadas na parede para equilíbrio, suba o máximo na ponta dos pés, segure 1 segundo no topo e desça com controle.<br><br><b>Base científica:</b> Ativação da bomba muscular da panturrilha (gastrocnêmios e sóleo), acelerando o retorno venoso e prevenindo inchaço e cansaço nas pernas.', 'https://www.youtube.com/shorts/RFXfn6GxxFw')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Panturrilha em Pé com Apoio', '<b>Execução:</b> Em pé com as mãos apoiadas na parede para equilíbrio, eleve os calcanhares ficando na ponta dos pés, segure 2 segundos no ponto mais alto contraindo a panturrilha e desça lentamente até apoiar todo o calcanhar.<br><br><b>Cuidados:</b> Suba com apoio uniforme em todos os dedos do pé, sem deixar os tornozelos virarem para fora.<br><br><b>Base científica:</b> Ação da bomba muscular da panturrilha (músculos sóleo e gastrocnêmio), favorecendo o retorno venoso dos membros inferiores e auxiliando na regulação da pressão arterial sistêmica.', 'https://www.youtube.com/shorts/RFXfn6GxxFw')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -4720,20 +4675,6 @@ Base científica:
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
           </div>
-        </div>
-        <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Panturrilha em Pé', '• Distribua o peso do corpo na base do dedão do pé e do meio, sem deixar o tornozelo virar torto para fora.
-• Não dê trancos ou quiques no fundo do movimento.
-
-Base científica:
-• Mecanismo de Windlass e Arco Plantar: Apoiar na cabeça do primeiro metatarso mantém a tensão na fáscia plantar, distribuindo as forças uniformemente pelo complexo osteoarticular do pé.', '🛡️ Cuidados')">🛡️ Cuidados</button>
-          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Panturrilha em Pé', '• Em pé, apoie as mãos na parede ou numa barra firme na altura do peito para não se desequilibrar.
-• Suba o mais alto que conseguir na ponta dos pés, como se quisesse tocar o teto com a cabeça.
-• Segure 1 segundo bem no alto e desça controlando o movimento até o calcanhar encostar suavemente no chão.
-
-Base científica:
-• Ação da Bomba Vascular Gastrocnêmica: A contração da panturrilha comprime o plexo venoso profundo, ejetando sangue desoxigenado de volta ao coração e combatendo a estase venosa e inchaço comum em viagens.
-• Fortalecimento do Tornozelo: Aumenta a estabilidade ligamentar do tornozelo, prevenindo entorses e quedas.', '🔧 Instruções')">🔧 Instruções</button>
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Panturrilha em Pé com Apoio')">
@@ -4771,8 +4712,8 @@ Base científica:
       <div class="exercise-card">
         <div class="ex-title">
           <span>ALONGAMENTO DE POSTERIOR SENTADA</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('Alongamento de Posterior Sentada', '<b>Na prática:</b> Sentada no colchonete ou banco, perna estendida à frente, incline o corpo à frente a partir do quadril sentindo a parte de trás da coxa alongar sem forçar a coluna.<br><br><b>Base científica:</b> Inibição autógena dos isquiotibiais por estiramento estático moderado, reduzindo a tração na bacia e aliviando a sobrecarga na coluna lombar.', 'https://www.youtube.com/shorts/ZppZoZ-c2zU')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Alongamento de Posterior Sentada', '<b>Execução:</b> Sentada no colchonete ou banco, perna estendida à frente com calcanhar apoiado no chão. Incline o tronco suavemente para a frente a partir do quadril, mantendo o peito aberto, até sentir um alongamento agradável atrás da coxa.<br><br><b>Cuidados:</b> Não force para tentar encostar na ponta dos pés nem curve as costas; o movimento deve ser confortável e relaxante.<br><br><b>Base científica:</b> Alívio da tensão passiva nos isquiotibiais, reduzindo o estresse de tração sobre o sacro e a coluna lombar, promovendo relaxamento fascial global na fibromialgia.', 'https://www.youtube.com/shorts/ZppZoZ-c2zU')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -4783,20 +4724,6 @@ Base científica:
             <div class="set-pill" onclick="toggleSet(this)">Perna E - Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Perna E - Série 2</div>
           </div>
-        </div>
-        <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Alongamento Posterior', '• Não fique balançando ou dando puxões; o alongamento deve ser estático e calmo.
-• Não sinta dor aguda, apenas uma tração confortável e tolerável.
-
-Base científica:
-• Evitação do Reflexo de Estiramento (Fuso Neuromuscular): Trancos ativam o reflexo miotático provocando contração defensiva espástica, que intensifica as dores da fibromialgia.', '🛡️ Cuidados')">🛡️ Cuidados</button>
-          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Alongamento Posterior', '• Sente-se no colchonete ou na borda do banco com uma das pernas estendida à frente e a outra dobrada.
-• Mantenha o peito aberto e incline o corpo suavemente para a frente a partir do quadril (sem encurvar as costas).
-• Quando sentir uma sensação gostosa de puxar atrás da coxa, pare e sustente respirando fundo por 30 a 40 segundos.
-
-Base científica:
-• Estimulação dos Órgãos Tendinosos de Golgi (OTGs): O estiramento mantido sem dor aciona os OTGs, gerando relaxamento reflexo da musculatura isquiotibial e melhora da viscoelasticidade tecidual.
-• Descompressão Pélvica: A soltura dos isquiotibiais permite que a pelve recupere sua mobilidade anteroposterior natural, eliminando a tensão na fáscia toracolombar.', '🔧 Instruções')">🔧 Instruções</button>
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Alongamento de Posterior Sentada')">
@@ -4821,8 +4748,8 @@ Base científica:
       <div class="exercise-card">
         <div class="ex-title">
           <span>ALONGAMENTO DE PEITORAL NA PAREDE</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('Alongamento de Peitoral na Parede', '<b>Na prática:</b> Apoie o braço estendido na parede na altura dos ombros e gire o corpo devagar para o lado oposto, abrindo o peito e aliviando a tensão nos ombros e pescoço.<br><br><b>Base científica:</b> Abertura da fáscia clavi-peitoral e descompressão neurovascular, combatendo a postura cifótica de defesa e reduzindo a hipertonia cervical.', 'https://www.youtube.com/shorts/2alyz_gw3Go')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Alongamento de Peitoral na Parede', '<b>Execução:</b> Apoie o braço estendido ou antebraço na parede na altura dos ombros e gire suavemente o tronco no sentido oposto até sentir uma abertura agradável no peito e na frente do ombro.<br><br><b>Cuidados:</b> Não force o ombro se houver dor aguda ou pinçamento; busque apenas uma sensação gostosa de alívio e expansão.<br><br><b>Base científica:</b> Abertura torácica e desativação de encurtamentos adaptativos da musculatura peitoral menor e maior decorrentes de posturas protusas, facilitando a respiração diafragmática profunda.', 'https://www.youtube.com/shorts/2alyz_gw3Go')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -4833,20 +4760,6 @@ Base científica:
             <div class="set-pill" onclick="toggleSet(this)">Braço E - Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Braço E - Série 2</div>
           </div>
-        </div>
-        <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Alongamento de Peitoral', '• Não gire o corpo com força excessiva; o peito deve abrir suavemente.
-• Mantenha o ombro baixo e relaxado, longe da orelha.
-
-Base científica:
-• Proteção da Cápsula Glenoumeral Anterior: O estiramento deve incidir sobre as fibras musculares do peitoral, sem tensionar excessivamente os ligamentos glenoumerais anteriores.', '🛡️ Cuidados')">🛡️ Cuidados</button>
-          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Alongamento de Peitoral', '• Fique de pé ao lado de uma parede e apoie a palma da mão e o braço estendido na parede na altura do ombro.
-• Gire o tronco lentamente para o lado oposto até sentir o peito e a frente do ombro abrirem.
-• Sustente a posição com calma por 30 segundos, respirando fundo, e depois repita no outro braço.
-
-Base científica:
-• Abertura do Canal Toracoacromial: O alongamento dos feixes clavicular e esternal do peitoral maior reduz a tração anterior do úmero, restaurando o alinhamento da cabeça umeral na fossa glenoide.
-• Redução da Tensão Cervicobraquial: Alivia o encurtamento do peitoral menor, prevenindo compressões do feixe vasculonervoso axilar comuns em situações de estresse e fibromialgia.', '🔧 Instruções')">🔧 Instruções</button>
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Alongamento de Peitoral na Parede')">
@@ -4871,8 +4784,8 @@ Base científica:
       <div class="exercise-card">
         <div class="ex-title">
           <span>POSIÇÃO DA CRIANÇA (CHILD'S POSE)</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('Posição da Criança (Child\'s Pose)', '<b>Na prática:</b> Ajoelhada no colchonete, sente sobre os calcanhares, estique os braços à frente no chão e apoie a testa, respirando profundamente para relaxar o corpo e a mente.<br><br><b>Base científica:</b> Descompressão axial gravitacional completa da coluna lombar e estimulação parassimpática vagal, regulando a pressão arterial e aliviando dores difusas da fibromialgia.', 'https://www.youtube.com/shorts/9Mk_tX_HbiM')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Posição da Criança (Child\'s Pose)', '<b>Execução:</b> De joelhos no colchonete, sente sobre os calcanhares e estenda os braços à frente no solo, repousando a testa no chão e respirando profundamente de forma lenta e compassada.<br><br><b>Cuidados:</b> Se sentir incômodo nos joelhos, afaste-os um pouco mais ou posicione uma almofada sob o quadril ou peito.<br><br><b>Base científica:</b> Descompressão axial suave de toda a cadeia paravertebral e estímulo do tônus parassimpático, diminuindo os níveis circulantes de cortisol e promovendo modulação central da dor em portadoras de fibromialgia.', 'https://www.youtube.com/shorts/9Mk_tX_HbiM')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -4880,20 +4793,6 @@ Base científica:
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Relaxamento 2 min</div>
           </div>
-        </div>
-        <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Posição da Criança', '• Se sentir desconforto nos joelhos ao dobrar muito, coloque uma almofada ou toalha dobrada sob o bumbum ou entre as pernas para não dobrar tanto o joelho.
-• Permaneça na posição respirando sem pressa por 2 minutos.
-
-Base científica:
-• Adaptação Biomecânica para Osteoartrite de Joelho: Limitar o ângulo de flexão patelofemoral sob descarga de peso evita picos de pressão intra-articular no compartimento posterior do joelho.', '🛡️ Cuidados')">🛡️ Cuidados</button>
-          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Posição da Criança', '• Ajoelhe-se no colchonete com os joelhos afastados, sente o quadril sobre os calcanhares e caminhe com as mãos à frente no chão até esticar os braços.
-• Apoie a testa no colchonete ou numa almofada confortável.
-• Feche os olhos e respire fundo: puxe o ar expandindo a barriga e as costelas, e solte todo o ar bem devagar, sentindo as costas e o quadril relaxarem.
-
-Base científica:
-• Ativação Parassimpática via Nervo Vago: A postura de relaxamento somada à respiração diafragmática lenta ativa o sistema nervoso autônomo parassimpático, baixando os níveis de cortisol sérico, estabilizando a pressão arterial sistólica e diminuindo a sensibilização central de dor da fibromialgia.
-• Descompressão Intervertebral Passiva: A flexão fisiológica sem carga abre os forames de conjugação intervertebrais, aliviando a compressão sobre as raízes nervosas lombares.', '🔧 Instruções')">🔧 Instruções</button>
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Posição da Criança (Child\'s Pose)')">
@@ -5093,27 +4992,15 @@ Base científica:
       <div class="exercise-card">
         <div class="ex-title">
           <span>BIKE ERGOMÉTRICA</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Bike Ergométrica (Aquecimento Suave)', '<b>Execução:</b> Suba na bike e ajuste a altura do banco até a linha do ossinho do seu quadril. Pedale em ritmo suave e contínuo (aquecimento), numa velocidade em que você consiga conversar sem ficar sem ar. Mantenha os pés bem apoiados nos pedais e o corpo relaxado, sem apoiar todo o peso nos punhos.<br><br><b>Cuidados:</b> Não use carga pesada no pedal para não forçar as articulações dos joelhos. Mantenha a respiração sempre livre e fluida, sem prender o ar.<br><br><b>Base científica:</b> A bicicleta elimina as forças de reação do solo que agridem o calcâneo e a fáscia plantar na esteira. O movimento cíclico sem impacto promove a difusão do líquido sinovial nas articulações do joelho e quadril, reduzindo o atrito em articulações com osteoartrite.', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
+          </button>
         </div>
         <div class="ex-volume-sets-row">
           <div class="ex-volume-badge">1 SÉRIE • 6-8 MIN</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Aquecimento 6-8 min</div>
           </div>
-        </div>
-        <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Bike Ergométrica', '• Não use carga pesada no pedal para não forçar as articulações dos joelhos.
-• Mantenha a respiração sempre livre e fluida, sem prender o ar.
-
-Base científica:
-• Pressão de Contato Retropatelar: Cargas elevadas em cadência reduzida aumentam o estresse de cisalhamento patelofemoral, contraindicado para osteoartrite.
-• Estabilidade Pressórica: A respiração ritmada evita aumentos agudos da pressão arterial sistólica em alunas hipertensas.', '🛡️ Cuidados')">🛡️ Cuidados</button>
-          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Bike Ergométrica', '• Suba na bike e ajuste a altura do banco até a linha do ossinho do seu quadril.
-• Pedale em ritmo suave e contínuo, numa velocidade em que você consiga conversar sem ficar sem ar.
-• Mantenha o pé todo apoiado no pedal e o corpo relaxado, sem apoiar todo o peso nos punhos.
-
-Base científica:
-• Cadeia Cinética Fechada e Ausência de Impacto: A bicicleta elimina as forças de reação do solo (GRF) que agridem o calcâneo e a fáscia plantar na esteira.
-• Lubrificação da Cartilagem Articular: O movimento cíclico sem impacto promove a difusão do líquido sinovial nas articulações do joelho e quadril, reduzindo o atrito em articulações com osteoartrite.', '🔧 Instruções')">🔧 Instruções</button>
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Bike Ergométrica')">
@@ -5138,8 +5025,8 @@ Base científica:
       <div class="exercise-card">
         <div class="ex-title">
           <span>GATO E CAMELO (CAT-COW)</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('Gato e Camelo (Cat-Cow)', '<b>Na prática:</b> Movimento lento e suave em quatro apoios, alternando o arqueamento das costas para cima e para baixo no ritmo da respiração.<br><br><b>Base científica:</b> Mobilização espinhal multissegmentar, promovendo descompressão discal por embebição hidrostática e redução da rigidez miofascial paravertebral na fibromialgia.', 'https://youtu.be/LIVJZZyZ2qM')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Gato e Camelo (Cat-Cow)', '<b>Execução:</b> Movimento lento e suave em quatro apoios, alternando o arqueamento das costas para cima e para baixo no ritmo da respiração. Puxe o ar devagar pelo nariz enquanto empina suavemente o bumbum e abre o peito olhando para a frente. Solte todo o ar pela boca curvando a coluna para o teto, como um gato arrepiado, soltando a cabeça para baixo.<br><br><b>Cuidados:</b> Faça o movimento com calma e sem dar trancos na coluna ou no pescoço. Se sentir qualquer desconforto nos joelhos apoiados no chão, dobre o colchonete ou coloque uma almofada por baixo.<br><br><b>Base científica:</b> Mobilização espinhal multissegmentar, promovendo descompressão discal por embebição hidrostática e estimulação de mecanorreceptores e proprioceptores da coluna vertebral, aliviando o tônus muscular defensivo comum na fibromialgia.', 'https://youtu.be/LIVJZZyZ2qM')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -5148,19 +5035,6 @@ Base científica:
             <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
           </div>
-        </div>
-        <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Gato e Camelo', '• Faça o movimento com calma e sem dar trancos na coluna ou no pescoço.
-• Se sentir qualquer desconforto nos joelhos apoiados no chão, dobre o colchonete ou coloque uma almofada por baixo.
-
-Base científica:
-• Proteção Articular Facetária: Evitar extremos articulares bruscos previne compressão das facetas articulares em vértebras com osteoartrite.', '🛡️ Cuidados')">🛡️ Cuidados</button>
-          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Gato e Camelo', '• Fique de quatro apoios no colchonete com as mãos alinhadas aos ombros e joelhos alinhados ao quadril.
-• Puxe o ar devagar pelo nariz enquanto empina suavemente o bumbum e abre o peito olhando para a frente.
-• Solte todo o ar pela boca curvando a coluna para o teto, como um gato arrepiado, soltando a cabeça para baixo.
-
-Base científica:
-• Mobilização Articular Segmentar: A alternância contínua entre flexão e extensão fisiológicas estimula os mecanorreceptores e proprioceptores da coluna vertebral, aliviando o tônus muscular defensivo comum na fibromialgia.', '🔧 Instruções')">🔧 Instruções</button>
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Gato e Camelo (Cat-Cow)')">
@@ -5185,8 +5059,8 @@ Base científica:
       <div class="exercise-card">
         <div class="ex-title">
           <span>PONTE DE GLÚTEOS</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('Ponte de Glúteos', '<b>Na prática:</b> Deitada de barriga para cima com joelhos dobrados, aperte o bumbum e suba o quadril até alinhar o corpo, segurando 2 segundos no alto.<br><br><b>Base científica:</b> Ativação isolada e potente do glúteo máximo e estabilização lombopélvica, sem compressão axial sobre as articulações da coluna vertebral.', 'https://www.youtube.com/shorts/RrU4zx4ysnI')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Ponte de Glúteos', '<b>Execução:</b> Deitada de barriga para cima com joelhos dobrados e pés firmes no chão, aperte o bumbum e suba o quadril até alinhar o corpo, segurando 2 segundos no alto a cada repetição antes de descer com controle.<br><br><b>Cuidados:</b> A força deve vir exclusivamente do bumbum e calcanhares; não force a lombar nem arqueie as costas em excesso no topo.<br><br><b>Base científica:</b> Ativação isolada e potente do glúteo máximo e estabilização lombopélvica, sem compressão axial sobre as articulações da coluna vertebral e sem impacto nos joelhos.', 'https://www.youtube.com/shorts/RrU4zx4ysnI')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -5195,21 +5069,6 @@ Base científica:
             <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
           </div>
-        </div>
-        <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Ponte de Glúteos', '• Não suba o quadril além do alinhamento natural do corpo para não arquear a lombar.
-• Solte o ar ao subir o quadril e inspire ao retornar ao chão. Nunca prenda a respiração.
-
-Base científica:
-• Prevenção de Hiperextensão Lombar: Manter a pelve estável protege as vértebras L5-S1.
-• Respiração Anti-Valsalva: A expiração ativa na fase concêntrica impede picos transitórios na pressão arterial.', '🛡️ Cuidados')">🛡️ Cuidados</button>
-          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Ponte de Glúteos', '• Deite-se de barriga para cima, dobre os joelhos e apoie a sola dos pés firme no chão, na largura dos quadris.
-• Aperte bem o bumbum e suba o quadril até formar uma linha reta entre as coxas e o peito.
-• Segure 2 segundos no alto com o bumbum bem firme e desça devagar até o chão.
-
-Base científica:
-• Recrutamento do Glúteo Máximo: A extensão de quadril ativa a musculatura extensora primária sem aplicar carga gravitacional vertical sobre os discos intervertebrais.
-• Estabilidade da Pelve: O ganho de força glútea neutraliza o estresse de cisalhamento na articulação sacroilíaca.', '🔧 Instruções')">🔧 Instruções</button>
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Ponte de Glúteos')">
@@ -5247,8 +5106,8 @@ Base científica:
       <div class="exercise-card">
         <div class="ex-title">
           <span>SENTA E LEVANTA (BOX SQUAT)</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('Senta e Levanta (Box Squat)', '<b>Na prática:</b> Em frente ao banco ou cadeira, sente controlando a descida e levante empurrando o chão pelos calcanhares com o peito aberto.<br><br><b>Base científica:</b> Recrutamento funcional de membros inferiores com ativação de GLUT-4 para sensibilidade à insulina e preservação da autonomia motora.', 'https://www.youtube.com/shorts/49_20NXycwE')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Senta e Levanta (Box Squat)', '<b>Execução:</b> Em frente ao banco ou cadeira firme, com os pés afastados na largura do quadril, desça com o peito aberto e tronco firme até tocar o assento suavemente e levante empurrando o chão com força total pelos calcanhares.<br><br><b>Cuidados:</b> Não desabe no banco ao sentar nem deixe os joelhos fecharem para dentro ao levantar (mantenha os joelhos alinhados com a ponta dos pés).<br><br><b>Base científica:</b> Recrutamento funcional de membros inferiores com controle biomecânico de profundidade, ativação de transportadores GLUT-4 para sensibilidade à insulina e fortalecimento protetor de quadríceps para osteoartrite.', 'https://www.youtube.com/shorts/49_20NXycwE')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -5258,21 +5117,6 @@ Base científica:
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
           </div>
-        </div>
-        <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Senta e Levanta', '• Mantenha os joelhos sempre apontando na mesma direção das pontas dos pés, sem deixar os joelhos encostarem um no outro.
-• Solte o ar soprando pela boca durante toda a subida!
-
-Base científica:
-• Prevenção do Valgo Dinâmico: Manter o alinhamento fêmoro-tibial evita a sobrecarga assimétrica nos meniscos e na cartilagem patelar com osteoartrite.
-• Respiração Contínua: Protege o sistema cardiovascular contra picos pressóricos repentinos.', '🛡️ Cuidados')">🛡️ Cuidados</button>
-          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Senta e Levanta', '• Posicione-se de costas para uma cadeira ou banco firme, com os pés afastados na largura dos ombros.
-• Dobre os joelhos e empurre o quadril para trás como se fosse sentar, mantendo o peito erguido.
-• Toque suavemente o bumbum no banco sem relaxar o corpo e suba de volta com firmeza empurrando os calcanhares no chão.
-
-Base científica:
-• Translocação de GLUT-4 por Via Muscular: O trabalho de grandes grupos musculares (quadríceps e glúteos) estimula a captação de glicose plasmática independente de insulina, auxiliando no controle do pré-diabetes.
-• Padrão Motor de Autonomia: Fortalece o reflexo extensor indispensável para sentar, levantar e manter o equilíbrio na longevidade.', '🔧 Instruções')">🔧 Instruções</button>
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Senta e Levanta (Box Squat)')">
@@ -5297,8 +5141,8 @@ Base científica:
       <div class="exercise-card">
         <div class="ex-title">
           <span>REMADA APOIADA NO BANCO</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('Remada Apoiada no Banco', '<b>Na prática:</b> Com o peito apoiado no banco inclinado e halteres leves, puxe os cotovelos para trás trazendo os pesos perto da cintura e apertando as escápulas.<br><br><b>Base científica:</b> Fortalecimento dos retratores escapulares e dorsais com descompressão axial completa da coluna lombar pelo suporte torácico.', 'https://www.youtube.com/shorts/hfY9VAd6koc')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Remada Apoiada no Banco', '<b>Execução:</b> Com o peito apoiado no banco inclinado e halteres leves ou elástico, puxe trazendo os cotovelos para trás e aproximando as escápulas com suavidade, retornando devagar.<br><br><b>Cuidados:</b> Mantenha os ombros relaxados para baixo (longe das orelhas) durante toda a puxada; não dê trancos nem sobrecarregue o pescoço.<br><br><b>Base científica:</b> Fortalecimento de romboides e latíssimo do dorso com suporte torácico anterior, eliminando qualquer sobrecarga cisalhante na coluna lombar para alunas com dor crônica.', 'https://www.youtube.com/shorts/hfY9VAd6koc')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -5308,20 +5152,6 @@ Base científica:
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
           </div>
-        </div>
-        <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Remada Apoiada', '• Mantenha o pescoço neutro e os ombros longe das orelhas, sem encolher o pescoço durante a puxada.
-• Solte o ar ao puxar os pesinhos e inspire ao descer.
-
-Base científica:
-• Ritmo Escapuloumeral e Descompressão Cervical: Evita a ativação excessiva do músculo levantador da escápula e do trapézio superior, prevenindo dores de cabeça tensionais e cervicalgias.', '🛡️ Cuidados')">🛡️ Cuidados</button>
-          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Remada Apoiada', '• Deite o peito no encosto do banco inclinado segurando um pesinho leve em cada mão.
-• Puxe os cotovelos para trás junto às costelas, aproximando as escápulas nas costas como se quisesse espremer uma folha de papel entre elas.
-• Desça os pesos devagar e com controle até os braços ficarem estendidos.
-
-Base científica:
-• Apoio Torácico e Neutralidade Lombar: O suporte esternal do banco elimina qualquer estresse gravitacional ou compressivo na coluna lombar, permitindo trabalho dorsal isolado e 100% seguro.
-• Retração Escapular e Postura: Fortalece romboides e trapézio médio, auxiliando no alinhamento postural da coluna e aliviando a tensão da fibromialgia.', '🔧 Instruções')">🔧 Instruções</button>
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Remada Apoiada no Banco')">
@@ -5346,8 +5176,8 @@ Base científica:
       <div class="exercise-card">
         <div class="ex-title">
           <span>FLEXÃO INCLINADA NO BANCO</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('Flexão Inclinada no Banco', '<b>Na prática:</b> Mãos apoiadas no banco firme, corpo alinhado em prancha. Desça o peito até próximo ao banco e empurre de volta estendendo os braços.<br><br><b>Base científica:</b> Exercício de empurrar horizontal com carga atenuada pela inclinação, fortalecendo peitoral, deltoide anterior, tríceps e estabilização de core.', 'https://www.youtube.com/shorts/I1E6ow5CbVU')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Flexão Inclinada no Banco', '<b>Execução:</b> Mãos apoiadas no banco firme na largura dos ombros, corpo alinhado em prancha suave da cabeça aos pés. Desça o peito em direção ao banco com cotovelos a 45° e empurre de volta com firmeza.<br><br><b>Cuidados:</b> Mantenha o abdômen e glúteos acionados o tempo todo; não deixe a bacia cair nem a lombar arcar durante o movimento.<br><br><b>Base científica:</b> Recrutamento da cadeia anterior de empurrar com diminuição significativa do braço de momento da gravidade, permitindo adaptação do manguito rotador e tríceps sem impacto acromial.', 'https://www.youtube.com/shorts/I1E6ow5CbVU')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -5357,20 +5187,6 @@ Base científica:
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
           </div>
-        </div>
-        <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Flexão Inclinada', '• Não deixe a barriga ou a cintura despencarem para baixo; mantenha o corpo firme como uma tábua.
-• Aponte os cotovelos a cerca de 45 graus para trás (formando uma seta com o corpo, nunca abrindo na linha dos ombros).
-
-Base científica:
-• Proteção do Espaço Subacromial: Manter os braços a 45° evita o atrito do tendão do supraespinhal contra o acrômio, prevenindo inflamações no manguito rotador.', '🛡️ Cuidados')">🛡️ Cuidados</button>
-          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Flexão Inclinada', '• Apoie as mãos firmes na borda do banco, numa largura um pouco maior que os ombros, com o corpo reto da cabeça aos calcanhares.
-• Dobre os braços levando o peito em direção ao banco com controle.
-• Empurre o banco com força estendendo os braços de volta à posição inicial.
-
-Base científica:
-• Vantagem Mecânica no Plano Inclinado: A inclinação reduz o percentual do peso corporal suspenso em relação ao chão, permitindo a execução com amplitude anatômica perfeita e sem sobrecarga articular excessiva.
-• Coativação de Core: Exige ativação isométrica do reto abdominal e transverso do abdômen para impedir a lordose compensatória.', '🔧 Instruções')">🔧 Instruções</button>
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Flexão Inclinada no Banco')">
@@ -5395,8 +5211,8 @@ Base científica:
       <div class="exercise-card">
         <div class="ex-title">
           <span>ABDUÇÃO DE QUADRIL DEITADA</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('Abdução de Quadril Deitada', '<b>Na prática:</b> Deitada de lado no colchonete, eleve a perna de cima em linha reta com a ponta do pé para a frente, fortalecendo a lateral do quadril.<br><br><b>Base científica:</b> Fortalecimento seletivo do glúteo médio, músculo estabilizador da pelve e principal protetor biomecânico contra desalinhamentos e dores no joelho.', 'https://www.youtube.com/shorts/7HWdwvAQFuY')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Abdução de Quadril Deitada', '<b>Execução:</b> Deitada de lado no colchonete com corpo alinhado, eleve a perna de cima em direção ao teto de forma controlada, segurando 1 segundo no alto com a ponta do pé apontada para frente, e desça suavemente.<br><br><b>Cuidados:</b> Mantenha o quadril firme e alinhado; não role a bacia para trás nem balance o tronco para ajudar na subida.<br><br><b>Base científica:</b> Ativação seletiva e sem impacto articular do glúteo médio, essencial na manutenção da marcha estável e no combate ao valgismo dinâmico em quadris e joelhos com osteoartrite.', 'https://www.youtube.com/shorts/7HWdwvAQFuY')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -5407,20 +5223,6 @@ Base científica:
             <div class="set-pill" onclick="toggleSet(this)">Lado E - Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Lado E - Série 2</div>
           </div>
-        </div>
-        <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Abdução de Quadril', '• Não role a bacia ou o corpo para trás na hora de subir a perna. O tronco deve ficar firme e imóvel.
-• Faça o movimento devagar, sentindo a lateral do bumbum queimar suavemente.
-
-Base científica:
-• Isolamento do Glúteo Médio Posterior: Rolar a pelve para trás substitui a ação do glúteo pelo tensor da fáscia lata e reto femoral, anulando o objetivo de estabilização articular.', '🛡️ Cuidados')">🛡️ Cuidados</button>
-          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Abdução de Quadril', '• Deite-se de lado no colchonete, com o corpo alinhado e a cabeça apoiada confortavelmente no braço de baixo.
-• Mantenha as pernas estendidas e a ponta do pé de cima virada para a frente (não para cima).
-• Eleve a perna de cima com calma até a altura do quadril, segure 1 segundo e desça bem devagar.
-
-Base científica:
-• Estabilização do Plano Frontal: O glúteo médio é o responsável por impedir a queda da hemipelve oposta ao caminhar (neutralizando o sinal de Trendelenburg).
-• Absorção de Cargas: Um glúteo médio forte reduz o estresse compressivo sobre a articulação do joelho ao caminhar e subir escadas.', '🔧 Instruções')">🔧 Instruções</button>
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Abdução de Quadril Deitada')">
@@ -5445,8 +5247,8 @@ Base científica:
       <div class="exercise-card">
         <div class="ex-title">
           <span>PANTURRILHA EM PÉ COM APOIO</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('Panturrilha em Pé com Apoio', '<b>Na prática:</b> Em pé com as mãos apoiadas na parede para equilíbrio, suba o máximo na ponta dos pés, segure 1 segundo no topo e desça com controle.<br><br><b>Base científica:</b> Ativação da bomba muscular da panturrilha (gastrocnêmios e sóleo), acelerando o retorno venoso e prevenindo inchaço e cansaço nas pernas.', 'https://www.youtube.com/shorts/RFXfn6GxxFw')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Panturrilha em Pé com Apoio', '<b>Execução:</b> Em pé com as mãos apoiadas na parede para equilíbrio, eleve os calcanhares ficando na ponta dos pés, segure 2 segundos no ponto mais alto contraindo a panturrilha e desça lentamente até apoiar todo o calcanhar.<br><br><b>Cuidados:</b> Suba com apoio uniforme em todos os dedos do pé, sem deixar os tornozelos virarem para fora.<br><br><b>Base científica:</b> Ação da bomba muscular da panturrilha (músculos sóleo e gastrocnêmio), favorecendo o retorno venoso dos membros inferiores e auxiliando na regulação da pressão arterial sistêmica.', 'https://www.youtube.com/shorts/RFXfn6GxxFw')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -5456,20 +5258,6 @@ Base científica:
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
           </div>
-        </div>
-        <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Panturrilha em Pé', '• Distribua o peso do corpo na base do dedão do pé e do meio, sem deixar o tornozelo virar torto para fora.
-• Não dê trancos ou quiques no fundo do movimento.
-
-Base científica:
-• Mecanismo de Windlass e Arco Plantar: Apoiar na cabeça do primeiro metatarso mantém a tensão na fáscia plantar, distribuindo as forças uniformemente pelo complexo osteoarticular do pé.', '🛡️ Cuidados')">🛡️ Cuidados</button>
-          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Panturrilha em Pé', '• Em pé, apoie as mãos na parede ou numa barra firme na altura do peito para não se desequilibrar.
-• Suba o mais alto que conseguir na ponta dos pés, como se quisesse tocar o teto com a cabeça.
-• Segure 1 segundo bem no alto e desça controlando o movimento até o calcanhar encostar suavemente no chão.
-
-Base científica:
-• Ação da Bomba Vascular Gastrocnêmica: A contração da panturrilha comprime o plexo venoso profundo, ejetando sangue desoxigenado de volta ao coração e combatendo a estase venosa e inchaço comum em viagens.
-• Fortalecimento do Tornozelo: Aumenta a estabilidade ligamentar do tornozelo, prevenindo entorses e quedas.', '🔧 Instruções')">🔧 Instruções</button>
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Panturrilha em Pé com Apoio')">
@@ -5507,8 +5295,8 @@ Base científica:
       <div class="exercise-card">
         <div class="ex-title">
           <span>ALONGAMENTO DE POSTERIOR SENTADA</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('Alongamento de Posterior Sentada', '<b>Na prática:</b> Sentada no colchonete ou banco, perna estendida à frente, incline o corpo à frente a partir do quadril sentindo a parte de trás da coxa alongar sem forçar a coluna.<br><br><b>Base científica:</b> Inibição autógena dos isquiotibiais por estiramento estático moderado, reduzindo a tração na bacia e aliviando a sobrecarga na coluna lombar.', 'https://www.youtube.com/shorts/ZppZoZ-c2zU')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Alongamento de Posterior Sentada', '<b>Execução:</b> Sentada no colchonete ou banco, perna estendida à frente com calcanhar apoiado no chão. Incline o tronco suavemente para a frente a partir do quadril, mantendo o peito aberto, até sentir um alongamento agradável atrás da coxa.<br><br><b>Cuidados:</b> Não force para tentar encostar na ponta dos pés nem curve as costas; o movimento deve ser confortável e relaxante.<br><br><b>Base científica:</b> Alívio da tensão passiva nos isquiotibiais, reduzindo o estresse de tração sobre o sacro e a coluna lombar, promovendo relaxamento fascial global na fibromialgia.', 'https://www.youtube.com/shorts/ZppZoZ-c2zU')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -5519,20 +5307,6 @@ Base científica:
             <div class="set-pill" onclick="toggleSet(this)">Perna E - Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Perna E - Série 2</div>
           </div>
-        </div>
-        <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Alongamento Posterior', '• Não fique balançando ou dando puxões; o alongamento deve ser estático e calmo.
-• Não sinta dor aguda, apenas uma tração confortável e tolerável.
-
-Base científica:
-• Evitação do Reflexo de Estiramento (Fuso Neuromuscular): Trancos ativam o reflexo miotático provocando contração defensiva espástica, que intensifica as dores da fibromialgia.', '🛡️ Cuidados')">🛡️ Cuidados</button>
-          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Alongamento Posterior', '• Sente-se no colchonete ou na borda do banco com uma das pernas estendida à frente e a outra dobrada.
-• Mantenha o peito aberto e incline o corpo suavemente para a frente a partir do quadril (sem encurvar as costas).
-• Quando sentir uma sensação gostosa de puxar atrás da coxa, pare e sustente respirando fundo por 30 a 40 segundos.
-
-Base científica:
-• Estimulação dos Órgãos Tendinosos de Golgi (OTGs): O estiramento mantido sem dor aciona os OTGs, gerando relaxamento reflexo da musculatura isquiotibial e melhora da viscoelasticidade tecidual.
-• Descompressão Pélvica: A soltura dos isquiotibiais permite que a pelve recupere sua mobilidade anteroposterior natural, eliminando a tensão na fáscia toracolombar.', '🔧 Instruções')">🔧 Instruções</button>
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Alongamento de Posterior Sentada')">
@@ -5557,8 +5331,8 @@ Base científica:
       <div class="exercise-card">
         <div class="ex-title">
           <span>ALONGAMENTO DE PEITORAL NA PAREDE</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('Alongamento de Peitoral na Parede', '<b>Na prática:</b> Apoie o braço estendido na parede na altura dos ombros e gire o corpo devagar para o lado oposto, abrindo o peito e aliviando a tensão nos ombros e pescoço.<br><br><b>Base científica:</b> Abertura da fáscia clavi-peitoral e descompressão neurovascular, combatendo a postura cifótica de defesa e reduzindo a hipertonia cervical.', 'https://www.youtube.com/shorts/2alyz_gw3Go')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Alongamento de Peitoral na Parede', '<b>Execução:</b> Apoie o braço estendido ou antebraço na parede na altura dos ombros e gire suavemente o tronco no sentido oposto até sentir uma abertura agradável no peito e na frente do ombro.<br><br><b>Cuidados:</b> Não force o ombro se houver dor aguda ou pinçamento; busque apenas uma sensação gostosa de alívio e expansão.<br><br><b>Base científica:</b> Abertura torácica e desativação de encurtamentos adaptativos da musculatura peitoral menor e maior decorrentes de posturas protusas, facilitando a respiração diafragmática profunda.', 'https://www.youtube.com/shorts/2alyz_gw3Go')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -5569,20 +5343,6 @@ Base científica:
             <div class="set-pill" onclick="toggleSet(this)">Braço E - Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Braço E - Série 2</div>
           </div>
-        </div>
-        <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Alongamento de Peitoral', '• Não gire o corpo com força excessiva; o peito deve abrir suavemente.
-• Mantenha o ombro baixo e relaxado, longe da orelha.
-
-Base científica:
-• Proteção da Cápsula Glenoumeral Anterior: O estiramento deve incidir sobre as fibras musculares do peitoral, sem tensionar excessivamente os ligamentos glenoumerais anteriores.', '🛡️ Cuidados')">🛡️ Cuidados</button>
-          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Alongamento de Peitoral', '• Fique de pé ao lado de uma parede e apoie a palma da mão e o braço estendido na parede na altura do ombro.
-• Gire o tronco lentamente para o lado oposto até sentir o peito e a frente do ombro abrirem.
-• Sustente a posição com calma por 30 segundos, respirando fundo, e depois repita no outro braço.
-
-Base científica:
-• Abertura do Canal Toracoacromial: O alongamento dos feixes clavicular e esternal do peitoral maior reduz a tração anterior do úmero, restaurando o alinhamento da cabeça umeral na fossa glenoide.
-• Redução da Tensão Cervicobraquial: Alivia o encurtamento do peitoral menor, prevenindo compressões do feixe vasculonervoso axilar comuns em situações de estresse e fibromialgia.', '🔧 Instruções')">🔧 Instruções</button>
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Alongamento de Peitoral na Parede')">
@@ -5607,8 +5367,8 @@ Base científica:
       <div class="exercise-card">
         <div class="ex-title">
           <span>POSIÇÃO DA CRIANÇA (CHILD'S POSE)</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('Posição da Criança (Child\'s Pose)', '<b>Na prática:</b> Ajoelhada no colchonete, sente sobre os calcanhares, estique os braços à frente no chão e apoie a testa, respirando profundamente para relaxar o corpo e a mente.<br><br><b>Base científica:</b> Descompressão axial gravitacional completa da coluna lombar e estimulação parassimpática vagal, regulando a pressão arterial e aliviando dores difusas da fibromialgia.', 'https://www.youtube.com/shorts/9Mk_tX_HbiM')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Posição da Criança (Child\'s Pose)', '<b>Execução:</b> De joelhos no colchonete, sente sobre os calcanhares e estenda os braços à frente no solo, repousando a testa no chão e respirando profundamente de forma lenta e compassada.<br><br><b>Cuidados:</b> Se sentir incômodo nos joelhos, afaste-os um pouco mais ou posicione uma almofada sob o quadril ou peito.<br><br><b>Base científica:</b> Descompressão axial suave de toda a cadeia paravertebral e estímulo do tônus parassimpático, diminuindo os níveis circulantes de cortisol e promovendo modulação central da dor em portadoras de fibromialgia.', 'https://www.youtube.com/shorts/9Mk_tX_HbiM')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -5616,20 +5376,6 @@ Base científica:
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Relaxamento 2 min</div>
           </div>
-        </div>
-        <div class="ex-cues-row">
-          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Posição da Criança', '• Se sentir desconforto nos joelhos ao dobrar muito, coloque uma almofada ou toalha dobrada sob o bumbum ou entre as pernas para não dobrar tanto o joelho.
-• Permaneça na posição respirando sem pressa por 2 minutos.
-
-Base científica:
-• Adaptação Biomecânica para Osteoartrite de Joelho: Limitar o ângulo de flexão patelofemoral sob descarga de peso evita picos de pressão intra-articular no compartimento posterior do joelho.', '🛡️ Cuidados')">🛡️ Cuidados</button>
-          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Posição da Criança', '• Ajoelhe-se no colchonete com os joelhos afastados, sente o quadril sobre os calcanhares e caminhe com as mãos à frente no chão até esticar os braços.
-• Apoie a testa no colchonete ou numa almofada confortável.
-• Feche os olhos e respire fundo: puxe o ar expandindo a barriga e as costelas, e solte todo o ar bem devagar, sentindo as costas e o quadril relaxarem.
-
-Base científica:
-• Ativação Parassimpática via Nervo Vago: A postura de relaxamento somada à respiração diafragmática lenta ativa o sistema nervoso autônomo parassimpático, baixando os níveis de cortisol sérico, estabilizando a pressão arterial sistólica e diminuindo a sensibilização central de dor da fibromialgia.
-• Descompressão Intervertebral Passiva: A flexão fisiológica sem carga abre os forames de conjugação intervertebrais, aliviando a compressão sobre as raízes nervosas lombares.', '🔧 Instruções')">🔧 Instruções</button>
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Posição da Criança (Child\'s Pose)')">
@@ -5998,6 +5744,13 @@ Base científica:
       </div>
     </div><!-- end #analysisView-exercicios -->
 
+  
+    <!-- Ajuda Contextual da Página de Análise de Vídeos -->
+    <div class="contextual-help-wrap" style="margin-top: 24px; margin-bottom: 30px;">
+      <button type="button" class="btn-contextual-help" onclick="openContextualHelp('analises')">
+        <span>precisa de ajuda?</span> <u>acesse as instruções</u>
+      </button>
+    </div>
   </div>
 
   <div id="tab-perfil" class="tab-content">
@@ -6846,6 +6599,16 @@ Base científica:
       </div>
       <div class="modal-body" style="padding: 16px 20px;">
         <div class="notif-list">
+          <!-- Notificação 0: Boas-Vindas & Panorama Geral -->
+          <div class="notif-item unread" data-notif-id="notif-welcome-overview" onclick="openWelcomeAppModal('notif-welcome-overview')">
+            <span class="notif-item-icon">🚀</span>
+            <div style="flex:1; min-width:0;">
+              <div class="notif-item-title">Boas-vindas ao Domínio Corporal!</div>
+              <div class="notif-item-desc">Conheça tudo o que o seu app é capaz de fazer: treinos guiados, análises em vídeo e acompanhamento contínuo.</div>
+              <div class="notif-item-time">👋 Primeiros Passos • Tour do App</div>
+            </div>
+            <span class="notif-item-arrow">›</span>
+          </div>
           
           <!-- Notificação 0: Novo Recurso de Treino (Memória de Séries e Visual) -->
           <div class="notif-item unread" data-notif-id="helenice-notif-features" onclick="dismissSingleNotification('helenice-notif-features')">
@@ -6896,6 +6659,131 @@ Base científica:
   </div>
 
   <script>
+
+    /* =========================================================================
+       SISTEMA DE NAVEGAÇÃO INTERNA & SUPORTE AO BOTÃO VOLTAR DO CELULAR (PWA)
+       Permite que o botão físico / gesto "Voltar" do smartphone retorne para a tela
+       ou modal anterior dentro do app em vez de fechar ou recarregar o aplicativo.
+       ========================================================================= */
+    let isHandlingPopState = false;
+
+    // Inicializa o estado raiz do app no histórico caso ainda não exista
+    try {
+      if (!window.history.state || !window.history.state.isAppRoot) {
+        window.history.replaceState({ isAppRoot: true, page: 'home' }, '', window.location.pathname + window.location.search);
+      }
+    } catch (e) {}
+
+    // Registra entrada de nível no histórico (tela, dia, subpágina ou modal)
+    window.pushAppHistoryState = function(type, data = {}, hash = '') {
+      if (isHandlingPopState) return;
+      try {
+        const stateObj = { isAppSubpage: true, type: type, ...data };
+        const newHash = hash ? (hash.startsWith('#') ? hash : '#' + hash) : '';
+        window.history.pushState(stateObj, '', newHash || (window.location.pathname + window.location.search));
+      } catch (e) {}
+    };
+
+    // Desempilha histórico se o fechamento partiu de clique do usuário na tela (botão Voltar ou X)
+    window.popAppHistoryState = function(expectedType = null) {
+      if (isHandlingPopState) return false;
+      try {
+        if (window.history.state && window.history.state.isAppSubpage) {
+          if (!expectedType || window.history.state.type === expectedType) {
+            window.history.back();
+            return true;
+          }
+        }
+      } catch (e) {}
+      return false;
+    };
+
+    // Função central que executa a regressão de 1 nível quando o celular aciona o botão Voltar
+    window.handleAppBackNavigation = function() {
+      // 1. Prioridade Máxima: Modais e Popovers Abertos
+      const modalChecks = [
+        { id: 'tipPopoverOverlay', close: () => { const el = document.getElementById('tipPopoverOverlay'); if (el) el.style.display = 'none'; } },
+        { id: 'welcomeAppModal', close: () => { if (typeof closeWelcomeAppModal === 'function') closeWelcomeAppModal(true); } },
+        { id: 'contextualHelpModal', close: () => { if (typeof closeContextualHelp === 'function') closeContextualHelp(true); } },
+        { id: 'notificationsModal', close: () => { if (typeof closeNotificationsModal === 'function') closeNotificationsModal(null, true, true); } },
+        { id: 'sendVideoModal', close: () => { if (typeof closeSendVideoModal === 'function') closeSendVideoModal(true); } },
+        { id: 'videoModal', close: () => { if (typeof closeVideoModal === 'function') closeVideoModal(true); } },
+        { id: 'bioModal', close: () => { if (typeof closeBioModal === 'function') closeBioModal(true); } },
+        { id: 'intakeGateModal', close: () => { const el = document.getElementById('intakeGateModal'); if (el) el.classList.remove('active'); } }
+      ];
+
+      for (const item of modalChecks) {
+        const el = document.getElementById(item.id);
+        if (!el) continue;
+        const isVisible = (el.classList && el.classList.contains('active')) ||
+                          (el.style && (el.style.display === 'flex' || el.style.display === 'block'));
+        if (isVisible) {
+          item.close();
+          return true; // Fechou o modal aberto
+        }
+      }
+
+      // 2. Gaveta de Metas
+      const metasDrawer = document.getElementById('metasDrawer');
+      if (metasDrawer && metasDrawer.style.display === 'block') {
+        if (typeof toggleMetasDrawer === 'function') toggleMetasDrawer();
+        return true;
+      }
+
+      // 3. Subpáginas dentro de Análises (Cards de Habilidades -> Menu de Habilidades -> Hub de Análises)
+      const skillsCards = document.getElementById('skillsCardsView');
+      if (skillsCards && skillsCards.style.display === 'block') {
+        if (typeof backToSkillsCategoryMenu === 'function') {
+          backToSkillsCategoryMenu(true);
+          return true;
+        }
+      }
+
+      const viewHabilidades = document.getElementById('analysisView-habilidades');
+      const viewExercicios = document.getElementById('analysisView-exercicios');
+      if ((viewHabilidades && viewHabilidades.style.display === 'block') ||
+          (viewExercicios && viewExercicios.style.display === 'block')) {
+        if (typeof closeAnalysisCategoryView === 'function') {
+          closeAnalysisCategoryView(true);
+          return true;
+        }
+      }
+
+      // 4. Subpáginas dentro de Evolução (Composição, Técnica, Recordes, Relatório)
+      if (typeof isAnyEvolViewOpen === 'function' && isAnyEvolViewOpen()) {
+        if (typeof closeEvolucaoView === 'function') {
+          closeEvolucaoView(true);
+          return true;
+        }
+      }
+
+      // 5. Em treino do dia ou central dedicada (Timers, Análises, Evolução, Perfil, Avaliação)
+      if (document.body.classList.contains('in-dedicated-view') || document.body.classList.contains('in-day-workout')) {
+        // Se estava em timers e veio de um treino ativo, retorna diretamente para o treino do dia!
+        if (document.body.classList.contains('in-view-timers') && typeof lastActiveDayTab !== 'undefined' && lastActiveDayTab) {
+          openDayWorkout(lastActiveDayTab);
+          return true;
+        }
+        if (typeof closeDedicatedView === 'function') {
+          closeDedicatedView(true);
+          return true;
+        }
+      }
+
+      // 6. Raiz do app: Nada mais a voltar internamente
+      return false;
+    };
+
+    // Escuta evento popstate do navegador (botão voltar do celular ou gesto de swipe-back)
+    window.addEventListener('popstate', function(event) {
+      isHandlingPopState = true;
+      try {
+        window.handleAppBackNavigation();
+      } finally {
+        setTimeout(() => { isHandlingPopState = false; }, 80);
+      }
+    });
+
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
     const APP_BUILD_VERSION = '121';
     if (localStorage.getItem('dominio_helenice_dominio_build_ver') !== APP_BUILD_VERSION) {
@@ -7033,6 +6921,12 @@ Base científica:
       if (localStorage.getItem('dominio_helenice_dominio_assessment_completed') !== 'true') {
         const modal = document.getElementById('intakeGateModal');
         if (modal) modal.classList.add('active');
+        if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'bioModal' }, 'bio');
+        if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'welcomeAppModal' }, 'boas-vindas');
+      if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'contextualHelpModal' }, 'ajuda');
+        if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'notificationsModal' }, 'notificacoes');
+        if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'sendVideoModal' }, 'enviar-video');
+      if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'videoModal' }, 'video');
         return;
       }
       lastActiveDayTab = dayId;
@@ -7065,10 +6959,12 @@ Base científica:
       updateWorkoutCompletionUI(dayId);
       updateProgress();
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (typeof pushAppHistoryState === 'function') pushAppHistoryState('day', { dayId: dayId }, 'treino-' + dayId);
     }
 
     
     function openEvolucaoView(viewId) {
+      if (typeof pushAppHistoryState === 'function') pushAppHistoryState('evolView', { viewId }, 'evolucao-' + viewId);
       const hubMenu = document.getElementById('evolucaoHubMenu');
       if (hubMenu) hubMenu.style.display = 'none';
 
@@ -7087,7 +6983,8 @@ Base científica:
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function closeEvolucaoView() {
+    function closeEvolucaoView(fromPopState = false) {
+      if (!fromPopState && typeof popAppHistoryState === 'function' && popAppHistoryState('evolView')) return;
       const hubMenu = document.getElementById('evolucaoHubMenu');
       if (hubMenu) hubMenu.style.display = 'grid';
 
@@ -7210,9 +7107,10 @@ Base científica:
       }
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (typeof pushAppHistoryState === 'function') pushAppHistoryState('dedicated', { sectionId: sectionId }, sectionId);
     }
 
-    function closeDedicatedView() {
+    function closeDedicatedView(fromPopState = false) {
       closeBioModal();
       closeVideoModal();
 
@@ -7252,22 +7150,18 @@ Base científica:
         if (typeof e.stopPropagation === 'function') e.stopPropagation();
         if (typeof e.preventDefault === 'function') e.preventDefault();
       }
-      // Se estava na tela de avaliação em modo somente leitura, retorna diretamente ao perfil da aluna
-      if (document.body.classList.contains('in-view-avaliacao')) {
-        openDedicatedView('perfil');
+      if (typeof popAppHistoryState === 'function' && popAppHistoryState()) {
         return;
       }
-      // Se estava na tela de timers e veio de um treino de dia ativo, retorna diretamente para o treino!
-      if (document.body.classList.contains('in-view-timers') && lastActiveDayTab) {
+      if (document.body.classList.contains('in-view-timers') && typeof lastActiveDayTab !== 'undefined' && lastActiveDayTab) {
         openDayWorkout(lastActiveDayTab);
         return;
       }
-      // Se estava em uma subpágina de Evolução, volta para a Grade de Evolução
       if (document.body.classList.contains('in-view-evolucao') && typeof isAnyEvolViewOpen === 'function' && isAnyEvolViewOpen()) {
-        closeEvolucaoView();
+        closeEvolucaoView(true);
         return;
       }
-      closeDedicatedView();
+      closeDedicatedView(true);
     }
 
     function updateDedicatedTopBarGate(isUnlocked) {
@@ -8425,46 +8319,68 @@ Base científica:
 
     function openVideoModal(title, desc, videoUrl) {
       document.getElementById('modalTitle').innerText = title;
-      document.getElementById('modalDesc').innerHTML = desc;
+      
+      let formattedDesc = desc || '';
+      formattedDesc = formattedDesc.replace(/<b>Na pr[áa]tica:?<\/b>/gi, '<b style="color:#00ff88;">Execução:</b>');
+      formattedDesc = formattedDesc.replace(/<b>Execu[çc][ãa]o:?<\/b>/gi, '<b style="color:#00ff88;">Execução:</b>');
+      formattedDesc = formattedDesc.replace(/<b>Cuidados:?<\/b>/gi, '<b style="color:#f87171;">Cuidados:</b>');
+      formattedDesc = formattedDesc.replace(/<b>Dicas?:?<\/b>/gi, '<b style="color:#facc15;">Dicas:</b>');
+      formattedDesc = formattedDesc.replace(/<b>Base cient[íi]fica:?<\/b>/gi, '<b style="color:#38bdf8;">Base científica:</b>');
+
+      const descEl = document.getElementById('modalDesc');
+      if (descEl) descEl.innerHTML = formattedDesc;
+
       const iframe = document.getElementById('videoIframe');
       const player = document.getElementById('videoPlayer');
-      
-      const isDirectVideo = /\.(mp4|webm|mov)($|\?)/i.test(videoUrl) || videoUrl.startsWith('Midia/');
-      
-      if (isDirectVideo) {
-        if (iframe) {
-          iframe.style.display = 'none';
-          iframe.src = '';
-        }
-        if (player) {
-          player.style.display = 'block';
-          player.src = videoUrl;
-          player.load();
-          player.play().catch(() => {});
-        }
+      const container = document.querySelector('#videoModal .video-container');
+
+      const hasVideo = videoUrl && typeof videoUrl === 'string' && videoUrl.trim() !== '';
+
+      if (!hasVideo) {
+        if (container) container.style.display = 'none';
+        if (iframe) { iframe.style.display = 'none'; iframe.src = ''; }
+        if (player) { player.pause(); player.style.display = 'none'; player.src = ''; }
       } else {
-        if (player) {
-          player.pause();
-          player.src = '';
-          player.style.display = 'none';
-        }
-        if (iframe) {
-          iframe.style.display = 'block';
-          iframe.src = formatVideoEmbedUrl(videoUrl);
+        if (container) container.style.display = 'block';
+        const isDirectVideo = /\.(mp4|webm|mov)($|\?)/i.test(videoUrl) || videoUrl.startsWith('Midia/');
+        if (isDirectVideo) {
+          if (iframe) { iframe.style.display = 'none'; iframe.src = ''; }
+          if (player) {
+            player.style.display = 'block';
+            player.src = videoUrl;
+            player.load();
+            player.play().catch(() => {});
+          }
+        } else {
+          if (player) { player.pause(); player.src = ''; player.style.display = 'none'; }
+          if (iframe) {
+            iframe.style.display = 'block';
+            iframe.src = formatVideoEmbedUrl(videoUrl);
+          }
         }
       }
       document.getElementById('videoModal').classList.add('active');
     }
 
-    function closeVideoModal() {
+    function closeVideoModal(fromPopState = false) {
+      if (!fromPopState && typeof popAppHistoryState === 'function' && popAppHistoryState('modal')) return;
       document.getElementById('videoModal').classList.remove('active');
       const iframe = document.getElementById('videoIframe');
       const player = document.getElementById('videoPlayer');
-      if (iframe) iframe.src = '';
+      const container = document.querySelector('#videoModal .video-container');
+      if (iframe) {
+        iframe.src = '';
+        iframe.style.display = 'none';
+      }
       if (player) {
         player.pause();
         player.src = '';
+        player.style.display = 'none';
       }
+      if (container) {
+        container.style.display = 'block';
+      }
+    }
     }
 
     /* Modal de Bio Gui Lemos */
@@ -8507,7 +8423,8 @@ Base científica:
       }
     };
 
-    window.closeNotificationsModal = function(e, force = false) {
+    window.closeNotificationsModal = function(e, force = false, fromPopState = false) {
+      if (!fromPopState && typeof popAppHistoryState === 'function' && popAppHistoryState('modal')) return;
       if (!force && (Date.now() - notifModalOpenTime < 650)) return;
       if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
       const modal = document.getElementById('notificationsModal');
@@ -8555,7 +8472,8 @@ Base científica:
       if (modal) modal.classList.add('active');
     };
 
-    window.closeSendVideoModal = function() {
+    window.closeSendVideoModal = function(fromPopState = false) {
+      if (!fromPopState && typeof popAppHistoryState === 'function' && popAppHistoryState('modal')) return;
       const modal = document.getElementById('sendVideoModal');
       if (modal) modal.classList.remove('active');
     };
@@ -8682,6 +8600,7 @@ Base científica:
 
     // Navegação de Subpáginas em Análises (HABILIDADES vs EXECUÇÃO DE EXERCÍCIOS)
     function openAnalysisCategoryView(category) {
+      if (typeof pushAppHistoryState === 'function') pushAppHistoryState('analysisCategory', { category }, 'analises-' + category);
       const hubMenu = document.getElementById('analysisHubMenu');
       const heroCard = document.querySelector('.analysis-hero-card');
       const uploadBanner = document.querySelector('.analysis-upload-banner');
@@ -8706,7 +8625,7 @@ Base científica:
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function closeAnalysisCategoryView() {
+    function closeAnalysisCategoryView(fromPopState = false) {
       const hubMenu = document.getElementById('analysisHubMenu');
       const heroCard = document.querySelector('.analysis-hero-card');
       const uploadBanner = document.querySelector('.analysis-upload-banner');
@@ -8733,6 +8652,7 @@ Base científica:
 
     // Acessar os Cards de uma Subcategoria de Habilidades
     window.openSkillCategoryCards = function(type) {
+      if (typeof pushAppHistoryState === 'function') pushAppHistoryState('skillsCards', { type }, 'skills-' + type);
       const skillsMenu = document.getElementById('skillsCategoriesMenu');
       const skillsCards = document.getElementById('skillsCardsView');
       if (skillsMenu) skillsMenu.style.display = 'none';
@@ -8742,7 +8662,8 @@ Base científica:
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    window.backToSkillsCategoryMenu = function() {
+    window.backToSkillsCategoryMenu = function(fromPopState = false) {
+      if (!fromPopState && typeof popAppHistoryState === 'function' && popAppHistoryState('skillsCards')) return;
       const skillsMenu = document.getElementById('skillsCategoriesMenu');
       const skillsCards = document.getElementById('skillsCardsView');
       if (skillsCards) skillsCards.style.display = 'none';
@@ -8801,20 +8722,90 @@ Base científica:
       }
     };
 
-    // Modal de Instruções de Uso do App
-    function openAppInstructionsModal() {
-      const modal = document.getElementById('instructionsModal');
+    // Modal de Ajuda Contextual do App
+    window.openContextualHelp = function(topic) {
+      const modal = document.getElementById('contextualHelpModal');
       if (!modal) return;
+      
+      const currentTopic = topic || 'treinos';
+      
+      const tabs = modal.querySelectorAll('.help-tab-btn');
+      tabs.forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-topic') === currentTopic);
+      });
+      
+      const panels = modal.querySelectorAll('.help-topic-panel');
+      panels.forEach(p => {
+        p.style.display = (p.getAttribute('data-topic') === currentTopic) ? 'block' : 'none';
+      });
+      
+      const titleEl = document.getElementById('contextualHelpTitle');
+      const subEl = document.getElementById('contextualHelpSubtitle');
+      const iconEl = document.getElementById('contextualHelpIcon');
+      
+      if (currentTopic === 'analises') {
+        if (iconEl) iconEl.textContent = '📹';
+        if (titleEl) titleEl.textContent = 'Instruções: Análise de Vídeos';
+        if (subEl) subEl.textContent = 'Envio e Diagnóstico Biomecânico';
+      } else if (currentTopic === 'evolucao') {
+        if (iconEl) iconEl.textContent = '📊';
+        if (titleEl) titleEl.textContent = 'Instruções: Evolução e Metas';
+        if (subEl) subEl.textContent = 'Histórico, Métricas e Recordes';
+      } else {
+        if (iconEl) iconEl.textContent = '🏋️‍♂️';
+        if (titleEl) titleEl.textContent = 'Como Utilizar os Treinos';
+        if (subEl) subEl.textContent = 'Guia da Rotina Diária e Séries';
+      }
+      
       modal.style.setProperty('display', 'flex', 'important');
       modal.classList.add('active');
-    }
+    };
 
-    function closeAppInstructionsModal() {
-      const modal = document.getElementById('instructionsModal');
-      if (!modal) return;
-      modal.style.setProperty('display', 'none', 'important');
-      modal.classList.remove('active');
-    }
+    window.closeContextualHelp = function(fromPopState = false) {
+      if (!fromPopState && typeof popAppHistoryState === 'function' && popAppHistoryState('modal')) return;
+      const modal = document.getElementById('contextualHelpModal');
+      if (modal) {
+        modal.style.setProperty('display', 'none', 'important');
+        modal.classList.remove('active');
+      }
+    };
+
+    window.switchHelpTopic = function(topic) {
+      window.openContextualHelp(topic);
+    };
+
+    window.openAppInstructionsModal = function() {
+      window.openContextualHelp('treinos');
+    };
+
+    window.closeAppInstructionsModal = function() {
+      window.closeContextualHelp();
+    };
+
+    // Modal de Boas-Vindas & Panorama do App
+    window.openWelcomeAppModal = function(notifId = null) {
+      if (notifId && typeof dismissSingleNotification === 'function') {
+        dismissSingleNotification(notifId);
+      }
+      if (typeof closeNotificationsModal === 'function') {
+        closeNotificationsModal(null, true);
+      }
+      const modal = document.getElementById('welcomeAppModal');
+      if (modal) {
+        modal.style.setProperty('display', 'flex', 'important');
+        modal.classList.add('active');
+      }
+    };
+
+    window.closeWelcomeAppModal = function(fromPopState = false) {
+      if (!fromPopState && typeof popAppHistoryState === 'function' && popAppHistoryState('modal')) return;
+      const modal = document.getElementById('welcomeAppModal');
+      if (modal) {
+        modal.style.setProperty('display', 'none', 'important');
+        modal.classList.remove('active');
+      }
+    };
+
 
     // Central de Notificações e Recados
     // Central de Notificações e Recados gerenciada por window.openNotificationsModal / window.closeNotificationsModal
@@ -9066,7 +9057,7 @@ Base científica:
           if (!t) return '<div style="height:6px;"></div>';
           const lower = t.toLowerCase();
           if (lower.startsWith('na prática') || lower.startsWith('na pratica') || t.startsWith('🗣️')) {
-            return `<div style="margin-top:4px; margin-bottom:6px; font-weight:800; font-size:0.84rem; color:#00ff88; letter-spacing:0.02em;">Na prática:</div>`;
+            return `<div style="margin-top:4px; margin-bottom:6px; font-weight:800; font-size:0.84rem; color:#00ff88; letter-spacing:0.02em;">Execução:</div>`;
           }
           if (lower.startsWith('base científica') || lower.startsWith('base cientifica') || t.startsWith('🔬')) {
             return `<div style="margin-top:12px; margin-bottom:6px; font-weight:800; font-size:0.84rem; color:#38bdf8; letter-spacing:0.02em;">Base científica:</div>`;

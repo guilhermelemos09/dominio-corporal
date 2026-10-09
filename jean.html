@@ -4622,46 +4622,68 @@
 
     function openVideoModal(title, desc, videoUrl) {
       document.getElementById('modalTitle').innerText = title;
-      document.getElementById('modalDesc').innerHTML = desc;
+      
+      let formattedDesc = desc || '';
+      formattedDesc = formattedDesc.replace(/<b>Na pr[áa]tica:?<\/b>/gi, '<b style="color:#00ff88;">Execução:</b>');
+      formattedDesc = formattedDesc.replace(/<b>Execu[çc][ãa]o:?<\/b>/gi, '<b style="color:#00ff88;">Execução:</b>');
+      formattedDesc = formattedDesc.replace(/<b>Cuidados:?<\/b>/gi, '<b style="color:#f87171;">Cuidados:</b>');
+      formattedDesc = formattedDesc.replace(/<b>Dicas?:?<\/b>/gi, '<b style="color:#facc15;">Dicas:</b>');
+      formattedDesc = formattedDesc.replace(/<b>Base cient[íi]fica:?<\/b>/gi, '<b style="color:#38bdf8;">Base científica:</b>');
+
+      const descEl = document.getElementById('modalDesc');
+      if (descEl) descEl.innerHTML = formattedDesc;
+
       const iframe = document.getElementById('videoIframe');
       const player = document.getElementById('videoPlayer');
-      
-      const isDirectVideo = /\.(mp4|webm|mov)($|\?)/i.test(videoUrl) || videoUrl.startsWith('Midia/');
-      
-      if (isDirectVideo) {
-        if (iframe) {
-          iframe.style.display = 'none';
-          iframe.src = '';
-        }
-        if (player) {
-          player.style.display = 'block';
-          player.src = videoUrl;
-          player.load();
-          player.play().catch(() => {});
-        }
+      const container = document.querySelector('#videoModal .video-container');
+
+      const hasVideo = videoUrl && typeof videoUrl === 'string' && videoUrl.trim() !== '';
+
+      if (!hasVideo) {
+        if (container) container.style.display = 'none';
+        if (iframe) { iframe.style.display = 'none'; iframe.src = ''; }
+        if (player) { player.pause(); player.style.display = 'none'; player.src = ''; }
       } else {
-        if (player) {
-          player.pause();
-          player.src = '';
-          player.style.display = 'none';
-        }
-        if (iframe) {
-          iframe.style.display = 'block';
-          iframe.src = formatVideoEmbedUrl(videoUrl);
+        if (container) container.style.display = 'block';
+        const isDirectVideo = /\.(mp4|webm|mov)($|\?)/i.test(videoUrl) || videoUrl.startsWith('Midia/');
+        if (isDirectVideo) {
+          if (iframe) { iframe.style.display = 'none'; iframe.src = ''; }
+          if (player) {
+            player.style.display = 'block';
+            player.src = videoUrl;
+            player.load();
+            player.play().catch(() => {});
+          }
+        } else {
+          if (player) { player.pause(); player.src = ''; player.style.display = 'none'; }
+          if (iframe) {
+            iframe.style.display = 'block';
+            iframe.src = formatVideoEmbedUrl(videoUrl);
+          }
         }
       }
       document.getElementById('videoModal').classList.add('active');
     }
 
-    function closeVideoModal() {
+    function closeVideoModal(fromPopState = false) {
+      if (!fromPopState && typeof popAppHistoryState === 'function' && popAppHistoryState('modal')) return;
       document.getElementById('videoModal').classList.remove('active');
       const iframe = document.getElementById('videoIframe');
       const player = document.getElementById('videoPlayer');
-      if (iframe) iframe.src = '';
+      const container = document.querySelector('#videoModal .video-container');
+      if (iframe) {
+        iframe.src = '';
+        iframe.style.display = 'none';
+      }
       if (player) {
         player.pause();
         player.src = '';
+        player.style.display = 'none';
       }
+      if (container) {
+        container.style.display = 'block';
+      }
+    }
     }
 
     /* Modal de Bio Gui Lemos */
