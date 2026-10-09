@@ -6458,16 +6458,7 @@
           <h2 style="font-size:1.35rem; font-weight:800; color:#fff; margin:0 0 4px 0;" id="athleteProfileName">Guilherme de Paula Lemos</h2>
           <div style="font-size:0.78rem; color:#94a3b8;">Atleta Domínio Corporal • Prescrição Individualizada</div>
         </div>
-        <div style="display:flex; gap:8px; flex-wrap:wrap;">
-          <a href="prontuario_planilha_visual.html" target="_blank" class="btn-open-assessment-form" style="text-decoration:none; background:linear-gradient(135deg, #0284c7, #0369a1); border-color:#38bdf8;">
-            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 2h2v4h-2V5zm-4 0h2v4H8V5zm8 14H8v-2h8v2zm0-4H8v-2h8v2zm0-4H8v-2h8v2z"/></svg>
-            <span>Planilha e Histórico 📊</span>
-          </a>
-          <button class="btn-open-assessment-form" onclick="openDedicatedView('avaliacao')">
-            <svg viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-            <span>Ficha de Avaliação ↗</span>
-          </button>
-        </div>
+
       </div>
 
       <!-- Grid de Métricas Atuais do Atleta -->
@@ -6544,6 +6535,35 @@
         <p><strong>• Equilíbrio Multi-modalidade:</strong> A rotina integrando Crossfit, Calistenia, Acrobacias e Dança exige precisão na gestão da fadiga sistêmica. Respeitar o dia de repouso programado e priorizar a precisão biomecânica em vez do volume exaustivo para blindar articulações e garantir evolução contínua.</p>
       </div>
     </div>
+
+    <!-- ==================== SEÇÃO: HISTÓRICO DE AVALIAÇÕES ==================== -->
+    <div style="margin: 26px 4px 14px 4px; display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+      <h3 style="font-size: 1.15rem; font-weight: 800; color: #fff; margin: 0; letter-spacing: -0.01em;">
+        📋 Histórico de Avaliações
+      </h3>
+      <span style="font-size: 0.72rem; font-weight: 700; color: var(--brand-neon); background: rgba(0, 255, 136, 0.1); border: 1px solid rgba(0, 255, 136, 0.25); padding: 3px 8px; border-radius: 12px; text-transform: uppercase;" id="assessmentHistoryBadge">1 Ficha Arquivada</span>
+    </div>
+
+    <!-- Lista de Fichas Arquivadas -->
+    <div class="assessment-history-list" id="assessmentHistoryList" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px;">
+      <!-- Item 1: Ficha de Avaliação Inicial -->
+      <div class="assessment-history-card" onclick="openReadOnlyAssessment('inicial')" style="background: var(--card-bg, #11141a); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 14px; padding: 16px 18px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 4px 14px rgba(0,0,0,0.4);" onmouseover="this.style.borderColor='var(--brand-neon)'" onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.1)'">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span style="font-size: 0.95rem; font-weight: 800; color: #ffffff;" id="historyCardTitle">Ficha de Avaliação Inicial (Anamnese)</span>
+            <span style="font-size: 0.68rem; font-weight: 800; color: var(--brand-neon); background: rgba(0, 255, 136, 0.12); border: 1px solid rgba(0, 255, 136, 0.3); padding: 2px 7px; border-radius: 6px;" id="historyCardStatus">✓ Arquivada</span>
+          </div>
+          <div style="font-size: 0.78rem; color: #94a3b8;" id="historyCardSubtitle">
+            Respondida em: <strong style="color: #cbd5e1;">08/10/2026</strong> • Identificação, Saúde e Metas
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 6px; color: var(--brand-neon); font-size: 0.78rem; font-weight: 700; white-space: nowrap; margin-left: 10px;">
+          <span id="historyCardAction">Ver Respostas</span>
+          <span style="font-size: 0.95rem;">↗</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <!-- ==================== TAB: FICHA DE AVALIAÇÃO INICIAL ==================== -->
@@ -8482,6 +8502,71 @@
       } catch (e) {}
     }
 
+    /* ===================================================
+       VISUALIZAÇÃO DE AVALIAÇÃO EM MODO SOMENTE LEITURA
+       =================================================== */
+    function openReadOnlyAssessment(assessmentId = 'inicial') {
+      openDedicatedView('avaliacao');
+
+      const titleEl = document.getElementById('dedicatedBarTitle');
+      if (titleEl) titleEl.textContent = 'Ficha de Avaliação (Somente Leitura)';
+
+      // Garante o carregamento prévio dos dados salvos no formulário
+      loadStudentAssessment();
+
+      const form = document.getElementById('assessmentForm');
+      if (form) {
+        // Trava todos os campos: inputs, textareas, selects, checkboxes
+        form.querySelectorAll('input, textarea, select').forEach(el => {
+          el.disabled = true;
+          el.readOnly = true;
+          el.style.opacity = '0.92';
+          el.style.cursor = 'default';
+        });
+
+        // Banner informativo de bloqueio e data de envio
+        let notice = document.getElementById('readOnlyAssessmentNotice');
+        if (!notice) {
+          notice = document.createElement('div');
+          notice.id = 'readOnlyAssessmentNotice';
+          notice.style.cssText = 'background: rgba(56, 189, 248, 0.12); border: 1.5px solid rgba(56, 189, 248, 0.35); border-radius: 14px; padding: 14px 16px; margin-bottom: 20px; display: flex; align-items: center; gap: 12px;';
+          notice.innerHTML = `
+            <span style="font-size: 1.5rem;">🔒</span>
+            <div style="font-size: 0.84rem; color: #f1f5f9; line-height: 1.55;">
+              <strong style="color: #38bdf8;">Arquivo Histórico • Somente Leitura:</strong> Esta ficha foi respondida e arquivada em <strong>08/10/2026</strong>. As respostas estão bloqueadas para preservação do prontuário técnico do atleta.
+            </div>
+          `;
+          form.parentNode.insertBefore(notice, form);
+        } else {
+          notice.style.display = 'flex';
+        }
+
+        // Esconde o botão de envio para o WhatsApp
+        const submitBtn = form.querySelector('.btn-submit-assessment');
+        if (submitBtn) submitBtn.style.display = 'none';
+
+        // Cria / exibe botão amigável para voltar ao Perfil do Atleta
+        let backBtn = document.getElementById('btnBackFromReadOnlyAssessment');
+        if (!backBtn) {
+          backBtn = document.createElement('button');
+          backBtn.id = 'btnBackFromReadOnlyAssessment';
+          backBtn.type = 'button';
+          backBtn.className = 'btn-submit-assessment';
+          backBtn.style.cssText = 'background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; margin-top: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%;';
+          backBtn.innerHTML = `<span>← Voltar para Perfil do Atleta</span>`;
+          backBtn.onclick = function() {
+            openDedicatedView('perfil');
+          };
+          const submitBar = form.querySelector('.assessment-submit-bar');
+          if (submitBar) submitBar.appendChild(backBtn);
+        } else {
+          backBtn.style.display = 'flex';
+        }
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
     function loadStudentAssessment() {
       try {
         const raw = localStorage.getItem('dominio_student_intake');
@@ -10161,7 +10246,30 @@
     }
 
     // Inicializa contador de progresso, labels calibrados e notas salvas
-    if (localStorage.getItem('dominio_assessment_completed') === null) {
+    if (!localStorage.getItem('dominio_student_intake')) {
+      const defaultIntake = {
+        nome: "Guilherme de Paula Lemos",
+        nascimento: "1994-09-08",
+        idade: 32,
+        altura: 178,
+        peso: 84,
+        gordura: "13",
+        rotina: "Treinador, rotina intensa, sono controlado",
+        dias_disponiveis: "Segunda, Terça, Quarta, Quinta, Sexta",
+        duracao_disponivel: "60 a 90 minutos por sessão",
+        local: "Box / Academia / Casa",
+        historico_clinico: "Menisco lateral esquerdo; cirurgia prévia de ombro direito (supraespinhal) e tendões de Aquiles.",
+        medicamentos: "Tirzepatida (recomposição corporal)",
+        condicoes_cronicas: "Prevenção Articular e Recomposição Corporal",
+        historico_esportivo: "Calistenia avançada, Crossfit, Acrobacias de Solo, Dança",
+        treino_atual: "Calistenia, Força e Condicionamento",
+        pullups: "Mais de 15 reps",
+        pushups: "Mais de 30 reps",
+        cardio: "Avançado",
+        pilares: ["Ganho de Força e Massa Magra", "Habilidades Calistênicas e Ginástica (Handstand, Muscle-Up)", "Reabilitação e Alívio de Dores Articulares", "Mobilidade e Flexibilidade"],
+        contexto_metas: "Preservação articular, recomposição corporal com tirzepatida e consistência técnica multi-modalidade."
+      };
+      localStorage.setItem('dominio_student_intake', JSON.stringify(defaultIntake));
       localStorage.setItem('dominio_assessment_completed', 'true');
     }
     renderTrainingHubDays();
