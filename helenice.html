@@ -4255,25 +4255,40 @@
         <h2 class="training-section-title">ROTINA DE TREINO</h2>
       </div>
 
-      <!-- Lista Vertical de Dias de Treino -->
+            <!-- Lista Vertical de Dias de Treino -->
       <div class="training-days-list" id="trainingDaysList">
-        <!-- Card de Treino em Estruturação -->
-        <div style="background: var(--card-bg); border: 1.5px dashed rgba(0, 255, 136, 0.35); border-radius: var(--radius-lg); padding: 28px 20px; text-align: center; margin-bottom: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.4);">
-          <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(0, 255, 136, 0.12); border: 1.5px solid var(--brand-neon); color: var(--brand-neon); display: flex; align-items: center; justify-content: center; margin: 0 auto 14px auto; font-size: 1.5rem; box-shadow: 0 0 20px var(--brand-neon-glow);">
-            📋
+        <!-- SEGUNDA -->
+        <div class="training-day-card" id="dayCard-segunda" onclick="openDayWorkout('segunda')">
+          <div class="day-card-left">
+            <div class="day-card-name-row">
+              <span class="day-name">SEGUNDA-FEIRA</span>
+              <span class="day-today-badge" id="todayBadge-segunda" style="display:none;">Hoje</span>
+            </div>
+            <div class="day-focus-desc">Treino Viagem • Sessão A</div>
+            <div class="day-meta-pill">📍 Academia do Prédio • ⏱️ ~50 min</div>
           </div>
-          <div style="display:inline-block; font-size:0.68rem; font-weight:800; letter-spacing:0.08em; color:var(--brand-neon); background:rgba(0,255,136,0.1); border:1px solid rgba(0,255,136,0.3); padding:4px 10px; border-radius:8px; text-transform:uppercase; margin-bottom:10px;">
-            Aguardando Avaliação
+          <div class="day-card-right">
+            <div class="day-status-pill status-pending" id="statusPill-segunda">
+              <span class="status-icon">›</span>
+            </div>
           </div>
-          <h3 style="font-size: 1.2rem; font-weight: 800; color: #fff; margin: 0 0 8px 0;">
-            Rotina Semanal em Estruturação
-          </h3>
-          <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.55; margin: 0 0 18px 0; max-width: 380px; margin-left: auto; margin-right: auto;">
-            O <strong>Prof. Gui Lemos</strong> está analisando seus dados para estruturar os dias de treino, focos de mobilidade e gestão de cargas sob medida para sua saúde.
-          </p>
-          <button type="button" class="btn-submit-assessment" onclick="openDedicatedView('avaliacao')" style="margin: 0 auto; max-width: 280px; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;">
-            <span>📝 Preencher Minha Ficha Agora ➔</span>
-          </button>
+        </div>
+
+        <!-- QUARTA -->
+        <div class="training-day-card" id="dayCard-quarta" onclick="openDayWorkout('quarta')">
+          <div class="day-card-left">
+            <div class="day-card-name-row">
+              <span class="day-name">QUARTA-FEIRA</span>
+              <span class="day-today-badge" id="todayBadge-quarta" style="display:none;">Hoje</span>
+            </div>
+            <div class="day-focus-desc">Treino Viagem • Sessão B</div>
+            <div class="day-meta-pill">📍 Academia do Prédio • ⏱️ ~50 min</div>
+          </div>
+          <div class="day-card-right">
+            <div class="day-status-pill status-pending" id="statusPill-quarta">
+              <span class="status-icon">›</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -4310,23 +4325,618 @@
 
 
 
-  <!-- ==================== TAB ATIVA: HOJE (SEGUNDA: BOX À TARDE) ==================== -->
+    <!-- ==================== TAB ATIVA: SEGUNDA ==================== -->
   <div id="tab-segunda" class="tab-content">
+    <!-- LOCAL E DURAÇÃO DA SESSÃO -->
     <div class="session-overall-meta">
-      <span class="meta-item">📍 A Definir</span>
-      <span class="meta-item">⏳ Em Elaboração</span>
+      <span class="meta-item">📍 Academia do Prédio (SP)</span>
+      <span class="meta-item">⏳ ~50 a 60 min</span>
     </div>
-    <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 18px 16px; margin-bottom: 16px; border-radius: 12px; background: rgba(0, 255, 136, 0.04);">
-      <div class="callout-icon" style="font-size:1.4rem;">⏳</div>
+
+    <!-- DIRETRIZES CLÍNICAS DA SESSÃO -->
+    <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 18px 16px; margin-bottom: 18px; border-radius: 12px; background: rgba(0, 255, 136, 0.04);">
+      <div class="callout-icon" style="font-size:1.4rem;">🛡️</div>
       <div>
-        <div class="callout-topic-header" style="color: var(--brand-neon); font-size: 0.95rem;">SESSÃO EM ELABORAÇÃO</div>
-        <div style="font-size: 0.85rem; color: #cbd5e1; margin-top: 6px; line-height: 1.55;">
-          Os blocos de ativação, força, educativos e flexibilidade deste treino serão inseridos pelo Prof. Gui Lemos após a análise da sua ficha de avaliação.
+        <div class="callout-topic-header" style="color: var(--brand-neon); font-size: 0.95rem; font-weight:800; letter-spacing:0.04em;">TREINO VIAGEM • SESSÃO A</div>
+        <div style="font-size: 0.85rem; color: #cbd5e1; margin-top: 6px; line-height: 1.6;">
+          • <strong>Respiração Contínua (Anti-Valsalva):</strong> Solte o ar pela boca no esforço e inspire no retorno. Jamais tranque o ar.<br>
+          • <strong>Intensidade Moderada (Fibromialgia):</strong> Mantenha o esforço entre 5 e 7 (numa escala de 0 a 10). Sem exaustão extrema.<br>
+          • <strong>Zero Impacto nos Pés:</strong> Aquecimento cardiovascular 100% na bike para proteger a sola dos pés e lubrificar os joelhos.<br>
+          • <strong>Pausas Confortáveis:</strong> Descanse de 60 a 90 segundos entre as séries para recuperar plenamente o fôlego.
         </div>
       </div>
     </div>
-    <div style="text-align: center; padding: 24px 16px; color: var(--text-dim); font-size: 0.82rem;">
-      <p>Nenhum exercício atribuído para este dia ainda.</p>
+
+    <!-- ==================== SEÇÃO 1: ATIVAÇÃO & PREPARAÇÃO ARTICULAR ==================== -->
+    <div class="section-card sec-aquecimento">
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+        <div class="section-title-wrap">
+          <span class="section-badge">Ativação</span>
+          <div class="section-title">PREPARAÇÃO ARTICULAR</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~12 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 1: Bike Ergométrica -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>BIKE ERGOMÉTRICA</span>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">1 SÉRIE • 6-8 MIN</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Aquecimento 6-8 min</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Bike Ergométrica', '• Não use carga pesada no pedal para não forçar as articulações dos joelhos.
+• Mantenha a respiração sempre livre e fluida, sem prender o ar.
+
+Base científica:
+• Pressão de Contato Retropatelar: Cargas elevadas em cadência reduzida aumentam o estresse de cisalhamento patelofemoral, contraindicado para osteoartrite.
+• Estabilidade Pressórica: A respiração ritmada evita aumentos agudos da pressão arterial sistólica em alunas hipertensas.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Bike Ergométrica', '• Suba na bike e ajuste a altura do banco até a linha do ossinho do seu quadril.
+• Pedale em ritmo suave e contínuo, numa velocidade em que você consiga conversar sem ficar sem ar.
+• Mantenha o pé todo apoiado no pedal e o corpo relaxado, sem apoiar todo o peso nos punhos.
+
+Base científica:
+• Cadeia Cinética Fechada e Ausência de Impacto: A bicicleta elimina as forças de reação do solo (GRF) que agridem o calcâneo e a fáscia plantar na esteira.
+• Lubrificação da Cartilagem Articular: O movimento cíclico sem impacto promove a difusão do líquido sinovial nas articulações do joelho e quadril, reduzindo o atrito em articulações com osteoartrite.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Bike Ergométrica')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-seg-bike" onclick="toggleCommentBox('ex-seg-bike')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-seg-bike" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-seg-bike" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (Bike Ergométrica):</span>
+            <span class="save-indicator" id="save-status-ex-seg-bike"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-seg-bike" placeholder="Ex: Pedalei 7 minutos bem tranquila, sem dor nos pés..." oninput="saveExerciseNote('ex-seg-bike', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 2: Gato e Camelo (Cat-Cow) -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>GATO E CAMELO (CAT-COW)</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Gato e Camelo (Cat-Cow)', '<b>Na prática:</b> Movimento lento e suave em quatro apoios, alternando o arqueamento das costas para cima e para baixo no ritmo da respiração.<br><br><b>Base científica:</b> Mobilização espinhal multissegmentar, promovendo descompressão discal por embebição hidrostática e redução da rigidez miofascial paravertebral na fibromialgia.', 'https://youtu.be/LIVJZZyZ2qM')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 SÉRIES • 8-10 REPS</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Gato e Camelo', '• Faça o movimento com calma e sem dar trancos na coluna ou no pescoço.
+• Se sentir qualquer desconforto nos joelhos apoiados no chão, dobre o colchonete ou coloque uma almofada por baixo.
+
+Base científica:
+• Proteção Articular Facetária: Evitar extremos articulares bruscos previne compressão das facetas articulares em vértebras com osteoartrite.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Gato e Camelo', '• Fique de quatro apoios no colchonete com as mãos alinhadas aos ombros e joelhos alinhados ao quadril.
+• Puxe o ar devagar pelo nariz enquanto empina suavemente o bumbum e abre o peito olhando para a frente.
+• Solte todo o ar pela boca curvando a coluna para o teto, como um gato arrepiado, soltando a cabeça para baixo.
+
+Base científica:
+• Mobilização Articular Segmentar: A alternância contínua entre flexão e extensão fisiológicas estimula os mecanorreceptores e proprioceptores da coluna vertebral, aliviando o tônus muscular defensivo comum na fibromialgia.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Gato e Camelo (Cat-Cow)')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-seg-catcow" onclick="toggleCommentBox('ex-seg-catcow')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-seg-catcow" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-seg-catcow" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (Gato e Camelo):</span>
+            <span class="save-indicator" id="save-status-ex-seg-catcow"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-seg-catcow" placeholder="Ex: Coluna bem solta, respiração profunda..." oninput="saveExerciseNote('ex-seg-catcow', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 3: Ponte de Glúteos -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>PONTE DE GLÚTEOS</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Ponte de Glúteos', '<b>Na prática:</b> Deitada de barriga para cima com joelhos dobrados, aperte o bumbum e suba o quadril até alinhar o corpo, segurando 2 segundos no alto.<br><br><b>Base científica:</b> Ativação isolada e potente do glúteo máximo e estabilização lombopélvica, sem compressão axial sobre as articulações da coluna vertebral.', 'https://www.youtube.com/shorts/RrU4zx4ysnI')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 SÉRIES • 10-12 REPS (PAUSA 2")</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Ponte de Glúteos', '• Não suba o quadril além do alinhamento natural do corpo para não arquear a lombar.
+• Solte o ar ao subir o quadril e inspire ao retornar ao chão. Nunca prenda a respiração.
+
+Base científica:
+• Prevenção de Hiperextensão Lombar: Manter a pelve estável protege as vértebras L5-S1.
+• Respiração Anti-Valsalva: A expiração ativa na fase concêntrica impede picos transitórios na pressão arterial.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Ponte de Glúteos', '• Deite-se de barriga para cima, dobre os joelhos e apoie a sola dos pés firme no chão, na largura dos quadris.
+• Aperte bem o bumbum e suba o quadril até formar uma linha reta entre as coxas e o peito.
+• Segure 2 segundos no alto com o bumbum bem firme e desça devagar até o chão.
+
+Base científica:
+• Recrutamento do Glúteo Máximo: A extensão de quadril ativa a musculatura extensora primária sem aplicar carga gravitacional vertical sobre os discos intervertebrais.
+• Estabilidade da Pelve: O ganho de força glútea neutraliza o estresse de cisalhamento na articulação sacroilíaca.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Ponte de Glúteos')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-seg-bridge" onclick="toggleCommentBox('ex-seg-bridge')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-seg-bridge" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-seg-bridge" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (Ponte de Glúteos):</span>
+            <span class="save-indicator" id="save-status-ex-seg-bridge"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-seg-bridge" placeholder="Ex: Senti bem o bumbum, lombar relaxada..." oninput="saveExerciseNote('ex-seg-bridge', this.value)"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SEÇÃO 2: FORTALECIMENTO FUNCIONAL ==================== -->
+    <div class="section-card sec-forca">
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+        <div class="section-title-wrap">
+          <span class="section-badge">Fortalecimento</span>
+          <div class="section-title">FORÇA & METABOLISMO</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~30 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 4: Senta e Levanta (Box Squat) -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>SENTA E LEVANTA (BOX SQUAT)</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Senta e Levanta (Box Squat)', '<b>Na prática:</b> Em frente ao banco ou cadeira, sente controlando a descida e levante empurrando o chão pelos calcanhares com o peito aberto.<br><br><b>Base científica:</b> Recrutamento funcional de membros inferiores com ativação de GLUT-4 para sensibilidade à insulina e preservação da autonomia motora.', 'https://www.youtube.com/shorts/49_20NXycwE')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • 8-10 REPS</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Senta e Levanta', '• Mantenha os joelhos sempre apontando na mesma direção das pontas dos pés, sem deixar os joelhos encostarem um no outro.
+• Solte o ar soprando pela boca durante toda a subida!
+
+Base científica:
+• Prevenção do Valgo Dinâmico: Manter o alinhamento fêmoro-tibial evita a sobrecarga assimétrica nos meniscos e na cartilagem patelar com osteoartrite.
+• Respiração Contínua: Protege o sistema cardiovascular contra picos pressóricos repentinos.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Senta e Levanta', '• Posicione-se de costas para uma cadeira ou banco firme, com os pés afastados na largura dos ombros.
+• Dobre os joelhos e empurre o quadril para trás como se fosse sentar, mantendo o peito erguido.
+• Toque suavemente o bumbum no banco sem relaxar o corpo e suba de volta com firmeza empurrando os calcanhares no chão.
+
+Base científica:
+• Translocação de GLUT-4 por Via Muscular: O trabalho de grandes grupos musculares (quadríceps e glúteos) estimula a captação de glicose plasmática independente de insulina, auxiliando no controle do pré-diabetes.
+• Padrão Motor de Autonomia: Fortalece o reflexo extensor indispensável para sentar, levantar e manter o equilíbrio na longevidade.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Senta e Levanta (Box Squat)')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-seg-boxsquat" onclick="toggleCommentBox('ex-seg-boxsquat')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-seg-boxsquat" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-seg-boxsquat" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (Senta e Levanta):</span>
+            <span class="save-indicator" id="save-status-ex-seg-boxsquat"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-seg-boxsquat" placeholder="Ex: Fiz 3 séries de 10 reps sem dor no joelho..." oninput="saveExerciseNote('ex-seg-boxsquat', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 5: Remada Apoiada no Banco -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>REMADA APOIADA NO BANCO</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Remada Apoiada no Banco', '<b>Na prática:</b> Com o peito apoiado no banco inclinado e halteres leves, puxe os cotovelos para trás trazendo os pesos perto da cintura e apertando as escápulas.<br><br><b>Base científica:</b> Fortalecimento dos retratores escapulares e dorsais com descompressão axial completa da coluna lombar pelo suporte torácico.', 'https://www.youtube.com/shorts/hfY9VAd6koc')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • 10-12 REPS</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Remada Apoiada', '• Mantenha o pescoço neutro e os ombros longe das orelhas, sem encolher o pescoço durante a puxada.
+• Solte o ar ao puxar os pesinhos e inspire ao descer.
+
+Base científica:
+• Ritmo Escapuloumeral e Descompressão Cervical: Evita a ativação excessiva do músculo levantador da escápula e do trapézio superior, prevenindo dores de cabeça tensionais e cervicalgias.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Remada Apoiada', '• Deite o peito no encosto do banco inclinado segurando um pesinho leve em cada mão.
+• Puxe os cotovelos para trás junto às costelas, aproximando as escápulas nas costas como se quisesse espremer uma folha de papel entre elas.
+• Desça os pesos devagar e com controle até os braços ficarem estendidos.
+
+Base científica:
+• Apoio Torácico e Neutralidade Lombar: O suporte esternal do banco elimina qualquer estresse gravitacional ou compressivo na coluna lombar, permitindo trabalho dorsal isolado e 100% seguro.
+• Retração Escapular e Postura: Fortalece romboides e trapézio médio, auxiliando no alinhamento postural da coluna e aliviando a tensão da fibromialgia.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Remada Apoiada no Banco')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-seg-remada" onclick="toggleCommentBox('ex-seg-remada')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-seg-remada" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-seg-remada" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (Remada Apoiada):</span>
+            <span class="save-indicator" id="save-status-ex-seg-remada"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-seg-remada" placeholder="Ex: Usei halteres de 2kg, puxada bem limpa nas costas..." oninput="saveExerciseNote('ex-seg-remada', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 6: Flexão Inclinada no Banco -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>FLEXÃO INCLINADA NO BANCO</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Flexão Inclinada no Banco', '<b>Na prática:</b> Mãos apoiadas no banco firme, corpo alinhado em prancha. Desça o peito até próximo ao banco e empurre de volta estendendo os braços.<br><br><b>Base científica:</b> Exercício de empurrar horizontal com carga atenuada pela inclinação, fortalecendo peitoral, deltoide anterior, tríceps e estabilização de core.', 'https://www.youtube.com/shorts/I1E6ow5CbVU')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • 8-10 REPS</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Flexão Inclinada', '• Não deixe a barriga ou a cintura despencarem para baixo; mantenha o corpo firme como uma tábua.
+• Aponte os cotovelos a cerca de 45 graus para trás (formando uma seta com o corpo, nunca abrindo na linha dos ombros).
+
+Base científica:
+• Proteção do Espaço Subacromial: Manter os braços a 45° evita o atrito do tendão do supraespinhal contra o acrômio, prevenindo inflamações no manguito rotador.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Flexão Inclinada', '• Apoie as mãos firmes na borda do banco, numa largura um pouco maior que os ombros, com o corpo reto da cabeça aos calcanhares.
+• Dobre os braços levando o peito em direção ao banco com controle.
+• Empurre o banco com força estendendo os braços de volta à posição inicial.
+
+Base científica:
+• Vantagem Mecânica no Plano Inclinado: A inclinação reduz o percentual do peso corporal suspenso em relação ao chão, permitindo a execução com amplitude anatômica perfeita e sem sobrecarga articular excessiva.
+• Coativação de Core: Exige ativação isométrica do reto abdominal e transverso do abdômen para impedir a lordose compensatória.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Flexão Inclinada no Banco')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-seg-flexao" onclick="toggleCommentBox('ex-seg-flexao')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-seg-flexao" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-seg-flexao" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (Flexão Inclinada):</span>
+            <span class="save-indicator" id="save-status-ex-seg-flexao"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-seg-flexao" placeholder="Ex: Consegui 8 repetições com o corpo bem retinho..." oninput="saveExerciseNote('ex-seg-flexao', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 7: Abdução de Quadril Deitada -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>ABDUÇÃO DE QUADRIL DEITADA</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Abdução de Quadril Deitada', '<b>Na prática:</b> Deitada de lado no colchonete, eleve a perna de cima em linha reta com a ponta do pé para a frente, fortalecendo a lateral do quadril.<br><br><b>Base científica:</b> Fortalecimento seletivo do glúteo médio, músculo estabilizador da pelve e principal protetor biomecânico contra desalinhamentos e dores no joelho.', 'https://www.youtube.com/shorts/7HWdwvAQFuY')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 SÉRIES • 10-12 REPS / LADO</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Lado D - Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Lado D - Série 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Lado E - Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Lado E - Série 2</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Abdução de Quadril', '• Não role a bacia ou o corpo para trás na hora de subir a perna. O tronco deve ficar firme e imóvel.
+• Faça o movimento devagar, sentindo a lateral do bumbum queimar suavemente.
+
+Base científica:
+• Isolamento do Glúteo Médio Posterior: Rolar a pelve para trás substitui a ação do glúteo pelo tensor da fáscia lata e reto femoral, anulando o objetivo de estabilização articular.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Abdução de Quadril', '• Deite-se de lado no colchonete, com o corpo alinhado e a cabeça apoiada confortavelmente no braço de baixo.
+• Mantenha as pernas estendidas e a ponta do pé de cima virada para a frente (não para cima).
+• Eleve a perna de cima com calma até a altura do quadril, segure 1 segundo e desça bem devagar.
+
+Base científica:
+• Estabilização do Plano Frontal: O glúteo médio é o responsável por impedir a queda da hemipelve oposta ao caminhar (neutralizando o sinal de Trendelenburg).
+• Absorção de Cargas: Um glúteo médio forte reduz o estresse compressivo sobre a articulação do joelho ao caminhar e subir escadas.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Abdução de Quadril Deitada')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-seg-ostra" onclick="toggleCommentBox('ex-seg-ostra')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-seg-ostra" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-seg-ostra" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (Abdução de Quadril):</span>
+            <span class="save-indicator" id="save-status-ex-seg-ostra"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-seg-ostra" placeholder="Ex: Senti a lateral do quadril queimar bem sem dor..." oninput="saveExerciseNote('ex-seg-ostra', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 8: Panturrilha em Pé com Apoio -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>PANTURRILHA EM PÉ COM APOIO</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Panturrilha em Pé com Apoio', '<b>Na prática:</b> Em pé com as mãos apoiadas na parede para equilíbrio, suba o máximo na ponta dos pés, segure 1 segundo no topo e desça com controle.<br><br><b>Base científica:</b> Ativação da bomba muscular da panturrilha (gastrocnêmios e sóleo), acelerando o retorno venoso e prevenindo inchaço e cansaço nas pernas.', 'https://www.youtube.com/shorts/RFXfn6GxxFw')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • 12-15 REPS (PAUSA 1")</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Panturrilha em Pé', '• Distribua o peso do corpo na base do dedão do pé e do meio, sem deixar o tornozelo virar torto para fora.
+• Não dê trancos ou quiques no fundo do movimento.
+
+Base científica:
+• Mecanismo de Windlass e Arco Plantar: Apoiar na cabeça do primeiro metatarso mantém a tensão na fáscia plantar, distribuindo as forças uniformemente pelo complexo osteoarticular do pé.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Panturrilha em Pé', '• Em pé, apoie as mãos na parede ou numa barra firme na altura do peito para não se desequilibrar.
+• Suba o mais alto que conseguir na ponta dos pés, como se quisesse tocar o teto com a cabeça.
+• Segure 1 segundo bem no alto e desça controlando o movimento até o calcanhar encostar suavemente no chão.
+
+Base científica:
+• Ação da Bomba Vascular Gastrocnêmica: A contração da panturrilha comprime o plexo venoso profundo, ejetando sangue desoxigenado de volta ao coração e combatendo a estase venosa e inchaço comum em viagens.
+• Fortalecimento do Tornozelo: Aumenta a estabilidade ligamentar do tornozelo, prevenindo entorses e quedas.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Panturrilha em Pé com Apoio')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-seg-panturrilha" onclick="toggleCommentBox('ex-seg-panturrilha')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-seg-panturrilha" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-seg-panturrilha" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (Panturrilha em Pé):</span>
+            <span class="save-indicator" id="save-status-ex-seg-panturrilha"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-seg-panturrilha" placeholder="Ex: Pernas leves, circulação ativa..." oninput="saveExerciseNote('ex-seg-panturrilha', this.value)"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SEÇÃO 3: MOBILIDADE, DESCOMPRESSÃO & ALÍVIO ==================== -->
+    <div class="section-card sec-flexibilidade">
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+        <div class="section-title-wrap">
+          <span class="section-badge">Alívio & Mobilidade</span>
+          <div class="section-title">DESCOMPRESSÃO ARTICULAR</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~12 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 9: Alongamento de Posterior Sentada -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>ALONGAMENTO DE POSTERIOR SENTADA</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Alongamento de Posterior Sentada', '<b>Na prática:</b> Sentada no colchonete ou banco, perna estendida à frente, incline o corpo à frente a partir do quadril sentindo a parte de trás da coxa alongar sem forçar a coluna.<br><br><b>Base científica:</b> Inibição autógena dos isquiotibiais por estiramento estático moderado, reduzindo a tração na bacia e aliviando a sobrecarga na coluna lombar.', 'https://www.youtube.com/shorts/ZppZoZ-c2zU')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 SÉRIES • 30-40" / PERNA</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Perna D - Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Perna D - Série 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Perna E - Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Perna E - Série 2</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Alongamento Posterior', '• Não fique balançando ou dando puxões; o alongamento deve ser estático e calmo.
+• Não sinta dor aguda, apenas uma tração confortável e tolerável.
+
+Base científica:
+• Evitação do Reflexo de Estiramento (Fuso Neuromuscular): Trancos ativam o reflexo miotático provocando contração defensiva espástica, que intensifica as dores da fibromialgia.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Alongamento Posterior', '• Sente-se no colchonete ou na borda do banco com uma das pernas estendida à frente e a outra dobrada.
+• Mantenha o peito aberto e incline o corpo suavemente para a frente a partir do quadril (sem encurvar as costas).
+• Quando sentir uma sensação gostosa de puxar atrás da coxa, pare e sustente respirando fundo por 30 a 40 segundos.
+
+Base científica:
+• Estimulação dos Órgãos Tendinosos de Golgi (OTGs): O estiramento mantido sem dor aciona os OTGs, gerando relaxamento reflexo da musculatura isquiotibial e melhora da viscoelasticidade tecidual.
+• Descompressão Pélvica: A soltura dos isquiotibiais permite que a pelve recupere sua mobilidade anteroposterior natural, eliminando a tensão na fáscia toracolombar.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Alongamento de Posterior Sentada')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-seg-posterior" onclick="toggleCommentBox('ex-seg-posterior')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-seg-posterior" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-seg-posterior" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (Alongamento Posterior):</span>
+            <span class="save-indicator" id="save-status-ex-seg-posterior"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-seg-posterior" placeholder="Ex: Alongamento bem relaxante, soltou a perna..." oninput="saveExerciseNote('ex-seg-posterior', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 10: Alongamento de Peitoral na Parede -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>ALONGAMENTO DE PEITORAL NA PAREDE</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Alongamento de Peitoral na Parede', '<b>Na prática:</b> Apoie o braço estendido na parede na altura dos ombros e gire o corpo devagar para o lado oposto, abrindo o peito e aliviando a tensão nos ombros e pescoço.<br><br><b>Base científica:</b> Abertura da fáscia clavi-peitoral e descompressão neurovascular, combatendo a postura cifótica de defesa e reduzindo a hipertonia cervical.', 'https://www.youtube.com/shorts/2alyz_gw3Go')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 SÉRIES • 30" / LADO</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Braço D - Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Braço D - Série 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Braço E - Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Braço E - Série 2</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Alongamento de Peitoral', '• Não gire o corpo com força excessiva; o peito deve abrir suavemente.
+• Mantenha o ombro baixo e relaxado, longe da orelha.
+
+Base científica:
+• Proteção da Cápsula Glenoumeral Anterior: O estiramento deve incidir sobre as fibras musculares do peitoral, sem tensionar excessivamente os ligamentos glenoumerais anteriores.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Alongamento de Peitoral', '• Fique de pé ao lado de uma parede e apoie a palma da mão e o braço estendido na parede na altura do ombro.
+• Gire o tronco lentamente para o lado oposto até sentir o peito e a frente do ombro abrirem.
+• Sustente a posição com calma por 30 segundos, respirando fundo, e depois repita no outro braço.
+
+Base científica:
+• Abertura do Canal Toracoacromial: O alongamento dos feixes clavicular e esternal do peitoral maior reduz a tração anterior do úmero, restaurando o alinhamento da cabeça umeral na fossa glenoide.
+• Redução da Tensão Cervicobraquial: Alivia o encurtamento do peitoral menor, prevenindo compressões do feixe vasculonervoso axilar comuns em situações de estresse e fibromialgia.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Alongamento de Peitoral na Parede')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-seg-peitoral" onclick="toggleCommentBox('ex-seg-peitoral')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-seg-peitoral" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-seg-peitoral" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (Alongamento Peitoral):</span>
+            <span class="save-indicator" id="save-status-ex-seg-peitoral"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-seg-peitoral" placeholder="Ex: Ombros soltos, alívio no pescoço..." oninput="saveExerciseNote('ex-seg-peitoral', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 11: Posição da Criança (Child's Pose) -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>POSIÇÃO DA CRIANÇA (CHILD'S POSE)</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Posição da Criança (Child\'s Pose)', '<b>Na prática:</b> Ajoelhada no colchonete, sente sobre os calcanhares, estique os braços à frente no chão e apoie a testa, respirando profundamente para relaxar o corpo e a mente.<br><br><b>Base científica:</b> Descompressão axial gravitacional completa da coluna lombar e estimulação parassimpática vagal, regulando a pressão arterial e aliviando dores difusas da fibromialgia.', 'https://www.youtube.com/shorts/9Mk_tX_HbiM')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 MINUTOS • RELAXAMENTO TOTAL</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Relaxamento 2 min</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Posição da Criança', '• Se sentir desconforto nos joelhos ao dobrar muito, coloque uma almofada ou toalha dobrada sob o bumbum ou entre as pernas para não dobrar tanto o joelho.
+• Permaneça na posição respirando sem pressa por 2 minutos.
+
+Base científica:
+• Adaptação Biomecânica para Osteoartrite de Joelho: Limitar o ângulo de flexão patelofemoral sob descarga de peso evita picos de pressão intra-articular no compartimento posterior do joelho.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Posição da Criança', '• Ajoelhe-se no colchonete com os joelhos afastados, sente o quadril sobre os calcanhares e caminhe com as mãos à frente no chão até esticar os braços.
+• Apoie a testa no colchonete ou numa almofada confortável.
+• Feche os olhos e respire fundo: puxe o ar expandindo a barriga e as costelas, e solte todo o ar bem devagar, sentindo as costas e o quadril relaxarem.
+
+Base científica:
+• Ativação Parassimpática via Nervo Vago: A postura de relaxamento somada à respiração diafragmática lenta ativa o sistema nervoso autônomo parassimpático, baixando os níveis de cortisol sérico, estabilizando a pressão arterial sistólica e diminuindo a sensibilização central de dor da fibromialgia.
+• Descompressão Intervertebral Passiva: A flexão fisiológica sem carga abre os forames de conjugação intervertebrais, aliviando a compressão sobre as raízes nervosas lombares.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Posição da Criança (Child\'s Pose)')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-seg-childpose" onclick="toggleCommentBox('ex-seg-childpose')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-seg-childpose" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-seg-childpose" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (Posição da Criança):</span>
+            <span class="save-indicator" id="save-status-ex-seg-childpose"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-seg-childpose" placeholder="Ex: Relaxamento maravilhoso, corpo leve e sem dor..." oninput="saveExerciseNote('ex-seg-childpose', this.value)"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card Clean de Finalização de Treino (Segunda) -->
+    <div class="workout-finish-clean-card" id="workoutFinishCard-segunda">
+      <div class="finish-controls-row">
+        <label class="finish-checkbox-label">
+          <input type="checkbox" id="checkFinish-segunda" class="finish-checkbox-input" onchange="toggleFinishWorkoutBtn('segunda', this.checked)">
+          <span class="finish-custom-checkbox"></span>
+          <span class="finish-checkbox-text">Finalizar sessão 🏁</span>
+        </label>
+        <button type="button" class="btn-send-coach" id="btnSendCoach-segunda" onclick="completeWorkoutSession('segunda')" disabled>
+          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          <span>Enviar para Coach</span>
+        </button>
+      </div>
+      <div id="completeFeedback-segunda" class="complete-feedback-box" style="display:none; width: 100%;">
+        ✅ Treino finalizado e relatório enviado com sucesso para o Coach!
+      </div>
     </div>
 
   </div>
@@ -4350,6 +4960,25 @@
       <p>Nenhum exercício atribuído para este dia ainda.</p>
     </div>
 
+  
+    <!-- Card Clean de Finalização de Treino (Terca) -->
+    <div class="workout-finish-clean-card" id="workoutFinishCard-terca">
+      <div class="finish-controls-row">
+        <label class="finish-checkbox-label">
+          <input type="checkbox" id="checkFinish-terca" class="finish-checkbox-input" onchange="toggleFinishWorkoutBtn('terca', this.checked)">
+          <span class="finish-custom-checkbox"></span>
+          <span class="finish-checkbox-text">Finalizar sessão 🏁</span>
+        </label>
+        <button type="button" class="btn-send-coach" id="btnSendCoach-terca" onclick="completeWorkoutSession('terca')" disabled>
+          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          <span>Enviar para Coach</span>
+        </button>
+      </div>
+      <div id="completeFeedback-terca" class="complete-feedback-box" style="display:none; width: 100%;">
+        ✅ Treino finalizado e relatório enviado com sucesso para o Coach!
+      </div>
+    </div>
+
   </div>
 
   <!-- ==================== TAB: SEXTA (PORTAGEM, DANÇA & ARGOLAS) ==================== -->
@@ -4369,6 +4998,25 @@
     </div>
     <div style="text-align: center; padding: 24px 16px; color: var(--text-dim); font-size: 0.82rem;">
       <p>Nenhum exercício atribuído para este dia ainda.</p>
+    </div>
+
+  
+    <!-- Card Clean de Finalização de Treino (Sexta) -->
+    <div class="workout-finish-clean-card" id="workoutFinishCard-sexta">
+      <div class="finish-controls-row">
+        <label class="finish-checkbox-label">
+          <input type="checkbox" id="checkFinish-sexta" class="finish-checkbox-input" onchange="toggleFinishWorkoutBtn('sexta', this.checked)">
+          <span class="finish-custom-checkbox"></span>
+          <span class="finish-checkbox-text">Finalizar sessão 🏁</span>
+        </label>
+        <button type="button" class="btn-send-coach" id="btnSendCoach-sexta" onclick="completeWorkoutSession('sexta')" disabled>
+          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          <span>Enviar para Coach</span>
+        </button>
+      </div>
+      <div id="completeFeedback-sexta" class="complete-feedback-box" style="display:none; width: 100%;">
+        ✅ Treino finalizado e relatório enviado com sucesso para o Coach!
+      </div>
     </div>
 
   </div>
@@ -4392,26 +5040,642 @@
       <p>Nenhum exercício atribuído para este dia ainda.</p>
     </div>
 
+  
+    <!-- Card Clean de Finalização de Treino (Quinta) -->
+    <div class="workout-finish-clean-card" id="workoutFinishCard-quinta">
+      <div class="finish-controls-row">
+        <label class="finish-checkbox-label">
+          <input type="checkbox" id="checkFinish-quinta" class="finish-checkbox-input" onchange="toggleFinishWorkoutBtn('quinta', this.checked)">
+          <span class="finish-custom-checkbox"></span>
+          <span class="finish-checkbox-text">Finalizar sessão 🏁</span>
+        </label>
+        <button type="button" class="btn-send-coach" id="btnSendCoach-quinta" onclick="completeWorkoutSession('quinta')" disabled>
+          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          <span>Enviar para Coach</span>
+        </button>
+      </div>
+      <div id="completeFeedback-quinta" class="complete-feedback-box" style="display:none; width: 100%;">
+        ✅ Treino finalizado e relatório enviado com sucesso para o Coach!
+      </div>
+    </div>
+
   </div>
 
-  <!-- ==================== TAB: QUARTA-FEIRA ==================== -->
+    <!-- ==================== TAB ATIVA: QUARTA ==================== -->
   <div id="tab-quarta" class="tab-content">
+    <!-- LOCAL E DURAÇÃO DA SESSÃO -->
     <div class="session-overall-meta">
-      <span class="meta-item">📍 A Definir</span>
-      <span class="meta-item">⏳ Em Elaboração</span>
+      <span class="meta-item">📍 Academia do Prédio (SP)</span>
+      <span class="meta-item">⏳ ~50 a 60 min</span>
     </div>
-    <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 18px 16px; margin-bottom: 16px; border-radius: 12px; background: rgba(0, 255, 136, 0.04);">
-      <div class="callout-icon" style="font-size:1.4rem;">⏳</div>
+
+    <!-- DIRETRIZES CLÍNICAS DA SESSÃO -->
+    <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 18px 16px; margin-bottom: 18px; border-radius: 12px; background: rgba(0, 255, 136, 0.04);">
+      <div class="callout-icon" style="font-size:1.4rem;">🛡️</div>
       <div>
-        <div class="callout-topic-header" style="color: var(--brand-neon); font-size: 0.95rem;">SESSÃO EM ELABORAÇÃO</div>
-        <div style="font-size: 0.85rem; color: #cbd5e1; margin-top: 6px; line-height: 1.55;">
-          Os blocos de ativação, força, educativos e flexibilidade deste treino serão inseridos pelo Prof. Gui Lemos após a análise da sua ficha de avaliação.
+        <div class="callout-topic-header" style="color: var(--brand-neon); font-size: 0.95rem; font-weight:800; letter-spacing:0.04em;">TREINO VIAGEM • SESSÃO B</div>
+        <div style="font-size: 0.85rem; color: #cbd5e1; margin-top: 6px; line-height: 1.6;">
+          • <strong>Respiração Contínua (Anti-Valsalva):</strong> Solte o ar pela boca no esforço e inspire no retorno. Jamais tranque o ar.<br>
+          • <strong>Intensidade Moderada (Fibromialgia):</strong> Mantenha o esforço entre 5 e 7 (numa escala de 0 a 10). Sem exaustão extrema.<br>
+          • <strong>Zero Impacto nos Pés:</strong> Aquecimento cardiovascular 100% na bike para proteger a sola dos pés e lubrificar os joelhos.<br>
+          • <strong>Pausas Confortáveis:</strong> Descanse de 60 a 90 segundos entre as séries para recuperar plenamente o fôlego.
         </div>
       </div>
     </div>
-    <div style="text-align: center; padding: 24px 16px; color: var(--text-dim); font-size: 0.82rem;">
-      <p>Nenhum exercício atribuído para este dia ainda.</p>
+
+    <!-- ==================== SEÇÃO 1: ATIVAÇÃO & PREPARAÇÃO ARTICULAR ==================== -->
+    <div class="section-card sec-aquecimento">
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+        <div class="section-title-wrap">
+          <span class="section-badge">Ativação</span>
+          <div class="section-title">PREPARAÇÃO ARTICULAR</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~12 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 1: Bike Ergométrica -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>BIKE ERGOMÉTRICA</span>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">1 SÉRIE • 6-8 MIN</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Aquecimento 6-8 min</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Bike Ergométrica', '• Não use carga pesada no pedal para não forçar as articulações dos joelhos.
+• Mantenha a respiração sempre livre e fluida, sem prender o ar.
+
+Base científica:
+• Pressão de Contato Retropatelar: Cargas elevadas em cadência reduzida aumentam o estresse de cisalhamento patelofemoral, contraindicado para osteoartrite.
+• Estabilidade Pressórica: A respiração ritmada evita aumentos agudos da pressão arterial sistólica em alunas hipertensas.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Bike Ergométrica', '• Suba na bike e ajuste a altura do banco até a linha do ossinho do seu quadril.
+• Pedale em ritmo suave e contínuo, numa velocidade em que você consiga conversar sem ficar sem ar.
+• Mantenha o pé todo apoiado no pedal e o corpo relaxado, sem apoiar todo o peso nos punhos.
+
+Base científica:
+• Cadeia Cinética Fechada e Ausência de Impacto: A bicicleta elimina as forças de reação do solo (GRF) que agridem o calcâneo e a fáscia plantar na esteira.
+• Lubrificação da Cartilagem Articular: O movimento cíclico sem impacto promove a difusão do líquido sinovial nas articulações do joelho e quadril, reduzindo o atrito em articulações com osteoartrite.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Bike Ergométrica')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-qua-bike" onclick="toggleCommentBox('ex-qua-bike')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-qua-bike" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-qua-bike" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (Bike Ergométrica):</span>
+            <span class="save-indicator" id="save-status-ex-qua-bike"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-qua-bike" placeholder="Ex: Pedalei 7 minutos bem tranquila, sem dor nos pés..." oninput="saveExerciseNote('ex-qua-bike', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 2: Gato e Camelo (Cat-Cow) -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>GATO E CAMELO (CAT-COW)</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Gato e Camelo (Cat-Cow)', '<b>Na prática:</b> Movimento lento e suave em quatro apoios, alternando o arqueamento das costas para cima e para baixo no ritmo da respiração.<br><br><b>Base científica:</b> Mobilização espinhal multissegmentar, promovendo descompressão discal por embebição hidrostática e redução da rigidez miofascial paravertebral na fibromialgia.', 'https://youtu.be/LIVJZZyZ2qM')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 SÉRIES • 8-10 REPS</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Gato e Camelo', '• Faça o movimento com calma e sem dar trancos na coluna ou no pescoço.
+• Se sentir qualquer desconforto nos joelhos apoiados no chão, dobre o colchonete ou coloque uma almofada por baixo.
+
+Base científica:
+• Proteção Articular Facetária: Evitar extremos articulares bruscos previne compressão das facetas articulares em vértebras com osteoartrite.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Gato e Camelo', '• Fique de quatro apoios no colchonete com as mãos alinhadas aos ombros e joelhos alinhados ao quadril.
+• Puxe o ar devagar pelo nariz enquanto empina suavemente o bumbum e abre o peito olhando para a frente.
+• Solte todo o ar pela boca curvando a coluna para o teto, como um gato arrepiado, soltando a cabeça para baixo.
+
+Base científica:
+• Mobilização Articular Segmentar: A alternância contínua entre flexão e extensão fisiológicas estimula os mecanorreceptores e proprioceptores da coluna vertebral, aliviando o tônus muscular defensivo comum na fibromialgia.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Gato e Camelo (Cat-Cow)')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-qua-catcow" onclick="toggleCommentBox('ex-qua-catcow')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-qua-catcow" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-qua-catcow" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (Gato e Camelo):</span>
+            <span class="save-indicator" id="save-status-ex-qua-catcow"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-qua-catcow" placeholder="Ex: Coluna bem solta, respiração profunda..." oninput="saveExerciseNote('ex-qua-catcow', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 3: Ponte de Glúteos -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>PONTE DE GLÚTEOS</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Ponte de Glúteos', '<b>Na prática:</b> Deitada de barriga para cima com joelhos dobrados, aperte o bumbum e suba o quadril até alinhar o corpo, segurando 2 segundos no alto.<br><br><b>Base científica:</b> Ativação isolada e potente do glúteo máximo e estabilização lombopélvica, sem compressão axial sobre as articulações da coluna vertebral.', 'https://www.youtube.com/shorts/RrU4zx4ysnI')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 SÉRIES • 10-12 REPS (PAUSA 2")</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Ponte de Glúteos', '• Não suba o quadril além do alinhamento natural do corpo para não arquear a lombar.
+• Solte o ar ao subir o quadril e inspire ao retornar ao chão. Nunca prenda a respiração.
+
+Base científica:
+• Prevenção de Hiperextensão Lombar: Manter a pelve estável protege as vértebras L5-S1.
+• Respiração Anti-Valsalva: A expiração ativa na fase concêntrica impede picos transitórios na pressão arterial.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Ponte de Glúteos', '• Deite-se de barriga para cima, dobre os joelhos e apoie a sola dos pés firme no chão, na largura dos quadris.
+• Aperte bem o bumbum e suba o quadril até formar uma linha reta entre as coxas e o peito.
+• Segure 2 segundos no alto com o bumbum bem firme e desça devagar até o chão.
+
+Base científica:
+• Recrutamento do Glúteo Máximo: A extensão de quadril ativa a musculatura extensora primária sem aplicar carga gravitacional vertical sobre os discos intervertebrais.
+• Estabilidade da Pelve: O ganho de força glútea neutraliza o estresse de cisalhamento na articulação sacroilíaca.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Ponte de Glúteos')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-qua-bridge" onclick="toggleCommentBox('ex-qua-bridge')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-qua-bridge" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-qua-bridge" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (Ponte de Glúteos):</span>
+            <span class="save-indicator" id="save-status-ex-qua-bridge"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-qua-bridge" placeholder="Ex: Senti bem o bumbum, lombar relaxada..." oninput="saveExerciseNote('ex-qua-bridge', this.value)"></textarea>
+        </div>
+      </div>
     </div>
+
+    <!-- ==================== SEÇÃO 2: FORTALECIMENTO FUNCIONAL ==================== -->
+    <div class="section-card sec-forca">
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+        <div class="section-title-wrap">
+          <span class="section-badge">Fortalecimento</span>
+          <div class="section-title">FORÇA & METABOLISMO</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~30 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 4: Senta e Levanta (Box Squat) -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>SENTA E LEVANTA (BOX SQUAT)</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Senta e Levanta (Box Squat)', '<b>Na prática:</b> Em frente ao banco ou cadeira, sente controlando a descida e levante empurrando o chão pelos calcanhares com o peito aberto.<br><br><b>Base científica:</b> Recrutamento funcional de membros inferiores com ativação de GLUT-4 para sensibilidade à insulina e preservação da autonomia motora.', 'https://www.youtube.com/shorts/49_20NXycwE')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • 8-10 REPS</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Senta e Levanta', '• Mantenha os joelhos sempre apontando na mesma direção das pontas dos pés, sem deixar os joelhos encostarem um no outro.
+• Solte o ar soprando pela boca durante toda a subida!
+
+Base científica:
+• Prevenção do Valgo Dinâmico: Manter o alinhamento fêmoro-tibial evita a sobrecarga assimétrica nos meniscos e na cartilagem patelar com osteoartrite.
+• Respiração Contínua: Protege o sistema cardiovascular contra picos pressóricos repentinos.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Senta e Levanta', '• Posicione-se de costas para uma cadeira ou banco firme, com os pés afastados na largura dos ombros.
+• Dobre os joelhos e empurre o quadril para trás como se fosse sentar, mantendo o peito erguido.
+• Toque suavemente o bumbum no banco sem relaxar o corpo e suba de volta com firmeza empurrando os calcanhares no chão.
+
+Base científica:
+• Translocação de GLUT-4 por Via Muscular: O trabalho de grandes grupos musculares (quadríceps e glúteos) estimula a captação de glicose plasmática independente de insulina, auxiliando no controle do pré-diabetes.
+• Padrão Motor de Autonomia: Fortalece o reflexo extensor indispensável para sentar, levantar e manter o equilíbrio na longevidade.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Senta e Levanta (Box Squat)')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-qua-boxsquat" onclick="toggleCommentBox('ex-qua-boxsquat')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-qua-boxsquat" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-qua-boxsquat" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (Senta e Levanta):</span>
+            <span class="save-indicator" id="save-status-ex-qua-boxsquat"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-qua-boxsquat" placeholder="Ex: Fiz 3 séries de 10 reps sem dor no joelho..." oninput="saveExerciseNote('ex-qua-boxsquat', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 5: Remada Apoiada no Banco -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>REMADA APOIADA NO BANCO</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Remada Apoiada no Banco', '<b>Na prática:</b> Com o peito apoiado no banco inclinado e halteres leves, puxe os cotovelos para trás trazendo os pesos perto da cintura e apertando as escápulas.<br><br><b>Base científica:</b> Fortalecimento dos retratores escapulares e dorsais com descompressão axial completa da coluna lombar pelo suporte torácico.', 'https://www.youtube.com/shorts/hfY9VAd6koc')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • 10-12 REPS</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Remada Apoiada', '• Mantenha o pescoço neutro e os ombros longe das orelhas, sem encolher o pescoço durante a puxada.
+• Solte o ar ao puxar os pesinhos e inspire ao descer.
+
+Base científica:
+• Ritmo Escapuloumeral e Descompressão Cervical: Evita a ativação excessiva do músculo levantador da escápula e do trapézio superior, prevenindo dores de cabeça tensionais e cervicalgias.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Remada Apoiada', '• Deite o peito no encosto do banco inclinado segurando um pesinho leve em cada mão.
+• Puxe os cotovelos para trás junto às costelas, aproximando as escápulas nas costas como se quisesse espremer uma folha de papel entre elas.
+• Desça os pesos devagar e com controle até os braços ficarem estendidos.
+
+Base científica:
+• Apoio Torácico e Neutralidade Lombar: O suporte esternal do banco elimina qualquer estresse gravitacional ou compressivo na coluna lombar, permitindo trabalho dorsal isolado e 100% seguro.
+• Retração Escapular e Postura: Fortalece romboides e trapézio médio, auxiliando no alinhamento postural da coluna e aliviando a tensão da fibromialgia.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Remada Apoiada no Banco')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-qua-remada" onclick="toggleCommentBox('ex-qua-remada')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-qua-remada" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-qua-remada" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (Remada Apoiada):</span>
+            <span class="save-indicator" id="save-status-ex-qua-remada"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-qua-remada" placeholder="Ex: Usei halteres de 2kg, puxada bem limpa nas costas..." oninput="saveExerciseNote('ex-qua-remada', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 6: Flexão Inclinada no Banco -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>FLEXÃO INCLINADA NO BANCO</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Flexão Inclinada no Banco', '<b>Na prática:</b> Mãos apoiadas no banco firme, corpo alinhado em prancha. Desça o peito até próximo ao banco e empurre de volta estendendo os braços.<br><br><b>Base científica:</b> Exercício de empurrar horizontal com carga atenuada pela inclinação, fortalecendo peitoral, deltoide anterior, tríceps e estabilização de core.', 'https://www.youtube.com/shorts/I1E6ow5CbVU')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • 8-10 REPS</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Flexão Inclinada', '• Não deixe a barriga ou a cintura despencarem para baixo; mantenha o corpo firme como uma tábua.
+• Aponte os cotovelos a cerca de 45 graus para trás (formando uma seta com o corpo, nunca abrindo na linha dos ombros).
+
+Base científica:
+• Proteção do Espaço Subacromial: Manter os braços a 45° evita o atrito do tendão do supraespinhal contra o acrômio, prevenindo inflamações no manguito rotador.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Flexão Inclinada', '• Apoie as mãos firmes na borda do banco, numa largura um pouco maior que os ombros, com o corpo reto da cabeça aos calcanhares.
+• Dobre os braços levando o peito em direção ao banco com controle.
+• Empurre o banco com força estendendo os braços de volta à posição inicial.
+
+Base científica:
+• Vantagem Mecânica no Plano Inclinado: A inclinação reduz o percentual do peso corporal suspenso em relação ao chão, permitindo a execução com amplitude anatômica perfeita e sem sobrecarga articular excessiva.
+• Coativação de Core: Exige ativação isométrica do reto abdominal e transverso do abdômen para impedir a lordose compensatória.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Flexão Inclinada no Banco')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-qua-flexao" onclick="toggleCommentBox('ex-qua-flexao')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-qua-flexao" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-qua-flexao" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (Flexão Inclinada):</span>
+            <span class="save-indicator" id="save-status-ex-qua-flexao"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-qua-flexao" placeholder="Ex: Consegui 8 repetições com o corpo bem retinho..." oninput="saveExerciseNote('ex-qua-flexao', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 7: Abdução de Quadril Deitada -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>ABDUÇÃO DE QUADRIL DEITADA</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Abdução de Quadril Deitada', '<b>Na prática:</b> Deitada de lado no colchonete, eleve a perna de cima em linha reta com a ponta do pé para a frente, fortalecendo a lateral do quadril.<br><br><b>Base científica:</b> Fortalecimento seletivo do glúteo médio, músculo estabilizador da pelve e principal protetor biomecânico contra desalinhamentos e dores no joelho.', 'https://www.youtube.com/shorts/7HWdwvAQFuY')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 SÉRIES • 10-12 REPS / LADO</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Lado D - Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Lado D - Série 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Lado E - Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Lado E - Série 2</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Abdução de Quadril', '• Não role a bacia ou o corpo para trás na hora de subir a perna. O tronco deve ficar firme e imóvel.
+• Faça o movimento devagar, sentindo a lateral do bumbum queimar suavemente.
+
+Base científica:
+• Isolamento do Glúteo Médio Posterior: Rolar a pelve para trás substitui a ação do glúteo pelo tensor da fáscia lata e reto femoral, anulando o objetivo de estabilização articular.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Abdução de Quadril', '• Deite-se de lado no colchonete, com o corpo alinhado e a cabeça apoiada confortavelmente no braço de baixo.
+• Mantenha as pernas estendidas e a ponta do pé de cima virada para a frente (não para cima).
+• Eleve a perna de cima com calma até a altura do quadril, segure 1 segundo e desça bem devagar.
+
+Base científica:
+• Estabilização do Plano Frontal: O glúteo médio é o responsável por impedir a queda da hemipelve oposta ao caminhar (neutralizando o sinal de Trendelenburg).
+• Absorção de Cargas: Um glúteo médio forte reduz o estresse compressivo sobre a articulação do joelho ao caminhar e subir escadas.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Abdução de Quadril Deitada')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-qua-ostra" onclick="toggleCommentBox('ex-qua-ostra')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-qua-ostra" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-qua-ostra" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (Abdução de Quadril):</span>
+            <span class="save-indicator" id="save-status-ex-qua-ostra"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-qua-ostra" placeholder="Ex: Senti a lateral do quadril queimar bem sem dor..." oninput="saveExerciseNote('ex-qua-ostra', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 8: Panturrilha em Pé com Apoio -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>PANTURRILHA EM PÉ COM APOIO</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Panturrilha em Pé com Apoio', '<b>Na prática:</b> Em pé com as mãos apoiadas na parede para equilíbrio, suba o máximo na ponta dos pés, segure 1 segundo no topo e desça com controle.<br><br><b>Base científica:</b> Ativação da bomba muscular da panturrilha (gastrocnêmios e sóleo), acelerando o retorno venoso e prevenindo inchaço e cansaço nas pernas.', 'https://www.youtube.com/shorts/RFXfn6GxxFw')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • 12-15 REPS (PAUSA 1")</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Panturrilha em Pé', '• Distribua o peso do corpo na base do dedão do pé e do meio, sem deixar o tornozelo virar torto para fora.
+• Não dê trancos ou quiques no fundo do movimento.
+
+Base científica:
+• Mecanismo de Windlass e Arco Plantar: Apoiar na cabeça do primeiro metatarso mantém a tensão na fáscia plantar, distribuindo as forças uniformemente pelo complexo osteoarticular do pé.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Panturrilha em Pé', '• Em pé, apoie as mãos na parede ou numa barra firme na altura do peito para não se desequilibrar.
+• Suba o mais alto que conseguir na ponta dos pés, como se quisesse tocar o teto com a cabeça.
+• Segure 1 segundo bem no alto e desça controlando o movimento até o calcanhar encostar suavemente no chão.
+
+Base científica:
+• Ação da Bomba Vascular Gastrocnêmica: A contração da panturrilha comprime o plexo venoso profundo, ejetando sangue desoxigenado de volta ao coração e combatendo a estase venosa e inchaço comum em viagens.
+• Fortalecimento do Tornozelo: Aumenta a estabilidade ligamentar do tornozelo, prevenindo entorses e quedas.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Panturrilha em Pé com Apoio')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-qua-panturrilha" onclick="toggleCommentBox('ex-qua-panturrilha')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-qua-panturrilha" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-qua-panturrilha" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (Panturrilha em Pé):</span>
+            <span class="save-indicator" id="save-status-ex-qua-panturrilha"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-qua-panturrilha" placeholder="Ex: Pernas leves, circulação ativa..." oninput="saveExerciseNote('ex-qua-panturrilha', this.value)"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SEÇÃO 3: MOBILIDADE, DESCOMPRESSÃO & ALÍVIO ==================== -->
+    <div class="section-card sec-flexibilidade">
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+        <div class="section-title-wrap">
+          <span class="section-badge">Alívio & Mobilidade</span>
+          <div class="section-title">DESCOMPRESSÃO ARTICULAR</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~12 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 9: Alongamento de Posterior Sentada -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>ALONGAMENTO DE POSTERIOR SENTADA</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Alongamento de Posterior Sentada', '<b>Na prática:</b> Sentada no colchonete ou banco, perna estendida à frente, incline o corpo à frente a partir do quadril sentindo a parte de trás da coxa alongar sem forçar a coluna.<br><br><b>Base científica:</b> Inibição autógena dos isquiotibiais por estiramento estático moderado, reduzindo a tração na bacia e aliviando a sobrecarga na coluna lombar.', 'https://www.youtube.com/shorts/ZppZoZ-c2zU')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 SÉRIES • 30-40" / PERNA</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Perna D - Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Perna D - Série 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Perna E - Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Perna E - Série 2</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Alongamento Posterior', '• Não fique balançando ou dando puxões; o alongamento deve ser estático e calmo.
+• Não sinta dor aguda, apenas uma tração confortável e tolerável.
+
+Base científica:
+• Evitação do Reflexo de Estiramento (Fuso Neuromuscular): Trancos ativam o reflexo miotático provocando contração defensiva espástica, que intensifica as dores da fibromialgia.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Alongamento Posterior', '• Sente-se no colchonete ou na borda do banco com uma das pernas estendida à frente e a outra dobrada.
+• Mantenha o peito aberto e incline o corpo suavemente para a frente a partir do quadril (sem encurvar as costas).
+• Quando sentir uma sensação gostosa de puxar atrás da coxa, pare e sustente respirando fundo por 30 a 40 segundos.
+
+Base científica:
+• Estimulação dos Órgãos Tendinosos de Golgi (OTGs): O estiramento mantido sem dor aciona os OTGs, gerando relaxamento reflexo da musculatura isquiotibial e melhora da viscoelasticidade tecidual.
+• Descompressão Pélvica: A soltura dos isquiotibiais permite que a pelve recupere sua mobilidade anteroposterior natural, eliminando a tensão na fáscia toracolombar.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Alongamento de Posterior Sentada')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-qua-posterior" onclick="toggleCommentBox('ex-qua-posterior')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-qua-posterior" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-qua-posterior" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (Alongamento Posterior):</span>
+            <span class="save-indicator" id="save-status-ex-qua-posterior"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-qua-posterior" placeholder="Ex: Alongamento bem relaxante, soltou a perna..." oninput="saveExerciseNote('ex-qua-posterior', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 10: Alongamento de Peitoral na Parede -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>ALONGAMENTO DE PEITORAL NA PAREDE</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Alongamento de Peitoral na Parede', '<b>Na prática:</b> Apoie o braço estendido na parede na altura dos ombros e gire o corpo devagar para o lado oposto, abrindo o peito e aliviando a tensão nos ombros e pescoço.<br><br><b>Base científica:</b> Abertura da fáscia clavi-peitoral e descompressão neurovascular, combatendo a postura cifótica de defesa e reduzindo a hipertonia cervical.', 'https://www.youtube.com/shorts/2alyz_gw3Go')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 SÉRIES • 30" / LADO</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Braço D - Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Braço D - Série 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Braço E - Série 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Braço E - Série 2</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Alongamento de Peitoral', '• Não gire o corpo com força excessiva; o peito deve abrir suavemente.
+• Mantenha o ombro baixo e relaxado, longe da orelha.
+
+Base científica:
+• Proteção da Cápsula Glenoumeral Anterior: O estiramento deve incidir sobre as fibras musculares do peitoral, sem tensionar excessivamente os ligamentos glenoumerais anteriores.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Alongamento de Peitoral', '• Fique de pé ao lado de uma parede e apoie a palma da mão e o braço estendido na parede na altura do ombro.
+• Gire o tronco lentamente para o lado oposto até sentir o peito e a frente do ombro abrirem.
+• Sustente a posição com calma por 30 segundos, respirando fundo, e depois repita no outro braço.
+
+Base científica:
+• Abertura do Canal Toracoacromial: O alongamento dos feixes clavicular e esternal do peitoral maior reduz a tração anterior do úmero, restaurando o alinhamento da cabeça umeral na fossa glenoide.
+• Redução da Tensão Cervicobraquial: Alivia o encurtamento do peitoral menor, prevenindo compressões do feixe vasculonervoso axilar comuns em situações de estresse e fibromialgia.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Alongamento de Peitoral na Parede')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-qua-peitoral" onclick="toggleCommentBox('ex-qua-peitoral')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-qua-peitoral" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-qua-peitoral" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (Alongamento Peitoral):</span>
+            <span class="save-indicator" id="save-status-ex-qua-peitoral"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-qua-peitoral" placeholder="Ex: Ombros soltos, alívio no pescoço..." oninput="saveExerciseNote('ex-qua-peitoral', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 11: Posição da Criança (Child's Pose) -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>POSIÇÃO DA CRIANÇA (CHILD'S POSE)</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Posição da Criança (Child\'s Pose)', '<b>Na prática:</b> Ajoelhada no colchonete, sente sobre os calcanhares, estique os braços à frente no chão e apoie a testa, respirando profundamente para relaxar o corpo e a mente.<br><br><b>Base científica:</b> Descompressão axial gravitacional completa da coluna lombar e estimulação parassimpática vagal, regulando a pressão arterial e aliviando dores difusas da fibromialgia.', 'https://www.youtube.com/shorts/9Mk_tX_HbiM')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 MINUTOS • RELAXAMENTO TOTAL</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Relaxamento 2 min</div>
+          </div>
+        </div>
+        <div class="ex-cues-row">
+          <button type="button" class="btn-tip-cue cue-cuidados" onclick="openTip('Cuidados — Posição da Criança', '• Se sentir desconforto nos joelhos ao dobrar muito, coloque uma almofada ou toalha dobrada sob o bumbum ou entre as pernas para não dobrar tanto o joelho.
+• Permaneça na posição respirando sem pressa por 2 minutos.
+
+Base científica:
+• Adaptação Biomecânica para Osteoartrite de Joelho: Limitar o ângulo de flexão patelofemoral sob descarga de peso evita picos de pressão intra-articular no compartimento posterior do joelho.', '🛡️ Cuidados')">🛡️ Cuidados</button>
+          <button type="button" class="btn-tip-cue cue-instrucoes" onclick="openTip('Instruções — Posição da Criança', '• Ajoelhe-se no colchonete com os joelhos afastados, sente o quadril sobre os calcanhares e caminhe com as mãos à frente no chão até esticar os braços.
+• Apoie a testa no colchonete ou numa almofada confortável.
+• Feche os olhos e respire fundo: puxe o ar expandindo a barriga e as costelas, e solte todo o ar bem devagar, sentindo as costas e o quadril relaxarem.
+
+Base científica:
+• Ativação Parassimpática via Nervo Vago: A postura de relaxamento somada à respiração diafragmática lenta ativa o sistema nervoso autônomo parassimpático, baixando os níveis de cortisol sérico, estabilizando a pressão arterial sistólica e diminuindo a sensibilização central de dor da fibromialgia.
+• Descompressão Intervertebral Passiva: A flexão fisiológica sem carga abre os forames de conjugação intervertebrais, aliviando a compressão sobre as raízes nervosas lombares.', '🔧 Instruções')">🔧 Instruções</button>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Posição da Criança (Child\'s Pose)')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-qua-childpose" onclick="toggleCommentBox('ex-qua-childpose')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-qua-childpose" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-qua-childpose" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (Posição da Criança):</span>
+            <span class="save-indicator" id="save-status-ex-qua-childpose"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-qua-childpose" placeholder="Ex: Relaxamento maravilhoso, corpo leve e sem dor..." oninput="saveExerciseNote('ex-qua-childpose', this.value)"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card Clean de Finalização de Treino (Quarta) -->
+    <div class="workout-finish-clean-card" id="workoutFinishCard-quarta">
+      <div class="finish-controls-row">
+        <label class="finish-checkbox-label">
+          <input type="checkbox" id="checkFinish-quarta" class="finish-checkbox-input" onchange="toggleFinishWorkoutBtn('quarta', this.checked)">
+          <span class="finish-custom-checkbox"></span>
+          <span class="finish-checkbox-text">Finalizar sessão 🏁</span>
+        </label>
+        <button type="button" class="btn-send-coach" id="btnSendCoach-quarta" onclick="completeWorkoutSession('quarta')" disabled>
+          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          <span>Enviar para Coach</span>
+        </button>
+      </div>
+      <div id="completeFeedback-quarta" class="complete-feedback-box" style="display:none; width: 100%;">
+        ✅ Treino finalizado e relatório enviado com sucesso para o Coach!
+      </div>
+    </div>
+
+  </div><!-- end #tab-quarta -->
 
   </div><!-- end #mainTrainingView -->
 
@@ -4472,7 +5736,26 @@
         </div>
       </div>
 
-    </div></div><!-- end #tab-recados -->
+    </div>
+    <!-- Card Clean de Finalização de Treino (Quarta) -->
+    <div class="workout-finish-clean-card" id="workoutFinishCard-quarta">
+      <div class="finish-controls-row">
+        <label class="finish-checkbox-label">
+          <input type="checkbox" id="checkFinish-quarta" class="finish-checkbox-input" onchange="toggleFinishWorkoutBtn('quarta', this.checked)">
+          <span class="finish-custom-checkbox"></span>
+          <span class="finish-checkbox-text">Finalizar sessão 🏁</span>
+        </label>
+        <button type="button" class="btn-send-coach" id="btnSendCoach-quarta" onclick="completeWorkoutSession('quarta')" disabled>
+          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          <span>Enviar para Coach</span>
+        </button>
+      </div>
+      <div id="completeFeedback-quarta" class="complete-feedback-box" style="display:none; width: 100%;">
+        ✅ Treino finalizado e relatório enviado com sucesso para o Coach!
+      </div>
+    </div>
+
+  </div><!-- end #tab-recados -->
 
 
   <!-- ==================== TAB: ANÁLISE DE VÍDEOS ==================== -->
@@ -4744,16 +6027,16 @@
       <!-- Grid de Métricas Atuais da Aluna -->
       <div class="metrics-summary-grid" style="margin-bottom: 0;">
         <div class="metric-summary-card">
-          <div class="metric-value" id="athleteProfileWeight">-- kg</div>
+          <div class="metric-value" id="athleteProfileWeight">60.0 kg</div>
           <div class="metric-label">Peso Atual</div>
         </div>
         <div class="metric-summary-card">
-          <div class="metric-value" id="athleteProfileHeight">-- cm</div>
+          <div class="metric-value" id="athleteProfileHeight">157 cm</div>
           <div class="metric-label">Altura</div>
         </div>
         <div class="metric-summary-card">
-          <div class="metric-value" id="athleteProfileBF">--%</div>
-          <div class="metric-label">% Gordura (BF)</div>
+          <div class="metric-value" id="athleteProfileBF">24.3</div>
+          <div class="metric-label">IMC (Saudável)</div>
         </div>
       </div>
     </div>
@@ -4767,10 +6050,14 @@
 
     <div class="section-card sec-aquecimento" style="border-left: 3.5px solid #38bdf8;">
       <div class="section-header">
-        <div class="section-title">📋 Diretrizes em Definição</div>
+        <div class="section-title">📋 Diretrizes Clínicas & Biomecânicas</div>
       </div>
-      <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.65;">
-        <p>As diretrizes biomecânicas, cuidados articulares e metas de condicionamento serão publicadas pelo <strong>Prof. Gui Lemos</strong> assim que a sua Ficha de Avaliação Inicial for enviada e revisada.</p>
+      <div style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.65;">
+        <p style="margin-bottom: 8px;"><strong>🫀 Controle Pressórico (Hipertensão):</strong> Respiração sempre rítmica e contínua (anti-Valsalva). Solte o ar durante o esforço (ao empurrar/puxar/subir) e inspire no retorno. Jamais tranque o ar para evitar aumentos repentinos na pressão arterial sistólica.</p>
+        <p style="margin-bottom: 8px;"><strong>🚴 Proteção dos Pés & Cartilagens:</strong> Aquecimento 100% na bicicleta ergométrica para eliminar o impacto repetitivo da esteira, protegendo o calcanhar e a fáscia plantar enquanto lubrifica joelhos e quadris.</p>
+        <p style="margin-bottom: 8px;"><strong>🌿 Gestão de Esforço (Fibromialgia):</strong> Treino submáximo na faixa de esforço moderado (5 a 7 / 10). Evitar a exaustão muscular extrema para impedir picos inflamatórios e dores tardias (flare-ups).</p>
+        <p style="margin-bottom: 8px;"><strong>🧬 Estímulo Metabólico (Pré-diabetes):</strong> Recrutamento dos grandes grupos musculares (quadríceps, glúteos e dorsais) para estimular a captação de glicose via transportadores GLUT-4 independentes de insulina.</p>
+        <p style="margin-bottom: 0;"><strong>🛡️ Estabilidade & Descompressão (Osteoartrite):</strong> Manter joelhos rigorosamente alinhados com as pontas dos pés em todos os movimentos de agachamento e finalizar a sessão com descompressão lombar e relaxamento parassimpático.</p>
       </div>
     </div>
 
@@ -5303,7 +6590,9 @@
       </div>
     </div>
 
-    <div id="sendVideoModal" class="modal-overlay" onclick="if(event.target === this) closeSendVideoModal();">
+      </div><!-- end #tab-evolucao -->
+
+  <div id="sendVideoModal" class="modal-overlay" onclick="if(event.target === this) closeSendVideoModal();">
     <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 480px;">
       <div class="modal-header">
         <div style="display:flex; align-items:center; gap:10px;">
@@ -5593,7 +6882,7 @@
 
   <script>
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '120';
+    const APP_BUILD_VERSION = '121';
     if (localStorage.getItem('dominio_helenice_dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_helenice_dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
@@ -5696,20 +6985,10 @@
     }
 
     function renderTrainingHubDays() {
-      // Terça-feira concluída no Box conforme decisão estratégica do atleta
-      try {
-        const _comp = JSON.parse(localStorage.getItem('dominio_helenice_dominio_completed_workouts') || '{}');
-        if (!_comp['terca']) {
-          _comp['terca'] = true;
-          localStorage.setItem('dominio_helenice_dominio_completed_workouts', JSON.stringify(_comp));
-        }
-      } catch (e) {}
-
       const dayOfWeek = new Date().getDay(); // 0: Dom, 1: Seg, 2: Ter, 3: Qua, 4: Qui, 5: Sex, 6: Sab
-      const dayMap = { 1: 'segunda', 2: 'terca', 3: 'quarta', 4: 'quinta', 5: 'sexta' };
-      const todayTab = dayMap[dayOfWeek] || 'segunda';
-
-      const days = ['segunda', 'terca', 'quarta', 'quinta', 'sexta'];
+      // Para Helenice: Foco em Segunda e Quarta
+      const todayTab = (dayOfWeek === 3 || dayOfWeek === 4) ? 'quarta' : 'segunda';
+      const days = ['segunda', 'quarta', 'terca', 'quinta', 'sexta'];
       days.forEach(d => {
         // Badge Hoje
         const todayBadge = document.getElementById('todayBadge-' + d);
@@ -7612,8 +8891,29 @@
       }
     };
 
-    // Inicializa contador de progresso, labels calibrados e notas salvas
-    if (localStorage.getItem('dominio_helenice_dominio_assessment_completed') === null) {
+    // Inicializa ficha preenchida e status de avaliação liberado
+    if (!localStorage.getItem('dominio_helenice_dominio_student_intake')) {
+      const defaultIntake = {
+        nome: "Helenice Aparecida de Paula",
+        nascimento: "1957-06-25",
+        idade: 69,
+        altura: 157,
+        peso: 60,
+        gordura: "",
+        rotina: "Estresse, sono 9 horas, dores articulares e fibromialgia",
+        dias_disponiveis: "Segunda-feira e Quarta-feira",
+        duracao_disponivel: "60 minutos por sessão",
+        local: "Academia",
+        historico_clinico: "Nenhuma dor ou cirurgia relatada. Vários remédios contínuos.",
+        condicoes_saude: ["Pressão alta", "Pré-diabetes", "Fibromialgia", "Osteoartrite"],
+        bagagem_previa: "Hidroginástica",
+        treino_atual: "Musculação",
+        pullups: "Ainda não faz",
+        pushups: "Faz com joelhos no solo",
+        cardio: "Iniciante (fadiga rápida)",
+        objetivos: ["Definição Muscular / Composição Corporal", "Ganho de Força & Massa Magra", "Reabilitação & Alívio de Dores Articulares", "Mobilidade & Flexibilidade"]
+      };
+      localStorage.setItem('dominio_helenice_dominio_student_intake', JSON.stringify(defaultIntake));
       localStorage.setItem('dominio_helenice_dominio_assessment_completed', 'true');
     }
     renderTrainingHubDays();
@@ -7647,7 +8947,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=120').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=121').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
