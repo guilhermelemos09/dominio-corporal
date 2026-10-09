@@ -830,7 +830,132 @@
       background: rgba(244, 63, 94, 0.15);
       color: #fb7185;
       border-color: rgba(244, 63, 94, 0.3);
+    } 
+
+    /* Dock Flutuante 2 em 1 OLED: Exibido EXCLUSIVAMENTE em páginas de treino */
+    .timer-dock {
+      display: none !important;
+      position: fixed;
+      bottom: 14px;
+      left: 14px;
+      right: 14px;
+      max-width: 480px;
+      margin: 0 auto;
+      background: rgba(15, 23, 42, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 10px 16px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.75);
+      z-index: 1000;
+      transition: transform 0.25s ease, opacity 0.25s ease;
     }
+    .dock-timer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding-bottom: 7px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .dock-timer-row .timer-info {
+      display: flex;
+      flex-direction: column;
+      padding-right: 14px;
+      border-right: 1px solid rgba(255, 255, 255, 0.10);
+      flex-shrink: 0;
+    }
+    .dock-timer-row .timer-caption {
+      font-size: 0.62rem;
+      font-weight: 800;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .dock-timer-row .timer-display {
+      font-size: 1.35rem;
+      font-weight: 800;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      color: var(--brand-neon);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .dock-timer-row .timer-buttons {
+      display: flex;
+      gap: 6px;
+    }
+    .dock-timer-row .btn-timer {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 6px 10px;
+      border-radius: 12px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .dock-timer-row .btn-timer.active {
+      background: var(--brand-neon);
+      color: #000000;
+      border-color: var(--brand-neon);
+      box-shadow: 0 0 12px var(--brand-neon-glow);
+    }
+    .dock-timer-row .btn-timer-reset {
+      background: rgba(244, 63, 94, 0.15);
+      color: #fb7185;
+      border-color: rgba(244, 63, 94, 0.3);
+    }
+    .dock-progress-row {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding-top: 2px;
+    }
+    .dock-progress-labels {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .dock-progress-labels #dockProgressText {
+      color: var(--brand-neon);
+      font-weight: 800;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    .dock-progress-bar-bg {
+      background: rgba(255, 255, 255, 0.14);
+      height: 8px;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .dock-progress-bar-fill {
+      background: var(--brand-neon);
+      height: 100%;
+      width: 0%;
+      border-radius: 6px;
+      transition: width 0.25s ease;
+      box-shadow: 0 0 8px var(--brand-neon-glow);
+    }
+
+    body.in-day-workout .timer-dock {
+      display: flex !important;
+    }
+    body.in-view-avaliacao .timer-dock,
+    body.in-view-perfil .timer-dock,
+    body.in-view-timers .timer-dock {
+      display: none !important;
+    }
+
 
     /* Modal de Vídeo Dark & Modais Gerais */
     .modal-overlay {
@@ -2968,7 +3093,7 @@
         <div class="wpp-card-info">
           <div class="wpp-card-title">Dúvidas sobre o Treino</div>
           <div class="wpp-card-btn-inline">
-            <span>Falar diretamente com Gui via WhatsApp</span>
+            <span>Fale direto com o Gui</span>
             <span class="wpp-arrow">↗</span>
           </div>
         </div>
@@ -3363,16 +3488,30 @@
   </div>
 
   <!-- Cronômetro Flutuante OLED Stealth -->
-  <div class="timer-dock">
-    <div class="timer-info">
-      <span class="timer-caption">Descanso</span>
-      <span class="timer-display" id="timer">01:30</span>
+  <!-- Dock Flutuante OLED Stealth 2 em 1: Descanso em Cima, Progressão em Baixo -->
+  <div class="timer-dock" id="bottomTimerDock">
+    <!-- Linha Superior: Descanso do Timer -->
+    <div class="dock-timer-row">
+      <div class="timer-info">
+        <span class="timer-caption">Descanso</span>
+        <span class="timer-display" id="timer">01:30</span>
+      </div>
+      <div class="timer-buttons">
+        <button type="button" class="btn-timer" onclick="startTimer(60)">60"</button>
+        <button type="button" class="btn-timer active" onclick="startTimer(90)">90"</button>
+        <button type="button" class="btn-timer" onclick="startTimer(120)">120"</button>
+        <button type="button" class="btn-timer btn-timer-reset" onclick="resetTimer()">Reset</button>
+      </div>
     </div>
-    <div class="timer-buttons">
-      <button class="btn-timer" onclick="startTimer(60)">60s</button>
-      <button class="btn-timer active" onclick="startTimer(90)">90s</button>
-      <button class="btn-timer" onclick="startTimer(120)">120s</button>
-      <button class="btn-timer btn-timer-reset" onclick="resetTimer()">Reset</button>
+    <!-- Linha Inferior: Progressão do Treino -->
+    <div class="dock-progress-row" id="dockProgressRow">
+      <div class="dock-progress-labels">
+        <span>PROGRESSÃO DO TREINO</span>
+        <span id="dockProgressText">0 de 0 séries (0%)</span>
+      </div>
+      <div class="dock-progress-bar-bg">
+        <div class="dock-progress-bar-fill" id="dockProgressFill" style="width: 0%;"></div>
+      </div>
     </div>
   </div>
 

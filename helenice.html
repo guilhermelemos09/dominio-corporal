@@ -4350,7 +4350,7 @@
         <div class="wpp-card-info">
           <div class="wpp-card-title">Dúvidas sobre o Treino</div>
           <div class="wpp-card-btn-inline">
-            <span>Falar diretamente com Gui via WhatsApp</span>
+            <span>Fale direto com o Gui</span>
             <span class="wpp-arrow">↗</span>
           </div>
         </div>
@@ -6223,6 +6223,35 @@
     </div>
 
       </div><!-- end #tab-evolucao -->
+
+  <!-- Dock Flutuante OLED Stealth 2 em 1: Descanso em Cima, Progressão em Baixo -->
+  <div class="timer-dock" id="bottomTimerDock">
+    <!-- Linha Superior: Descanso do Timer -->
+    <div class="dock-timer-row">
+      <div class="timer-info">
+        <span class="timer-caption">Descanso</span>
+        <span class="timer-display" id="timer">01:30</span>
+      </div>
+      <div class="timer-buttons">
+        <button type="button" class="btn-timer" onclick="startTimer(60)">60"</button>
+        <button type="button" class="btn-timer active" onclick="startTimer(90)">90"</button>
+        <button type="button" class="btn-timer" onclick="startTimer(120)">120"</button>
+        <button type="button" class="btn-timer btn-timer-reset" onclick="resetTimer()">Reset</button>
+      </div>
+    </div>
+    <!-- Linha Inferior: Progressão do Treino -->
+    <div class="dock-progress-row" id="dockProgressRow">
+      <div class="dock-progress-labels">
+        <span>PROGRESSÃO DO TREINO</span>
+        <span id="dockProgressText">0 de 0 séries (0%)</span>
+      </div>
+      <div class="dock-progress-bar-bg">
+        <div class="dock-progress-bar-fill" id="dockProgressFill" style="width: 0%;"></div>
+      </div>
+    </div>
+  </div>
+
+
 
   <div id="sendVideoModal" class="modal-overlay" onclick="if(event.target === this) closeSendVideoModal();">
     <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 480px;">
