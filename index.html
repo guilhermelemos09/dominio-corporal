@@ -5662,15 +5662,15 @@
       </div>
     </div>
 
-  </div><!-- end #tab-sexta -->
-
-  
-    <!-- Ajuda Contextual do Treino -->
+      <!-- Ajuda Contextual do Treino -->
     <div class="contextual-help-wrap" style="margin-top: 24px; margin-bottom: 80px;">
       <button type="button" class="btn-contextual-help" onclick="openContextualHelp('treinos')">
         <span>precisa de ajuda?</span> <u>acesse as instruções</u>
       </button>
     </div>
+
+  </div><!-- end #tab-sexta -->
+
   </div><!-- end #mainTrainingView -->
 
   <!-- ==================== TAB: MURAL DE RECADOS & COMUNICADOS ==================== -->
@@ -7412,7 +7412,7 @@
           </div>
           <div>
             <h3 style="margin:0; font-size:1.02rem; color:#fff;">Enviar Vídeo para Análise</h3>
-            <span id="sendVideoExerciseName" style="font-size:0.75rem; color:#38bdf8; font-weight:600;">Exercício Selecionado</span>
+            <span id="sendVideoExerciseName" style="font-size:0.75rem; color:#38bdf8; font-weight:600; display:none;"></span>
           </div>
         </div>
         <button class="btn-close" type="button" onclick="closeSendVideoModal()" aria-label="Fechar">&times;</button>
@@ -9655,20 +9655,17 @@
     let currentSendVideoExercise = '';
 
     window.openSendVideoModal = function(exerciseName) {
-      currentSendVideoExercise = (exerciseName && exerciseName !== 'Geral / Movimento Livre') ? exerciseName.trim() : '';
+      currentSendVideoExercise = (exerciseName && exerciseName !== 'Geral / Movimento Livre' && exerciseName !== 'Dúvida de Execução no Treino') ? exerciseName.trim() : '';
       const nameEl = document.getElementById('sendVideoExerciseName');
       if (nameEl) {
         if (currentSendVideoExercise) {
           nameEl.textContent = currentSendVideoExercise;
+          nameEl.style.display = 'block';
         } else {
-          nameEl.textContent = 'Envio para Avaliação Técnica';
+          nameEl.textContent = '';
+          nameEl.style.display = 'none';
         }
       }
-
-      const driveContainer = document.getElementById('driveLinkContainer');
-      if (driveContainer) driveContainer.style.display = 'none';
-      const inputEl = document.getElementById('sendVideoExternalUrl');
-      if (inputEl) inputEl.value = '';
 
       const modal = document.getElementById('sendVideoModal');
       if (modal) modal.classList.add('active');

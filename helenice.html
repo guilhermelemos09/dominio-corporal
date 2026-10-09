@@ -1021,6 +1021,28 @@
     }
     .callout-box strong { color: #ffffff; }
     .callout-icon { font-size: 1.15rem; line-height: 1; flex-shrink: 0; margin-top: 2px; }
+
+    /* Botão Popup ORIENTAÇÕES */
+    .btn-orientacoes-popup {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 255, 136, 0.08);
+      border: 1px solid rgba(0, 255, 136, 0.35);
+      color: var(--brand-neon);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-orientacoes-popup:hover {
+      background: rgba(0, 255, 136, 0.16);
+      border-color: var(--brand-neon);
+      transform: translateY(-1px);
+    }
     /* Foco do Treino / Foco do Dia: Palavras-chave em caixinhas cinzas */
     .foco-keywords-wrap {
       display: flex;
@@ -4367,18 +4389,12 @@
       <span class="meta-item">⏳ ~50 a 60 min</span>
     </div>
 
-    <!-- DIRETRIZES CLÍNICAS DA SESSÃO -->
-    <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 18px 16px; margin-bottom: 18px; border-radius: 12px; background: rgba(0, 255, 136, 0.04);">
-      <div class="callout-icon" style="font-size:1.4rem;">🛡️</div>
-      <div>
-        <div class="callout-topic-header" style="color: var(--brand-neon); font-size: 0.95rem; font-weight:800; letter-spacing:0.04em;">TREINO VIAGEM • SESSÃO A</div>
-        <div style="font-size: 0.85rem; color: #cbd5e1; margin-top: 6px; line-height: 1.6;">
-          • <strong>Respiração Contínua (Anti-Valsalva):</strong> Solte o ar pela boca no esforço e inspire no retorno. Jamais tranque o ar.<br>
-          • <strong>Intensidade Moderada (Fibromialgia):</strong> Mantenha o esforço entre 5 e 7 (numa escala de 0 a 10). Sem exaustão extrema.<br>
-          • <strong>Zero Impacto nos Pés:</strong> Aquecimento cardiovascular 100% na bike para proteger a sola dos pés e lubrificar os joelhos.<br>
-          • <strong>Pausas Confortáveis:</strong> Descanse de 60 a 90 segundos entre as séries para recuperar plenamente o fôlego.
-        </div>
-      </div>
+    <!-- BOTÃO POPUP: ORIENTAÇÕES -->
+    <div style="margin: 8px 0 16px 0;">
+      <button type="button" class="btn-orientacoes-popup" onclick="openOrientacoesTreino('segunda')">
+        <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+        <span>ORIENTAÇÕES</span>
+      </button>
     </div>
 
     <!-- ==================== SEÇÃO 1: ATIVAÇÃO ==================== -->
@@ -4817,6 +4833,13 @@
       </div>
     </div>
 
+    <!-- Ajuda Contextual do Treino -->
+    <div class="contextual-help-wrap" style="margin-top: 24px; margin-bottom: 80px;">
+      <button type="button" class="btn-contextual-help" onclick="openContextualHelp('treinos')">
+        <span>precisa de ajuda?</span> <u>acesse as instruções</u>
+      </button>
+    </div>
+
   </div>
 
   
@@ -4829,18 +4852,12 @@
       <span class="meta-item">⏳ ~50 a 60 min</span>
     </div>
 
-    <!-- DIRETRIZES CLÍNICAS DA SESSÃO -->
-    <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 18px 16px; margin-bottom: 18px; border-radius: 12px; background: rgba(0, 255, 136, 0.04);">
-      <div class="callout-icon" style="font-size:1.4rem;">🛡️</div>
-      <div>
-        <div class="callout-topic-header" style="color: var(--brand-neon); font-size: 0.95rem; font-weight:800; letter-spacing:0.04em;">TREINO VIAGEM • SESSÃO B</div>
-        <div style="font-size: 0.85rem; color: #cbd5e1; margin-top: 6px; line-height: 1.6;">
-          • <strong>Respiração Contínua (Anti-Valsalva):</strong> Solte o ar pela boca no esforço e inspire no retorno. Jamais tranque o ar.<br>
-          • <strong>Intensidade Moderada (Fibromialgia):</strong> Mantenha o esforço entre 5 e 7 (numa escala de 0 a 10). Sem exaustão extrema.<br>
-          • <strong>Zero Impacto nos Pés:</strong> Aquecimento cardiovascular 100% na bike para proteger a sola dos pés e lubrificar os joelhos.<br>
-          • <strong>Pausas Confortáveis:</strong> Descanse de 60 a 90 segundos entre as séries para recuperar plenamente o fôlego.
-        </div>
-      </div>
+    <!-- BOTÃO POPUP: ORIENTAÇÕES -->
+    <div style="margin: 8px 0 16px 0;">
+      <button type="button" class="btn-orientacoes-popup" onclick="openOrientacoesTreino('quarta')">
+        <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+        <span>ORIENTAÇÕES</span>
+      </button>
     </div>
 
     <!-- ==================== SEÇÃO 1: ATIVAÇÃO ==================== -->
@@ -5277,6 +5294,13 @@
       <div id="completeFeedback-quarta" class="complete-feedback-box" style="display:none; width: 100%;">
         ✅ Treino finalizado e relatório enviado com sucesso para o Coach!
       </div>
+    </div>
+
+    <!-- Ajuda Contextual do Treino -->
+    <div class="contextual-help-wrap" style="margin-top: 24px; margin-bottom: 80px;">
+      <button type="button" class="btn-contextual-help" onclick="openContextualHelp('treinos')">
+        <span>precisa de ajuda?</span> <u>acesse as instruções</u>
+      </button>
     </div>
 
   </div><!-- end #tab-quarta -->
@@ -6253,6 +6277,171 @@
 
 
 
+    <!-- Modal de Instruções Contextuais do App -->
+  <div id="contextualHelpModal" class="modal-overlay" onclick="if(event.target === this) closeContextualHelp();">
+    <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 520px;">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div id="contextualHelpIconWrap" style="width:36px; height:36px; border-radius:10px; background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.3); display:flex; align-items:center; justify-content:center; font-size:1.25rem;">
+            <span id="contextualHelpIcon">🏋️‍♂️</span>
+          </div>
+          <div>
+            <h3 id="contextualHelpTitle" style="margin:0; font-size:1.02rem; color:#fff;">Como Utilizar os Treinos</h3>
+            <span id="contextualHelpSubtitle" style="font-size:0.75rem; color:#38bdf8; font-weight:600;">Guia da Rotina Diária</span>
+          </div>
+        </div>
+        <button class="btn-close" type="button" onclick="closeContextualHelp()" aria-label="Fechar">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 18px 20px; line-height:1.55;">
+        
+        <!-- Abas Rápidas de Tópicos -->
+        <div class="help-tabs-nav" style="display:flex; gap:8px; margin-bottom:14px; border-bottom:1px solid var(--border-subtle); padding-bottom:10px;">
+          <button type="button" class="help-tab-btn active" data-topic="treinos" onclick="switchHelpTopic('treinos')">🏋️‍♂️ Treinos</button>
+          <button type="button" class="help-tab-btn" data-topic="analises" onclick="switchHelpTopic('analises')">📹 Análises</button>
+          <button type="button" class="help-tab-btn" data-topic="evolucao" onclick="switchHelpTopic('evolucao')">📊 Evolução</button>
+        </div>
+
+        <!-- Painel 1: Treinos -->
+        <div class="help-topic-panel" data-topic="treinos">
+          <div style="display:flex; flex-direction:column; gap:11px;">
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: var(--brand-neon); margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>📅</span> 1. Abertura do Treino do Dia
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Na tela inicial, toque no dia ou treino correspondente para carregar sua sessão completa com divisão de blocos, aquecimento e séries prescritas.
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #38bdf8; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>✓</span> 2. Marcação e Memória de Séries
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Conforme concluir cada série, toque no botão do set (1, 2, 3...). O aplicativo salva seu progresso automaticamente na memória do celular, sem risco de perder o registro se o app for fechado.
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #fbbf24; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>💡</span> 3. Vídeo e Instruções de Execução
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Toque no botão <strong>Vídeo | Instruções</strong> presente em cada exercício para assistir ao vídeo e conferir a execução, cuidados anatômicos e embasamento científico.
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #a78bfa; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>📹</span> 4. Envio de Vídeo para Análise
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Para enviar uma gravação da sua execução tirando dúvidas, clique no ícone <strong>📹</strong> ao lado do exercício ou no banner de envio para abrir o WhatsApp do treinador.
+              </div>
+            </div>
+
+            <div style="background: rgba(37, 211, 102, 0.08); border: 1px solid rgba(37, 211, 102, 0.25); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #25d366; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>⏱️</span> 5. Cronômetro de Descanso
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                No rodapé fixo da tela, selecione o tempo de pausa (30s, 60s, 90s ou 120s). Um bipe sonoro avisará quando o descanso terminar para você iniciar a próxima série.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Painel 2: Análises -->
+        <div class="help-topic-panel" data-topic="analises" style="display:none;">
+          <div style="display:flex; flex-direction:column; gap:11px;">
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #38bdf8; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>📚</span> 1. Biblioteca de Análises
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Navegue pelas categorias para estudar vídeos gravados com marcações e diagnósticos posturais.
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: var(--brand-neon); margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>📹</span> 2. Como Gravar seu Vídeo
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Enquadre o corpo inteiro, filme em ângulo lateral ou diagonal (45°) e registre de 2 a 3 repetições limpas para que seja possível avaliar os ângulos articulares e trajetórias.
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #a78bfa; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>💬</span> 3. Envio Direto pelo WhatsApp
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Toque no botão <strong>Enviar Vídeo para Análise</strong> no topo da página de análises (ou nos botões 📹 dentro do treino). O app abrirá a conversa com o Prof. Gui Lemos com a mensagem já pré-formatada.
+              </div>
+            </div>
+
+            <div style="background: rgba(37, 211, 102, 0.08); border: 1px solid rgba(37, 211, 102, 0.25); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #25d366; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>🎯</span> 4. Devolutiva Técnica
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                O treinador analisa compensações escapulares, alinhamento pélvico e tensão de alavancas, enviando orientações em áudio, vídeo ou ajustes na prescrição do próximo ciclo.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Painel 3: Evolução -->
+        <div class="help-topic-panel" data-topic="evolucao" style="display:none;">
+          <div style="display:flex; flex-direction:column; gap:11px;">
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #fbbf24; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>📐</span> 1. Composição Corporal & Antropometria
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Acompanhe o registro de peso, perímetros musculares e fotos posturais comparativas para monitorar sua transformação física e simetria muscular.
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #38bdf8; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>⚡</span> 2. Progressão de Técnica & Marcos
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Consulte as metas e o histórico de evolução intermediárias rumo ao próximo nível corporal.
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: var(--brand-neon); margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>🏆</span> 3. Central de Recordes (PRs)
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Tabela de melhores marcas: cargas máximas, repetições ininterruptas e tempos sob tensão isométrica.
+              </div>
+            </div>
+
+            <div style="background: rgba(167, 139, 250, 0.08); border: 1px solid rgba(167, 139, 250, 0.25); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #a78bfa; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>📊</span> 4. Relatório do Treinamento
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Gráficos de equilíbrio agonista/antagonista, volume semanal e diagnóstico do treinador para resguardar a integridade articular.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn-submit-assessment" onclick="closeContextualHelp()" style="margin: 18px 0 0 0; width: 100%;">
+          <span>Entendi ➔</span>
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Envio de Vídeo para Análise Técnica -->
   <div id="sendVideoModal" class="modal-overlay" onclick="if(event.target === this) closeSendVideoModal();">
     <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 480px;">
       <div class="modal-header">
@@ -6262,18 +6451,20 @@
           </div>
           <div>
             <h3 style="margin:0; font-size:1.02rem; color:#fff;">Enviar Vídeo para Análise</h3>
-            <span id="sendVideoExerciseName" style="font-size:0.75rem; color:#38bdf8; font-weight:600;">Exercício Selecionado</span>
+            <span id="sendVideoExerciseName" style="font-size:0.75rem; color:#38bdf8; font-weight:600; display:none;"></span>
           </div>
         </div>
         <button class="btn-close" type="button" onclick="closeSendVideoModal()" aria-label="Fechar">&times;</button>
       </div>
       <div class="modal-body" style="padding: 18px 20px;">
-        <p style="font-size:0.83rem; color:var(--text-muted); margin-bottom:14px; line-height:1.45;">
-          Grave o vídeo da sua execução e envie diretamente pelo WhatsApp para avaliação técnica individual do <strong>Prof. Gui Lemos</strong>.
-        </p>
+        <!-- Botão Principal WhatsApp -->
+        <button type="button" class="btn-send-wpp-primary" onclick="confirmSendVideoWhatsApp()" style="margin-bottom: 14px;">
+          <svg style="width:20px; height:20px; fill:currentColor;" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          <span>Abrir WhatsApp e Enviar Vídeo</span>
+        </button>
 
         <!-- Dicas de Gravação -->
-        <div style="background:rgba(56,189,248,0.06); border:1px solid rgba(56,189,248,0.25); border-radius:12px; padding:12px 14px; margin-bottom:16px;">
+        <div style="background:rgba(56,189,248,0.06); border:1px solid rgba(56,189,248,0.25); border-radius:12px; padding:12px 14px;">
           <div style="font-size:0.78rem; font-weight:700; color:#38bdf8; margin-bottom:6px; display:flex; align-items:center; gap:6px;">
             <span>💡</span> <span>Dicas para a filmagem:</span>
           </div>
@@ -6283,30 +6474,9 @@
             <li>Execute 2 a 3 repetições limpas.</li>
           </ul>
         </div>
-
-        <!-- Botão Principal WhatsApp -->
-        <button type="button" class="btn-send-wpp-primary" onclick="confirmSendVideoWhatsApp()">
-          <svg style="width:20px; height:20px; fill:currentColor;" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-          <span>Abrir WhatsApp e Enviar Vídeo</span>
-        </button>
-
-        <!-- Toggle opcional de link externo (Drive/YouTube) -->
-        <div style="margin-top:14px; text-align:center;">
-          <button type="button" class="btn-link-toggle" onclick="toggleDriveLinkInput()" style="background:none; border:none; color:var(--text-muted); font-size:0.76rem; cursor:pointer; text-decoration:underline;">
-            Já subiu no seu Drive ou YouTube? Enviar link via WhatsApp
-          </button>
-        </div>
-
-        <div id="driveLinkContainer" style="display:none; margin-top:12px; padding-top:12px; border-top:1px dashed var(--border-subtle);">
-          <label style="display:block; font-size:0.75rem; color:var(--text-muted); margin-bottom:6px;">Cole o link do seu vídeo:</label>
-          <div style="display:flex; gap:8px;">
-            <input type="url" id="sendVideoExternalUrl" placeholder="https://drive.google.com/... ou https://youtu.be/..." style="flex:1; background:rgba(0,0,0,0.4); border:1px solid var(--border-subtle); border-radius:8px; padding:8px 10px; font-size:0.8rem; color:#fff;">
-            <button type="button" onclick="sendVideoWithLinkWhatsApp()" style="background:#38bdf8; color:#000; border:none; border-radius:8px; padding:0 14px; font-weight:700; font-size:0.78rem; cursor:pointer;">
-              Enviar
-            </button>
-          </div>
-        </div>
       </div>
+    </div>
+  </div>
     </div>
   </div>
 
@@ -8333,23 +8503,31 @@
     let currentSendVideoExercise = '';
 
     window.openSendVideoModal = function(exerciseName) {
-      currentSendVideoExercise = (exerciseName && exerciseName !== 'Geral / Movimento Livre') ? exerciseName.trim() : '';
+      currentSendVideoExercise = (exerciseName && exerciseName !== 'Geral / Movimento Livre' && exerciseName !== 'Dúvida de Execução no Treino') ? exerciseName.trim() : '';
       const nameEl = document.getElementById('sendVideoExerciseName');
       if (nameEl) {
         if (currentSendVideoExercise) {
           nameEl.textContent = currentSendVideoExercise;
+          nameEl.style.display = 'block';
         } else {
-          nameEl.textContent = 'Envio para Avaliação Técnica';
+          nameEl.textContent = '';
+          nameEl.style.display = 'none';
         }
       }
 
-      const driveContainer = document.getElementById('driveLinkContainer');
-      if (driveContainer) driveContainer.style.display = 'none';
-      const inputEl = document.getElementById('sendVideoExternalUrl');
-      if (inputEl) inputEl.value = '';
-
       const modal = document.getElementById('sendVideoModal');
       if (modal) modal.classList.add('active');
+    };
+
+    window.openOrientacoesTreino = function(sessao) {
+      const sessaoNome = (sessao === 'segunda' || sessao === 'A') ? 'SESSÃO A' : 'SESSÃO B';
+      const conteudo = [
+        '• Respiração Contínua (Anti-Valsalva): Solte o ar pela boca no esforço e inspire no retorno. Jamais tranque o ar.',
+        '• Intensidade Moderada (Fibromialgia): Mantenha o esforço entre 5 e 7 (numa escala de 0 a 10). Sem exaustão extrema.',
+        '• Zero Impacto nos Pés: Aquecimento cardiovascular 100% na bike para proteger a sola dos pés e lubrificar os joelhos.',
+        '• Pausas Confortáveis: Descanse de 60 a 90 segundos entre as séries para recuperar plenamente o fôlego.'
+      ].join('\n');
+      openTip(`Orientações Gerais • ${sessaoNome}`, conteudo, '🛡️ ORIENTAÇÕES');
     };
 
     window.closeSendVideoModal = function(fromPopState = false) {
@@ -8958,7 +9136,13 @@
       let btnBg = 'rgba(250, 204, 21, 0.15)';
       let btnBorder = 'rgba(250, 204, 21, 0.4)';
 
-      if (category.includes('Instruções') || category.includes('Execução') || category.includes('🔧')) {
+      if (category.includes('ORIENTAÇÕES') || category.includes('Orientações')) {
+        tagText = '🛡️ ORIENTAÇÕES';
+        tagColor = 'var(--brand-neon)';
+        cardBorder = 'rgba(0, 255, 136, 0.45)';
+        btnBg = 'rgba(0, 255, 136, 0.18)';
+        btnBorder = 'rgba(0, 255, 136, 0.45)';
+      } else if (category.includes('Instruções') || category.includes('Execução') || category.includes('🔧')) {
         tagText = '🔧 INSTRUÇÕES';
         tagColor = '#38bdf8';
         cardBorder = 'rgba(56, 189, 248, 0.45)';
