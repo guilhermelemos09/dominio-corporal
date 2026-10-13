@@ -240,39 +240,75 @@
     /* ===================================================
        SISTEMA DOS PILARES (PRETO OLED + VERDE NEON HERO)
        =================================================== */
-        /* Cards de Seção de Treino (Gradiente Sóbrio Unificado: Verde Neon para Ciano) */
+            /* Cards de Seção de Treino (Cores Sóbrias Temáticas com Faixa de Cabeçalho) */
     .section-card {
       background: #11141a;
       border-radius: 14px;
-      padding: 16px;
+      padding: 14px 16px;
       margin-bottom: 16px;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 4px solid #38bdf8;
       position: relative;
-      overflow: hidden;
-    }
-    .section-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      width: 4px;
-      background: linear-gradient(180deg, var(--brand-neon, #00ff88) 0%, #38bdf8 100%);
-      border-top-left-radius: 14px;
-      border-bottom-left-radius: 14px;
-      pointer-events: none;
     }
 
-    /* Cabeçalho da Seção */
+    /* Bordas Laterais Sóbrias por Categoria */
+    .sec-aquecimento, .sec-ativacao, .border-ativacao {
+      border-left: 4px solid #f59e0b; /* Ativação: Âmbar quente */
+    }
+    .sec-skills, .sec-habilidade, .border-habilidade {
+      border-left: 4px solid #10b981; /* Habilidade: Esmeralda refinado */
+    }
+    .sec-forca, .sec-fortalecimento, .border-fortalecimento {
+      border-left: 4px solid #38bdf8; /* Fortalecimento: Ciano técnico */
+    }
+    .sec-flex, .sec-flexibilidade, .border-flexibilidade {
+      border-left: 4px solid #a855f7; /* Mobilidade: Lavanda suave */
+    }
+    .sec-cardio, .border-cardio {
+      border-left: 4px solid #f43f5e; /* Condicionamento: Coral suave */
+    }
+
+    /* Cabeçalho da Seção com Faixa Tonalizada na Cor da Borda */
     .section-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 14px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--border-subtle);
+      padding: 8px 12px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      border: 1px solid transparent;
     }
+    .sec-aquecimento .section-header,
+    .sec-ativacao .section-header,
+    .border-ativacao .section-header {
+      background: rgba(245, 158, 11, 0.12);
+      border-color: rgba(245, 158, 11, 0.25);
+    }
+    .sec-skills .section-header,
+    .sec-habilidade .section-header,
+    .border-habilidade .section-header {
+      background: rgba(16, 185, 129, 0.12);
+      border-color: rgba(16, 185, 129, 0.25);
+    }
+    .sec-forca .section-header,
+    .sec-fortalecimento .section-header,
+    .border-fortalecimento .section-header {
+      background: rgba(56, 189, 248, 0.12);
+      border-color: rgba(56, 189, 248, 0.25);
+    }
+    .sec-flex .section-header,
+    .sec-flexibilidade .section-header,
+    .border-flexibilidade .section-header {
+      background: rgba(168, 85, 247, 0.12);
+      border-color: rgba(168, 85, 247, 0.25);
+    }
+    .sec-cardio .section-header,
+    .border-cardio .section-header {
+      background: rgba(244, 63, 94, 0.12);
+      border-color: rgba(244, 63, 94, 0.25);
+    }
+
     .section-title-wrap {
       display: flex;
       align-items: center;
@@ -285,37 +321,71 @@
       letter-spacing: 0.05em;
       padding: 3px 10px;
       border-radius: 20px;
-      background: rgba(0, 255, 136, 0.08);
-      color: var(--brand-neon, #00ff88);
-      border: 1px solid rgba(0, 255, 136, 0.25);
+      background: rgba(255, 255, 255, 0.06);
+      color: #cbd5e1;
+      border: 1px solid rgba(255, 255, 255, 0.15);
     }
 
-    /* Título de Seção Unificado e Sóbrio (Padrão Ouro Domínio Corporal) */
+    /* Título de Seção Clean Direto (Sem Badge e Sem Bolinha) */
     .section-title {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.82rem;
+      font-size: 0.88rem;
       font-weight: 900;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      padding: 5px 13px;
-      border-radius: 8px;
-      border: 1px solid rgba(0, 255, 136, 0.32);
-      background: linear-gradient(135deg, rgba(0, 255, 136, 0.09) 0%, rgba(56, 189, 248, 0.05) 100%);
-      color: #ffffff;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
-      line-height: 1.25;
+      padding: 0;
+      margin: 0;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      line-height: 1.2;
     }
     .section-title::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--brand-neon, #00ff88);
-      box-shadow: 0 0 8px var(--brand-neon, #00ff88);
-      display: inline-block;
-      flex-shrink: 0;
+      display: none !important;
+      content: none !important;
+    }
+
+    /* Cores Tipográficas dos Títulos por Seção */
+    .sec-aquecimento .section-title,
+    .sec-ativacao .section-title,
+    .border-ativacao .section-title {
+      color: #fbbf24; /* Âmbar quente */
+    }
+    .sec-skills .section-title,
+    .sec-habilidade .section-title,
+    .border-habilidade .section-title {
+      color: #34d399; /* Menta/Esmeralda suave */
+    }
+    .sec-forca .section-title,
+    .sec-fortalecimento .section-title,
+    .border-fortalecimento .section-title {
+      color: #38bdf8; /* Ciano técnico */
+    }
+    .sec-flex .section-title,
+    .sec-flexibilidade .section-title,
+    .border-flexibilidade .section-title {
+      color: #c084fc; /* Lavanda suave */
+    }
+    .sec-cardio .section-title,
+    .border-cardio .section-title {
+      color: #fb7185; /* Coral suave */
+    }
+    .section-header .meta-chip {
+      font-size: 0.70rem;
+      font-weight: 700;
+      color: #ffffff;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+    .time-badge {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+      border: 1px solid var(--border-subtle);
     }
     .time-badge {
       font-size: 0.72rem;
