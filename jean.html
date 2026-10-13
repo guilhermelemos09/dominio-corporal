@@ -3088,7 +3088,7 @@
     }
 
   
-    /* Estilos do Conteúdo do Modal de Vídeo e Instruções */
+    /* Estilos do Conteúdo do Modal de Vídeo e Instruções (Opção 2 - Sem Emojis, Sem Bolinhas) */
     .modal-instruction-block {
       margin-bottom: 12px;
       background: rgba(255, 255, 255, 0.03);
@@ -3101,7 +3101,7 @@
       font-weight: 900;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
       gap: 6px;
@@ -3109,30 +3109,52 @@
     .modal-label-exec { color: #38bdf8; }
     .modal-label-care { color: #f87171; }
     .modal-label-tip { color: #fbbf24; }
-    .modal-bullets-list {
+
+    /* Passos Numerados na Execução (Opção 2) */
+    .modal-step-list {
       display: flex;
       flex-direction: column;
-      gap: 7px;
+      gap: 9px;
     }
-    .modal-bullet-item {
+    .modal-step-item {
       display: flex;
       align-items: flex-start;
-      gap: 8px;
+      gap: 10px;
       font-size: 0.85rem;
-      line-height: 1.45;
+      line-height: 1.5;
       color: #e2e8f0;
     }
-    /* BOLINHA DOS TÓPICOS: rigorosamente na cor da fonte do texto (#94a3b8), e NÃO do título */
-    .modal-bullet-dot {
-      color: #94a3b8;
-      font-size: 1.05rem;
-      line-height: 1;
+    .modal-step-num {
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+      font-size: 0.70rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
-      margin-top: 2px;
+      margin-top: 1px;
     }
-    .modal-bullet-text { flex: 1; }
+    .modal-step-text {
+      flex: 1;
+    }
 
-    /* Dropdown / Accordion Retrátil da Base Científica */
+    /* Parágrafos Limpos nos Cuidados e Dicas */
+    .modal-clean-step {
+      font-size: 0.85rem;
+      line-height: 1.55;
+      color: #e2e8f0;
+      margin-bottom: 8px;
+    }
+    .modal-clean-step:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Dropdown / Accordion Retrátil da Base Científica (Sem Emojis, Sem Marcadores) */
     .modal-science-accordion {
       margin-top: 12px;
       border: 1px solid rgba(56, 189, 248, 0.25);
@@ -3172,19 +3194,16 @@
     .modal-science-content {
       padding: 12px 14px 14px 14px;
       border-top: 1px solid rgba(56, 189, 248, 0.15);
-    }
-    .modal-science-item {
       display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      font-size: 0.80rem;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .modal-science-block {
+      font-size: 0.82rem;
       line-height: 1.55;
       color: #cbd5e1;
     }
-    .modal-science-body {
-      flex: 1;
-    }
-    .modal-science-topic {
+    .modal-science-heading {
       color: #38bdf8;
       font-weight: 800;
       letter-spacing: 0.02em;
@@ -3197,6 +3216,13 @@
       font-style: italic;
     }
 
+    /* Separador em Barra Vertical no Cabeçalho de Treino/Sessão */
+    .session-overall-meta .meta-separator {
+      color: rgba(255, 255, 255, 0.25);
+      font-weight: 300;
+      user-select: none;
+      margin: 0 1px;
+    }
   </style>
 </head>
 <body>
@@ -5566,7 +5592,7 @@ Segue o vídeo anexo para sua análise!`;
         function formatModalInstructions(desc, title) {
       if (!desc) return '';
 
-      function textToBullets(text) {
+      function textToNumberedSteps(text) {
         if (!text) return '';
         const cleanText = text.replace(/<br\s*\/?>/gi, ' ').replace(/\s+/g, ' ').trim();
         const sentences = cleanText
@@ -5575,83 +5601,109 @@ Segue o vídeo anexo para sua análise!`;
           .filter(s => s.length > 3);
 
         if (sentences.length <= 1) {
-          return '<div class="modal-bullet-item"><span class="modal-bullet-dot">•</span><span class="modal-bullet-text">' + cleanText + '</span></div>';
+          return '<div class="modal-step-item"><span class="modal-step-num">1</span><span class="modal-step-text">' + cleanText + '</span></div>';
         }
 
         return sentences
-          .map(s => '<div class="modal-bullet-item"><span class="modal-bullet-dot">•</span><span class="modal-bullet-text">' + s + '</span></div>')
+          .map((s, idx) => '<div class="modal-step-item"><span class="modal-step-num">' + (idx + 1) + '</span><span class="modal-step-text">' + s + '</span></div>')
+          .join('');
+      }
+
+      function textToCleanParagraphs(text) {
+        if (!text) return '';
+        const cleanText = text.replace(/<br\s*\/?>/gi, ' ').replace(/\s+/g, ' ').trim();
+        const sentences = cleanText
+          .split(/(?<=[.!?])\s+(?=[A-Z0-9À-Ú])/)
+          .map(s => s.trim())
+          .filter(s => s.length > 3);
+
+        if (sentences.length <= 1) {
+          return '<p class="modal-clean-step">' + cleanText + '</p>';
+        }
+
+        return sentences
+          .map(s => '<p class="modal-clean-step">' + s + '</p>')
           .join('');
       }
 
       function parseScience(sciText, exerciseTitle) {
         if (!sciText) return '';
         const clean = sciText.replace(/<br\s*\/?>/gi, ' ').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-        
-        // Padrão 1: Texto já possui estrutura 'Tópico (Autor): Explicação' ou 'Tópico: Explicação'
-        const colonMatch = clean.match(/^([^:]{3,65}):\s*([\s\S]+)$/);
-        if (colonMatch) {
-          let rawTopic = colonMatch[1].trim();
-          let expl = colonMatch[2].trim();
-          let author = '';
-          
-          const parenInTopic = rawTopic.match(/^([^(]+)\s*\(([^)]+)\)$/);
-          if (parenInTopic) {
-            rawTopic = parenInTopic[1].trim();
-            author = parenInTopic[2].trim();
-          }
-          
-          const parenAtEnd = expl.match(/\(([^)]+)\)\.?$/);
-          if (parenAtEnd) {
-            author = parenAtEnd[1].trim();
-            expl = expl.replace(/\(([^)]+)\)\.?$/, '').trim();
-          }
-          
+
+        function buildBlock(topic, text, author) {
+          const cleanTopic = topic.replace(/^tópico:?\s*/i, '').trim().toUpperCase();
+          const cleanText = text.replace(/^explica[çc][ãa]o:?\s*/i, '').trim();
           const authorStr = author ? ' <span class="modal-science-ref">(' + author + ')</span>' : '';
-          return '<div class="modal-science-item"><span class="modal-bullet-dot">•</span><div class="modal-science-body"><div><strong class="modal-science-topic">Tópico:</strong> ' + rawTopic + '</div><div style="margin-top:4px;"><strong>Explicação:</strong> ' + expl + authorStr + '</div></div></div>';
+          return '<div class="modal-science-block"><strong class="modal-science-heading">' + cleanTopic + ':</strong> ' + cleanText + authorStr + '</div>';
         }
 
-        // Padrão 2: Mapeamento canônico do repositório REFERENCIAS_CIENTIFICAS.md
+        const topicRegex = /([A-ZÀ-Ú][a-zA-ZÀ-ú0-9\s()—–\/-]{2,55}):\s*([^:]+?)(?=(?:[A-ZÀ-Ú][a-zA-ZÀ-ú0-9\s()—–\/-]{2,55}:|$))/g;
+        const matches = [...clean.matchAll(topicRegex)];
+
+        if (matches.length > 0) {
+          let html = '';
+          matches.forEach(m => {
+            let topic = m[1].trim();
+            let text = m[2].trim();
+            let author = '';
+
+            const parenTopic = topic.match(/^([^(]+)\s*\(([^)]+)\)$/);
+            if (parenTopic) {
+              topic = parenTopic[1].trim();
+              author = parenTopic[2].trim();
+            }
+
+            const parenText = text.match(/\(([^)]+)\)\.?$/);
+            if (parenText) {
+              author = parenText[1].trim();
+              text = text.replace(/\(([^)]+)\)\.?$/, '').trim();
+            }
+
+            html += buildBlock(topic, text, author);
+          });
+          return html;
+        }
+
         const lower = (clean + ' ' + (exerciseTitle || '')).toLowerCase();
-        let topic = 'Fisiologia e Biomecânica Aplicada';
+        let topic = 'FISIOLOGIA E BIOMECÂNICA APLICADA';
         let author = 'Domínio Corporal, 2026';
-        
+
         if (lower.includes('bicicleta') || lower.includes('bike') || lower.includes('fáscia plantar')) {
-          topic = 'Hidrodinâmica Sinovial e Preservação Articular';
+          topic = 'HIDRODINÂMICA SINOVIAL E PRESERVAÇÃO ARTICULAR';
           author = 'Hunter e Bierma-Zeinstra, 2019; ACSM, 2022';
         } else if (lower.includes('mobilização espinhal') || lower.includes('cat-cow') || lower.includes('gato')) {
-          topic = 'Descompressão Discal Multissegmentar';
+          topic = 'DESCOMPRESSÃO DISCAL MULTISSEGMENTAR';
           author = 'Kapandji, 2019; Geneen et al., 2017';
         } else if (lower.includes('glúteo máximo') || lower.includes('ponte de glúteo')) {
-          topic = 'Ativação do Glúteo Máximo sem Carga Axial';
+          topic = 'ATIVAÇÃO DO GLÚTEO MÁXIMO SEM CARGA AXIAL';
           author = 'Neumann, 2016; Schoenfeld, 2020';
         } else if (lower.includes('box squat') || lower.includes('senta e levanta') || lower.includes('glut-4')) {
-          topic = 'Limitação de Braço de Momento e Captação de GLUT-4';
+          topic = 'LIMITAÇÃO DE BRAÇO DE MOMENTO E CAPTAÇÃO DE GLUT-4';
           author = 'Kapandji, 2019; Powers e Howley, 2018';
         } else if (lower.includes('remada') || lower.includes('suporte torácico')) {
-          topic = 'Suporte Torácico Anterior e Proteção Lombar';
+          topic = 'SUPORTE TORÁCICO ANTERIOR E PROTEÇÃO LOMBAR';
           author = 'Neumann, 2016; Schoenfeld, 2020';
         } else if (lower.includes('flexão') || lower.includes('cadeia anterior de empurrar')) {
-          topic = 'Ajuste do Braço de Momento Gravitacional';
+          topic = 'AJUSTE DO BRAÇO DE MOMENTO GRAVITACIONAL';
           author = 'Neumann, 2016; Escamilla et al., 2001';
         } else if (lower.includes('glúteo médio') || lower.includes('valgismo dinâmico')) {
-          topic = 'Estabilidade Pélvica no Plano Frontal';
+          topic = 'ESTABILIDADE PÉLVICA NO PLANO FRONTAL';
           author = 'Neumann, 2016; Powers e Howley, 2018';
         } else if (lower.includes('panturrilha') || lower.includes('retorno venoso') || lower.includes('sóleo')) {
-          topic = 'Bomba Muscular Periférica e Retorno Venoso';
+          topic = 'BOMBA MUSCULAR PERIFÉRICA E RETORNO VENOSO';
           author = 'Powers e Howley, 2018; ACSM, 2022';
         } else if (lower.includes('isquiotibiais') || lower.includes('estresse de tração')) {
-          topic = 'Desativação da Tensão Sacrolombar';
+          topic = 'DESATIVAÇÃO DA TENSÃO SACROLOMBAR';
           author = 'Kapandji, 2019; Neumann, 2016';
         } else if (lower.includes('abertura torácica') || lower.includes('peitoral menor')) {
-          topic = 'Restauração do Ritmo Escapulotorácico';
+          topic = 'RESTAURAÇÃO DO RITMO ESCAPULOTORÁCICO';
           author = 'Neumann, 2016; Schoenfeld, 2020';
         } else if (lower.includes('parassimpático') || lower.includes('cortisol') || lower.includes('volta à calma')) {
-          topic = 'Modulação Parassimpática e Relaxamento Muscular';
+          topic = 'MODULAÇÃO PARASSIMPÁTICA E RELAXAMENTO MUSCULAR';
           author = 'Powers e Howley, 2018; Geneen et al., 2017';
         }
 
-        const authorStr = author ? ' <span class="modal-science-ref">(' + author + ')</span>' : '';
-        return '<div class="modal-science-item"><span class="modal-bullet-dot">•</span><div class="modal-science-body"><div><strong class="modal-science-topic">Tópico:</strong> ' + topic + '</div><div style="margin-top:4px;"><strong>Explicação:</strong> ' + clean + authorStr + '</div></div></div>';
+        return buildBlock(topic, clean, author);
       }
 
       let execText = '';
@@ -5672,21 +5724,21 @@ Segue o vídeo anexo para sua análise!`;
       if (sciMatch) sciText = sciMatch[1].trim();
 
       if (!execText && !careText && !sciText) {
-        return '<div class="modal-instruction-block"><div class="modal-bullet-item"><span class="modal-bullet-dot">•</span><span class="modal-bullet-text">' + desc + '</span></div></div>';
+        return '<div class="modal-instruction-block"><p class="modal-clean-step">' + desc + '</p></div>';
       }
 
       let html = '';
       if (execText) {
-        html += '<div class="modal-instruction-block"><div class="modal-block-label modal-label-exec">⚡ EXECUÇÃO</div><div class="modal-bullets-list">' + textToBullets(execText) + '</div></div>';
+        html += '<div class="modal-instruction-block"><div class="modal-block-label modal-label-exec">EXECUÇÃO</div><div class="modal-step-list">' + textToNumberedSteps(execText) + '</div></div>';
       }
       if (careText) {
-        html += '<div class="modal-instruction-block"><div class="modal-block-label modal-label-care">🛡️ CUIDADOS</div><div class="modal-bullets-list">' + textToBullets(careText) + '</div></div>';
+        html += '<div class="modal-instruction-block"><div class="modal-block-label modal-label-care">CUIDADOS</div>' + textToCleanParagraphs(careText) + '</div>';
       }
       if (tipText) {
-        html += '<div class="modal-instruction-block"><div class="modal-block-label modal-label-tip">💡 DICAS</div><div class="modal-bullets-list">' + textToBullets(tipText) + '</div></div>';
+        html += '<div class="modal-instruction-block"><div class="modal-block-label modal-label-tip">DICAS</div>' + textToCleanParagraphs(tipText) + '</div>';
       }
       if (sciText) {
-        html += '<details class="modal-science-accordion"><summary class="modal-science-summary"><span>🔬 BASE CIENTÍFICA</span><span class="science-chevron">▾</span></summary><div class="modal-science-content">' + parseScience(sciText, title) + '</div></details>';
+        html += '<details class="modal-science-accordion"><summary class="modal-science-summary"><span>BASE CIENTÍFICA</span><span class="science-chevron">▾</span></summary><div class="modal-science-content">' + parseScience(sciText, title) + '</div></details>';
       }
       return html;
     }
