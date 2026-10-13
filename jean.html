@@ -2488,26 +2488,26 @@
     .timer-app-card {
       background: var(--card-bg);
       border: 1px solid var(--border-subtle);
-      border-radius: 18px;
-      padding: 16px;
-      margin-bottom: 18px;
+      border-radius: 16px;
+      padding: 12px 8px;
+      margin-bottom: 14px;
     }
     .timer-modes-bar {
       display: flex;
-      gap: 6px;
+      gap: 5px;
       overflow-x: auto;
       scrollbar-width: none;
       padding-bottom: 4px;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
     .timer-modes-bar::-webkit-scrollbar { display: none; }
     .timer-mode-btn {
       background: #111;
       border: 1px solid var(--border-subtle);
       color: var(--text-muted);
-      padding: 8px 14px;
-      border-radius: 10px;
-      font-size: 0.78rem;
+      padding: 7px 12px;
+      border-radius: 9px;
+      font-size: 0.76rem;
       font-weight: 700;
       white-space: nowrap;
       cursor: pointer;
@@ -2522,13 +2522,13 @@
     }
     .timer-viewport {
       background: #000;
-      border: 2px solid var(--border-strong);
-      border-radius: 16px;
-      padding: 24px 16px;
+      border: 1.5px solid var(--border-strong);
+      border-radius: 14px;
+      padding: 16px 8px;
       text-align: center;
       position: relative;
       overflow: hidden;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       transition: all 0.3s ease;
     }
     .timer-viewport.tabata-work-state {
@@ -2539,34 +2539,56 @@
       border-color: #f59e0b !important;
       box-shadow: 0 0 30px rgba(245, 158, 11, 0.2) inset, 0 0 20px rgba(245, 158, 11, 0.3) !important;
     }
+    .mode-cronometro .timer-viewport,
+    .mode-timer .timer-viewport {
+      padding: 13px 6px;
+      border-width: 1px;
+    }
     .timer-status-header {
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--text-muted);
-      margin-bottom: 4px;
-      min-height: 20px;
+      margin-bottom: 3px;
+      min-height: 18px;
     }
     .timer-round-sub {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       font-weight: 700;
       color: #38bdf8;
-      margin-bottom: 8px;
-      min-height: 22px;
+      margin-bottom: 6px;
+      min-height: 20px;
     }
     .timer-digits-big {
       font-family: 'Inter', monospace, sans-serif;
-      font-size: 4rem;
+      font-size: clamp(2.6rem, 10vw, 3.8rem);
       font-weight: 900;
-      letter-spacing: -0.04em;
+      letter-spacing: -0.03em;
       color: #ffffff;
       line-height: 1;
-      margin: 10px 0;
+      margin: 6px 0;
       text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     }
-    @media(max-width: 400px) {
-      .timer-digits-big { font-size: 3.2rem; }
+    .mode-cronometro .timer-digits-big {
+      font-size: clamp(2.3rem, 9.2vw, 3.4rem);
+      letter-spacing: -0.02em;
+      margin: 4px 0;
+    }
+    .mode-timer .timer-digits-big {
+      font-size: clamp(2.7rem, 10.5vw, 3.9rem);
+      margin: 4px 0;
+    }
+    @media(max-width: 480px) {
+      .timer-app-card {
+        padding: 10px 6px !important;
+      }
+      .timer-viewport {
+        padding: 12px 4px !important;
+      }
+      .mode-cronometro .timer-digits-big {
+        font-size: clamp(2.1rem, 8.8vw, 3.1rem) !important;
+      }
     }
     .tabata-work-state .timer-digits-big {
       color: var(--brand-neon) !important;
@@ -3440,7 +3462,7 @@
 
   <!-- ==================== TAB: CRONÔMETRO E TIMERS ==================== -->
   <div id="tab-timers" class="tab-content">
-    <div class="timer-app-card">
+    <div class="timer-app-card mode-cronometro">
       <div style="margin-bottom:14px;">
         <h2 style="font-size:1.15rem; font-weight:800; color:#fff; margin:0;">⏱️ Central de Timers</h2>
       </div>
@@ -4847,6 +4869,12 @@ Segue o vídeo anexo para sua análise!`;
       const vp = document.getElementById('timerViewport');
       if (vp) {
         vp.classList.remove('tabata-work-state', 'tabata-rest-state');
+      }
+
+      const card = document.querySelector('.timer-app-card');
+      if (card) {
+        card.classList.remove('mode-cronometro', 'mode-timer', 'mode-emom', 'mode-amrap', 'mode-tabata');
+        card.classList.add('mode-' + mode);
       }
 
       const btnAmrap = document.getElementById('btnAmrapAddRound');
