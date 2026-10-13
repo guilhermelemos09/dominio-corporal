@@ -235,7 +235,7 @@
     /* ===================================================
        SISTEMA DOS PILARES (PRETO OLED + VERDE NEON HERO)
        =================================================== */
-            /* Cards de Seção de Treino (Cores Sóbrias Temáticas com Faixa de Cabeçalho) */
+                /* Cards de Seção de Treino (Top Banner Sólido Borda a Borda) */
     .section-card {
       background: #11141a;
       border-radius: 14px;
@@ -243,65 +243,60 @@
       margin-bottom: 16px;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      border-left: 4px solid #38bdf8;
+      border-left: 4.5px solid #0284c7;
       position: relative;
+      overflow: hidden;
     }
 
-    /* Bordas Laterais Sóbrias por Categoria */
+    /* Bordas Laterais por Categoria */
     .sec-aquecimento, .sec-ativacao, .border-ativacao {
-      border-left: 4px solid #f59e0b; /* Ativação: Âmbar quente */
+      border-left: 4.5px solid #d97706; /* Ativação: Âmbar sólido */
     }
     .sec-skills, .sec-habilidade, .border-habilidade {
-      border-left: 4px solid #10b981; /* Habilidade: Esmeralda refinado */
+      border-left: 4.5px solid #059669; /* Habilidade: Esmeralda sólido */
     }
     .sec-forca, .sec-fortalecimento, .border-fortalecimento {
-      border-left: 4px solid #38bdf8; /* Fortalecimento: Ciano técnico */
+      border-left: 4.5px solid #0284c7; /* Fortalecimento: Azul sólido */
     }
     .sec-flex, .sec-flexibilidade, .border-flexibilidade {
-      border-left: 4px solid #a855f7; /* Mobilidade: Lavanda suave */
+      border-left: 4.5px solid #7c3aed; /* Mobilidade: Roxo sólido */
     }
     .sec-cardio, .border-cardio {
-      border-left: 4px solid #f43f5e; /* Condicionamento: Coral suave */
+      border-left: 4.5px solid #e11d48; /* Condicionamento: Coral sólido */
     }
 
-    /* Cabeçalho da Seção com Faixa Tonalizada na Cor da Borda */
+    /* Faixa de Cabeçalho Superior Sólida (Borda a Borda) */
     .section-header {
+      margin: -14px -16px 12px -16px;
+      padding: 10px 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 8px 12px;
-      border-radius: 8px;
-      margin-bottom: 12px;
-      border: 1px solid transparent;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.25);
     }
     .sec-aquecimento .section-header,
     .sec-ativacao .section-header,
     .border-ativacao .section-header {
-      background: rgba(245, 158, 11, 0.12);
-      border-color: rgba(245, 158, 11, 0.25);
+      background: #d97706;
     }
     .sec-skills .section-header,
     .sec-habilidade .section-header,
     .border-habilidade .section-header {
-      background: rgba(16, 185, 129, 0.12);
-      border-color: rgba(16, 185, 129, 0.25);
+      background: #059669;
     }
     .sec-forca .section-header,
     .sec-fortalecimento .section-header,
     .border-fortalecimento .section-header {
-      background: rgba(56, 189, 248, 0.12);
-      border-color: rgba(56, 189, 248, 0.25);
+      background: #0284c7;
     }
     .sec-flex .section-header,
     .sec-flexibilidade .section-header,
     .border-flexibilidade .section-header {
-      background: rgba(168, 85, 247, 0.12);
-      border-color: rgba(168, 85, 247, 0.25);
+      background: #7c3aed;
     }
     .sec-cardio .section-header,
     .border-cardio .section-header {
-      background: rgba(244, 63, 94, 0.12);
-      border-color: rgba(244, 63, 94, 0.25);
+      background: #e11d48;
     }
 
     .section-title-wrap {
@@ -316,61 +311,38 @@
       letter-spacing: 0.05em;
       padding: 3px 10px;
       border-radius: 20px;
-      background: rgba(255, 255, 255, 0.06);
-      color: #cbd5e1;
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(0, 0, 0, 0.25);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
     }
 
-    /* Título de Seção Clean Direto (Sem Badge e Sem Bolinha) */
+    /* Título da Seção em Branco Puro de Alto Contraste */
     .section-title {
       font-size: 0.88rem;
       font-weight: 900;
       letter-spacing: 0.08em;
       text-transform: uppercase;
+      color: #ffffff !important;
       padding: 0;
       margin: 0;
       background: transparent !important;
       border: none !important;
       box-shadow: none !important;
       line-height: 1.2;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
     }
     .section-title::before {
       display: none !important;
       content: none !important;
     }
 
-    /* Cores Tipográficas dos Títulos por Seção */
-    .sec-aquecimento .section-title,
-    .sec-ativacao .section-title,
-    .border-ativacao .section-title {
-      color: #fbbf24; /* Âmbar quente */
-    }
-    .sec-skills .section-title,
-    .sec-habilidade .section-title,
-    .border-habilidade .section-title {
-      color: #34d399; /* Menta/Esmeralda suave */
-    }
-    .sec-forca .section-title,
-    .sec-fortalecimento .section-title,
-    .border-fortalecimento .section-title {
-      color: #38bdf8; /* Ciano técnico */
-    }
-    .sec-flex .section-title,
-    .sec-flexibilidade .section-title,
-    .border-flexibilidade .section-title {
-      color: #c084fc; /* Lavanda suave */
-    }
-    .sec-cardio .section-title,
-    .border-cardio .section-title {
-      color: #fb7185; /* Coral suave */
-    }
     .section-header .meta-chip {
       font-size: 0.70rem;
-      font-weight: 700;
+      font-weight: 800;
       color: #ffffff;
-      background: rgba(0, 0, 0, 0.35);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      padding: 2px 8px;
+      background: rgba(0, 0, 0, 0.30);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 3px 8px;
       border-radius: 6px;
     }
     .time-badge {
