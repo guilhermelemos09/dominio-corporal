@@ -336,14 +336,24 @@
       content: none !important;
     }
 
-    .section-header .meta-chip {
-      font-size: 0.70rem;
-      font-weight: 800;
-      color: #ffffff;
-      background: rgba(0, 0, 0, 0.30);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      padding: 3px 8px;
-      border-radius: 6px;
+    /* Destaque em Branco Puro para o Relógio de Duração no Cabeçalho */
+    .section-header .meta-chip,
+    .section-header .meta-chip-time,
+    .section-header .meta-chip-loc,
+    .section-header .session-meta-chips span {
+      background: rgba(0, 0, 0, 0.28) !important;
+      border: 1px solid rgba(255, 255, 255, 0.35) !important;
+      color: #ffffff !important;
+      padding: 3px 9px !important;
+      border-radius: 7px !important;
+      font-size: 0.74rem !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.02em !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 5px !important;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+      opacity: 1 !important;
     }
     .time-badge {
       font-size: 0.72rem;
