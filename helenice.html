@@ -270,38 +270,43 @@
       border-left: 4.5px solid #e11d48; /* Condicionamento: Coral sólido */
     }
 
-    /* Faixa de Cabeçalho Superior Sólida (Borda a Borda) */
+    /* Faixa de Cabeçalho Superior (Efeito 2: Dark Cyber Glass com Névoa Iluminada) */
     .section-header {
       margin: -14px -16px 12px -16px;
-      padding: 10px 16px;
+      padding: 11px 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
     }
     .sec-aquecimento .section-header,
     .sec-ativacao .section-header,
     .border-ativacao .section-header {
-      background: #d97706;
+      background: linear-gradient(90deg, rgba(217, 119, 6, 0.38) 0%, rgba(217, 119, 6, 0.12) 55%, rgba(17, 20, 26, 0.85) 100%);
+      border-bottom: 1.5px solid rgba(217, 119, 6, 0.40);
     }
     .sec-skills .section-header,
     .sec-habilidade .section-header,
     .border-habilidade .section-header {
-      background: #059669;
+      background: linear-gradient(90deg, rgba(5, 150, 105, 0.38) 0%, rgba(5, 150, 105, 0.12) 55%, rgba(17, 20, 26, 0.85) 100%);
+      border-bottom: 1.5px solid rgba(5, 150, 105, 0.40);
     }
     .sec-forca .section-header,
     .sec-fortalecimento .section-header,
     .border-fortalecimento .section-header {
-      background: #0284c7;
+      background: linear-gradient(90deg, rgba(2, 132, 199, 0.38) 0%, rgba(2, 132, 199, 0.12) 55%, rgba(17, 20, 26, 0.85) 100%);
+      border-bottom: 1.5px solid rgba(2, 132, 199, 0.40);
     }
     .sec-flex .section-header,
     .sec-flexibilidade .section-header,
     .border-flexibilidade .section-header {
-      background: #7c3aed;
+      background: linear-gradient(90deg, rgba(124, 58, 237, 0.38) 0%, rgba(124, 58, 237, 0.12) 55%, rgba(17, 20, 26, 0.85) 100%);
+      border-bottom: 1.5px solid rgba(124, 58, 237, 0.40);
     }
     .sec-cardio .section-header,
     .border-cardio .section-header {
-      background: #e11d48;
+      background: linear-gradient(90deg, rgba(225, 29, 72, 0.38) 0%, rgba(225, 29, 72, 0.12) 55%, rgba(17, 20, 26, 0.85) 100%);
+      border-bottom: 1.5px solid rgba(225, 29, 72, 0.40);
     }
 
     .section-title-wrap {
@@ -321,11 +326,11 @@
       border: 1px solid rgba(255, 255, 255, 0.25);
     }
 
-    /* Título da Seção em Branco Puro de Alto Contraste */
+    /* Título da Seção em Branco Puro de Alto Contraste (1.05rem Ampliado) */
     .section-title {
-      font-size: 0.88rem;
+      font-size: 1.05rem;
       font-weight: 900;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       color: #ffffff !important;
       padding: 0;
@@ -334,7 +339,7 @@
       border: none !important;
       box-shadow: none !important;
       line-height: 1.2;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
     }
     .section-title::before {
       display: none !important;
@@ -4259,6 +4264,116 @@
     /* Oculta o card do atleta quando em visão dedicada */
     body.in-dedicated-view #athleteHighlightCard {
       display: none !important;
+    }
+
+  
+    /* Estilos do Conteúdo do Modal de Vídeo e Instruções */
+    .modal-instruction-block {
+      margin-bottom: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .modal-block-label {
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .modal-label-exec { color: #38bdf8; }
+    .modal-label-care { color: #f87171; }
+    .modal-label-tip { color: #fbbf24; }
+    .modal-bullets-list {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .modal-bullet-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.85rem;
+      line-height: 1.45;
+      color: #e2e8f0;
+    }
+    /* BOLINHA DOS TÓPICOS: rigorosamente na cor da fonte do texto (#94a3b8), e NÃO do título */
+    .modal-bullet-dot {
+      color: #94a3b8;
+      font-size: 1.05rem;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .modal-bullet-text { flex: 1; }
+
+    /* Dropdown / Accordion Retrátil da Base Científica */
+    .modal-science-accordion {
+      margin-top: 12px;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      background: rgba(56, 189, 248, 0.05);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+    .modal-science-accordion[open] {
+      background: rgba(56, 189, 248, 0.08);
+      border-color: rgba(56, 189, 248, 0.45);
+    }
+    .modal-science-summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      color: #38bdf8;
+      cursor: pointer;
+      user-select: none;
+      list-style: none;
+    }
+    .modal-science-summary::-webkit-details-marker { display: none; }
+    .modal-science-summary:hover {
+      background: rgba(56, 189, 248, 0.10);
+    }
+    .science-chevron {
+      font-size: 0.85rem;
+      transition: transform 0.2s ease;
+    }
+    .modal-science-accordion[open] .science-chevron {
+      transform: rotate(180deg);
+    }
+    .modal-science-content {
+      padding: 12px 14px 14px 14px;
+      border-top: 1px solid rgba(56, 189, 248, 0.15);
+    }
+    .modal-science-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.80rem;
+      line-height: 1.55;
+      color: #cbd5e1;
+    }
+    .modal-science-body {
+      flex: 1;
+    }
+    .modal-science-topic {
+      color: #38bdf8;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+    .modal-science-ref {
+      display: inline-block;
+      margin-top: 4px;
+      font-size: 0.75rem;
+      color: #94a3b8;
+      font-style: italic;
     }
 
   </style>
@@ -8562,18 +8677,139 @@
       return clean;
     }
 
+        function formatModalInstructions(desc, title) {
+      if (!desc) return '';
+
+      function textToBullets(text) {
+        if (!text) return '';
+        const cleanText = text.replace(/<br\s*\/?>/gi, ' ').replace(/\s+/g, ' ').trim();
+        const sentences = cleanText
+          .split(/(?<=[.!?])\s+(?=[A-Z0-9À-Ú])/)
+          .map(s => s.trim())
+          .filter(s => s.length > 3);
+
+        if (sentences.length <= 1) {
+          return '<div class="modal-bullet-item"><span class="modal-bullet-dot">•</span><span class="modal-bullet-text">' + cleanText + '</span></div>';
+        }
+
+        return sentences
+          .map(s => '<div class="modal-bullet-item"><span class="modal-bullet-dot">•</span><span class="modal-bullet-text">' + s + '</span></div>')
+          .join('');
+      }
+
+      function parseScience(sciText, exerciseTitle) {
+        if (!sciText) return '';
+        const clean = sciText.replace(/<br\s*\/?>/gi, ' ').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+        
+        // Padrão 1: Texto já possui estrutura 'Tópico (Autor): Explicação' ou 'Tópico: Explicação'
+        const colonMatch = clean.match(/^([^:]{3,65}):\s*([\s\S]+)$/);
+        if (colonMatch) {
+          let rawTopic = colonMatch[1].trim();
+          let expl = colonMatch[2].trim();
+          let author = '';
+          
+          const parenInTopic = rawTopic.match(/^([^(]+)\s*\(([^)]+)\)$/);
+          if (parenInTopic) {
+            rawTopic = parenInTopic[1].trim();
+            author = parenInTopic[2].trim();
+          }
+          
+          const parenAtEnd = expl.match(/\(([^)]+)\)\.?$/);
+          if (parenAtEnd) {
+            author = parenAtEnd[1].trim();
+            expl = expl.replace(/\(([^)]+)\)\.?$/, '').trim();
+          }
+          
+          const authorStr = author ? ' <span class="modal-science-ref">(' + author + ')</span>' : '';
+          return '<div class="modal-science-item"><span class="modal-bullet-dot">•</span><div class="modal-science-body"><div><strong class="modal-science-topic">Tópico:</strong> ' + rawTopic + '</div><div style="margin-top:4px;"><strong>Explicação:</strong> ' + expl + authorStr + '</div></div></div>';
+        }
+
+        // Padrão 2: Mapeamento canônico do repositório REFERENCIAS_CIENTIFICAS.md
+        const lower = (clean + ' ' + (exerciseTitle || '')).toLowerCase();
+        let topic = 'Fisiologia e Biomecânica Aplicada';
+        let author = 'Domínio Corporal, 2026';
+        
+        if (lower.includes('bicicleta') || lower.includes('bike') || lower.includes('fáscia plantar')) {
+          topic = 'Hidrodinâmica Sinovial e Preservação Articular';
+          author = 'Hunter e Bierma-Zeinstra, 2019; ACSM, 2022';
+        } else if (lower.includes('mobilização espinhal') || lower.includes('cat-cow') || lower.includes('gato')) {
+          topic = 'Descompressão Discal Multissegmentar';
+          author = 'Kapandji, 2019; Geneen et al., 2017';
+        } else if (lower.includes('glúteo máximo') || lower.includes('ponte de glúteo')) {
+          topic = 'Ativação do Glúteo Máximo sem Carga Axial';
+          author = 'Neumann, 2016; Schoenfeld, 2020';
+        } else if (lower.includes('box squat') || lower.includes('senta e levanta') || lower.includes('glut-4')) {
+          topic = 'Limitação de Braço de Momento e Captação de GLUT-4';
+          author = 'Kapandji, 2019; Powers e Howley, 2018';
+        } else if (lower.includes('remada') || lower.includes('suporte torácico')) {
+          topic = 'Suporte Torácico Anterior e Proteção Lombar';
+          author = 'Neumann, 2016; Schoenfeld, 2020';
+        } else if (lower.includes('flexão') || lower.includes('cadeia anterior de empurrar')) {
+          topic = 'Ajuste do Braço de Momento Gravitacional';
+          author = 'Neumann, 2016; Escamilla et al., 2001';
+        } else if (lower.includes('glúteo médio') || lower.includes('valgismo dinâmico')) {
+          topic = 'Estabilidade Pélvica no Plano Frontal';
+          author = 'Neumann, 2016; Powers e Howley, 2018';
+        } else if (lower.includes('panturrilha') || lower.includes('retorno venoso') || lower.includes('sóleo')) {
+          topic = 'Bomba Muscular Periférica e Retorno Venoso';
+          author = 'Powers e Howley, 2018; ACSM, 2022';
+        } else if (lower.includes('isquiotibiais') || lower.includes('estresse de tração')) {
+          topic = 'Desativação da Tensão Sacrolombar';
+          author = 'Kapandji, 2019; Neumann, 2016';
+        } else if (lower.includes('abertura torácica') || lower.includes('peitoral menor')) {
+          topic = 'Restauração do Ritmo Escapulotorácico';
+          author = 'Neumann, 2016; Schoenfeld, 2020';
+        } else if (lower.includes('parassimpático') || lower.includes('cortisol') || lower.includes('volta à calma')) {
+          topic = 'Modulação Parassimpática e Relaxamento Muscular';
+          author = 'Powers e Howley, 2018; Geneen et al., 2017';
+        }
+
+        const authorStr = author ? ' <span class="modal-science-ref">(' + author + ')</span>' : '';
+        return '<div class="modal-science-item"><span class="modal-bullet-dot">•</span><div class="modal-science-body"><div><strong class="modal-science-topic">Tópico:</strong> ' + topic + '</div><div style="margin-top:4px;"><strong>Explicação:</strong> ' + clean + authorStr + '</div></div></div>';
+      }
+
+      let execText = '';
+      let careText = '';
+      let tipText = '';
+      let sciText = '';
+
+      const execMatch = desc.match(/<b>(?:Execu[çc][ãa]o|Na pr[áa]tica):?<\/b>\s*([\s\S]*?)(?=<b>(?:Cuidados|Dicas?|Base cient[íi]fica):?<\/b>|$)/i);
+      if (execMatch) execText = execMatch[1].trim();
+
+      const careMatch = desc.match(/<b>Cuidados:?<\/b>\s*([\s\S]*?)(?=<b>(?:Dicas?|Base cient[íi]fica):?<\/b>|$)/i);
+      if (careMatch) careText = careMatch[1].trim();
+
+      const tipMatch = desc.match(/<b>Dicas?:?<\/b>\s*([\s\S]*?)(?=<b>Base cient[íi]fica:?<\/b>|$)/i);
+      if (tipMatch) tipText = tipMatch[1].trim();
+
+      const sciMatch = desc.match(/<b>Base cient[íi]fica:?<\/b>\s*([\s\S]*?)$/i);
+      if (sciMatch) sciText = sciMatch[1].trim();
+
+      if (!execText && !careText && !sciText) {
+        return '<div class="modal-instruction-block"><div class="modal-bullet-item"><span class="modal-bullet-dot">•</span><span class="modal-bullet-text">' + desc + '</span></div></div>';
+      }
+
+      let html = '';
+      if (execText) {
+        html += '<div class="modal-instruction-block"><div class="modal-block-label modal-label-exec">⚡ EXECUÇÃO</div><div class="modal-bullets-list">' + textToBullets(execText) + '</div></div>';
+      }
+      if (careText) {
+        html += '<div class="modal-instruction-block"><div class="modal-block-label modal-label-care">🛡️ CUIDADOS</div><div class="modal-bullets-list">' + textToBullets(careText) + '</div></div>';
+      }
+      if (tipText) {
+        html += '<div class="modal-instruction-block"><div class="modal-block-label modal-label-tip">💡 DICAS</div><div class="modal-bullets-list">' + textToBullets(tipText) + '</div></div>';
+      }
+      if (sciText) {
+        html += '<details class="modal-science-accordion"><summary class="modal-science-summary"><span>🔬 BASE CIENTÍFICA</span><span class="science-chevron">▾</span></summary><div class="modal-science-content">' + parseScience(sciText, title) + '</div></details>';
+      }
+      return html;
+    }
+
     function openVideoModal(title, desc, videoUrl) {
       document.getElementById('modalTitle').innerText = title;
       
-      let formattedDesc = desc || '';
-      formattedDesc = formattedDesc.replace(/<b>Na pr[áa]tica:?<\/b>/gi, '<b style="color:#00ff88;">Execução:</b>');
-      formattedDesc = formattedDesc.replace(/<b>Execu[çc][ãa]o:?<\/b>/gi, '<b style="color:#00ff88;">Execução:</b>');
-      formattedDesc = formattedDesc.replace(/<b>Cuidados:?<\/b>/gi, '<b style="color:#f87171;">Cuidados:</b>');
-      formattedDesc = formattedDesc.replace(/<b>Dicas?:?<\/b>/gi, '<b style="color:#facc15;">Dicas:</b>');
-      formattedDesc = formattedDesc.replace(/<b>Base cient[íi]fica:?<\/b>/gi, '<b style="color:#38bdf8;">Base científica:</b>');
-
       const descEl = document.getElementById('modalDesc');
-      if (descEl) descEl.innerHTML = formattedDesc;
+      if (descEl) descEl.innerHTML = formatModalInstructions(desc, title);
 
       const iframe = document.getElementById('videoIframe');
       const player = document.getElementById('videoPlayer');
