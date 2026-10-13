@@ -235,6 +235,7 @@
     /* ===================================================
        SISTEMA DOS PILARES (PRETO OLED + VERDE NEON HERO)
        =================================================== */
+        /* Cards de Seção de Treino (Gradiente Sóbrio Unificado: Verde Neon para Ciano) */
     .section-card {
       background: #11141a;
       border-radius: 14px;
@@ -242,58 +243,20 @@
       margin-bottom: 16px;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      border-left: 4px solid var(--brand-neon);
       position: relative;
+      overflow: hidden;
     }
-
-    /* 1. Ativação (Amarelo Ouro) */
-    .sec-aquecimento, .sec-ativacao, .border-ativacao {
-      border-left-color: var(--sec-aquecimento);
-    }
-    .sec-aquecimento .section-badge, .sec-ativacao .section-badge, .border-ativacao .section-badge {
-      background: rgba(245, 158, 11, 0.10);
-      color: var(--sec-aquecimento);
-      border: 1px solid rgba(245, 158, 11, 0.3);
-    }
-
-    /* 2. Habilidade (Verde Neon Hero) */
-    .sec-skills, .sec-habilidade, .border-habilidade {
-      border-left-color: var(--brand-neon);
-    }
-    .sec-skills .section-badge, .sec-habilidade .section-badge, .border-habilidade .section-badge {
-      background: var(--brand-neon-bg);
-      color: var(--brand-neon);
-      border: 1px solid rgba(0, 255, 136, 0.3);
-    }
-
-    /* 3. Fortalecimento (Verde Neon) */
-    .sec-forca, .sec-fortalecimento, .border-fortalecimento {
-      border-left-color: var(--brand-neon);
-    }
-    .sec-forca .section-badge, .sec-fortalecimento .section-badge, .border-fortalecimento .section-badge {
-      background: var(--brand-neon-bg);
-      color: var(--brand-neon);
-      border: 1px solid rgba(0, 255, 136, 0.3);
-    }
-
-    /* 4. Flexibilidade (Discreto Lavanda) */
-    .sec-flex, .sec-flexibilidade, .border-flexibilidade {
-      border-left-color: var(--sec-flex);
-    }
-    .sec-flex .section-badge, .sec-flexibilidade .section-badge, .border-flexibilidade .section-badge {
-      background: rgba(192, 132, 252, 0.08);
-      color: var(--sec-flex);
-      border: 1px solid rgba(192, 132, 252, 0.25);
-    }
-
-    /* 5. Cardio (Discreto Coral) */
-    .sec-cardio, .border-cardio {
-      border-left-color: var(--sec-cardio);
-    }
-    .sec-cardio .section-badge, .border-cardio .section-badge {
-      background: rgba(251, 113, 133, 0.08);
-      color: var(--sec-cardio);
-      border: 1px solid rgba(251, 113, 133, 0.25);
+    .section-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(180deg, var(--brand-neon, #00ff88) 0%, #38bdf8 100%);
+      border-top-left-radius: 14px;
+      border-bottom-left-radius: 14px;
+      pointer-events: none;
     }
 
     /* Cabeçalho da Seção */
@@ -317,12 +280,37 @@
       letter-spacing: 0.05em;
       padding: 3px 10px;
       border-radius: 20px;
+      background: rgba(0, 255, 136, 0.08);
+      color: var(--brand-neon, #00ff88);
+      border: 1px solid rgba(0, 255, 136, 0.25);
     }
+
+    /* Título de Seção Unificado e Sóbrio (Padrão Ouro Domínio Corporal) */
     .section-title {
-      font-size: 1rem;
-      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 13px;
+      border-radius: 8px;
+      border: 1px solid rgba(0, 255, 136, 0.32);
+      background: linear-gradient(135deg, rgba(0, 255, 136, 0.09) 0%, rgba(56, 189, 248, 0.05) 100%);
       color: #ffffff;
-      letter-spacing: -0.01em;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+      line-height: 1.25;
+    }
+    .section-title::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--brand-neon, #00ff88);
+      box-shadow: 0 0 8px var(--brand-neon, #00ff88);
+      display: inline-block;
+      flex-shrink: 0;
     }
     .time-badge {
       font-size: 0.72rem;
@@ -421,30 +409,49 @@
       gap: 10px;
     }
 
-    /* Botão de Vídeo Estilo Cyberpunk / Dark Glass */
+        /* Botão de Vídeo e Instruções (Padrão Ouro: Opção 1B - Ciano Noturno de Alto Contraste) */
     .btn-video {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: var(--brand-neon-bg);
-      border: 1px solid rgba(0, 255, 136, 0.25);
-      color: var(--brand-neon);
-      padding: 6px 12px;
+      background: #0e2238;
+      border: 1.5px solid #38bdf8;
+      color: #ffffff;
+      padding: 4px 10px;
       border-radius: 8px;
-      font-size: 0.76rem;
-      font-weight: 600;
+      font-size: 0.71rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
       cursor: pointer;
+      box-shadow: 0 2px 8px rgba(56, 189, 248, 0.20);
       transition: all 0.15s ease;
+      vertical-align: middle;
+      text-decoration: none;
+      white-space: nowrap;
+      text-transform: none;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      touch-action: manipulation;
+    }
+    .btn-video:hover {
+      background: #143252;
+      border-color: #60a5fa;
+      color: #ffffff;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.35);
+      transform: translateY(-1px);
     }
     .btn-video:active {
-      background: rgba(0, 255, 136, 0.2);
-      border-color: var(--brand-neon);
-      transform: scale(0.97);
+      transform: scale(0.96);
     }
     .btn-video svg {
-      width: 14px;
-      height: 14px;
-      fill: currentColor;
+      width: 11px;
+      height: 11px;
+      fill: #38bdf8;
+      flex-shrink: 0;
+      transition: transform 0.15s ease;
+    }
+    .btn-video:hover svg {
+      transform: scale(1.1);
     }
 
     /* Bolinhas de Série em Dark Mode */
