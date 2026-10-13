@@ -3088,7 +3088,7 @@
     }
 
   
-    /* Estilos do Conteúdo do Modal de Vídeo e Instruções (Opção 2 - Sem Emojis, Sem Bolinhas) */
+    /* Estilos do Conteúdo do Modal de Vídeo e Instruções (Passos Numerados em Execução e Cuidados) */
     .modal-instruction-block {
       margin-bottom: 12px;
       background: rgba(255, 255, 255, 0.03);
@@ -3110,7 +3110,7 @@
     .modal-label-care { color: #f87171; }
     .modal-label-tip { color: #fbbf24; }
 
-    /* Passos Numerados na Execução (Opção 2) */
+    /* Passos Numerados Sequenciais (Execução, Cuidados e Dicas) */
     .modal-step-list {
       display: flex;
       flex-direction: column;
@@ -3128,9 +3128,6 @@
       width: 19px;
       height: 19px;
       border-radius: 50%;
-      background: rgba(56, 189, 248, 0.12);
-      border: 1px solid rgba(56, 189, 248, 0.35);
-      color: #38bdf8;
       font-size: 0.70rem;
       font-weight: 800;
       display: flex;
@@ -3139,11 +3136,25 @@
       flex-shrink: 0;
       margin-top: 1px;
     }
+    .modal-num-exec {
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+    }
+    .modal-num-care {
+      background: rgba(248, 113, 113, 0.12);
+      border: 1px solid rgba(248, 113, 113, 0.35);
+      color: #f87171;
+    }
+    .modal-num-tip {
+      background: rgba(251, 191, 36, 0.12);
+      border: 1px solid rgba(251, 191, 36, 0.35);
+      color: #fbbf24;
+    }
     .modal-step-text {
       flex: 1;
     }
 
-    /* Parágrafos Limpos nos Cuidados e Dicas */
     .modal-clean-step {
       font-size: 0.85rem;
       line-height: 1.55;
@@ -3222,6 +3233,83 @@
       font-weight: 300;
       user-select: none;
       margin: 0 1px;
+    }
+
+    /* ============================================================ */
+    /* DARK CYBER GLASS NA PÁGINA PRINCIPAL (HOME HUB)              */
+    /* ============================================================ */
+    .athlete-highlight-card {
+      background: linear-gradient(90deg, rgba(0, 255, 136, 0.12) 0%, rgba(0, 255, 136, 0.03) 45%, rgba(17, 20, 26, 0.95) 100%), #11141a !important;
+      border: 1px solid rgba(0, 255, 136, 0.28) !important;
+      border-left: 4.5px solid var(--brand-neon) !important;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.55), 0 0 16px rgba(0, 255, 136, 0.06) !important;
+    }
+
+    /* Cabeçalhos de Seção da Home Hub no Estilo Dark Cyber Glass */
+    .tools-hub-section .training-section-header {
+      background: linear-gradient(90deg, rgba(56, 189, 248, 0.28) 0%, rgba(56, 189, 248, 0.08) 55%, rgba(17, 20, 26, 0.85) 100%);
+      border-bottom: 1.5px solid rgba(56, 189, 248, 0.35);
+      border-left: 4.5px solid #38bdf8;
+      border-radius: 10px 10px 0 0;
+      padding: 10px 14px;
+      margin-bottom: 10px;
+    }
+    #trainingHubSection .training-section-header {
+      background: linear-gradient(90deg, rgba(0, 255, 136, 0.28) 0%, rgba(0, 255, 136, 0.08) 55%, rgba(17, 20, 26, 0.85) 100%);
+      border-bottom: 1.5px solid rgba(0, 255, 136, 0.35);
+      border-left: 4.5px solid var(--brand-neon);
+      border-radius: 10px 10px 0 0;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+    }
+    .training-section-title {
+      font-size: 1.05rem !important;
+      font-weight: 900 !important;
+      letter-spacing: 0.06em !important;
+      text-transform: uppercase !important;
+      color: #ffffff !important;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    /* Cards de Rotina de Treino com Névoa Esportiva Suave */
+    .training-day-card {
+      background: linear-gradient(90deg, rgba(0, 255, 136, 0.09) 0%, rgba(0, 255, 136, 0.02) 40%, rgba(17, 20, 26, 0.95) 100%), #11141a !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      border-left: 4.5px solid var(--brand-neon) !important;
+    }
+    .training-day-card:hover {
+      background: linear-gradient(90deg, rgba(0, 255, 136, 0.15) 0%, rgba(0, 255, 136, 0.04) 45%, rgba(22, 27, 34, 0.95) 100%), #161b22 !important;
+      border-color: rgba(0, 255, 136, 0.35) !important;
+    }
+
+    /* ============================================================ */
+    /* DARK CYBER GLASS EM OUTRAS PÁGINAS E SEÇÕES                 */
+    /* ============================================================ */
+    .student-profile-header-card {
+      background: linear-gradient(90deg, rgba(56, 189, 248, 0.10) 0%, rgba(56, 189, 248, 0.02) 45%, rgba(17, 20, 26, 0.95) 100%), #11141a !important;
+      border: 1px solid rgba(56, 189, 248, 0.28) !important;
+      border-left: 4.5px solid #38bdf8 !important;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.55), 0 0 16px rgba(56, 189, 248, 0.06) !important;
+    }
+    .section-title-wrap {
+      background: linear-gradient(90deg, rgba(56, 189, 248, 0.28) 0%, rgba(56, 189, 248, 0.08) 55%, rgba(17, 20, 26, 0.85) 100%);
+      border-bottom: 1.5px solid rgba(56, 189, 248, 0.35);
+      border-left: 4.5px solid #38bdf8;
+      border-radius: 10px 10px 0 0;
+      padding: 10px 14px;
+      margin-bottom: 14px !important;
+    }
+    .coach-bulletin-card {
+      background: linear-gradient(90deg, rgba(56, 189, 248, 0.12) 0%, rgba(56, 189, 248, 0.03) 45%, rgba(17, 20, 26, 0.95) 100%), #11141a !important;
+      border: 1px solid rgba(56, 189, 248, 0.30) !important;
+      border-left: 4.5px solid #38bdf8 !important;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.55), 0 0 16px rgba(56, 189, 248, 0.06) !important;
+    }
+    .analysis-hero-card {
+      background: linear-gradient(90deg, rgba(0, 255, 136, 0.12) 0%, rgba(0, 255, 136, 0.03) 45%, rgba(17, 20, 26, 0.95) 100%), #0d110e !important;
+      border: 1px solid rgba(0, 255, 136, 0.28) !important;
+      border-left: 4.5px solid var(--brand-neon) !important;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.55), 0 0 16px rgba(0, 255, 136, 0.06) !important;
     }
   </style>
 </head>
@@ -3429,7 +3517,7 @@
       <div class="assessment-history-card" onclick="openReadOnlyAssessment('inicial')" style="background: var(--card-bg, #11141a); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 14px; padding: 16px 18px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 4px 14px rgba(0,0,0,0.4);" onmouseover="this.style.borderColor='var(--brand-neon)'" onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.1)'">
         <div style="display: flex; flex-direction: column; gap: 4px;">
           <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-            <span style="font-size: 0.95rem; font-weight: 800; color: #ffffff;" id="historyCardTitle">Ficha de Avaliação Inicial (Anamnese)</span>
+            <span style="font-size: 0.95rem; font-weight: 800; color: #ffffff;" id="historyCardTitle">Ficha de Avaliação Inicial | Anamnese</span>
             <span style="font-size: 0.68rem; font-weight: 800; color: var(--brand-neon); background: rgba(0, 255, 136, 0.12); border: 1px solid rgba(0, 255, 136, 0.3); padding: 2px 7px; border-radius: 6px;" id="historyCardStatus">✓ Arquivada</span>
           </div>
           <div style="font-size: 0.78rem; color: #94a3b8;" id="historyCardSubtitle">
@@ -4347,11 +4435,11 @@ Segue o vídeo anexo para sua análise!`;
       if (topBar) topBar.style.display = 'flex';
 
       const dayNames = {
-        'segunda': 'SEGUNDA • Crossfit',
-        'terca': 'TERÇA • BMU + Acroduo',
-        'quarta': 'QUARTA • Handstand',
-        'quinta': 'QUINTA • Dança + Força',
-        'sexta': 'SEXTA • Argolas + Portagem'
+        'segunda': 'SEGUNDA | CROSSFIT',
+        'terca': 'TERÇA | BMU E ACRODUO',
+        'quarta': 'QUARTA | HANDSTAND',
+        'quinta': 'QUINTA | DANÇA E FORÇA',
+        'sexta': 'SEXTA | ARGOLAS E PORTAGEM'
       };
 
       const titleEl = document.getElementById('dedicatedBarTitle');
@@ -4659,7 +4747,7 @@ Segue o vídeo anexo para sua análise!`;
       openDedicatedView('avaliacao');
 
       const titleEl = document.getElementById('dedicatedBarTitle');
-      if (titleEl) titleEl.textContent = 'Ficha de Avaliação (Somente Leitura)';
+      if (titleEl) titleEl.textContent = 'Ficha de Avaliação | Somente Leitura';
 
       // Garante o carregamento prévio dos dados salvos no formulário
       loadStudentAssessment();
@@ -5592,7 +5680,7 @@ Segue o vídeo anexo para sua análise!`;
         function formatModalInstructions(desc, title) {
       if (!desc) return '';
 
-      function textToNumberedSteps(text) {
+      function textToNumberedSteps(text, type) {
         if (!text) return '';
         const cleanText = text.replace(/<br\s*\/?>/gi, ' ').replace(/\s+/g, ' ').trim();
         const sentences = cleanText
@@ -5600,29 +5688,14 @@ Segue o vídeo anexo para sua análise!`;
           .map(s => s.trim())
           .filter(s => s.length > 3);
 
+        const numClass = type === 'care' ? 'modal-num-care' : (type === 'tip' ? 'modal-num-tip' : 'modal-num-exec');
+
         if (sentences.length <= 1) {
-          return '<div class="modal-step-item"><span class="modal-step-num">1</span><span class="modal-step-text">' + cleanText + '</span></div>';
+          return '<div class="modal-step-item"><span class="modal-step-num ' + numClass + '">1</span><span class="modal-step-text">' + cleanText + '</span></div>';
         }
 
         return sentences
-          .map((s, idx) => '<div class="modal-step-item"><span class="modal-step-num">' + (idx + 1) + '</span><span class="modal-step-text">' + s + '</span></div>')
-          .join('');
-      }
-
-      function textToCleanParagraphs(text) {
-        if (!text) return '';
-        const cleanText = text.replace(/<br\s*\/?>/gi, ' ').replace(/\s+/g, ' ').trim();
-        const sentences = cleanText
-          .split(/(?<=[.!?])\s+(?=[A-Z0-9À-Ú])/)
-          .map(s => s.trim())
-          .filter(s => s.length > 3);
-
-        if (sentences.length <= 1) {
-          return '<p class="modal-clean-step">' + cleanText + '</p>';
-        }
-
-        return sentences
-          .map(s => '<p class="modal-clean-step">' + s + '</p>')
+          .map((s, idx) => '<div class="modal-step-item"><span class="modal-step-num ' + numClass + '">' + (idx + 1) + '</span><span class="modal-step-text">' + s + '</span></div>')
           .join('');
       }
 
@@ -5729,13 +5802,13 @@ Segue o vídeo anexo para sua análise!`;
 
       let html = '';
       if (execText) {
-        html += '<div class="modal-instruction-block"><div class="modal-block-label modal-label-exec">EXECUÇÃO</div><div class="modal-step-list">' + textToNumberedSteps(execText) + '</div></div>';
+        html += '<div class="modal-instruction-block"><div class="modal-block-label modal-label-exec">EXECUÇÃO</div><div class="modal-step-list">' + textToNumberedSteps(execText, 'exec') + '</div></div>';
       }
       if (careText) {
-        html += '<div class="modal-instruction-block"><div class="modal-block-label modal-label-care">CUIDADOS</div>' + textToCleanParagraphs(careText) + '</div>';
+        html += '<div class="modal-instruction-block"><div class="modal-block-label modal-label-care">CUIDADOS</div><div class="modal-step-list">' + textToNumberedSteps(careText, 'care') + '</div></div>';
       }
       if (tipText) {
-        html += '<div class="modal-instruction-block"><div class="modal-block-label modal-label-tip">DICAS</div>' + textToCleanParagraphs(tipText) + '</div>';
+        html += '<div class="modal-instruction-block"><div class="modal-block-label modal-label-tip">DICAS</div><div class="modal-step-list">' + textToNumberedSteps(tipText, 'tip') + '</div></div>';
       }
       if (sciText) {
         html += '<details class="modal-science-accordion"><summary class="modal-science-summary"><span>BASE CIENTÍFICA</span><span class="science-chevron">▾</span></summary><div class="modal-science-content">' + parseScience(sciText, title) + '</div></details>';
