@@ -2325,10 +2325,10 @@
       text-transform: uppercase;
     }
     .training-section-title {
-      font-size: 1.05rem;
-      font-weight: 800;
+      font-size: 1.35rem;
+      font-weight: 900;
       color: #ffffff;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.03em;
       text-transform: uppercase;
       margin: 0;
     }
@@ -4472,20 +4472,20 @@
       border-left: none !important;
       box-shadow: none !important;
       border-radius: 0 !important;
-      padding: 6px 4px !important;
-      margin-top: 14px !important;
-      margin-bottom: 10px !important;
+      padding: 8px 4px 6px 4px !important;
+      margin-top: 18px !important;
+      margin-bottom: 12px !important;
       display: flex !important;
       align-items: center !important;
       justify-content: space-between !important;
     }
     .training-section-title {
-      font-size: 1.05rem !important;
+      font-size: 1.35rem !important;
       font-weight: 900 !important;
-      letter-spacing: 0.04em !important;
+      letter-spacing: 0.03em !important;
       text-transform: uppercase !important;
       color: #ffffff !important;
-      text-shadow: none !important;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
       margin: 0 !important;
     }
 
@@ -7689,7 +7689,7 @@
     });
 
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '142';
+    const APP_BUILD_VERSION = '143';
     if (localStorage.getItem('dominio_helenice_dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_helenice_dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
@@ -10787,12 +10787,22 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=142').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=143').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
       navigator.serviceWorker.addEventListener('controllerchange', () => {
-        window.location.reload();
+        const cleanUrl = window.location.origin + window.location.pathname + '?v=' + Date.now();
+        window.location.replace(cleanUrl);
+      });
+      const checkUpdate = () => {
+        navigator.serviceWorker.getRegistrations().then(regs => {
+          for (let reg of regs) { reg.update(); }
+        });
+      };
+      window.addEventListener('pageshow', checkUpdate);
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') checkUpdate();
       });
     }
             /* Funções do Popover Flutuante: 💡 Dica | 🔧 Execução | 🛡️ Cuidados | ⚠️ Importante */
