@@ -3304,13 +3304,14 @@
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
     }
     #trainingHubSection .training-section-header {
-      background: linear-gradient(90deg, rgba(168, 85, 247, 0.14) 0%, rgba(168, 85, 247, 0.03) 45%, rgba(17, 20, 26, 0.95) 100%), #11141a !important;
-      border: 1px solid rgba(168, 85, 247, 0.28) !important;
-      border-left: 4.5px solid #a855f7 !important;
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.55), 0 0 16px rgba(168, 85, 247, 0.06) !important;
-      border-radius: 14px !important;
-      padding: 12px 16px !important;
-      margin-bottom: 14px !important;
+      background: transparent !important;
+      border: none !important;
+      border-left: none !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      padding: 6px 4px !important;
+      margin-top: 14px !important;
+      margin-bottom: 10px !important;
       display: flex !important;
       align-items: center !important;
       justify-content: space-between !important;
@@ -3318,10 +3319,11 @@
     .training-section-title {
       font-size: 1.05rem !important;
       font-weight: 900 !important;
-      letter-spacing: 0.06em !important;
+      letter-spacing: 0.04em !important;
       text-transform: uppercase !important;
       color: #ffffff !important;
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+      text-shadow: none !important;
+      margin: 0 !important;
     }
 
     /* Cards de Rotina de Treino com Névoa Esportiva Suave */
@@ -5151,7 +5153,7 @@ Segue o vídeo anexo para sua análise!`;
     });
 
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '141';
+    const APP_BUILD_VERSION = '142';
     if (localStorage.getItem('dominio_jean_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_jean_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
@@ -7573,7 +7575,7 @@ Segue o vídeo anexo para sua análise!`;
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=141').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=142').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
