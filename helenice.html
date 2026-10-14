@@ -270,43 +270,16 @@
       border-left: 4.5px solid #e11d48; /* Condicionamento: Coral sólido */
     }
 
-    /* Faixa de Cabeçalho Superior (Efeito 2: Dark Cyber Glass com Névoa Iluminada) */
+    /* Cabeçalho da Seção de Treino (Título Limpo em Branco Puro e Duração) */
     .section-header {
-      margin: -14px -16px 12px -16px;
-      padding: 11px 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
-    }
-    .sec-aquecimento .section-header,
-    .sec-ativacao .section-header,
-    .border-ativacao .section-header {
-      background: linear-gradient(90deg, rgba(217, 119, 6, 0.38) 0%, rgba(217, 119, 6, 0.12) 55%, rgba(17, 20, 26, 0.85) 100%);
-      border-bottom: 1.5px solid rgba(217, 119, 6, 0.40);
-    }
-    .sec-skills .section-header,
-    .sec-habilidade .section-header,
-    .border-habilidade .section-header {
-      background: linear-gradient(90deg, rgba(5, 150, 105, 0.38) 0%, rgba(5, 150, 105, 0.12) 55%, rgba(17, 20, 26, 0.85) 100%);
-      border-bottom: 1.5px solid rgba(5, 150, 105, 0.40);
-    }
-    .sec-forca .section-header,
-    .sec-fortalecimento .section-header,
-    .border-fortalecimento .section-header {
-      background: linear-gradient(90deg, rgba(2, 132, 199, 0.38) 0%, rgba(2, 132, 199, 0.12) 55%, rgba(17, 20, 26, 0.85) 100%);
-      border-bottom: 1.5px solid rgba(2, 132, 199, 0.40);
-    }
-    .sec-flex .section-header,
-    .sec-flexibilidade .section-header,
-    .border-flexibilidade .section-header {
-      background: linear-gradient(90deg, rgba(124, 58, 237, 0.38) 0%, rgba(124, 58, 237, 0.12) 55%, rgba(17, 20, 26, 0.85) 100%);
-      border-bottom: 1.5px solid rgba(124, 58, 237, 0.40);
-    }
-    .sec-cardio .section-header,
-    .border-cardio .section-header {
-      background: linear-gradient(90deg, rgba(225, 29, 72, 0.38) 0%, rgba(225, 29, 72, 0.12) 55%, rgba(17, 20, 26, 0.85) 100%);
-      border-bottom: 1.5px solid rgba(225, 29, 72, 0.40);
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: transparent !important;
+      box-shadow: none !important;
     }
 
     .section-title-wrap {
@@ -346,23 +319,22 @@
       content: none !important;
     }
 
-    /* Destaque em Branco Puro para o Relógio de Duração no Cabeçalho */
+    /* Relógio de Duração no Cabeçalho da Seção (Levemente Realçado, Sem Moldura Escura) */
     .section-header .meta-chip,
     .section-header .meta-chip-time,
     .section-header .meta-chip-loc,
     .section-header .session-meta-chips span {
-      background: rgba(0, 0, 0, 0.28) !important;
-      border: 1px solid rgba(255, 255, 255, 0.35) !important;
-      color: #ffffff !important;
-      padding: 3px 9px !important;
-      border-radius: 7px !important;
-      font-size: 0.74rem !important;
-      font-weight: 800 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      color: #e2e8f0 !important;
+      padding: 0 !important;
+      font-size: 0.82rem !important;
+      font-weight: 700 !important;
       letter-spacing: 0.02em !important;
       display: inline-flex !important;
       align-items: center !important;
       gap: 5px !important;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
       opacity: 1 !important;
     }
     .time-badge {
@@ -475,17 +447,17 @@
     .btn-video {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       background: #0e2238;
-      border: 1.5px solid #38bdf8;
+      border: 1px solid #38bdf8;
       color: #ffffff;
-      padding: 4px 10px;
-      border-radius: 8px;
-      font-size: 0.71rem;
+      padding: 2.5px 8px;
+      border-radius: 6px;
+      font-size: 0.68rem;
       font-weight: 800;
-      letter-spacing: 0.01em;
+      letter-spacing: 0.02em;
       cursor: pointer;
-      box-shadow: 0 2px 8px rgba(56, 189, 248, 0.20);
+      box-shadow: 0 1px 6px rgba(56, 189, 248, 0.18);
       transition: all 0.15s ease;
       vertical-align: middle;
       text-decoration: none;
@@ -494,20 +466,21 @@
       -webkit-tap-highlight-color: transparent;
       user-select: none;
       touch-action: manipulation;
+      flex-shrink: 0;
     }
     .btn-video:hover {
       background: #143252;
       border-color: #60a5fa;
       color: #ffffff;
-      box-shadow: 0 0 12px rgba(56, 189, 248, 0.35);
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.35);
       transform: translateY(-1px);
     }
     .btn-video:active {
       transform: scale(0.96);
     }
     .btn-video svg {
-      width: 11px;
-      height: 11px;
+      width: 9px;
+      height: 9px;
       fill: #38bdf8;
       flex-shrink: 0;
       transition: transform 0.15s ease;
@@ -2448,10 +2421,14 @@
       line-height: 1.35;
     }
     .day-meta-pill {
-      font-size: 0.72rem;
-      color: #64748b;
+      font-size: 0.76rem;
+      color: #cbd5e1;
       font-weight: 600;
-      margin-top: 2px;
+      margin-top: 3px;
+      letter-spacing: 0.01em;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
     }
 
     .day-card-right {
@@ -3691,17 +3668,20 @@
     .session-overall-meta {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
-      margin-bottom: 12px;
-      font-size: 0.82rem;
+      margin-bottom: 14px;
+      font-size: 0.84rem;
       font-weight: 600;
-      color: #94a3b8;
+      color: #cbd5e1;
     }
     .session-overall-meta .meta-item {
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 5px;
+      color: #e2e8f0;
+      font-weight: 600;
+      letter-spacing: 0.01em;
     }
 
     /* Botões de Pop-up Monocromáticos (Estilo Clean Glass Idêntico ao Vídeo) */
@@ -3761,6 +3741,7 @@
       letter-spacing: 0.02em;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 8px;
       flex-wrap: wrap;
     }
@@ -3802,18 +3783,19 @@
       margin-left: auto;
     }
 
-    /* Relógio de Duração sem Frame (Apenas Texto Limpo com Ícone) */
+    /* Relógio de Duração sem Frame (Levemente Realçado com Ícone) */
     .meta-chip, .meta-chip-time, .meta-chip-loc, .session-meta-chips span {
       background: none !important;
       border: none !important;
       box-shadow: none !important;
       padding: 0 !important;
-      font-size: 0.8rem !important;
-      font-weight: 600 !important;
-      color: #94a3b8 !important;
+      font-size: 0.82rem !important;
+      font-weight: 700 !important;
+      color: #e2e8f0 !important;
       display: inline-flex !important;
       align-items: center !important;
-      gap: 4px !important;
+      gap: 5px !important;
+      letter-spacing: 0.01em !important;
     }
 
     /* Séries / Repetições / Descanso: Sem Amarelinho, Sem Frames, Apenas Caixa Alta e Negrito */
@@ -4408,10 +4390,10 @@
 
     /* Separador em Barra Vertical no Cabeçalho de Treino/Sessão */
     .session-overall-meta .meta-separator {
-      color: rgba(255, 255, 255, 0.25);
+      color: rgba(255, 255, 255, 0.30);
       font-weight: 300;
       user-select: none;
-      margin: 0 1px;
+      margin: 0 2px;
     }
 
     /* ============================================================ */
@@ -4425,13 +4407,64 @@
     }
 
     /* Cabeçalhos de Seção da Home Hub no Estilo Dark Cyber Glass */
-    .tools-hub-section .training-section-header {
-      background: linear-gradient(90deg, rgba(56, 189, 248, 0.28) 0%, rgba(56, 189, 248, 0.08) 55%, rgba(17, 20, 26, 0.85) 100%);
-      border-bottom: 1.5px solid rgba(56, 189, 248, 0.35);
-      border-left: 4.5px solid #38bdf8;
-      border-radius: 10px 10px 0 0;
-      padding: 10px 14px;
+    /* Card de Ferramentas em Destaque (Dark Cyber Glass Ciano Fechado) */
+    .tools-highlight-card {
+      background: linear-gradient(90deg, rgba(56, 189, 248, 0.12) 0%, rgba(56, 189, 248, 0.03) 45%, rgba(17, 20, 26, 0.95) 100%), #11141a !important;
+      border: 1px solid rgba(56, 189, 248, 0.28) !important;
+      border-left: 4.5px solid #38bdf8 !important;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.55), 0 0 16px rgba(56, 189, 248, 0.06) !important;
+      border-radius: 14px;
+      padding: 13px 15px;
+      margin-top: 10px;
+      margin-bottom: 16px;
+      color: #ffffff;
+      position: relative;
+    }
+    .tools-highlight-card .tools-header-row {
       margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .tools-highlight-card .tools-card-title {
+      font-size: 1.05rem;
+      font-weight: 850;
+      color: #ffffff;
+      letter-spacing: -0.015em;
+      margin: 0;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+    .tools-highlight-card .header-tools-bar {
+      display: flex;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .tools-highlight-card .header-tools-bar::-webkit-scrollbar {
+      display: none;
+    }
+    .tools-highlight-card .tool-pill {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
     }
     #trainingHubSection .training-section-header {
       background: linear-gradient(90deg, rgba(0, 255, 136, 0.28) 0%, rgba(0, 255, 136, 0.08) 55%, rgba(17, 20, 26, 0.85) 100%);
@@ -4566,25 +4599,25 @@
       </div>
     </div>
 
-    <!-- SEÇÃO DE FERRAMENTAS -->
-    <div class="training-hub-section tools-hub-section" id="goalsOverviewCard" style="margin-top: 14px; margin-bottom: 16px;">
-      <div class="training-section-header" style="margin-bottom: 8px;">
-        <h2 class="training-section-title">FERRAMENTAS</h2>
+    <!-- Card de Ferramentas em Destaque (Caixa Fechada Dark Cyber Glass) -->
+    <div class="tools-highlight-card" id="goalsOverviewCard">
+      <div class="tools-header-row">
+        <h2 class="tools-card-title">FERRAMENTAS</h2>
       </div>
-      <div class="header-tools-bar" style="margin-top: 0; padding-top: 0;">
-          <button class="tool-pill pill-timers" onclick="openDedicatedView('timers')" title="Abrir Timers de Treino">
-            <svg viewBox="0 0 24 24"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
-            <span>Timers</span>
-          </button>
-          <button class="tool-pill pill-analises" onclick="openDedicatedView('analises')" title="Análise de Vídeos">
-            <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 12.5v-9l6 4.5-6 4.5z"/></svg>
-            <span>Análises</span>
-          </button>
-          <button class="tool-pill pill-evolucao" onclick="openDedicatedView('evolucao')" title="Evolução Corporal">
-            <svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
-            <span>Evolução</span>
-          </button>
-        </div>
+      <div class="header-tools-bar">
+        <button class="tool-pill pill-timers" onclick="openDedicatedView('timers')" title="Abrir Timers de Treino">
+          <svg viewBox="0 0 24 24"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
+          <span>Timers</span>
+        </button>
+        <button class="tool-pill pill-analises" onclick="openDedicatedView('analises')" title="Análise de Vídeos">
+          <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 12.5v-9l6 4.5-6 4.5z"/></svg>
+          <span>Análises</span>
+        </button>
+        <button class="tool-pill pill-evolucao" onclick="openDedicatedView('evolucao')" title="Evolução Corporal">
+          <svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+          <span>Evolução</span>
+        </button>
+      </div>
     </div>
 
     <!-- SEÇÃO PRINCIPAL: TREINAMENTO (LISTA DE SESSÕES) -->
@@ -4673,7 +4706,7 @@
         <div class="ex-title">
           <span>BIKE ERGOMÉTRICA</span>
           <button type="button" class="btn-video" onclick="openVideoModal('Bike Ergométrica (Aquecimento Suave)', '<b>Execução:</b> Suba na bike e ajuste a altura do banco até a linha do ossinho do seu quadril. Pedale em ritmo suave e contínuo (aquecimento), numa velocidade em que você consiga conversar sem ficar sem ar. Mantenha os pés bem apoiados nos pedais e o corpo relaxado, sem apoiar todo o peso nos punhos.<br><br><b>Cuidados:</b> Não use carga pesada no pedal para não forçar as articulações dos joelhos. Mantenha a respiração sempre livre e fluida, sem prender o ar.<br><br><b>Base científica:</b> A bicicleta elimina as forças de reação do solo que agridem o calcâneo e a fáscia plantar na esteira. O movimento cíclico sem impacto promove a difusão do líquido sinovial nas articulações do joelho e quadril, reduzindo o atrito em articulações com osteoartrite.', '')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -4706,7 +4739,7 @@
         <div class="ex-title">
           <span>GATO E CAMELO (CAT-COW)</span>
           <button type="button" class="btn-video" onclick="openVideoModal('Gato e Camelo (Cat-Cow)', '<b>Execução:</b> Movimento lento e suave em quatro apoios, alternando o arqueamento das costas para cima e para baixo no ritmo da respiração. Puxe o ar devagar pelo nariz enquanto empina suavemente o bumbum e abre o peito olhando para a frente. Solte todo o ar pela boca curvando a coluna para o teto, como um gato arrepiado, soltando a cabeça para baixo.<br><br><b>Cuidados:</b> Faça o movimento com calma e sem dar trancos na coluna ou no pescoço. Se sentir qualquer desconforto nos joelhos apoiados no chão, dobre o colchonete ou coloque uma almofada por baixo.<br><br><b>Base científica:</b> Mobilização espinhal multissegmentar, promovendo descompressão discal por embebição hidrostática e estimulação de mecanorreceptores e proprioceptores da coluna vertebral, aliviando o tônus muscular defensivo comum na fibromialgia.', 'https://youtu.be/LIVJZZyZ2qM')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -4740,7 +4773,7 @@
         <div class="ex-title">
           <span>PONTE DE GLÚTEOS</span>
           <button type="button" class="btn-video" onclick="openVideoModal('Ponte de Glúteos', '<b>Execução:</b> Deitada de barriga para cima com joelhos dobrados e pés firmes no chão, aperte o bumbum e suba o quadril até alinhar o corpo, segurando 2 segundos no alto a cada repetição antes de descer com controle.<br><br><b>Cuidados:</b> A força deve vir exclusivamente do bumbum e calcanhares; não force a lombar nem arqueie as costas em excesso no topo.<br><br><b>Base científica:</b> Ativação isolada e potente do glúteo máximo e estabilização lombopélvica, sem compressão axial sobre as articulações da coluna vertebral e sem impacto nos joelhos.', 'https://www.youtube.com/shorts/RrU4zx4ysnI')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -4786,7 +4819,7 @@
         <div class="ex-title">
           <span>SENTA E LEVANTA (BOX SQUAT)</span>
           <button type="button" class="btn-video" onclick="openVideoModal('Senta e Levanta (Box Squat)', '<b>Execução:</b> Em frente ao banco ou cadeira firme, com os pés afastados na largura do quadril, desça com o peito aberto e tronco firme até tocar o assento suavemente e levante empurrando o chão com força total pelos calcanhares.<br><br><b>Cuidados:</b> Não desabe no banco ao sentar nem deixe os joelhos fecharem para dentro ao levantar (mantenha os joelhos alinhados com a ponta dos pés).<br><br><b>Base científica:</b> Recrutamento funcional de membros inferiores com controle biomecânico de profundidade, ativação de transportadores GLUT-4 para sensibilidade à insulina e fortalecimento protetor de quadríceps para osteoartrite.', 'https://www.youtube.com/shorts/49_20NXycwE')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -4821,7 +4854,7 @@
         <div class="ex-title">
           <span>REMADA APOIADA NO BANCO</span>
           <button type="button" class="btn-video" onclick="openVideoModal('Remada Apoiada no Banco', '<b>Execução:</b> Com o peito apoiado no banco inclinado e halteres leves ou elástico, puxe trazendo os cotovelos para trás e aproximando as escápulas com suavidade, retornando devagar.<br><br><b>Cuidados:</b> Mantenha os ombros relaxados para baixo (longe das orelhas) durante toda a puxada; não dê trancos nem sobrecarregue o pescoço.<br><br><b>Base científica:</b> Fortalecimento de romboides e latíssimo do dorso com suporte torácico anterior, eliminando qualquer sobrecarga cisalhante na coluna lombar para alunas com dor crônica.', 'https://www.youtube.com/shorts/hfY9VAd6koc')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -4856,7 +4889,7 @@
         <div class="ex-title">
           <span>FLEXÃO INCLINADA NO BANCO</span>
           <button type="button" class="btn-video" onclick="openVideoModal('Flexão Inclinada no Banco', '<b>Execução:</b> Mãos apoiadas no banco firme na largura dos ombros, corpo alinhado em prancha suave da cabeça aos pés. Desça o peito em direção ao banco com cotovelos a 45° e empurre de volta com firmeza.<br><br><b>Cuidados:</b> Mantenha o abdômen e glúteos acionados o tempo todo; não deixe a bacia cair nem a lombar arcar durante o movimento.<br><br><b>Base científica:</b> Recrutamento da cadeia anterior de empurrar com diminuição significativa do braço de momento da gravidade, permitindo adaptação do manguito rotador e tríceps sem impacto acromial.', 'https://www.youtube.com/shorts/I1E6ow5CbVU')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -4891,7 +4924,7 @@
         <div class="ex-title">
           <span>ABDUÇÃO DE QUADRIL DEITADA</span>
           <button type="button" class="btn-video" onclick="openVideoModal('Abdução de Quadril Deitada', '<b>Execução:</b> Deitada de lado no colchonete com corpo alinhado, eleve a perna de cima em direção ao teto de forma controlada, segurando 1 segundo no alto com a ponta do pé apontada para frente, e desça suavemente.<br><br><b>Cuidados:</b> Mantenha o quadril firme e alinhado; não role a bacia para trás nem balance o tronco para ajudar na subida.<br><br><b>Base científica:</b> Ativação seletiva e sem impacto articular do glúteo médio, essencial na manutenção da marcha estável e no combate ao valgismo dinâmico em quadris e joelhos com osteoartrite.', 'https://www.youtube.com/shorts/7HWdwvAQFuY')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -4927,7 +4960,7 @@
         <div class="ex-title">
           <span>PANTURRILHA EM PÉ COM APOIO</span>
           <button type="button" class="btn-video" onclick="openVideoModal('Panturrilha em Pé com Apoio', '<b>Execução:</b> Em pé com as mãos apoiadas na parede para equilíbrio, eleve os calcanhares ficando na ponta dos pés, segure 2 segundos no ponto mais alto contraindo a panturrilha e desça lentamente até apoiar todo o calcanhar.<br><br><b>Cuidados:</b> Suba com apoio uniforme em todos os dedos do pé, sem deixar os tornozelos virarem para fora.<br><br><b>Base científica:</b> Ação da bomba muscular da panturrilha (músculos sóleo e gastrocnêmio), favorecendo o retorno venoso dos membros inferiores e auxiliando na regulação da pressão arterial sistêmica.', 'https://www.youtube.com/shorts/RFXfn6GxxFw')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -4974,7 +5007,7 @@
         <div class="ex-title">
           <span>ALONGAMENTO DE POSTERIOR SENTADA</span>
           <button type="button" class="btn-video" onclick="openVideoModal('Alongamento de Posterior Sentada', '<b>Execução:</b> Sentada no colchonete ou banco, perna estendida à frente com calcanhar apoiado no chão. Incline o tronco suavemente para a frente a partir do quadril, mantendo o peito aberto, até sentir um alongamento agradável atrás da coxa.<br><br><b>Cuidados:</b> Não force para tentar encostar na ponta dos pés nem curve as costas; o movimento deve ser confortável e relaxante.<br><br><b>Base científica:</b> Alívio da tensão passiva nos isquiotibiais, reduzindo o estresse de tração sobre o sacro e a coluna lombar, promovendo relaxamento fascial global na fibromialgia.', 'https://www.youtube.com/shorts/ZppZoZ-c2zU')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -5010,7 +5043,7 @@
         <div class="ex-title">
           <span>ALONGAMENTO DE PEITORAL NA PAREDE</span>
           <button type="button" class="btn-video" onclick="openVideoModal('Alongamento de Peitoral na Parede', '<b>Execução:</b> Apoie o braço estendido ou antebraço na parede na altura dos ombros e gire suavemente o tronco no sentido oposto até sentir uma abertura agradável no peito e na frente do ombro.<br><br><b>Cuidados:</b> Não force o ombro se houver dor aguda ou pinçamento; busque apenas uma sensação gostosa de alívio e expansão.<br><br><b>Base científica:</b> Abertura torácica e desativação de encurtamentos adaptativos da musculatura peitoral menor e maior decorrentes de posturas protusas, facilitando a respiração diafragmática profunda.', 'https://www.youtube.com/shorts/2alyz_gw3Go')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -5046,7 +5079,7 @@
         <div class="ex-title">
           <span>POSIÇÃO DA CRIANÇA (CHILD'S POSE)</span>
           <button type="button" class="btn-video" onclick="openVideoModal('Posição da Criança (Child\'s Pose)', '<b>Execução:</b> De joelhos no colchonete, sente sobre os calcanhares e estenda os braços à frente no solo, repousando a testa no chão e respirando profundamente de forma lenta e compassada.<br><br><b>Cuidados:</b> Se sentir incômodo nos joelhos, afaste-os um pouco mais ou posicione uma almofada sob o quadril ou peito.<br><br><b>Base científica:</b> Descompressão axial suave de toda a cadeia paravertebral e estímulo do tônus parassimpático, diminuindo os níveis circulantes de cortisol e promovendo modulação central da dor em portadoras de fibromialgia.', 'https://www.youtube.com/shorts/9Mk_tX_HbiM')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -5134,7 +5167,7 @@
         <div class="ex-title">
           <span>BIKE ERGOMÉTRICA</span>
           <button type="button" class="btn-video" onclick="openVideoModal('Bike Ergométrica (Aquecimento Suave)', '<b>Execução:</b> Suba na bike e ajuste a altura do banco até a linha do ossinho do seu quadril. Pedale em ritmo suave e contínuo (aquecimento), numa velocidade em que você consiga conversar sem ficar sem ar. Mantenha os pés bem apoiados nos pedais e o corpo relaxado, sem apoiar todo o peso nos punhos.<br><br><b>Cuidados:</b> Não use carga pesada no pedal para não forçar as articulações dos joelhos. Mantenha a respiração sempre livre e fluida, sem prender o ar.<br><br><b>Base científica:</b> A bicicleta elimina as forças de reação do solo que agridem o calcâneo e a fáscia plantar na esteira. O movimento cíclico sem impacto promove a difusão do líquido sinovial nas articulações do joelho e quadril, reduzindo o atrito em articulações com osteoartrite.', '')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -5167,7 +5200,7 @@
         <div class="ex-title">
           <span>GATO E CAMELO (CAT-COW)</span>
           <button type="button" class="btn-video" onclick="openVideoModal('Gato e Camelo (Cat-Cow)', '<b>Execução:</b> Movimento lento e suave em quatro apoios, alternando o arqueamento das costas para cima e para baixo no ritmo da respiração. Puxe o ar devagar pelo nariz enquanto empina suavemente o bumbum e abre o peito olhando para a frente. Solte todo o ar pela boca curvando a coluna para o teto, como um gato arrepiado, soltando a cabeça para baixo.<br><br><b>Cuidados:</b> Faça o movimento com calma e sem dar trancos na coluna ou no pescoço. Se sentir qualquer desconforto nos joelhos apoiados no chão, dobre o colchonete ou coloque uma almofada por baixo.<br><br><b>Base científica:</b> Mobilização espinhal multissegmentar, promovendo descompressão discal por embebição hidrostática e estimulação de mecanorreceptores e proprioceptores da coluna vertebral, aliviando o tônus muscular defensivo comum na fibromialgia.', 'https://youtu.be/LIVJZZyZ2qM')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -5201,7 +5234,7 @@
         <div class="ex-title">
           <span>PONTE DE GLÚTEOS</span>
           <button type="button" class="btn-video" onclick="openVideoModal('Ponte de Glúteos', '<b>Execução:</b> Deitada de barriga para cima com joelhos dobrados e pés firmes no chão, aperte o bumbum e suba o quadril até alinhar o corpo, segurando 2 segundos no alto a cada repetição antes de descer com controle.<br><br><b>Cuidados:</b> A força deve vir exclusivamente do bumbum e calcanhares; não force a lombar nem arqueie as costas em excesso no topo.<br><br><b>Base científica:</b> Ativação isolada e potente do glúteo máximo e estabilização lombopélvica, sem compressão axial sobre as articulações da coluna vertebral e sem impacto nos joelhos.', 'https://www.youtube.com/shorts/RrU4zx4ysnI')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -5247,7 +5280,7 @@
         <div class="ex-title">
           <span>SENTA E LEVANTA (BOX SQUAT)</span>
           <button type="button" class="btn-video" onclick="openVideoModal('Senta e Levanta (Box Squat)', '<b>Execução:</b> Em frente ao banco ou cadeira firme, com os pés afastados na largura do quadril, desça com o peito aberto e tronco firme até tocar o assento suavemente e levante empurrando o chão com força total pelos calcanhares.<br><br><b>Cuidados:</b> Não desabe no banco ao sentar nem deixe os joelhos fecharem para dentro ao levantar (mantenha os joelhos alinhados com a ponta dos pés).<br><br><b>Base científica:</b> Recrutamento funcional de membros inferiores com controle biomecânico de profundidade, ativação de transportadores GLUT-4 para sensibilidade à insulina e fortalecimento protetor de quadríceps para osteoartrite.', 'https://www.youtube.com/shorts/49_20NXycwE')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -5282,7 +5315,7 @@
         <div class="ex-title">
           <span>REMADA APOIADA NO BANCO</span>
           <button type="button" class="btn-video" onclick="openVideoModal('Remada Apoiada no Banco', '<b>Execução:</b> Com o peito apoiado no banco inclinado e halteres leves ou elástico, puxe trazendo os cotovelos para trás e aproximando as escápulas com suavidade, retornando devagar.<br><br><b>Cuidados:</b> Mantenha os ombros relaxados para baixo (longe das orelhas) durante toda a puxada; não dê trancos nem sobrecarregue o pescoço.<br><br><b>Base científica:</b> Fortalecimento de romboides e latíssimo do dorso com suporte torácico anterior, eliminando qualquer sobrecarga cisalhante na coluna lombar para alunas com dor crônica.', 'https://www.youtube.com/shorts/hfY9VAd6koc')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -5317,7 +5350,7 @@
         <div class="ex-title">
           <span>FLEXÃO INCLINADA NO BANCO</span>
           <button type="button" class="btn-video" onclick="openVideoModal('Flexão Inclinada no Banco', '<b>Execução:</b> Mãos apoiadas no banco firme na largura dos ombros, corpo alinhado em prancha suave da cabeça aos pés. Desça o peito em direção ao banco com cotovelos a 45° e empurre de volta com firmeza.<br><br><b>Cuidados:</b> Mantenha o abdômen e glúteos acionados o tempo todo; não deixe a bacia cair nem a lombar arcar durante o movimento.<br><br><b>Base científica:</b> Recrutamento da cadeia anterior de empurrar com diminuição significativa do braço de momento da gravidade, permitindo adaptação do manguito rotador e tríceps sem impacto acromial.', 'https://www.youtube.com/shorts/I1E6ow5CbVU')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -5352,7 +5385,7 @@
         <div class="ex-title">
           <span>ABDUÇÃO DE QUADRIL DEITADA</span>
           <button type="button" class="btn-video" onclick="openVideoModal('Abdução de Quadril Deitada', '<b>Execução:</b> Deitada de lado no colchonete com corpo alinhado, eleve a perna de cima em direção ao teto de forma controlada, segurando 1 segundo no alto com a ponta do pé apontada para frente, e desça suavemente.<br><br><b>Cuidados:</b> Mantenha o quadril firme e alinhado; não role a bacia para trás nem balance o tronco para ajudar na subida.<br><br><b>Base científica:</b> Ativação seletiva e sem impacto articular do glúteo médio, essencial na manutenção da marcha estável e no combate ao valgismo dinâmico em quadris e joelhos com osteoartrite.', 'https://www.youtube.com/shorts/7HWdwvAQFuY')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -5388,7 +5421,7 @@
         <div class="ex-title">
           <span>PANTURRILHA EM PÉ COM APOIO</span>
           <button type="button" class="btn-video" onclick="openVideoModal('Panturrilha em Pé com Apoio', '<b>Execução:</b> Em pé com as mãos apoiadas na parede para equilíbrio, eleve os calcanhares ficando na ponta dos pés, segure 2 segundos no ponto mais alto contraindo a panturrilha e desça lentamente até apoiar todo o calcanhar.<br><br><b>Cuidados:</b> Suba com apoio uniforme em todos os dedos do pé, sem deixar os tornozelos virarem para fora.<br><br><b>Base científica:</b> Ação da bomba muscular da panturrilha (músculos sóleo e gastrocnêmio), favorecendo o retorno venoso dos membros inferiores e auxiliando na regulação da pressão arterial sistêmica.', 'https://www.youtube.com/shorts/RFXfn6GxxFw')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -5435,7 +5468,7 @@
         <div class="ex-title">
           <span>ALONGAMENTO DE POSTERIOR SENTADA</span>
           <button type="button" class="btn-video" onclick="openVideoModal('Alongamento de Posterior Sentada', '<b>Execução:</b> Sentada no colchonete ou banco, perna estendida à frente com calcanhar apoiado no chão. Incline o tronco suavemente para a frente a partir do quadril, mantendo o peito aberto, até sentir um alongamento agradável atrás da coxa.<br><br><b>Cuidados:</b> Não force para tentar encostar na ponta dos pés nem curve as costas; o movimento deve ser confortável e relaxante.<br><br><b>Base científica:</b> Alívio da tensão passiva nos isquiotibiais, reduzindo o estresse de tração sobre o sacro e a coluna lombar, promovendo relaxamento fascial global na fibromialgia.', 'https://www.youtube.com/shorts/ZppZoZ-c2zU')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -5471,7 +5504,7 @@
         <div class="ex-title">
           <span>ALONGAMENTO DE PEITORAL NA PAREDE</span>
           <button type="button" class="btn-video" onclick="openVideoModal('Alongamento de Peitoral na Parede', '<b>Execução:</b> Apoie o braço estendido ou antebraço na parede na altura dos ombros e gire suavemente o tronco no sentido oposto até sentir uma abertura agradável no peito e na frente do ombro.<br><br><b>Cuidados:</b> Não force o ombro se houver dor aguda ou pinçamento; busque apenas uma sensação gostosa de alívio e expansão.<br><br><b>Base científica:</b> Abertura torácica e desativação de encurtamentos adaptativos da musculatura peitoral menor e maior decorrentes de posturas protusas, facilitando a respiração diafragmática profunda.', 'https://www.youtube.com/shorts/2alyz_gw3Go')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -5507,7 +5540,7 @@
         <div class="ex-title">
           <span>POSIÇÃO DA CRIANÇA (CHILD'S POSE)</span>
           <button type="button" class="btn-video" onclick="openVideoModal('Posição da Criança (Child\'s Pose)', '<b>Execução:</b> De joelhos no colchonete, sente sobre os calcanhares e estenda os braços à frente no solo, repousando a testa no chão e respirando profundamente de forma lenta e compassada.<br><br><b>Cuidados:</b> Se sentir incômodo nos joelhos, afaste-os um pouco mais ou posicione uma almofada sob o quadril ou peito.<br><br><b>Base científica:</b> Descompressão axial suave de toda a cadeia paravertebral e estímulo do tônus parassimpático, diminuindo os níveis circulantes de cortisol e promovendo modulação central da dor em portadoras de fibromialgia.', 'https://www.youtube.com/shorts/9Mk_tX_HbiM')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Vídeo | Instruções</span>
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
@@ -6697,7 +6730,7 @@
                 <span>💡</span> 3. VÍDEO E INSTRUÇÕES DE EXECUÇÃO
               </div>
               <div style="font-size: 0.77rem; color: #cbd5e1;">
-                Toque no botão <strong>Vídeo | Instruções</strong> presente em cada exercício para assistir ao vídeo e conferir a execução, cuidados anatômicos e embasamento científico.
+                Toque no botão <strong>Instruções</strong> presente em cada exercício para assistir ao vídeo e conferir a execução, cuidados anatômicos e embasamento científico.
               </div>
             </div>
 
@@ -7224,13 +7257,13 @@
     });
 
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '121';
+    const APP_BUILD_VERSION = '138';
     if (localStorage.getItem('dominio_helenice_dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_helenice_dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
         caches.keys().then((keys) => {
           keys.forEach((k) => {
-            if (k !== 'dominio-alunos-v115') caches.delete(k);
+            caches.delete(k);
           });
         });
       }
@@ -9639,7 +9672,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=121').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=138').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });

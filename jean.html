@@ -265,43 +265,16 @@
       border-left: 4.5px solid #e11d48; /* Condicionamento: Coral sólido */
     }
 
-    /* Faixa de Cabeçalho Superior (Efeito 2: Dark Cyber Glass com Névoa Iluminada) */
+    /* Cabeçalho da Seção de Treino (Título Limpo em Branco Puro e Duração) */
     .section-header {
-      margin: -14px -16px 12px -16px;
-      padding: 11px 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
-    }
-    .sec-aquecimento .section-header,
-    .sec-ativacao .section-header,
-    .border-ativacao .section-header {
-      background: linear-gradient(90deg, rgba(217, 119, 6, 0.38) 0%, rgba(217, 119, 6, 0.12) 55%, rgba(17, 20, 26, 0.85) 100%);
-      border-bottom: 1.5px solid rgba(217, 119, 6, 0.40);
-    }
-    .sec-skills .section-header,
-    .sec-habilidade .section-header,
-    .border-habilidade .section-header {
-      background: linear-gradient(90deg, rgba(5, 150, 105, 0.38) 0%, rgba(5, 150, 105, 0.12) 55%, rgba(17, 20, 26, 0.85) 100%);
-      border-bottom: 1.5px solid rgba(5, 150, 105, 0.40);
-    }
-    .sec-forca .section-header,
-    .sec-fortalecimento .section-header,
-    .border-fortalecimento .section-header {
-      background: linear-gradient(90deg, rgba(2, 132, 199, 0.38) 0%, rgba(2, 132, 199, 0.12) 55%, rgba(17, 20, 26, 0.85) 100%);
-      border-bottom: 1.5px solid rgba(2, 132, 199, 0.40);
-    }
-    .sec-flex .section-header,
-    .sec-flexibilidade .section-header,
-    .border-flexibilidade .section-header {
-      background: linear-gradient(90deg, rgba(124, 58, 237, 0.38) 0%, rgba(124, 58, 237, 0.12) 55%, rgba(17, 20, 26, 0.85) 100%);
-      border-bottom: 1.5px solid rgba(124, 58, 237, 0.40);
-    }
-    .sec-cardio .section-header,
-    .border-cardio .section-header {
-      background: linear-gradient(90deg, rgba(225, 29, 72, 0.38) 0%, rgba(225, 29, 72, 0.12) 55%, rgba(17, 20, 26, 0.85) 100%);
-      border-bottom: 1.5px solid rgba(225, 29, 72, 0.40);
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: transparent !important;
+      box-shadow: none !important;
     }
 
     .section-title-wrap {
@@ -341,23 +314,22 @@
       content: none !important;
     }
 
-    /* Destaque em Branco Puro para o Relógio de Duração no Cabeçalho */
+    /* Relógio de Duração no Cabeçalho da Seção (Levemente Realçado, Sem Moldura Escura) */
     .section-header .meta-chip,
     .section-header .meta-chip-time,
     .section-header .meta-chip-loc,
     .section-header .session-meta-chips span {
-      background: rgba(0, 0, 0, 0.28) !important;
-      border: 1px solid rgba(255, 255, 255, 0.35) !important;
-      color: #ffffff !important;
-      padding: 3px 9px !important;
-      border-radius: 7px !important;
-      font-size: 0.74rem !important;
-      font-weight: 800 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      color: #e2e8f0 !important;
+      padding: 0 !important;
+      font-size: 0.82rem !important;
+      font-weight: 700 !important;
       letter-spacing: 0.02em !important;
       display: inline-flex !important;
       align-items: center !important;
       gap: 5px !important;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
       opacity: 1 !important;
     }
     .time-badge {
@@ -470,17 +442,17 @@
     .btn-video {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       background: #0e2238;
-      border: 1.5px solid #38bdf8;
+      border: 1px solid #38bdf8;
       color: #ffffff;
-      padding: 4px 10px;
-      border-radius: 8px;
-      font-size: 0.71rem;
+      padding: 2.5px 8px;
+      border-radius: 6px;
+      font-size: 0.68rem;
       font-weight: 800;
-      letter-spacing: 0.01em;
+      letter-spacing: 0.02em;
       cursor: pointer;
-      box-shadow: 0 2px 8px rgba(56, 189, 248, 0.20);
+      box-shadow: 0 1px 6px rgba(56, 189, 248, 0.18);
       transition: all 0.15s ease;
       vertical-align: middle;
       text-decoration: none;
@@ -489,20 +461,21 @@
       -webkit-tap-highlight-color: transparent;
       user-select: none;
       touch-action: manipulation;
+      flex-shrink: 0;
     }
     .btn-video:hover {
       background: #143252;
       border-color: #60a5fa;
       color: #ffffff;
-      box-shadow: 0 0 12px rgba(56, 189, 248, 0.35);
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.35);
       transform: translateY(-1px);
     }
     .btn-video:active {
       transform: scale(0.96);
     }
     .btn-video svg {
-      width: 11px;
-      height: 11px;
+      width: 9px;
+      height: 9px;
       fill: #38bdf8;
       flex-shrink: 0;
       transition: transform 0.15s ease;
@@ -1974,10 +1947,14 @@
       line-height: 1.35;
     }
     .day-meta-pill {
-      font-size: 0.72rem;
-      color: #64748b;
+      font-size: 0.76rem;
+      color: #cbd5e1;
       font-weight: 600;
-      margin-top: 2px;
+      margin-top: 3px;
+      letter-spacing: 0.01em;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
     }
 
     .day-card-right {
@@ -3227,12 +3204,33 @@
       font-style: italic;
     }
 
+    /* Subcabeçalho de Treino / Sessão (Local e Duração Levemente Realçados) */
+    .session-overall-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: #cbd5e1;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .session-overall-meta .meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: #e2e8f0;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+
     /* Separador em Barra Vertical no Cabeçalho de Treino/Sessão */
     .session-overall-meta .meta-separator {
-      color: rgba(255, 255, 255, 0.25);
+      color: rgba(255, 255, 255, 0.30);
       font-weight: 300;
       user-select: none;
-      margin: 0 1px;
+      margin: 0 2px;
     }
 
     /* ============================================================ */
@@ -3246,13 +3244,64 @@
     }
 
     /* Cabeçalhos de Seção da Home Hub no Estilo Dark Cyber Glass */
-    .tools-hub-section .training-section-header {
-      background: linear-gradient(90deg, rgba(56, 189, 248, 0.28) 0%, rgba(56, 189, 248, 0.08) 55%, rgba(17, 20, 26, 0.85) 100%);
-      border-bottom: 1.5px solid rgba(56, 189, 248, 0.35);
-      border-left: 4.5px solid #38bdf8;
-      border-radius: 10px 10px 0 0;
-      padding: 10px 14px;
+    /* Card de Ferramentas em Destaque (Dark Cyber Glass Ciano Fechado) */
+    .tools-highlight-card {
+      background: linear-gradient(90deg, rgba(56, 189, 248, 0.12) 0%, rgba(56, 189, 248, 0.03) 45%, rgba(17, 20, 26, 0.95) 100%), #11141a !important;
+      border: 1px solid rgba(56, 189, 248, 0.28) !important;
+      border-left: 4.5px solid #38bdf8 !important;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.55), 0 0 16px rgba(56, 189, 248, 0.06) !important;
+      border-radius: 14px;
+      padding: 13px 15px;
+      margin-top: 10px;
+      margin-bottom: 16px;
+      color: #ffffff;
+      position: relative;
+    }
+    .tools-highlight-card .tools-header-row {
       margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .tools-highlight-card .tools-card-title {
+      font-size: 1.05rem;
+      font-weight: 850;
+      color: #ffffff;
+      letter-spacing: -0.015em;
+      margin: 0;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+    .tools-highlight-card .header-tools-bar {
+      display: flex;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .tools-highlight-card .header-tools-bar::-webkit-scrollbar {
+      display: none;
+    }
+    .tools-highlight-card .tool-pill {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
     }
     #trainingHubSection .training-section-header {
       background: linear-gradient(90deg, rgba(0, 255, 136, 0.28) 0%, rgba(0, 255, 136, 0.08) 55%, rgba(17, 20, 26, 0.85) 100%);
@@ -3343,8 +3392,8 @@
   <!-- Container Principal dos Treinos -->
   <div id="mainTrainingView">
 
-    <!-- Card do Aluno e Ferramentas Clean -->
-    <div class="goals-overview-card" id="goalsOverviewCard">
+    <!-- Card do Aluno em Destaque -->
+    <div class="athlete-highlight-card" id="athleteHighlightCard">
       <!-- Linha 1: Nome Completo do Aluno em Destaque -->
       <div class="athlete-name-row">
         <h2 class="athlete-full-name" onclick="openDedicatedView('perfil')" title="Abrir Ficha do Aluno">JEAN HILÁRIO</h2>
@@ -3373,24 +3422,26 @@
           <span class="goal-chip-item">🤸 Mobilidade Articular e Cadeia Posterior</span>
         </div>
       </div>
+    </div>
 
-      <!-- Seção de Ferramentas com Título em Caixa Alta -->
-      <div class="tools-container-wrap">
-        <div class="tools-section-title">FERRAMENTAS</div>
-        <div class="header-tools-bar" style="margin-top: 0; padding-top: 0;">
-          <button class="tool-pill pill-timers" onclick="openDedicatedView('timers')" title="Abrir Timers de Treino">
-            <svg viewBox="0 0 24 24"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
-            <span>Timers</span>
-          </button>
-          <button class="tool-pill pill-analises" onclick="openDedicatedView('analises')" title="Análise de Vídeos e Biomecânica">
-            <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 12.5v-9l6 4.5-6 4.5z"/></svg>
-            <span>Análises</span>
-          </button>
-          <button class="tool-pill pill-evolucao" onclick="openDedicatedView('evolucao')" title="Evolução Corporal">
-            <svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
-            <span>Evolução</span>
-          </button>
-        </div>
+    <!-- Card de Ferramentas em Destaque (Caixa Fechada Dark Cyber Glass) -->
+    <div class="tools-highlight-card" id="goalsOverviewCard">
+      <div class="tools-header-row">
+        <h2 class="tools-card-title">FERRAMENTAS</h2>
+      </div>
+      <div class="header-tools-bar">
+        <button class="tool-pill pill-timers" onclick="openDedicatedView('timers')" title="Abrir Timers de Treino">
+          <svg viewBox="0 0 24 24"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
+          <span>Timers</span>
+        </button>
+        <button class="tool-pill pill-analises" onclick="openDedicatedView('analises')" title="Análise de Vídeos">
+          <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 12.5v-9l6 4.5-6 4.5z"/></svg>
+          <span>Análises</span>
+        </button>
+        <button class="tool-pill pill-evolucao" onclick="openDedicatedView('evolucao')" title="Evolução Corporal">
+          <svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+          <span>Evolução</span>
+        </button>
       </div>
     </div>
 
@@ -4011,7 +4062,7 @@
                 <span>💡</span> 3. VÍDEO E INSTRUÇÕES DE EXECUÇÃO
               </div>
               <div style="font-size: 0.77rem; color: #cbd5e1;">
-                Toque no botão <strong>Vídeo | Instruções</strong> presente em cada exercício para assistir ao vídeo e conferir a execução, cuidados anatômicos e embasamento científico.
+                Toque no botão <strong>Instruções</strong> presente em cada exercício para assistir ao vídeo e conferir a execução, cuidados anatômicos e embasamento científico.
               </div>
             </div>
 
@@ -4346,13 +4397,13 @@ Segue o vídeo anexo para sua análise!`;
     });
 
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '121';
+    const APP_BUILD_VERSION = '138';
     if (localStorage.getItem('dominio_jean_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_jean_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
         caches.keys().then((keys) => {
           keys.forEach((k) => {
-            if (k !== 'dominio-alunos-v112') caches.delete(k);
+            caches.delete(k);
           });
         });
       }
@@ -6051,7 +6102,7 @@ Segue o vídeo anexo para sua análise!`;
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=121').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=138').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
