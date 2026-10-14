@@ -4503,13 +4503,16 @@
       border-left: 4.5px solid #38bdf8 !important;
       box-shadow: 0 4px 18px rgba(0, 0, 0, 0.55), 0 0 16px rgba(56, 189, 248, 0.06) !important;
     }
+    .section-header .section-title-wrap,
     .section-title-wrap {
-      background: linear-gradient(90deg, rgba(56, 189, 248, 0.28) 0%, rgba(56, 189, 248, 0.08) 55%, rgba(17, 20, 26, 0.85) 100%);
-      border-bottom: 1.5px solid rgba(56, 189, 248, 0.35);
-      border-left: 4.5px solid #38bdf8;
-      border-radius: 10px 10px 0 0;
-      padding: 10px 14px;
-      margin-bottom: 14px !important;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      box-shadow: none !important;
     }
     .coach-bulletin-card {
       background: linear-gradient(90deg, rgba(56, 189, 248, 0.12) 0%, rgba(56, 189, 248, 0.03) 45%, rgba(17, 20, 26, 0.95) 100%), #11141a !important;
@@ -7257,7 +7260,7 @@
     });
 
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '138';
+    const APP_BUILD_VERSION = '139';
     if (localStorage.getItem('dominio_helenice_dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_helenice_dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
@@ -9672,7 +9675,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=138').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=139').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
