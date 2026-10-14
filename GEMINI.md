@@ -43,9 +43,10 @@ Os títulos das seções de treino devem ser **estritamente sucintos, objetivos 
 
 ### 1.1 Cabeçalho de Treino/Dia, Local e Duração Levemente Realçados:
 - **Título do Treino na Barra Superior Dedicada (ao lado de `‹ Voltar`):**
-  - **Eliminação Absoluta de Parênteses e do Sufixo `-feira`:** Os títulos dos dias de treino na barra superior (`#dedicatedBarTitle` / `dayNames`) devem ser **estritamente em caixa alta**, com o nome do dia isolado (sem `-feira`), separados do foco da sessão exclusivamente por **barra vertical (`|`)**:
-    - ❌ Proibido: `Quinta-feira (Handstand e Contemporâneo)` ou `SEGUNDA • Crossfit` ou `TREINO VIAGEM — SESSÃO A`
-    - ✅ Canônico: `QUINTA | HANDSTAND E CONTEMPORÂNEO`, `SEGUNDA | BOX CROSSFIT`, `SEGUNDA | SESSÃO A`
+  - **Eliminação Absoluta de Parênteses, Cidades, Horários e do Sufixo `-feira` (Estritamente Dia/Treino e Skill):** Os títulos dos dias de treino na barra superior (`#dedicatedBarTitle` / `dayNames`) e nos cards da rotina (`.day-focus-desc`) devem conter **estritamente o nome do dia ou treino e a skill principal**, em caixa alta pura, separados exclusivamente por **barra vertical (`|`)**:
+    - ❌ Proibido: `Quinta-feira (Handstand e Contemporâneo)`, `SEGUNDA • Crossfit`, `QUINTA | HANDSTAND - 13H`, `QUARTA | GINÁSIO EEFERP`
+    - ✅ Canônico: `SEGUNDA | A DEFINIR`, `TERÇA | LPO`, `QUARTA | ARGOLAS`, `QUINTA | A DEFINIR`, `SEXTA | A DEFINIR`, `SEGUNDA | TREINO A`
+  - **Metadados em seu Devido Lugar:** Locais (`📍`) e tempos/duração (`⏱️`) são reservados exclusivamente para as linhas de metadados (`.day-meta-pill`, `.session-overall-meta`), despoluindo completamente os títulos.
 - **Realce Leve dos Escritos de Local e Duração (Página Principal e Treinos):**
   - **Página Principal (Home Hub):** Os badges de dia (`.day-meta-pill`) utilizam tipografia levemente realçada em tom slate claro (`color: #cbd5e1; font-weight: 600; font-size: 0.76rem;`), garantindo rápida identificação do local (`📍`) e tempo estimado (`⏱️`).
   - **Páginas de Treino:** O subcabeçalho geral da sessão (`.session-overall-meta`) destaca suavemente os itens (`.meta-item { color: #e2e8f0; font-weight: 600; }`), separados por barra vertical discreta (`<span class="meta-separator">|</span>`).
@@ -56,9 +57,9 @@ Os títulos das seções de treino devem ser **estritamente sucintos, objetivos 
       <span>ORIENTAÇÕES</span>
     </button>
     <span class="meta-separator">|</span>
-    <span class="meta-item">📍 Academia do Prédio | SP</span>
+    <span class="meta-item">📍 Box CrossFit</span>
     <span class="meta-separator">|</span>
-    <span class="meta-item">⏳ ~50 a 60 min</span>
+    <span class="meta-item">⏳ ~55 min</span>
   </div>
   ```
 - **Pop-up sem duplicidade:** O popover exibe estritamente a tag de cabeçalho `🛡️ ORIENTAÇÕES` no topo, ocultando títulos repetidos abaixo para eliminar redundância visual.
@@ -68,8 +69,12 @@ Os títulos das seções de treino devem ser **estritamente sucintos, objetivos 
 - A elegância do Dark Cyber Glass é estendida à Página Principal (Home Hub) e seções estruturais do aplicativo:
   - **Card do Atleta (`.athlete-highlight-card`):** Caixa fechada com fundo dark e névoa neon suave (`rgba(0, 255, 136, 0.12)`), borda lateral esquerda de `4.5px solid var(--brand-neon)`, título com nome do atleta no topo e botões de ação internos.
   - **Card de Ferramentas (`.tools-highlight-card`):** Caixa fechada no mesmo padrão visual do card do atleta, com fundo dark e névoa ciano suave (`rgba(56, 189, 248, 0.12)`), borda lateral esquerda de `4.5px solid #38bdf8`, título `FERRAMENTAS` em caixa alta pura `1.05rem` no topo e botões internos (`Timers`, `Análises`, `Evolução`).
-  - **Cabeçalho da Rotina de Treino (`#trainingHubSection .training-section-header`):** Padrão Minimalista Clean, completamente transparente e sem bordas/caixas (`background: transparent; border: none;`), com o título `ROTINA DE TREINO` ampliado com destaque imponente em branco puro `1.35rem`, peso 900, dando respiro visual e evidenciando a rotina e os cards de treino logo abaixo.
-  - **Cards de Rotina (`.training-day-card`):** Borda lateral contínua de `4.5px solid var(--brand-neon)`, fundo escuro com névoa neon suave e interação em hover translúcido.
+  - **Card de Visão Geral da Rotina (`.training-overview-card`):** Caixa fechada Dark Cyber Glass que encabeça a rotina com máxima coesão visual, dotada de:
+    - Borda lateral esquerda de `4.5px solid var(--brand-neon)`.
+    - Título `ROTINA DE TREINO` em branco puro `1.15rem` (peso 900) e badge de ciclo esportivo à direita (`SEMANA LPO`).
+    - **Linha Tática de Apoio (`.training-tactical-line`):** Frase sucinta com status do microciclo, contagem de sessões concluídas e destaque do treino de hoje (`Hoje: Argolas 🔥`).
+    - **Tracker Semanal Visual (`.weekly-tracker-row`):** 5 mini pills interativas de Seg a Sex que refletem em tempo real o status de cada dia (`✓` concluído em verde neon, `🔥` hoje em ciano, e `—` em aberto).
+  - **Cards de Rotina (`.training-day-card`):** Borda lateral contínua de `4.5px solid var(--brand-neon)`, fundo escuro com névoa neon suave e foco do dia estritamente com a skill.
   - **Perfil do Atleta (`.student-profile-header-card`):** Aplicação do padrão ciano noturno com borda `4.5px` e névoa horizontal. O container de título `.section-title-wrap` permanece sempre 100% transparente, sem bordas ou fundos, garantindo títulos limpos em branco puro.
 
 ---
