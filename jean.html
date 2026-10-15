@@ -8552,7 +8552,34 @@ Segue o vídeo anexo para sua análise!`;
     };
 
     // Modal de Boas-Vindas e Panorama do App
-    window.openWelcomeAppModal = function(notifId = null) {
+        // Modal de Devolutiva Técnica de Treino (Resposta às Anotações)
+    window.openDevolutivaModal = function(notifId = null) {
+      if (notifId && typeof dismissSingleNotification === 'function') {
+        dismissSingleNotification(notifId);
+      }
+      if (typeof closeNotificationsModal === 'function') {
+        closeNotificationsModal(null, true);
+      }
+      const modal = document.getElementById('devolutivaTreinoModal');
+      if (modal) {
+        modal.style.setProperty('display', 'flex', 'important');
+        modal.classList.add('active');
+        if (typeof pushAppHistoryState === 'function') {
+          pushAppHistoryState('modal', { modalId: 'devolutivaTreinoModal' }, 'devolutiva');
+        }
+      }
+    };
+
+    window.closeDevolutivaModal = function(fromPopState = false) {
+      if (!fromPopState && typeof popAppHistoryState === 'function' && popAppHistoryState('modal')) return;
+      const modal = document.getElementById('devolutivaTreinoModal');
+      if (modal) {
+        modal.style.setProperty('display', 'none', 'important');
+        modal.classList.remove('active');
+      }
+    };
+
+window.openWelcomeAppModal = function(notifId = null) {
       if (notifId && typeof dismissSingleNotification === 'function') {
         dismissSingleNotification(notifId);
       }

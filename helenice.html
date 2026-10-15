@@ -7728,7 +7728,35 @@
     </div>
   </div>
 
-  <!-- Modal de Notificações e Recados do Treinador -->
+    <!-- Modal de Devolutiva Técnica de Treino (Resposta às Anotações dos Exercícios) -->
+  <div id="devolutivaTreinoModal" class="modal-overlay" onclick="if(event.target === this) closeDevolutivaModal();">
+    <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 520px;">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg, rgba(56,189,248,0.2), rgba(0,255,136,0.2)); border:1px solid rgba(56,189,248,0.35); display:flex; align-items:center; justify-content:center; font-size:1.25rem;">
+            📋
+          </div>
+          <div>
+            <h3 style="margin:0; font-size:1.02rem; color:#fff;" id="devolutivaModalTitle">Devolutiva do Treino</h3>
+            <span style="font-size:0.75rem; color:#38bdf8; font-weight:600;" id="devolutivaModalSubtitle">Resposta às Anotações dos Exercícios</span>
+          </div>
+        </div>
+        <button class="btn-close" type="button" onclick="closeDevolutivaModal()" aria-label="Fechar">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 16px 20px; line-height:1.55; max-height: 75vh; overflow-y: auto;" id="devolutivaModalContent">
+        <div id="devolutivaModalBodyWrap">
+          <!-- Conteúdo dinâmico das orientações e resposta do treinador -->
+        </div>
+        <div style="display: flex; gap: 8px; margin-top: 16px;">
+          <button type="button" class="btn-submit-assessment" onclick="closeDevolutivaModal();" style="margin: 0; width: 100%; background: rgba(56, 189, 248, 0.15); border: 1px solid #38bdf8; color: #38bdf8; font-weight: 700;">
+            <span>Entendido ✓</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Modal de Notificações e Recados do Treinador -->
     <!-- Modal de Notificações e Recados do Treinador -->
   <div id="notificationsModal" class="modal-overlay" onclick="if(event.target === this) closeNotificationsModal(event);">
     <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 480px;">
@@ -11472,7 +11500,34 @@
     };
 
     // Modal de Boas-Vindas e Panorama do App
-    window.openWelcomeAppModal = function(notifId = null) {
+        // Modal de Devolutiva Técnica de Treino (Resposta às Anotações)
+    window.openDevolutivaModal = function(notifId = null) {
+      if (notifId && typeof dismissSingleNotification === 'function') {
+        dismissSingleNotification(notifId);
+      }
+      if (typeof closeNotificationsModal === 'function') {
+        closeNotificationsModal(null, true);
+      }
+      const modal = document.getElementById('devolutivaTreinoModal');
+      if (modal) {
+        modal.style.setProperty('display', 'flex', 'important');
+        modal.classList.add('active');
+        if (typeof pushAppHistoryState === 'function') {
+          pushAppHistoryState('modal', { modalId: 'devolutivaTreinoModal' }, 'devolutiva');
+        }
+      }
+    };
+
+    window.closeDevolutivaModal = function(fromPopState = false) {
+      if (!fromPopState && typeof popAppHistoryState === 'function' && popAppHistoryState('modal')) return;
+      const modal = document.getElementById('devolutivaTreinoModal');
+      if (modal) {
+        modal.style.setProperty('display', 'none', 'important');
+        modal.classList.remove('active');
+      }
+    };
+
+window.openWelcomeAppModal = function(notifId = null) {
       if (notifId && typeof dismissSingleNotification === 'function') {
         dismissSingleNotification(notifId);
       }
