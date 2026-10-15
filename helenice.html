@@ -3486,6 +3486,31 @@
     }
 
     /* Agrupador de Ações no Header (Sino de Notificações + Refresh) */
+    .cloud-status-dot-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: all 0.2s ease;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .cloud-status-dot-wrap:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+    .cloud-status-dot {
+      width: 7.5px;
+      height: 7.5px;
+      border-radius: 50%;
+      background: #00ff88;
+      box-shadow: 0 0 7px rgba(0, 255, 136, 0.8);
+      display: inline-block;
+      transition: background 0.25s ease, box-shadow 0.25s ease;
+    }
     .header-action-group {
       display: flex;
       align-items: center;
@@ -4765,6 +4790,9 @@
         <span class="bio-badge">Perfil do Coach ↗</span>
       </button>
             <div class="header-action-group">
+        <div class="cloud-status-dot-wrap" onclick="openCloudConfigModal()" title="Status da Nuvem (Toque para detalhes)" id="btnCloudStatusIndicator">
+          <span class="cloud-status-dot" id="cloudStatusDot"></span>
+        </div>
         <button type="button" class="btn-notif-app" id="btnAppNotifications" onclick="openNotificationsModal(event)" title="Central de Notificações e Recados" aria-label="Notificações">
           <svg viewBox="0 0 24 24" class="notif-bell-icon">
             <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
@@ -4825,10 +4853,6 @@
     <div class="tools-highlight-card" id="goalsOverviewCard">
       <div class="tools-header-row">
         <h2 class="tools-card-title">FERRAMENTAS</h2>
-        <button type="button" class="btn-cloud-sync-status" onclick="openCloudConfigModal()" id="btnCloudStatusIndicator" title="Configurar Banco de Dados e Sincronização em Nuvem">
-          <span class="cloud-status-dot" id="cloudStatusDot"></span>
-          <span id="cloudStatusLabel">Local</span>
-        </button>
       </div>
       <div class="header-tools-bar">
         <button class="tool-pill pill-timers" onclick="openDedicatedView('timers')" title="Abrir Timers de Treino">
@@ -7010,7 +7034,7 @@
 
 
     <!-- ==================== MODAL: REGISTRAR MEDIÇÃO CORPORAL ==================== -->
-    <!-- ==================== MODAL: BANCO DE DADOS & NUVEM ==================== -->
+    <!-- ==================== MODAL: BANCO DE DADOS E NUVEM ==================== -->
   <div id="modalCloudConfig" class="modal-overlay" onclick="if(event.target === this) closeCloudConfigModal();">
     <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 520px;">
       <div class="modal-header">
@@ -7020,7 +7044,7 @@
           </div>
           <div>
             <h3 style="margin:0; font-size:1.02rem; color:#fff;">Banco de Dados e Nuvem</h3>
-            <span style="font-size:0.75rem; color:#38bdf8; font-weight:600;">Supabase & Google Sheets (Offline-First)</span>
+            <span style="font-size:0.75rem; color:#38bdf8; font-weight:600;">Supabase e Google Sheets (Offline-First)</span>
           </div>
         </div>
         <button class="btn-close" type="button" onclick="closeCloudConfigModal()" aria-label="Fechar">&times;</button>
@@ -10333,21 +10357,21 @@
       const queueWrap = document.getElementById('modalCloudQueueWrap');
       const queueText = document.getElementById('modalCloudQueueText');
 
-      if (dot && label) {
+      if (dot) {
         if (!status.isConfigured) {
-          dot.style.background = '#94a3b8';
+          dot.style.background = '#64748b';
           dot.style.boxShadow = 'none';
-          label.textContent = 'Local';
-          if (badge) badge.title = 'Modo Local (Clique para configurar banco de dados na nuvem)';
+          if (label) label.textContent = 'Local';
+          if (badge) badge.title = 'Modo Local (Toque para configurar nuvem)';
         } else if (status.queueCount > 0) {
           dot.style.background = '#fbbf24';
-          dot.style.boxShadow = '0 0 8px rgba(251, 191, 36, 0.6)';
-          label.textContent = `${status.queueCount} pendente${status.queueCount > 1 ? 's' : ''}`;
+          dot.style.boxShadow = '0 0 8px rgba(251, 191, 36, 0.8)';
+          if (label) label.textContent = `${status.queueCount} pendente${status.queueCount > 1 ? 's' : ''}`;
           if (badge) badge.title = `${status.queueCount} registros aguardando envio para ${status.providerLabel}`;
         } else {
           dot.style.background = '#00ff88';
-          dot.style.boxShadow = '0 0 8px rgba(0, 255, 136, 0.6)';
-          label.textContent = status.providerLabel.split(' ')[0];
+          dot.style.boxShadow = '0 0 8px rgba(0, 255, 136, 0.8)';
+          if (label) label.textContent = status.providerLabel.split(' ')[0];
           if (badge) badge.title = `Conectado a ${status.providerLabel}`;
         }
       }
