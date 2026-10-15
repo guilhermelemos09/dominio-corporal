@@ -69,11 +69,10 @@ Os títulos das seções de treino devem ser **estritamente sucintos, objetivos 
 - A elegância do Dark Cyber Glass é estendida à Página Principal (Home Hub) e seções estruturais do aplicativo:
   - **Card do Atleta (`.athlete-highlight-card`):** Caixa fechada com fundo dark e névoa neon suave (`rgba(0, 255, 136, 0.12)`), borda lateral esquerda de `4.5px solid var(--brand-neon)`, título com nome do atleta no topo e botões de ação internos.
   - **Card de Ferramentas (`.tools-highlight-card`):** Caixa fechada no mesmo padrão visual do card do atleta, com fundo dark e névoa ciano suave (`rgba(56, 189, 248, 0.12)`), borda lateral esquerda de `4.5px solid #38bdf8`, título `FERRAMENTAS` em caixa alta pura `1.05rem` no topo e botões internos (`Timers`, `Análises`, `Evolução`).
-  - **Card de Visão Geral da Rotina (`.training-overview-card`):** Caixa fechada Dark Cyber Glass que encabeça a rotina com máxima coesão visual, dotada de:
-    - Borda lateral esquerda de `4.5px solid var(--brand-neon)`.
-    - Título `ROTINA DE TREINO` em branco puro `1.15rem` (peso 900) e badge de ciclo esportivo à direita (`SEMANA LPO`).
-    - **Linha Tática de Apoio (`.training-tactical-line`):** Frase sucinta com status do microciclo, contagem de sessões concluídas e destaque do treino de hoje (`Hoje: Argolas 🔥`).
-    - **Tracker Semanal Visual (`.weekly-tracker-row`):** 5 mini pills interativas de Seg a Sex que refletem em tempo real o status de cada dia (`✓` concluído em verde neon, `🔥` hoje em ciano, e `—` em aberto).
+  - **Cabeçalho da Rotina de Treino (`#trainingHubSection .training-section-header`):** Padrão Minimalista Clean (Opção 1 Oficial), completamente transparente e sem bordas/caixas (`background: transparent; border: none;`), com o título `ROTINA DE TREINO` direto em branco puro `1.35rem`, peso 900, dando respiro visual e evidenciando os cards de treino logo abaixo.
+  - **Regra Universal de Conclusão e Progresso nos Cards (`.training-day-card`):**
+    - **Modo DIA (`data-workout-type="dia"` ou dias da semana):** Status binário (`›` quando pendente / `✓ Concluído` em verde neon quando finalizado). Acionado pelo envio da sessão ou com um toque direto na pílula na página principal (`onclick="event.stopPropagation(); handleWorkoutStatusClick(...)"`).
+    - **Modo TREINO com Meta (`data-workout-type="treino" data-target="N"`):** Exibe a fração de progresso em ciano (`1/N`, `2/N`, `X/N`) a cada treino finalizado ou clique direto na home. Ao atingir a meta estipulada ($N/N$), a pílula se transforma automaticamente no badge verde neon **`✓ Concluído`** idêntico ao do dia. Um novo clique no card finalizado reinicia o ciclo.
   - **Cards de Rotina (`.training-day-card`):** Borda lateral contínua de `4.5px solid var(--brand-neon)`, fundo escuro com névoa neon suave e foco do dia estritamente com a skill.
   - **Perfil do Atleta (`.student-profile-header-card`):** Aplicação do padrão ciano noturno com borda `4.5px` e névoa horizontal. O container de título `.section-title-wrap` permanece sempre 100% transparente, sem bordas ou fundos, garantindo títulos limpos em branco puro.
 
