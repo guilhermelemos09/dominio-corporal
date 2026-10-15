@@ -4919,6 +4919,13 @@
           </div>
         </div>
       </div>
+
+      <!-- Link Contextual: Precisa de Ajuda? Acesse as Instruções -->
+      <div class="contextual-help-wrap" style="margin-top: 18px; margin-bottom: 24px;">
+        <button type="button" class="btn-contextual-help" onclick="openContextualHelp('home')">
+          <span>precisa de ajuda?</span> <u>acesse as instruções</u>
+        </button>
+      </div>
     </div>
 
 
@@ -7058,6 +7065,222 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal de Ajuda Contextual e Instruções do Aplicativo -->
+  <div id="contextualHelpModal" class="modal-overlay" onclick="if(event.target === this) closeContextualHelp();">
+    <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 520px;">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div id="contextualHelpIconWrap" style="width:36px; height:36px; border-radius:10px; background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.3); display:flex; align-items:center; justify-content:center; font-size:1.25rem;">
+            <span id="contextualHelpIcon">🧭</span>
+          </div>
+          <div>
+            <h3 id="contextualHelpTitle" style="margin:0; font-size:1.02rem; color:#fff;">Guia do Aplicativo</h3>
+            <span id="contextualHelpSubtitle" style="font-size:0.75rem; color:#38bdf8; font-weight:600;">Visão Geral e Navegação</span>
+          </div>
+        </div>
+        <button class="btn-close" type="button" onclick="closeContextualHelp()" aria-label="Fechar">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 18px 20px; line-height:1.55;">
+        
+        <!-- Abas Rápidas de Tópicos -->
+        <div class="help-tabs-nav" style="display:flex; gap:6px; margin-bottom:14px; border-bottom:1px solid var(--border-subtle); padding-bottom:10px; overflow-x:auto;">
+          <button type="button" class="help-tab-btn active" data-topic="home" onclick="switchHelpTopic('home')">🧭 Início</button>
+          <button type="button" class="help-tab-btn" data-topic="treinos" onclick="switchHelpTopic('treinos')">🏋️‍♂️ Treinos</button>
+          <button type="button" class="help-tab-btn" data-topic="analises" onclick="switchHelpTopic('analises')">📹 Análises</button>
+          <button type="button" class="help-tab-btn" data-topic="evolucao" onclick="switchHelpTopic('evolucao')">📊 Evolução</button>
+        </div>
+
+        <!-- Painel 0: Início / Visão Geral do App -->
+        <div class="help-topic-panel" data-topic="home">
+          <div style="display:flex; flex-direction:column; gap:11px;">
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #38bdf8; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>⚡</span> 1. FERRAMENTAS DO ATLETA
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                No topo da tela inicial você acessa rapidamente os <strong>Timers</strong> (cronômetro regressivo de descanso e modos WOD/EMOM/AMRAP/TABATA), a central de <strong>Análises</strong> de vídeo com diagnósticos técnicos e a área de <strong>Evolução</strong> corporal e recordes.
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: var(--brand-neon); margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>📅</span> 2. ROTINA DE TREINO E REGISTRO
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Toque no card do dia ou treino para abrir a sessão prescrita com aquecimento, ativação e blocos principais. Cada série concluída é salva instantaneamente no app. Ao finalizar, clique em <strong>Salvar e Enviar</strong> para registrar seu treino com o treinador.
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #c084fc; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>👤</span> 3. PERFIL DO ATLETA E DIRETRIZES
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Consulte suas métricas corporais, histórico arquivado de avaliações e diretrizes clínicas e biomecânicas personalizadas. É o prontuário técnico completo da sua jornada.
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #fbbf24; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>🎯</span> 4. METAS E PROGRESSO CONTÍNUO
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Cada treino alimenta sua consistência e histórico de marcas. Ao atingir suas metas do ciclo, novos estímulos e habilidades avançadas são liberados no seu planejamento.
+              </div>
+            </div>
+
+            <div style="background: rgba(37, 211, 102, 0.08); border: 1px solid rgba(37, 211, 102, 0.25); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #25d366; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>💬</span> 5. NOTIFICAÇÕES E SUPORTE DIRETO
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Acompanhe o ícone de sino (🔔) no cabeçalho para ver devolutivas das suas sessões e novas análises de vídeo. Para tirar dúvidas ou enviar gravações, use o botão de WhatsApp no rodapé.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Painel 1: Treinos -->
+        <div class="help-topic-panel" data-topic="treinos" style="display:none;">
+          <div style="display:flex; flex-direction:column; gap:11px;">
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: var(--brand-neon); margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>📅</span> 1. ABERTURA DO TREINO DO DIA
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Na tela inicial, toque no dia ou treino correspondente para carregar sua sessão completa com divisão de blocos, aquecimento e séries prescritas.
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #38bdf8; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>✓</span> 2. MARCAÇÃO E MEMÓRIA DE SÉRIES
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Conforme concluir cada série, toque no botão do set (1, 2, 3...). O aplicativo salva seu progresso automaticamente na memória do celular, sem risco de perder o registro se o app for fechado.
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #fbbf24; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>💡</span> 3. VÍDEO E INSTRUÇÕES DE EXECUÇÃO
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Toque no botão <strong>Instruções</strong> presente em cada exercício para assistir ao vídeo e conferir a execução, cuidados anatômicos e embasamento científico.
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #a78bfa; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>📹</span> 4. ENVIO DE VÍDEO PARA ANÁLISE
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Para enviar uma gravação da sua execução tirando dúvidas, clique no ícone <strong>📹</strong> ao lado do exercício ou no banner de envio para abrir o WhatsApp do treinador.
+              </div>
+            </div>
+
+            <div style="background: rgba(37, 211, 102, 0.08); border: 1px solid rgba(37, 211, 102, 0.25); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #25d366; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>⏱️</span> 5. CRONÔMETRO DE DESCANSO
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                No rodapé fixo da tela, selecione o tempo de pausa (30s, 60s, 90s ou 120s). Um bipe sonoro avisará quando o descanso terminar para você iniciar a próxima série.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Painel 2: Análises -->
+        <div class="help-topic-panel" data-topic="analises" style="display:none;">
+          <div style="display:flex; flex-direction:column; gap:11px;">
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #38bdf8; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>📚</span> 1. BIBLIOTECA DE ANÁLISES
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Navegue pelas categorias para estudar vídeos gravados com marcações e diagnósticos posturais.
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: var(--brand-neon); margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>📹</span> 2. COMO GRAVAR SEU VÍDEO
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Enquadre o corpo inteiro, filme em ângulo lateral ou diagonal (45°) e registre de 2 a 3 repetições limpas para que seja possível avaliar os ângulos articulares e trajetórias.
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #a78bfa; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>💬</span> 3. ENVIO DIRETO PELO WHATSAPP
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Toque no botão <strong>Enviar Vídeo para Análise</strong> no topo da página de análises (ou nos botões 📹 dentro do treino). O app abrirá a conversa com o Prof. Gui Lemos com a mensagem já pré-formatada.
+              </div>
+            </div>
+
+            <div style="background: rgba(37, 211, 102, 0.08); border: 1px solid rgba(37, 211, 102, 0.25); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #25d366; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>🎯</span> 4. DEVOLUTIVA TÉCNICA
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                O treinador analisa compensações escapulares, alinhamento pélvico e tensão de alavancas, enviando orientações em áudio, vídeo ou ajustes na prescrição do próximo ciclo.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Painel 3: Evolução -->
+        <div class="help-topic-panel" data-topic="evolucao" style="display:none;">
+          <div style="display:flex; flex-direction:column; gap:11px;">
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #fbbf24; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>📐</span> 1. COMPOSIÇÃO CORPORAL E ANTROPOMETRIA
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Acompanhe o registro de peso, perímetros musculares e fotos posturais comparativas para monitorar sua transformação física e simetria muscular.
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #38bdf8; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>⚡</span> 2. PROGRESSÃO DE TÉCNICA E MARCOS
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Consulte as metas e o histórico de evolução intermediárias rumo ao próximo nível corporal.
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: var(--brand-neon); margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>🏆</span> 3. CENTRAL DE RECORDES (PRS)
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Tabela de melhores marcas: cargas máximas, repetições ininterruptas e tempos sob tensão isométrica.
+              </div>
+            </div>
+
+            <div style="background: rgba(167, 139, 250, 0.08); border: 1px solid rgba(167, 139, 250, 0.25); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #a78bfa; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>📊</span> 4. RELATÓRIO DO TREINAMENTO
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Gráficos de equilíbrio agonista/antagonista, volume semanal e diagnóstico do treinador para resguardar a integridade articular.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn-submit-assessment" onclick="closeContextualHelp()" style="margin: 18px 0 0 0; width: 100%;">
+          <span>Entendi ➔</span>
+        </button>
+
+      </div>
+    </div>
+  </div>
+
 
 <!-- Modal de Notificações e Recados do Treinador -->
     <!-- Modal de Notificações e Recados do Treinador -->
@@ -10565,11 +10788,12 @@
     };
 
     // Modal de Ajuda Contextual do App
+    // Modal de Ajuda Contextual e Instruções do App
     window.openContextualHelp = function(topic) {
       const modal = document.getElementById('contextualHelpModal');
       if (!modal) return;
       
-      const currentTopic = topic || 'treinos';
+      const currentTopic = topic || 'home';
       
       const tabs = modal.querySelectorAll('.help-tab-btn');
       tabs.forEach(btn => {
@@ -10585,7 +10809,11 @@
       const subEl = document.getElementById('contextualHelpSubtitle');
       const iconEl = document.getElementById('contextualHelpIcon');
       
-      if (currentTopic === 'analises') {
+      if (currentTopic === 'home') {
+        if (iconEl) iconEl.textContent = '🧭';
+        if (titleEl) titleEl.textContent = 'Guia do Aplicativo';
+        if (subEl) subEl.textContent = 'Visão Geral e Navegação';
+      } else if (currentTopic === 'analises') {
         if (iconEl) iconEl.textContent = '📹';
         if (titleEl) titleEl.textContent = 'Instruções: Análise de Vídeos';
         if (subEl) subEl.textContent = 'Envio e Diagnóstico Biomecânico';
@@ -10601,6 +10829,9 @@
       
       modal.style.setProperty('display', 'flex', 'important');
       modal.classList.add('active');
+      if (typeof pushAppHistoryState === 'function') {
+        pushAppHistoryState('modal', () => closeContextualHelp(true));
+      }
     };
 
     window.closeContextualHelp = function(fromPopState = false) {
@@ -10617,7 +10848,7 @@
     };
 
     window.openAppInstructionsModal = function() {
-      window.openContextualHelp('treinos');
+      window.openContextualHelp('home');
     };
 
     window.closeAppInstructionsModal = function() {
