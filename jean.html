@@ -86,31 +86,7 @@
       height: 2px;
       background: linear-gradient(90deg, transparent, var(--brand-neon), transparent);
     }
-        
-    .btn-refresh-app {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: rgba(0, 255, 136, 0.08);
-      border: 1px solid rgba(0, 255, 136, 0.28);
-      color: #00ff88;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      -webkit-tap-highlight-color: transparent;
-      padding: 0;
-      flex-shrink: 0;
-    }
-    .btn-refresh-app:hover {
-      box-shadow: 0 0 14px currentColor;
-      transform: rotate(45deg);
-    }
-    .btn-refresh-app:active {
-      transform: rotate(180deg) scale(0.92);
-    }
-    .btn-refresh-app.cloud-connected {
+            .btn-refresh-app.cloud-connected {
       color: #00ff88;
       border-color: rgba(0, 255, 136, 0.35);
       background: rgba(0, 255, 136, 0.08);
@@ -128,11 +104,6 @@
       background: rgba(255, 255, 255, 0.04);
       box-shadow: none;
     }
-    .refresh-icon {
-      width: 19px;
-      height: 19px;
-      fill: currentColor;
-    }
     @keyframes refreshSpin {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
@@ -140,7 +111,84 @@
     .btn-refresh-app.is-spinning .refresh-icon {
       animation: refreshSpin 0.8s linear infinite;
     }
-
+    .btn-notif-app {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: #38bdf8;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      -webkit-tap-highlight-color: transparent;
+      padding: 0;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .btn-notif-app:hover {
+      background: rgba(56, 189, 248, 0.18);
+      border-color: #38bdf8;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+      transform: scale(1.05);
+    }
+    .btn-notif-app:active {
+      transform: scale(0.92);
+    }
+    .notif-bell-icon {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+    .notif-badge-dot {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #fb7185;
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #000;
+      box-shadow: 0 0 8px rgba(251, 113, 133, 0.6);
+    }
+    .btn-refresh-app {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(0, 255, 136, 0.08);
+      border: 1px solid rgba(0, 255, 136, 0.25);
+      color: var(--brand-neon);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      -webkit-tap-highlight-color: transparent;
+      padding: 0;
+      flex-shrink: 0;
+    }
+    .btn-refresh-app:hover {
+      background: rgba(0, 255, 136, 0.18);
+      border-color: var(--brand-neon);
+      box-shadow: 0 0 12px var(--brand-neon-glow);
+      transform: rotate(45deg);
+    }
+    .btn-refresh-app:active {
+      transform: rotate(180deg) scale(0.92);
+    }
+    .refresh-icon {
+      width: 19px;
+      height: 19px;
+      fill: currentColor;
+    }
     .header-action-group {
       display: flex;
       align-items: center;
@@ -3756,8 +3804,13 @@
         <span class="bio-badge">Bio ↗</span>
       </button>
       <div class="header-action-group">
-        
-        <button type="button" class="btn-refresh-app" id="btnAppRefresh" onclick="forceAppRefresh()" title="Conectado à Nuvem (Supabase) • Toque para sincronizar e atualizar" aria-label="Atualizar app">
+        <button type="button" class="btn-notif-app" id="btnAppNotifications" onclick="openNotificationsModal(event)" title="Central de Notificações e Recados" aria-label="Notificações">
+          <svg viewBox="0 0 24 24" class="notif-bell-icon">
+            <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+          </svg>
+          <span class="notif-badge-dot" id="headerNotifBadge">1</span>
+        </button>
+        <button type="button" class="btn-refresh-app" id="btnAppRefresh" onclick="forceAppRefresh()" title="Sincronizar e atualizar o app" aria-label="Atualizar app">
           <svg viewBox="0 0 24 24" class="refresh-icon">
             <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
           </svg>
@@ -4707,7 +4760,95 @@
     </div><!-- end #intakeGateModal -->
 
     <!-- ==================== MODAL: REGISTRAR MEDIÇÃO CORPORAL ==================== -->
-    <div id="modalAddMedicao" class="modal-overlay" onclick="if(event.target === this) closeAddMedicaoModal();">
+    <!-- ==================== MODAL: BANCO DE DADOS E NUVEM ==================== -->
+  <div id="modalCloudConfig" class="modal-overlay" onclick="if(event.target === this) closeCloudConfigModal();">
+    <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 520px;">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:36px; height:36px; border-radius:10px; background:rgba(56, 189, 248, 0.12); border:1px solid rgba(56, 189, 248, 0.3); display:flex; align-items:center; justify-content:center; font-size:1.2rem;">
+            <span>☁️</span>
+          </div>
+          <div>
+            <h3 style="margin:0; font-size:1.02rem; color:#fff;">Banco de Dados e Nuvem</h3>
+            <span style="font-size:0.75rem; color:#38bdf8; font-weight:600;">Supabase e Google Sheets (Offline-First)</span>
+          </div>
+        </div>
+        <button class="btn-close" type="button" onclick="closeCloudConfigModal()" aria-label="Fechar">&times;</button>
+      </div>
+
+      <div style="padding: 16px 20px; max-height: 75vh; overflow-y: auto;">
+        <!-- Status Atual -->
+        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 12px 14px; margin-bottom: 16px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <span style="font-size:0.75rem; font-weight:700; color:#94a3b8; text-transform:uppercase;">Status de Conexão</span>
+            <span id="modalCloudStatusBadge" style="font-size:0.75rem; font-weight:800; color:#94a3b8; background:rgba(255, 255, 255, 0.08); border:1px solid rgba(255, 255, 255, 0.15); padding:2px 8px; border-radius:12px;">Local (Offline)</span>
+          </div>
+          <div style="font-size:0.78rem; color:#cbd5e1; line-height:1.4;" id="modalCloudStatusDesc">
+            Seus dados estão sendo salvos com segurança no dispositivo. Conecte ao Supabase ou Google Sheets para sincronizar automaticamente entre notebook e celular.
+          </div>
+          <div id="modalCloudQueueWrap" style="margin-top:10px; padding-top:8px; border-top:1px solid rgba(255,255,255,0.06); display:none; justify-content:space-between; align-items:center;">
+            <span style="font-size:0.75rem; color:#fbbf24; font-weight:700;" id="modalCloudQueueText">0 itens pendentes na fila</span>
+            <button type="button" onclick="handleFlushQueueClick()" class="btn-primary" style="padding:4px 10px; font-size:0.72rem; border-radius:8px; width:auto; margin:0;">
+              Sincronizar Agora ➔
+            </button>
+          </div>
+        </div>
+
+        <!-- Seletor de Provedor -->
+        <div style="margin-bottom: 14px;">
+          <label style="display:block; font-size:0.8rem; font-weight:700; color:#e2e8f0; margin-bottom:6px;">Provedor de Nuvem:</label>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px;">
+            <button type="button" id="tabProvSupabase" onclick="setCloudProviderTab('supabase')" style="background: rgba(56, 189, 248, 0.15); border: 1.5px solid #38bdf8; border-radius: 10px; padding: 10px; color: #fff; font-size: 0.82rem; font-weight: 800; cursor: pointer; text-align: center;">
+              ⚡ Supabase (Recomendado)
+            </button>
+            <button type="button" id="tabProvSheets" onclick="setCloudProviderTab('sheets')" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 10px; padding: 10px; color: #94a3b8; font-size: 0.82rem; font-weight: 800; cursor: pointer; text-align: center;">
+              📊 Google Sheets
+            </button>
+          </div>
+        </div>
+
+        <!-- Campos Supabase -->
+        <div id="paneSupabaseConfig">
+          <div class="comp-form-group" style="margin-bottom:12px;">
+            <label class="comp-form-label">Project URL (Supabase)</label>
+            <input type="url" id="cfg_supabase_url" class="comp-form-input" placeholder="https://xxxxxxxx.supabase.co" autocomplete="off" spellcheck="false">
+          </div>
+          <div class="comp-form-group" style="margin-bottom:14px;">
+            <label class="comp-form-label">API Key Pública (anon key)</label>
+            <input type="password" id="cfg_supabase_anon_key" class="comp-form-input" placeholder="eyJhbGciOiJIUzI1NiIsIn..." autocomplete="off" spellcheck="false">
+          </div>
+          <div style="font-size:0.74rem; color:#94a3b8; line-height:1.4; margin-bottom:14px;">
+            💡 O script SQL com as tabelas completas está em <strong style="color:#38bdf8;">BANCO_DADOS/schema.sql</strong>. Basta colar no SQL Editor do Supabase e rodar.
+          </div>
+        </div>
+
+        <!-- Campos Google Sheets -->
+        <div id="paneSheetsConfig" style="display:none;">
+          <div class="comp-form-group" style="margin-bottom:12px;">
+            <label class="comp-form-label">URL do App da Web (Google Apps Script)</label>
+            <input type="url" id="cfg_sheets_url" class="comp-form-input" placeholder="https://script.google.com/macros/s/.../exec" autocomplete="off" spellcheck="false">
+          </div>
+          <div style="font-size:0.74rem; color:#94a3b8; line-height:1.4; margin-bottom:14px;">
+            💡 O código do Apps Script está em <strong style="color:#38bdf8;">BANCO_DADOS/google_apps_script.js</strong>.
+          </div>
+        </div>
+
+        <!-- Botões de Ação do Modal -->
+        <div style="display:flex; gap:10px; margin-top:16px;">
+          <button type="button" onclick="testAndSaveCloudConfig()" class="btn-primary" style="flex:2; margin:0; padding:11px; font-size:0.85rem;">
+            ✓ Salvar e Conectar
+          </button>
+          <button type="button" onclick="resetCloudConfigToLocal()" style="flex:1; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); color:#94a3b8; border-radius:10px; font-size:0.8rem; font-weight:700; cursor:pointer;">
+            Usar Local
+          </button>
+        </div>
+
+        <div id="cloudTestFeedback" style="display:none; margin-top:12px; padding:8px 12px; border-radius:8px; font-size:0.78rem; font-weight:700;"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modalAddMedicao" class="modal-overlay" onclick="if(event.target === this) closeAddMedicaoModal();">
     <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 520px;">
       <div class="modal-header">
         <div style="display:flex; align-items:center; gap:10px;">
@@ -5395,6 +5536,41 @@ Segue o vídeo anexo para sua análise!`;
     let timersReturnWorkoutDay = null;
     let assessmentReturnTarget = null;
     let lastActiveDayTab = 'segunda';
+
+    async function forceAppRefresh() {
+      const btn = document.getElementById('btnAppRefresh');
+      if (btn) btn.classList.add('is-spinning');
+
+      try {
+        if (window.DominioDB) {
+          if (typeof DominioDB.flushSyncQueue === 'function') await DominioDB.flushSyncQueue();
+          if (typeof DominioDB.syncExistingLocalDataToCloud === 'function') await DominioDB.syncExistingLocalDataToCloud();
+        }
+      } catch (e) {
+        console.warn('Erro ao sincronizar na atualização:', e);
+      }
+
+      try {
+        if ('serviceWorker' in navigator) {
+          const regs = await navigator.serviceWorker.getRegistrations();
+          for (const reg of regs) {
+            await reg.unregister();
+          }
+        }
+        if ('caches' in window) {
+          const keys = await caches.keys();
+          for (const key of keys) {
+            await caches.delete(key);
+          }
+        }
+        localStorage.removeItem('dominio_jean_dominio_build_ver');
+        sessionStorage.clear();
+      } catch (e) {
+        console.error('Erro ao limpar cache:', e);
+      }
+      const cleanUrl = window.location.origin + window.location.pathname + '?v=' + Date.now();
+      window.location.replace(cleanUrl);
+    }
 
     function switchDayTab(dayId) {
       openDayWorkout(dayId);
@@ -7912,20 +8088,71 @@ Segue o vídeo anexo para sua análise!`;
 
     function updateCloudStatusUI() {
       const status = getStatus();
+      const dot = document.getElementById('cloudStatusDot');
+      const label = document.getElementById('cloudStatusLabel');
+      const badge = document.getElementById('btnCloudStatusIndicator');
+      const modalBadge = document.getElementById('modalCloudStatusBadge');
+      const modalDesc = document.getElementById('modalCloudStatusDesc');
+      const queueWrap = document.getElementById('modalCloudQueueWrap');
+      const queueText = document.getElementById('modalCloudQueueText');
+
+      if (dot) {
+        if (!status.isConfigured) {
+          dot.style.background = '#64748b';
+          dot.style.boxShadow = 'none';
+          if (label) label.textContent = 'Local';
+          if (badge) badge.title = 'Modo Local (Toque para configurar nuvem)';
+        } else if (status.queueCount > 0) {
+          dot.style.background = '#fbbf24';
+          dot.style.boxShadow = '0 0 8px rgba(251, 191, 36, 0.8)';
+          if (label) label.textContent = `${status.queueCount} pendente${status.queueCount > 1 ? 's' : ''}`;
+          if (badge) badge.title = `${status.queueCount} registros aguardando envio para ${status.providerLabel}`;
+        } else {
+          dot.style.background = '#00ff88';
+          dot.style.boxShadow = '0 0 8px rgba(0, 255, 136, 0.8)';
+          if (label) label.textContent = status.providerLabel.split(' ')[0];
+          if (badge) badge.title = `Conectado a ${status.providerLabel}`;
+        }
+      }
+
       const btnRefresh = document.getElementById('btnAppRefresh');
-      if (!btnRefresh) return;
+      if (btnRefresh) {
+        btnRefresh.classList.remove('cloud-connected', 'cloud-syncing', 'cloud-offline');
+        if (!status.isConfigured || !navigator.onLine) {
+          btnRefresh.classList.add('cloud-offline');
+          btnRefresh.title = 'Modo Local (Offline) • Toque para sincronizar e atualizar';
+        } else if (status.queueCount > 0) {
+          btnRefresh.classList.add('cloud-syncing');
+          btnRefresh.title = `${status.queueCount} registro${status.queueCount > 1 ? 's' : ''} pendente${status.queueCount > 1 ? 's' : ''} • Sincronizando com a Nuvem...`;
+        } else {
+          btnRefresh.classList.add('cloud-connected');
+          btnRefresh.title = 'Conectado à Nuvem (Supabase) • Toque para sincronizar e atualizar';
+        }
+      }
 
-      btnRefresh.classList.remove('cloud-connected', 'cloud-syncing', 'cloud-offline');
+      if (modalBadge) {
+        if (!status.isConfigured) {
+          modalBadge.textContent = 'Local (Offline)';
+          modalBadge.style.color = '#94a3b8';
+          modalBadge.style.background = 'rgba(255, 255, 255, 0.08)';
+          modalBadge.style.borderColor = 'rgba(255, 255, 255, 0.15)';
+          if (modalDesc) modalDesc.textContent = 'Seus dados estão sendo salvos com segurança no dispositivo. Conecte ao Supabase ou Google Sheets para sincronizar entre notebook e celular.';
+        } else {
+          modalBadge.textContent = status.providerLabel;
+          modalBadge.style.color = '#00ff88';
+          modalBadge.style.background = 'rgba(0, 255, 136, 0.12)';
+          modalBadge.style.borderColor = 'rgba(0, 255, 136, 0.3)';
+          if (modalDesc) modalDesc.textContent = `Conectado com sucesso ao ${status.providerLabel}! Todos os novos treinos e métricas são sincronizados automaticamente.`;
+        }
+      }
 
-      if (!status.isConfigured || !navigator.onLine) {
-        btnRefresh.classList.add('cloud-offline');
-        btnRefresh.title = 'Modo Local (Offline) • Toque para sincronizar e atualizar';
-      } else if (status.queueCount > 0) {
-        btnRefresh.classList.add('cloud-syncing');
-        btnRefresh.title = `${status.queueCount} registro${status.queueCount > 1 ? 's' : ''} pendente${status.queueCount > 1 ? 's' : ''} • Sincronizando com a Nuvem...`;
-      } else {
-        btnRefresh.classList.add('cloud-connected');
-        btnRefresh.title = 'Conectado à Nuvem (Supabase) • Toque para sincronizar e atualizar';
+      if (queueWrap && queueText) {
+        if (status.queueCount > 0) {
+          queueWrap.style.display = 'flex';
+          queueText.textContent = `${status.queueCount} registro${status.queueCount > 1 ? 's' : ''} pendente${status.queueCount > 1 ? 's' : ''} na fila`;
+        } else {
+          queueWrap.style.display = 'none';
+        }
       }
     }
 
@@ -8002,6 +8229,150 @@ Segue o vídeo anexo para sua análise!`;
       syncExistingLocalDataToCloud: syncExistingLocalDataToCloud
     };
   })();
+
+  let currentCloudTab = 'supabase';
+
+  function openCloudConfigModal() {
+    const modal = document.getElementById('modalCloudConfig');
+    if (!modal) return;
+    const cfg = DominioDB.getConfig();
+
+    const urlInput = document.getElementById('cfg_supabase_url');
+    const keyInput = document.getElementById('cfg_supabase_anon_key');
+    const sheetsInput = document.getElementById('cfg_sheets_url');
+
+    if (urlInput) urlInput.value = cfg.supabaseUrl || '';
+    if (keyInput) keyInput.value = cfg.supabaseAnonKey || '';
+    if (sheetsInput) sheetsInput.value = cfg.sheetsUrl || '';
+
+    const fb = document.getElementById('cloudTestFeedback');
+    if (fb) fb.style.display = 'none';
+
+    DominioDB.updateCloudStatusUI();
+    setCloudProviderTab(cfg.sheetsUrl && !cfg.supabaseUrl ? 'sheets' : 'supabase');
+    modal.classList.add('active');
+  }
+
+  function closeCloudConfigModal() {
+    const modal = document.getElementById('modalCloudConfig');
+    if (modal) modal.classList.remove('active');
+  }
+
+  function setCloudProviderTab(tab) {
+    currentCloudTab = tab;
+    const btnSupa = document.getElementById('tabProvSupabase');
+    const btnSheets = document.getElementById('tabProvSheets');
+    const paneSupa = document.getElementById('paneSupabaseConfig');
+    const paneSheets = document.getElementById('paneSheetsConfig');
+
+    if (tab === 'supabase') {
+      if (btnSupa) {
+        btnSupa.style.background = 'rgba(56, 189, 248, 0.15)';
+        btnSupa.style.borderColor = '#38bdf8';
+        btnSupa.style.color = '#fff';
+      }
+      if (btnSheets) {
+        btnSheets.style.background = 'rgba(255, 255, 255, 0.04)';
+        btnSheets.style.borderColor = 'rgba(255, 255, 255, 0.12)';
+        btnSheets.style.color = '#94a3b8';
+      }
+      if (paneSupa) paneSupa.style.display = 'block';
+      if (paneSheets) paneSheets.style.display = 'none';
+    } else {
+      if (btnSheets) {
+        btnSheets.style.background = 'rgba(56, 189, 248, 0.15)';
+        btnSheets.style.borderColor = '#38bdf8';
+        btnSheets.style.color = '#fff';
+      }
+      if (btnSupa) {
+        btnSupa.style.background = 'rgba(255, 255, 255, 0.04)';
+        btnSupa.style.borderColor = 'rgba(255, 255, 255, 0.12)';
+        btnSupa.style.color = '#94a3b8';
+      }
+      if (paneSupa) paneSupa.style.display = 'none';
+      if (paneSheets) paneSheets.style.display = 'block';
+    }
+  }
+
+  async function testAndSaveCloudConfig() {
+    const fb = document.getElementById('cloudTestFeedback');
+    const supaUrl = document.getElementById('cfg_supabase_url')?.value.trim() || '';
+    const supaKey = document.getElementById('cfg_supabase_anon_key')?.value.trim() || '';
+    const sheetsUrl = document.getElementById('cfg_sheets_url')?.value.trim() || '';
+
+    if (fb) {
+      fb.style.display = 'block';
+      fb.style.background = 'rgba(56, 189, 248, 0.15)';
+      fb.style.color = '#38bdf8';
+      fb.textContent = '⏳ Testando conexão com a nuvem...';
+    }
+
+    const testCfg = {
+      supabaseUrl: supaUrl,
+      supabaseAnonKey: supaKey,
+      sheetsUrl: sheetsUrl
+    };
+
+    const res = await DominioDB.testConnection(testCfg);
+    const cfg = DominioDB.getConfig();
+    cfg.supabaseUrl = supaUrl;
+    cfg.supabaseAnonKey = supaKey;
+    cfg.sheetsUrl = sheetsUrl;
+    DominioDB.saveConfig(cfg);
+
+    if (fb) {
+      if (res.supabase === true) {
+        fb.style.background = 'rgba(0, 255, 136, 0.15)';
+        fb.style.color = '#00ff88';
+        fb.textContent = '✓ Conexão com o Supabase estabelecida com sucesso!';
+      } else if (res.sheets === true && !supaUrl) {
+        fb.style.background = 'rgba(0, 255, 136, 0.15)';
+        fb.style.color = '#00ff88';
+        fb.textContent = '✓ Conexão com o Google Sheets estabelecida com sucesso!';
+      } else if (res.supabase === false) {
+        fb.style.background = 'rgba(248, 113, 113, 0.15)';
+        fb.style.color = '#f87171';
+        fb.textContent = '⚠️ Não foi possível conectar ao Supabase. Verifique a URL e a Anon Key informadas.';
+      } else {
+        fb.style.background = 'rgba(255, 255, 255, 0.08)';
+        fb.style.color = '#cbd5e1';
+        fb.textContent = 'Configurações salvas!';
+      }
+    }
+
+    DominioDB.flushSyncQueue();
+    DominioDB.updateCloudStatusUI();
+  }
+
+  function resetCloudConfigToLocal() {
+    const cfg = DominioDB.getConfig();
+    cfg.supabaseUrl = '';
+    cfg.supabaseAnonKey = '';
+    cfg.sheetsUrl = '';
+    DominioDB.saveConfig(cfg);
+
+    const urlInput = document.getElementById('cfg_supabase_url');
+    const keyInput = document.getElementById('cfg_supabase_anon_key');
+    const sheetsInput = document.getElementById('cfg_sheets_url');
+    if (urlInput) urlInput.value = '';
+    if (keyInput) keyInput.value = '';
+    if (sheetsInput) sheetsInput.value = '';
+
+    const fb = document.getElementById('cloudTestFeedback');
+    if (fb) {
+      fb.style.display = 'block';
+      fb.style.background = 'rgba(255, 255, 255, 0.08)';
+      fb.style.color = '#94a3b8';
+      fb.textContent = '✓ Modo de banco de dados redefinido para Local (Offline).';
+    }
+    DominioDB.updateCloudStatusUI();
+  }
+
+  async function handleFlushQueueClick() {
+    const synced = await DominioDB.flushSyncQueue();
+    alert(synced > 0 ? `✓ ${synced} itens sincronizados com sucesso!` : 'Fila verificada. Nenhum item pendente.');
+    DominioDB.updateCloudStatusUI();
+  }
 
     function openVideoModal(title, desc, videoUrl) {
       document.getElementById('modalTitle').innerText = title;
@@ -8245,7 +8616,7 @@ Segue o vídeo anexo para sua análise!`;
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=147').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=146').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });

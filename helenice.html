@@ -3454,6 +3454,31 @@
     }
 
                 /* Botão Circular de Refresh no Header */
+        .btn-refresh-app.cloud-connected {
+      color: #00ff88;
+      border-color: rgba(0, 255, 136, 0.35);
+      background: rgba(0, 255, 136, 0.08);
+      box-shadow: 0 0 8px rgba(0, 255, 136, 0.2);
+    }
+    .btn-refresh-app.cloud-syncing {
+      color: #fbbf24;
+      border-color: rgba(251, 191, 36, 0.5);
+      background: rgba(251, 191, 36, 0.12);
+      box-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
+    }
+    .btn-refresh-app.cloud-offline {
+      color: #94a3b8;
+      border-color: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.04);
+      box-shadow: none;
+    }
+    @keyframes refreshSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .btn-refresh-app.is-spinning .refresh-icon {
+      animation: refreshSpin 0.8s linear infinite;
+    }
     .btn-refresh-app {
       display: inline-flex;
       align-items: center;
@@ -3486,30 +3511,30 @@
     }
 
     /* Agrupador de Ações no Header (Sino de Notificações + Refresh) */
-        .btn-refresh-app.cloud-connected {
-      color: #00ff88;
-      border-color: rgba(0, 255, 136, 0.35);
-      background: rgba(0, 255, 136, 0.08);
-      box-shadow: 0 0 8px rgba(0, 255, 136, 0.2);
-    }
-    .btn-refresh-app.cloud-syncing {
-      color: #fbbf24;
-      border-color: rgba(251, 191, 36, 0.5);
-      background: rgba(251, 191, 36, 0.12);
-      box-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
-    }
-    .btn-refresh-app.cloud-offline {
-      color: #94a3b8;
-      border-color: rgba(255, 255, 255, 0.12);
+    .cloud-status-dot-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: all 0.2s ease;
       background: rgba(255, 255, 255, 0.04);
-      box-shadow: none;
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
-    @keyframes refreshSpin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+    .cloud-status-dot-wrap:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.18);
     }
-    .btn-refresh-app.is-spinning .refresh-icon {
-      animation: refreshSpin 0.8s linear infinite;
+    .cloud-status-dot {
+      width: 7.5px;
+      height: 7.5px;
+      border-radius: 50%;
+      background: #00ff88;
+      box-shadow: 0 0 7px rgba(0, 255, 136, 0.8);
+      display: inline-block;
+      transition: background 0.25s ease, box-shadow 0.25s ease;
     }
     .header-action-group {
       display: flex;
@@ -7038,6 +7063,700 @@
 
 
     <!-- ==================== MODAL: REGISTRAR MEDIÇÃO CORPORAL ==================== -->
+    <!-- ==================== MODAL: BANCO DE DADOS E NUVEM ==================== -->
+  <div id="modalCloudConfig" class="modal-overlay" onclick="if(event.target === this) closeCloudConfigModal();">
+    <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 520px;">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:36px; height:36px; border-radius:10px; background:rgba(56, 189, 248, 0.12); border:1px solid rgba(56, 189, 248, 0.3); display:flex; align-items:center; justify-content:center; font-size:1.2rem;">
+            <span>☁️</span>
+          </div>
+          <div>
+            <h3 style="margin:0; font-size:1.02rem; color:#fff;">Banco de Dados e Nuvem</h3>
+            <span style="font-size:0.75rem; color:#38bdf8; font-weight:600;">Supabase e Google Sheets (Offline-First)</span>
+          </div>
+        </div>
+        <button class="btn-close" type="button" onclick="closeCloudConfigModal()" aria-label="Fechar">&times;</button>
+      </div>
+
+      <div style="padding: 16px 20px; max-height: 75vh; overflow-y: auto;">
+        <!-- Status Atual -->
+        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 12px 14px; margin-bottom: 16px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <span style="font-size:0.75rem; font-weight:700; color:#94a3b8; text-transform:uppercase;">Status de Conexão</span>
+            <span id="modalCloudStatusBadge" style="font-size:0.75rem; font-weight:800; color:#94a3b8; background:rgba(255, 255, 255, 0.08); border:1px solid rgba(255, 255, 255, 0.15); padding:2px 8px; border-radius:12px;">Local (Offline)</span>
+          </div>
+          <div style="font-size:0.78rem; color:#cbd5e1; line-height:1.4;" id="modalCloudStatusDesc">
+            Seus dados estão sendo salvos com segurança no dispositivo. Conecte ao Supabase ou Google Sheets para sincronizar automaticamente entre notebook e celular.
+          </div>
+          <div id="modalCloudQueueWrap" style="margin-top:10px; padding-top:8px; border-top:1px solid rgba(255,255,255,0.06); display:none; justify-content:space-between; align-items:center;">
+            <span style="font-size:0.75rem; color:#fbbf24; font-weight:700;" id="modalCloudQueueText">0 itens pendentes na fila</span>
+            <button type="button" onclick="handleFlushQueueClick()" class="btn-primary" style="padding:4px 10px; font-size:0.72rem; border-radius:8px; width:auto; margin:0;">
+              Sincronizar Agora ➔
+            </button>
+          </div>
+        </div>
+
+        <!-- Seletor de Provedor -->
+        <div style="margin-bottom: 14px;">
+          <label style="display:block; font-size:0.8rem; font-weight:700; color:#e2e8f0; margin-bottom:6px;">Provedor de Nuvem:</label>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px;">
+            <button type="button" id="tabProvSupabase" onclick="setCloudProviderTab('supabase')" style="background: rgba(56, 189, 248, 0.15); border: 1.5px solid #38bdf8; border-radius: 10px; padding: 10px; color: #fff; font-size: 0.82rem; font-weight: 800; cursor: pointer; text-align: center;">
+              ⚡ Supabase (Recomendado)
+            </button>
+            <button type="button" id="tabProvSheets" onclick="setCloudProviderTab('sheets')" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 10px; padding: 10px; color: #94a3b8; font-size: 0.82rem; font-weight: 800; cursor: pointer; text-align: center;">
+              📊 Google Sheets
+            </button>
+          </div>
+        </div>
+
+        <!-- Campos Supabase -->
+        <div id="paneSupabaseConfig">
+          <div class="comp-form-group" style="margin-bottom:12px;">
+            <label class="comp-form-label">Project URL (Supabase)</label>
+            <input type="url" id="cfg_supabase_url" class="comp-form-input" placeholder="https://xxxxxxxx.supabase.co" autocomplete="off" spellcheck="false">
+          </div>
+          <div class="comp-form-group" style="margin-bottom:14px;">
+            <label class="comp-form-label">API Key Pública (anon key)</label>
+            <input type="password" id="cfg_supabase_anon_key" class="comp-form-input" placeholder="eyJhbGciOiJIUzI1NiIsIn..." autocomplete="off" spellcheck="false">
+          </div>
+          <div style="font-size:0.74rem; color:#94a3b8; line-height:1.4; margin-bottom:14px;">
+            💡 O script SQL com as tabelas completas está em <strong style="color:#38bdf8;">BANCO_DADOS/schema.sql</strong>. Basta colar no SQL Editor do Supabase e rodar.
+          </div>
+        </div>
+
+        <!-- Campos Google Sheets -->
+        <div id="paneSheetsConfig" style="display:none;">
+          <div class="comp-form-group" style="margin-bottom:12px;">
+            <label class="comp-form-label">URL do App da Web (Google Apps Script)</label>
+            <input type="url" id="cfg_sheets_url" class="comp-form-input" placeholder="https://script.google.com/macros/s/.../exec" autocomplete="off" spellcheck="false">
+          </div>
+          <div style="font-size:0.74rem; color:#94a3b8; line-height:1.4; margin-bottom:14px;">
+            💡 O código do Apps Script está em <strong style="color:#38bdf8;">BANCO_DADOS/google_apps_script.js</strong>.
+          </div>
+        </div>
+
+        <!-- Botões de Ação do Modal -->
+        <div style="display:flex; gap:10px; margin-top:16px;">
+          <button type="button" onclick="testAndSaveCloudConfig()" class="btn-primary" style="flex:2; margin:0; padding:11px; font-size:0.85rem;">
+            ✓ Salvar e Conectar
+          </button>
+          <button type="button" onclick="resetCloudConfigToLocal()" style="flex:1; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); color:#94a3b8; border-radius:10px; font-size:0.8rem; font-weight:700; cursor:pointer;">
+            Usar Local
+          </button>
+        </div>
+
+        <div id="cloudTestFeedback" style="display:none; margin-top:12px; padding:8px 12px; border-radius:8px; font-size:0.78rem; font-weight:700;"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modalAddMedicao" class="modal-overlay" onclick="if(event.target === this) closeAddMedicaoModal();">
+    <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 520px;">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:36px; height:36px; border-radius:10px; background:rgba(0, 255, 136, 0.12); border:1px solid rgba(0, 255, 136, 0.3); display:flex; align-items:center; justify-content:center; font-size:1.25rem;">
+            <span>⚖️</span>
+          </div>
+          <div>
+            <h3 style="margin:0; font-size:1.02rem; color:#fff;">Registrar Medição Corporal</h3>
+            <span style="font-size:0.75rem; color:var(--brand-neon); font-weight:600;">Check-in de Composição e Recomposição</span>
+          </div>
+        </div>
+        <button class="btn-close" type="button" onclick="closeAddMedicaoModal()" aria-label="Fechar">&times;</button>
+      </div>
+
+      <div style="padding: 16px 20px; max-height: 75vh; overflow-y: auto;">
+        <!-- Data e Peso -->
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+          <div class="comp-form-group">
+            <label class="comp-form-label" for="add_comp_date">📅 Data da Medição</label>
+            <input type="date" id="add_comp_date" class="comp-form-input">
+          </div>
+          <div class="comp-form-group">
+            <label class="comp-form-label" for="add_comp_weight">⚖️ Peso Corporal (kg) *</label>
+            <input type="number" step="0.1" id="add_comp_weight" class="comp-form-input" placeholder="Ex: 68.5">
+          </div>
+        </div>
+
+        <!-- Cintura e Quadril -->
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+          <div class="comp-form-group">
+            <label class="comp-form-label" for="add_comp_waist">📏 Cintura (cm) *</label>
+            <input type="number" step="0.1" id="add_comp_waist" class="comp-form-input" placeholder="Ex: 79.0">
+          </div>
+          <div class="comp-form-group">
+            <label class="comp-form-label" for="add_comp_hip">👖 Quadril (cm)</label>
+            <input type="number" step="0.1" id="add_comp_hip" class="comp-form-input" placeholder="Ex: 98.0 (opcional)">
+          </div>
+        </div>
+
+        <!-- Pescoço e % Gordura Manual -->
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+          <div class="comp-form-group">
+            <label class="comp-form-label" for="add_comp_neck">👔 Pescoço (cm)</label>
+            <input type="number" step="0.1" id="add_comp_neck" class="comp-form-input" placeholder="Ex: 37.0 (p/ Marinha)">
+          </div>
+          <div class="comp-form-group">
+            <label class="comp-form-label" for="add_comp_bf_manual">🔬 % Gordura (BF)</label>
+            <input type="number" step="0.1" id="add_comp_bf_manual" class="comp-form-input" placeholder="Ex: 19.5 (se souber)">
+          </div>
+        </div>
+
+        <div style="font-size:0.72rem; color:#94a3b8; margin:-4px 0 12px 0; line-height: 1.4;">
+          💡 <em>Dica: Caso não saiba o % de gordura, o app calcula uma estimativa pela Fórmula da Marinha dos EUA se preencher pescoço e cintura.</em>
+        </div>
+
+        <!-- Percepção de Roupas e Energia -->
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+          <div class="comp-form-group">
+            <label class="comp-form-label" for="add_comp_clothes">👕 Ajuste das Roupas</label>
+            <select id="add_comp_clothes" class="comp-form-select">
+              <option value="folgadas">Roupas mais folgadas</option>
+              <option value="normais" selected>Normais e confortáveis</option>
+              <option value="apertadas">Roupas mais justas</option>
+            </select>
+          </div>
+          <div class="comp-form-group">
+            <label class="comp-form-label" for="add_comp_energy">⚡ Disposição e Energia</label>
+            <select id="add_comp_energy" class="comp-form-select">
+              <option value="5" selected>⭐⭐⭐⭐⭐ Excelente / Máxima</option>
+              <option value="4">⭐⭐⭐⭐ Muito Boa</option>
+              <option value="3">⭐⭐⭐ Normal / Regular</option>
+              <option value="2">⭐⭐ Baixa / Cansado</option>
+              <option value="1">⭐ Muito Baixa</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Upload de Fotos Opcionais -->
+        <div class="comp-form-group" style="margin-top:4px;">
+          <label class="comp-form-label">📸 Fotos de Progresso (Opcionais - salvas no aparelho)</label>
+          <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:8px;">
+            <div>
+              <label for="comp_photo_input_front" style="display:block; font-size:0.68rem; color:#94a3b8; margin-bottom:4px; text-align:center;">Frente</label>
+              <input type="file" id="comp_photo_input_front" accept="image/*" style="font-size:0.65rem; color:#94a3b8; width:100%;" onchange="handleCompPhotoPreview(this, 'preview_front')">
+              <div id="preview_front" style="margin-top:4px; height:60px; background:rgba(255,255,255,0.02); border:1px dashed rgba(255,255,255,0.15); border-radius:6px; overflow:hidden; display:flex; align-items:center; justify-content:center; font-size:0.68rem; color:#64748b;">Sem foto</div>
+            </div>
+            <div>
+              <label for="comp_photo_input_side" style="display:block; font-size:0.68rem; color:#94a3b8; margin-bottom:4px; text-align:center;">Lado</label>
+              <input type="file" id="comp_photo_input_side" accept="image/*" style="font-size:0.65rem; color:#94a3b8; width:100%;" onchange="handleCompPhotoPreview(this, 'preview_side')">
+              <div id="preview_side" style="margin-top:4px; height:60px; background:rgba(255,255,255,0.02); border:1px dashed rgba(255,255,255,0.15); border-radius:6px; overflow:hidden; display:flex; align-items:center; justify-content:center; font-size:0.68rem; color:#64748b;">Sem foto</div>
+            </div>
+            <div>
+              <label for="comp_photo_input_back" style="display:block; font-size:0.68rem; color:#94a3b8; margin-bottom:4px; text-align:center;">Costas</label>
+              <input type="file" id="comp_photo_input_back" accept="image/*" style="font-size:0.65rem; color:#94a3b8; width:100%;" onchange="handleCompPhotoPreview(this, 'preview_back')">
+              <div id="preview_back" style="margin-top:4px; height:60px; background:rgba(255,255,255,0.02); border:1px dashed rgba(255,255,255,0.15); border-radius:6px; overflow:hidden; display:flex; align-items:center; justify-content:center; font-size:0.68rem; color:#64748b;">Sem foto</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Observações -->
+        <div class="comp-form-group">
+          <label class="comp-form-label" for="add_comp_notes">📝 Observações e Sensações</label>
+          <textarea id="add_comp_notes" class="comp-form-textarea" rows="2" placeholder="Ex: Me sinto mais leve nos apoios, calça mais folgada na cintura..."></textarea>
+        </div>
+
+        <!-- Botões de Ação do Modal -->
+        <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:16px;">
+          <button type="button" onclick="closeAddMedicaoModal()" style="background:rgba(255,255,255,0.08); border:none; color:#cbd5e1; font-size:0.8rem; font-weight:700; border-radius:8px; padding:10px 16px; cursor:pointer;">
+            Cancelar
+          </button>
+          <button type="button" onclick="saveBodyCompRecordFromForm()" style="background:var(--brand-neon); border:none; color:#000; font-size:0.82rem; font-weight:800; border-radius:8px; padding:10px 18px; cursor:pointer; box-shadow:0 0 14px var(--brand-neon-glow);">
+            Salvar Medição
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL: INSTRUÇÕES DE MEDIÇÃO ==================== -->
+  <div id="modalInstrucoesMedidas" class="modal-overlay" onclick="if(event.target === this) closeInstrucoesMedidasModal();">
+    <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 520px;">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:36px; height:36px; border-radius:10px; background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.3); display:flex; align-items:center; justify-content:center; font-size:1.25rem;">
+            <span>📏</span>
+          </div>
+          <div>
+            <h3 style="margin:0; font-size:1.02rem; color:#fff;">Guia de Medição Precisa</h3>
+            <span style="font-size:0.75rem; color:#38bdf8; font-weight:600;">Padronização Antropométrica</span>
+          </div>
+        </div>
+        <button class="btn-close" type="button" onclick="closeInstrucoesMedidasModal()" aria-label="Fechar">&times;</button>
+      </div>
+
+      <div style="padding: 18px 20px; font-size:0.82rem; color:#cbd5e1; line-height:1.65; max-height:75vh; overflow-y:auto;">
+        <div style="margin-bottom:14px; padding:10px 12px; background:rgba(56,189,248,0.06); border-left:3.5px solid #38bdf8; border-radius:8px;">
+          <strong style="color:#fff;">⚖️ Pesagem Correta na Balança</strong><br>
+          Pese sempre pela manhã, em jejum, logo após urinar e antes de ingerir água ou café. Use roupas íntimas leves e descalço. Evite pesar todos os dias para não se iludir com variações naturais de água e sódio.
+        </div>
+
+        <div style="margin-bottom:14px; padding:10px 12px; background:rgba(0,255,136,0.06); border-left:3.5px solid var(--brand-neon); border-radius:8px;">
+          <strong style="color:#fff;">📐 Cintura Abdominal (Métrica Rainha da Saúde)</strong><br>
+          Posicione a fita métrica na linha do umbigo ou no ponto mais estreito do tronco (entre a última costela e o osso do quadril). Mantenha a fita nivelada e justa à pele, sem apertar. Realize a leitura no final de uma <strong>expiração normal</strong> (sem puxar o abdômen e sem estufar).
+        </div>
+
+        <div style="margin-bottom:14px; padding:10px 12px; background:rgba(192,132,252,0.06); border-left:3.5px solid #c084fc; border-radius:8px;">
+          <strong style="color:#fff;">👔 Pescoço (Para Fórmula da Marinha)</strong><br>
+          Passe a fita logo abaixo da laringe (pomo de adão em homens), ligeiramente inclinada para baixo na frente. A fita deve encostar na pele sem estrangular.
+        </div>
+
+        <div style="padding:10px 12px; background:rgba(251,191,36,0.06); border-left:3.5px solid #fbbf24; border-radius:8px;">
+          <strong style="color:#fff;">👖 Quadril (Para Mulheres)</strong><br>
+          Com os pés unidos, posicione a fita métrica na maior circunferência dos glúteos. Mantenha a fita paralela ao chão.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL: INSTRUÇÕES DE FOTOS ==================== -->
+  <div id="modalInstrucoesFotos" class="modal-overlay" onclick="if(event.target === this) closeInstrucoesFotosModal();">
+    <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 520px;">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:36px; height:36px; border-radius:10px; background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.3); display:flex; align-items:center; justify-content:center; font-size:1.25rem;">
+            <span>📸</span>
+          </div>
+          <div>
+            <h3 style="margin:0; font-size:1.02rem; color:#fff;">Guia de Fotos Padronizadas</h3>
+            <span style="font-size:0.75rem; color:#38bdf8; font-weight:600;">Comparação Visual Fidedigna</span>
+          </div>
+        </div>
+        <button class="btn-close" type="button" onclick="closeInstrucoesFotosModal()" aria-label="Fechar">&times;</button>
+      </div>
+
+      <div style="padding: 18px 20px; font-size:0.82rem; color:#cbd5e1; line-height:1.65; max-height:75vh; overflow-y:auto;">
+        <div style="margin-bottom:12px; padding:10px 12px; background:rgba(255,255,255,0.03); border-radius:8px; border:1px solid rgba(255,255,255,0.08);">
+          <strong style="color:#fff;">1. Mesma Iluminação Sempre</strong><br>
+          Fotografe no mesmo cômodo e horário. Prefira luz natural ou luz frontal uniforme. Evite lâmpadas de teto que apontam diretamente para sua cabeça, pois criam sombras artificiais que enganam a real definição.
+        </div>
+
+        <div style="margin-bottom:12px; padding:10px 12px; background:rgba(255,255,255,0.03); border-radius:8px; border:1px solid rgba(255,255,255,0.08);">
+          <strong style="color:#fff;">2. Posição da Câmera (Sem Espelho Inclinado)</strong><br>
+          Apoie o celular na altura do peito ou umbigo em um móvel ou tripé, a cerca de 2 metros de distância. Use o timer de 5 ou 10 segundos. Evite fotos no espelho com o celular na mão, pois inclinam o tronco.
+        </div>
+
+        <div style="margin-bottom:12px; padding:10px 12px; background:rgba(255,255,255,0.03); border-radius:8px; border:1px solid rgba(255,255,255,0.08);">
+          <strong style="color:#fff;">3. Três Poses Relaxadas</strong><br>
+          • <strong>Frente:</strong> Pés na largura do quadril, braços soltos relaxados ao lado do tronco.<br>
+          • <strong>Perfil (Lado):</strong> Coluna neutra, olhando para a frente, braço suavemente afastado para não cobrir a cintura.<br>
+          • <strong>Costas:</strong> Pés alinhados, braços relaxados ao lado.
+        </div>
+
+        <div style="padding:10px 12px; background:rgba(0,255,136,0.06); border-left:3.5px solid var(--brand-neon); border-radius:8px;">
+          <strong style="color:var(--brand-neon);">Postura Neutra (Sem Murchar a Barriga)</strong><br>
+          Respire normalmente e mantenha a postura de repouso. O objetivo do acompanhamento é ver a evolução real do tônus muscular e contorno corporal, não posar com contração forçada.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL: RELATÓRIO COMPLETO DE COMPOSIÇÃO E FORÇA RELATIVA ==================== -->
+  <div id="modalRelatorioComposicao" class="modal-overlay" onclick="if(event.target === this) closeRelatorioComposicaoModal();">
+    <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 650px;">
+      <div class="modal-header no-print">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:36px; height:36px; border-radius:10px; background:rgba(56,189,248,0.15); border:1px solid rgba(56,189,248,0.35); display:flex; align-items:center; justify-content:center; font-size:1.25rem;">
+            <span>📋</span>
+          </div>
+          <div>
+            <h3 style="margin:0; font-size:1.02rem; color:#fff;">Relatório de Composição e Força Relativa</h3>
+            <span style="font-size:0.75rem; color:#38bdf8; font-weight:600;">Diagnóstico Clínico, Biomecânico e Científico</span>
+          </div>
+        </div>
+        <button class="btn-close" type="button" onclick="closeRelatorioComposicaoModal()" aria-label="Fechar">&times;</button>
+      </div>
+
+      <div id="relatorioComposicaoContent" style="padding: 22px 24px; max-height: 80vh; overflow-y: auto; color:#e2e8f0; font-size:0.83rem; line-height:1.65;">
+        <!-- Preenchido dinamicamente por buildRelatorioComposicaoHTML() -->
+      </div>
+
+      <div class="no-print" style="padding: 14px 20px; background: rgba(0,0,0,0.3); border-top: 1px solid var(--border-subtle); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+        <button type="button" onclick="closeRelatorioComposicaoModal()" style="background:rgba(255,255,255,0.08); border:none; color:#cbd5e1; font-size:0.8rem; font-weight:700; border-radius:8px; padding:9px 14px; cursor:pointer;">
+          Fechar
+        </button>
+        <div style="display:flex; gap:8px;">
+          <button type="button" onclick="window.print()" style="background:rgba(56,189,248,0.15); border:1px solid rgba(56,189,248,0.35); color:#38bdf8; font-size:0.8rem; font-weight:700; border-radius:8px; padding:9px 14px; cursor:pointer; display:inline-flex; align-items:center; gap:6px;">
+            <span>🖨️ Imprimir / Salvar PDF</span>
+          </button>
+          <button type="button" onclick="shareRelatorioWhatsApp()" style="background:var(--brand-neon); border:none; color:#000; font-size:0.8rem; font-weight:800; border-radius:8px; padding:9px 16px; cursor:pointer; display:inline-flex; align-items:center; gap:6px; box-shadow:0 0 12px var(--brand-neon-glow);">
+            <span>📲 WhatsApp</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Instruções Contextuais do App -->
+  <div id="contextualHelpModal" class="modal-overlay" onclick="if(event.target === this) closeContextualHelp();">
+    <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 520px;">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div id="contextualHelpIconWrap" style="width:36px; height:36px; border-radius:10px; background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.3); display:flex; align-items:center; justify-content:center; font-size:1.25rem;">
+            <span id="contextualHelpIcon">🏋️‍♂️</span>
+          </div>
+          <div>
+            <h3 id="contextualHelpTitle" style="margin:0; font-size:1.02rem; color:#fff;">Como Utilizar os Treinos</h3>
+            <span id="contextualHelpSubtitle" style="font-size:0.75rem; color:#38bdf8; font-weight:600;">Guia da Rotina Diária</span>
+          </div>
+        </div>
+        <button class="btn-close" type="button" onclick="closeContextualHelp()" aria-label="Fechar">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 18px 20px; line-height:1.55;">
+        
+        <!-- Abas Rápidas de Tópicos -->
+        <div class="help-tabs-nav" style="display:flex; gap:8px; margin-bottom:14px; border-bottom:1px solid var(--border-subtle); padding-bottom:10px;">
+          <button type="button" class="help-tab-btn active" data-topic="treinos" onclick="switchHelpTopic('treinos')">🏋️‍♂️ Treinos</button>
+          <button type="button" class="help-tab-btn" data-topic="analises" onclick="switchHelpTopic('analises')">📹 Análises</button>
+          <button type="button" class="help-tab-btn" data-topic="evolucao" onclick="switchHelpTopic('evolucao')">📊 Evolução</button>
+        </div>
+
+        <!-- Painel 1: Treinos -->
+        <div class="help-topic-panel" data-topic="treinos">
+          <div style="display:flex; flex-direction:column; gap:11px;">
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: var(--brand-neon); margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>📅</span> 1. ABERTURA DO TREINO DO DIA
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Na tela inicial, toque no dia ou treino correspondente para carregar sua sessão completa com divisão de blocos, aquecimento e séries prescritas.
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #38bdf8; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>✓</span> 2. MARCAÇÃO E MEMÓRIA DE SÉRIES
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Conforme concluir cada série, toque no botão do set (1, 2, 3...). O aplicativo salva seu progresso automaticamente na memória do celular, sem risco de perder o registro se o app for fechado.
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #fbbf24; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>💡</span> 3. VÍDEO E INSTRUÇÕES DE EXECUÇÃO
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Toque no botão <strong>Instruções</strong> presente em cada exercício para assistir ao vídeo e conferir a execução, cuidados anatômicos e embasamento científico.
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #a78bfa; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>📹</span> 4. ENVIO DE VÍDEO PARA ANÁLISE
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Para enviar uma gravação da sua execução tirando dúvidas, clique no ícone <strong>📹</strong> ao lado do exercício ou no banner de envio para abrir o WhatsApp do treinador.
+              </div>
+            </div>
+
+            <div style="background: rgba(37, 211, 102, 0.08); border: 1px solid rgba(37, 211, 102, 0.25); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #25d366; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>⏱️</span> 5. CRONÔMETRO DE DESCANSO
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                No rodapé fixo da tela, selecione o tempo de pausa (30s, 60s, 90s ou 120s). Um bipe sonoro avisará quando o descanso terminar para você iniciar a próxima série.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Painel 2: Análises -->
+        <div class="help-topic-panel" data-topic="analises" style="display:none;">
+          <div style="display:flex; flex-direction:column; gap:11px;">
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #38bdf8; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>📚</span> 1. BIBLIOTECA DE ANÁLISES
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Navegue pelas categorias para estudar vídeos gravados com marcações e diagnósticos posturais.
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: var(--brand-neon); margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>📹</span> 2. COMO GRAVAR SEU VÍDEO
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Enquadre o corpo inteiro, filme em ângulo lateral ou diagonal (45°) e registre de 2 a 3 repetições limpas para que seja possível avaliar os ângulos articulares e trajetórias.
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #a78bfa; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>💬</span> 3. ENVIO DIRETO PELO WHATSAPP
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Toque no botão <strong>Enviar Vídeo para Análise</strong> no topo da página de análises (ou nos botões 📹 dentro do treino). O app abrirá a conversa com o Prof. Gui Lemos com a mensagem já pré-formatada.
+              </div>
+            </div>
+
+            <div style="background: rgba(37, 211, 102, 0.08); border: 1px solid rgba(37, 211, 102, 0.25); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #25d366; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>🎯</span> 4. DEVOLUTIVA TÉCNICA
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                O treinador analisa compensações escapulares, alinhamento pélvico e tensão de alavancas, enviando orientações em áudio, vídeo ou ajustes na prescrição do próximo ciclo.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Painel 3: Evolução -->
+        <div class="help-topic-panel" data-topic="evolucao" style="display:none;">
+          <div style="display:flex; flex-direction:column; gap:11px;">
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #fbbf24; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>📐</span> 1. COMPOSIÇÃO CORPORAL E ANTROPOMETRIA
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Acompanhe o registro de peso, perímetros musculares e fotos posturais comparativas para monitorar sua transformação física e simetria muscular.
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #38bdf8; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>⚡</span> 2. PROGRESSÃO DE TÉCNICA E MARCOS
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Consulte as metas e o histórico de evolução intermediárias rumo ao próximo nível corporal.
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: var(--brand-neon); margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>🏆</span> 3. CENTRAL DE RECORDES (PRS)
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Tabela de melhores marcas: cargas máximas, repetições ininterruptas e tempos sob tensão isométrica.
+              </div>
+            </div>
+
+            <div style="background: rgba(167, 139, 250, 0.08); border: 1px solid rgba(167, 139, 250, 0.25); border-radius: 12px; padding: 12px 14px;">
+              <div style="font-size: 0.85rem; font-weight: 800; color: #a78bfa; margin-bottom: 3px; display:flex; align-items:center; gap:6px;">
+                <span>📊</span> 4. RELATÓRIO DO TREINAMENTO
+              </div>
+              <div style="font-size: 0.77rem; color: #cbd5e1;">
+                Gráficos de equilíbrio agonista/antagonista, volume semanal e diagnóstico do treinador para resguardar a integridade articular.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn-submit-assessment" onclick="closeContextualHelp()" style="margin: 18px 0 0 0; width: 100%;">
+          <span>Entendi ➔</span>
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Envio de Vídeo para Análise Técnica -->
+  <div id="sendVideoModal" class="modal-overlay" onclick="if(event.target === this) closeSendVideoModal();">
+    <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 480px;">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:34px; height:34px; border-radius:10px; background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.3); display:flex; align-items:center; justify-content:center; color:#38bdf8; flex-shrink:0;">
+            <svg viewBox="0 0 24 24" style="width:18px; height:18px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+          </div>
+          <div>
+            <h3 style="margin:0; font-size:1.02rem; color:#fff;">Enviar Vídeo para Análise</h3>
+            <span id="sendVideoExerciseName" style="font-size:0.75rem; color:#38bdf8; font-weight:600; display:none;"></span>
+          </div>
+        </div>
+        <button class="btn-close" type="button" onclick="closeSendVideoModal()" aria-label="Fechar">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 18px 20px;">
+        <!-- Botão Principal WhatsApp -->
+        <button type="button" class="btn-send-wpp-primary" onclick="confirmSendVideoWhatsApp()" style="margin-bottom: 14px;">
+          <svg style="width:20px; height:20px; fill:currentColor;" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          <span>Abrir WhatsApp e Enviar Vídeo</span>
+        </button>
+
+        <!-- Dicas de Gravação -->
+        <div style="background:rgba(56,189,248,0.06); border:1px solid rgba(56,189,248,0.25); border-radius:12px; padding:12px 14px;">
+          <div style="font-size:0.78rem; font-weight:700; color:#38bdf8; margin-bottom:6px; display:flex; align-items:center; gap:6px;">
+            <span>💡</span> <span>Dicas para a filmagem:</span>
+          </div>
+          <ul style="margin:0; padding-left:18px; font-size:0.75rem; color:#cbd5e1; line-height:1.5;">
+            <li>Enquadre o corpo inteiro (da cabeça aos pés).</li>
+            <li>Grave em ângulo lateral ou diagonal (45°).</li>
+            <li>Execute 2 a 3 repetições limpas.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+  </div>
+
+  <!-- Modal de Vídeo e Técnica -->
+  <div id="videoModal" class="modal-overlay" onclick="handleOverlayClick(event)">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modalTitle">Demonstração Técnica</h3>
+        <button class="btn-close" onclick="closeVideoModal()">&times;</button>
+      </div>
+      <div class="video-container" style="background:#000;">
+        <iframe id="videoIframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:none; width:100%; height:100%; border:none;"></iframe>
+        <video id="videoPlayer" controls playsinline preload="auto" style="display:none; width:100%; max-height:420px; background:#000;"></video>
+      </div>
+      <div class="modal-body">
+        <p id="modalDesc"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Bio Gui Lemos -->
+  <div id="bioModal" class="modal-overlay" onclick="if(event.target === this) closeBioModal(event);">
+    <div class="modal-card" onclick="event.stopPropagation();">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <img src="Midia/gui_foto.jpg" onerror="this.onerror=null; this.src='Midia/icon-192.png';" alt="Gui Lemos" style="width:34px; height:34px; border-radius:50%; border:2px solid var(--brand-neon); object-fit: cover;">
+          <div>
+            <h3 style="margin:0; font-size:1rem; color:#fff;">Gui Lemos</h3>
+            <span style="font-size:0.72rem; color:var(--brand-neon); font-weight:600;">@guilemos_dominiocorporal</span>
+          </div>
+        </div>
+        <button class="btn-close" type="button" onclick="closeBioModal(event)" aria-label="Fechar">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 20px;">
+        <div style="text-align: center; margin-bottom: 16px;">
+          <img src="Midia/gui_foto.jpg" onerror="this.onerror=null; this.src='Midia/icon-192.png';" alt="Gui Lemos" style="width: 82px; height: 82px; border-radius: 50%; border: 3px solid var(--brand-neon); box-shadow: 0 0 20px var(--brand-neon-glow); margin-bottom: 8px; object-fit: cover;">
+          <h2 style="font-size: 1.2rem; font-weight: 800; color: #fff; margin-bottom: 4px;">Guilherme de Paula Lemos</h2>
+          <p style="font-size: 0.8rem; color: var(--brand-neon); font-weight: 600;">Treinamento Especializado</p>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 14px; margin-bottom: 16px; font-size: 0.82rem; line-height: 1.6; color: var(--text-muted);">
+          <p style="margin-bottom: 8px;"><strong style="color: #fff;">🎓 Formação e Ciência:</strong><br>
+          • <strong>Farmacêutico-Bioquímico (FCFRP-USP)</strong><br>
+          • <strong>Profissional de Educação Física (EEFERP-USP)</strong><br>
+          • <strong>Especialista em Atividades Acrobáticas do Circo e da Ginástica (PUC-PR)</strong><br>
+          • <strong>Mestrando em Biomecânica (EEFERP-USP)</strong></p>
+
+          <p style="margin-bottom: 8px;"><strong style="color: #fff;">🤸‍♂️ Vivência Prática:</strong><br>
+          • <strong>15 anos de experiência</strong> em Parada de Mãos (Handstand), Calistenia, CrossFit, Ginástica Artística, Circo e Acrobacias de Solo.</p>
+
+          <p><strong style="color: #fff;">🎯 Filosofia:</strong><br>
+          <em>"Unir a precisão da ciência biomecânica à arte do domínio corporal."</em></p>
+        </div>
+
+        <a href="https://www.instagram.com/guilemos_dominiocorporal/" target="_blank" class="btn-instagram">
+          <svg style="width:18px; height:18px; fill:currentColor;" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Siga no Instagram @guilemos_dominiocorporal
+        </a>
+
+        <div style="margin-top: 14px;">
+          <button type="button" onclick="closeBioModal(event)" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); color: #fff; font-weight: 700; padding: 12px; border-radius: 12px; font-size: 0.9rem; cursor: pointer; width: 100%;">
+            Fechar Perfil
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Obrigatório de Avaliação Inicial (Bloqueio até preenchimento) -->
+  <div id="intakeGateModal" class="modal-overlay" style="z-index: 9999;">
+    <div class="modal-card" style="border: 1px solid rgba(0, 255, 136, 0.4); box-shadow: 0 0 35px rgba(0, 255, 136, 0.18); max-width: 480px;">
+      <div class="modal-body" style="padding: 26px 20px; text-align: center;">
+        <div style="width: 58px; height: 58px; border-radius: 50%; background: rgba(0, 255, 136, 0.12); border: 1.5px solid var(--brand-neon); color: var(--brand-neon); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto; font-size: 1.6rem; box-shadow: 0 0 20px var(--brand-neon-glow);">
+          📋
+        </div>
+        <div style="display:inline-block; font-size:0.68rem; font-weight:800; letter-spacing:0.1em; color:var(--brand-neon); background:rgba(0,255,136,0.1); border:1px solid rgba(0,255,136,0.3); padding:4px 10px; border-radius:8px; text-transform:uppercase; margin-bottom:12px;">
+          ETAPA DE INGRESSO OBRIGATÓRIA
+        </div>
+        <h2 style="font-size: 1.35rem; font-weight: 800; color: #fff; margin: 0 0 10px 0; line-height: 1.3;">
+          Ficha de Avaliação Inicial
+        </h2>
+        <p style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.55; margin: 0 0 18px 0;">
+          Para calibrar seu ciclo de treino com segurança biomecânica, proteção articular e gestão de cargas, precisamos conhecer seu histórico e objetivos.
+        </p>
+        <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 12px; padding: 12px 14px; margin-bottom: 20px; text-align: left; display: flex; gap: 10px; align-items: center;">
+          <span style="font-size: 1.2rem;">🔒</span>
+          <span style="font-size: 0.78rem; color: #fca5a5; line-height: 1.45; font-weight: 600;">
+            O acesso à rotina de treinos permanece bloqueado até o preenchimento e envio da sua ficha.
+          </span>
+        </div>
+        <button type="button" class="btn-submit-assessment" onclick="startIntakeGate()" style="margin: 0; width: 100%;">
+          <span>📝 Preencher Minha Ficha Agora ➔</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Instruções de Uso do App -->
+  <div id="instructionsModal" class="modal-overlay" onclick="if(event.target === this) closeAppInstructionsModal();">
+    <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 520px;">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span style="font-size:1.3rem;">📖</span>
+          <div>
+            <h3 style="margin:0; font-size:1.02rem; color:#fff;">Como Usar o App Domínio Corporal</h3>
+            <span style="font-size:0.75rem; color:#38bdf8; font-weight:600;">Guia Prático do Aluno</span>
+          </div>
+        </div>
+        <button class="btn-close" type="button" onclick="closeAppInstructionsModal()" aria-label="Fechar">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 18px 20px; line-height:1.55;">
+        
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+            <div style="font-size: 0.88rem; font-weight: 800; color: var(--brand-neon); margin-bottom: 4px; display:flex; align-items:center; gap:6px;">
+              <span>🏋️‍♂️</span> 1. Rotina de Treino Diária
+            </div>
+            <div style="font-size: 0.78rem; color: #cbd5e1;">
+              Toque no dia da semana (Segunda a Sexta) para abrir seus exercícios. Conforme for realizando cada série, marque os círculos para salvar sua execução e equilibrar o volume de treino.
+            </div>
+          </div>
+
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+            <div style="font-size: 0.88rem; font-weight: 800; color: #38bdf8; margin-bottom: 4px; display:flex; align-items:center; gap:6px;">
+              <span>⏱️</span> 2. Central de Timers
+            </div>
+            <div style="font-size: 0.78rem; color: #cbd5e1;">
+              Na barra superior, acesse <strong>Timers</strong> para cronômetros esportivos: WOD / For Time, Tabata (20s/10s), EMOM e Cronômetro Livre com contagem sonora que funciona offline.
+            </div>
+          </div>
+
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+            <div style="font-size: 0.88rem; font-weight: 800; color: #a78bfa; margin-bottom: 4px; display:flex; align-items:center; gap:6px;">
+              <span>📹</span> 3. Análise e Envio de Vídeos
+            </div>
+            <div style="font-size: 0.78rem; color: #cbd5e1;">
+              Acesse <strong>Análises</strong> para ver vídeos comentados de <em>Habilidades</em> e <em>Execução de Exercícios</em>. Para mandar um vídeo com dúvida técnica ou nova carga, clique em <strong>📹 Enviar Vídeo</strong> nos exercícios ou no botão de envio rápido.
+            </div>
+          </div>
+
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+            <div style="font-size: 0.88rem; font-weight: 800; color: #fbbf24; margin-bottom: 4px; display:flex; align-items:center; gap:6px;">
+              <span>📊</span> 4. Evolução e Antropometria
+            </div>
+            <div style="font-size: 0.78rem; color: #cbd5e1;">
+              Veja fotos de evolução, histórico de cargas e testes físicos clicando em <strong>Evolução</strong> na barra superior.
+            </div>
+          </div>
+
+          <div style="background: rgba(37, 211, 102, 0.08); border: 1px solid rgba(37, 211, 102, 0.25); border-radius: 12px; padding: 12px 14px;">
+            <div style="font-size: 0.88rem; font-weight: 800; color: #25d366; margin-bottom: 4px; display:flex; align-items:center; gap:6px;">
+              <span>💬</span> 5. Suporte Direto no WhatsApp
+            </div>
+            <div style="font-size: 0.78rem; color: #cbd5e1;">
+              Sentiu dor articular, desconforto ou dúvida nas alavancas? Use o botão do WhatsApp no fim da página para falar direto com o treinador Prof. Gui Lemos.
+            </div>
+          </div>
+
+        </div>
+
+        <button type="button" class="btn-send-wpp-primary" onclick="closeAppInstructionsModal()" style="margin-top:16px; width:100%; background:rgba(56,189,248,0.2); border:1px solid #38bdf8; color:#38bdf8; padding:11px; font-weight:800; border-radius:10px; cursor:pointer;">
+          <span>✓ Entendido, fechar instruções</span>
+        </button>
+
+      </div>
+    </div>
+  </div>
+
     <!-- Modal de Devolutiva Técnica de Treino (Resposta às Anotações dos Exercícios) -->
   <div id="devolutivaTreinoModal" class="modal-overlay" onclick="if(event.target === this) closeDevolutivaModal();">
     <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 520px;">
@@ -7282,7 +8001,7 @@
   </div>
 
 
-<!-- Modal de Notificações e Recados do Treinador -->
+  <!-- Modal de Notificações e Recados do Treinador -->
     <!-- Modal de Notificações e Recados do Treinador -->
   <div id="notificationsModal" class="modal-overlay" onclick="if(event.target === this) closeNotificationsModal(event);">
     <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 480px;">
@@ -7508,6 +8227,18 @@
     }
 
     async function forceAppRefresh() {
+      const btn = document.getElementById('btnAppRefresh');
+      if (btn) btn.classList.add('is-spinning');
+
+      try {
+        if (window.DominioDB) {
+          if (typeof DominioDB.flushSyncQueue === 'function') await DominioDB.flushSyncQueue();
+          if (typeof DominioDB.syncExistingLocalDataToCloud === 'function') await DominioDB.syncExistingLocalDataToCloud();
+        }
+      } catch (e) {
+        console.warn('Erro ao sincronizar na atualização:', e);
+      }
+
       try {
         if ('serviceWorker' in navigator) {
           const regs = await navigator.serviceWorker.getRegistrations();
@@ -9903,20 +10634,71 @@
 
     function updateCloudStatusUI() {
       const status = getStatus();
+      const dot = document.getElementById('cloudStatusDot');
+      const label = document.getElementById('cloudStatusLabel');
+      const badge = document.getElementById('btnCloudStatusIndicator');
+      const modalBadge = document.getElementById('modalCloudStatusBadge');
+      const modalDesc = document.getElementById('modalCloudStatusDesc');
+      const queueWrap = document.getElementById('modalCloudQueueWrap');
+      const queueText = document.getElementById('modalCloudQueueText');
+
+      if (dot) {
+        if (!status.isConfigured) {
+          dot.style.background = '#64748b';
+          dot.style.boxShadow = 'none';
+          if (label) label.textContent = 'Local';
+          if (badge) badge.title = 'Modo Local (Toque para configurar nuvem)';
+        } else if (status.queueCount > 0) {
+          dot.style.background = '#fbbf24';
+          dot.style.boxShadow = '0 0 8px rgba(251, 191, 36, 0.8)';
+          if (label) label.textContent = `${status.queueCount} pendente${status.queueCount > 1 ? 's' : ''}`;
+          if (badge) badge.title = `${status.queueCount} registros aguardando envio para ${status.providerLabel}`;
+        } else {
+          dot.style.background = '#00ff88';
+          dot.style.boxShadow = '0 0 8px rgba(0, 255, 136, 0.8)';
+          if (label) label.textContent = status.providerLabel.split(' ')[0];
+          if (badge) badge.title = `Conectado a ${status.providerLabel}`;
+        }
+      }
+
       const btnRefresh = document.getElementById('btnAppRefresh');
-      if (!btnRefresh) return;
+      if (btnRefresh) {
+        btnRefresh.classList.remove('cloud-connected', 'cloud-syncing', 'cloud-offline');
+        if (!status.isConfigured || !navigator.onLine) {
+          btnRefresh.classList.add('cloud-offline');
+          btnRefresh.title = 'Modo Local (Offline) • Toque para sincronizar e atualizar';
+        } else if (status.queueCount > 0) {
+          btnRefresh.classList.add('cloud-syncing');
+          btnRefresh.title = `${status.queueCount} registro${status.queueCount > 1 ? 's' : ''} pendente${status.queueCount > 1 ? 's' : ''} • Sincronizando com a Nuvem...`;
+        } else {
+          btnRefresh.classList.add('cloud-connected');
+          btnRefresh.title = 'Conectado à Nuvem (Supabase) • Toque para sincronizar e atualizar';
+        }
+      }
 
-      btnRefresh.classList.remove('cloud-connected', 'cloud-syncing', 'cloud-offline');
+      if (modalBadge) {
+        if (!status.isConfigured) {
+          modalBadge.textContent = 'Local (Offline)';
+          modalBadge.style.color = '#94a3b8';
+          modalBadge.style.background = 'rgba(255, 255, 255, 0.08)';
+          modalBadge.style.borderColor = 'rgba(255, 255, 255, 0.15)';
+          if (modalDesc) modalDesc.textContent = 'Seus dados estão sendo salvos com segurança no dispositivo. Conecte ao Supabase ou Google Sheets para sincronizar entre notebook e celular.';
+        } else {
+          modalBadge.textContent = status.providerLabel;
+          modalBadge.style.color = '#00ff88';
+          modalBadge.style.background = 'rgba(0, 255, 136, 0.12)';
+          modalBadge.style.borderColor = 'rgba(0, 255, 136, 0.3)';
+          if (modalDesc) modalDesc.textContent = `Conectado com sucesso ao ${status.providerLabel}! Todos os novos treinos e métricas são sincronizados automaticamente.`;
+        }
+      }
 
-      if (!status.isConfigured || !navigator.onLine) {
-        btnRefresh.classList.add('cloud-offline');
-        btnRefresh.title = 'Modo Local (Offline) • Toque para sincronizar e atualizar';
-      } else if (status.queueCount > 0) {
-        btnRefresh.classList.add('cloud-syncing');
-        btnRefresh.title = `${status.queueCount} registro${status.queueCount > 1 ? 's' : ''} pendente${status.queueCount > 1 ? 's' : ''} • Sincronizando com a Nuvem...`;
-      } else {
-        btnRefresh.classList.add('cloud-connected');
-        btnRefresh.title = 'Conectado à Nuvem (Supabase) • Toque para sincronizar e atualizar';
+      if (queueWrap && queueText) {
+        if (status.queueCount > 0) {
+          queueWrap.style.display = 'flex';
+          queueText.textContent = `${status.queueCount} registro${status.queueCount > 1 ? 's' : ''} pendente${status.queueCount > 1 ? 's' : ''} na fila`;
+        } else {
+          queueWrap.style.display = 'none';
+        }
       }
     }
 
@@ -9996,7 +10778,149 @@
 
   let currentCloudTab = 'supabase';
 
-  function toggleFinishWorkoutBtn(dayId, isChecked) {
+  function openCloudConfigModal() {
+    const modal = document.getElementById('modalCloudConfig');
+    if (!modal) return;
+    const cfg = DominioDB.getConfig();
+
+    const urlInput = document.getElementById('cfg_supabase_url');
+    const keyInput = document.getElementById('cfg_supabase_anon_key');
+    const sheetsInput = document.getElementById('cfg_sheets_url');
+
+    if (urlInput) urlInput.value = cfg.supabaseUrl || '';
+    if (keyInput) keyInput.value = cfg.supabaseAnonKey || '';
+    if (sheetsInput) sheetsInput.value = cfg.sheetsUrl || '';
+
+    const fb = document.getElementById('cloudTestFeedback');
+    if (fb) fb.style.display = 'none';
+
+    DominioDB.updateCloudStatusUI();
+    setCloudProviderTab(cfg.sheetsUrl && !cfg.supabaseUrl ? 'sheets' : 'supabase');
+    modal.classList.add('active');
+  }
+
+  function closeCloudConfigModal() {
+    const modal = document.getElementById('modalCloudConfig');
+    if (modal) modal.classList.remove('active');
+  }
+
+  function setCloudProviderTab(tab) {
+    currentCloudTab = tab;
+    const btnSupa = document.getElementById('tabProvSupabase');
+    const btnSheets = document.getElementById('tabProvSheets');
+    const paneSupa = document.getElementById('paneSupabaseConfig');
+    const paneSheets = document.getElementById('paneSheetsConfig');
+
+    if (tab === 'supabase') {
+      if (btnSupa) {
+        btnSupa.style.background = 'rgba(56, 189, 248, 0.15)';
+        btnSupa.style.borderColor = '#38bdf8';
+        btnSupa.style.color = '#fff';
+      }
+      if (btnSheets) {
+        btnSheets.style.background = 'rgba(255, 255, 255, 0.04)';
+        btnSheets.style.borderColor = 'rgba(255, 255, 255, 0.12)';
+        btnSheets.style.color = '#94a3b8';
+      }
+      if (paneSupa) paneSupa.style.display = 'block';
+      if (paneSheets) paneSheets.style.display = 'none';
+    } else {
+      if (btnSheets) {
+        btnSheets.style.background = 'rgba(56, 189, 248, 0.15)';
+        btnSheets.style.borderColor = '#38bdf8';
+        btnSheets.style.color = '#fff';
+      }
+      if (btnSupa) {
+        btnSupa.style.background = 'rgba(255, 255, 255, 0.04)';
+        btnSupa.style.borderColor = 'rgba(255, 255, 255, 0.12)';
+        btnSupa.style.color = '#94a3b8';
+      }
+      if (paneSupa) paneSupa.style.display = 'none';
+      if (paneSheets) paneSheets.style.display = 'block';
+    }
+  }
+
+  async function testAndSaveCloudConfig() {
+    const fb = document.getElementById('cloudTestFeedback');
+    const supaUrl = document.getElementById('cfg_supabase_url')?.value.trim() || '';
+    const supaKey = document.getElementById('cfg_supabase_anon_key')?.value.trim() || '';
+    const sheetsUrl = document.getElementById('cfg_sheets_url')?.value.trim() || '';
+
+    if (fb) {
+      fb.style.display = 'block';
+      fb.style.background = 'rgba(56, 189, 248, 0.15)';
+      fb.style.color = '#38bdf8';
+      fb.textContent = '⏳ Testando conexão com a nuvem...';
+    }
+
+    const testCfg = {
+      supabaseUrl: supaUrl,
+      supabaseAnonKey: supaKey,
+      sheetsUrl: sheetsUrl
+    };
+
+    const res = await DominioDB.testConnection(testCfg);
+    const cfg = DominioDB.getConfig();
+    cfg.supabaseUrl = supaUrl;
+    cfg.supabaseAnonKey = supaKey;
+    cfg.sheetsUrl = sheetsUrl;
+    DominioDB.saveConfig(cfg);
+
+    if (fb) {
+      if (res.supabase === true) {
+        fb.style.background = 'rgba(0, 255, 136, 0.15)';
+        fb.style.color = '#00ff88';
+        fb.textContent = '✓ Conexão com o Supabase estabelecida com sucesso!';
+      } else if (res.sheets === true && !supaUrl) {
+        fb.style.background = 'rgba(0, 255, 136, 0.15)';
+        fb.style.color = '#00ff88';
+        fb.textContent = '✓ Conexão com o Google Sheets estabelecida com sucesso!';
+      } else if (res.supabase === false) {
+        fb.style.background = 'rgba(248, 113, 113, 0.15)';
+        fb.style.color = '#f87171';
+        fb.textContent = '⚠️ Não foi possível conectar ao Supabase. Verifique a URL e a Anon Key informadas.';
+      } else {
+        fb.style.background = 'rgba(255, 255, 255, 0.08)';
+        fb.style.color = '#cbd5e1';
+        fb.textContent = 'Configurações salvas!';
+      }
+    }
+
+    DominioDB.flushSyncQueue();
+    DominioDB.updateCloudStatusUI();
+  }
+
+  function resetCloudConfigToLocal() {
+    const cfg = DominioDB.getConfig();
+    cfg.supabaseUrl = '';
+    cfg.supabaseAnonKey = '';
+    cfg.sheetsUrl = '';
+    DominioDB.saveConfig(cfg);
+
+    const urlInput = document.getElementById('cfg_supabase_url');
+    const keyInput = document.getElementById('cfg_supabase_anon_key');
+    const sheetsInput = document.getElementById('cfg_sheets_url');
+    if (urlInput) urlInput.value = '';
+    if (keyInput) keyInput.value = '';
+    if (sheetsInput) sheetsInput.value = '';
+
+    const fb = document.getElementById('cloudTestFeedback');
+    if (fb) {
+      fb.style.display = 'block';
+      fb.style.background = 'rgba(255, 255, 255, 0.08)';
+      fb.style.color = '#94a3b8';
+      fb.textContent = '✓ Modo de banco de dados redefinido para Local (Offline).';
+    }
+    DominioDB.updateCloudStatusUI();
+  }
+
+  async function handleFlushQueueClick() {
+    const synced = await DominioDB.flushSyncQueue();
+    alert(synced > 0 ? `✓ ${synced} itens sincronizados com sucesso!` : 'Fila verificada. Nenhum item pendente.');
+    DominioDB.updateCloudStatusUI();
+  }
+
+    function toggleFinishWorkoutBtn(dayId, isChecked) {
       const btn = document.getElementById('btnSendCoach-' + dayId);
       if (btn) {
         btn.disabled = !isChecked;
@@ -11123,7 +12047,7 @@ window.openWelcomeAppModal = function(notifId = null) {
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=147').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=146').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
