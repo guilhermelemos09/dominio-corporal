@@ -4591,6 +4591,12 @@
         <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:12px;" id="compPhotosGallery">
           <!-- Slots das Fotos: Frente, Lado, Costas -->
         </div>
+
+        <!-- Botão de Ação Direta para Adicionar / Atualizar Fotos -->
+        <button type="button" class="analysis-upload-banner" onclick="openAddMedicaoModal()" style="margin-top: 16px; margin-bottom: 4px; background: rgba(56, 189, 248, 0.12); border: 1.5px solid #38bdf8; color: #fff; font-weight: 800;">
+          <span style="font-size: 1.1rem; color: #38bdf8;">📸</span>
+          <span>Adicionar Novas Fotos (Registrar Medição)</span>
+        </button>
       </div>
       </div>
 
@@ -5458,6 +5464,68 @@
     </div>
   </div>
 
+  <!-- Modal de Notificações e Recados do Treinador -->
+  <div id="notificationsModal" class="modal-overlay" onclick="if(event.target === this) closeNotificationsModal(event);">
+    <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 480px;">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="font-size:1.25rem;">🔔</span>
+          <div>
+            <h3 style="margin:0; font-size:1.02rem; color:#fff;">Recados e Notificações</h3>
+            <span style="font-size:0.75rem; color:#38bdf8; font-weight:600;" id="notifUnreadCountBadge">2 Novas Mensagens</span>
+          </div>
+        </div>
+        <button class="btn-close" type="button" onclick="closeNotificationsModal(event, true)" aria-label="Fechar">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 16px 20px;">
+        <div class="notif-list">
+          <!-- Notificação 0: Boas-Vindas e Panorama Geral -->
+          <div class="notif-item unread" data-notif-id="jean-notif-welcome" onclick="dismissSingleNotification('jean-notif-welcome')">
+            <span class="notif-item-icon">🚀</span>
+            <div style="flex:1; min-width:0;">
+              <div class="notif-item-title">Boas-vindas ao Domínio Corporal, Jean!</div>
+              <div class="notif-item-desc">Seu aplicativo exclusivo de treino e evolução está no ar. Conheça as ferramentas, timers e acompanhamento de composição.</div>
+              <div class="notif-item-time">👋 Primeiros Passos • Bem-vindo</div>
+            </div>
+            <span class="notif-item-arrow">›</span>
+          </div>
+
+          <!-- Notificação 1: Status da Rotina de Treino -->
+          <div class="notif-item unread" data-notif-id="jean-notif-prescricao" onclick="dismissSingleNotification('jean-notif-prescricao')">
+            <span class="notif-item-icon">📝</span>
+            <div style="flex:1; min-width:0;">
+              <div class="notif-item-title">Rotina Personalizada em Elaboração</div>
+              <div class="notif-item-desc">O Prof. Gui Lemos está estruturando sua periodização sob medida. Em breve seus treinos estarão disponíveis.</div>
+              <div class="notif-item-time">⏱️ Hoje • Prescrição Técnica</div>
+            </div>
+            <span class="notif-item-arrow">›</span>
+          </div>
+
+          <!-- Notificação 2: Ficha de Avaliação Arquivada -->
+          <div class="notif-item" data-notif-id="jean-notif-avaliacao" onclick="dismissSingleNotification('jean-notif-avaliacao'); closeNotificationsModal(event, true); openDedicatedView('perfil');">
+            <span class="notif-item-icon">📋</span>
+            <div style="flex:1; min-width:0;">
+              <div class="notif-item-title">Ficha de Avaliação Inicial Arquivada</div>
+              <div class="notif-item-desc">Suas respostas de anamnese, saúde e metas estão salvas no seu perfil.</div>
+              <div class="notif-item-time">⏱️ Prontuário • Perfil do Atleta ↗</div>
+            </div>
+            <span class="notif-item-arrow">›</span>
+          </div>
+        </div>
+
+        <!-- Rodapé do Modal -->
+        <div style="margin-top: 16px; display:flex; justify-content:space-between; align-items:center; border-top: 1px solid var(--border-subtle); padding-top: 12px;">
+          <button type="button" onclick="markAllNotificationsAsRead()" style="background:none; border:none; color:var(--text-muted); font-size:0.75rem; cursor:pointer; text-decoration:underline;">
+            ✓ Marcar todas como lidas
+          </button>
+          <button type="button" onclick="closeNotificationsModal(event, true)" style="background:rgba(255,255,255,0.08); border:1px solid var(--border-subtle); color:#fff; font-size:0.78rem; font-weight:600; padding:6px 14px; border-radius:8px; cursor:pointer;">
+            Fechar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
 
         /* Modal de Envio de Vídeo para Análise Técnica (WhatsApp) */
@@ -6163,6 +6231,93 @@ Segue o vídeo anexo para sua análise!`;
         const bf = 495 / (1.0324 - 0.19077 * Math.log10(val) + 0.15456 * Math.log10(height)) - 450;
         return (bf >= 3 && bf <= 65) ? Math.round(bf * 10) / 10 : null;
       }
+    }
+
+        /* ===================================================
+       CENTRAL DE NOTIFICAÇÕES E RECADOS
+       =================================================== */
+    let notifModalOpenTime = 0;
+    window.openNotificationsModal = function(e) {
+      if (e) {
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+      }
+      const modal = document.getElementById('notificationsModal');
+      if (modal) {
+        notifModalOpenTime = Date.now();
+        modal.style.setProperty('display', 'flex', 'important');
+        modal.classList.add('active');
+        if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'notificationsModal' }, 'notificacoes');
+      }
+    };
+
+    window.closeNotificationsModal = function(e, force = false, fromPopState = false) {
+      if (!fromPopState && typeof popAppHistoryState === 'function' && popAppHistoryState('modal')) return;
+      if (!force && (Date.now() - notifModalOpenTime < 650)) return;
+      if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
+      const modal = document.getElementById('notificationsModal');
+      if (modal) {
+        modal.style.setProperty('display', 'none', 'important');
+        modal.classList.remove('active');
+      }
+    };
+
+    function getReadNotifications() {
+      try {
+        const raw = localStorage.getItem('dominio_read_notifications');
+        return raw ? JSON.parse(raw) : {};
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function saveReadNotifications(map) {
+      try {
+        localStorage.setItem('dominio_read_notifications', JSON.stringify(map));
+      } catch (e) {}
+    }
+
+    function updateNotificationsUI() {
+      const readMap = getReadNotifications();
+      let unreadCount = 0;
+      document.querySelectorAll('#notificationsModal .notif-item').forEach(item => {
+        const id = item.getAttribute('data-notif-id');
+        if (id && readMap[id]) {
+          item.classList.remove('unread');
+        } else if (item.classList.contains('unread')) {
+          unreadCount++;
+        }
+      });
+      const badge = document.getElementById('headerNotifBadge');
+      if (badge) {
+        if (unreadCount > 0) {
+          badge.textContent = unreadCount;
+          badge.style.display = 'inline-flex';
+        } else {
+          badge.style.display = 'none';
+        }
+      }
+      const countEl = document.getElementById('notifUnreadCountBadge');
+      if (countEl) {
+        countEl.textContent = unreadCount === 0 ? 'Tudo lido ✓' : `${unreadCount} Nova${unreadCount > 1 ? 's' : ''} Mensagen${unreadCount > 1 ? 's' : ''}`;
+      }
+    }
+
+    function dismissSingleNotification(notifId) {
+      const readMap = getReadNotifications();
+      readMap[notifId] = true;
+      saveReadNotifications(readMap);
+      updateNotificationsUI();
+    }
+
+    function markAllNotificationsAsRead() {
+      const readMap = getReadNotifications();
+      document.querySelectorAll('#notificationsModal .notif-item').forEach(item => {
+        const id = item.getAttribute('data-notif-id');
+        if (id) readMap[id] = true;
+      });
+      saveReadNotifications(readMap);
+      updateNotificationsUI();
     }
 
     function renderBodyCompUI() {
