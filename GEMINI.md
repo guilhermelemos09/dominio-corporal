@@ -297,3 +297,30 @@ A Central de Evolução integra o acompanhamento antropométrico dinâmico, base
 ### 9.4 Proibição de Aspas Simples / Apóstrofos em Parâmetros de Modais (`openVideoModal`):
 - **NUNCA** usar apóstrofo como representação de minutos (ex: `8'`, `12'`, `2'`) dentro dos atributos HTML `onclick="openVideoModal('...')"` para não corromper o delimitador da string JavaScript.
 - Usar sempre a palavra `MIN` por extenso (ex: `EMOM 8 MIN`, `AMRAP 2 MIN`).
+
+---
+
+## 10. ANÁLISES DE VÍDEO E DEVOLUTIVAS TÉCNICAS (PADRÃO OURO)
+
+Todas as análises biomecânicas de vídeo gravadas por alunos ou pelo treinador devem seguir rigorosamente a **estrutura pentapartida de blocos visuais**, com destaque temático por cores e ordem estrita:
+
+### 10.1 Estrutura Canônica das Seções de Análise:
+1. **`EXECUÇÃO` (Verde Neon `#00ff88`):**
+   - Descrição cinemática limpa do movimento filmado: trajetória, posicionamento articular, pegada, ritmo e fases excêntrica/concêntrica observadas.
+2. **`DIAGNÓSTICO` (Amarelo Esportivo `#fbbf24`):**
+   - Análise clínica e biomecânica minuciosa: preservação articular, ativação de estabilizadores primários, vetores de força e identificação de compensações.
+3. **`PROGRESSÃO` (Laranja Coral `#f97316` — Posicionado Imediatamente Antes de Exercícios Sugeridos):**
+   - **Feedback 100% Sincero e Construtivo:** Aponta abertamente o que faltou na execução (perda de tensão distal, quebra sutil de alinhamento, micro-hesitação ou falta de protação/depressão).
+   - **Diretriz de Aperfeiçoamento:** Explica o ajuste fino necessário e a meta técnica para alcançar a maestria no movimento (o próximo degrau).
+4. **`EXERCÍCIOS SUGERIDOS` (Roxo Violeta `#a78bfa`):**
+   - Prescrição prática de 2 a 3 educativos específicos com volume e intensidade para corrigir as lacunas identificadas na *Progressão*.
+5. **`BASE CIENTÍFICA` (Ciano Técnico `#38bdf8`):**
+   - Fundamentação fisiológica, cinesiológica e artigos acadêmicos que respaldam o diagnóstico e as progressões prescritas.
+
+### 10.2 Estilo Visual dos Blocos:
+Cada bloco utiliza fundo translúcido suave (`rgba(..., 0.04)`), borda lateral contínua de 2.5px na cor tema do bloco e títulos em negrito com a respectiva cor:
+- Execução: `border-left: 2.5px solid var(--brand-neon); color: #00ff88;`
+- Diagnóstico: `border-left: 2.5px solid #fbbf24; color: #fbbf24;`
+- Progressão: `border-left: 2.5px solid #f97316; color: #f97316;`
+- Exercícios sugeridos: `border-left: 2.5px solid #a78bfa; color: #a78bfa;`
+- Base científica: `border-left: 2.5px solid #38bdf8; color: #38bdf8;`
