@@ -11767,7 +11767,7 @@ window.openWelcomeAppModal = function(notifId = null) {
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=144').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=146').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
