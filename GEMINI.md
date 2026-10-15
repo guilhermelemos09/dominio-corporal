@@ -230,5 +230,20 @@ A Central de Evolução integra o acompanhamento antropométrico dinâmico, base
   - `#modalInstrucoesFotos`: Guia de padronização fotográfica (iluminação, distância, postura frente/lado/costas).
   - `#modalRelatorioComposicao`: Laudo técnico completo para visualização, impressão A4 limpa (`@media print`) e compartilhamento direto para WhatsApp do treinador.
 
+---
+
+## 8. IMUTABILIDADE DOS TREINOS CONCLUÍDOS E DEVOLUTIVAS VIA NOTIFICAÇÕES (PADRÃO OURO)
+
+### 8.1 Regra Estrita de Imutabilidade da Estrutura de Treinos Passados/Concluídos:
+- **PROIBIÇÃO ABSOLUTA de Alterar Estrutura de Treino Concluído:** Uma vez que um treino foi executado, registrado ou concluído pelo aluno ou treinador, a sua estrutura de exercícios, séries, repetições e blocos (`tab-<dia>`) torna-se um **registro histórico estritamente imutável**.
+- **NÃO** alterar nomes de exercícios, adicionar/remover exercícios, reescrever blocos ou desestruturar uma sessão já finalizada no aplicativo para tentar inserir relatórios ou observações posteriores.
+
+### 8.2 Canal Único e Oficial para Relatórios e Devolutivas: Central de Notificações
+- Todas as devolutivas técnicas, análises de vídeos de treino, diagnósticos biomecânicos e relatórios de treinamento (tanto para o treinador Gui quanto para os alunos) devem ser transmitidos **exclusivamente através da Central de Notificações (`#notificationsModal`)**:
+  - Cada devolutiva gera uma notificação dedicada com status `unread` (ícone temático, título do treino/data, resumo sucinto).
+  - O clique na notificação abre o modal técnico detalhado da devolutiva (`#devolutivaTreinoModal`) ou direciona para o respectivo card de análise, marcando o item como lido no histórico do aluno/treinador.
+  - A rotina de treinos permanece 100% limpa, íntegra e preservada para consultas, progressões e reexecuções futuras.
+
+
 
 
