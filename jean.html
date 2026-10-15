@@ -507,8 +507,11 @@
     /* Bolinhas de Série em Dark Mode */
     .sets-container {
       display: flex;
+      flex-wrap: wrap;
       gap: 6px;
       align-items: center;
+      max-width: 100%;
+      box-sizing: border-box;
     }
     .set-pill {
       width: 34px;
@@ -6563,6 +6566,41 @@ Segue o vídeo anexo para sua análise!`;
       modal.style.setProperty('display', 'none', 'important');
       modal.classList.remove('active');
     }
+
+        function openWorkoutTimerWithCard(mode, minutes, title, notes, triggerBtn = null) {
+      openDedicatedTimerWithMode(mode, minutes, title, notes);
+      
+      const mirrorWrap = document.getElementById('timerWodSetsWrap');
+      const mirrorContainer = document.getElementById('timerWodSetsMirror');
+      
+      if (triggerBtn && mirrorWrap && mirrorContainer) {
+        const exCard = triggerBtn.closest('.exercise-card');
+        const setsContainer = exCard ? exCard.querySelector('.sets-container') : null;
+        
+        if (setsContainer) {
+          mirrorContainer.innerHTML = '';
+          const originalPills = setsContainer.querySelectorAll('.set-pill');
+          
+          originalPills.forEach((origPill) => {
+            const mirrorPill = document.createElement('div');
+            mirrorPill.className = origPill.className;
+            mirrorPill.textContent = origPill.textContent;
+            mirrorPill.title = origPill.title || '';
+            mirrorPill.onclick = function() {
+              toggleSet(origPill);
+              mirrorPill.className = origPill.className;
+            };
+            mirrorContainer.appendChild(mirrorPill);
+          });
+          mirrorWrap.style.display = 'block';
+        } else {
+          mirrorWrap.style.display = 'none';
+        }
+      } else if (mirrorWrap) {
+        mirrorWrap.style.display = 'none';
+      }
+    }
+    window.openWorkoutTimerWithCard = openWorkoutTimerWithCard;
 
     function openDedicatedTimerWithMode(mode, minutes, title, notes) {
       openDedicatedView('timers');

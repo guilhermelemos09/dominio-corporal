@@ -244,6 +244,56 @@ A Central de Evolução integra o acompanhamento antropométrico dinâmico, base
   - O clique na notificação abre o modal técnico detalhado da devolutiva (`#devolutivaTreinoModal`) ou direciona para o respectivo card de análise, marcando o item como lido no histórico do aluno/treinador.
   - A rotina de treinos permanece 100% limpa, íntegra e preservada para consultas, progressões e reexecuções futuras.
 
+---
 
+## 9. CARDS DE TREINO, SÉRIES, CRONÔMETROS E DESCANSO (PADRÃO OURO)
 
+### 9.1 Quebra Automática de Séries / Checkboxes (`flex-wrap: wrap;`):
+- As pílulas de séries e minutos (`.set-pill`) dentro do container (`.sets-container`) devem **permanecer estritamente dentro da largura do card**, nunca ultrapassando a borda da tela no mobile.
+- Propriedades obrigatórias:
+  ```css
+  .sets-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .ex-volume-sets-row {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  ```
+- Em treinos com muitas séries (ex: EMOM de 8, 10 ou 12 minutos), os checkboxes quebram naturalmente para as linhas de baixo mantendo espaçamento uniforme e ergonomia de toque.
 
+### 9.2 Botão de Acesso Direto ao Cronômetro para EMOM, AMRAP e TABATA:
+- Sempre que houver um bloco ou exercício em formato **EMOM, E3MOM, AMRAP ou TABATA**, deve ser inserido o botão dedicado (`.btn-workout-timer-cta`).
+- **Posição Obrigatória:** Imediatamente abaixo do container de séries (`.ex-volume-sets-row`), e **antes** da área de observações e envio da execução (`.ex-bottom-actions`).
+- **Estilo Canônico:** Gradiente Ciano Noturno (`background: linear-gradient(90deg, rgba(56, 189, 248, 0.15) 0%, rgba(56, 189, 248, 0.05) 100%), #0e1e2e;`), borda ciano suave (`1px solid rgba(56, 189, 248, 0.45)`), texto em caixa alta e ícone de cronômetro.
+- **Estrutura HTML Canônica:**
+  ```html
+  <div class="workout-timer-cta-wrap">
+    <button type="button" class="btn-workout-timer-cta" onclick="openWorkoutTimerWithCard('emom', 8, 'EMOM 8 MIN • CONDICIONAMENTO', 'Minuto 1: 8 a 10 Candlestick Kips\nMinuto 2: 8 Ring Push-ups', this)">
+      <svg viewBox="0 0 24 24"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
+      <span>Abrir Cronômetro EMOM (8 min) ➔</span>
+    </button>
+  </div>
+  ```
+- **Espelhamento Interativo das Séries no Cronômetro:** O card de referência rápida do timer (`#timerWodQuickReference`) exibe um container espelhado das séries (`#timerWodSetsWrap` e `#timerWodSetsMirror`), permitindo que o aluno ou treinador marque cada round/minuto diretamente no cronômetro conforme o tempo avança, mantendo o card do treino 100% sincronizado.
+- **Chamada Canônica:** `openWorkoutTimerWithCard(mode, minutes, title, notes, this)`
+
+### 9.3 Tempo de Descanso Obrigatório no Badge de Volume (`REST`):
+- Todo badge de volume de exercício (`.ex-volume-badge`) deve **obrigatoriamente incluir no final a especificação do tempo de descanso** entre séries ou rounds.
+- **Formato Padronizado:** `• ⏱️ REST: <TEMPO>`
+  - Exemplos Canônicos:
+    - `3 SÉRIES • 35-45S ISOMETRIA • ⏱️ REST: 45S`
+    - `3 SÉRIES • 5-6 REPS (CADÊNCIA 3010) • ⏱️ REST: 90S`
+    - `3 A 4 SÉRIES • 1-2 REPS 🎥 • ⏱️ REST: 2-3 MIN`
+    - `8 MINUTOS • 4 PASSAGENS • ⏱️ REST: EMOM (INTERVALO FIXO)`
+    - `5 ROUNDS • WALLBALL 9 KG • ⏱️ REST: 1 MIN ENTRE ROUNDS`
+    - `3 EXERCÍCIOS • DESCOMPRESSÃO COMPLETA • ⏱️ REST: LIVRE`
+
+### 9.4 Proibição de Aspas Simples / Apóstrofos em Parâmetros de Modais (`openVideoModal`):
+- **NUNCA** usar apóstrofo como representação de minutos (ex: `8'`, `12'`, `2'`) dentro dos atributos HTML `onclick="openVideoModal('...')"` para não corromper o delimitador da string JavaScript.
+- Usar sempre a palavra `MIN` por extenso (ex: `EMOM 8 MIN`, `AMRAP 2 MIN`).

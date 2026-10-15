@@ -512,8 +512,11 @@
     /* Bolinhas de Série em Dark Mode */
     .sets-container {
       display: flex;
+      flex-wrap: wrap;
       gap: 6px;
       align-items: center;
+      max-width: 100%;
+      box-sizing: border-box;
     }
     .set-pill {
       width: 34px;
@@ -4223,6 +4226,45 @@
       padding: 6px 0;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .workout-timer-cta-wrap {
+      margin: 4px 0 10px 0;
+      width: 100%;
+    }
+    .btn-workout-timer-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: linear-gradient(90deg, rgba(56, 189, 248, 0.15) 0%, rgba(56, 189, 248, 0.05) 100%), #0e1e2e;
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      border-radius: 10px;
+      padding: 9px 14px;
+      color: #38bdf8;
+      font-size: 0.82rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .btn-workout-timer-cta svg {
+      width: 15px;
+      height: 15px;
+      fill: #38bdf8;
+      flex-shrink: 0;
+    }
+    .btn-workout-timer-cta:hover {
+      background: rgba(56, 189, 248, 0.25);
+      border-color: #38bdf8;
+      box-shadow: 0 0 14px rgba(56, 189, 248, 0.25);
+      transform: translateY(-1px);
+    }
+    .btn-workout-timer-cta:active {
+      transform: scale(0.98);
     }
     .ex-volume-badge {
       font-size: 0.78rem;
@@ -5136,7 +5178,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">2 ROUNDS • 5 MOVIMENTOS</div>
+          <div class="ex-volume-badge">2 ROUNDS • 5 MOVIMENTOS • ⏱️ REST: 60S</div>
           <div class="sets-container">
             <div class="set-pill done" onclick="toggleSet(this)">Round 1</div>
             <div class="set-pill done" onclick="toggleSet(this)">Round 2</div>
@@ -5176,18 +5218,27 @@
       <div class="exercise-card">
         <div class="ex-title">
           <span>FORÇA LPO • E3MOM 4 ROUNDS</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('FORÇA LPO • E3MOM 4 ROUNDS', '<b>Execução:</b> A cada 3 minutos, por 4 rounds (E3MOM 12'):<br>1. 8 Back Squats (com progressão de carga até 80 kg)<br>2. 6/6 DB Reverse Lunges (com halteres de 15 kg)<br>3. 8 Barbell Rows (remadas curvadas com pegada pronada).<br><br><b>Cuidados:</b> 1. Carga máxima atingida: 80 kg no Back Squat com excelente base e profundidade estável.<br>2. Nos afundos com halteres de 15 kg, manter a descida controlada no passo para trás sem impacto de desaceleração no menisco lateral esquerdo.<br><br><b>Base científica:</b> HIPERTROFIA E POTÊNCIA EM BLOCOS TEMPORIZADOS (E3MOM): O intervalo de 3 minutos garante restauração suficiente de estoques de fosfocreatina (PCr) para manter intensidade biomecânica alta sem perda de técnica (Schoenfeld, 2016).', '')">
+          <button type="button" class="btn-video" onclick="openVideoModal('FORÇA LPO • E3MOM 4 ROUNDS', '<b>Execução:</b> A cada 3 minutos, por 4 rounds (E3MOM 12 min):<br>1. 8 Back Squats (com progressão de carga até 80 kg)<br>2. 6/6 DB Reverse Lunges (com halteres de 15 kg)<br>3. 8 Barbell Rows (remadas curvadas com pegada pronada).<br><br><b>Cuidados:</b> 1. Carga máxima atingida: 80 kg no Back Squat com excelente base e profundidade estável.<br>2. Nos afundos com halteres de 15 kg, manter a descida controlada no passo para trás sem impacto de desaceleração no menisco lateral esquerdo.<br><br><b>Base científica:</b> HIPERTROFIA E POTÊNCIA EM BLOCOS TEMPORIZADOS (E3MOM): O intervalo de 3 minutos garante restauração suficiente de estoques de fosfocreatina (PCr) para manter intensidade biomecânica alta sem perda de técnica (Schoenfeld, 2016).', '')">
             <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">4 ROUNDS • SQUAT 80 KG • DB 15 KG</div>
+          <div class="ex-volume-badge">4 ROUNDS • SQUAT 80 KG • DB 15 KG • ⏱️ REST: E3MOM (3 MIN)</div>
           <div class="sets-container">
             <div class="set-pill done" onclick="toggleSet(this)">Round 1</div>
             <div class="set-pill done" onclick="toggleSet(this)">Round 2</div>
             <div class="set-pill done" onclick="toggleSet(this)">Round 3</div>
             <div class="set-pill done" onclick="toggleSet(this)">Round 4 (80kg)</div>
           </div>
+        </div>
+        <div class="workout-timer-cta-wrap">
+          <button type="button" class="btn-workout-timer-cta" onclick="openWorkoutTimerWithCard('emom', 12, 'E3MOM 12 MIN • FORÇA LPO', 'A cada 3 min por 4 rounds:
+• 8 Back Squats (até 80kg)
+• 6/6 DB Reverse Lunges (15kg)
+• 8 Barbell Rows', this)">
+            <svg viewBox="0 0 24 24"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
+            <span>Abrir Cronômetro E3MOM (12 min) ➔</span>
+          </button>
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('Força LPO E3MOM • Terça')">
@@ -5223,12 +5274,12 @@
       <div class="exercise-card">
         <div class="ex-title">
           <span>WOD 5X AMRAP 2' • 1' REST</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('WOD 5X AMRAP 2' • 1' REST', '<b>Execução:</b> 5 passagens de AMRAP 2 minutos com 1 minuto de descanso entre cada passagem:<br>1. 35 Double Unders (ou 60 Single Unders)<br>2. 9 Toes To Bar (compressão pélvica e ritmo gímnico)<br>3. 12 Box Jump Overs (com descida no passo - step-down)<br>4. 15 Wallballs com 20 lb (9 kg).<br><br><b>Cuidados:</b> 1. Nos Box Jump Overs, o step-down é obrigatório para resguardar o menisco lateral esquerdo contra desacelerações de alta força de reação.<br>2. No Wallball de 9 kg, manter base sólida com joelhos alinhados com o segundo metatarso.<br><br><b>Base científica:</b> CAPACIDADE GLICOLÍTICA INTERMITENTE: A relação 2:1 (2 min esforço : 1 min pausa) exige alto tamponamento de lactato e tolerância à fadiga central, preservando a técnica sob estresse cardiovascular (Buchheit e Laursen, 2013).', '')">
+          <button type="button" class="btn-video" onclick="openVideoModal('WOD 5X AMRAP 2 MIN • 1 MIN REST', '<b>Execução:</b> 5 passagens de AMRAP 2 minutos com 1 minuto de descanso entre cada passagem:<br>1. 35 Double Unders (ou 60 Single Unders)<br>2. 9 Toes To Bar (compressão pélvica e ritmo gímnico)<br>3. 12 Box Jump Overs (com descida no passo - step-down)<br>4. 15 Wallballs com 20 lb (9 kg).<br><br><b>Cuidados:</b> 1. Nos Box Jump Overs, o step-down é obrigatório para resguardar o menisco lateral esquerdo contra desacelerações de alta força de reação.<br>2. No Wallball de 9 kg, manter base sólida com joelhos alinhados com o segundo metatarso.<br><br><b>Base científica:</b> CAPACIDADE GLICOLÍTICA INTERMITENTE: A relação 2:1 (2 min esforço : 1 min pausa) exige alto tamponamento de lactato e tolerância à fadiga central, preservando a técnica sob estresse cardiovascular (Buchheit e Laursen, 2013).', '')">
             <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">5 ROUNDS • WALLBALL 9 KG</div>
+          <div class="ex-volume-badge">5 ROUNDS • WALLBALL 9 KG • ⏱️ REST: 1 MIN ENTRE ROUNDS</div>
           <div class="sets-container">
             <div class="set-pill done" onclick="toggleSet(this)">Round 1</div>
             <div class="set-pill done" onclick="toggleSet(this)">Round 2</div>
@@ -5236,6 +5287,16 @@
             <div class="set-pill done" onclick="toggleSet(this)">Round 4</div>
             <div class="set-pill done" onclick="toggleSet(this)">Round 5</div>
           </div>
+        </div>
+        <div class="workout-timer-cta-wrap">
+          <button type="button" class="btn-workout-timer-cta" onclick="openWorkoutTimerWithCard('amrap', 2, 'WOD 5X AMRAP 2 MIN • 1 MIN REST', '5x AMRAP 2 min com 1 min descanso:
+• 35 Double Unders
+• 9 Toes To Bar
+• 12 Box Jump Overs (step-down)
+• 15 Wallballs (20lb / 9kg)', this)">
+            <svg viewBox="0 0 24 24"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
+            <span>Abrir Cronômetro AMRAP (2 min) ➔</span>
+          </button>
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('WOD 5x AMRAP • Terça')">
@@ -5315,7 +5376,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 SÉRIES • 35-45S ISOMETRIA</div>
+          <div class="ex-volume-badge">3 SÉRIES • 35-45S ISOMETRIA • ⏱️ REST: 45S</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
@@ -5350,7 +5411,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">2 SÉRIES • 10 REPS CONTROLADAS</div>
+          <div class="ex-volume-badge">2 SÉRIES • 10 REPS CONTROLADAS • ⏱️ REST: 30S</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
@@ -5384,7 +5445,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">2 ROUNDS • 8 + 8 REPS</div>
+          <div class="ex-volume-badge">2 ROUNDS • 8 + 8 REPS • ⏱️ REST: 60S</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Round 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Round 2</div>
@@ -5418,7 +5479,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">2 ROUNDS • 15 + 15 REPS</div>
+          <div class="ex-volume-badge">2 ROUNDS • 15 + 15 REPS • ⏱️ REST: 45S</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Round 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Round 2</div>
@@ -5464,7 +5525,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 SÉRIES • 12-15S ISOMETRIA</div>
+          <div class="ex-volume-badge">3 SÉRIES • 12-15S ISOMETRIA • ⏱️ REST: 60S</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
@@ -5499,7 +5560,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 SÉRIES • 3 REPS LENTAS</div>
+          <div class="ex-volume-badge">3 SÉRIES • 3 REPS LENTAS • ⏱️ REST: 90S</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
@@ -5534,7 +5595,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 A 4 SÉRIES • 1 REP DE OURO 🎥</div>
+          <div class="ex-volume-badge">3 A 4 SÉRIES • 1 REP DE OURO 🎥 • ⏱️ REST: 2-3 MIN</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Tentativa 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Tentativa 2</div>
@@ -5570,7 +5631,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 A 4 SÉRIES • 1-2 REPS 🎥</div>
+          <div class="ex-volume-badge">3 A 4 SÉRIES • 1-2 REPS 🎥 • ⏱️ REST: 2-3 MIN</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
@@ -5618,7 +5679,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 SÉRIES • 15-20S ISOMETRIA</div>
+          <div class="ex-volume-badge">3 SÉRIES • 15-20S ISOMETRIA • ⏱️ REST: 60S</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
@@ -5653,7 +5714,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 SÉRIES • 5-6 REPS (CADÊNCIA 3010)</div>
+          <div class="ex-volume-badge">3 SÉRIES • 5-6 REPS (CADÊNCIA 3010) • ⏱️ REST: 90S</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
@@ -5688,7 +5749,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 SÉRIES • 6-8 REPS</div>
+          <div class="ex-volume-badge">3 SÉRIES • 6-8 REPS • ⏱️ REST: 90S</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
@@ -5730,12 +5791,12 @@
       <div class="exercise-card">
         <div class="ex-title">
           <span>EMOM 8' • CANDLESTICKS E RING PUSH-UPS</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('EMOM 8' • CANDLESTICKS E RING PUSH-UPS', '<b>Execução:</b> A cada minuto, durante 8 minutos (4 rounds de cada estação):<br>1. Minuto 1: 8 a 10 Candlestick Kips (ou V-ups no tatame) com elevação pélvica vertical e descida controlada vértebra por vértebra.<br>2. Minuto 2: 8 Ring Push-ups com protração escapular ativa e rotação externa no topo.<br><br><b>Cuidados:</b> 1. Nas flexões nas argolas, manter o core firme sem deixar o quadril afundar.<br>2. No Candlestick, amortecer a descida no solo sem bater a coluna lombar.<br><br><b>Base científica:</b> DENSIDADE GLICOLÍTICA EM CADEIAS ANTAGONISTAS: O trabalho alternado de flexão de tronco e empurrar sob intervalo fixo otimiza o condicionamento anaeróbio alático-lático sem acúmulo excessivo de fadiga mecânica periférica (Buchheit e Laursen, 2013).', '')">
+          <button type="button" class="btn-video" onclick="openVideoModal('EMOM 8 MIN • CANDLESTICKS E RING PUSH-UPS', '<b>Execução:</b> A cada minuto, durante 8 minutos (4 rounds de cada estação):<br>1. Minuto 1: 8 a 10 Candlestick Kips (ou V-ups no tatame) com elevação pélvica vertical e descida controlada vértebra por vértebra.<br>2. Minuto 2: 8 Ring Push-ups com protração escapular ativa e rotação externa no topo.<br><br><b>Cuidados:</b> 1. Nas flexões nas argolas, manter o core firme sem deixar o quadril afundar.<br>2. No Candlestick, amortecer a descida no solo sem bater a coluna lombar.<br><br><b>Base científica:</b> DENSIDADE GLICOLÍTICA EM CADEIAS ANTAGONISTAS: O trabalho alternado de flexão de tronco e empurrar sob intervalo fixo otimiza o condicionamento anaeróbio alático-lático sem acúmulo excessivo de fadiga mecânica periférica (Buchheit e Laursen, 2013).', '')">
             <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">8 MINUTOS • 4 PASSAGENS</div>
+          <div class="ex-volume-badge">8 MINUTOS • 4 PASSAGENS • ⏱️ REST: EMOM (INTERVALO FIXO)</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Min 1 (Candle)</div>
             <div class="set-pill" onclick="toggleSet(this)">Min 2 (Push)</div>
@@ -5746,6 +5807,13 @@
             <div class="set-pill" onclick="toggleSet(this)">Min 7 (Candle)</div>
             <div class="set-pill" onclick="toggleSet(this)">Min 8 (Push)</div>
           </div>
+        </div>
+        <div class="workout-timer-cta-wrap">
+          <button type="button" class="btn-workout-timer-cta" onclick="openWorkoutTimerWithCard('emom', 8, 'EMOM 8 MIN • CONDICIONAMENTO', 'Minuto 1: 8 a 10 Candlestick Kips
+Minuto 2: 8 Ring Push-ups', this)">
+            <svg viewBox="0 0 24 24"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
+            <span>Abrir Cronômetro EMOM (8 min) ➔</span>
+          </button>
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-send-video" onclick="openSendVideoModal('EMOM 8 Gímnico • Quarta')">
@@ -5787,7 +5855,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 EXERCÍCIOS • DESCOMPRESSÃO COMPLETA</div>
+          <div class="ex-volume-badge">3 EXERCÍCIOS • DESCOMPRESSÃO COMPLETA • ⏱️ REST: LIVRE</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Kirsch 45s</div>
             <div class="set-pill" onclick="toggleSet(this)">Peitoral/Dorsal</div>
@@ -7098,6 +7166,15 @@
           <span class="ref-day-name" id="timerWodRefTitle">Skill EMOM 12'</span>
         </div>
         <div class="ref-content" id="timerWodRefContent" style="white-space: pre-line;"></div>
+
+        <!-- Séries e Rounds Interativos no Próprio Timer -->
+        <div id="timerWodSetsWrap" style="display:none; margin-top:12px; padding-top:10px; border-top:1px solid rgba(255,255,255,0.08);">
+          <div style="font-size:0.75rem; font-weight:800; color:var(--brand-neon); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.04em;">
+            ✓ Marcar Séries / Minutos no Timer:
+          </div>
+          <div id="timerWodSetsMirror" class="sets-container" style="flex-wrap:wrap; gap:6px;"></div>
+        </div>
+
         <div style="margin-top:12px; padding-top:10px; border-top:1px solid rgba(255,255,255,0.08); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
           <span style="font-size:0.72rem; color:var(--text-dim);">Pronto para voltar ao treino?</span>
           <button type="button" class="btn-preset" onclick="if(lastActiveDayTab) openDayWorkout(lastActiveDayTab); else closeDedicatedView();" style="border-color:rgba(56,189,248,0.4); color:#38bdf8; font-size:0.75rem; padding:6px 14px; font-weight:700; cursor:pointer;">
@@ -10243,6 +10320,41 @@
       window.open(url, '_blank');
     }
 
+        function openWorkoutTimerWithCard(mode, minutes, title, notes, triggerBtn = null) {
+      openDedicatedTimerWithMode(mode, minutes, title, notes);
+      
+      const mirrorWrap = document.getElementById('timerWodSetsWrap');
+      const mirrorContainer = document.getElementById('timerWodSetsMirror');
+      
+      if (triggerBtn && mirrorWrap && mirrorContainer) {
+        const exCard = triggerBtn.closest('.exercise-card');
+        const setsContainer = exCard ? exCard.querySelector('.sets-container') : null;
+        
+        if (setsContainer) {
+          mirrorContainer.innerHTML = '';
+          const originalPills = setsContainer.querySelectorAll('.set-pill');
+          
+          originalPills.forEach((origPill) => {
+            const mirrorPill = document.createElement('div');
+            mirrorPill.className = origPill.className;
+            mirrorPill.textContent = origPill.textContent;
+            mirrorPill.title = origPill.title || '';
+            mirrorPill.onclick = function() {
+              toggleSet(origPill);
+              mirrorPill.className = origPill.className;
+            };
+            mirrorContainer.appendChild(mirrorPill);
+          });
+          mirrorWrap.style.display = 'block';
+        } else {
+          mirrorWrap.style.display = 'none';
+        }
+      } else if (mirrorWrap) {
+        mirrorWrap.style.display = 'none';
+      }
+    }
+    window.openWorkoutTimerWithCard = openWorkoutTimerWithCard;
+
     function openDedicatedTimerWithMode(mode, minutes, title, notes) {
       const activeTab = document.querySelector('.tab-content.active');
       if (activeTab && activeTab.id && activeTab.id.startsWith('tab-')) {
@@ -11961,7 +12073,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=148').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=149').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });

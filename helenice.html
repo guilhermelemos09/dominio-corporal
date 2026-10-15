@@ -512,8 +512,11 @@
     /* Bolinhas de Série em Dark Mode */
     .sets-container {
       display: flex;
+      flex-wrap: wrap;
       gap: 6px;
       align-items: center;
+      max-width: 100%;
+      box-sizing: border-box;
     }
     .set-pill {
       width: 34px;
@@ -4052,6 +4055,45 @@
       padding: 6px 0;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .workout-timer-cta-wrap {
+      margin: 4px 0 10px 0;
+      width: 100%;
+    }
+    .btn-workout-timer-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: linear-gradient(90deg, rgba(56, 189, 248, 0.15) 0%, rgba(56, 189, 248, 0.05) 100%), #0e1e2e;
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      border-radius: 10px;
+      padding: 9px 14px;
+      color: #38bdf8;
+      font-size: 0.82rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .btn-workout-timer-cta svg {
+      width: 15px;
+      height: 15px;
+      fill: #38bdf8;
+      flex-shrink: 0;
+    }
+    .btn-workout-timer-cta:hover {
+      background: rgba(56, 189, 248, 0.25);
+      border-color: #38bdf8;
+      box-shadow: 0 0 14px rgba(56, 189, 248, 0.25);
+      transform: translateY(-1px);
+    }
+    .btn-workout-timer-cta:active {
+      transform: scale(0.98);
     }
     .ex-volume-badge {
       font-size: 0.78rem;
@@ -6492,6 +6534,15 @@
           <span class="ref-day-name" id="timerWodRefTitle">Skill EMOM 12'</span>
         </div>
         <div class="ref-content" id="timerWodRefContent" style="white-space: pre-line;"></div>
+
+        <!-- Séries e Rounds Interativos no Próprio Timer -->
+        <div id="timerWodSetsWrap" style="display:none; margin-top:12px; padding-top:10px; border-top:1px solid rgba(255,255,255,0.08);">
+          <div style="font-size:0.75rem; font-weight:800; color:var(--brand-neon); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.04em;">
+            ✓ Marcar Séries / Minutos no Timer:
+          </div>
+          <div id="timerWodSetsMirror" class="sets-container" style="flex-wrap:wrap; gap:6px;"></div>
+        </div>
+
         <div style="margin-top:12px; padding-top:10px; border-top:1px solid rgba(255,255,255,0.08); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
           <span style="font-size:0.72rem; color:var(--text-dim);">Pronto para voltar ao treino?</span>
           <button type="button" class="btn-preset" onclick="if(lastActiveDayTab) openDayWorkout(lastActiveDayTab); else closeDedicatedView();" style="border-color:rgba(56,189,248,0.4); color:#38bdf8; font-size:0.75rem; padding:6px 14px; font-weight:700; cursor:pointer;">
@@ -9224,6 +9275,41 @@
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
       window.open(url, '_blank');
     }
+
+        function openWorkoutTimerWithCard(mode, minutes, title, notes, triggerBtn = null) {
+      openDedicatedTimerWithMode(mode, minutes, title, notes);
+      
+      const mirrorWrap = document.getElementById('timerWodSetsWrap');
+      const mirrorContainer = document.getElementById('timerWodSetsMirror');
+      
+      if (triggerBtn && mirrorWrap && mirrorContainer) {
+        const exCard = triggerBtn.closest('.exercise-card');
+        const setsContainer = exCard ? exCard.querySelector('.sets-container') : null;
+        
+        if (setsContainer) {
+          mirrorContainer.innerHTML = '';
+          const originalPills = setsContainer.querySelectorAll('.set-pill');
+          
+          originalPills.forEach((origPill) => {
+            const mirrorPill = document.createElement('div');
+            mirrorPill.className = origPill.className;
+            mirrorPill.textContent = origPill.textContent;
+            mirrorPill.title = origPill.title || '';
+            mirrorPill.onclick = function() {
+              toggleSet(origPill);
+              mirrorPill.className = origPill.className;
+            };
+            mirrorContainer.appendChild(mirrorPill);
+          });
+          mirrorWrap.style.display = 'block';
+        } else {
+          mirrorWrap.style.display = 'none';
+        }
+      } else if (mirrorWrap) {
+        mirrorWrap.style.display = 'none';
+      }
+    }
+    window.openWorkoutTimerWithCard = openWorkoutTimerWithCard;
 
     function openDedicatedTimerWithMode(mode, minutes, title, notes) {
       openDedicatedView('timers');
