@@ -7712,43 +7712,82 @@
     <!-- ==================== TAB: EVOLUÇÃO, CONSISTÊNCIA E MÉTRICAS ==================== -->
   <div id="tab-evolucao" class="tab-content">
 
-    <!-- ==================== HUB DA CENTRAL DE EVOLUÇÃO (GRADE DE APP) ==================== -->
-    <div id="evolucaoHubMenu" class="evolucao-app-grid">
+    <!-- ==================== HUB DA CENTRAL DE EVOLUÇÃO ==================== -->
+    <!-- BOTÃO BANNER DE REGISTRAR MEDIÇÃO (DESTAQUE NO TOPO) -->
+    <button type="button" class="analysis-upload-banner" id="evolucaoAddMedicaoBanner" onclick="openAddMedicaoModal()" style="margin-top: 4px; margin-bottom: 16px; background: linear-gradient(135deg, #0284c7 0%, var(--brand-neon) 100%); color: #000; font-weight: 900; box-shadow: 0 4px 16px rgba(0, 255, 136, 0.28);">
+      <span style="font-size: 1.15rem; font-weight: 900;">+</span>
+      <span>REGISTRAR NOVA MEDIÇÃO</span>
+    </button>
+
+    <!-- HUB DE CATEGORIAS DA EVOLUÇÃO (ESTILO CARDS DE TREINO / ANÁLISES) -->
+    <div id="evolucaoHubMenu" class="training-days-list" style="margin-top: 10px; margin-bottom: 24px;">
       
-      <!-- BOTÃO 1: COMPOSIÇÃO CORPORAL (HOMEM VITRUVIANO DA VINCI NEON LARANJA) -->
-      <div class="evol-app-btn" onclick="openEvolucaoView('composicao')">
-        <div class="evol-app-icon-wrap wrap-composicao">
-          <img src="Midia/icon_evol_composicao.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='../Midia/icon_evol_composicao.png';}" alt="Composição Corporal" class="evol-app-icon-img">
+      <!-- CARD 1: COMPOSIÇÃO CORPORAL -->
+      <div class="training-day-card" id="evolCardBtn-composicao" onclick="openEvolucaoView('composicao')" style="border-left: 4.5px solid #38bdf8;">
+        <div class="day-card-left">
+          <div class="day-card-name-row">
+            <span class="day-name" style="color: #fff; font-weight: 800; letter-spacing: 0.5px;">COMPOSIÇÃO CORPORAL</span>
+          </div>
+          <div class="day-card-sub" style="font-size: 0.76rem; color: #94a3b8; margin-top: 3px;">
+            Antropometria, Peso, US Navy, Gráfico e Fotos Posturais
+          </div>
         </div>
-        <div class="evol-app-btn-title">Composição Corporal</div>
-        <div class="evol-app-btn-sub">Métricas e Fotos</div>
+        <div class="day-card-right">
+          <div class="day-status-pill status-pending">
+            <span class="status-icon">›</span>
+          </div>
+        </div>
       </div>
 
-      <!-- BOTÃO 2: PROGRESSÃO DE TÉCNICA (FERRAMENTAS CRUZADAS NEON AZUL) -->
-      <div class="evol-app-btn" onclick="openEvolucaoView('tecnica')">
-        <div class="evol-app-icon-wrap wrap-tecnica">
-          <img src="Midia/icon_evol_tecnica.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='../Midia/icon_evol_tecnica.png';}" alt="Progressão de Técnica" class="evol-app-icon-img">
+      <!-- CARD 2: PROGRESSÃO DE TÉCNICA -->
+      <div class="training-day-card" id="evolCardBtn-tecnica" onclick="openEvolucaoView('tecnica')" style="border-left: 4.5px solid var(--brand-neon);">
+        <div class="day-card-left">
+          <div class="day-card-name-row">
+            <span class="day-name" style="color: #fff; font-weight: 800; letter-spacing: 0.5px;">PROGRESSÃO DE TÉCNICA</span>
+          </div>
+          <div class="day-card-sub" style="font-size: 0.76rem; color: #94a3b8; margin-top: 3px;">
+            Marcos Motores e Habilidades
+          </div>
         </div>
-        <div class="evol-app-btn-title">Progressão de Técnica</div>
-        <div class="evol-app-btn-sub">Marcos e Habilidades</div>
+        <div class="day-card-right">
+          <div class="day-status-pill status-pending">
+            <span class="status-icon">›</span>
+          </div>
+        </div>
       </div>
 
-      <!-- BOTÃO 3: CENTRAL DE RECORDES (MUQUE / BÍCEPS NEON VERMELHO) -->
-      <div class="evol-app-btn" onclick="openEvolucaoView('recordes')">
-        <div class="evol-app-icon-wrap wrap-recordes">
-          <img src="Midia/icon_evol_recordes.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='../Midia/icon_evol_recordes.png';}" alt="Central de Recordes" class="evol-app-icon-img">
+      <!-- CARD 3: CENTRAL DE RECORDES -->
+      <div class="training-day-card" id="evolCardBtn-recordes" onclick="openEvolucaoView('recordes')" style="border-left: 4.5px solid #f43f5e;">
+        <div class="day-card-left">
+          <div class="day-card-name-row">
+            <span class="day-name" style="color: #fff; font-weight: 800; letter-spacing: 0.5px;">CENTRAL DE RECORDES</span>
+          </div>
+          <div class="day-card-sub" style="font-size: 0.76rem; color: #94a3b8; margin-top: 3px;">
+            1RM, PRs de Carga, Repetições e Isometrias
+          </div>
         </div>
-        <div class="evol-app-btn-title">Central de Recordes</div>
-        <div class="evol-app-btn-sub">1RM, PRs e Tempos</div>
+        <div class="day-card-right">
+          <div class="day-status-pill status-pending">
+            <span class="status-icon">›</span>
+          </div>
+        </div>
       </div>
 
-      <!-- BOTÃO 4: RELATÓRIO DO TREINAMENTO (GRÁFICO ANALYTICS NEON ROXO) -->
-      <div class="evol-app-btn" onclick="openEvolucaoView('relatorio')">
-        <div class="evol-app-icon-wrap wrap-relatorio">
-          <img src="Midia/icon_evol_relatorio.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='../Midia/icon_evol_relatorio.png';}" alt="Relatório do Treinamento" class="evol-app-icon-img">
+      <!-- CARD 4: RELATÓRIO DO TREINAMENTO -->
+      <div class="training-day-card" id="evolCardBtn-relatorio" onclick="openEvolucaoView('relatorio')" style="border-left: 4.5px solid #c084fc;">
+        <div class="day-card-left">
+          <div class="day-card-name-row">
+            <span class="day-name" style="color: #fff; font-weight: 800; letter-spacing: 0.5px;">RELATÓRIO DO TREINAMENTO</span>
+          </div>
+          <div class="day-card-sub" style="font-size: 0.76rem; color: #94a3b8; margin-top: 3px;">
+            Volume, Consistência e Laudo Técnico
+          </div>
         </div>
-        <div class="evol-app-btn-title">Relatório do Treinamento</div>
-        <div class="evol-app-btn-sub">Volume e Consistência</div>
+        <div class="day-card-right">
+          <div class="day-status-pill status-pending">
+            <span class="status-icon">›</span>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -9911,6 +9950,8 @@
     
     function openEvolucaoView(viewId) {
       if (typeof pushAppHistoryState === 'function') pushAppHistoryState('evolView', { viewId }, 'evolucao-' + viewId);
+      const banner = document.getElementById('evolucaoAddMedicaoBanner');
+      if (banner) banner.style.display = 'none';
       const hubMenu = document.getElementById('evolucaoHubMenu');
       if (hubMenu) hubMenu.style.display = 'none';
 
@@ -9922,12 +9963,12 @@
         }
       });
 
-            if (viewId === 'composicao' && typeof renderBodyCompUI === 'function') {
+      if (viewId === 'composicao' && typeof renderBodyCompUI === 'function') {
         renderBodyCompUI();
-      if (window.DominioDB) {
-        if (typeof DominioDB.updateCloudStatusUI === 'function') DominioDB.updateCloudStatusUI();
-        if (typeof DominioDB.syncExistingLocalDataToCloud === 'function') DominioDB.syncExistingLocalDataToCloud();
-      }
+        if (window.DominioDB) {
+          if (typeof DominioDB.updateCloudStatusUI === 'function') DominioDB.updateCloudStatusUI();
+          if (typeof DominioDB.syncExistingLocalDataToCloud === 'function') DominioDB.syncExistingLocalDataToCloud();
+        }
       }
       if (viewId === 'relatorio' && typeof updateEvolucaoStats === 'function') {
         updateEvolucaoStats();
@@ -9938,8 +9979,10 @@
 
     function closeEvolucaoView(fromPopState = false) {
       if (!fromPopState && typeof popAppHistoryState === 'function' && popAppHistoryState('evolView')) return;
+      const banner = document.getElementById('evolucaoAddMedicaoBanner');
+      if (banner) banner.style.display = 'flex';
       const hubMenu = document.getElementById('evolucaoHubMenu');
-      if (hubMenu) hubMenu.style.display = 'grid';
+      if (hubMenu) hubMenu.style.display = 'flex';
 
       const viewIds = ['composicao', 'tecnica', 'recordes', 'relatorio'];
       viewIds.forEach(id => {
@@ -10220,41 +10263,247 @@
         if (raw) history = JSON.parse(raw);
       } catch (e) {}
 
-      if (!history || history.length === 0) {
-        
+      if (!history || history.length < 18) {
         const initHistory = [
           {
             id: 'comp_gui_01',
             date: '2026-07-02',
-            weight: 97.0,
+            weight: 97.80,
             waist: 94.0,
             neck: 41.0,
             hip: null,
-            bfManual: 21.8,
+            bfManual: 23.3,
             clothes: 'apertadas',
             energy: 3,
-            notes: 'Ponto de Partida • Início do Ciclo (97 kg)',
-            photos: { front: 'Midia/comparacao_frontal_relaxado.jpg', side: '', back: '' }
+            notes: 'Ponto de Partida – Bioimpedância Oficial (97.8 kg, 41.3 kg musc, 23.3% BF)',
+            photos: { front: 'Midia/Evolução Massa Corporal/WhatsApp Image 2026-10-15 at 17.14.39 (3).jpeg', side: '', back: '' }
           },
           {
             id: 'comp_gui_02',
-            date: '2026-10-05',
-            weight: 84.0,
+            date: '2026-07-08',
+            weight: 96.15,
+            waist: 93.0,
+            neck: 41.0,
+            hip: null,
+            bfManual: 22.5,
+            clothes: 'apertadas',
+            energy: 4,
+            notes: 'Aferição na balança digital (28°C)',
+            photos: { front: 'Midia/Evolução Massa Corporal/WhatsApp Image 2026-10-15 at 17.14.39 (4).jpeg', side: '', back: '' }
+          },
+          {
+            id: 'comp_gui_03',
+            date: '2026-07-15',
+            weight: 95.35,
+            waist: 92.0,
+            neck: 40.5,
+            hip: null,
+            bfManual: 21.8,
+            clothes: 'apertadas',
+            energy: 4,
+            notes: 'Aferição na balança digital (24°C)',
+            photos: { front: 'Midia/Evolução Massa Corporal/WhatsApp Image 2026-10-15 at 17.14.39 (2).jpeg', side: '', back: '' }
+          },
+          {
+            id: 'comp_gui_04',
+            date: '2026-07-22',
+            weight: 94.65,
+            waist: 91.0,
+            neck: 40.5,
+            hip: null,
+            bfManual: 21.2,
+            clothes: 'apertadas',
+            energy: 4,
+            notes: 'Aferição na balança digital (24°C)',
+            photos: { front: 'Midia/Evolução Massa Corporal/WhatsApp Image 2026-10-15 at 17.14.39 (1).jpeg', side: '', back: '' }
+          },
+          {
+            id: 'comp_gui_05',
+            date: '2026-07-29',
+            weight: 94.30,
+            waist: 90.5,
+            neck: 40.5,
+            hip: null,
+            bfManual: 20.8,
+            clothes: 'normais',
+            energy: 4,
+            notes: 'Aferição na balança digital (24°C)',
+            photos: { front: 'Midia/Evolução Massa Corporal/WhatsApp Image 2026-10-15 at 17.14.39.jpeg', side: '', back: '' }
+          },
+          {
+            id: 'comp_gui_06',
+            date: '2026-08-08',
+            weight: 91.50,
+            waist: 88.0,
+            neck: 40.0,
+            hip: null,
+            bfManual: 19.2,
+            clothes: 'normais',
+            energy: 5,
+            notes: 'Aferição na balança digital (23°C) – Rompendo os 92 kg',
+            photos: { front: 'Midia/Evolução Massa Corporal/WhatsApp Image 2026-10-15 at 17.14.38 (6).jpeg', side: '', back: '' }
+          },
+          {
+            id: 'comp_gui_07',
+            date: '2026-08-20',
+            weight: 88.45,
+            waist: 85.5,
+            neck: 40.0,
+            hip: null,
+            bfManual: 17.5,
+            clothes: 'normais',
+            energy: 5,
+            notes: 'Aferição na balança digital (30°C)',
+            photos: { front: 'Midia/Evolução Massa Corporal/WhatsApp Image 2026-10-15 at 17.14.38 (5).jpeg', side: '', back: '' }
+          },
+          {
+            id: 'comp_gui_08',
+            date: '2026-08-27',
+            weight: 88.30,
+            waist: 85.0,
+            neck: 39.5,
+            hip: null,
+            bfManual: 17.2,
+            clothes: 'normais',
+            energy: 5,
+            notes: 'Aferição na balança digital (29°C)',
+            photos: { front: 'Midia/Evolução Massa Corporal/WhatsApp Image 2026-10-15 at 17.14.38 (4).jpeg', side: '', back: '' }
+          },
+          {
+            id: 'comp_gui_09',
+            date: '2026-09-03',
+            weight: 88.00,
+            waist: 84.5,
+            neck: 39.5,
+            hip: null,
+            bfManual: 16.8,
+            clothes: 'normais',
+            energy: 5,
+            notes: 'Aferição na balança digital (25°C)',
+            photos: { front: 'Midia/Evolução Massa Corporal/WhatsApp Image 2026-10-15 at 17.14.38 (2).jpeg', side: '', back: '' }
+          },
+          {
+            id: 'comp_gui_10',
+            date: '2026-09-10',
+            weight: 87.65,
+            waist: 84.0,
+            neck: 39.5,
+            hip: null,
+            bfManual: 16.4,
+            clothes: 'folgadas',
+            energy: 5,
+            notes: 'Aferição na balança digital (25°C)',
+            photos: { front: 'Midia/Evolução Massa Corporal/WhatsApp Image 2026-10-15 at 17.14.38 (1).jpeg', side: '', back: '' }
+          },
+          {
+            id: 'comp_gui_11',
+            date: '2026-09-15',
+            weight: 87.45,
+            waist: 83.8,
+            neck: 39.5,
+            hip: null,
+            bfManual: 16.2,
+            clothes: 'folgadas',
+            energy: 5,
+            notes: 'Aferição na balança digital (30°C)',
+            photos: { front: 'Midia/Evolução Massa Corporal/WhatsApp Image 2026-10-15 at 17.14.38 (3).jpeg', side: '', back: '' }
+          },
+          {
+            id: 'comp_gui_12',
+            date: '2026-09-20',
+            weight: 87.15,
+            waist: 83.5,
+            neck: 39.5,
+            hip: null,
+            bfManual: 15.9,
+            clothes: 'folgadas',
+            energy: 5,
+            notes: 'Aferição na balança digital (28°C)',
+            photos: { front: 'Midia/Evolução Massa Corporal/WhatsApp Image 2026-10-15 at 17.14.37 (2).jpeg', side: '', back: '' }
+          },
+          {
+            id: 'comp_gui_13',
+            date: '2026-09-25',
+            weight: 86.70,
+            waist: 83.0,
+            neck: 39.0,
+            hip: null,
+            bfManual: 15.4,
+            clothes: 'folgadas',
+            energy: 5,
+            notes: 'Aferição na balança digital (28°C)',
+            photos: { front: 'Midia/Evolução Massa Corporal/WhatsApp Image 2026-10-15 at 17.14.38.jpeg', side: '', back: '' }
+          },
+          {
+            id: 'comp_gui_14',
+            date: '2026-09-29',
+            weight: 86.65,
+            waist: 82.8,
+            neck: 39.0,
+            hip: null,
+            bfManual: 15.2,
+            clothes: 'folgadas',
+            energy: 5,
+            notes: 'Aferição na balança digital (29°C)',
+            photos: { front: 'Midia/Evolução Massa Corporal/WhatsApp Image 2026-10-15 at 17.14.37 (3).jpeg', side: '', back: '' }
+          },
+          {
+            id: 'comp_gui_15',
+            date: '2026-10-03',
+            weight: 86.35,
+            waist: 82.5,
+            neck: 39.0,
+            hip: null,
+            bfManual: 14.8,
+            clothes: 'folgadas',
+            energy: 5,
+            notes: 'Aferição na balança digital (26°C)',
+            photos: { front: 'Midia/Evolução Massa Corporal/WhatsApp Image 2026-10-15 at 17.14.37 (4).jpeg', side: '', back: '' }
+          },
+          {
+            id: 'comp_gui_16',
+            date: '2026-10-07',
+            weight: 86.05,
+            waist: 82.0,
+            neck: 39.0,
+            hip: null,
+            bfManual: 14.5,
+            clothes: 'folgadas',
+            energy: 5,
+            notes: 'Aferição na balança digital (32°C)',
+            photos: { front: 'Midia/Evolução Massa Corporal/WhatsApp Image 2026-10-15 at 17.14.37 (1).jpeg', side: '', back: '' }
+          },
+          {
+            id: 'comp_gui_17',
+            date: '2026-10-11',
+            weight: 85.15,
+            waist: 81.5,
+            neck: 39.0,
+            hip: null,
+            bfManual: 13.8,
+            clothes: 'folgadas',
+            energy: 5,
+            notes: 'Aferição na balança digital (29°C) – Rompendo os 86 kg',
+            photos: { front: 'Midia/Evolução Massa Corporal/WhatsApp Image 2026-10-15 at 17.14.36.jpeg', side: '', back: '' }
+          },
+          {
+            id: 'comp_gui_18',
+            date: '2026-10-15',
+            weight: 84.75,
             waist: 81.0,
             neck: 39.0,
             hip: null,
             bfManual: 13.0,
             clothes: 'folgadas',
             energy: 5,
-            notes: 'Check-in 95 dias • Recomposição Concluída (-13 kg)',
-            photos: { front: 'Midia/comparacao_duplo_biceps.jpg', side: '', back: '' }
+            notes: 'Check-in Atual na balança digital (27°C) – Recomposição Concluída (-13.05 kg)',
+            photos: { front: 'Midia/Evolução Massa Corporal/WhatsApp Image 2026-10-15 at 17.14.37.jpeg', side: '', back: '' }
           }
         ];
         history = initHistory;
         try {
           localStorage.setItem('dominio_gui_body_comp_history', JSON.stringify(history));
         } catch (e) {}
-
       }
       history.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
       return history;
@@ -10454,12 +10703,19 @@
         svg += `<polyline points="${polyPoints}" fill="none" stroke="${strokeColor}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />`;
       }
 
-      points.forEach(p => {
-        svg += `<circle cx="${p.x}" cy="${p.y}" r="4.5" fill="#0b0e14" stroke="${strokeColor}" stroke-width="2.5" />`;
-        svg += `<text x="${p.x}" y="${p.y - 8}" fill="#ffffff" font-size="9.5" font-weight="700" text-anchor="middle" font-family="sans-serif">${p.val.toFixed(1)} ${unit}</text>`;
-        const dateParts = p.date.split('-');
-        const dateLabel = (dateParts.length === 3) ? `${dateParts[2]}/${dateParts[1]}` : p.date;
-        svg += `<text x="${p.x}" y="${h - 12}" fill="#94a3b8" font-size="8.5" text-anchor="middle" font-family="sans-serif">${dateLabel}</text>`;
+      points.forEach((p, idx) => {
+        svg += `<circle cx="${p.x}" cy="${p.y}" r="4" fill="#0b0e14" stroke="${strokeColor}" stroke-width="2.2"><title>${p.date}: ${p.val.toFixed(2)} ${unit}</title></circle>`;
+        const isFirst = (idx === 0);
+        const isLast = (idx === points.length - 1);
+        const step = (points.length > 12) ? 4 : ((points.length > 7) ? 2 : 1);
+        const showLabel = isFirst || isLast || (idx % step === 0);
+
+        if (showLabel) {
+          svg += `<text x="${p.x}" y="${p.y - 8}" fill="#ffffff" font-size="9" font-weight="700" text-anchor="middle" font-family="sans-serif">${p.val.toFixed(1)} ${unit}</text>`;
+          const dateParts = p.date.split('-');
+          const dateLabel = (dateParts.length === 3) ? `${dateParts[2]}/${dateParts[1]}` : p.date;
+          svg += `<text x="${p.x}" y="${h - 10}" fill="#94a3b8" font-size="8.5" text-anchor="middle" font-family="sans-serif">${dateLabel}</text>`;
+        }
       });
 
       svg += `</svg>`;
@@ -10535,10 +10791,11 @@
                 ${item.hip ? `<span style="font-size:0.72rem; color:#f43f5e; font-weight:700; background:rgba(244,63,94,0.1); padding:2px 6px; border-radius:6px;">Quadril: ${item.hip.toFixed(1)} cm</span>` : ''}
                 ${item.bfManual ? `<span style="font-size:0.72rem; color:#fbbf24; font-weight:700; background:rgba(251,191,36,0.1); padding:2px 6px; border-radius:6px;">BF: ${item.bfManual}%</span>` : ''}
               </div>
-              <div style="font-size:0.72rem; color:#94a3b8; display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+              <div style="font-size:0.72rem; color:#94a3b8; display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:2px;">
                 <span>${clothesMap[item.clothes] || '👕 Roupas normais'}</span>
                 <span>⚡ Energia: ${energyStars}</span>
                 ${item.notes ? `<span style="color:#cbd5e1;">💬 "${item.notes}"</span>` : ''}
+                ${item.photos && item.photos.front ? `<a href="${item.photos.front}" target="_blank" style="display:inline-flex; align-items:center; gap:4px; font-size:0.72rem; color:var(--brand-neon); text-decoration:none; background:rgba(0,255,136,0.08); border:1px solid rgba(0,255,136,0.22); padding:2px 7px; border-radius:6px; font-weight:700;">📷 Balança ↗</a>` : ''}
               </div>
             </div>
             <button type="button" onclick="deleteBodyCompRecord('${item.id}')" title="Excluir medição" style="background:rgba(244,63,94,0.1); border:1px solid rgba(244,63,94,0.25); color:#f43f5e; font-size:0.72rem; border-radius:6px; padding:4px 8px; cursor:pointer;">
@@ -10821,16 +11078,16 @@
           </div>
           <div style="font-size:0.75rem; color:#94a3b8; line-height:1.6; background:rgba(0,0,0,0.25); padding:10px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.06);">
             <p style="margin:0 0 6px 0;">
-              • <strong>Relação Cintura-Estatura (RCEst):</strong> <em>Ashwell, M., & Gibson, S. (2014)</em>. "Waist-to-height ratio is a better screening tool than waist circumference and BMI for adult cardiometabolic risk factors: systematic review and meta-analysis." <em>Obesity Reviews</em>.
+              • <strong>Relação Cintura-Estatura (RCEst):</strong> <em>Ashwell, M., e Gibson, S. (2014)</em>. "Waist-to-height ratio is a better screening tool than waist circumference and BMI for adult cardiometabolic risk factors: systematic review and meta-analysis." <em>Obesity Reviews</em>.
             </p>
             <p style="margin:0 0 6px 0;">
-              • <strong>Fórmula de Circunferências da Marinha dos EUA:</strong> <em>Hodgdon, J. A., & Beckett, M. B. (1984)</em>. "Prediction of percent body fat for U.S. Navy men and women from body circumferences and height." <em>Naval Health Research Center</em>.
+              • <strong>Fórmula de Circunferências da Marinha dos EUA:</strong> <em>Hodgdon, J. A., e Beckett, M. B. (1984)</em>. "Prediction of percent body fat for U.S. Navy men and women from body circumferences and height." <em>Naval Health Research Center</em>.
             </p>
             <p style="margin:0 0 6px 0;">
-              • <strong>Força Relativa e Biomecânica Esportiva:</strong> <em>Zatsiorsky, V. M., & Kraemer, W. J. (2006)</em>. "Science and Practice of Strength Training." <em>Human Kinetics</em>.
+              • <strong>Força Relativa e Biomecânica Esportiva:</strong> <em>Zatsiorsky, V. M., e Kraemer, W. J. (2006)</em>. "Science and Practice of Strength Training." <em>Human Kinetics</em>.
             </p>
             <p style="margin:0;">
-              • <strong>Sobrecarga e Força Compressiva Articular:</strong> <em>Messier, S. P., et al. (2005)</em>. "Weight loss reduces knee-joint loads in overweight and obese adults with knee osteoarthritis." <em>Arthritis & Rheumatism</em>, 52(7), 2026-2032.
+              • <strong>Sobrecarga e Força Compressiva Articular:</strong> <em>Messier, S. P., et al. (2005)</em>. "Weight loss reduces knee-joint loads in overweight and obese adults with knee osteoarthritis." <em>Arthritis e Rheumatism</em>, 52(7), 2026-2032.
             </p>
           </div>
         </div>
