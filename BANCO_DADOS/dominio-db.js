@@ -9,9 +9,9 @@ window.DominioDB = (function() {
 
   // Configurações Padrão
   const defaultConfig = {
-    provider: 'auto', // 'auto' | 'supabase' | 'sheets' | 'local' | 'hybrid'
-    supabaseUrl: '',
-    supabaseAnonKey: '',
+    provider: 'supabase', // 'auto' | 'supabase' | 'sheets' | 'local' | 'hybrid'
+    supabaseUrl: 'https://kqjqnprykjjrfiikzouk.supabase.co',
+    supabaseAnonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtxanFucHJ5a2pqcmZpaWt6b3VrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIwNjYxMTUsImV4cCI6MjEwNzY0MjExNX0.sHAYnOg4tj24c2OgL_VftRK91_8bHnuTPVfCxcZYKEk',
     sheetsUrl: '',
     athleteSlug: 'gui',
     athleteName: 'Guilherme Lemos'
