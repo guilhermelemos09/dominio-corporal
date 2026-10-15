@@ -324,3 +324,30 @@ Cada bloco utiliza fundo translúcido suave (`rgba(..., 0.04)`), borda lateral c
 - Progressão: `border-left: 2.5px solid #f97316; color: #f97316;`
 - Exercícios sugeridos: `border-left: 2.5px solid #a78bfa; color: #a78bfa;`
 - Base científica: `border-left: 2.5px solid #38bdf8; color: #38bdf8;`
+
+---
+
+## 11. PADRÃO OURO PARA TREINOS DE CROSSFIT (CARD ÚNICO DE CONDICIONAMENTO EM LISTA CONTÍNUA)
+
+Em treinos de CrossFit, WODs e condicionamento metabólico de alta intensidade, o atleta treina com mãos calejadas/magnesadas e ritmo cardíaco elevado, **não manuseando o smartphone entre estações ou séries**.
+
+### 11.1 Diretrizes Oficiais de Interface para CrossFit:
+1. **Card Único e Nobre de `CONDICIONAMENTO`:**
+   - Todo o roteiro do box (Warm Up, blocos do WOD, rounds, repetições e sprints) fica reunido em **um único card de CONDICIONAMENTO** (cor Coral `#e11d48`, classe `.sec-cardio`).
+   - Evita a fragmentação em múltiplos cartões soltos, permitindo que o atleta leia a sessão inteira numa única visualização contínua.
+2. **Visual de Lousa do Box (`.wod-chalkboard-container`):**
+   - Diagramação clara em lista com alto contraste, divisões nítidas por blocos (`.wod-round-block`), contadores destacados de repetições (`.wod-item-rep`) e separadores visuais (`THEN...`).
+   - Alertas rápidos incorporados discretamente na própria lista (ex: *step-down obrigatório no caixote*, *sem asa de frango no BMU*).
+3. **Pílulas de Conclusão Enxutas (Zero Fricção Durante o WOD):**
+   - Pílulas simplificadas para marcar os grandes blocos ou finalizar o WOD de uma só vez ao final do treino (`Tabata 4'`, `Bloco 1 (4R)`, `WOD Concluído 🏁`).
+4. **Instruções com Cuidados e Adaptações/Escalas (`openVideoModal`):**
+   - O modal `Instruções` é dividido em blocos claros:
+     - **EXECUÇÃO:** Estratégia de cadência e ritmo.
+     - **CUIDADOS:** Preservação articular (menisco, ombro, punhos).
+     - **ADAPTAÇÕES E ESCALAS:** Opções de escala técnica (ex: C2B em vez de BMU, Single Unders em vez de Double Unders, cargas sugeridas).
+     - **BASE CIENTÍFICA:** Fisiologia bioenergética e cinemática articular.
+5. **Gaveta de Observações Dedicada ao Final da Sessão:**
+   - Espaço imediato para o atleta anotar seu tempo oficial no Time Cap, cargas utilizadas e feedback do corpo com tranquilidade no pós-treino.
+6. **Disparadores Rápidos de Cronômetro:**
+   - Botões compactos de acionamento imediato dos timers da sessão (Tabata, For Time, AMRAP) embutidos diretamente no card.
+

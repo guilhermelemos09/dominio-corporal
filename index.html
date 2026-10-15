@@ -4514,6 +4514,136 @@
 
   
     /* Estilos do Conteúdo do Modal de Vídeo e Instruções (Passos Numerados em Execução e Cuidados) */
+    
+    /* ============================================================ */
+    /* LOUSA DE CROSSFIT / LISTA CONTÍNUA DE CONDICIONAMENTO       */
+    /* ============================================================ */
+    .wod-chalkboard-container {
+      background: linear-gradient(180deg, rgba(225, 29, 72, 0.08) 0%, rgba(17, 20, 26, 0.95) 100%), #11141a;
+      border: 1px solid rgba(225, 29, 72, 0.28);
+      border-radius: 12px;
+      padding: 16px 14px;
+      margin-bottom: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .wod-chalkboard-section {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .wod-chalkboard-section-title {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #fda4af;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding-bottom: 6px;
+      border-bottom: 1px dashed rgba(225, 29, 72, 0.25);
+    }
+
+    .wod-round-block {
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 8px;
+      padding: 10px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .wod-round-heading {
+      font-size: 0.82rem;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: 0.03em;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .wod-round-heading .round-badge {
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: #fb7185;
+      background: rgba(225, 29, 72, 0.12);
+      border: 1px solid rgba(225, 29, 72, 0.3);
+      padding: 2px 7px;
+      border-radius: 6px;
+    }
+
+    .wod-items-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .wod-item {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      font-size: 0.84rem;
+      color: #e2e8f0;
+      line-height: 1.4;
+    }
+
+    .wod-item-rep {
+      font-weight: 900;
+      color: #ffffff;
+      background: rgba(225, 29, 72, 0.2);
+      border: 1px solid rgba(225, 29, 72, 0.4);
+      padding: 1px 7px;
+      border-radius: 5px;
+      font-size: 0.78rem;
+      min-width: 30px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .wod-item-text {
+      flex: 1;
+    }
+
+    .wod-item-note {
+      font-size: 0.72rem;
+      color: #94a3b8;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .wod-separator-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin: 6px 0;
+      color: #fb7185;
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .wod-separator-line::before, .wod-separator-line::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: rgba(225, 29, 72, 0.2);
+    }
+
+    .modal-num-adapt {
+      background: rgba(167, 139, 250, 0.12) !important;
+      border-color: rgba(167, 139, 250, 0.35) !important;
+      color: #a78bfa !important;
+    }
+
     .modal-instruction-block {
       margin-bottom: 12px;
       background: rgba(255, 255, 255, 0.03);
@@ -5933,7 +6063,7 @@
     </div>
   </div><!-- end #tab-quarta -->
 
-    <!-- ==================== TAB: HOJE (QUINTA: CONDICIONAMENTO • FOR TIME 35' E DANÇA) ==================== -->
+      <!-- ==================== TAB: HOJE (QUINTA: CONDICIONAMENTO CROSSFIT E DANÇA) ==================== -->
   <div id="tab-quinta" class="tab-content">
 
     <!-- LOCAL E DURAÇÃO DA SESSÃO -->
@@ -5945,232 +6075,229 @@
       <span class="meta-item">⏱️ Time Cap 35'</span>
     </div>
 
-    <!-- ==================== SEÇÃO 1: ATIVAÇÃO ==================== -->
-    <div class="section-card sec-aquecimento">
-      <div class="section-header">
-        <div class="section-title-wrap">
-          <div class="section-title">ATIVAÇÃO</div>
-        </div>
-        <div class="session-meta-chips">
-          <span class="meta-chip meta-chip-time">⏱️ Tabata 4 min</span>
-        </div>
-      </div>
-
-      <!-- EXERCÍCIO 1: TABATA DE AQUECIMENTO -->
-      <div class="exercise-card">
-        <div class="ex-title">
-          <span>TABATA DE AQUECIMENTO DINÂMICO</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('TABATA DE AQUECIMENTO DINÂMICO', '<b>Execução:</b> 8 rounds no protocolo Tabata (20 segundos em atividade máxima / 10 segundos de transição passiva), completando 2 voltas no circuito:<br>1. Round 1 e 5: Beat Swing (suspensão ativa na barra alternando posições de hollow e arch com engajamento escapular contínuo, sem dobrar os cotovelos)<br>2. Round 2 e 6: Reverse Lunges (passo para trás alternado com controle excêntrico, alinhando joelho a 90° e tronco reto)<br>3. Round 3 e 7: Box Step-ups (subida no caixote empurrando a força pelo calcanhar e estendendo totalmente o quadril no topo)<br>4. Round 4 e 8: Pike Handstand (pés elevados na caixa ou no chão, empurrando o solo ativamente com protração escapular para ativar serrátil anterior e deltoides).<br><br><b>Cuidados:</b> 1. No Lunge e Step-up, controle a frenagem excêntrica para poupar o corno posterior do menisco esquerdo de forças de cisalhamento anterior.<br>2. No Beat Swing, não dê solavancos no final do balanço; mantenha as escápulas ativadas para blindar a tenodese do bíceps.<br><br><b>Base científica:</b> PREPARAÇÃO NEUROMUSCULAR E RIGIDEZ TENDÍNEA: O protocolo Tabata com alternância de eixos motores eleva a temperatura intramuscular e a sensibilidade dos fusos neuromusculares sem depleção significativa de fosfagênios antes do WOD (Bishop, 2003).', '')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
-          </button>
-        </div>
-        <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">8 ROUNDS • 20" ESFORÇO / 10" PAUSA • ⏱️ REST: 10"</div>
-          <div class="sets-container">
-            <div class="set-pill" onclick="toggleSet(this)">R1: Beat Swing</div>
-            <div class="set-pill" onclick="toggleSet(this)">R2: Lunge</div>
-            <div class="set-pill" onclick="toggleSet(this)">R3: Step Up</div>
-            <div class="set-pill" onclick="toggleSet(this)">R4: Pike HS</div>
-            <div class="set-pill" onclick="toggleSet(this)">R5: Beat Swing</div>
-            <div class="set-pill" onclick="toggleSet(this)">R6: Lunge</div>
-            <div class="set-pill" onclick="toggleSet(this)">R7: Step Up</div>
-            <div class="set-pill" onclick="toggleSet(this)">R8: Pike HS</div>
-          </div>
-        </div>
-        <div class="workout-timer-cta-wrap">
-          <button type="button" class="btn-workout-timer-cta" onclick="openWorkoutTimerWithCard('tabata', 4, 'TABATA 4 MIN • AQUECIMENTO', '8 rounds de 20s esforço / 10s pausa:
-• R1 e R5: Beat Swing
-• R2 e R6: Lunge
-• R3 e R7: Step Up
-• R4 e R8: Pike Handstand', this)">
-            <svg viewBox="0 0 24 24"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
-            <span>Abrir Cronômetro Tabata (4 min) ➔</span>
-          </button>
-        </div>
-        <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Aquecimento Tabata • Quinta')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
-          <button type="button" class="btn-comment" id="btn-comment-ex-qui-tabata" onclick="toggleCommentBox('ex-qui-tabata')">
-            <span>💬 Observações?</span>
-            <span class="comment-dot" id="dot-ex-qui-tabata" style="display:none;"></span>
-          </button>
-        </div>
-        <div id="comment-box-ex-qui-tabata" class="comment-drawer" style="display: none;">
-          <div class="comment-header">
-            <span>👤 Suas observações sobre o Aquecimento Tabata:</span>
-            <span class="save-indicator" id="save-status-ex-qui-tabata"></span>
-          </div>
-          <textarea class="comment-textarea" id="note-ex-qui-tabata" placeholder="Ex: Ombro e punhos aquecidos, ritmo controlado..." oninput="saveExerciseNote('ex-qui-tabata', this.value)"></textarea>
-        </div>
-      </div>
-    </div>
-
-    <!-- ==================== SEÇÃO 2: CONDICIONAMENTO ==================== -->
+    <!-- ==================== SEÇÃO 1: CONDICIONAMENTO ==================== -->
     <div class="section-card sec-cardio">
       <div class="section-header">
         <div class="section-title-wrap">
           <div class="section-title">CONDICIONAMENTO</div>
         </div>
         <div class="session-meta-chips">
-          <span class="meta-chip meta-chip-time">⏱️ For Time • Time Cap 35'</span>
+          <span class="meta-chip meta-chip-time">⏱️ ~50 min • Time Cap 35'</span>
         </div>
       </div>
 
-      <!-- BLOCO 1: 4 ROUNDS (T2B + HANG SNATCH + BURPEES) -->
+      <!-- CARD UNIFICADO DE LOUSA DO BOX (ROTEIRO CONTÍNUO EM LISTA) -->
       <div class="exercise-card">
         <div class="ex-title">
-          <span>BLOCO 1 • 4 ROUNDS (T2B + HANG SNATCH + BURPEES)</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('BLOCO 1 • 4 ROUNDS', '<b>Execução:</b> 4 rounds contínuos:<br>1. 16 Toes to Bar (empurre a barra para baixo no hollow body, feche o ângulo de quadril e toque os pés na barra entre as mãos com ritmo fluido)<br>2. 12 Hang Snatch (inicie na altura acima dos joelhos com extensão tripla potente de tornozelo, joelho e quadril, encaixando a barra com lockout estável sobre a cabeça)<br>3. 10 Burpees Over Bar (toque o peito no chão, suba com passada dinâmica e salte por cima da barra com os pés juntos).<br><br><b>Cuidados:</b> 1. No Hang Snatch, receba a barra com ombros ativados e rotação neutra sem deixar a escápula colapsar, preservando o espaço subacromial.<br>2. No Burpee Over Bar, pouse amortecendo aterrissagem para poupar o joelho esquerdo.<br><br><b>Base científica:</b> POTÊNCIA EM CADEIA POSTERIOR E ESTABILIDADE GLENOUMERAL: O Hang Snatch recruta a extensão explosiva de quadril e exige co-ativação imediata do manguito rotador para absorver a inércia da barra no overhead (Fleisig et al., 2006).', '')">
+          <span>CROSSFIT • ROTEIRO COMPLETO (LOUSA)</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('CROSSFIT • ROTEIRO, CUIDADOS E ADAPTAÇÕES', '<b>Execução:</b> 1. Warm Up Tabata de 4 minutos para elevação de temperatura e ativação articular. 2. Bloco 1 (4R): gestão equilibrada de ritmo no Toes to Bar e aceleração vertical potente no Hang Snatch. 3. Bloco 2 (4R): passada constante na corrida, descida no passo no caixote e passadas alinhadas no afundo. 4. Bloco 3 (3R): Bar Muscle-ups simétricos, Front Squat estabilizado a 90° e HSPU fracionados em séries curtas para poupar deltoides. 5. Bloco 4 (2R): sprint final nos Thrusters e saltos elásticos de corda fechando antes dos 35 minutos.<br><br><b>Cuidados:</b> 1. No DB Box Step Over, OBRIGATÓRIO step-down no caixote: nunca despenque de costas ou pule para baixo com os halteres, pois a aterrissagem súbita com sobrecarga multiplica o estresse compressivo sobre o corno posterior do menisco esquerdo. 2. No Bar Muscle-up, PROIBIÇÃO ABSOLUTA de assimetria / asa de frango (chicken wing): se não conseguir passar os dois cotovelos simetricamente por cima da barra, escale na hora para 16 Chest to Bar para blindar a tenodese do bíceps esquerdo. 3. No Front Squat e Thruster, limite a profundidade a 90°.<br><br><b>Adaptações e Escalas:</b> 1. Bar Muscle-up: Escalar para 16 Chest to Bar, Jumping BMU ou Pull-up regular. 2. Double Unders: Escalar para 150 Single Unders. 3. HSPU: Escalar para Pike Push-ups na caixa ou Hand Release Push-ups no solo. 4. Carga do Hang Snatch: Selecionar peso entre 35kg e 45kg que permita repetições rápidas e seguras.<br><br><b>Base científica:</b> BIOENERGÉTICA E GESTÃO ARTICULAR EM ALTA INTENSIDADE: O esforço fracionado de alta densidade solicita prioritariamente a via glicolítica rápida; a padronização das alavancas motoras reduz as forças de cisalhamento patelofemorais e glenoumerais sob fadiga acumulada (Buchheit e Laursen, 2013).', '')">
             <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
-        <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">4 ROUNDS • TIME CAP GERAL: 35 MIN • ⏱️ REST: LIVRE NO RITMO</div>
-          <div class="sets-container">
-            <div class="set-pill" onclick="toggleSet(this)">Round 1</div>
-            <div class="set-pill" onclick="toggleSet(this)">Round 2</div>
-            <div class="set-pill" onclick="toggleSet(this)">Round 3</div>
-            <div class="set-pill" onclick="toggleSet(this)">Round 4</div>
+
+        <!-- LOUSA VISUAL DO BOX -->
+        <div class="wod-chalkboard-container">
+          
+          <!-- PARTE 1: WARM UP -->
+          <div class="wod-chalkboard-section">
+            <div class="wod-chalkboard-section-title">
+              <span>🔥 1. WARM UP • TABATA (8 ROUNDS • 20" ON / 10" OFF)</span>
+            </div>
+            <div class="wod-round-block">
+              <ul class="wod-items-list">
+                <li class="wod-item">
+                  <span class="wod-item-rep">R1 & R5</span>
+                  <span class="wod-item-text"><strong>Beat Swing</strong> <span class="wod-item-note">Ativação escapular contínua em hollow e arch, sem solavancos</span></span>
+                </li>
+                <li class="wod-item">
+                  <span class="wod-item-rep">R2 & R6</span>
+                  <span class="wod-item-text"><strong>Reverse Lunges</strong> <span class="wod-item-note">Passadas para trás com controle excêntrico a 90°</span></span>
+                </li>
+                <li class="wod-item">
+                  <span class="wod-item-rep">R3 & R7</span>
+                  <span class="wod-item-text"><strong>Box Step-ups</strong> <span class="wod-item-note">Subida no caixote empurrando pelo calcanhar e estendendo quadril</span></span>
+                </li>
+                <li class="wod-item">
+                  <span class="wod-item-rep">R4 & R8</span>
+                  <span class="wod-item-text"><strong>Pike Handstand</strong> <span class="wod-item-note">Pés elevados, empurrando o solo ativamente com deltoides e serrátil</span></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- PARTE 2: FOR TIME 35' -->
+          <div class="wod-chalkboard-section">
+            <div class="wod-chalkboard-section-title">
+              <span>⚡ 2. WOD FOR TIME • TIME CAP 35' (4 BLOCOS)</span>
+            </div>
+
+            <!-- BLOCO 1 -->
+            <div class="wod-round-block">
+              <div class="wod-round-heading">
+                <span>BLOCO 1</span>
+                <span class="round-badge">4 ROUNDS</span>
+              </div>
+              <ul class="wod-items-list">
+                <li class="wod-item">
+                  <span class="wod-item-rep">16</span>
+                  <span class="wod-item-text">Toes to Bar (T2B)</span>
+                </li>
+                <li class="wod-item">
+                  <span class="wod-item-rep">12</span>
+                  <span class="wod-item-text">Hang Snatch</span>
+                </li>
+                <li class="wod-item">
+                  <span class="wod-item-rep">10</span>
+                  <span class="wod-item-text">Burpees Over Bar</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="wod-separator-line">THEN...</div>
+
+            <!-- BLOCO 2 -->
+            <div class="wod-round-block">
+              <div class="wod-round-heading">
+                <span>BLOCO 2</span>
+                <span class="round-badge">4 ROUNDS</span>
+              </div>
+              <ul class="wod-items-list">
+                <li class="wod-item">
+                  <span class="wod-item-rep">200m</span>
+                  <span class="wod-item-text">Run Sync (Ritmo Pareado)</span>
+                </li>
+                <li class="wod-item">
+                  <span class="wod-item-rep">20</span>
+                  <span class="wod-item-text">DB Box Step Over <span class="wod-item-note">⚠️ Step-down obrigatório no caixote (sem pular para trás)</span></span>
+                </li>
+                <li class="wod-item">
+                  <span class="wod-item-rep">16</span>
+                  <span class="wod-item-text">DB Lunges</span>
+                </li>
+                <li class="wod-item">
+                  <span class="wod-item-rep">10</span>
+                  <span class="wod-item-text">Pull-ups</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="wod-separator-line">THEN...</div>
+
+            <!-- BLOCO 3 -->
+            <div class="wod-round-block">
+              <div class="wod-round-heading">
+                <span>BLOCO 3</span>
+                <span class="round-badge">3 ROUNDS</span>
+              </div>
+              <ul class="wod-items-list">
+                <li class="wod-item">
+                  <span class="wod-item-rep">8</span>
+                  <span class="wod-item-text">Bar Muscle-ups <span class="wod-item-note">⚠️ Transição simétrica sem asa de frango (ou escala em 16 Chest to Bar)</span></span>
+                </li>
+                <li class="wod-item">
+                  <span class="wod-item-rep">16</span>
+                  <span class="wod-item-text">Front Squats <span class="wod-item-note">Cotovelos altos, paralelo rigoroso a 90°</span></span>
+                </li>
+                <li class="wod-item">
+                  <span class="wod-item-rep">12</span>
+                  <span class="wod-item-text">HSPU (Handstand Push-ups)</span>
+                </li>
+                <li class="wod-item">
+                  <span class="wod-item-rep">16</span>
+                  <span class="wod-item-text">Burpees</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="wod-separator-line">THEN...</div>
+
+            <!-- BLOCO 4 -->
+            <div class="wod-round-block">
+              <div class="wod-round-heading">
+                <span>BLOCO 4 (SPRINT FINAL)</span>
+                <span class="round-badge">2 ROUNDS</span>
+              </div>
+              <ul class="wod-items-list">
+                <li class="wod-item">
+                  <span class="wod-item-rep">10</span>
+                  <span class="wod-item-text">Thrusters</span>
+                </li>
+                <li class="wod-item">
+                  <span class="wod-item-rep">12</span>
+                  <span class="wod-item-text">Toes to Bar (T2B)</span>
+                </li>
+                <li class="wod-item">
+                  <span class="wod-item-rep">16</span>
+                  <span class="wod-item-text">DB Box Step Over</span>
+                </li>
+                <li class="wod-item">
+                  <span class="wod-item-rep">75</span>
+                  <span class="wod-item-text">Double Unders <span class="wod-item-note">Ou 150 Single Unders rápidos</span></span>
+                </li>
+                <li class="wod-item">
+                  <span class="wod-item-rep">10</span>
+                  <span class="wod-item-text">Burpees Over Bar Sync</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-        <div class="workout-timer-cta-wrap">
-          <button type="button" class="btn-workout-timer-cta" onclick="openWorkoutTimerWithCard('fortime', 35, 'FOR TIME 35 MIN • CONDICIONAMENTO COMPLETO', '4 Blocos Contínuos (13 Rounds no total):
+
+        <!-- PÍLULAS DE CONCLUSÃO ENXUTAS (SEM PRECISAR MEXER NO CELULAR DURANTE O WOD) -->
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">CHECK-IN DE FINALIZAÇÃO • ⏱️ TIME CAP 35'</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Tabata 4'</div>
+            <div class="set-pill" onclick="toggleSet(this)">Bloco 1 (4R)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Bloco 2 (4R)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Bloco 3 (3R)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Bloco 4 (2R)</div>
+            <div class="set-pill" onclick="toggleSet(this)">WOD Concluído 🏁</div>
+          </div>
+        </div>
+
+        <!-- DISPARADORES RÁPIDOS DOS CRONÔMETROS DO BOX -->
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px;">
+          <button type="button" class="btn-wod-timer-trigger" onclick="openWorkoutTimerWithCard('tabata', 4, 'TABATA 4 MIN • AQUECIMENTO', '8 rounds de 20s esforço / 10s pausa:
+• R1 e R5: Beat Swing
+• R2 e R6: Lunge
+• R3 e R7: Step Up
+• R4 e R8: Pike Handstand', this)">
+            <svg style="width:14px; height:14px; fill:currentColor;" viewBox="0 0 24 24"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
+            <span>⏱️ Timer Tabata (4 min) ↗</span>
+          </button>
+          <button type="button" class="btn-wod-timer-trigger" onclick="openWorkoutTimerWithCard('fortime', 35, 'FOR TIME 35 MIN • CONDICIONAMENTO COMPLETO', '4 Blocos Contínuos (13 Rounds no total):
 • Bloco 1 (4R): 16 T2B + 12 Hang Snatch + 10 Burpees
 • Bloco 2 (4R): 200m Run + 20 DB Step Over + 16 DB Lunges + 10 Pull-ups
 • Bloco 3 (3R): 8 BMU (ou 16 C2B) + 16 Front Squat + 12 HSPU + 16 Burpees
 • Bloco 4 (2R): 10 Thrusters + 12 T2B + 16 DB Step Over + 75 DU + 10 Burpees Sync', this)">
-            <svg viewBox="0 0 24 24"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
-            <span>Abrir Cronômetro For Time (35 min) ➔</span>
+            <svg style="width:14px; height:14px; fill:currentColor;" viewBox="0 0 24 24"><path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.05.5-9 4.77-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.01-4.09l-2.49-1.46C16.14 17.84 14.21 19 12 19z"/></svg>
+            <span>⚡ Timer For Time (35 min) ↗</span>
           </button>
         </div>
-        <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Bloco 1 WOD • Quinta')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
-          <button type="button" class="btn-comment" id="btn-comment-ex-qui-b1" onclick="toggleCommentBox('ex-qui-b1')">
-            <span>💬 Observações?</span>
-            <span class="comment-dot" id="dot-ex-qui-b1" style="display:none;"></span>
-          </button>
-        </div>
-        <div id="comment-box-ex-qui-b1" class="comment-drawer" style="display: none;">
-          <div class="comment-header">
-            <span>👤 Suas observações sobre o Bloco 1 (carga do Snatch, quebras de T2B):</span>
-            <span class="save-indicator" id="save-status-ex-qui-b1"></span>
-          </div>
-          <textarea class="comment-textarea" id="note-ex-qui-b1" placeholder="Ex: Barra com 35kg, T2B 10+6 sem fadiga no antebraço..." oninput="saveExerciseNote('ex-qui-b1', this.value)"></textarea>
-        </div>
-      </div>
 
-      <!-- BLOCO 2: 4 ROUNDS (RUN + STEP OVER + LUNGES + PULL-UPS) -->
-      <div class="exercise-card">
-        <div class="ex-title">
-          <span>BLOCO 2 • 4 ROUNDS (RUN + STEP OVER + LUNGES + PULL-UPS)</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('BLOCO 2 • 4 ROUNDS', '<b>Execução:</b> 4 rounds contínuos:<br>1. 200m Run Sync (ritmo pareado constante para gestão de limiar ventilatório)<br>2. 20 DB Box Step Over (segurando os halteres ao lado do corpo, pise com o pé inteiro no caixote, passe por cima e faça a descida no passo em step-down controlado)<br>3. 16 DB Lunges (afundos alternados no solo mantendo tronco vertical e canela perpendicular ao chão)<br>4. 10 Pull-ups (kipping ou butterfly fluido com escápulas acopladas).<br><br><b>Cuidados:</b> 1. EXTREMA ATENÇÃO AO STEP-DOWN: No DB Box Step Over, NUNCA pule de costas para baixo com peso; desça sempre um pé de cada vez para blindar o corno posterior do menisco esquerdo de choques mecânicos axiais.<br>2. Nos DB Lunges, toque o joelho suavemente sem impacto no solo.<br><br><b>Base científica:</b> BIOMECÂNICA COMPRESSIVA MENISCAL: A aterrissagem em impacto com sobrecarga de halteres eleva as forças de reação do solo para mais de 5 vezes o peso corporal. A descida em step-down dissipa 75% desse estresse na musculatura extensora do quadril (Messier, 2011).', '')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
-          </button>
-        </div>
-        <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">4 ROUNDS • TIME CAP GERAL: 35 MIN • ⏱️ REST: LIVRE NO RITMO</div>
-          <div class="sets-container">
-            <div class="set-pill" onclick="toggleSet(this)">Round 1</div>
-            <div class="set-pill" onclick="toggleSet(this)">Round 2</div>
-            <div class="set-pill" onclick="toggleSet(this)">Round 3</div>
-            <div class="set-pill" onclick="toggleSet(this)">Round 4</div>
-          </div>
-        </div>
+        <!-- AÇÕES INFERIORES: ENVIAR VÍDEO E GAVETA DE OBSERVAÇÕES -->
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Bloco 2 WOD • Quinta')">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Sessão CrossFit • Quinta')">
             <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
             <span>Enviar sua execução</span>
           </button>
-          <button type="button" class="btn-comment" id="btn-comment-ex-qui-b2" onclick="toggleCommentBox('ex-qui-b2')">
-            <span>💬 Observações?</span>
-            <span class="comment-dot" id="dot-ex-qui-b2" style="display:none;"></span>
+          <button type="button" class="btn-comment" id="btn-comment-ex-qui-cross" onclick="toggleCommentBox('ex-qui-cross')">
+            <span>💬 Anotar Cargas e Tempo?</span>
+            <span class="comment-dot" id="dot-ex-qui-cross" style="display:none;"></span>
           </button>
         </div>
-        <div id="comment-box-ex-qui-b2" class="comment-drawer" style="display: none;">
+        <div id="comment-box-ex-qui-cross" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas observações sobre o Bloco 2 (peso do DB, step-down):</span>
-            <span class="save-indicator" id="save-status-ex-qui-b2"></span>
+            <span>👤 Suas anotações (tempo total no Time Cap, cargas no Snatch/DB/Thruster, adaptações, como ombro e joelho responderam):</span>
+            <span class="save-indicator" id="save-status-ex-qui-cross"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-qui-b2" placeholder="Ex: DBs de 15kg, descida no passo sem impacto no joelho..." oninput="saveExerciseNote('ex-qui-b2', this.value)"></textarea>
-        </div>
-      </div>
-
-      <!-- BLOCO 3: 3 ROUNDS (BMU/C2B + FRONT SQUAT + HSPU + BURPEES) -->
-      <div class="exercise-card">
-        <div class="ex-title">
-          <span>BLOCO 3 • 3 ROUNDS (BMU + FRONT SQUAT + HSPU + BURPEES)</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('BLOCO 3 • 3 ROUNDS', '<b>Execução:</b> 3 rounds técnicos e densos:<br>1. 8 Bar Muscle-ups (ou escala técnica em 16 Chest to Bar) com arco dinâmico, subida rápida dos quadris e transição simétrica de cotovelos por cima da barra<br>2. 16 Front Squats (cotovelos altos sustentando a barra em rack frontal, agachamento paralelo a 90° e extensão total)<br>3. 12 HSPU (Handstand Push-ups na parede com controle de cabeça na almofada e kipping explosivo de quadril)<br>4. 16 Burpees (ritmo regular de esteira constante).<br><br><b>Cuidados:</b> 1. NO BMU: PROIBIÇÃO ABSOLUTA de "chicken wing" (subir um braço torto antes do outro). A transição assimétrica gera torque destrutivo na tenodese da cabeça longa do bíceps esquerdo. Em caso de fadiga na transição, faça a escala limpa para 16 C2B.<br>2. No Front Squat, pare rigorosamente aos 90° para não comprimir o menisco posterior.<br><br><b>Base científica:</b> TRANSIÇÃO GLENOUMERAL E TENSÃO BICIPITAL NO MUSCLE-UP: A rotação interna associada à adução forçada unilateral sobrecarrega a âncora bicipital. O movimento bilateral simétrico distribui o vetor de força pelas fibras esternocostais do peitoral e grande dorsal (Kapandji, 2019).', '')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
-          </button>
-        </div>
-        <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 ROUNDS • TIME CAP GERAL: 35 MIN • ⏱️ REST: TRANSIÇÃO TÉCNICA</div>
-          <div class="sets-container">
-            <div class="set-pill" onclick="toggleSet(this)">Round 1</div>
-            <div class="set-pill" onclick="toggleSet(this)">Round 2</div>
-            <div class="set-pill" onclick="toggleSet(this)">Round 3</div>
-          </div>
-        </div>
-        <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Bloco 3 WOD • Quinta')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
-          <button type="button" class="btn-comment" id="btn-comment-ex-qui-b3" onclick="toggleCommentBox('ex-qui-b3')">
-            <span>💬 Observações?</span>
-            <span class="comment-dot" id="dot-ex-qui-b3" style="display:none;"></span>
-          </button>
-        </div>
-        <div id="comment-box-ex-qui-b3" class="comment-drawer" style="display: none;">
-          <div class="comment-header">
-            <span>👤 Suas observações sobre o Bloco 3 (BMU/C2B, transição do ombro):</span>
-            <span class="save-indicator" id="save-status-ex-qui-b3"></span>
-          </div>
-          <textarea class="comment-textarea" id="note-ex-qui-b3" placeholder="Ex: BMU simétrico e rápido, HSPU em séries de 6..." oninput="saveExerciseNote('ex-qui-b3', this.value)"></textarea>
-        </div>
-      </div>
-
-      <!-- BLOCO 4: 2 ROUNDS (THRUSTERS + T2B + STEP OVER + DU + BURPEES SYNC) -->
-      <div class="exercise-card">
-        <div class="ex-title">
-          <span>BLOCO 4 • 2 ROUNDS (THRUSTERS + T2B + STEP OVER + DU + BURPEES)</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('BLOCO 4 • 2 ROUNDS', '<b>Execução:</b> 2 rounds de sprint final até fechar o Time Cap:<br>1. 10 Thrusters (agachamento frontal fluido aproveitando a velocidade concêntrica para disparar a barra no lockout vertical)<br>2. 12 Toes to Bar (série ininterrupta ou 2 quebras rápidas)<br>3. 16 DB Box Step Over (passada por cima da caixa com halteres e step-down)<br>4. 75 Double Unders (ou 150 Single Unders) com saltos verticais elásticos e giros rápidos de punhos<br>5. 10 Burpees Over Bar Sync (sincronizados no peito no solo e no salto da barra).<br><br><b>Cuidados:</b> 1. No Thruster sob alta frequência respiratória, empurre o chão pelos calcanhares e proteja a coluna mantendo o core pressurizado (bracing abdominal).<br>2. Mantenha a aterrissagem dos Double Unders no antepé com joelhos destravados para amortecimento elástico.<br><br><b>Base científica:</b> CINÉTICA DO THRUSTER E RESISTÊNCIA DE FORÇA: O thruster integra a produção de força vetorial vertical total em fadiga acúmulo-lática; o controle da fáscia toracolombar previne a retroversão pélvica no final da sessão (McGill, 2010).', '')">
-            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
-          </button>
-        </div>
-        <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">2 ROUNDS • SPRINT FINAL • TIME CAP GERAL: 35 MIN • ⏱️ REST: ATÉ FECHAR</div>
-          <div class="sets-container">
-            <div class="set-pill" onclick="toggleSet(this)">Round 1 (Final)</div>
-            <div class="set-pill" onclick="toggleSet(this)">Round 2 (Final)</div>
-          </div>
-        </div>
-        <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Bloco 4 WOD • Quinta')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
-          <button type="button" class="btn-comment" id="btn-comment-ex-qui-b4" onclick="toggleCommentBox('ex-qui-b4')">
-            <span>💬 Observações?</span>
-            <span class="comment-dot" id="dot-ex-qui-b4" style="display:none;"></span>
-          </button>
-        </div>
-        <div id="comment-box-ex-qui-b4" class="comment-drawer" style="display: none;">
-          <div class="comment-header">
-            <span>👤 Suas observações sobre o Bloco 4 (tempo total no Time Cap, sensação nos Thrusters):</span>
-            <span class="save-indicator" id="save-status-ex-qui-b4"></span>
-          </div>
-          <textarea class="comment-textarea" id="note-ex-qui-b4" placeholder="Ex: Fechado aos 31'40'', Thrusters unbroken..." oninput="saveExerciseNote('ex-qui-b4', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-qui-cross" placeholder="Ex: Fechei aos 31'40'', Hang Snatch com 40kg, DB de 15kg, BMU unbroken, joelho ótimo descendo no step-down..." oninput="saveExerciseNote('ex-qui-cross', this.value)"></textarea>
         </div>
       </div>
     </div>
 
-    <!-- ==================== SEÇÃO 3: MOBILIDADE ==================== -->
+    <!-- ==================== SEÇÃO 2: MOBILIDADE ==================== -->
     <div class="section-card sec-flex">
       <div class="section-header">
         <div class="section-title-wrap">
@@ -9218,7 +9345,7 @@
     });
 
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '153';
+    const APP_BUILD_VERSION = '154';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
@@ -12276,14 +12403,18 @@
 
       let execText = '';
       let careText = '';
+      let adaptText = '';
       let tipText = '';
       let sciText = '';
 
-      const execMatch = desc.match(/<b>(?:Execu[çc][ãa]o|Na pr[áa]tica):?<\/b>\s*([\s\S]*?)(?=<b>(?:Cuidados|Dicas?|Base cient[íi]fica):?<\/b>|$)/i);
+      const execMatch = desc.match(/<b>(?:Execu[çc][ãa]o|Na pr[áa]tica):?<\/b>\s*([\s\S]*?)(?=<b>(?:Cuidados|Adapta[çc][õo]es|Dicas?|Base cient[íi]fica):?<\/b>|$)/i);
       if (execMatch) execText = execMatch[1].trim();
 
-      const careMatch = desc.match(/<b>Cuidados:?<\/b>\s*([\s\S]*?)(?=<b>(?:Dicas?|Base cient[íi]fica):?<\/b>|$)/i);
+      const careMatch = desc.match(/<b>Cuidados:?<\/b>\s*([\s\S]*?)(?=<b>(?:Adapta[çc][õo]es|Dicas?|Base cient[íi]fica):?<\/b>|$)/i);
       if (careMatch) careText = careMatch[1].trim();
+
+      const adaptMatch = desc.match(/<b>Adapta[çc][õo]es(?:\s*e\s*Escalas)?:?<\/b>\s*([\s\S]*?)(?=<b>(?:Dicas?|Base cient[íi]fica):?<\/b>|$)/i);
+      if (adaptMatch) adaptText = adaptMatch[1].trim();
 
       const tipMatch = desc.match(/<b>Dicas?:?<\/b>\s*([\s\S]*?)(?=<b>Base cient[íi]fica:?<\/b>|$)/i);
       if (tipMatch) tipText = tipMatch[1].trim();
@@ -12301,6 +12432,9 @@
       }
       if (careText) {
         html += '<div class="modal-instruction-block"><div class="modal-block-label modal-label-care">CUIDADOS</div><div class="modal-step-list">' + textToNumberedSteps(careText, 'care') + '</div></div>';
+      }
+      if (adaptText) {
+        html += '<div class="modal-instruction-block"><div class="modal-block-label" style="color: #a78bfa;">ADAPTAÇÕES E ESCALAS</div><div class="modal-step-list">' + textToNumberedSteps(adaptText, 'adapt') + '</div></div>';
       }
       if (tipText) {
         html += '<div class="modal-instruction-block"><div class="modal-block-label modal-label-tip">DICAS</div><div class="modal-step-list">' + textToNumberedSteps(tipText, 'tip') + '</div></div>';
@@ -13054,7 +13188,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=153').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=154').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
