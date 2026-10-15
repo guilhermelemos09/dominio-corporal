@@ -139,6 +139,8 @@ INSERT INTO public.alunos (slug, nome, papel, genero, estatura_cm)
 VALUES
     ('gui', 'Guilherme Lemos', 'treinador', 'M', 180.0),
     ('helenice', 'Helenice Rosa', 'aluna', 'F', 160.0),
-    ('jean', 'Jean Hilário', 'aluno', 'M', 178.0)
+    ('jean', 'Jean Hilário', 'aluno', 'M', 178.0),
+    ('daniela', 'Daniela Colombini', 'aluna', 'F', 165.0),
+    ('gustavo', 'Gustavo Donato', 'aluno', 'M', 175.0)
 ON CONFLICT (slug) DO UPDATE
 SET nome = EXCLUDED.nome, papel = EXCLUDED.papel;
