@@ -4315,89 +4315,53 @@
   <!-- ==================== TAB: EVOLUÇÃO E MÉTRICAS ==================== -->
   <div id="tab-evolucao" class="tab-content">
 
-    <!-- ==================== HUB DA CENTRAL DE EVOLUÇÃO ==================== -->
-    <!-- BOTÃO BANNER DE REGISTRAR MEDIÇÃO (DESTAQUE NO TOPO) -->
-    <button type="button" class="analysis-upload-banner" id="evolucaoAddMedicaoBanner" onclick="openAddMedicaoModal()" style="margin-top: 4px; margin-bottom: 16px; background: linear-gradient(135deg, #0284c7 0%, var(--brand-neon) 100%); color: #000; font-weight: 900; box-shadow: 0 4px 16px rgba(0, 255, 136, 0.28);">
-      <span style="font-size: 1.15rem; font-weight: 900;">+</span>
-      <span>REGISTRAR NOVA MEDIÇÃO</span>
-    </button>
-
-    <!-- HUB DE CATEGORIAS DA EVOLUÇÃO (ESTILO CARDS DE TREINO / ANÁLISES) -->
-    <div id="evolucaoHubMenu" class="training-days-list" style="margin-top: 10px; margin-bottom: 24px;">
+    <!-- ==================== HUB DA CENTRAL DE EVOLUÇÃO (GRADE DE APP) ==================== -->
+    <div id="evolucaoHubMenu" class="evolucao-app-grid">
       
-      <!-- CARD 1: COMPOSIÇÃO CORPORAL -->
-      <div class="training-day-card" id="evolCardBtn-composicao" onclick="openEvolucaoView('composicao')" style="border-left: 4.5px solid #38bdf8;">
-        <div class="day-card-left">
-          <div class="day-card-name-row">
-            <span class="day-name" style="color: #fff; font-weight: 800; letter-spacing: 0.5px;">COMPOSIÇÃO CORPORAL</span>
-          </div>
-          <div class="day-card-sub" style="font-size: 0.76rem; color: #94a3b8; margin-top: 3px;">
-            Antropometria, Peso, US Navy, Gráfico e Fotos Posturais
-          </div>
+      <!-- BOTÃO 1: COMPOSIÇÃO CORPORAL (HOMEM VITRUVIANO DA VINCI NEON LARANJA) -->
+      <div class="evol-app-btn" onclick="openEvolucaoView('composicao')">
+        <div class="evol-app-icon-wrap wrap-composicao">
+          <img src="Midia/icon_evol_composicao.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='../Midia/icon_evol_composicao.png';}" alt="Composição Corporal" class="evol-app-icon-img">
         </div>
-        <div class="day-card-right">
-          <div class="day-status-pill status-pending">
-            <span class="status-icon">›</span>
-          </div>
-        </div>
+        <div class="evol-app-btn-title">Composição Corporal</div>
+        <div class="evol-app-btn-sub">Métricas e Fotos</div>
       </div>
 
-      <!-- CARD 2: PROGRESSÃO DE TÉCNICA -->
-      <div class="training-day-card" id="evolCardBtn-tecnica" onclick="openEvolucaoView('tecnica')" style="border-left: 4.5px solid var(--brand-neon);">
-        <div class="day-card-left">
-          <div class="day-card-name-row">
-            <span class="day-name" style="color: #fff; font-weight: 800; letter-spacing: 0.5px;">PROGRESSÃO DE TÉCNICA</span>
-          </div>
-          <div class="day-card-sub" style="font-size: 0.76rem; color: #94a3b8; margin-top: 3px;">
-            Marcos Motores e Habilidades
-          </div>
+      <!-- BOTÃO 2: PROGRESSÃO DE TÉCNICA (FERRAMENTAS CRUZADAS NEON AZUL) -->
+      <div class="evol-app-btn" onclick="openEvolucaoView('tecnica')">
+        <div class="evol-app-icon-wrap wrap-tecnica">
+          <img src="Midia/icon_evol_tecnica.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='../Midia/icon_evol_tecnica.png';}" alt="Progressão de Técnica" class="evol-app-icon-img">
         </div>
-        <div class="day-card-right">
-          <div class="day-status-pill status-pending">
-            <span class="status-icon">›</span>
-          </div>
-        </div>
+        <div class="evol-app-btn-title">Progressão de Técnica</div>
+        <div class="evol-app-btn-sub">Marcos e Habilidades</div>
       </div>
 
-      <!-- CARD 3: CENTRAL DE RECORDES -->
-      <div class="training-day-card" id="evolCardBtn-recordes" onclick="openEvolucaoView('recordes')" style="border-left: 4.5px solid #f43f5e;">
-        <div class="day-card-left">
-          <div class="day-card-name-row">
-            <span class="day-name" style="color: #fff; font-weight: 800; letter-spacing: 0.5px;">CENTRAL DE RECORDES</span>
-          </div>
-          <div class="day-card-sub" style="font-size: 0.76rem; color: #94a3b8; margin-top: 3px;">
-            1RM, PRs de Carga, Repetições e Isometrias
-          </div>
+      <!-- BOTÃO 3: CENTRAL DE RECORDES (MUQUE / BÍCEPS NEON VERMELHO) -->
+      <div class="evol-app-btn" onclick="openEvolucaoView('recordes')">
+        <div class="evol-app-icon-wrap wrap-recordes">
+          <img src="Midia/icon_evol_recordes.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='../Midia/icon_evol_recordes.png';}" alt="Central de Recordes" class="evol-app-icon-img">
         </div>
-        <div class="day-card-right">
-          <div class="day-status-pill status-pending">
-            <span class="status-icon">›</span>
-          </div>
-        </div>
+        <div class="evol-app-btn-title">Central de Recordes</div>
+        <div class="evol-app-btn-sub">1RM, PRs e Tempos</div>
       </div>
 
-      <!-- CARD 4: RELATÓRIO DO TREINAMENTO -->
-      <div class="training-day-card" id="evolCardBtn-relatorio" onclick="openEvolucaoView('relatorio')" style="border-left: 4.5px solid #c084fc;">
-        <div class="day-card-left">
-          <div class="day-card-name-row">
-            <span class="day-name" style="color: #fff; font-weight: 800; letter-spacing: 0.5px;">RELATÓRIO DO TREINAMENTO</span>
-          </div>
-          <div class="day-card-sub" style="font-size: 0.76rem; color: #94a3b8; margin-top: 3px;">
-            Volume, Consistência e Laudo Técnico
-          </div>
+      <!-- BOTÃO 4: RELATÓRIO DO TREINAMENTO (GRÁFICO ANALYTICS NEON ROXO) -->
+      <div class="evol-app-btn" onclick="openEvolucaoView('relatorio')">
+        <div class="evol-app-icon-wrap wrap-relatorio">
+          <img src="Midia/icon_evol_relatorio.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='../Midia/icon_evol_relatorio.png';}" alt="Relatório do Treinamento" class="evol-app-icon-img">
         </div>
-        <div class="day-card-right">
-          <div class="day-status-pill status-pending">
-            <span class="status-icon">›</span>
-          </div>
-        </div>
+        <div class="evol-app-btn-title">Relatório do Treinamento</div>
+        <div class="evol-app-btn-sub">Volume e Consistência</div>
       </div>
 
     </div>
 
     <!-- ==================== SUBPÁGINA: COMPOSIÇÃO CORPORAL ==================== -->
     <div id="evolView-composicao" class="evolucao-view-pane" style="display:none;">
-      <!-- Barra Superior de Navegação e Guias -->
+
+      <!-- ==================== HUB PRINCIPAL DA COMPOSIÇÃO CORPORAL ==================== -->
+      <div id="compHubMenu">
+        <!-- Barra Superior de Navegação e Guias -->
       <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle); flex-wrap:wrap; gap:8px;">
         <button type="button" class="btn-back-workout" onclick="closeEvolucaoView()">
           ← Voltar para Evolução
@@ -4414,7 +4378,7 @@
         </div>
       </div>
 
-      <!-- Hero Card de Apresentação e Ação Principal -->
+        <!-- Hero Card de Apresentação e Ação Principal -->
       <div class="evolucao-hero" style="margin-bottom:16px; position:relative; overflow:hidden;">
         <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px;">
           <div>
@@ -4426,14 +4390,98 @@
               Acompanhamento de peso, cintura, relação cintura-estatura e adiposidade para otimizar suas alavancas biomecânicas e força relativa no Domínio Corporal.
             </p>
           </div>
-          <button type="button" onclick="openAddMedicaoModal()" style="background:var(--brand-neon); color:#000; font-size:0.82rem; font-weight:800; border:none; border-radius:10px; padding:10px 16px; cursor:pointer; display:inline-flex; align-items:center; gap:6px; box-shadow:0 0 16px var(--brand-neon-glow); transition:transform 0.15s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
-            <span style="font-size:1.05rem; font-weight:900;">+</span>
-            <span>Registrar Medição</span>
-          </button>
+          
         </div>
       </div>
 
-      <!-- Card: Dados de Entrada da Ficha de Avaliação (Ponto de Partida) -->
+        <!-- BOTÃO BANNER DE REGISTRAR MEDIÇÃO (DESTAQUE DENTRO DA COMPOSIÇÃO CORPORAL) -->
+        <button type="button" class="analysis-upload-banner" onclick="openAddMedicaoModal()" style="margin-top: 6px; margin-bottom: 16px; background: linear-gradient(135deg, #0284c7 0%, var(--brand-neon) 100%); color: #000; font-weight: 900; box-shadow: 0 4px 16px rgba(0, 255, 136, 0.28);">
+          <span style="font-size: 1.15rem; font-weight: 900;">+</span>
+          <span>REGISTRAR NOVA MEDIÇÃO</span>
+        </button>
+
+        <!-- HUB DE CATEGORIAS DA COMPOSIÇÃO CORPORAL (ESTILO CARDS DE TREINO / ANÁLISES) -->
+        <div class="training-days-list" style="margin-top: 10px; margin-bottom: 24px;">
+          
+          <!-- CARD 1: GRÁFICO E ANTROPOMETRIA -->
+          <div class="training-day-card" id="compCardBtn-grafico" onclick="openCompSubView('grafico')" style="border-left: 4.5px solid #38bdf8;">
+            <div class="day-card-left">
+              <div class="day-card-name-row">
+                <span class="day-name" style="color: #fff; font-weight: 800; letter-spacing: 0.5px;">GRÁFICO E ANTROPOMETRIA</span>
+              </div>
+              <div class="day-card-sub" style="font-size: 0.76rem; color: #94a3b8; margin-top: 3px;">
+                Peso Atual, Cintura, RCEst e Gráfico de Tendência
+              </div>
+            </div>
+            <div class="day-card-right">
+              <div class="day-status-pill status-pending">
+                <span class="status-icon">›</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 2: HISTÓRICO DE MEDIÇÕES -->
+          <div class="training-day-card" id="compCardBtn-historico" onclick="openCompSubView('historico')" style="border-left: 4.5px solid var(--brand-neon);">
+            <div class="day-card-left">
+              <div class="day-card-name-row">
+                <span class="day-name" style="color: #fff; font-weight: 800; letter-spacing: 0.5px;">HISTÓRICO DE MEDIÇÕES</span>
+              </div>
+              <div class="day-card-sub" style="font-size: 0.76rem; color: #94a3b8; margin-top: 3px;">
+                Check-ins Detalhados, Aferições e Registros
+              </div>
+            </div>
+            <div class="day-card-right">
+              <div class="day-status-pill status-pending">
+                <span class="status-icon">›</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 3: FOTOS POSTURAIS -->
+          <div class="training-day-card" id="compCardBtn-fotos" onclick="openCompSubView('fotos')" style="border-left: 4.5px solid #c084fc;">
+            <div class="day-card-left">
+              <div class="day-card-name-row">
+                <span class="day-name" style="color: #fff; font-weight: 800; letter-spacing: 0.5px;">FOTOS POSTURAIS</span>
+              </div>
+              <div class="day-card-sub" style="font-size: 0.76rem; color: #94a3b8; margin-top: 3px;">
+                Evolução Visual e Comparação de Silhueta
+              </div>
+            </div>
+            <div class="day-card-right">
+              <div class="day-status-pill status-pending">
+                <span class="status-icon">›</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 4: LAUDO E IMPACTO ARTICULAR -->
+          <div class="training-day-card" id="compCardBtn-laudo" onclick="openCompSubView('laudo')" style="border-left: 4.5px solid #f43f5e;">
+            <div class="day-card-left">
+              <div class="day-card-name-row">
+                <span class="day-name" style="color: #fff; font-weight: 800; letter-spacing: 0.5px;">LAUDO E IMPACTO ARTICULAR</span>
+              </div>
+              <div class="day-card-sub" style="font-size: 0.76rem; color: #94a3b8; margin-top: 3px;">
+                Alívio Articular 4:1 de Messier, Força Relativa e Laudo Técnico
+              </div>
+            </div>
+            <div class="day-card-right">
+              <div class="day-status-pill status-pending">
+                <span class="status-icon">›</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ==================== SUBPÁGINA 1: GRÁFICO E ANTROPOMETRIA ==================== -->
+      <div id="compSubView-grafico" style="display:none;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
+          <button type="button" class="btn-back-workout" onclick="closeCompSubView()">
+            ← Voltar para Composição Corporal
+          </button>
+        </div>
+        <!-- Card: Dados de Entrada da Ficha de Avaliação (Ponto de Partida) -->
       <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(56,189,248,0.25); border-radius: 16px; padding: 16px; margin-bottom: 16px;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 12px; flex-wrap:wrap; gap:8px;">
           <div style="display:flex; align-items:center; gap:8px;">
@@ -4509,22 +4557,16 @@
           <!-- SVG dinamicamente gerado via script -->
         </div>
       </div>
-
-      <!-- Card: Comparativo Visual de Fotos (Antes vs Recente) -->
-      <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 16px; margin-bottom: 20px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:8px;">
-          <div style="font-size:0.92rem; font-weight:800; color:#fff; display:flex; align-items:center; gap:6px;">
-            <span>📸</span> <span>Registro Fotográfico Padronizado</span>
-          </div>
-          <span style="font-size:0.72rem; color:#94a3b8; background:rgba(255,255,255,0.05); padding:3px 8px; border-radius:6px;">Privado no dispositivo</span>
-        </div>
-
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:12px;" id="compPhotosGallery">
-          <!-- Slots das Fotos: Frente, Lado, Costas -->
-        </div>
       </div>
 
-      <!-- Card: Histórico Cronológico de Check-ins -->
+      <!-- ==================== SUBPÁGINA 2: HISTÓRICO DE MEDIÇÕES ==================== -->
+      <div id="compSubView-historico" style="display:none;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
+          <button type="button" class="btn-back-workout" onclick="closeCompSubView()">
+            ← Voltar para Composição Corporal
+          </button>
+        </div>
+        <!-- Card: Histórico Cronológico de Check-ins -->
       <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 16px; margin-bottom: 20px;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
           <div style="font-size:0.92rem; font-weight:800; color:#fff; display:flex; align-items:center; gap:6px;">
@@ -4537,8 +4579,42 @@
           <!-- Linhas do histórico injetadas aqui -->
         </div>
       </div>
+      </div>
 
-      <!-- Card Nobre: Gerador de Relatório Completo de Composição e Força Relativa -->
+      <!-- ==================== SUBPÁGINA 3: FOTOS POSTURAIS ==================== -->
+      <div id="compSubView-fotos" style="display:none;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle); flex-wrap:wrap; gap:8px;">
+          <button type="button" class="btn-back-workout" onclick="closeCompSubView()">
+            ← Voltar para Composição Corporal
+          </button>
+          <button type="button" class="btn-orientacoes-popup" onclick="openInstrucoesFotosModal()">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+            <span>GUIA DE FOTOS</span>
+          </button>
+        </div>
+        <!-- Card: Comparativo Visual de Fotos (Antes vs Recente) -->
+      <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 16px; margin-bottom: 20px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:8px;">
+          <div style="font-size:0.92rem; font-weight:800; color:#fff; display:flex; align-items:center; gap:6px;">
+            <span>📸</span> <span>Registro Fotográfico Padronizado</span>
+          </div>
+          <span style="font-size:0.72rem; color:#94a3b8; background:rgba(255,255,255,0.05); padding:3px 8px; border-radius:6px;">Privado no dispositivo</span>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:12px;" id="compPhotosGallery">
+          <!-- Slots das Fotos: Frente, Lado, Costas -->
+        </div>
+      </div>
+      </div>
+
+      <!-- ==================== SUBPÁGINA 4: LAUDO E IMPACTO ARTICULAR ==================== -->
+      <div id="compSubView-laudo" style="display:none;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
+          <button type="button" class="btn-back-workout" onclick="closeCompSubView()">
+            ← Voltar para Composição Corporal
+          </button>
+        </div>
+        <!-- Card Nobre: Gerador de Relatório Completo de Composição e Força Relativa -->
       <div style="background: linear-gradient(135deg, rgba(2,132,199,0.12), rgba(124,58,237,0.12)); border: 1.5px solid rgba(56,189,248,0.35); border-radius: 16px; padding: 20px 18px; margin-bottom: 24px; text-align: left; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
         <div style="display:flex; align-items:flex-start; gap:12px; flex-wrap:wrap; justify-content:space-between;">
           <div style="max-width: 480px;">
@@ -4557,6 +4633,10 @@
         </div>
       </div>
 
+    </div>
+
+    <div
+      </div>
     </div>
 
     <div id="evolView-tecnica" class="evolucao-view-pane" style="display:none;">
@@ -5936,10 +6016,46 @@ Segue o vídeo anexo para sua análise!`;
 
     
     
+    function openCompSubView(subId) {
+      if (typeof pushAppHistoryState === 'function') pushAppHistoryState('compSubView', { subId }, 'comp-' + subId);
+      const hubMenu = document.getElementById('compHubMenu');
+      if (hubMenu) hubMenu.style.display = 'none';
+
+      const subViews = ['grafico', 'historico', 'fotos', 'laudo'];
+      subViews.forEach(id => {
+        const el = document.getElementById('compSubView-' + id);
+        if (el) el.style.display = (id === subId) ? 'block' : 'none';
+      });
+
+      if (subId === 'grafico' && typeof renderBodyCompChart === 'function') {
+        renderBodyCompChart(currentBodyCompChartType);
+      }
+      if (subId === 'historico' && typeof renderBodyCompHistoryList === 'function') {
+        renderBodyCompHistoryList(getBodyCompHistory());
+      }
+      if (subId === 'fotos' && typeof renderBodyCompPhotosGallery === 'function') {
+        renderBodyCompPhotosGallery();
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function closeCompSubView(fromPopState = false) {
+      if (!fromPopState && typeof popAppHistoryState === 'function' && popAppHistoryState('compSubView')) return;
+      const hubMenu = document.getElementById('compHubMenu');
+      if (hubMenu) hubMenu.style.display = 'block';
+
+      const subViews = ['grafico', 'historico', 'fotos', 'laudo'];
+      subViews.forEach(id => {
+        const el = document.getElementById('compSubView-' + id);
+        if (el) el.style.display = 'none';
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
     function openEvolucaoView(viewId) {
       if (typeof pushAppHistoryState === 'function') pushAppHistoryState('evolView', { viewId }, 'evolucao-' + viewId);
-      const banner = document.getElementById('evolucaoAddMedicaoBanner');
-      if (banner) banner.style.display = 'none';
       const hubMenu = document.getElementById('evolucaoHubMenu');
       if (hubMenu) hubMenu.style.display = 'none';
 
@@ -5951,8 +6067,9 @@ Segue o vídeo anexo para sua análise!`;
         }
       });
 
-      if (viewId === 'composicao' && typeof renderBodyCompUI === 'function') {
-        renderBodyCompUI();
+      if (viewId === 'composicao') {
+        if (typeof closeCompSubView === 'function') closeCompSubView(true);
+        if (typeof renderBodyCompUI === 'function') renderBodyCompUI();
         if (window.DominioDB) {
           if (typeof DominioDB.updateCloudStatusUI === 'function') DominioDB.updateCloudStatusUI();
           if (typeof DominioDB.syncExistingLocalDataToCloud === 'function') DominioDB.syncExistingLocalDataToCloud();
@@ -5967,10 +6084,8 @@ Segue o vídeo anexo para sua análise!`;
 
     function closeEvolucaoView(fromPopState = false) {
       if (!fromPopState && typeof popAppHistoryState === 'function' && popAppHistoryState('evolView')) return;
-      const banner = document.getElementById('evolucaoAddMedicaoBanner');
-      if (banner) banner.style.display = 'flex';
       const hubMenu = document.getElementById('evolucaoHubMenu');
-      if (hubMenu) hubMenu.style.display = 'flex';
+      if (hubMenu) hubMenu.style.display = 'grid';
 
       const viewIds = ['composicao', 'tecnica', 'recordes', 'relatorio'];
       viewIds.forEach(id => {
@@ -5978,8 +6093,11 @@ Segue o vídeo anexo para sua análise!`;
         if (el) el.style.display = 'none';
       });
 
+      if (typeof closeCompSubView === 'function') closeCompSubView(true);
+
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
 
     /* ===================================================
        MOTOR DE COMPOSIÇÃO CORPORAL E FORÇA RELATIVA (US NAVY)
