@@ -5343,8 +5343,8 @@
         <div class="ex-volume-sets-row">
           <div class="ex-volume-badge">2 ROUNDS • 5 MOVIMENTOS • ⏱️ REST: 60S</div>
           <div class="sets-container">
-            <div class="set-pill done" onclick="toggleSet(this)">Round 1</div>
-            <div class="set-pill done" onclick="toggleSet(this)">Round 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Round 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Round 2</div>
           </div>
         </div>
         <div class="ex-bottom-actions">
@@ -5388,10 +5388,10 @@
         <div class="ex-volume-sets-row">
           <div class="ex-volume-badge">4 ROUNDS • SQUAT 80 KG • DB 15 KG • ⏱️ REST: E3MOM (3 MIN)</div>
           <div class="sets-container">
-            <div class="set-pill done" onclick="toggleSet(this)">Round 1</div>
-            <div class="set-pill done" onclick="toggleSet(this)">Round 2</div>
-            <div class="set-pill done" onclick="toggleSet(this)">Round 3</div>
-            <div class="set-pill done" onclick="toggleSet(this)">Round 4 (80kg)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Round 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Round 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Round 3</div>
+            <div class="set-pill" onclick="toggleSet(this)">Round 4 (80kg)</div>
           </div>
         </div>
         <div class="workout-timer-cta-wrap">
@@ -5441,11 +5441,11 @@
         <div class="ex-volume-sets-row">
           <div class="ex-volume-badge">5 ROUNDS • WALLBALL 9 KG • ⏱️ REST: 1 MIN ENTRE ROUNDS</div>
           <div class="sets-container">
-            <div class="set-pill done" onclick="toggleSet(this)">Round 1</div>
-            <div class="set-pill done" onclick="toggleSet(this)">Round 2</div>
-            <div class="set-pill done" onclick="toggleSet(this)">Round 3</div>
-            <div class="set-pill done" onclick="toggleSet(this)">Round 4</div>
-            <div class="set-pill done" onclick="toggleSet(this)">Round 5</div>
+            <div class="set-pill" onclick="toggleSet(this)">Round 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Round 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Round 3</div>
+            <div class="set-pill" onclick="toggleSet(this)">Round 4</div>
+            <div class="set-pill" onclick="toggleSet(this)">Round 5</div>
           </div>
         </div>
         <div class="workout-timer-cta-wrap">
@@ -9489,16 +9489,6 @@
     }
 
     function renderTrainingHubDays() {
-      // Terça-feira (LPO) concluída conforme registro do atleta
-      try {
-        const _comp = JSON.parse(localStorage.getItem('dominio_completed_workouts') || '{}');
-        let _upd = false;
-        if (!_comp['terca']) { _comp['terca'] = true; _upd = true; }
-        if (_comp['quarta']) { delete _comp['quarta']; _upd = true; }
-        if (_upd) {
-          localStorage.setItem('dominio_completed_workouts', JSON.stringify(_comp));
-        }
-      } catch (e) {}
 
       const dayOfWeek = new Date().getDay(); // 0: Dom, 1: Seg, 2: Ter, 3: Qua, 4: Qui, 5: Sex, 6: Sab
       const dayMap = { 1: 'segunda', 2: 'terca', 3: 'quarta', 4: 'quinta', 5: 'sexta' };
@@ -9602,8 +9592,9 @@
 
             if (viewId === 'composicao' && typeof renderBodyCompUI === 'function') {
         renderBodyCompUI();
-      if (window.DominioDB && typeof DominioDB.updateCloudStatusUI === 'function') {
-        DominioDB.updateCloudStatusUI();
+      if (window.DominioDB) {
+        if (typeof DominioDB.updateCloudStatusUI === 'function') DominioDB.updateCloudStatusUI();
+        if (typeof DominioDB.syncExistingLocalDataToCloud === 'function') DominioDB.syncExistingLocalDataToCloud();
       }
       }
       if (viewId === 'relatorio' && typeof updateEvolucaoStats === 'function') {
@@ -11887,6 +11878,78 @@
       updateCloudStatusUI();
     });
 
+        // Sincronizar dados locais legados existentes no localStorage para a nuvem
+    async function syncExistingLocalDataToCloud() {
+      const cfg = getConfig();
+      if (!cfg.supabaseUrl || !cfg.supabaseAnonKey) return 0;
+      
+      let syncedItems = 0;
+
+      // A. Sincronizar logs históricos de treinos salvos localmente
+      try {
+        const logs = JSON.parse(localStorage.getItem('dominio_workout_logs') || '[]');
+        if (logs.length > 0) {
+          for (const log of logs) {
+            const ok = await dispatchCloud('salvarTreino', {
+              dia_id: log.dia || 'treino',
+              data_treino: log.data || new Date().toLocaleDateString('pt-BR'),
+              series_concluidas: log.series_concluidas || 0,
+              total_series: log.total_series || 0,
+              aderencia_pct: log.aderencia_pct || 100,
+              notas_gerais: log.notas || 'Treino finalizado com sucesso'
+            });
+            if (ok) syncedItems++;
+          }
+        }
+      } catch (e) {}
+
+      // B. Sincronizar todas as notas de exercícios já digitadas no aparelho
+      try {
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          if (key && key.startsWith('dominio_note_')) {
+            const exId = key.replace('dominio_note_', '');
+            const noteVal = localStorage.getItem(key);
+            if (noteVal && noteVal.trim()) {
+              const card = document.getElementById('exCard-' + exId);
+              const nameEl = card ? card.querySelector('.ex-title span') : null;
+              const exName = nameEl ? nameEl.textContent.trim() : exId;
+              const ok = await dispatchCloud('salvarNotaExercicio', {
+                exercicio_id: exId,
+                exercicio_nome: exName,
+                nota: noteVal.trim()
+              });
+              if (ok) syncedItems++;
+            }
+          }
+        }
+      } catch (e) {}
+
+      // C. Sincronizar histórico de composição corporal
+      try {
+        const comp = JSON.parse(localStorage.getItem('dominio_gui_body_comp_history') || '[]');
+        if (comp.length > 0) {
+          for (const item of comp) {
+            const ok = await dispatchCloud('salvarMedicao', {
+              data_medicao: item.date,
+              peso: item.weight,
+              cintura: item.waist,
+              pescoco: item.neck || null,
+              quadril: item.hip || null,
+              bf_pct: item.bfManual || null,
+              vestimenta: item.clothes || null,
+              energia: item.energy || null,
+              notas: item.notes || null
+            });
+            if (ok) syncedItems++;
+          }
+        }
+      } catch (e) {}
+
+      updateCloudStatusUI();
+      return syncedItems;
+    }
+
     return {
       getConfig: getConfig,
       saveConfig: saveConfig,
@@ -11897,7 +11960,8 @@
       flushSyncQueue: flushSyncQueue,
       testConnection: testConnection,
       getStatus: getStatus,
-      updateCloudStatusUI: updateCloudStatusUI
+      updateCloudStatusUI: updateCloudStatusUI,
+      syncExistingLocalDataToCloud: syncExistingLocalDataToCloud
     };
   })();
 
@@ -13188,7 +13252,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=154').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=155').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
