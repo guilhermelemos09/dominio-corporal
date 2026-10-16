@@ -12693,13 +12693,26 @@
       openDedicatedView('avaliacao');
     }
 
-    function checkIntakeGate() {
-      const isCompleted = localStorage.getItem('dominio_gustavo_assessment_completed') === 'true';
+    async function checkIntakeGate() {
+      let isCompleted = localStorage.getItem('dominio_gustavo_assessment_completed') === 'true';
+      if (!isCompleted && window.DominioDB && typeof window.DominioDB.carregarAvaliacao === 'function') {
+        try {
+          const cloudRecord = await window.DominioDB.carregarAvaliacao('gustavo', 'inicial');
+          if (cloudRecord && cloudRecord.respostas) {
+            localStorage.setItem('dominio_gustavo_student_intake', JSON.stringify(cloudRecord.respostas));
+            localStorage.setItem('dominio_gustavo_assessment_completed', 'true');
+            isCompleted = true;
+            syncAthleteMetricsFromIntake();
+            if (typeof updateAssessmentHistoryUI === 'function') updateAssessmentHistoryUI();
+          }
+        } catch (e) {}
+      }
+      const modal = document.getElementById('intakeGateModal');
       if (!isCompleted) {
-        const modal = document.getElementById('intakeGateModal');
         if (modal) modal.classList.add('active');
         updateDedicatedTopBarGate(false);
       } else {
+        if (modal) modal.classList.remove('active');
         updateDedicatedTopBarGate(true);
       }
     }
@@ -12876,11 +12889,29 @@
       }
     }
 
-    function loadStudentAssessment() {
+    async function loadStudentAssessment() {
       try {
-        const raw = localStorage.getItem('dominio_gustavo_student_intake');
-        if (!raw) return;
-        const data = JSON.parse(raw);
+        let raw = localStorage.getItem('dominio_gustavo_student_intake');
+        let data = raw ? JSON.parse(raw) : null;
+
+        if (!data && window.DominioDB && typeof window.DominioDB.carregarAvaliacao === 'function') {
+          try {
+            const cloudRecord = await window.DominioDB.carregarAvaliacao('gustavo', 'inicial');
+            if (cloudRecord && cloudRecord.respostas) {
+              data = cloudRecord.respostas;
+              localStorage.setItem('dominio_gustavo_student_intake', JSON.stringify(data));
+              localStorage.setItem('dominio_gustavo_assessment_completed', 'true');
+              if (typeof updateAssessmentHistoryUI === 'function') updateAssessmentHistoryUI();
+              if (typeof updateDedicatedTopBarGate === 'function') updateDedicatedTopBarGate(true);
+              const gateBanner = document.getElementById('assessmentGateBanner');
+              if (gateBanner) gateBanner.style.display = 'none';
+            }
+          } catch (cloudErr) {
+            console.warn('[DominioDB] Falha ao buscar avaliação da nuvem:', cloudErr);
+          }
+        }
+
+        if (!data) return;
 
         const setVal = (id, val) => {
           const el = document.getElementById(id);
@@ -13042,6 +13073,13 @@
       const phone = '5516981222356';
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
       window.open(url, '_blank');
+
+      // Sincroniza avaliação na nuvem (Supabase / DominioDB)
+      if (window.DominioDB && typeof window.DominioDB.salvarAvaliacao === 'function') {
+        window.DominioDB.salvarAvaliacao('inicial', data).catch(function(err) {
+          console.warn('[DominioDB] Erro ao sincronizar avaliação na nuvem:', err);
+        });
+      }
 
       // Desbloqueia o aplicativo no dispositivo do aluno
       localStorage.setItem('dominio_gustavo_assessment_completed', 'true');
@@ -13941,6 +13979,29 @@
       return dispatchCloud('salvarAvaliacao', payload);
     }
 
+    async function carregarAvaliacao(alunoSlug, tipo) {
+      const cfg = getConfig();
+      const slug = alunoSlug || cfg.athleteSlug;
+      const tipoVal = tipo || 'inicial';
+      if (!cfg.supabaseUrl || !cfg.supabaseAnonKey) return null;
+      try {
+        const cleanUrl = cfg.supabaseUrl.replace(/\/+$/, '');
+        const url = `${cleanUrl}/rest/v1/avaliacoes_anamnese?aluno_slug=eq.${encodeURIComponent(slug)}&tipo=eq.${encodeURIComponent(tipoVal)}&order=created_at.desc&limit=1`;
+        const resp = await fetch(url, {
+          headers: {
+            'apikey': cfg.supabaseAnonKey,
+            'Authorization': `Bearer ${cfg.supabaseAnonKey}`
+          }
+        });
+        if (!resp.ok) return null;
+        const list = await resp.json();
+        return (list && list.length > 0) ? list[0] : null;
+      } catch (e) {
+        console.warn('[DominioDB] Erro ao carregar avaliação do Supabase:', e);
+        return null;
+      }
+    }
+
     async function testConnection(testCfg) {
       const cfg = testCfg || getConfig();
       const results = { supabase: null, sheets: null };
@@ -14149,6 +14210,7 @@
       salvarMedicao: salvarMedicao,
       salvarNotaExercicio: salvarNotaExercicio,
       salvarAvaliacao: salvarAvaliacao,
+      carregarAvaliacao: carregarAvaliacao,
       flushSyncQueue: flushSyncQueue,
       testConnection: testConnection,
       getStatus: getStatus,
