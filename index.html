@@ -5267,10 +5267,10 @@
           <div class="day-card-left">
             <div class="day-card-name-row">
               <span class="day-name">QUINTA</span>
-              <span class="day-today-badge" id="todayBadge-quinta" style="display:inline-flex;">Hoje</span>
+              <span class="day-today-badge" id="todayBadge-quinta" style="display:none;">Hoje</span>
             </div>
             <div class="day-focus-desc">CONDICIONAMENTO</div>
-            <div class="day-meta-pill">📍 Box CrossFit e Dança • ⏱️ 17h às 19h</div>
+            <div class="day-meta-pill">📍 Box CrossFit • ⏱️ 17h</div>
           </div>
           <div class="day-card-right">
             <div class="day-status-pill status-pending" id="statusPill-quinta" onclick="event.stopPropagation(); handleWorkoutStatusClick('quinta')">
@@ -5284,7 +5284,7 @@
           <div class="day-card-left">
             <div class="day-card-name-row">
               <span class="day-name">SEXTA</span>
-              <span class="day-today-badge" id="todayBadge-sexta" style="display:none;">Hoje</span>
+              <span class="day-today-badge" id="todayBadge-sexta" style="display:inline-flex;">Hoje</span>
             </div>
             <div class="day-focus-desc">GINÁSTICA E PORTAGEM</div>
             <div class="day-meta-pill">📍 Ginásio EEFERP • ⏱️ ~1h40</div>
@@ -6018,13 +6018,13 @@
         <div class="ex-volume-sets-row">
           <div class="ex-volume-badge">8 MINUTOS • 4 PASSAGENS • ⏱️ REST: EMOM (INTERVALO FIXO)</div>
           <div class="sets-container">
-            <div class="set-pill" onclick="toggleSet(this)">Min 1 (Arch)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Min 1 (Candle)</div>
             <div class="set-pill" onclick="toggleSet(this)">Min 2 (Push)</div>
-            <div class="set-pill" onclick="toggleSet(this)">Min 3 (Arch)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Min 3 (Candle)</div>
             <div class="set-pill" onclick="toggleSet(this)">Min 4 (Push)</div>
-            <div class="set-pill" onclick="toggleSet(this)">Min 5 (Arch)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Min 5 (Candle)</div>
             <div class="set-pill" onclick="toggleSet(this)">Min 6 (Push)</div>
-            <div class="set-pill" onclick="toggleSet(this)">Min 7 (Arch)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Min 7 (Candle)</div>
             <div class="set-pill" onclick="toggleSet(this)">Min 8 (Push)</div>
           </div>
         </div>
@@ -6127,14 +6127,14 @@
     </div>
   </div><!-- end #tab-quarta -->
 
-        <!-- ==================== TAB: HOJE (QUINTA: CONDICIONAMENTO CROSSFIT E DANÇA) ==================== -->
+        <!-- ==================== TAB: QUINTA (CONDICIONAMENTO CROSSFIT) ==================== -->
   <div id="tab-quinta" class="tab-content">
 
     <!-- LOCAL E DURAÇÃO DA SESSÃO -->
     <div class="session-overall-meta">
-      <span class="meta-item">📍 Box CrossFit e Dança</span>
+      <span class="meta-item">📍 Box CrossFit</span>
       <span class="meta-separator">|</span>
-      <span class="meta-item">⏳ 17h–18h WOD • 18h30 Dança</span>
+      <span class="meta-item">⏳ 17h–18h WOD</span>
       <span class="meta-separator">|</span>
       <span class="meta-item">⏱️ Time Cap 35'</span>
     </div>
@@ -6684,7 +6684,42 @@
         </div>
       </div>
 
-      <!-- 2. HANDSTAND SHRUGS NA PAREDE -->
+      <!-- 2. TIBIAL ANTERIOR NA PAREDE -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>TIBIAL ANTERIOR NA PAREDE</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('TIBIAL ANTERIOR NA PAREDE', '<b>Execução:</b> 1. De costas apoiadas na parede, calcanhares apoiados no solo à frente (quanto mais à frente, maior a alavanca e a exigência).<br>2. Manter as pernas totalmente estendidas e puxar ativamente a ponta dos pés para cima em dorsiflexão máxima.<br>3. Segurar 1 segundo no topo da contração e descer de forma controlada sem bater a sola no chão.<br><br><b>Cuidados:</b> Manter os joelhos rigorosamente estendidos durante toda a série; focar na queimação anterior da canela.<br><br><b>Base científica:</b> DESACELERAÇÃO E EQUILÍBRIO AGONISTA/ANTAGONISTA: O tibial anterior é o principal desacelerador no impacto com o solo; seu fortalecimento contrabalança a musculatura do tríceps sural e absorve as forças de cisalhamento antes que alcancem o tendão patelar e a cartilagem meniscal (Messier et al., 2011).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • 15 A 20 REPS (1" NO TOPO) • ⏱️ REST: 45S</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">15-20 reps</div>
+            <div class="set-pill" onclick="toggleSet(this)">15-20 reps</div>
+            <div class="set-pill" onclick="toggleSet(this)">15-20 reps</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Tibial Anterior • Sexta')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-sex-tib" onclick="toggleCommentBox('ex-sex-tib')">
+            <span>💬 Anotar Queimação?</span>
+            <span class="comment-dot" id="dot-ex-sex-tib" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-sex-tib" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações sobre Tibial Anterior:</span>
+            <span class="save-indicator" id="save-status-ex-sex-tib"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-sex-tib" placeholder="Ex: Queimação intensa na canela, joelho respondeu muito bem..." oninput="saveExerciseNote('ex-sex-tib', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- 3. HANDSTAND SHRUGS NA PAREDE -->
       <div class="exercise-card">
         <div class="ex-title">
           <span>HANDSTAND SHRUGS NA PAREDE</span>
@@ -6735,27 +6770,27 @@
       <div class="exercise-card">
         <div class="ex-title">
           <span>CIRCUITO GÍMNICO METABÓLICO</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('CIRCUITO GÍMNICO METABÓLICO', '<b>Execução:</b> 1. EMOM de 8 minutos:<br>• Minuto Ímpar (1, 3, 5, 7): 15 Arch Rocks / Extensões de Coluna Solo (ativação de glúteos e cadeia posterior).<br>• Minuto Par (2, 4, 6, 8): 8 Sprawls dinâmicos (burpee sem flexão) + 10m Bear Crawl acelerado no tatame.<br>2. Gestão de fôlego e ritmo constante.<br><br><b>Cuidados:</b> Manter os pés e joelhos alinhados no retorno do Candlestick; descida suave no solo.<br><br><b>Base científica:</b> RESISTÊNCIA DE POTÊNCIA ANAERÓBICA ALÁTICA E LÁTICA: O formato EMOM estimula a alternância entre picos de fosfagênio e recuperação parassimpática imediata, preservando a técnica sob fadiga cardíaca (Glaister, 2005).', '')">
+          <button type="button" class="btn-video" onclick="openVideoModal('CIRCUITO GÍMNICO METABÓLICO', '<b>Execução:</b> 1. EMOM de 8 minutos:<br>• Minuto Ímpar (1, 3, 5, 7): 12 Candlesticks Dinâmicos com Salto (rolamento gímnico e impulsão explosiva para cardio e potência).<br>• Minuto Par (2, 4, 6, 8): 8 Sprawls dinâmicos (burpee sem flexão) + 10m Bear Crawl acelerado no tatame.<br>2. Gestão de fôlego e ritmo constante.<br><br><b>Cuidados:</b> Manter os pés e joelhos alinhados no retorno do Candlestick; descida suave no solo.<br><br><b>Base científica:</b> RESISTÊNCIA DE POTÊNCIA ANAERÓBICA ALÁTICA E LÁTICA: O formato EMOM estimula a alternância entre picos de fosfagênio e recuperação parassimpática imediata, preservando a técnica sob fadiga cardíaca (Glaister, 2005).', '')">
             <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
         <div class="ex-volume-sets-row">
           <div class="ex-volume-badge">EMOM 8 MIN • ALTERNÂNCIA POR MINUTO</div>
           <div class="sets-container">
-            <div class="set-pill" onclick="toggleSet(this)">Min 1 (Arch)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Min 1 (Candle)</div>
             <div class="set-pill" onclick="toggleSet(this)">Min 2 (Sprawl)</div>
-            <div class="set-pill" onclick="toggleSet(this)">Min 3 (Arch)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Min 3 (Candle)</div>
             <div class="set-pill" onclick="toggleSet(this)">Min 4 (Sprawl)</div>
-            <div class="set-pill" onclick="toggleSet(this)">Min 5 (Arch)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Min 5 (Candle)</div>
             <div class="set-pill" onclick="toggleSet(this)">Min 6 (Sprawl)</div>
-            <div class="set-pill" onclick="toggleSet(this)">Min 7 (Arch)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Min 7 (Candle)</div>
             <div class="set-pill" onclick="toggleSet(this)">Min 8 (Sprawl)</div>
           </div>
         </div>
 
         <!-- DISPARADOR RÁPIDO DO CRONÔMETRO -->
         <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px;">
-          <button type="button" class="btn-wod-timer-trigger" onclick="openWorkoutTimerWithCard('emom', 8, 'EMOM 8 MIN • CIRCUITO GÍMNICO', 'Alternância por minuto (8 rounds):\n• Minutos Ímpares (1, 3, 5, 7): 15 Arch Rocks (Extensão Posterior)\n• Minutos Pares (2, 4, 6, 8): 8 Sprawls + 10m Bear Crawl', this)">
+          <button type="button" class="btn-wod-timer-trigger" onclick="openWorkoutTimerWithCard('emom', 8, 'EMOM 8 MIN • CIRCUITO GÍMNICO', 'Alternância por minuto (8 rounds):\n• Minutos Ímpares (1, 3, 5, 7): 12 Candlesticks com Salto (Potência)\n• Minutos Pares (2, 4, 6, 8): 8 Sprawls + 10m Bear Crawl', this)">
             <svg style="width:14px; height:14px; fill:currentColor;" viewBox="0 0 24 24"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
             <span>⏱️ Timer EMOM (8 min) ↗</span>
           </button>
@@ -9860,8 +9895,19 @@
             <span class="notif-item-arrow">›</span>
           </div>
 
+          <!-- Notificação: Devolutiva de Treino (Quinta-feira • Box CrossFit) -->
+          <div class="notif-item unread" data-notif-id="notif-devolutiva-quinta-1510" onclick="openDevolutivaModal('notif-devolutiva-quinta-1510', 'quinta')">
+            <span class="notif-item-icon">📋</span>
+            <div style="flex:1; min-width:0;">
+              <div class="notif-item-title">Devolutiva do Treino • Quinta-feira (Box)</div>
+              <div class="notif-item-desc">Resposta do Prof. Gui: BMU em todos os rounds, cargas de 40kg na barra e 20kg nos halteres, e ajuste de histórico da dança.</div>
+              <div class="notif-item-time">⏱️ Quinta • Resposta às Anotações</div>
+            </div>
+            <span class="notif-item-arrow">›</span>
+          </div>
+
           <!-- Notificação: Devolutiva de Treino (Quarta-feira • Box CrossFit) -->
-          <div class="notif-item unread" data-notif-id="notif-devolutiva-quarta-1410" onclick="openDevolutivaModal('notif-devolutiva-quarta-1410')">
+          <div class="notif-item unread" data-notif-id="notif-devolutiva-quarta-1410" onclick="openDevolutivaModal('notif-devolutiva-quarta-1410', 'quarta')">
             <span class="notif-item-icon">📋</span>
             <div style="flex:1; min-width:0;">
               <div class="notif-item-title">Devolutiva do Treino • Quarta-feira (Box)</div>
@@ -10153,7 +10199,7 @@
     };
 
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '168';
+    const APP_BUILD_VERSION = '169';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
@@ -13009,11 +13055,14 @@
       
       let syncedItems = 0;
 
-      // A. Sincronizar logs históricos de treinos salvos localmente
+      // A. Sincronizar logs históricos de treinos salvos localmente (com deduplicação)
       try {
         const logs = JSON.parse(localStorage.getItem('dominio_workout_logs') || '[]');
+        const syncedLogs = JSON.parse(localStorage.getItem('dominio_synced_workout_keys') || '[]');
         if (logs.length > 0) {
           for (const log of logs) {
+            const logKey = `${log.dia || 'treino'}_${log.data || ''}_${log.series_concluidas || 0}_${log.total_series || 0}`;
+            if (syncedLogs.includes(logKey)) continue;
             const ok = await dispatchCloud('salvarTreino', {
               dia_id: log.dia || 'treino',
               data_treino: log.data || new Date().toLocaleDateString('pt-BR'),
@@ -13022,19 +13071,24 @@
               aderencia_pct: log.aderencia_pct || 100,
               notas_gerais: log.notas || 'Treino finalizado com sucesso'
             });
-            if (ok) syncedItems++;
+            if (ok) {
+              syncedLogs.push(logKey);
+              syncedItems++;
+            }
           }
+          localStorage.setItem('dominio_synced_workout_keys', JSON.stringify(syncedLogs));
         }
       } catch (e) {}
 
-      // B. Sincronizar todas as notas de exercícios já digitadas no aparelho
+      // B. Sincronizar todas as notas de exercícios já digitadas no aparelho (com deduplicação)
       try {
         for (let i = 0; i < localStorage.length; i++) {
           const key = localStorage.key(i);
           if (key && key.startsWith('dominio_note_')) {
             const exId = key.replace('dominio_note_', '');
             const noteVal = localStorage.getItem(key);
-            if (noteVal && noteVal.trim()) {
+            const syncedVal = localStorage.getItem('dominio_synced_note_' + exId);
+            if (noteVal && noteVal.trim() && noteVal.trim() !== syncedVal) {
               const card = document.getElementById('exCard-' + exId) || document.querySelector('#comment-box-' + exId)?.closest('.exercise-card') || document.querySelector('#note-' + exId)?.closest('.exercise-card');
               const nameEl = card ? card.querySelector('.ex-title span') : null;
               const exName = nameEl ? nameEl.textContent.trim() : (exId.includes('cross') ? 'CROSSFIT' : (exId.includes('mob') ? 'CONTEMPORÂNEO' : exId));
@@ -13044,17 +13098,23 @@
                 exercicio_nome: exName,
                 nota: noteVal.trim()
               });
-              if (ok) syncedItems++;
+              if (ok) {
+                localStorage.setItem('dominio_synced_note_' + exId, noteVal.trim());
+                syncedItems++;
+              }
             }
           }
         }
       } catch (e) {}
 
-      // C. Sincronizar histórico de composição corporal
+      // C. Sincronizar histórico de composição corporal (com deduplicação)
       try {
-        const comp = JSON.parse(localStorage.getItem('dominio_gui_body_comp_history') || '[]');
+        const comp = JSON.parse(localStorage.getItem('dominio_gui_body_comp_history') || localStorage.getItem('dominio_body_comp_history') || '[]');
+        const syncedComp = JSON.parse(localStorage.getItem('dominio_synced_comp_dates') || '[]');
         if (comp.length > 0) {
           for (const item of comp) {
+            const compKey = `${item.date}_${item.weight}_${item.waist}`;
+            if (syncedComp.includes(compKey)) continue;
             const ok = await dispatchCloud('salvarMedicao', {
               data_medicao: item.date,
               peso: item.weight,
@@ -13066,8 +13126,12 @@
               energia: item.energy || null,
               notas: item.notes || null
             });
-            if (ok) syncedItems++;
+            if (ok) {
+              syncedComp.push(compKey);
+              syncedItems++;
+            }
           }
+          localStorage.setItem('dominio_synced_comp_dates', JSON.stringify(syncedComp));
         }
       } catch (e) {}
 
@@ -13283,14 +13347,26 @@
       }
 
       if (window.DominioDB && typeof DominioDB.salvarTreinoConcluido === 'function') {
+        const logDate = new Date().toLocaleDateString('pt-BR');
+        const logKey = `${dayId}_${logDate}_${doneSets}_${totalSets}`;
         DominioDB.salvarTreinoConcluido({
           dia_id: dayId,
-          data_treino: new Date().toLocaleDateString('pt-BR'),
+          data_treino: logDate,
           series_concluidas: doneSets,
           total_series: totalSets,
           aderencia_pct: pct,
           notas_gerais: Object.values(notes).join(' | ') || 'Treino finalizado com sucesso',
           notas_exercicios: notes
+        }).then((ok) => {
+          if (ok) {
+            try {
+              const syncedLogs = JSON.parse(localStorage.getItem('dominio_synced_workout_keys') || '[]');
+              if (!syncedLogs.includes(logKey)) {
+                syncedLogs.push(logKey);
+                localStorage.setItem('dominio_synced_workout_keys', JSON.stringify(syncedLogs));
+              }
+            } catch (e) {}
+          }
         });
       }
 
@@ -13885,11 +13961,14 @@
 
       if (window.DominioDB && typeof DominioDB.salvarNotaExercicio === 'function') {
         clearTimeout(_noteSaveDebounceTimer);
-        _noteSaveDebounceTimer = setTimeout(() => {
+        _noteSaveDebounceTimer = setTimeout(async () => {
           const card = document.getElementById('exCard-' + exId) || (status ? status.closest('.exercise-card') : null);
           const nameEl = card ? card.querySelector('.ex-title span') : null;
-          const exName = nameEl ? nameEl.textContent.trim() : exId;
-          DominioDB.salvarNotaExercicio(exId, exName, val);
+          const exName = nameEl ? nameEl.textContent.trim() : (exId.includes('cross') ? 'CROSSFIT' : (exId.includes('mob') ? 'CONTEMPORÂNEO' : exId));
+          const ok = await DominioDB.salvarNotaExercicio(exId, exName, val);
+          if (ok && val.trim()) {
+            try { localStorage.setItem('dominio_synced_note_' + exId, val.trim()); } catch (e) {}
+          }
         }, 600);
       }
     }
@@ -14119,13 +14198,115 @@
     };
 
     // Modal de Devolutiva Técnica de Treino
-    window.openDevolutivaModal = function(notifId = null) {
+    const DEVOLUTIVAS_DATA = {
+      'quinta': {
+        title: 'Devolutiva do Treino • Quinta-feira',
+        subtitle: 'Box CrossFit • Resposta às Anotações de Exercício',
+        notesHtml: `
+          <div style="background: rgba(251, 191, 36, 0.08); border-left: 4px solid #fbbf24; border-radius: 8px; padding: 12px 14px; margin-bottom: 14px;">
+            <div style="font-size: 0.76rem; font-weight: 800; color: #fbbf24; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px;">
+              📝 Anotações Registradas no Treino de Quinta:
+            </div>
+            <div style="font-size: 0.81rem; color: #f1f5f9; line-height: 1.55;">
+              <p style="margin: 0 0 5px 0;">• <strong>WOD em Dupla:</strong> Faltou apenas 1 round do último. Bar Muscle-Up (BMU) executado em todas as séries, cargas de 40 kg na barra e 20 kg nos halteres. Repetições divididas pela metade com o parceiro.</p>
+              <p style="margin: 0;">• <strong>Contemporâneo:</strong> Não compareceu por falta de tempo. Retirado do histórico da sessão conforme solicitado.</p>
+            </div>
+          </div>
+        `,
+        topics: [
+          {
+            title: '1. BAR MUSCLE-UP (BMU) COM CONSISTÊNCIA TOTAL',
+            color: 'var(--brand-neon)',
+            desc: 'Execução do BMU mantida em todos os rounds com ótima eficiência mecânica e transição ágil, mesmo sob estresse metabólico e frequência cardíaca elevada.'
+          },
+          {
+            title: '2. CADÊNCIA E GESTÃO DE CARGAS (40 KG E 20 KG)',
+            color: '#38bdf8',
+            desc: 'A escolha de 40 kg na barra e 20 kg nos halteres proporcionou excelente sobrecarga neuromuscular sem perda de qualidade cinética na extensão concêntrica de quadril e estabilização escapular.'
+          },
+          {
+            title: '3. AJUSTE DE HISTÓRICO E RECUPERAÇÃO DO SNC',
+            color: '#c084fc',
+            desc: 'A dança contemporânea foi devidamente excluída do histórico do dia. Evitar a sobreposição de uma sessão de solo após um WOD pesado preservou o sistema nervoso central e a entese dos cotovelos/ombros para o treino de Sexta (Ginástica e Portagem).'
+          }
+        ]
+      },
+      'quarta': {
+        title: 'Devolutiva do Treino • Quarta-feira',
+        subtitle: 'Box CrossFit • Resposta às Anotações de Exercício',
+        notesHtml: `
+          <div style="background: rgba(251, 191, 36, 0.08); border-left: 4px solid #fbbf24; border-radius: 8px; padding: 12px 14px; margin-bottom: 14px;">
+            <div style="font-size: 0.76rem; font-weight: 800; color: #fbbf24; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px;">
+              📝 Anotações Registradas no Treino de Quarta:
+            </div>
+            <div style="font-size: 0.81rem; color: #f1f5f9; line-height: 1.55;">
+              <p style="margin: 0 0 5px 0;">• <strong>EMOM (Min 1):</strong> Substituição de strict T2B por strict pull-over para proteger a alavanca de puxada e o ombro direito.</p>
+              <p style="margin: 0 0 5px 0;">• <strong>WOD com Halteres:</strong> Uso de 15 kg sustentados com segurança nos DB Box Step Ups e DB Devil Press.</p>
+              <p style="margin: 0;">• <strong>Preservação Meniscal:</strong> Descida da caixa executada estritamente no passo (step down), sem impacto de queda.</p>
+            </div>
+          </div>
+        `,
+        topics: [
+          {
+            title: '1. ADAPTAÇÃO BIOMECÂNICA PERFEITA NO PULL-OVER',
+            color: 'var(--brand-neon)',
+            desc: 'A substituição do T2B pelo pull-over estrito foi cirúrgica. Recrutou grande dorsal, redondo maior e transverso abdominal em cadeia cinética fechada sob momento angular controlado, anulando qualquer força de cisalhamento anterior na cabeça umeral operada.'
+          },
+          {
+            title: '2. GESTÃO DE CARGA NOS HALTERES (15 KG)',
+            color: '#38bdf8',
+            desc: 'Os 15 kg foram na medida exata para a densidade do metabólico. O Devil Press foi fluido e o alinhamento da coluna lombar permaneceu estável durante toda a extensão concêntrica de quadril.'
+          },
+          {
+            title: '3. BLINDAGEM MENISCAL RIGOROSA',
+            color: '#c084fc',
+            desc: 'A descida no passo (step down) eliminou 100% da força de reação do solo (que chegaria a 3–4x o peso corporal em uma queda livre). Essa disciplina garante que o platô tibial esquerdo suporte as sessões pesadas sem derrame sinovial.'
+          }
+        ]
+      }
+    };
+
+    window.openDevolutivaModal = function(notifId = null, dayKey = null) {
       if (notifId && typeof dismissSingleNotification === 'function') {
         dismissSingleNotification(notifId);
       }
       if (typeof closeNotificationsModal === 'function') {
         closeNotificationsModal(null, true);
       }
+      const key = dayKey || (notifId && notifId.includes('quinta') ? 'quinta' : 'quarta');
+      const dev = DEVOLUTIVAS_DATA[key] || DEVOLUTIVAS_DATA['quinta'];
+
+      const titleEl = document.getElementById('devolutivaModalTitle');
+      const subEl = document.getElementById('devolutivaModalSubtitle');
+      const contentEl = document.getElementById('devolutivaModalContent');
+
+      if (titleEl) titleEl.textContent = dev.title;
+      if (subEl) subEl.textContent = dev.subtitle;
+      if (contentEl) {
+        let topicsHtml = dev.topics.map(t => `
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 14px;">
+            <div style="font-size: 0.85rem; font-weight: 800; color: ${t.color}; margin-bottom: 4px; display:flex; align-items:center; gap:6px;">
+              ${t.title}
+            </div>
+            <div style="font-size: 0.78rem; color: #cbd5e1;">
+              ${t.desc}
+            </div>
+          </div>
+        `).join('');
+
+        contentEl.innerHTML = `
+          ${dev.notesHtml}
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            ${topicsHtml}
+          </div>
+          <div style="display: flex; gap: 8px; margin-top: 16px;">
+            <button type="button" class="btn-submit-assessment" onclick="closeDevolutivaModal();" style="margin: 0; width: 100%; background: rgba(56, 189, 248, 0.15); border: 1px solid #38bdf8; color: #38bdf8; font-weight: 700;">
+              <span>Entendido ✓</span>
+            </button>
+          </div>
+        `;
+      }
+
       const modal = document.getElementById('devolutivaTreinoModal');
       if (modal) {
         modal.style.setProperty('display', 'flex', 'important');
@@ -14394,7 +14575,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=168').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=169').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
