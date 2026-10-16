@@ -5427,19 +5427,18 @@
 
     <!-- Card Clean de Finalização de Treino -->
     <div class="workout-finish-clean-card" id="workoutFinishCard-segunda">
-      <div class="finish-controls-row">
-        <label class="finish-checkbox-label">
-          <input type="checkbox" id="checkFinish-segunda" class="finish-checkbox-input" onchange="toggleFinishWorkoutBtn('segunda', this.checked)">
-          <span class="finish-custom-checkbox"></span>
-          <span class="finish-checkbox-text">Finalizar sessão 🏁</span>
-        </label>
-        <button type="button" class="btn-send-coach" id="btnSendCoach-segunda" onclick="completeWorkoutSession('segunda')" disabled>
-          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-          <span>Enviar para Coach</span>
-        </button>
-      </div>
-      <div id="completeFeedback-segunda" class="complete-feedback-box" style="display:none; width: 100%;">
-        ✅ Sessão finalizada com sucesso!
+      <button type="button" class="btn-finish-workout-trigger" id="btnTriggerFinish-segunda" onclick="openBiometriaSessaoModal('segunda')" style="width: 100%; background: linear-gradient(135deg, rgba(0, 255, 136, 0.16) 0%, rgba(56, 189, 248, 0.12) 100%); border: 1.5px solid var(--brand-neon); border-radius: 14px; padding: 15px 18px; color: #ffffff; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; box-shadow: 0 4px 18px rgba(0, 255, 136, 0.22); transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);">
+        <div style="display: flex; align-items: center; gap: 12px; text-align: left;">
+          <span style="font-size: 1.35rem;">🏁</span>
+          <div>
+            <div style="font-size: 0.96rem; font-weight: 900; color: #ffffff; letter-spacing: 0.03em;">FINALIZAR TREINO DE SEGUNDA</div>
+            <div style="font-size: 0.74rem; color: var(--brand-neon); font-weight: 700; margin-top: 2px;">Responder Esforço (Borg), Smartwatch e Enviar para o Gui ➔</div>
+          </div>
+        </div>
+        <div style="font-size: 1.1rem; color: var(--brand-neon); font-weight: 900;">➔</div>
+      </button>
+      <div id="completeFeedback-segunda" class="complete-feedback-box" style="display:none; width: 100%; margin-top: 10px;">
+        ✅ Sessão de SEGUNDA finalizada e registrada no histórico com sucesso!
       </div>
     </div>
 
@@ -5617,19 +5616,18 @@
 
     <!-- Card Clean de Finalização de Treino (Terça) -->
     <div class="workout-finish-clean-card" id="workoutFinishCard-terca">
-      <div class="finish-controls-row">
-        <label class="finish-checkbox-label">
-          <input type="checkbox" id="checkFinish-terca" class="finish-checkbox-input" checked onchange="toggleFinishWorkoutBtn('terca', this.checked)">
-          <span class="finish-custom-checkbox"></span>
-          <span class="finish-checkbox-text">Sessão LPO Concluída 🏁</span>
-        </label>
-        <button type="button" class="btn-send-coach" id="btnSendCoach-terca" onclick="completeWorkoutSession('terca')">
-          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-          <span>Concluído no Box</span>
-        </button>
-      </div>
-      <div id="completeFeedback-terca" class="complete-feedback-box" style="display:block; width: 100%;">
-        ✅ Treino da Semana LPO de terça concluído com sucesso e registrado no histórico!
+      <button type="button" class="btn-finish-workout-trigger" id="btnTriggerFinish-terca" onclick="openBiometriaSessaoModal('terca')" style="width: 100%; background: linear-gradient(135deg, rgba(0, 255, 136, 0.16) 0%, rgba(56, 189, 248, 0.12) 100%); border: 1.5px solid var(--brand-neon); border-radius: 14px; padding: 15px 18px; color: #ffffff; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; box-shadow: 0 4px 18px rgba(0, 255, 136, 0.22); transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);">
+        <div style="display: flex; align-items: center; gap: 12px; text-align: left;">
+          <span style="font-size: 1.35rem;">🏁</span>
+          <div>
+            <div style="font-size: 0.96rem; font-weight: 900; color: #ffffff; letter-spacing: 0.03em;">FINALIZAR TREINO DE TERÇA</div>
+            <div style="font-size: 0.74rem; color: var(--brand-neon); font-weight: 700; margin-top: 2px;">Responder Esforço (Borg), Smartwatch e Enviar para o Gui ➔</div>
+          </div>
+        </div>
+        <div style="font-size: 1.1rem; color: var(--brand-neon); font-weight: 900;">➔</div>
+      </button>
+      <div id="completeFeedback-terca" class="complete-feedback-box" style="display:none; width: 100%; margin-top: 10px;">
+        ✅ Sessão de TERÇA finalizada e registrada no histórico com sucesso!
       </div>
     </div>
 
@@ -5912,7 +5910,7 @@
         </div>
         <div id="comment-box-ex-qua-srmu" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas anotações sobre o Strict RMU:</span>
+            <span>👤 Suas observações:</span>
             <span class="save-indicator" id="save-status-ex-qua-srmu"></span>
           </div>
           <textarea class="comment-textarea" id="note-ex-qua-srmu" placeholder="Ex: Transição limpa, sem dor no bíceps..." oninput="saveExerciseNote('ex-qua-srmu', this.value)"></textarea>
@@ -5948,7 +5946,7 @@
         </div>
         <div id="comment-box-ex-qua-krmu" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas anotações sobre o Kipping RMU:</span>
+            <span>👤 Suas observações:</span>
             <span class="save-indicator" id="save-status-ex-qua-krmu"></span>
           </div>
           <textarea class="comment-textarea" id="note-ex-qua-krmu" placeholder="Ex: Balanço encaixado, descida controlada no colchão..." oninput="saveExerciseNote('ex-qua-krmu', this.value)"></textarea>
@@ -6180,19 +6178,18 @@
 
     <!-- Card Clean de Finalização de Treino (Quarta) -->
     <div class="workout-finish-clean-card" id="workoutFinishCard-quarta">
-      <div class="finish-controls-row">
-        <label class="finish-checkbox-label">
-          <input type="checkbox" id="checkFinish-quarta" class="finish-checkbox-input" onchange="toggleFinishWorkoutBtn('quarta', this.checked)">
-          <span class="finish-custom-checkbox"></span>
-          <span class="finish-checkbox-text">Finalizar sessão 🏁</span>
-        </label>
-        <button type="button" class="btn-send-coach" id="btnSendCoach-quarta" onclick="completeWorkoutSession('quarta')" disabled>
-          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-          <span>Enviar para Coach</span>
-        </button>
-      </div>
-      <div id="completeFeedback-quarta" class="complete-feedback-box" style="display:none; width: 100%;">
-        ✅ Treino de Argolas finalizado com sucesso! Relatório gerado!
+      <button type="button" class="btn-finish-workout-trigger" id="btnTriggerFinish-quarta" onclick="openBiometriaSessaoModal('quarta')" style="width: 100%; background: linear-gradient(135deg, rgba(0, 255, 136, 0.16) 0%, rgba(56, 189, 248, 0.12) 100%); border: 1.5px solid var(--brand-neon); border-radius: 14px; padding: 15px 18px; color: #ffffff; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; box-shadow: 0 4px 18px rgba(0, 255, 136, 0.22); transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);">
+        <div style="display: flex; align-items: center; gap: 12px; text-align: left;">
+          <span style="font-size: 1.35rem;">🏁</span>
+          <div>
+            <div style="font-size: 0.96rem; font-weight: 900; color: #ffffff; letter-spacing: 0.03em;">FINALIZAR TREINO DE QUARTA</div>
+            <div style="font-size: 0.74rem; color: var(--brand-neon); font-weight: 700; margin-top: 2px;">Responder Esforço (Borg), Smartwatch e Enviar para o Gui ➔</div>
+          </div>
+        </div>
+        <div style="font-size: 1.1rem; color: var(--brand-neon); font-weight: 900;">➔</div>
+      </button>
+      <div id="completeFeedback-quarta" class="complete-feedback-box" style="display:none; width: 100%; margin-top: 10px;">
+        ✅ Sessão de QUARTA finalizada e registrada no histórico com sucesso!
       </div>
     </div>
 
@@ -6467,7 +6464,7 @@
         </div>
         <div id="comment-box-ex-qui-mob" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas anotações sobre a aula de Contemporâneo:</span>
+            <span>👤 Suas observações:</span>
             <span class="save-indicator" id="save-status-ex-qui-mob"></span>
           </div>
           <textarea class="comment-textarea" id="note-ex-qui-mob" placeholder="Ex: Aula suave, movimentação boa..." oninput="saveExerciseNote('ex-qui-mob', this.value)"></textarea>
@@ -6477,19 +6474,18 @@
 
     <!-- Card Clean de Finalização de Treino (Quinta) -->
     <div class="workout-finish-clean-card" id="workoutFinishCard-quinta">
-      <div class="finish-controls-row">
-        <label class="finish-checkbox-label">
-          <input type="checkbox" id="checkFinish-quinta" class="finish-checkbox-input" onchange="toggleFinishWorkoutBtn('quinta', this.checked)">
-          <span class="finish-custom-checkbox"></span>
-          <span class="finish-checkbox-text">Finalizar sessão de Quinta 🏁</span>
-        </label>
-        <button type="button" class="btn-send-coach" id="btnSendCoach-quinta" onclick="completeWorkoutSession('quinta')" disabled>
-          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-          <span>Enviar para Coach</span>
-        </button>
-      </div>
-      <div id="completeFeedback-quinta" class="complete-feedback-box" style="display:none; width: 100%;">
-        ✅ Sessão de Quinta finalizada e registrada no histórico com sucesso!
+      <button type="button" class="btn-finish-workout-trigger" id="btnTriggerFinish-quinta" onclick="openBiometriaSessaoModal('quinta')" style="width: 100%; background: linear-gradient(135deg, rgba(0, 255, 136, 0.16) 0%, rgba(56, 189, 248, 0.12) 100%); border: 1.5px solid var(--brand-neon); border-radius: 14px; padding: 15px 18px; color: #ffffff; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; box-shadow: 0 4px 18px rgba(0, 255, 136, 0.22); transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);">
+        <div style="display: flex; align-items: center; gap: 12px; text-align: left;">
+          <span style="font-size: 1.35rem;">🏁</span>
+          <div>
+            <div style="font-size: 0.96rem; font-weight: 900; color: #ffffff; letter-spacing: 0.03em;">FINALIZAR TREINO DE QUINTA</div>
+            <div style="font-size: 0.74rem; color: var(--brand-neon); font-weight: 700; margin-top: 2px;">Responder Esforço (Borg), Smartwatch e Enviar para o Gui ➔</div>
+          </div>
+        </div>
+        <div style="font-size: 1.1rem; color: var(--brand-neon); font-weight: 900;">➔</div>
+      </button>
+      <div id="completeFeedback-quinta" class="complete-feedback-box" style="display:none; width: 100%; margin-top: 10px;">
+        ✅ Sessão de QUINTA finalizada e registrada no histórico com sucesso!
       </div>
     </div>
 
@@ -6545,13 +6541,13 @@
             <span>Enviar sua execução</span>
           </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-sex-worm" onclick="toggleCommentBox('ex-sex-worm')">
-            <span>💬 Anotar Sensações?</span>
+            <span>💬 Observações?</span>
             <span class="comment-dot" id="dot-ex-sex-worm" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-sex-worm" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas anotações sobre o Worm Push-up:</span>
+            <span>👤 Suas observações:</span>
             <span class="save-indicator" id="save-status-ex-sex-worm"></span>
           </div>
           <textarea class="comment-textarea" id="note-ex-sex-worm" placeholder="Ex: Posterior aquecido, ombros soltos..." oninput="saveExerciseNote('ex-sex-worm', this.value)"></textarea>
@@ -6579,13 +6575,13 @@
             <span>Enviar sua execução</span>
           </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-sex-sprawl" onclick="toggleCommentBox('ex-sex-sprawl')">
-            <span>💬 Anotar Sensações?</span>
+            <span>💬 Observações?</span>
             <span class="comment-dot" id="dot-ex-sex-sprawl" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-sex-sprawl" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas anotações sobre o Sprawl:</span>
+            <span>👤 Suas observações:</span>
             <span class="save-indicator" id="save-status-ex-sex-sprawl"></span>
           </div>
           <textarea class="comment-textarea" id="note-ex-sex-sprawl" placeholder="Ex: Ritmo dinâmico, cardio ativado..." oninput="saveExerciseNote('ex-sex-sprawl', this.value)"></textarea>
@@ -6613,13 +6609,13 @@
             <span>Enviar sua execução</span>
           </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-sex-remador" onclick="toggleCommentBox('ex-sex-remador')">
-            <span>💬 Anotar Sensações?</span>
+            <span>💬 Observações?</span>
             <span class="comment-dot" id="dot-ex-sex-remador" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-sex-remador" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas anotações sobre o Abdominal Remador:</span>
+            <span>👤 Suas observações:</span>
             <span class="save-indicator" id="save-status-ex-sex-remador"></span>
           </div>
           <textarea class="comment-textarea" id="note-ex-sex-remador" placeholder="Ex: Core bem ativo..." oninput="saveExerciseNote('ex-sex-remador', this.value)"></textarea>
@@ -6647,13 +6643,13 @@
             <span>Enviar sua execução</span>
           </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-sex-superman" onclick="toggleCommentBox('ex-sex-superman')">
-            <span>💬 Anotar Sensações?</span>
+            <span>💬 Observações?</span>
             <span class="comment-dot" id="dot-ex-sex-superman" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-sex-superman" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas anotações sobre o Superman:</span>
+            <span>👤 Suas observações:</span>
             <span class="save-indicator" id="save-status-ex-sex-superman"></span>
           </div>
           <textarea class="comment-textarea" id="note-ex-sex-superman" placeholder="Ex: Cadeia posterior acordada..." oninput="saveExerciseNote('ex-sex-superman', this.value)"></textarea>
@@ -6706,13 +6702,13 @@
             <span>Enviar sua execução</span>
           </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-sex-bench" onclick="toggleCommentBox('ex-sex-bench')">
-            <span>💬 Anotar Cargas e Séries?</span>
+            <span>💬 Observações?</span>
             <span class="comment-dot" id="dot-ex-sex-bench" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-sex-bench" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas anotações sobre o Bench Press:</span>
+            <span>👤 Suas observações:</span>
             <span class="save-indicator" id="save-status-ex-sex-bench"></span>
           </div>
           <textarea class="comment-textarea" id="note-ex-sex-bench" placeholder="Ex: Carga usada: 60kg, 65kg, 70kg, execução limpa..." oninput="saveExerciseNote('ex-sex-bench', this.value)"></textarea>
@@ -6742,13 +6738,13 @@
             <span>Enviar sua execução</span>
           </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-sex-hip" onclick="toggleCommentBox('ex-sex-hip')">
-            <span>💬 Anotar Sensações?</span>
+            <span>💬 Observações?</span>
             <span class="comment-dot" id="dot-ex-sex-hip" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-sex-hip" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas anotações sobre a Elevação de Quadril:</span>
+            <span>👤 Suas observações:</span>
             <span class="save-indicator" id="save-status-ex-sex-hip"></span>
           </div>
           <textarea class="comment-textarea" id="note-ex-sex-hip" placeholder="Ex: Glúteos queimando, contração no topo sustentada..." oninput="saveExerciseNote('ex-sex-hip', this.value)"></textarea>
@@ -6778,13 +6774,13 @@
             <span>Enviar sua execução</span>
           </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-sex-hollow" onclick="toggleCommentBox('ex-sex-hollow')">
-            <span>💬 Anotar Sensações?</span>
+            <span>💬 Observações?</span>
             <span class="comment-dot" id="dot-ex-sex-hollow" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-sex-hollow" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas anotações sobre o Hollow Rock:</span>
+            <span>👤 Suas observações:</span>
             <span class="save-indicator" id="save-status-ex-sex-hollow"></span>
           </div>
           <textarea class="comment-textarea" id="note-ex-sex-hollow" placeholder="Ex: Lombar travada no chão, 10 segundos finais puxados..." oninput="saveExerciseNote('ex-sex-hollow', this.value)"></textarea>
@@ -6838,13 +6834,13 @@
             <span>Enviar sua execução</span>
           </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-sex-du" onclick="toggleCommentBox('ex-sex-du')">
-            <span>💬 Anotar Sensações?</span>
+            <span>💬 Observações?</span>
             <span class="comment-dot" id="dot-ex-sex-du" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-sex-du" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas anotações sobre os Saltos de Corda:</span>
+            <span>👤 Suas observações:</span>
             <span class="save-indicator" id="save-status-ex-sex-du"></span>
           </div>
           <textarea class="comment-textarea" id="note-ex-sex-du" placeholder="Ex: Consegui todos os 25 DUs unbroken..." oninput="saveExerciseNote('ex-sex-du', this.value)"></textarea>
@@ -6873,13 +6869,13 @@
             <span>Enviar sua execução</span>
           </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-sex-gto" onclick="toggleCommentBox('ex-sex-gto')">
-            <span>💬 Anotar Carga e Sensações?</span>
+            <span>💬 Observações?</span>
             <span class="comment-dot" id="dot-ex-sex-gto" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-sex-gto" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas anotações sobre o GTO:</span>
+            <span>👤 Suas observações:</span>
             <span class="save-indicator" id="save-status-ex-sex-gto"></span>
           </div>
           <textarea class="comment-textarea" id="note-ex-sex-gto" placeholder="Ex: Anilha de 15kg / 20kg, fechado em 45 segundos..." oninput="saveExerciseNote('ex-sex-gto', this.value)"></textarea>
@@ -6908,13 +6904,13 @@
             <span>Enviar sua execução</span>
           </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-sex-twist" onclick="toggleCommentBox('ex-sex-twist')">
-            <span>💬 Anotar Sensações?</span>
+            <span>💬 Observações?</span>
             <span class="comment-dot" id="dot-ex-sex-twist" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-sex-twist" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas anotações sobre o Russian Twist:</span>
+            <span>👤 Suas observações:</span>
             <span class="save-indicator" id="save-status-ex-sex-twist"></span>
           </div>
           <textarea class="comment-textarea" id="note-ex-sex-twist" placeholder="Ex: Feito sem peso / com anilha de 5kg..." oninput="saveExerciseNote('ex-sex-twist', this.value)"></textarea>
@@ -6943,13 +6939,13 @@
             <span>Enviar sua execução</span>
           </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-sex-devil" onclick="toggleCommentBox('ex-sex-devil')">
-            <span>💬 Anotar Peso dos Halteres?</span>
+            <span>💬 Observações?</span>
             <span class="comment-dot" id="dot-ex-sex-devil" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-sex-devil" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas anotações sobre o Devil Press:</span>
+            <span>👤 Suas observações:</span>
             <span class="save-indicator" id="save-status-ex-sex-devil"></span>
           </div>
           <textarea class="comment-textarea" id="note-ex-sex-devil" placeholder="Ex: Halteres de 12kg / 15kg cada, ritmo pesado..." oninput="saveExerciseNote('ex-sex-devil', this.value)"></textarea>
@@ -6978,13 +6974,13 @@
             <span>Enviar sua execução</span>
           </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-sex-rest" onclick="toggleCommentBox('ex-sex-rest')">
-            <span>💬 Anotar Sensações Finais?</span>
+            <span>💬 Observações?</span>
             <span class="comment-dot" id="dot-ex-sex-rest" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-sex-rest" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas anotações sobre a recuperação:</span>
+            <span>👤 Suas observações:</span>
             <span class="save-indicator" id="save-status-ex-sex-rest"></span>
           </div>
           <textarea class="comment-textarea" id="note-ex-sex-rest" placeholder="Ex: Frequência normalizada a cada volta..." oninput="saveExerciseNote('ex-sex-rest', this.value)"></textarea>
@@ -7025,13 +7021,13 @@
             <span>Enviar sua execução</span>
           </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-sex-mob" onclick="toggleCommentBox('ex-sex-mob')">
-            <span>💬 Anotar Sensações Finais?</span>
+            <span>💬 Observações?</span>
             <span class="comment-dot" id="dot-ex-sex-mob" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-sex-mob" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas anotações sobre a descompressão final:</span>
+            <span>👤 Suas observações:</span>
             <span class="save-indicator" id="save-status-ex-sex-mob"></span>
           </div>
           <textarea class="comment-textarea" id="note-ex-sex-mob" placeholder="Ex: Peitoral e panturrilhas soltos..." oninput="saveExerciseNote('ex-sex-mob', this.value)"></textarea>
@@ -7041,19 +7037,18 @@
 
     <!-- Card Clean de Finalização de Treino (Sexta) -->
     <div class="workout-finish-clean-card" id="workoutFinishCard-sexta">
-      <div class="finish-controls-row">
-        <label class="finish-checkbox-label">
-          <input type="checkbox" id="checkFinish-sexta" class="finish-checkbox-input" onchange="toggleFinishWorkoutBtn('sexta', this.checked)">
-          <span class="finish-custom-checkbox"></span>
-          <span class="finish-checkbox-text">Finalizar sessão de Sexta 🏁</span>
-        </label>
-        <button type="button" class="btn-send-coach" id="btnSendCoach-sexta" onclick="completeWorkoutSession('sexta')" disabled>
-          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-          <span>Enviar para Coach</span>
-        </button>
-      </div>
-      <div id="completeFeedback-sexta" class="complete-feedback-box" style="display:none; width: 100%;">
-        ✅ Sessão de Sexta finalizada e registrada no histórico com sucesso!
+      <button type="button" class="btn-finish-workout-trigger" id="btnTriggerFinish-sexta" onclick="openBiometriaSessaoModal('sexta')" style="width: 100%; background: linear-gradient(135deg, rgba(0, 255, 136, 0.16) 0%, rgba(56, 189, 248, 0.12) 100%); border: 1.5px solid var(--brand-neon); border-radius: 14px; padding: 15px 18px; color: #ffffff; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; box-shadow: 0 4px 18px rgba(0, 255, 136, 0.22); transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);">
+        <div style="display: flex; align-items: center; gap: 12px; text-align: left;">
+          <span style="font-size: 1.35rem;">🏁</span>
+          <div>
+            <div style="font-size: 0.96rem; font-weight: 900; color: #ffffff; letter-spacing: 0.03em;">FINALIZAR TREINO DE SEXTA</div>
+            <div style="font-size: 0.74rem; color: var(--brand-neon); font-weight: 700; margin-top: 2px;">Responder Esforço (Borg), Smartwatch e Enviar para o Gui ➔</div>
+          </div>
+        </div>
+        <div style="font-size: 1.1rem; color: var(--brand-neon); font-weight: 900;">➔</div>
+      </button>
+      <div id="completeFeedback-sexta" class="complete-feedback-box" style="display:none; width: 100%; margin-top: 10px;">
+        ✅ Sessão de SEXTA finalizada e registrada no histórico com sucesso!
       </div>
     </div>
 
@@ -9882,7 +9877,7 @@
           </div>
           <div>
             <h3 style="margin:0; font-size:1.02rem; color:#fff;" id="bioModalHeaderTitle">Biometria e Esforço da Sessão</h3>
-            <span style="font-size:0.75rem; color:#c084fc; font-weight:600;" id="bioModalHeaderSub">PSE (Foster) e Cruzamento com Smartwatch</span>
+            <span style="font-size:0.75rem; color:#c084fc; font-weight:600;" id="bioModalHeaderSub">Escala de Borg (PSE Foster 1 a 10) e Foto do Smartwatch</span>
           </div>
         </div>
         <button class="btn-close" type="button" onclick="closeBiometriaSessaoModal()" aria-label="Fechar">&times;</button>
@@ -9998,7 +9993,7 @@
         <div style="display:flex; flex-direction:column; gap:8px; margin-top:16px;">
           <button type="button" onclick="confirmAndSaveBiometriaSession(true)" style="background:var(--brand-neon); border:none; color:#000; font-size:0.84rem; font-weight:900; border-radius:10px; padding:12px 16px; cursor:pointer; box-shadow:0 0 16px var(--brand-neon-glow); display:flex; align-items:center; justify-content:center; gap:8px;">
             <svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:#000;"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-            <span>SALVAR E ENVIAR PARA COACH (WHATSAPP)</span>
+            <span>SALVAR E ENVIAR PARA O GUI (WHATSAPP)</span>
           </button>
           <div style="display:flex; gap:8px;">
             <button type="button" onclick="confirmAndSaveBiometriaSession(false)" style="flex:1; background:rgba(56,189,248,0.14); border:1px solid rgba(56,189,248,0.4); color:#38bdf8; font-size:0.78rem; font-weight:800; border-radius:8px; padding:9px 12px; cursor:pointer;">
@@ -16241,7 +16236,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=164').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=165').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
