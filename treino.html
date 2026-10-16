@@ -5286,8 +5286,8 @@
               <span class="day-name">SEXTA</span>
               <span class="day-today-badge" id="todayBadge-sexta" style="display:none;">Hoje</span>
             </div>
-            <div class="day-focus-desc">A DEFINIR</div>
-            <div class="day-meta-pill">📍 Planejamento • ⏱️ A definir</div>
+            <div class="day-focus-desc">GINÁSTICA E PORTAGEM</div>
+            <div class="day-meta-pill">📍 Ginásio EEFERP • ⏱️ ~1h40</div>
           </div>
           <div class="day-card-right">
             <div class="day-status-pill status-pending" id="statusPill-sexta" onclick="event.stopPropagation(); handleWorkoutStatusClick('sexta')">
@@ -6424,40 +6424,416 @@
     </div>
   </div><!-- end #tab-quinta -->
 
-  <!-- ==================== TAB: SEXTA (EM ABERTO • A DEFINIR) ==================== -->
+    <!-- ==================== TAB: HOJE (SEXTA: GINÁSTICA E PORTAGEM) ==================== -->
   <div id="tab-sexta" class="tab-content">
 
     <!-- LOCAL E DURAÇÃO DA SESSÃO -->
     <div class="session-overall-meta">
-      <span class="meta-item">📍 A Definir</span>
+      <span class="meta-item">📍 Ginásio EEFERP</span>
       <span class="meta-separator">|</span>
-      <span class="meta-item">⏱️ Em Planejamento</span>
+      <span class="meta-item">⏳ 40' Portagem + 1h Ginástica</span>
       <span class="meta-separator">|</span>
-      <span class="meta-item">⏳ Em Aberto</span>
+      <span class="meta-item">⏱️ ~1h40 Total</span>
     </div>
 
-    <!-- DIRETRIZES DA SESSÃO EM ABERTO -->
-    <div class="callout-box" style="border-left: 3.5px solid #64748b; padding: 22px 18px; margin-bottom: 20px; border-radius: 12px; background: rgba(255, 255, 255, 0.03);">
-      <div class="callout-icon" style="font-size:1.5rem;">📋</div>
-      <div>
-        <div class="callout-topic-header" style="color: #ffffff; font-size: 0.98rem; font-weight:800; letter-spacing:0.04em;">SEXTA • SESSÃO EM ABERTO</div>
-        <div style="font-size: 0.85rem; color: #94a3b8; margin-top: 8px; line-height: 1.6;">
-          Os blocos de treino, volumes e cargas desta sessão serão definidos e lançados após a avaliação do rendimento e recuperação dos treinos anteriores da semana.
+    <!-- ==================== SEÇÃO 1: ATIVAÇÃO ==================== -->
+    <div class="section-card sec-aquecimento">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-title">ATIVAÇÃO</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~10 min</span>
+        </div>
+      </div>
+
+      <!-- EXERCÍCIO: PUNHOS NO SOLO E ESCÁPULAS -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>PUNHOS NO SOLO E ESCÁPULAS</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('PUNHOS NO SOLO E ESCÁPULAS', '<b>Execução:</b> 1. Em 4 apoios no solo/tatame, realizar rotação externa dos punhos e transferir o peso corporal para frente e lados por 10 repetições suaves.<br>2. Apoiar o dorso das mãos com dedos apontados para os joelhos e descarregar peso de forma progressiva e controlada por 10 repetições.<br>3. Finalizar em prancha alta com 8 Scapular Push-ups em hollow body ativo.<br><br><b>Cuidados:</b> Sem manoplas hoje, a extensão de punho no solo requer ativação gradativa; nunca forçar dor aguda.<br><br><b>Base científica:</b> COMPLIÂNCIA CAPSULOLIGAMENTAR: O carregamento mecânico progressivo e multidirecional no carpo e articulação radiocárpica estimula a produção e distribuição do líquido sinovial, aumentando a tolerância tecidual sob compressão (Nordin e Frankel, 2012).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">AQUECIMENTO ARTICULAR • 2 ROUNDS</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Mobilidade Solo</div>
+            <div class="set-pill" onclick="toggleSet(this)">Dorso de Punho</div>
+            <div class="set-pill" onclick="toggleSet(this)">Scapular Hollow</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Ativação • Sexta')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-sex-ativ" onclick="toggleCommentBox('ex-sex-ativ')">
+            <span>💬 Anotar Sensações?</span>
+            <span class="comment-dot" id="dot-ex-sex-ativ" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-sex-ativ" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações sobre punhos e escápulas:</span>
+            <span class="save-indicator" id="save-status-ex-sex-ativ"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-sex-ativ" placeholder="Ex: Punhos responderam bem, sem incômodo no solo..." oninput="saveExerciseNote('ex-sex-ativ', this.value)"></textarea>
         </div>
       </div>
     </div>
 
-    <div style="text-align: center; padding: 40px 16px; color: var(--text-dim); font-size: 0.82rem;">
-      <p style="margin: 0;">Aguardando definição técnica de exercícios.</p>
+    <!-- ==================== SEÇÃO 2: HABILIDADES ==================== -->
+    <div class="section-card sec-skills">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-title">HABILIDADES</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~55 min</span>
+        </div>
+      </div>
+
+      <!-- 1. PORTAGEM ACROBÁTICA (40 MIN) -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>PORTAGEM ACROBÁTICA</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('PORTAGEM ACROBÁTICA', '<b>Execução:</b> 1. Trabalho de acrobacia em dupla com amigo por 40 minutos.<br>2. Calibração progressiva de bases, pegadas e conexões proprioceptivas (pés nas mãos, L-base, hand-to-hand ou apoios dinâmicos).<br>3. Foco na comunicação corporal, tempo de suspensão e saídas seguras no colchão/tatame.<br><br><b>Cuidados:</b> Atenção máxima aos alinhamentos de ombro e cotovelo em ambas as partes; amortecimento ativo em qualquer perda de equilíbrio.<br><br><b>Base científica:</b> PROPRIOCEPÇÃO E SINERGIA COLETIVA: A acrobacia em dupla exige antecipação neuromuscular contínua e microajustes no centro de gravidade combinado, recrutando receptores articulares profundos e estabilização de core reflexa (Latash, 2008).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">40 MIN • TRABALHO EM DUPLA COM AMIGO</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Bases e Conexões</div>
+            <div class="set-pill" onclick="toggleSet(this)">Transições Técnicas</div>
+            <div class="set-pill" onclick="toggleSet(this)">Pousos e Equilíbrios</div>
+            <div class="set-pill" onclick="toggleSet(this)">40 min Concluídos 🏁</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Portagem Acrobática • Sexta')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar vídeo da portagem</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-sex-port" onclick="toggleCommentBox('ex-sex-port')">
+            <span>💬 Anotar Figuras e Sensações?</span>
+            <span class="comment-dot" id="dot-ex-sex-port" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-sex-port" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações da Portagem:</span>
+            <span class="save-indicator" id="save-status-ex-sex-port"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-sex-port" placeholder="Ex: Treinamos pés nas mãos, transição limpa para hand-to-hand..." oninput="saveExerciseNote('ex-sex-port', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- 2. BENT ARM PRESS NAS ARGOLAS -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>BENT ARM PRESS NAS ARGOLAS</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('BENT ARM PRESS NAS ARGOLAS', '<b>Execução:</b> 1. Ajustar as argolas na altura do quadril ou peito.<br>2. Enrolar e apoiar a ponta dos pés nas fitas/cabos das argolas para alívio parcial do peso corporal e estabilização proprioceptiva.<br>3. Flexionar os braços projetando os ombros à frente (bent arm) e empurrar o apoio até elevar a bacia e alinhar o corpo na vertical em parada nas argolas.<br>4. Controlar a descida excêntrica lenta e pausada.<br><br><b>Cuidados:</b> Manter os cotovelos fechados junto às costelas durante a subida; evitar abrir os braços para proteger o bíceps e o labrum glenoidal.<br><br><b>Base científica:</b> DESCARGA PARCIAL E POTÊNCIA DE DELTOIDE ANTERIOR: O apoio dos pés nas tiras reduz o braço de momento da massa corporal, permitindo focar no torque articular concêntrico e na ativação pura de serrátil anterior e tríceps braquial (Escamilla et al., 2010).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">4 SÉRIES • 2 A 3 REPS • FOCO NA SUBIDA E CONTROLE</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1 (2r)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2 (2r)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3 (3r)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 4 (3r)</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Bent Arm Press Argolas • Sexta')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar execução do Bent Arm</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-sex-bap" onclick="toggleCommentBox('ex-sex-bap')">
+            <span>💬 Anotar Equilíbrio e Apoio?</span>
+            <span class="comment-dot" id="dot-ex-sex-bap" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-sex-bap" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações sobre o Bent Arm Press nas Argolas:</span>
+            <span class="save-indicator" id="save-status-ex-sex-bap"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-sex-bap" placeholder="Ex: Pés no cabo ajudaram muito no equilíbrio, subi bem na 3ª série..." oninput="saveExerciseNote('ex-sex-bap', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- 3. ONE ARM HANDSTAND NO SOLO -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>ONE ARM HANDSTAND NO SOLO</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('ONE ARM HANDSTAND NO SOLO', '<b>Execução:</b> 1. Entrada sólida em Handstand no solo/tatame com abertura moderada das pernas (straddle) para abaixar o centro de massa.<br>2. Transferir lentamente o peso corporal para o lado do braço de apoio, elevando o ombro ativamente contra a orelha (elevação escapular máxima).<br>3. Apoiar apenas a ponta dos dedos da mão livre no chão (fingertip tent) e tentar desacoplar suavemente sem rodar a bacia.<br><br><b>Cuidados:</b> Sem manoplas hoje, o punho absorve carga unilateral direta; manter os dedos espalmados e agarre ativo no solo (cambrê / fingertip grip).<br><br><b>Base científica:</b> BIOMECÂNICA DO EQUILÍBRIO UNILATERAL: O alinhamento do centro de massa sobre o centro de pressão de uma única mão requer elevação máxima da escápula e contração isométrica do quadrado lombar e oblíquos contralaterais (Kerwin e Trewartha, 2001).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">4 PASSAGENS POR LADO • ISOMETRIA E PESO</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Passagem 1 (D/E)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Passagem 2 (D/E)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Passagem 3 (D/E)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Passagem 4 (D/E)</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('One Arm Handstand • Sexta')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar execução do OAHS</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-sex-oahs" onclick="toggleCommentBox('ex-sex-oahs')">
+            <span>💬 Anotar Tempo de Equilíbrio?</span>
+            <span class="comment-dot" id="dot-ex-sex-oahs" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-sex-oahs" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações sobre o One Arm no Solo:</span>
+            <span class="save-indicator" id="save-status-ex-sex-oahs"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-sex-oahs" placeholder="Ex: Consegui sustentar 3 segundos na ponta dos dedos com braço direito..." oninput="saveExerciseNote('ex-sex-oahs', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- 4. PIRUETAS E HS WALK -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>PIRUETAS E HS WALK</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('PIRUETAS E HS WALK', '<b>Execução:</b> 1. Em parada de mão no solo, executar piruetas de 90° e 180° com passadas curtas e rápidas de mão, mantendo o hollow body e pernas unidas ou em straddle.<br>2. Sequência de Handstand Walk com passos curtos controlados, focando em parar e descer no controle em vez de cair no rolamento.<br><br><b>Cuidados:</b> Não arquear a coluna lombar (evitar posição de banana); manter a cabeça neutra olhando entre os polegares.<br><br><b>Base científica:</b> CONTROLE DINÂMICO E ANTECIPAÇÃO LOCOMOTORA: A locomoção invertida e as rotações no eixo longitudinal dependem da rápida antecipação dos flexores do carpo e do torque escapulotorácico dinâmico (Prassas et al., 2006).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 ROUNDS • 4 A 6 PASSOS OU 2 PIRUETAS</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Round 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Round 2</div>
+            <div class="set-pill" onclick="toggleSet(this)">Round 3</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Piruetas e HS Walk • Sexta')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar vídeo de Piruetas / Walk</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-sex-walk" onclick="toggleCommentBox('ex-sex-walk')">
+            <span>💬 Anotar Fluidez e Passos?</span>
+            <span class="comment-dot" id="dot-ex-sex-walk" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-sex-walk" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações sobre Piruetas e Walk:</span>
+            <span class="save-indicator" id="save-status-ex-sex-walk"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-sex-walk" placeholder="Ex: Piruetas de 180° fluíram bem, caminhei 8 passos limpos..." oninput="saveExerciseNote('ex-sex-walk', this.value)"></textarea>
+        </div>
+      </div>
     </div>
 
-    <!-- Card Clean de Finalização de Treino -->
+    <!-- ==================== SEÇÃO 3: FORTALECIMENTO ==================== -->
+    <div class="section-card sec-forca">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-title">FORTALECIMENTO</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~10 min</span>
+        </div>
+      </div>
+
+      <!-- 1. COMPRESSÃO DE PIKE NO SOLO -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>COMPRESSÃO DE PIKE NO SOLO</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('COMPRESSÃO DE PIKE NO SOLO', '<b>Execução:</b> 1. Sentado no solo com pernas totalmente estendidas e unidas, pés em ponta.<br>2. Apoiar as mãos espalmadas no chão à frente dos joelhos.<br>3. Elevar ambas as pernas do solo sem flexionar os joelhos, sustentando 1 segundo no ponto mais alto da compressão e descendo controlado.<br><br><b>Cuidados:</b> Evitar compensar inclinando o tronco excessivamente para trás; quanto mais à frente as mãos, maior a alavanca e a exigência de compressão.<br><br><b>Base científica:</b> FORÇA DE COMPRESSÃO E ATIVAÇÃO DO PSOAS ILÍACO: A flexão de quadril ativa em amplitude máxima recruta intensamente o iliopsoas e o reto femoral em encurtamento, essencial para as transições de Press to Handstand e Stalder (Sands et al., 2003).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • 10 REPS COM 1" NO TOPO • ⏱️ REST: 45"</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">10 reps</div>
+            <div class="set-pill" onclick="toggleSet(this)">10 reps</div>
+            <div class="set-pill" onclick="toggleSet(this)">10 reps</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Compressão de Pike • Sexta')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-sex-pike" onclick="toggleCommentBox('ex-sex-pike')">
+            <span>💬 Anotar Dificuldade?</span>
+            <span class="comment-dot" id="dot-ex-sex-pike" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-sex-pike" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações sobre Compressão de Pike:</span>
+            <span class="save-indicator" id="save-status-ex-sex-pike"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-sex-pike" placeholder="Ex: Sustentei 1s em todas, mãos na altura da canela..." oninput="saveExerciseNote('ex-sex-pike', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- 2. HANDSTAND SHRUGS NA PAREDE -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>HANDSTAND SHRUGS NA PAREDE</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('HANDSTAND SHRUGS NA PAREDE', '<b>Execução:</b> 1. Subir em parada de mão de costas para a parede, corpo totalmente alinhado.<br>2. Mantendo os braços rigorosamente estendidos, realizar a depressão escapular (descendo o corpo) e em seguida empurrar o solo com força máxima para elevar as escápulas contra as orelhas.<br>3. Segurar 1 segundo no topo da elevação.<br><br><b>Cuidados:</b> Não flexionar os cotovelos; o movimento é puramente escapulotorácico.<br><br><b>Base científica:</b> FORTALECIMENTO DO TRAPÉZIO SUPERIOR E SERRÁTIL: A elevação escapular sob carga axial completa fortalece o trapézio superior e as fibras inferiores do serrátil anterior, chave para estabilizar o One Arm Handstand e prevenir o impacto subacromial (Cools et al., 2007).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • 8 A 10 REPS • ⏱️ REST: 45"</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">8-10 reps</div>
+            <div class="set-pill" onclick="toggleSet(this)">8-10 reps</div>
+            <div class="set-pill" onclick="toggleSet(this)">8-10 reps</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Handstand Shrugs • Sexta')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-sex-shrug" onclick="toggleCommentBox('ex-sex-shrug')">
+            <span>💬 Anotar Sensação Escapular?</span>
+            <span class="comment-dot" id="dot-ex-sex-shrug" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-sex-shrug" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações sobre Shrugs na parede:</span>
+            <span class="save-indicator" id="save-status-ex-sex-shrug"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-sex-shrug" placeholder="Ex: Elevação bem forte, ombro estável..." oninput="saveExerciseNote('ex-sex-shrug', this.value)"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SEÇÃO 4: CONDICIONAMENTO ==================== -->
+    <div class="section-card sec-cardio">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-title">CONDICIONAMENTO</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ 8 min</span>
+        </div>
+      </div>
+
+      <!-- CIRCUITO GÍMNICO METABÓLICO -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>CIRCUITO GÍMNICO METABÓLICO</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('CIRCUITO GÍMNICO METABÓLICO', '<b>Execução:</b> 1. EMOM de 8 minutos:<br>• Minuto Ímpar (1, 3, 5, 7): 12 Candlesticks dinâmicos com extensão completa de quadril (ou Hollow Rocks).<br>• Minuto Par (2, 4, 6, 8): 8 Sprawls dinâmicos (burpee sem flexão) + 10m Bear Crawl acelerado no tatame.<br>2. Gestão de fôlego e ritmo constante.<br><br><b>Cuidados:</b> Manter os pés e joelhos alinhados no retorno do Candlestick; descida suave no solo.<br><br><b>Base científica:</b> RESISTÊNCIA DE POTÊNCIA ANAERÓBICA ALÁTICA E LÁTICA: O formato EMOM estimula a alternância entre picos de fosfagênio e recuperação parassimpática imediata, preservando a técnica sob fadiga cardíaca (Glaister, 2005).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">EMOM 8 MIN • ALTERNÂNCIA POR MINUTO</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Min 1 (Candle)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Min 2 (Sprawl)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Min 3 (Candle)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Min 4 (Sprawl)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Min 5 (Candle)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Min 6 (Sprawl)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Min 7 (Candle)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Min 8 (Sprawl)</div>
+          </div>
+        </div>
+
+        <!-- DISPARADOR RÁPIDO DO CRONÔMETRO -->
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px;">
+          <button type="button" class="btn-wod-timer-trigger" onclick="openWorkoutTimerWithCard('emom', 8, 'EMOM 8 MIN • CIRCUITO GÍMNICO', 'Alternância por minuto (8 rounds):\n• Minutos Ímpares (1, 3, 5, 7): 12 Candlesticks (ou Hollow Rocks)\n• Minutos Pares (2, 4, 6, 8): 8 Sprawls + 10m Bear Crawl', this)">
+            <svg style="width:14px; height:14px; fill:currentColor;" viewBox="0 0 24 24"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
+            <span>⏱️ Timer EMOM (8 min) ↗</span>
+          </button>
+        </div>
+
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Circuito Metabólico • Sexta')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-sex-card" onclick="toggleCommentBox('ex-sex-card')">
+            <span>💬 Anotar Percepção de Esforço?</span>
+            <span class="comment-dot" id="dot-ex-sex-card" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-sex-card" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações sobre o EMOM metabólico:</span>
+            <span class="save-indicator" id="save-status-ex-sex-card"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-sex-card" placeholder="Ex: Fechei os 8 rounds dentro do tempo, cardio acelerado..." oninput="saveExerciseNote('ex-sex-card', this.value)"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SEÇÃO 5: MOBILIDADE ==================== -->
+    <div class="section-card sec-flex">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-title">MOBILIDADE</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~5 min</span>
+        </div>
+      </div>
+
+      <!-- DESCOMPRESSÃO DE PUNHOS E OMBROS -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>DESCOMPRESSÃO DE PUNHOS E OMBROS</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('DESCOMPRESSÃO DE PUNHOS E OMBROS', '<b>Execução:</b> 1. Sentado no solo, alongamento reverso suave de flexores e extensores de punho com pressão leve por 30 segundos cada.<br>2. Balanço pendular e rotação solta de ombros para descompressão capsular pós-treino no solo.<br><br><b>Cuidados:</b> Movimentação suave e passiva, focando em soltar a tensão sem forçar limites de amplitude.<br><br><b>Base científica:</b> RESTAURAÇÃO DO TÔNUS NEUROMUSCULAR: Alongamentos estáticos leves e relaxados ao final da sessão reduzem a excitabilidade dos motoneurônios alfa e promovem vasodilatação para eliminação de metabólitos locais (Weerapong et al., 2004).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">VOLTA À CALMA • ALÍVIO RÁPIDO</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Punhos 30"</div>
+            <div class="set-pill" onclick="toggleSet(this)">Ombros Soltos</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Descompressão • Sexta')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-sex-mob" onclick="toggleCommentBox('ex-sex-mob')">
+            <span>💬 Anotar Sensações Finais?</span>
+            <span class="comment-dot" id="dot-ex-sex-mob" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-sex-mob" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações sobre a descompressão final:</span>
+            <span class="save-indicator" id="save-status-ex-sex-mob"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-sex-mob" placeholder="Ex: Punhos relaxaram rápido, ombros soltos..." oninput="saveExerciseNote('ex-sex-mob', this.value)"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card Clean de Finalização de Treino (Sexta) -->
     <div class="workout-finish-clean-card" id="workoutFinishCard-sexta">
       <div class="finish-controls-row">
         <label class="finish-checkbox-label">
           <input type="checkbox" id="checkFinish-sexta" class="finish-checkbox-input" onchange="toggleFinishWorkoutBtn('sexta', this.checked)">
           <span class="finish-custom-checkbox"></span>
-          <span class="finish-checkbox-text">Finalizar sessão 🏁</span>
+          <span class="finish-checkbox-text">Finalizar sessão de Sexta 🏁</span>
         </label>
         <button type="button" class="btn-send-coach" id="btnSendCoach-sexta" onclick="completeWorkoutSession('sexta')" disabled>
           <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
@@ -6465,7 +6841,7 @@
         </button>
       </div>
       <div id="completeFeedback-sexta" class="complete-feedback-box" style="display:none; width: 100%;">
-        ✅ Sessão finalizada com sucesso!
+        ✅ Sessão de Sexta finalizada e registrada no histórico com sucesso!
       </div>
     </div>
 
@@ -9777,7 +10153,7 @@
     };
 
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '156';
+    const APP_BUILD_VERSION = '167';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
@@ -10008,7 +10384,7 @@
         'terca': 'TERÇA | LPO',
         'quarta': 'QUARTA | ARGOLAS',
         'quinta': 'QUINTA | CONDICIONAMENTO',
-        'sexta': 'SEXTA | A DEFINIR'
+        'sexta': 'SEXTA | GINÁSTICA E PORTAGEM'
       };
 
       const titleEl = document.getElementById('dedicatedBarTitle');
@@ -13918,7 +14294,7 @@
         'terca': 'TERÇA | LPO',
         'quarta': 'QUARTA | ARGOLAS',
         'quinta': 'QUINTA | CONDICIONAMENTO',
-        'sexta': 'SEXTA | A DEFINIR'
+        'sexta': 'SEXTA | GINÁSTICA E PORTAGEM'
       };
 
       if (dayId && typeof dayId === 'string') {
@@ -14018,7 +14394,7 @@
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=158').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=167').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
