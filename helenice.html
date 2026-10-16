@@ -10512,13 +10512,24 @@
     };
 
     function getConfig() {
+      let cfg = { ...defaultConfig, ...(window.DOMINIO_APP_CONFIG || {}) };
       try {
         const saved = localStorage.getItem(STORAGE_CONFIG_KEY);
-        const appDefault = window.DOMINIO_APP_CONFIG || {};
-        return { ...defaultConfig, ...appDefault, ...(saved ? JSON.parse(saved) : {}) };
-      } catch (e) {
-        return { ...defaultConfig, ...(window.DOMINIO_APP_CONFIG || {}) };
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          cfg = { ...cfg, ...parsed };
+        }
+      } catch (e) {}
+      if (!cfg.provider || cfg.provider === 'none') {
+        cfg.provider = 'supabase';
       }
+      if (!cfg.supabaseUrl) {
+        cfg.supabaseUrl = defaultConfig.supabaseUrl;
+      }
+      if (!cfg.supabaseAnonKey) {
+        cfg.supabaseAnonKey = defaultConfig.supabaseAnonKey;
+      }
+      return cfg;
     }
 
     function saveConfig(cfg) {
@@ -10903,10 +10914,11 @@
             const exId = key.replace('dominio_note_', '');
             const noteVal = localStorage.getItem(key);
             if (noteVal && noteVal.trim()) {
-              const card = document.getElementById('exCard-' + exId);
+              const card = document.getElementById('exCard-' + exId) || document.querySelector('#comment-box-' + exId)?.closest('.exercise-card') || document.querySelector('#note-' + exId)?.closest('.exercise-card');
               const nameEl = card ? card.querySelector('.ex-title span') : null;
-              const exName = nameEl ? nameEl.textContent.trim() : exId;
+              const exName = nameEl ? nameEl.textContent.trim() : (exId.includes('cross') ? 'CROSSFIT' : (exId.includes('mob') ? 'CONTEMPORÂNEO' : exId));
               const ok = await dispatchCloud('salvarNotaExercicio', {
+                aluno_slug: cfg.athleteSlug,
                 exercicio_id: exId,
                 exercicio_nome: exName,
                 nota: noteVal.trim()
@@ -12184,6 +12196,13 @@ window.openWelcomeAppModal = function(notifId = null) {
     syncAthleteMetricsFromIntake();
     initSetPillsMemory();
     updateNotificationsUI();
+
+    // Sincronização automática com a nuvem (Supabase) na inicialização
+    if (window.DominioDB) {
+      if (typeof DominioDB.updateCloudStatusUI === 'function') DominioDB.updateCloudStatusUI();
+      if (typeof DominioDB.flushSyncQueue === 'function') DominioDB.flushSyncQueue();
+      if (typeof DominioDB.syncExistingLocalDataToCloud === 'function') DominioDB.syncExistingLocalDataToCloud();
+    }
 
     // Garante que o botão de Bio e Notificações recebam cliques e toques imediatos no mobile
     const coachBtn = document.getElementById('btnCoachBio') || document.querySelector('.coach-profile-btn');
