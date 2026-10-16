@@ -4401,11 +4401,11 @@
         <!-- HUB DE CATEGORIAS DA COMPOSIÇÃO CORPORAL (ESTILO CARDS DE TREINO / ANÁLISES) -->
         <div class="training-days-list" style="margin-top: 10px; margin-bottom: 24px;">
           
-          <!-- CARD 1: ANTROPOMETRIA E GRÁFICOS -->
+          <!-- CARD 1: ANTROPOMETRIA -->
           <div class="training-day-card" id="compCardBtn-grafico" onclick="openCompSubView('grafico')" style="border-left: 4.5px solid #38bdf8;">
             <div class="day-card-left">
               <div class="day-card-name-row">
-                <span class="day-name" style="color: #fff; font-weight: 800; letter-spacing: 0.5px;">ANTROPOMETRIA E GRÁFICOS</span>
+                <span class="day-name" style="color: #fff; font-weight: 800; letter-spacing: 0.5px;">ANTROPOMETRIA</span>
               </div>
             </div>
             <div class="day-card-right">
@@ -4443,17 +4443,21 @@
             </div>
           </div>
 
-          <!-- CARD 4: LAUDO E IMPACTO ARTICULAR (DESTAQUE MASTER VIP) -->
-          <div class="training-day-card" id="compCardBtn-laudo" onclick="openCompSubView('laudo')" style="border-left: 4.5px solid #c084fc; background: linear-gradient(135deg, rgba(192, 132, 252, 0.12) 0%, rgba(56, 189, 248, 0.08) 100%); box-shadow: 0 4px 18px rgba(192, 132, 252, 0.18);">
+          <!-- CARD 4: LAUDO E IMPACTO ARTICULAR (CONCLUSÃO MASTER VIP) -->
+          <div class="training-day-card comp-master-laudo-card" id="compCardBtn-laudo" onclick="openCompSubView('laudo')" style="border-left: 5px solid #c084fc; background: linear-gradient(135deg, rgba(192, 132, 252, 0.22) 0%, rgba(56, 189, 248, 0.16) 50%, rgba(0, 255, 136, 0.12) 100%); box-shadow: 0 4px 24px rgba(192, 132, 252, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.15); border-radius: 16px; margin-top: 8px; cursor: pointer; transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);">
             <div class="day-card-left">
-              <div class="day-card-name-row" style="display:flex; align-items:center; gap:8px;">
-                <span class="day-name" style="color: #fff; font-weight: 900; letter-spacing: 0.5px;">LAUDO E IMPACTO ARTICULAR</span>
-                <span style="font-size: 0.68rem; font-weight: 800; color: #c084fc; background: rgba(192, 132, 252, 0.16); border: 1px solid rgba(192, 132, 252, 0.35); padding: 2px 7px; border-radius: 6px;">COMPLETO</span>
+              <div class="day-card-name-row" style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                <span class="day-name" style="color: #ffffff; font-weight: 900; font-size: 1.02rem; letter-spacing: 0.5px;">LAUDO E IMPACTO ARTICULAR</span>
+                <span style="font-size: 0.68rem; font-weight: 800; color: #c084fc; background: rgba(192, 132, 252, 0.22); border: 1px solid rgba(192, 132, 252, 0.45); padding: 2px 7px; border-radius: 6px; letter-spacing: 0.03em;">CONCLUSÃO MASTER</span>
+              </div>
+              <div style="font-size: 0.76rem; color: #e2e8f0; font-weight: 600; margin-top: 4px;">
+                🔬 Diagnóstico biomecânico integrado, força relativa e alívio articular
               </div>
             </div>
             <div class="day-card-right">
-              <div class="day-status-pill status-pending" style="border-color: rgba(192, 132, 252, 0.4); color: #c084fc;">
-                <span class="status-icon">›</span>
+              <div class="day-status-pill" style="border: 1px solid rgba(192, 132, 252, 0.5); background: rgba(192, 132, 252, 0.22); color: #ffffff; font-weight: 800; font-size: 0.72rem; padding: 5px 11px; border-radius: 8px; display: flex; align-items: center; gap: 4px; white-space: nowrap;">
+                <span>VER LAUDO</span>
+                <span style="font-size: 0.9rem;">↗</span>
               </div>
             </div>
           </div>
@@ -4461,89 +4465,124 @@
         </div>
       </div>
 
-      <!-- ==================== SUBPÁGINA 1: GRÁFICO E ANTROPOMETRIA ==================== -->
+      <!-- ==================== SUBPÁGINA 1: ANTROPOMETRIA ==================== -->
       <div id="compSubView-grafico" style="display:none;">
         <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
           <button type="button" class="btn-back-workout" onclick="closeCompSubView()">
             ← Voltar para Composição Corporal
           </button>
+          <span style="font-size:0.75rem; font-weight:800; color:#38bdf8; text-transform:uppercase; letter-spacing:0.04em;">Antropometria</span>
         </div>
-        <!-- Card: Dados de Entrada da Ficha de Avaliação (Ponto de Partida) -->
-      <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(56,189,248,0.25); border-radius: 16px; padding: 16px; margin-bottom: 16px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 12px; flex-wrap:wrap; gap:8px;">
-          <div style="display:flex; align-items:center; gap:8px;">
-            <span style="font-size:1.1rem;">📋</span>
-            <div>
-              <div style="font-size:0.86rem; font-weight:800; color:#fff;">Ponto de Partida • Ficha de Avaliação</div>
-              <div style="font-size:0.72rem; color:var(--text-muted);">Métricas registradas na ficha inicial como ponto de partida da sua evolução</div>
+
+        <!-- Card 1: Ponto de Partida (Ficha Inicial) -->
+        <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(56,189,248,0.25); border-left: 4.5px solid #38bdf8; border-radius: 14px; padding: 14px 16px; margin-bottom: 12px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 10px; flex-wrap:wrap; gap:6px;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span style="font-size:1.15rem;">📋</span>
+              <div style="font-size:0.92rem; font-weight:800; color:#ffffff; letter-spacing:0.02em;">PONTO DE PARTIDA</div>
+            </div>
+            <span style="font-size:0.72rem; font-weight:700; color:#38bdf8; background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.3); padding:3px 8px; border-radius:8px;" id="evolIntakeDateBadge">Ficha Inicial</span>
+          </div>
+          <div class="metrics-summary-grid" style="margin-bottom:0; grid-template-columns: repeat(auto-fit, minmax(105px, 1fr)); gap: 8px;">
+            <div class="metric-summary-card" style="padding: 10px 12px;">
+              <div class="metric-value" id="evolIntakeWeight" style="font-size:1.15rem; color:#fff;">-- kg</div>
+              <div class="metric-label">Peso Inicial</div>
+            </div>
+            <div class="metric-summary-card" style="padding: 10px 12px;">
+              <div class="metric-value" id="evolIntakeWaist" style="font-size:1.15rem; color:#fff;">-- cm</div>
+              <div class="metric-label">Cintura Inicial</div>
+            </div>
+            <div class="metric-summary-card" style="padding: 10px 12px;">
+              <div class="metric-value" id="evolIntakeWhtr" style="font-size:1.15rem; color:#fff;">--</div>
+              <div class="metric-label">RCEst Inicial</div>
+            </div>
+            <div class="metric-summary-card" style="padding: 10px 12px;">
+              <div class="metric-value" id="evolIntakeBF" style="font-size:1.15rem; color:#fff;">--%</div>
+              <div class="metric-label">% BF Inicial</div>
             </div>
           </div>
-          <button type="button" onclick="openDedicatedView('avaliacao')" style="background:rgba(56,189,248,0.15); border:1px solid rgba(56,189,248,0.35); color:#38bdf8; font-size:0.75rem; font-weight:700; border-radius:8px; padding:6px 12px; cursor:pointer;">
-            ✏️ Ficha de Avaliação
-          </button>
         </div>
 
-        <div class="metrics-summary-grid" style="margin-bottom:0;">
-          <div class="metric-summary-card">
-            <div class="metric-value" id="evolIntakeWeight">-- kg</div>
-            <div class="metric-label">Peso Registrado</div>
+        <!-- Card 2: Informações Atuais (Última Entrada) -->
+        <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(0,255,136,0.25); border-left: 4.5px solid var(--brand-neon); border-radius: 14px; padding: 14px 16px; margin-bottom: 12px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 10px; flex-wrap:wrap; gap:6px;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span style="font-size:1.15rem;">⚡</span>
+              <div style="font-size:0.92rem; font-weight:800; color:#ffffff; letter-spacing:0.02em;">INFORMAÇÕES ATUAIS</div>
+            </div>
+            <span style="font-size:0.72rem; font-weight:700; color:var(--brand-neon); background:rgba(0,255,136,0.12); border:1px solid rgba(0,255,136,0.3); padding:3px 8px; border-radius:8px;" id="compCurrentDateBadge">Última Entrada</span>
           </div>
-          <div class="metric-summary-card">
-            <div class="metric-value" id="evolIntakeHeight">-- cm</div>
-            <div class="metric-label">Altura</div>
-          </div>
-          <div class="metric-summary-card">
-            <div class="metric-value" id="evolIntakeBF">--%</div>
-            <div class="metric-label">% Gordura (BF)</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Grid de 4 Métricas Chave Atualizadas -->
-      <div class="metrics-summary-grid" style="margin-bottom:18px;">
-        <!-- Card 1: Peso -->
-        <div class="metric-summary-card" style="border-left: 3.5px solid #38bdf8;">
-          <div class="metric-value" id="compMetricWeight" style="color:#38bdf8;">-- kg</div>
-          <div class="metric-label">Peso Atual</div>
-          <div style="font-size:0.7rem; color:#94a3b8; margin-top:3px;" id="compDeltaWeight">Inicial: -- kg</div>
-        </div>
-        <!-- Card 2: Cintura -->
-        <div class="metric-summary-card" style="border-left: 3.5px solid var(--brand-neon);">
-          <div class="metric-value" id="compMetricWaist" style="color:var(--brand-neon);">-- cm</div>
-          <div class="metric-label">Cintura Abdominal</div>
-          <div style="font-size:0.7rem; color:#94a3b8; margin-top:3px;" id="compDeltaWaist">Inicial: -- cm</div>
-        </div>
-        <!-- Card 3: RCEst -->
-        <div class="metric-summary-card" style="border-left: 3.5px solid #c084fc;">
-          <div class="metric-value" id="compMetricWhtr" style="color:#c084fc;">--</div>
-          <div class="metric-label">Relação Cintura-Estatura</div>
-          <div style="font-size:0.7rem; margin-top:3px;" id="compWhtrBadge">Meta: &lt; 0.50</div>
-        </div>
-        <!-- Card 4: % Gordura -->
-        <div class="metric-summary-card" style="border-left: 3.5px solid #fbbf24;">
-          <div class="metric-value" id="compMetricBF" style="color:#fbbf24;">--%</div>
-          <div class="metric-label">% Gordura (BF)</div>
-          <div style="font-size:0.7rem; color:#94a3b8; margin-top:3px;" id="compBFSub">Marinha / Informado</div>
-        </div>
-      </div>
-
-      <!-- Card: Gráfico de Tendência Vetorial SVG -->
-      <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 16px; margin-bottom: 20px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
-          <div style="font-size:0.92rem; font-weight:800; color:#fff; display:flex; align-items:center; gap:6px;">
-            <span>📊</span> <span>Curva de Evolução Temporal</span>
-          </div>
-          <!-- Seletor de Métrica do Gráfico -->
-          <div style="display:flex; gap:6px; background:rgba(0,0,0,0.3); padding:3px; border-radius:8px; border:1px solid rgba(255,255,255,0.08);">
-            <button type="button" id="btnChartTabWeight" onclick="switchBodyCompChart('weight')" style="background:rgba(56,189,248,0.2); color:#38bdf8; border:none; padding:4px 10px; font-size:0.72rem; font-weight:700; border-radius:6px; cursor:pointer;">Peso (kg)</button>
-            <button type="button" id="btnChartTabWaist" onclick="switchBodyCompChart('waist')" style="background:transparent; color:#94a3b8; border:none; padding:4px 10px; font-size:0.72rem; font-weight:700; border-radius:6px; cursor:pointer;">Cintura (cm) e RCEst</button>
+          <div class="metrics-summary-grid" style="margin-bottom:0; grid-template-columns: repeat(auto-fit, minmax(105px, 1fr)); gap: 8px;">
+            <div class="metric-summary-card" style="padding: 10px 12px;">
+              <div class="metric-value" id="compMetricWeight" style="font-size:1.15rem; color:var(--brand-neon);">-- kg</div>
+              <div class="metric-label">Peso Atual</div>
+            </div>
+            <div class="metric-summary-card" style="padding: 10px 12px;">
+              <div class="metric-value" id="compMetricWaist" style="font-size:1.15rem; color:var(--brand-neon);">-- cm</div>
+              <div class="metric-label">Cintura Atual</div>
+            </div>
+            <div class="metric-summary-card" style="padding: 10px 12px;">
+              <div class="metric-value" id="compMetricWhtr" style="font-size:1.15rem; color:#c084fc;">--</div>
+              <div class="metric-label">RCEst Atual</div>
+            </div>
+            <div class="metric-summary-card" style="padding: 10px 12px;">
+              <div class="metric-value" id="compMetricBF" style="font-size:1.15rem; color:#fbbf24;">--%</div>
+              <div class="metric-label">% BF Atual</div>
+            </div>
           </div>
         </div>
 
-        <div id="compChartContainer" style="width:100%; min-height:190px; position:relative; overflow:hidden;">
-          <!-- SVG dinamicamente gerado via script -->
+        <!-- Card 3: Comparativo da Evolução (Destaque Estruturado Sem Texto Corrido) -->
+        <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(192,132,252,0.25); border-left: 4.5px solid #c084fc; border-radius: 14px; padding: 14px 16px; margin-bottom: 16px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 12px; flex-wrap:wrap; gap:8px;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span style="font-size:1.15rem;">📊</span>
+              <div style="font-size:0.92rem; font-weight:800; color:#ffffff; letter-spacing:0.02em;">COMPARATIVO DA EVOLUÇÃO</div>
+            </div>
+            <div style="display:flex; gap:6px; flex-wrap:wrap;">
+              <span style="font-size:0.72rem; font-weight:700; color:#e2e8f0; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); padding:3px 8px; border-radius:8px;" id="compSummaryRange">Início vs. Atual</span>
+              <span style="font-size:0.72rem; font-weight:700; color:#c084fc; background:rgba(192,132,252,0.12); border:1px solid rgba(192,132,252,0.3); padding:3px 8px; border-radius:8px;" id="compSummaryPeriod">Acompanhamento Ativo</span>
+            </div>
+          </div>
+          <div class="metrics-summary-grid" style="margin-bottom:0; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 8px;">
+            <div class="metric-summary-card" style="padding: 10px 12px; border-left:3px solid var(--brand-neon);">
+              <div class="metric-value" id="compStatDeltaWeight" style="font-size:1.15rem; color:var(--brand-neon);">0.0 kg</div>
+              <div class="metric-label">Δ Peso Corporal</div>
+            </div>
+            <div class="metric-summary-card" style="padding: 10px 12px; border-left:3px solid #38bdf8;">
+              <div class="metric-value" id="compStatDeltaWaist" style="font-size:1.15rem; color:#38bdf8;">0.0 cm</div>
+              <div class="metric-label">Δ Cintura</div>
+            </div>
+            <div class="metric-summary-card" style="padding: 10px 12px; border-left:3px solid #c084fc;">
+              <div class="metric-value" id="compStatJointRelief" style="font-size:1.15rem; color:#c084fc;">~ 0 kg</div>
+              <div class="metric-label">Alívio Articular / Passo</div>
+            </div>
+            <div class="metric-summary-card" style="padding: 10px 12px; border-left:3px solid #fbbf24;">
+              <div class="metric-value" id="compStatRelativePower" style="font-size:1.15rem; color:#fbbf24;">+0.0%</div>
+              <div class="metric-label">Força Relativa</div>
+            </div>
+          </div>
         </div>
-      </div>
+
+        <!-- Card 4: Curva de Evolução Temporal (4 Métricas) -->
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 16px; margin-bottom: 20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <div style="font-size:0.92rem; font-weight:800; color:#fff; display:flex; align-items:center; gap:6px;">
+              <span>📈</span> <span>Curva de Evolução Temporal</span>
+            </div>
+            <!-- Seletor de 4 Métricas do Gráfico -->
+            <div style="display:flex; gap:5px; background:rgba(0,0,0,0.3); padding:3px; border-radius:8px; border:1px solid rgba(255,255,255,0.08); flex-wrap:wrap;">
+              <button type="button" id="btnChartTabWeight" onclick="switchBodyCompChart('weight')" style="background:rgba(56,189,248,0.2); color:#38bdf8; border:none; padding:4px 9px; font-size:0.72rem; font-weight:700; border-radius:6px; cursor:pointer;">Peso (kg)</button>
+              <button type="button" id="btnChartTabWaist" onclick="switchBodyCompChart('waist')" style="background:transparent; color:#94a3b8; border:none; padding:4px 9px; font-size:0.72rem; font-weight:700; border-radius:6px; cursor:pointer;">Cintura (cm)</button>
+              <button type="button" id="btnChartTabJoint" onclick="switchBodyCompChart('joint')" style="background:transparent; color:#94a3b8; border:none; padding:4px 9px; font-size:0.72rem; font-weight:700; border-radius:6px; cursor:pointer;">Impacto Articular (kg)</button>
+              <button type="button" id="btnChartTabPower" onclick="switchBodyCompChart('power')" style="background:transparent; color:#94a3b8; border:none; padding:4px 9px; font-size:0.72rem; font-weight:700; border-radius:6px; cursor:pointer;">Força Relativa (%)</button>
+            </div>
+          </div>
+
+          <div id="compChartContainer" style="width:100%; min-height:190px; position:relative; overflow:hidden;">
+            <!-- SVG dinamicamente gerado via script -->
+          </div>
+        </div>
       </div>
 
       <!-- ==================== SUBPÁGINA 2: HISTÓRICO DE MEDIÇÕES ==================== -->
@@ -4554,18 +4593,18 @@
           </button>
         </div>
         <!-- Card: Histórico Cronológico de Check-ins -->
-      <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 16px; margin-bottom: 20px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
-          <div style="font-size:0.92rem; font-weight:800; color:#fff; display:flex; align-items:center; gap:6px;">
-            <span>🗓️</span> <span>Histórico Cronológico de Medições</span>
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 16px; margin-bottom: 20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <div style="font-size:0.92rem; font-weight:800; color:#fff; display:flex; align-items:center; gap:6px;">
+              <span>🗓️</span> <span>Histórico Cronológico de Medições</span>
+            </div>
+            <span style="font-size:0.72rem; color:var(--brand-neon); font-weight:700;" id="compHistoryCount">0 registros</span>
           </div>
-          <span style="font-size:0.72rem; color:var(--brand-neon); font-weight:700;" id="compHistoryCount">0 registros</span>
-        </div>
 
-        <div id="compHistoryList" style="display:flex; flex-direction:column; gap:8px;">
-          <!-- Linhas do histórico injetadas aqui -->
+          <div id="compHistoryList" style="display:flex; flex-direction:column; gap:8px;">
+            <!-- Linhas do histórico injetadas aqui -->
+          </div>
         </div>
-      </div>
       </div>
 
       <!-- ==================== SUBPÁGINA 3: FOTOS POSTURAIS ==================== -->
@@ -4574,30 +4613,49 @@
           <button type="button" class="btn-back-workout" onclick="closeCompSubView()">
             ← Voltar para Composição Corporal
           </button>
-          <button type="button" class="btn-orientacoes-popup" onclick="openInstrucoesFotosModal()">
-            <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-            <span>GUIA DE FOTOS</span>
-          </button>
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <button type="button" class="btn-orientacoes-popup" onclick="openAddFotosPosturaisModal()" style="background: rgba(0, 255, 136, 0.14); border-color: rgba(0, 255, 136, 0.4); color: var(--brand-neon); font-weight: 800;">
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+              <span>ADICIONAR FOTOS</span>
+            </button>
+            <button type="button" class="btn-orientacoes-popup" onclick="openInstrucoesFotosModal()">
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+              <span>GUIA DE FOTOS</span>
+            </button>
+          </div>
         </div>
         <!-- Card: Comparativo Visual de Fotos (Antes vs Recente) -->
-      <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 16px; margin-bottom: 20px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:8px;">
-          <div style="font-size:0.92rem; font-weight:800; color:#fff; display:flex; align-items:center; gap:6px;">
-            <span>📸</span> <span>Registro Fotográfico Padronizado</span>
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 16px; margin-bottom: 20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:8px;">
+            <div style="font-size:0.92rem; font-weight:800; color:#fff; display:flex; align-items:center; gap:6px;">
+              <span>📸</span> <span>Registro Fotográfico Padronizado</span>
+            </div>
+            <span style="font-size:0.72rem; color:#94a3b8; background:rgba(255,255,255,0.05); padding:3px 8px; border-radius:6px;">Privado no dispositivo</span>
           </div>
-          <span style="font-size:0.72rem; color:#94a3b8; background:rgba(255,255,255,0.05); padding:3px 8px; border-radius:6px;">Privado no dispositivo</span>
-        </div>
 
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:12px;" id="compPhotosGallery">
-          <!-- Slots das Fotos: Frente, Lado, Costas -->
-        </div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:12px;" id="compPhotosGallery">
+            <!-- Slots das Fotos: Frente, Lado, Costas -->
+          </div>
 
-        <!-- Botão de Ação Direta para Adicionar / Atualizar Fotos -->
-        <button type="button" class="analysis-upload-banner" onclick="openAddMedicaoModal()" style="margin-top: 16px; margin-bottom: 4px; background: rgba(56, 189, 248, 0.12); border: 1.5px solid #38bdf8; color: #fff; font-weight: 800;">
-          <span style="font-size: 1.1rem; color: #38bdf8;">📸</span>
-          <span>Adicionar Novas Fotos (Registrar Medição)</span>
-        </button>
-      </div>
+          <!-- Botão de Ação Direta para Adicionar / Atualizar Fotos -->
+          <button type="button" class="analysis-upload-banner" onclick="openAddFotosPosturaisModal()" style="margin-top: 16px; margin-bottom: 4px; background: rgba(0, 255, 136, 0.12); border: 1.5px solid var(--brand-neon); color: #fff; font-weight: 800;">
+            <span style="font-size: 1.1rem; color: var(--brand-neon);">📸</span>
+            <span>Adicionar Novas Fotos Posturais</span>
+          </button>
+
+          <!-- Seção Dinâmica de Fotos Adicionadas pelo Aluno -->
+          <div id="userUploadedPhotosSection" style="margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.08);">
+            <div style="font-size: 0.88rem; font-weight: 800; color: #fff; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span>🗂️</span> <span>Histórico Fotográfico Completo</span>
+              </div>
+              <span style="font-size:0.72rem; color:var(--brand-neon); font-weight:700;" id="userPhotosCount">0 fotos</span>
+            </div>
+            <div id="userUploadedPhotosGallery" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
+              <!-- Fotos adicionadas renderizadas aqui -->
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- ==================== SUBPÁGINA 4: LAUDO E IMPACTO ARTICULAR ==================== -->
@@ -4607,29 +4665,135 @@
             ← Voltar para Composição Corporal
           </button>
         </div>
-        <!-- Card Nobre: Gerador de Relatório Completo de Composição e Força Relativa -->
-      <div style="background: linear-gradient(135deg, rgba(2,132,199,0.12), rgba(124,58,237,0.12)); border: 1.5px solid rgba(56,189,248,0.35); border-radius: 16px; padding: 20px 18px; margin-bottom: 24px; text-align: left; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-        <div style="display:flex; align-items:flex-start; gap:12px; flex-wrap:wrap; justify-content:space-between;">
-          <div style="max-width: 480px;">
-            <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
-              <span style="font-size:1.3rem;">📋</span>
-              <h3 style="margin:0; font-size:1.02rem; font-weight:800; color:#ffffff; letter-spacing:-0.01em;">Relatório Completo de Composição e Força Relativa</h3>
+
+        <!-- HERO MASTER: LAUDO E DIAGNÓSTICO BIOMECÂNICO -->
+        <div class="evolucao-hero" style="margin-bottom:14px; background: linear-gradient(135deg, rgba(192, 132, 252, 0.16) 0%, rgba(56, 189, 248, 0.12) 60%, rgba(0, 255, 136, 0.08) 100%); border-left: 4.5px solid #c084fc;">
+          <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+            <div class="evolucao-title">
+              <span>📋 Laudo e Diagnóstico Biomecânico</span>
             </div>
-            <p style="font-size:0.8rem; color:#cbd5e1; line-height:1.55; margin:0 0 14px 0;">
-              Compilação automática com diagnóstico em termos práticos, cálculo de sobrecarga articular, impacto biomecânico nos seus treinos de Domínio Corporal e embasamento científico com autores de referência.
+            <span style="font-size:0.72rem; font-weight:800; color:#c084fc; background:rgba(192,132,252,0.2); border:1px solid rgba(192,132,252,0.45); padding:3px 9px; border-radius:8px; text-transform:uppercase;">Conclusão Master</span>
+          </div>
+          <p style="font-size:0.82rem; color:#cbd5e1; margin:8px 0 0; line-height:1.55;">
+            Síntese diagnóstica integrando medidas antropométricas, histórico longitudinal e análise postural com as métricas científicas de rendimento e longevidade física.
+          </p>
+        </div>
+
+        <!-- BLOCO 1: STATUS CLÍNICO E ANTROPOMÉTRICO (ONDE VOCÊ SE ENCONTRA) -->
+        <div class="comparison-card" style="border-left:4px solid #38bdf8; margin-bottom:14px;">
+          <div class="comparison-card-header">
+            <div class="comparison-card-title">1. Status Clínico e Antropométrico Atual</div>
+            <span style="font-size:0.72rem; color:#38bdf8; font-weight:800;">DIAGNÓSTICO ESTATUTÁRIO</span>
+          </div>
+          <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.65;">
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap:8px; margin-bottom:12px;">
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(56,189,248,0.25); border-radius:10px; padding:10px 12px;">
+                <div style="font-size:0.72rem; color:#94a3b8; font-weight:700;">RCEst (Cintura/Estatura)</div>
+                <div style="font-size:1.15rem; font-weight:900; color:#38bdf8; margin:2px 0;" id="laudoStatWhtr">--</div>
+                <div style="font-size:0.68rem; color:#64748b;">Meta clínica: &lt; 0.50 (Ashwell et al.)</div>
+              </div>
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(0,255,136,0.25); border-radius:10px; padding:10px 12px;">
+                <div style="font-size:0.72rem; color:#94a3b8; font-weight:700;">Variação Ponderal (Δ Peso)</div>
+                <div style="font-size:1.15rem; font-weight:900; color:var(--brand-neon); margin:2px 0;" id="laudoStatDeltaWeight">0.0 kg</div>
+                <div style="font-size:0.68rem; color:#64748b;">Foco em massa magra funcional</div>
+              </div>
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(192,132,252,0.25); border-radius:10px; padding:10px 12px;">
+                <div style="font-size:0.72rem; color:#94a3b8; font-weight:700;">Perímetro Abdominal</div>
+                <div style="font-size:1.15rem; font-weight:900; color:#c084fc; margin:2px 0;" id="laudoStatDeltaWaist">0.0 cm</div>
+                <div style="font-size:0.68rem; color:#64748b;">Linha periumbilical</div>
+              </div>
+            </div>
+            <p style="margin:0 0 8px 0;">
+              <strong>Monitoramento de Risco e Eficiência (Ashwell et al., 2014):</strong> Manter a Relação Cintura-Estatura abaixo de <strong>0.50</strong> assegura excelente sensibilidade metabólica, menor inflamação sistêmica e um centro de gravidade enxuto para o domínio do próprio corpo.
+            </p>
+            <p style="margin:0;">
+              <strong>Reorganização do Centro de Massa:</strong> A redução do perímetro abdominal aproxima o centro de massa da coluna lombar, reduzindo o braço de resistência anterior e estabilizando o core em exercícios suspensos e de solo.
             </p>
           </div>
-          <button type="button" onclick="openRelatorioComposicaoModal()" style="background:#38bdf8; color:#031326; font-size:0.82rem; font-weight:800; border:none; border-radius:10px; padding:12px 18px; cursor:pointer; display:inline-flex; align-items:center; gap:8px; box-shadow:0 0 16px rgba(56,189,248,0.4); white-space:nowrap; transition:all 0.2s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
-            <svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:currentColor;"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-            <span>Gerar Relatório Completo</span>
-          </button>
         </div>
+
+        <!-- BLOCO 2: PREVENÇÃO DE LESÕES E BIOMECÂNICA ARTICULAR -->
+        <div class="comparison-card" style="border-left:4px solid var(--brand-neon); margin-bottom:14px;">
+          <div class="comparison-card-header">
+            <div class="comparison-card-title">2. Prevenção de Lesões e Biomecânica Articular</div>
+            <span style="font-size:0.72rem; color:var(--brand-neon); font-weight:800;">REGRA DE MESSIER (4:1)</span>
+          </div>
+          <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.65;">
+            <p style="margin:0 0 10px 0;">
+              <strong>Alívio Patelofemoral e Meniscal (Messier et al., 2005):</strong> Cada 1 kg de massa inerte reduzida elimina aproximadamente <strong>4 kg de força compressiva</strong> sobre os joelhos a cada passo. Alívio estimado atual por passada: <strong style="color:var(--brand-neon);" id="laudoStatJointRelief">~ 0 kg</strong>.
+            </p>
+            <div style="background:rgba(0,255,136,0.06); border:1px solid rgba(0,255,136,0.22); border-radius:10px; padding:10px 14px; margin-bottom:10px;">
+              <strong style="color:var(--brand-neon); font-size:0.84rem;">🛡️ Proteção Articular em Agachamentos, Saltos e Apoios:</strong>
+              <div style="font-size:0.8rem; color:#cbd5e1; margin-top:4px;">
+                Em agachamentos profundos, subidas no banco e aterrissagens, as forças de reação chegam a 3x a 4x o peso corporal. A otimização da composição corporal preserva cartilagens, meniscos, tendões patelares e punhos, garantindo longevidade sem dor.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOCO 3: RENDIMENTO ESPORTIVO E FORÇA RELATIVA -->
+        <div class="comparison-card" style="border-left:4px solid #fbbf24; margin-bottom:14px;">
+          <div class="comparison-card-header">
+            <div class="comparison-card-title">3. Rendimento Esportivo e Força Relativa</div>
+            <span style="font-size:0.72rem; color:#fbbf24; font-weight:800;">2ª LEI DE NEWTON (a = F / m)</span>
+          </div>
+          <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.65;">
+            <p style="margin:0 0 10px 0;">
+              <strong>Ganho Direto na Relação Peso-Potência:</strong> Pela 2ª Lei de Newton (a = F / m), preservar e construir força contrátil (F) enquanto se reduz massa passiva (m) eleva diretamente sua aceleração motora e controle gravitacional (Ganho estimado: <strong style="color:#fbbf24;" id="laudoStatRelativePower">+0.0%</strong>).
+            </p>
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:10px; margin-bottom:6px;">
+              <div style="background:rgba(251,191,36,0.06); border:1px solid rgba(251,191,36,0.25); border-radius:10px; padding:10px 12px;">
+                <strong style="color:#fbbf24; font-size:0.84rem;">⚡ Puxadas, Flexões e Calistenia</strong>
+                <p style="margin:4px 0 0; font-size:0.78rem; color:#cbd5e1;">
+                  Menor sobrecarga passiva representa mais repetições limpas, melhor controle escapular e progressão acelerada nas alavancas corporais.
+                </p>
+              </div>
+              <div style="background:rgba(251,191,36,0.06); border:1px solid rgba(251,191,36,0.25); border-radius:10px; padding:10px 12px;">
+                <strong style="color:#fbbf24; font-size:0.84rem;">🤸 Parada de Mão e Equilíbrios</strong>
+                <p style="margin:4px 0 0; font-size:0.78rem; color:#cbd5e1;">
+                  Menor momento de inércia no tronco facilita o alinhamento empilhado de punhos, ombros e quadril com menor gasto energético.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOCO 4: DIRETRIZES TÉCNICAS E O QUE PODE MELHORAR -->
+        <div class="comparison-card" style="border-left:4px solid #c084fc; margin-bottom:18px;">
+          <div class="comparison-card-header">
+            <div class="comparison-card-title">4. Diretrizes Técnicas e Próximos Passos</div>
+            <span style="font-size:0.72rem; color:#c084fc; font-weight:800;">PLANO DE CONSOLIDAÇÃO</span>
+          </div>
+          <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.65;">
+            <ul class="bio-points-list" style="margin:0; padding-left:16px;">
+              <li><strong>Consistência nas Aferições Padronizadas:</strong> Realizar o check-in quinzenal ou mensal sempre em jejum matinal e com o mesmo padrão de vestimenta para acompanhamento fidedigno da curva.</li>
+              <li><strong>Progressão de Força e Controle Articular:</strong> Priorizar amplitude completa e cadência controlada nos blocos de fortalecimento para maximizar o recrutamento neuromuscular e a densidade óssea.</li>
+              <li><strong>Suporte Recuperativo e Nutricional:</strong> Manter hidratação diária adequada, sono reparador e aporte proteico fracionado para sustentar a síntese muscular e a recuperação tendínea.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- CARD NOBRE: GERADOR DE RELATÓRIO COMPLETO -->
+        <div style="background: linear-gradient(135deg, rgba(2,132,199,0.12), rgba(124,58,237,0.12)); border: 1.5px solid rgba(56,189,248,0.35); border-radius: 16px; padding: 20px 18px; margin-bottom: 24px; text-align: left; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+          <div style="display:flex; align-items:flex-start; gap:12px; flex-wrap:wrap; justify-content:space-between;">
+            <div style="max-width: 480px;">
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+                <span style="font-size:1.3rem;">📋</span>
+                <h3 style="margin:0; font-size:1.02rem; font-weight:800; color:#ffffff; letter-spacing:-0.01em;">Relatório Completo de Composição e Força Relativa</h3>
+              </div>
+              <p style="font-size:0.8rem; color:#cbd5e1; line-height:1.55; margin:0 0 14px 0;">
+                Compilação automática com diagnóstico em termos práticos, cálculo de sobrecarga articular, impacto biomecânico nos seus treinos de Domínio Corporal e embasamento científico com autores de referência.
+              </p>
+            </div>
+            <button type="button" onclick="openRelatorioComposicaoModal()" style="background:#38bdf8; color:#031326; font-size:0.82rem; font-weight:800; border:none; border-radius:10px; padding:12px 18px; cursor:pointer; display:inline-flex; align-items:center; gap:8px; box-shadow:0 0 16px rgba(56,189,248,0.4); white-space:nowrap; transition:all 0.2s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+              <svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:currentColor;"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+              <span>Gerar Relatório Completo</span>
+            </button>
+          </div>
+        </div>
+
       </div>
 
-    </div>
-
-    <div
-      </div>
     </div>
 
     <div id="evolView-tecnica" class="evolucao-view-pane" style="display:none;">
@@ -5114,6 +5278,74 @@
         <div style="padding:10px 12px; background:rgba(251,191,36,0.06); border-left:3.5px solid #fbbf24; border-radius:8px;">
           <strong style="color:#fff;">👖 Quadril (Para Mulheres)</strong><br>
           Com os pés unidos, posicione a fita métrica na maior circunferência dos glúteos. Mantenha a fita paralela ao chão.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL: ADICIONAR FOTOS POSTURAIS ==================== -->
+  <div id="modalAddFotosPosturais" class="modal-overlay" onclick="if(event.target === this) closeAddFotosPosturaisModal();">
+    <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 520px;">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:36px; height:36px; border-radius:10px; background:rgba(0, 255, 136, 0.12); border:1px solid rgba(0, 255, 136, 0.3); display:flex; align-items:center; justify-content:center; font-size:1.25rem;">
+            <span>📸</span>
+          </div>
+          <div>
+            <h3 style="margin:0; font-size:1.02rem; color:#fff;">Adicionar Fotos de Progresso</h3>
+            <span style="font-size:0.75rem; color:var(--brand-neon); font-weight:600;">Registro Fotográfico Direto</span>
+          </div>
+        </div>
+        <button class="btn-close" type="button" onclick="closeAddFotosPosturaisModal()" aria-label="Fechar">&times;</button>
+      </div>
+
+      <div style="padding: 18px 20px; max-height: 75vh; overflow-y: auto;">
+        <!-- Data das Fotos -->
+        <div class="comp-form-group" style="margin-bottom: 14px;">
+          <label class="comp-form-label" for="add_postural_date">📅 Data das Fotos</label>
+          <input type="date" id="add_postural_date" class="comp-form-input">
+        </div>
+
+        <!-- Upload de Fotos: Frente, Lado e Costas -->
+        <div class="comp-form-group">
+          <label class="comp-form-label">📸 Selecionar Fotos (salvas com segurança no seu dispositivo)</label>
+          <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:8px;">
+            <div>
+              <label for="postural_photo_front" style="display:block; font-size:0.68rem; color:#94a3b8; margin-bottom:4px; text-align:center;">Frente</label>
+              <input type="file" id="postural_photo_front" accept="image/*" style="font-size:0.65rem; color:#94a3b8; width:100%;" onchange="handleFotoPosturalPreview(this, 'front')">
+              <div id="preview_postural_front" style="margin-top:4px; height:75px; background:rgba(255,255,255,0.02); border:1px dashed rgba(255,255,255,0.15); border-radius:6px; overflow:hidden; display:flex; align-items:center; justify-content:center; font-size:0.68rem; color:#64748b;">Sem foto</div>
+            </div>
+            <div>
+              <label for="postural_photo_side" style="display:block; font-size:0.68rem; color:#94a3b8; margin-bottom:4px; text-align:center;">Lado</label>
+              <input type="file" id="postural_photo_side" accept="image/*" style="font-size:0.65rem; color:#94a3b8; width:100%;" onchange="handleFotoPosturalPreview(this, 'side')">
+              <div id="preview_postural_side" style="margin-top:4px; height:75px; background:rgba(255,255,255,0.02); border:1px dashed rgba(255,255,255,0.15); border-radius:6px; overflow:hidden; display:flex; align-items:center; justify-content:center; font-size:0.68rem; color:#64748b;">Sem foto</div>
+            </div>
+            <div>
+              <label for="postural_photo_back" style="display:block; font-size:0.68rem; color:#94a3b8; margin-bottom:4px; text-align:center;">Costas</label>
+              <input type="file" id="postural_photo_back" accept="image/*" style="font-size:0.65rem; color:#94a3b8; width:100%;" onchange="handleFotoPosturalPreview(this, 'back')">
+              <div id="preview_postural_back" style="margin-top:4px; height:75px; background:rgba(255,255,255,0.02); border:1px dashed rgba(255,255,255,0.15); border-radius:6px; overflow:hidden; display:flex; align-items:center; justify-content:center; font-size:0.68rem; color:#64748b;">Sem foto</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Observações sobre as fotos -->
+        <div class="comp-form-group" style="margin-top: 14px;">
+          <label class="comp-form-label" for="add_postural_notes">📝 Observações e Contexto</label>
+          <textarea id="add_postural_notes" class="comp-form-textarea" rows="2" placeholder="Ex: Fotos matinais em jejum, iluminação natural frontal..."></textarea>
+        </div>
+
+        <div style="font-size:0.72rem; color:#94a3b8; line-height:1.45; margin-top:8px;">
+          💡 <em>As fotos ficam salvas no seu histórico de evolução para comparação temporal e acompanhamento nos laudos biomecânicos.</em>
+        </div>
+
+        <!-- Botões de Ação do Modal -->
+        <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:16px;">
+          <button type="button" onclick="closeAddFotosPosturaisModal()" style="background:rgba(255,255,255,0.08); border:none; color:#cbd5e1; font-size:0.8rem; font-weight:700; border-radius:8px; padding:10px 16px; cursor:pointer;">
+            Cancelar
+          </button>
+          <button type="button" onclick="saveFotosPosturaisDirectly()" style="background:var(--brand-neon); color:#000; border:none; font-size:0.82rem; font-weight:800; border-radius:8px; padding:10px 20px; cursor:pointer; box-shadow:0 0 12px var(--brand-neon-glow);">
+            Salvar Fotos
+          </button>
         </div>
       </div>
     </div>
@@ -6165,6 +6397,7 @@ Segue o vídeo anexo para sua análise!`;
        =================================================== */
     let currentBodyCompChartType = 'weight';
     let tempCompPhotos = { front: '', side: '', back: '' };
+    let tempFotosPosturais = { front: '', side: '', back: '' };
 
     function getStudentBaseProfile() {
       let data = {};
@@ -6323,9 +6556,18 @@ Segue o vídeo anexo para sua análise!`;
     function renderBodyCompUI() {
       const history = getBodyCompHistory();
       const base = getStudentBaseProfile();
-      const height = base.height || 175;
+      const height = base.height || 170;
       const gender = base.gender || 'masculino';
 
+      // Elementos do Card 1: Ponto de Partida
+      const intakeDateBadge = document.getElementById('evolIntakeDateBadge');
+      const intakeWeightEl = document.getElementById('evolIntakeWeight');
+      const intakeWaistEl = document.getElementById('evolIntakeWaist');
+      const intakeWhtrEl = document.getElementById('evolIntakeWhtr');
+      const intakeBFEl = document.getElementById('evolIntakeBF');
+
+      // Elementos do Card 2: Informações Atuais
+      const currentDateBadge = document.getElementById('compCurrentDateBadge');
       const weightEl = document.getElementById('compMetricWeight');
       const waistEl = document.getElementById('compMetricWaist');
       const whtrEl = document.getElementById('compMetricWhtr');
@@ -6335,6 +6577,21 @@ Segue o vídeo anexo para sua análise!`;
       const whtrBadgeEl = document.getElementById('compWhtrBadge');
       const bfSubEl = document.getElementById('compBFSub');
 
+      // Elementos do Card 3: Comparativo da Evolução
+      const summaryRangeEl = document.getElementById('compSummaryRange');
+      const summaryPeriodEl = document.getElementById('compSummaryPeriod');
+      const statDeltaWeightEl = document.getElementById('compStatDeltaWeight');
+      const statDeltaWaistEl = document.getElementById('compStatDeltaWaist');
+      const statJointReliefEl = document.getElementById('compStatJointRelief');
+      const statRelativePowerEl = document.getElementById('compStatRelativePower');
+
+      // Elementos dinâmicos na Subpágina 4: Laudo Master
+      const laudoWhtrEl = document.getElementById('laudoStatWhtr');
+      const laudoDeltaWeightEl = document.getElementById('laudoStatDeltaWeight');
+      const laudoDeltaWaistEl = document.getElementById('laudoStatDeltaWaist');
+      const laudoJointReliefEl = document.getElementById('laudoStatJointRelief');
+      const laudoRelativePowerEl = document.getElementById('laudoStatRelativePower');
+
       if (!history || history.length === 0) {
         if (weightEl) weightEl.textContent = base.weight ? `${base.weight.toFixed(1)} kg` : '-- kg';
         if (waistEl) waistEl.textContent = '-- cm';
@@ -6342,44 +6599,49 @@ Segue o vídeo anexo para sua análise!`;
         if (bfEl) bfEl.textContent = base.bf ? `${base.bf.toFixed(1)}%` : '--%';
         renderBodyCompChart(currentBodyCompChartType);
         renderBodyCompHistoryList([]);
-        if (typeof renderBodyCompPhotosGallery === 'function') {
-          renderBodyCompPhotosGallery(null);
-        }
+        renderUserUploadedPhotosGallery([]);
+        renderBodyCompPhotosGallery(null);
         return;
       }
 
       const baseline = history[0];
       const latest = history[history.length - 1];
 
-      // 1. Peso Atual e Delta
+      const formatDateBR = (iso) => {
+        if (!iso) return '';
+        const p = iso.split('-');
+        return p.length === 3 ? `${p[2]}/${p[1]}/${p[0]}` : iso;
+      };
+
+      const date0BR = formatDateBR(baseline.date);
+      const dateLatestBR = formatDateBR(latest.date);
+
+      // Card 1: Ponto de Partida
+      if (intakeDateBadge) intakeDateBadge.textContent = date0BR || 'Ficha Inicial';
+      if (intakeWeightEl) intakeWeightEl.textContent = `${baseline.weight.toFixed(1)} kg`;
+      if (intakeWaistEl) intakeWaistEl.textContent = `${baseline.waist.toFixed(1)} cm`;
+      const baseWhtr = height ? (baseline.waist / height).toFixed(2) : '--';
+      if (intakeWhtrEl) intakeWhtrEl.textContent = baseWhtr;
+      let baseBF = baseline.bfManual || null;
+      if (!baseBF && baseline.neck) {
+        baseBF = calculateUSNavyBF(gender, height, baseline.waist, baseline.neck, baseline.hip);
+      }
+      if (intakeBFEl) intakeBFEl.textContent = baseBF ? `${baseBF.toFixed(1)}%` : (base.bf ? `${base.bf.toFixed(1)}%` : '--%');
+
+      // Card 2: Informações Atuais
+      if (currentDateBadge) currentDateBadge.textContent = (history.length > 1) ? dateLatestBR : 'Última Entrada';
       if (weightEl) weightEl.textContent = `${latest.weight.toFixed(1)} kg`;
-      if (deltaWeightEl) {
-        const dW = latest.weight - baseline.weight;
-        const dSign = dW > 0 ? `+${dW.toFixed(1)}` : `${dW.toFixed(1)}`;
-        deltaWeightEl.textContent = (history.length > 1) ? `Δ ${dSign} kg desde início` : `Inicial: ${baseline.weight.toFixed(1)} kg`;
-        deltaWeightEl.style.color = (dW < 0) ? 'var(--brand-neon)' : (dW > 0 ? '#38bdf8' : '#94a3b8');
-      }
-
-      // 2. Cintura e Delta
       if (waistEl) waistEl.textContent = `${latest.waist.toFixed(1)} cm`;
-      if (deltaWaistEl) {
-        const dWaist = latest.waist - baseline.waist;
-        const dSignW = dWaist > 0 ? `+${dWaist.toFixed(1)}` : `${dWaist.toFixed(1)}`;
-        deltaWaistEl.textContent = (history.length > 1) ? `Δ ${dSignW} cm desde início` : `Inicial: ${baseline.waist.toFixed(1)} cm`;
-        deltaWaistEl.style.color = (dWaist < 0) ? 'var(--brand-neon)' : (dWaist > 0 ? '#f43f5e' : '#94a3b8');
-      }
-
-      // 3. RCEst (Relação Cintura / Estatura)
-      const whtr = height ? (latest.waist / height) : null;
-      if (whtrEl) whtrEl.textContent = whtr ? whtr.toFixed(2) : '--';
+      const currentWhtr = height ? (latest.waist / height) : null;
+      if (whtrEl) whtrEl.textContent = currentWhtr ? currentWhtr.toFixed(2) : '--';
       if (whtrBadgeEl) {
-        if (!whtr) {
+        if (!currentWhtr) {
           whtrBadgeEl.textContent = 'Meta: < 0.50';
           whtrBadgeEl.style.color = '#94a3b8';
-        } else if (whtr < 0.50) {
+        } else if (currentWhtr < 0.50) {
           whtrBadgeEl.textContent = 'Faixa Ideal (< 0.50)';
           whtrBadgeEl.style.color = 'var(--brand-neon)';
-        } else if (whtr <= 0.54) {
+        } else if (currentWhtr <= 0.54) {
           whtrBadgeEl.textContent = 'Atenção Leve (0.50-0.54)';
           whtrBadgeEl.style.color = '#fbbf24';
         } else {
@@ -6388,7 +6650,7 @@ Segue o vídeo anexo para sua análise!`;
         }
       }
 
-      // 4. % Gordura (Manual ou Marinha)
+      // % Gordura Atual
       let currentBF = latest.bfManual || null;
       let bfSource = 'Informado pelo Aluno';
       if (!currentBF && latest.neck) {
@@ -6401,31 +6663,91 @@ Segue o vídeo anexo para sua análise!`;
       if (bfEl) bfEl.textContent = currentBF ? `${currentBF.toFixed(1)}%` : '--%';
       if (bfSubEl) bfSubEl.textContent = currentBF ? bfSource : 'Marinha / Informado';
 
+      if (deltaWeightEl) {
+        const dW = latest.weight - baseline.weight;
+        const dSign = dW > 0 ? `+${dW.toFixed(1)}` : `${dW.toFixed(1)}`;
+        deltaWeightEl.textContent = (history.length > 1) ? `Δ ${dSign} kg desde início` : `Inicial: ${baseline.weight.toFixed(1)} kg`;
+        deltaWeightEl.style.color = (dW < 0) ? 'var(--brand-neon)' : (dW > 0 ? '#38bdf8' : '#94a3b8');
+      }
+      if (deltaWaistEl) {
+        const dWaist = latest.waist - baseline.waist;
+        const dSignW = dWaist > 0 ? `+${dWaist.toFixed(1)}` : `${dWaist.toFixed(1)}`;
+        deltaWaistEl.textContent = (history.length > 1) ? `Δ ${dSignW} cm desde início` : `Inicial: ${baseline.waist.toFixed(1)} cm`;
+        deltaWaistEl.style.color = (dWaist < 0) ? 'var(--brand-neon)' : (dWaist > 0 ? '#f43f5e' : '#94a3b8');
+      }
+
+      // Card 3: Comparativo da Evolução e Laudo Master
+      const dWeight = latest.weight - baseline.weight;
+      const dWaistVal = latest.waist - baseline.waist;
+      const jointReliefVal = Math.max(0, (baseline.weight - latest.weight) * 4);
+      const powerGainVal = Math.max(0, ((baseline.weight / latest.weight) - 1) * 100);
+
+      if (summaryRangeEl) summaryRangeEl.textContent = (history.length > 1) ? `${date0BR} vs. ${dateLatestBR}` : `${date0BR} (Ponto de Partida)`;
+
+      const d0 = new Date((baseline.date || '2026-10-08') + 'T12:00:00');
+      const d1 = new Date((latest.date || '2026-10-15') + 'T12:00:00');
+      const diffMs = Math.max(0, d1 - d0);
+      const diffDays = Math.max(1, Math.round(diffMs / (1000 * 60 * 60 * 24)));
+      const diffWeeks = diffDays / 7;
+      const ratePerWeek = diffWeeks > 0 ? (Math.abs(dWeight) / diffWeeks).toFixed(1) : '0.0';
+      if (summaryPeriodEl) summaryPeriodEl.textContent = (history.length > 1) ? `${diffDays} dias (~${ratePerWeek} kg/semana)` : `Acompanhamento Iniciado`;
+
+      const formattedDeltaWeight = `${dWeight > 0 ? '+' : ''}${dWeight.toFixed(1)} kg`;
+      const formattedDeltaWaist = `${dWaistVal > 0 ? '+' : ''}${dWaistVal.toFixed(1)} cm`;
+      const formattedJointRelief = `~ -${jointReliefVal.toFixed(1)} kg`;
+      const formattedRelativePower = `+${powerGainVal.toFixed(1)}%`;
+
+      if (statDeltaWeightEl) {
+        statDeltaWeightEl.textContent = formattedDeltaWeight;
+        statDeltaWeightEl.style.color = (dWeight < 0) ? 'var(--brand-neon)' : '#38bdf8';
+      }
+      if (statDeltaWaistEl) {
+        statDeltaWaistEl.textContent = formattedDeltaWaist;
+        statDeltaWaistEl.style.color = (dWaistVal < 0) ? '#38bdf8' : '#f43f5e';
+      }
+      if (statJointReliefEl) {
+        statJointReliefEl.textContent = formattedJointRelief;
+      }
+      if (statRelativePowerEl) {
+        statRelativePowerEl.textContent = formattedRelativePower;
+      }
+
+      // Atualiza Laudo Master
+      if (laudoWhtrEl) {
+        const statusTxt = currentWhtr ? (currentWhtr < 0.50 ? 'Ideal' : (currentWhtr <= 0.54 ? 'Atenção' : 'Alerta')) : '';
+        laudoWhtrEl.innerHTML = currentWhtr ? `${currentWhtr.toFixed(2)} <span style="font-size:0.72rem; font-weight:700; color:var(--brand-neon);">(${statusTxt})</span>` : '--';
+      }
+      if (laudoDeltaWeightEl) laudoDeltaWeightEl.textContent = formattedDeltaWeight;
+      if (laudoDeltaWaistEl) laudoDeltaWaistEl.textContent = formattedDeltaWaist;
+      if (laudoJointReliefEl) laudoJointReliefEl.textContent = formattedJointRelief;
+      if (laudoRelativePowerEl) laudoRelativePowerEl.textContent = formattedRelativePower;
+
       // Atualiza Gráficos, Fotos e Histórico
       renderBodyCompChart(currentBodyCompChartType);
       renderBodyCompHistoryList(history);
-      if (typeof renderBodyCompPhotosGallery === 'function') {
-        renderBodyCompPhotosGallery(latest.photos || baseline.photos || null);
-      }
+      renderUserUploadedPhotosGallery(history);
+      renderBodyCompPhotosGallery(latest.photos || baseline.photos || null);
     }
 
     function switchBodyCompChart(type) {
       currentBodyCompChartType = type;
-      const btnW = document.getElementById('btnChartTabWeight');
-      const btnC = document.getElementById('btnChartTabWaist');
-      if (btnW && btnC) {
-        if (type === 'weight') {
-          btnW.style.background = 'rgba(56,189,248,0.2)';
-          btnW.style.color = '#38bdf8';
-          btnC.style.background = 'transparent';
-          btnC.style.color = '#94a3b8';
+      const tabs = [
+        { id: 'btnChartTabWeight', key: 'weight', color: '#38bdf8', bg: 'rgba(56,189,248,0.2)' },
+        { id: 'btnChartTabWaist', key: 'waist', color: 'var(--brand-neon)', bg: 'rgba(0,255,136,0.18)' },
+        { id: 'btnChartTabJoint', key: 'joint', color: '#c084fc', bg: 'rgba(192,132,252,0.2)' },
+        { id: 'btnChartTabPower', key: 'power', color: '#fbbf24', bg: 'rgba(251,191,36,0.2)' }
+      ];
+      tabs.forEach(t => {
+        const btn = document.getElementById(t.id);
+        if (!btn) return;
+        if (t.key === type) {
+          btn.style.background = t.bg;
+          btn.style.color = t.color;
         } else {
-          btnC.style.background = 'rgba(0,255,136,0.18)';
-          btnC.style.color = 'var(--brand-neon)';
-          btnW.style.background = 'transparent';
-          btnW.style.color = '#94a3b8';
+          btn.style.background = 'transparent';
+          btn.style.color = '#94a3b8';
         }
-      }
+      });
       renderBodyCompChart(type);
     }
 
@@ -6447,39 +6769,66 @@ Segue o vídeo anexo para sua análise!`;
       const h = 190;
       const padTop = 25;
       const padBottom = 35;
-      const padLeft = 45;
+      const padLeft = 48;
       const padRight = 25;
 
-      const isWeight = (type === 'weight');
-      const strokeColor = isWeight ? '#38bdf8' : 'var(--brand-neon)';
-      const unit = isWeight ? 'kg' : 'cm';
+      const baselineW = history[0].weight;
+      let strokeColor = '#38bdf8';
+      let unit = 'kg';
 
-      const values = history.map(d => isWeight ? d.weight : d.waist).filter(v => typeof v === 'number' && !isNaN(v));
-      if (values.length === 0) return;
+      if (type === 'weight') {
+        strokeColor = '#38bdf8';
+        unit = 'kg';
+      } else if (type === 'waist') {
+        strokeColor = 'var(--brand-neon)';
+        unit = 'cm';
+      } else if (type === 'joint') {
+        strokeColor = '#c084fc';
+        unit = 'kg';
+      } else if (type === 'power') {
+        strokeColor = '#fbbf24';
+        unit = '%';
+      }
 
+      const pointsData = history.map((d) => {
+        let val = 0;
+        if (type === 'weight') {
+          val = d.weight;
+        } else if (type === 'waist') {
+          val = d.waist;
+        } else if (type === 'joint') {
+          val = Math.max(0, Math.round((baselineW - d.weight) * 4 * 10) / 10);
+        } else if (type === 'power') {
+          val = Math.max(0, Math.round(((baselineW / d.weight) - 1) * 100 * 10) / 10);
+        }
+        return { val, date: d.date || '' };
+      }).filter(p => typeof p.val === 'number' && !isNaN(p.val));
+
+      if (pointsData.length === 0) return;
+
+      const values = pointsData.map(p => p.val);
       let minVal = Math.min(...values);
       let maxVal = Math.max(...values);
       if (minVal === maxVal) {
-        minVal -= 2;
+        minVal = Math.max(0, minVal - 2);
         maxVal += 2;
       } else {
         const span = maxVal - minVal;
-        minVal -= span * 0.15;
+        minVal = Math.max(0, minVal - span * 0.15);
         maxVal += span * 0.15;
       }
 
       const getX = (idx) => {
-        if (history.length === 1) return w / 2;
-        return padLeft + (idx / (history.length - 1)) * (w - padLeft - padRight);
+        if (pointsData.length === 1) return w / 2;
+        return padLeft + (idx / (pointsData.length - 1)) * (w - padLeft - padRight);
       };
 
       const getY = (val) => {
         return padTop + (1 - (val - minVal) / (maxVal - minVal)) * (h - padTop - padBottom);
       };
 
-      const points = history.map((d, i) => {
-        const val = isWeight ? d.weight : d.waist;
-        return { x: getX(i), y: getY(val), val, date: d.date || '' };
+      const points = pointsData.map((d, i) => {
+        return { x: getX(i), y: getY(d.val), val: d.val, date: d.date };
       });
 
       const polyPoints = points.map(p => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
@@ -6497,12 +6846,20 @@ Segue o vídeo anexo para sua análise!`;
         svg += `<polyline points="${polyPoints}" fill="none" stroke="${strokeColor}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />`;
       }
 
-      points.forEach(p => {
-        svg += `<circle cx="${p.x}" cy="${p.y}" r="4.5" fill="#0b0e14" stroke="${strokeColor}" stroke-width="2.5" />`;
-        svg += `<text x="${p.x}" y="${p.y - 8}" fill="#ffffff" font-size="9.5" font-weight="700" text-anchor="middle" font-family="sans-serif">${p.val.toFixed(1)} ${unit}</text>`;
-        const dateParts = p.date.split('-');
-        const dateLabel = (dateParts.length === 3) ? `${dateParts[2]}/${dateParts[1]}` : p.date;
-        svg += `<text x="${p.x}" y="${h - 12}" fill="#94a3b8" font-size="8.5" text-anchor="middle" font-family="sans-serif">${dateLabel}</text>`;
+      points.forEach((p, idx) => {
+        svg += `<circle cx="${p.x}" cy="${p.y}" r="4" fill="#0b0e14" stroke="${strokeColor}" stroke-width="2.2"><title>${p.date}: ${p.val.toFixed(1)} ${unit}</title></circle>`;
+        const isFirst = (idx === 0);
+        const isLast = (idx === points.length - 1);
+        const step = (points.length > 12) ? 4 : ((points.length > 7) ? 2 : 1);
+        const showLabel = isFirst || isLast || (idx % step === 0);
+
+        if (showLabel) {
+          const labelPrefix = (type === 'power' && p.val > 0) ? '+' : '';
+          svg += `<text x="${p.x}" y="${p.y - 8}" fill="#ffffff" font-size="9" font-weight="700" text-anchor="middle" font-family="sans-serif">${labelPrefix}${p.val.toFixed(1)} ${unit}</text>`;
+          const dateParts = p.date.split('-');
+          const dateLabel = (dateParts.length === 3) ? `${dateParts[2]}/${dateParts[1]}` : p.date;
+          svg += `<text x="${p.x}" y="${h - 10}" fill="#94a3b8" font-size="8.5" text-anchor="middle" font-family="sans-serif">${dateLabel}</text>`;
+        }
       });
 
       svg += `</svg>`;
@@ -6542,6 +6899,139 @@ Segue o vídeo anexo para sua análise!`;
         }
       });
       container.innerHTML = html;
+    }
+
+    function openAddFotosPosturaisModal() {
+      tempFotosPosturais = { front: '', side: '', back: '' };
+      const dateEl = document.getElementById('add_postural_date');
+      if (dateEl) dateEl.value = new Date().toISOString().split('T')[0];
+
+      ['front', 'side', 'back'].forEach(k => {
+        const preview = document.getElementById('preview_postural_' + k);
+        if (preview) preview.innerHTML = 'Sem foto';
+        const fileIn = document.getElementById('postural_photo_' + k);
+        if (fileIn) fileIn.value = '';
+      });
+
+      const notesEl = document.getElementById('add_postural_notes');
+      if (notesEl) notesEl.value = '';
+
+      const modal = document.getElementById('modalAddFotosPosturais');
+      if (modal) modal.classList.add('active');
+    }
+
+    function closeAddFotosPosturaisModal() {
+      const modal = document.getElementById('modalAddFotosPosturais');
+      if (modal) modal.classList.remove('active');
+    }
+
+    function handleFotoPosturalPreview(input, key) {
+      const preview = document.getElementById('preview_postural_' + key);
+      if (!preview) return;
+      if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          tempFotosPosturais[key] = e.target.result;
+          preview.innerHTML = `<img src="${e.target.result}" style="width:100%; height:100%; object-fit:cover; border-radius:4px;">`;
+        };
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    function saveFotosPosturaisDirectly() {
+      const dateVal = document.getElementById('add_postural_date')?.value || new Date().toISOString().split('T')[0];
+      const notesVal = document.getElementById('add_postural_notes')?.value.trim() || '';
+
+      const hasAnyPhoto = tempFotosPosturais.front || tempFotosPosturais.side || tempFotosPosturais.back;
+      if (!hasAnyPhoto) {
+        alert('Por favor, selecione ao menos uma foto (Frente, Lado ou Costas) para salvar.');
+        return;
+      }
+
+      const history = getBodyCompHistory();
+      const existingIdx = history.findIndex(h => h.date === dateVal);
+      if (existingIdx >= 0) {
+        history[existingIdx].photos = { ...(history[existingIdx].photos || {}), ...tempFotosPosturais };
+        if (notesVal) {
+          history[existingIdx].notes = history[existingIdx].notes ? (history[existingIdx].notes + ' • ' + notesVal) : notesVal;
+        }
+      } else {
+        const latest = (history && history.length > 0) ? history[history.length - 1] : null;
+        const base = getStudentBaseProfile();
+        const newRecord = {
+          id: 'comp_' + Date.now(),
+          date: dateVal,
+          weight: latest ? latest.weight : (base.weight || 70.0),
+          waist: latest ? latest.waist : (base.height ? Math.round(base.height * 0.48 * 10) / 10 : 80.0),
+          neck: latest ? latest.neck : null,
+          hip: latest ? latest.hip : null,
+          bfManual: latest ? latest.bfManual : null,
+          clothes: 'normais',
+          energy: 5,
+          notes: notesVal || 'Fotos posturais registradas',
+          photos: { ...tempFotosPosturais }
+        };
+        history.push(newRecord);
+      }
+
+      try {
+        localStorage.setItem('dominio_jean_body_comp_history', JSON.stringify(history));
+      } catch (e) {
+        console.error('Erro ao salvar fotos no localStorage:', e);
+      }
+
+      closeAddFotosPosturaisModal();
+      renderBodyCompUI();
+    }
+
+    function renderUserUploadedPhotosGallery(history) {
+      const gallery = document.getElementById('userUploadedPhotosGallery');
+      const countEl = document.getElementById('userPhotosCount');
+      if (!gallery) return;
+
+      const photoList = [];
+      (history || []).forEach(item => {
+        if (item.photos) {
+          ['front', 'side', 'back'].forEach(k => {
+            if (item.photos[k]) {
+              const labelMap = { front: 'Frente', side: 'Perfil', back: 'Costas' };
+              photoList.push({
+                date: item.date,
+                weight: item.weight,
+                type: labelMap[k] || k,
+                url: item.photos[k]
+              });
+            }
+          });
+        }
+      });
+
+      if (countEl) countEl.textContent = `${photoList.length} foto(s)`;
+
+      if (photoList.length === 0) {
+        gallery.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; color: #64748b; font-size: 0.76rem; padding: 14px; background: rgba(255,255,255,0.02); border-radius: 8px; border: 1px dashed rgba(255,255,255,0.08);">
+            Nenhuma foto adicional registrada ainda. Clique em "ADICIONAR FOTOS" para cadastrar seu progresso visual!
+          </div>`;
+        return;
+      }
+
+      let html = '';
+      photoList.reverse().forEach(p => {
+        const dParts = (p.date || '').split('-');
+        const dateFormatted = (dParts.length === 3) ? `${dParts[2]}/${dParts[1]}` : p.date;
+        html += `
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column;">
+            <a href="${p.url}" target="_blank" style="display:block; height:120px; overflow:hidden; background:#000;">
+              <img src="${p.url}" alt="${p.type} ${dateFormatted}" style="width:100%; height:100%; object-fit:cover; transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            </a>
+            <div style="padding: 6px 8px; display:flex; justify-content:space-between; align-items:center; font-size:0.7rem;">
+              <span style="font-weight:800; color:#fff;">${p.type}</span>
+              <span style="color:var(--brand-neon); font-weight:700;">${dateFormatted}</span>
+            </div>
+          </div>`;
+      });
+      gallery.innerHTML = html;
     }
 
     function renderBodyCompHistoryList(history) {
@@ -8957,7 +9447,7 @@ Segue o vídeo anexo para sua análise!`;
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=156').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=162').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
