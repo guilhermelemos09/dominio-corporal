@@ -5573,7 +5573,7 @@
             <span style="font-size: 0.68rem; font-weight: 800; color: var(--brand-neon); background: rgba(0, 255, 136, 0.12); border: 1px solid rgba(0, 255, 136, 0.3); padding: 2px 7px; border-radius: 6px;" id="historyCardStatus">✓ Arquivada</span>
           </div>
           <div style="font-size: 0.78rem; color: #94a3b8;" id="historyCardSubtitle">
-            Respondida em: <strong style="color: #cbd5e1;">08/10/2026</strong> • Identificação, Saúde e Metas
+            Respondida em: <strong style="color: #cbd5e1;">16/10/2026</strong> • Identificação, Saúde e Metas
           </div>
         </div>
         <div style="display: flex; align-items: center; gap: 6px; color: var(--brand-neon); font-size: 0.78rem; font-weight: 700; white-space: nowrap; margin-left: 10px;">
@@ -5612,21 +5612,21 @@
 
           <div class="form-group">
             <label class="form-label" for="ass_nome">Nome Completo <span class="req">*</span></label>
-            <input type="text" id="ass_nome" class="form-input" placeholder="Seu nome completo" required oninput="autoSaveAssessmentDraft()">
+            <input type="text" id="ass_nome" class="form-input" placeholder="Seu nome completo" value="Gustavo Donato" required oninput="autoSaveAssessmentDraft()">
           </div>
 
           <div class="form-grid-4">
             <div class="form-group">
               <label class="form-label" for="ass_nascimento">Data de Nascimento <span class="req">*</span></label>
-              <input type="date" id="ass_nascimento" class="form-input" required oninput="autoSaveAssessmentDraft()">
+              <input type="date" id="ass_nascimento" class="form-input" value="2006-01-06" required oninput="autoSaveAssessmentDraft()">
             </div>
             <div class="form-group">
               <label class="form-label" for="ass_altura">Altura (cm)</label>
-              <input type="number" id="ass_altura" class="form-input" placeholder="Ex: 178" min="100" max="230" oninput="autoSaveAssessmentDraft()">
+              <input type="number" id="ass_altura" class="form-input" placeholder="Ex: 178" value="172" min="100" max="230" oninput="autoSaveAssessmentDraft()">
             </div>
             <div class="form-group">
               <label class="form-label" for="ass_peso">Peso Atual (kg)</label>
-              <input type="number" step="0.1" id="ass_peso" class="form-input" placeholder="Ex: 75.5" oninput="autoSaveAssessmentDraft()">
+              <input type="number" step="0.1" id="ass_peso" class="form-input" placeholder="Ex: 75.5" value="64" oninput="autoSaveAssessmentDraft()">
             </div>
             <div class="form-group">
               <label class="form-label" for="ass_gordura">% Gordura (% BF) <span style="font-size:0.7rem; color:var(--text-muted); font-weight:normal;">(opcional)</span></label>
@@ -5636,21 +5636,21 @@
 
           <div class="form-group">
             <label class="form-label" for="ass_rotina">Rotina Diária (Trabalho, Estresse e Sono)</label>
-            <textarea id="ass_rotina" class="form-textarea" rows="2" placeholder="Ex: Trabalho 8h por dia no computador sentado, nível de estresse moderado, durmo em média 7h por noite..." oninput="autoSaveAssessmentDraft()"></textarea>
+            <textarea id="ass_rotina" class="form-textarea" rows="2" placeholder="Ex: Trabalho 8h por dia no computador sentado, nível de estresse moderado, durmo em média 7h por noite..." oninput="autoSaveAssessmentDraft()">Estudo das 10 as 16 ou 10 as 18&#10;Trabalho das 16:30 às 20:30 ou das 18:30 às 20:30</textarea>
           </div>
 
           <div class="form-grid-3">
             <div class="form-group">
               <label class="form-label" for="ass_dias_disponiveis">Dias Disponíveis na Semana</label>
-              <input type="text" id="ass_dias_disponiveis" class="form-input" placeholder="Ex: 3 a 4 dias (Seg, Qua, Sex...)" oninput="autoSaveAssessmentDraft()">
+              <input type="text" id="ass_dias_disponiveis" class="form-input" placeholder="Ex: 3 a 4 dias (Seg, Qua, Sex...)" value="3" oninput="autoSaveAssessmentDraft()">
             </div>
             <div class="form-group">
               <label class="form-label" for="ass_duracao_disponivel">Duração Disponível por Treino</label>
-              <input type="text" id="ass_duracao_disponivel" class="form-input" placeholder="Ex: 45 a 60 minutos" oninput="autoSaveAssessmentDraft()">
+              <input type="text" id="ass_duracao_disponivel" class="form-input" placeholder="Ex: 45 a 60 minutos" value="40 min" oninput="autoSaveAssessmentDraft()">
             </div>
             <div class="form-group">
               <label class="form-label" for="ass_local">Onde vai treinar? (Local)</label>
-              <input type="text" id="ass_local" class="form-input" placeholder="Ex: Casa, Academia, Pilates, Parque..." oninput="autoSaveAssessmentDraft()">
+              <input type="text" id="ass_local" class="form-input" placeholder="Ex: Casa, Academia, Pilates, Parque..." value="Box crossfit" oninput="autoSaveAssessmentDraft()">
             </div>
           </div>
         </div>
@@ -5665,7 +5665,7 @@
             Escreva livremente sobre qualquer cirurgia prévia, histórico de lesões (ombros, joelhos, coluna, punhos...), dores atuais, desconfortos ou restrições médicas que você possui:
           </p>
           <div class="form-group">
-            <textarea id="ass_historico_clinico" class="form-textarea" rows="3" placeholder="Ex: Operei o menisco do joelho esquerdo há 2 anos e ainda sinto estalo em agachamento fundo; sinto leve pinçamento no ombro direito quando faço desenvolvimento acima da cabeça..." oninput="autoSaveAssessmentDraft()"></textarea>
+            <textarea id="ass_historico_clinico" class="form-textarea" rows="3" placeholder="Ex: Operei o menisco do joelho esquerdo há 2 anos e ainda sinto estalo em agachamento fundo; sinto leve pinçamento no ombro direito quando faço desenvolvimento acima da cabeça..." oninput="autoSaveAssessmentDraft()">Possuo enxerto de lca rompido parcialmente</textarea>
           </div>
 
           <!-- BOTÃO DE ENVIO DE LAUDOS / EXAMES VIA WHATSAPP -->
@@ -5687,11 +5687,11 @@
           <div class="form-grid-2" style="margin-top: 10px;">
             <div class="form-group">
               <label class="form-label" for="ass_medicamentos">Toma algum medicamento contínuo?</label>
-              <input type="text" id="ass_medicamentos" class="form-input" placeholder="Ex: Não / Tomo remédio para tireoide, etc." oninput="autoSaveAssessmentDraft()">
+              <input type="text" id="ass_medicamentos" class="form-input" placeholder="Ex: Não / Tomo remédio para tireoide, etc." value="Não" oninput="autoSaveAssessmentDraft()">
             </div>
             <div class="form-group">
               <label class="form-label" for="ass_condicoes_cronicas">Condição de saúde crônica?</label>
-              <input type="text" id="ass_condicoes_cronicas" class="form-input" placeholder="Ex: Pressão alta, diabetes, asma... (ou Nenhuma)" oninput="autoSaveAssessmentDraft()">
+              <input type="text" id="ass_condicoes_cronicas" class="form-input" placeholder="Ex: Pressão alta, diabetes, asma... (ou Nenhuma)" value="Rinite alérgica" oninput="autoSaveAssessmentDraft()">
             </div>
           </div>
         </div>
@@ -12693,6 +12693,34 @@
       openDedicatedView('avaliacao');
     }
 
+    const DEFAULT_STUDENT_INTAKE = {
+      nome: "Gustavo Donato",
+      nascimento: "2006-01-06",
+      idade: "20",
+      altura: "172",
+      peso: "64",
+      gordura: "",
+      rotina: "Estudo das 10 as 16 ou 10 as 18\nTrabalho das 16:30 às 20:30 ou das 18:30 às 20:30",
+      dias_disponiveis: "3",
+      duracao_disponivel: "40 min",
+      local: "Box crossfit",
+      historico_clinico: "Possuo enxerto de lca rompido parcialmente",
+      medicamentos: "Não",
+      condicoes_cronicas: "Rinite alérgica",
+      historico_esportivo: "Calistenia, lpo, musculação",
+      treino_atual: "Calistenia",
+      pullups: "9 a 15 estritas",
+      pushups: "16 a 30 no chão",
+      cardio: "Moderado (mantém ritmo médio)",
+      pilares: [
+        "Ganho de Força e Massa Magra",
+        "Habilidades Calistênicas e Ginástica (Handstand, Muscle-Up)"
+      ],
+      contexto_metas: "",
+      algo_mais: "",
+      timestamp: "2026-10-16T16:29:00.000Z"
+    };
+
     async function checkIntakeGate() {
       let isCompleted = localStorage.getItem('dominio_gustavo_assessment_completed') === 'true';
       if (!isCompleted && window.DominioDB && typeof window.DominioDB.carregarAvaliacao === 'function') {
@@ -12707,6 +12735,14 @@
           }
         } catch (e) {}
       }
+      if (!isCompleted && typeof DEFAULT_STUDENT_INTAKE !== 'undefined') {
+        localStorage.setItem('dominio_gustavo_student_intake', JSON.stringify(DEFAULT_STUDENT_INTAKE));
+        localStorage.setItem('dominio_gustavo_assessment_completed', 'true');
+        isCompleted = true;
+        syncAthleteMetricsFromIntake();
+        if (typeof updateAssessmentHistoryUI === 'function') updateAssessmentHistoryUI();
+      }
+
       const modal = document.getElementById('intakeGateModal');
       if (!isCompleted) {
         if (modal) modal.classList.add('active');
@@ -12806,7 +12842,7 @@
           notice.innerHTML = `
             <span style="font-size: 1.5rem;">🔒</span>
             <div style="font-size: 0.84rem; color: #f1f5f9; line-height: 1.55;">
-              <strong style="color: #38bdf8;">Arquivo Histórico • Somente Leitura:</strong> Esta ficha foi respondida e arquivada em <strong>08/10/2026</strong>. As respostas estão bloqueadas para preservação do prontuário técnico do aluno.
+              <strong style="color: #38bdf8;">Arquivo Histórico • Somente Leitura:</strong> Esta ficha foi respondida e arquivada em <strong>16/10/2026</strong>. As respostas estão bloqueadas para preservação do prontuário técnico do aluno.
             </div>
           `;
           form.parentNode.insertBefore(notice, form);
@@ -12864,7 +12900,7 @@
           statusEl.style.borderColor = 'rgba(0, 255, 136, 0.3)';
         }
         if (subEl) {
-          subEl.innerHTML = 'Respondida em: <strong style="color: #cbd5e1;">08/10/2026</strong> • Identificação, Saúde e Metas';
+          subEl.innerHTML = 'Respondida em: <strong style="color: #cbd5e1;">16/10/2026</strong> • Identificação, Saúde e Metas';
         }
         if (actionEl) actionEl.textContent = 'Ver Respostas';
         card.onclick = () => openReadOnlyAssessment('inicial');
@@ -12909,6 +12945,12 @@
           } catch (cloudErr) {
             console.warn('[DominioDB] Falha ao buscar avaliação da nuvem:', cloudErr);
           }
+        }
+
+        if (!data && typeof DEFAULT_STUDENT_INTAKE !== 'undefined') {
+          data = DEFAULT_STUDENT_INTAKE;
+          localStorage.setItem('dominio_gustavo_student_intake', JSON.stringify(data));
+          localStorage.setItem('dominio_gustavo_assessment_completed', 'true');
         }
 
         if (!data) return;
