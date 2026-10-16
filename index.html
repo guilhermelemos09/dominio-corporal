@@ -8453,18 +8453,6 @@
           </div>
         </div>
 
-        <!-- BOTÕES DE AÇÃO: HISTÓRICO DE MEDIÇÕES + GRÁFICOS DE EVOLUÇÃO -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px;">
-          <button type="button" class="btn-orientacoes-popup" onclick="openCompSubView('historico')" style="width: 100%; justify-content: center; padding: 10px 14px; background: rgba(0, 255, 136, 0.08); border-color: rgba(0, 255, 136, 0.3); color: var(--brand-neon); font-weight: 800; font-size: 0.78rem;">
-            <svg viewBox="0 0 24 24" style="width:15px; height:15px; fill:currentColor;"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
-            <span>HISTÓRICO DE MEDIÇÕES</span>
-          </button>
-          <button type="button" class="btn-orientacoes-popup" onclick="openCompSubView('grafico-full')" style="width: 100%; justify-content: center; padding: 10px 14px; background: rgba(56, 189, 248, 0.08); border-color: rgba(56, 189, 248, 0.3); color: #38bdf8; font-weight: 800; font-size: 0.78rem;">
-            <svg viewBox="0 0 24 24" style="width:15px; height:15px; fill:currentColor;"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
-            <span>GRÁFICOS DE EVOLUÇÃO ↗</span>
-          </button>
-        </div>
-
         <!-- CARD 3: COMPARATIVO DA EVOLUÇÃO (MÉTRICAS DESTACADAS LIMPAS) -->
         <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(192,132,252,0.25); border-left: 4.5px solid #c084fc; border-radius: 14px; padding: 14px 16px; margin-bottom: 16px;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 12px; flex-wrap:wrap; gap:8px;">
@@ -8497,18 +8485,8 @@
           </div>
         </div>
 
-      </div>
-
-      <!-- ==================== SUBPÁGINA DEDICADA: GRÁFICOS DE EVOLUÇÃO ==================== -->
-      <div id="compSubView-grafico-full" style="display:none;">
-        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle); flex-wrap:wrap; gap:8px;">
-          <button type="button" class="btn-back-workout" onclick="openCompSubView('grafico')">
-            ← Voltar para Antropometria
-          </button>
-          <span style="font-size:0.75rem; font-weight:800; color:#38bdf8; text-transform:uppercase; letter-spacing:0.04em;">Gráficos de Evolução</span>
-        </div>
-
-        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 16px; margin-bottom: 20px;">
+        <!-- CARD 4: GRÁFICOS DE EVOLUÇÃO (CURVAS DE TENDÊNCIA TEMPORAL - DIRETO NA ANTROPOMETRIA) -->
+        <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 16px; margin-bottom: 16px;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
             <div style="font-size:0.92rem; font-weight:800; color:#fff; display:flex; align-items:center; gap:6px;">
               <span>📈</span> <span>Curvas de Tendência Temporal</span>
@@ -8530,6 +8508,13 @@
             💡 <em>Atualização dinâmica: a curva é recalculada e renderizada instantaneamente a cada nova medição adicionada.</em>
           </div>
         </div>
+
+        <!-- BOTÃO PARA VER HISTÓRICO DE MEDIÇÕES -->
+        <button type="button" class="btn-orientacoes-popup" onclick="openCompSubView('historico')" style="width: 100%; justify-content: center; padding: 12px 16px; background: rgba(0, 255, 136, 0.08); border-color: rgba(0, 255, 136, 0.3); color: var(--brand-neon); font-weight: 800; font-size: 0.82rem; margin-bottom: 20px;">
+          <svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:currentColor;"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
+          <span>VER HISTÓRICO COMPLETO DE MEDIÇÕES (CHECK-INS) ↗</span>
+        </button>
+
       </div>
 
       <!-- ==================== SUBPÁGINA 2: HISTÓRICO DE MEDIÇÕES ==================== -->
