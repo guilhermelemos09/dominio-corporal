@@ -240,9 +240,22 @@ A Central de Evolução integra o acompanhamento antropométrico dinâmico, base
 
 ### 8.2 Canal Único e Oficial para Relatórios e Devolutivas: Central de Notificações
 - Todas as devolutivas técnicas, análises de vídeos de treino, diagnósticos biomecânicos e relatórios de treinamento (tanto para o treinador Gui quanto para os alunos) devem ser transmitidos **exclusivamente através da Central de Notificações (`#notificationsModal`)**:
-  - Cada devolutiva gera uma notificação dedicada com status `unread` (ícone temático, título do treino/data, resumo sucinto).
-  - O clique na notificação abre o modal técnico detalhado da devolutiva (`#devolutivaTreinoModal`) ou direciona para o respectivo card de análise, marcando o item como lido no histórico do aluno/treinador.
+  - Cada devolutiva ou nova análise gera uma notificação dedicada com status `unread` (ícone temático, título do treino/data, resumo sucinto).
   - A rotina de treinos permanece 100% limpa, íntegra e preservada para consultas, progressões e reexecuções futuras.
+
+### 8.3 Padrão Canônico: Notificação de Vídeo Análise vs. Devolutiva de Treino
+1. **Notificação de Análise de Vídeo (Estritamente Alerta e Link Direto):**
+   - **PROIBIÇÃO de Duplicar Texto da Análise:** Quando o treinador publica uma nova análise de vídeo, **NÃO se deve transcrever nem duplicar** o diagnóstico, execução, cuidados, dicas, progressões ou exercícios sugeridos dentro da notificação ou em modais intermediários redundantes.
+   - **Justificativa:** Toda essa informação técnica detalhada, acompanhada do reprodutor de vídeo, já está catalogada e estruturada na **Central de Análises (`#tab-analises` / `.analysis-card`)**.
+   - **Padrão da Notificação:**
+     - Ícone temático: `📹` (ou emoji esportivo da skill, ex: `🤸‍♂️`, `⚡`).
+     - Título sucinto: `Nova Análise de Vídeo: [Nome da Habilidade / Exercício]`.
+     - Descrição enxuta (1 frase): Informa que o vídeo foi analisado pelo treinador com diagnóstico biomecânico e progressões.
+     - Ação de clique (`onclick`): Executa diretamente `openAnalysisCardFromNotif('<CARD_ID>', '<CATEGORIA>', '<NOTIF_ID>')`, levando o aluno/treinador com um toque direto ao card expandido e com foco no player de vídeo.
+
+2. **Devolutiva Escrita no Modal de Treino (`#devolutivaTreinoModal`):**
+   - **Exclusividade para Anotações da Sessão:** A devolutiva técnica textual detalhada no modal de notificações é reservada **estritamente para responder às observações, relatos de desconforto/dor articular, ajustes de carga ou dúvidas que o aluno/aluna registrar durante a execução do treino**.
+   - **Conteúdo da Devolutiva:** O treinador responde pontualmente àquilo que foi anotado pelo praticante nos exercícios daquele dia específico, oferecendo ajustes clínicos, adequação de volume ou orientações para a próxima sessão.
 
 ---
 
@@ -350,4 +363,14 @@ Em treinos de CrossFit, WODs e condicionamento metabólico de alta intensidade, 
    - Espaço imediato para o atleta anotar seu tempo oficial no Time Cap, cargas utilizadas e feedback do corpo com tranquilidade no pós-treino.
 6. **Disparadores Rápidos de Cronômetro:**
    - Botões compactos de acionamento imediato dos timers da sessão (Tabata, For Time, AMRAP) embutidos diretamente no card.
+---
 
+## 12. GESTÃO ESTRATÉGICA DE CARGA E NÃO REPETIÇÃO SEMANAL (AUDITORIA ANATÔMICA)
+
+- **Auditoria Obrigatória de Volume Acumulado:** Antes de prescrever ou estruturar qualquer nova sessão de treino (especialmente blocos de Fortalecimento e Condicionamento), é obrigatório auditar o volume e os grupos musculares já exigidos nos treinos anteriores da mesma semana e das semanas precedentes.
+- **Proibição Estrita de Sobrecarga Redundante:** Se um padrão motor ou grupo muscular já recebeu alta demanda de volume ou intensidade na semana (ex: dezenas de Toes-to-Bar, V-ups e flexões de quadril; dezenas de flexões de braço e dips; agachamentos pesados), é **terminantemente proibido** prescrever novamente exercícios isolados ou desgastantes para esse mesmo padrão no bloco de fortalecimento.
+- **Cobertura Global e Equilíbrio Muscular:** O bloco de fortalecimento deve ser utilizado com inteligência pedagógica para cobrir áreas anatômicas complementares, sinergistas ou deficitárias da rotina semanal — tais como:
+  - **Panturrilhas (Tríceps Sural - Gastrocnêmio e Sóleo no Degrau):** Trabalho excêntrico e pausas isométricas no topo para stiffness do tendão de Aquiles, elasticidade de tornozelo, amortecimento seguro em saltos/aterrissagens gímnicas e preservação meniscal.
+  - **Estabilizadores Escapulotorácicos e Manguito:** Shrugs na parede, elevação escapular estrita, trapézio inferior e rotadores externos.
+  - **Cadeia Posterior e Extensão:** Eretores da espinha, isquiotibiais e glúteos em extensão (ex: Arch Rocks, pontes) para contrabalançar o excesso de flexão anterior.
+  - **Tibiais e Pés:** Fortalecimento intrínseco plantar e tibial anterior.
