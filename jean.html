@@ -5702,7 +5702,7 @@ Segue o vídeo anexo para sua análise!`;
     });
 
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '144';
+    const APP_BUILD_VERSION = '156';
     if (localStorage.getItem('dominio_jean_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_jean_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
@@ -8491,11 +8491,14 @@ Segue o vídeo anexo para sua análise!`;
       
       let syncedItems = 0;
 
-      // A. Sincronizar logs históricos de treinos salvos localmente
+      // A. Sincronizar logs históricos de treinos salvos localmente (com deduplicação)
       try {
-        const logs = JSON.parse(localStorage.getItem('dominio_workout_logs') || '[]');
+        const logs = JSON.parse(localStorage.getItem('dominio_aluno_workout_logs') || localStorage.getItem('dominio_workout_logs') || '[]');
+        const syncedLogs = JSON.parse(localStorage.getItem('dominio_synced_workout_keys') || '[]');
         if (logs.length > 0) {
           for (const log of logs) {
+            const logKey = `${log.dia || 'treino'}_${log.data || ''}_${log.series_concluidas || 0}_${log.total_series || 0}`;
+            if (syncedLogs.includes(logKey)) continue;
             const ok = await dispatchCloud('salvarTreino', {
               dia_id: log.dia || 'treino',
               data_treino: log.data || new Date().toLocaleDateString('pt-BR'),
@@ -8504,29 +8507,37 @@ Segue o vídeo anexo para sua análise!`;
               aderencia_pct: log.aderencia_pct || 100,
               notas_gerais: log.notas || 'Treino finalizado com sucesso'
             });
-            if (ok) syncedItems++;
+            if (ok) {
+              syncedLogs.push(logKey);
+              syncedItems++;
+            }
           }
+          localStorage.setItem('dominio_synced_workout_keys', JSON.stringify(syncedLogs));
         }
       } catch (e) {}
 
-      // B. Sincronizar todas as notas de exercícios já digitadas no aparelho
+      // B. Sincronizar todas as notas de exercícios já digitadas no aparelho (com deduplicação)
       try {
         for (let i = 0; i < localStorage.length; i++) {
           const key = localStorage.key(i);
-          if (key && key.startsWith('dominio_note_')) {
-            const exId = key.replace('dominio_note_', '');
+          if (key && (key.startsWith('dominio_note_') || key.startsWith('dominio_aluno_note_'))) {
+            const exId = key.replace('dominio_aluno_note_', '').replace('dominio_note_', '');
             const noteVal = localStorage.getItem(key);
-            if (noteVal && noteVal.trim()) {
+            const syncedVal = localStorage.getItem('dominio_synced_note_' + exId);
+            if (noteVal && noteVal.trim() && noteVal.trim() !== syncedVal) {
               const card = document.getElementById('exCard-' + exId) || document.querySelector('#comment-box-' + exId)?.closest('.exercise-card') || document.querySelector('#note-' + exId)?.closest('.exercise-card');
               const nameEl = card ? card.querySelector('.ex-title span') : null;
-              const exName = nameEl ? nameEl.textContent.trim() : (exId.includes('cross') ? 'CROSSFIT' : (exId.includes('mob') ? 'CONTEMPORÂNEO' : exId));
+              const exName = nameEl ? nameEl.textContent.trim() : exId;
               const ok = await dispatchCloud('salvarNotaExercicio', {
                 aluno_slug: cfg.athleteSlug,
                 exercicio_id: exId,
                 exercicio_nome: exName,
                 nota: noteVal.trim()
               });
-              if (ok) syncedItems++;
+              if (ok) {
+                localStorage.setItem('dominio_synced_note_' + exId, noteVal.trim());
+                syncedItems++;
+              }
             }
           }
         }
@@ -8829,11 +8840,13 @@ Segue o vídeo anexo para sua análise!`;
 
     let _noteSaveDebounceTimer = null;
     function saveExerciseNote(exId, val) {
-      const key = 'dominio_note_' + exId;
+      const key = (typeof 'dominio_aluno_note_' !== 'undefined' ? 'dominio_aluno_note_' : 'dominio_note_') + exId;
       if (val.trim() === '') {
         localStorage.removeItem(key);
+        localStorage.removeItem('dominio_note_' + exId);
       } else {
         localStorage.setItem(key, val);
+        localStorage.setItem('dominio_note_' + exId, val);
       }
       updateCommentDot(exId);
 
@@ -8846,11 +8859,14 @@ Segue o vídeo anexo para sua análise!`;
 
       if (window.DominioDB && typeof DominioDB.salvarNotaExercicio === 'function') {
         clearTimeout(_noteSaveDebounceTimer);
-        _noteSaveDebounceTimer = setTimeout(() => {
+        _noteSaveDebounceTimer = setTimeout(async () => {
           const card = document.getElementById('exCard-' + exId) || (status ? status.closest('.exercise-card') : null);
           const nameEl = card ? card.querySelector('.ex-title span') : null;
           const exName = nameEl ? nameEl.textContent.trim() : exId;
-          DominioDB.salvarNotaExercicio(exId, exName, val);
+          const ok = await DominioDB.salvarNotaExercicio(exId, exName, val);
+          if (ok && val.trim()) {
+            try { localStorage.setItem('dominio_synced_note_' + exId, val.trim()); } catch (e) {}
+          }
         }, 600);
       }
     }
@@ -8941,7 +8957,7 @@ Segue o vídeo anexo para sua análise!`;
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=146').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=156').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
