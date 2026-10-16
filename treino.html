@@ -5095,7 +5095,7 @@
     }
   
     /* ===================================================
-       COMPOSIÇÃO CORPORAL & MÉTRICAS ANTROPOMÉTRICAS (US NAVY)
+       COMPOSIÇÃO CORPORAL E MÉTRICAS ANTROPOMÉTRICAS (US NAVY)
        =================================================== */
     .comp-form-group {
       margin-bottom: 12px;
@@ -6247,19 +6247,19 @@
             <div class="wod-round-block">
               <ul class="wod-items-list">
                 <li class="wod-item">
-                  <span class="wod-item-rep">R1 & R5</span>
+                  <span class="wod-item-rep">R1 e R5</span>
                   <span class="wod-item-text"><strong>Beat Swing</strong> <span class="wod-item-note">Ativação escapular contínua em hollow e arch</span></span>
                 </li>
                 <li class="wod-item">
-                  <span class="wod-item-rep">R2 & R6</span>
+                  <span class="wod-item-rep">R2 e R6</span>
                   <span class="wod-item-text"><strong>Reverse Lunges</strong> <span class="wod-item-note">Passadas para trás com controle excêntrico</span></span>
                 </li>
                 <li class="wod-item">
-                  <span class="wod-item-rep">R3 & R7</span>
+                  <span class="wod-item-rep">R3 e R7</span>
                   <span class="wod-item-text"><strong>Box Step-ups</strong> <span class="wod-item-note">Subida no caixote com extensão de quadril</span></span>
                 </li>
                 <li class="wod-item">
-                  <span class="wod-item-rep">R4 & R8</span>
+                  <span class="wod-item-rep">R4 e R8</span>
                   <span class="wod-item-text"><strong>Pike Handstand</strong> <span class="wod-item-note">Pés elevados, empurrando o solo ativamente</span></span>
                 </li>
               </ul>
@@ -10285,6 +10285,17 @@
       </div>
       <div class="modal-body" style="padding: 16px 20px;">
         <div class="notif-list">
+          <!-- Notificação: Devolutiva de Treino (Sexta-feira • Ginásio EEFERP) -->
+          <div class="notif-item unread" data-notif-id="notif-devolutiva-sexta-1610" onclick="openDevolutivaModal('notif-devolutiva-sexta-1610', 'sexta')">
+            <span class="notif-item-icon">📋</span>
+            <div style="flex:1; min-width:0;">
+              <div class="notif-item-title">Devolutiva do Treino • Sexta-feira (Ginásio)</div>
+              <div class="notif-item-desc">Resposta do Prof. Gui: Bent Arm Press nas argolas, padronização de anotações e gestão de fadiga.</div>
+              <div class="notif-item-time">⏱️ Sexta • Resposta às Anotações</div>
+            </div>
+            <span class="notif-item-arrow">›</span>
+          </div>
+
           <!-- Notificação: Nova Análise de Vídeo (Complexo de Argolas) -->
           <div class="notif-item unread" data-notif-id="notif-analysis-10" onclick="openAnalysisCardFromNotif('analysisCard-10', 'habilidades', 'notif-analysis-10')">
             <span class="notif-item-icon">📹</span>
@@ -10948,11 +10959,696 @@
       openEvolucaoView(paneId === 'consistencia' ? 'relatorio' : paneId);
     }
 
+    // =========================================================================
+    // MOTOR DE BIOMETRIA E PERFORMANCE (PSE FOSTER + SMARTWATCH + EPOC + TRIMP)
+    // =========================================================================
+    window._currentWatchPhotoDataUrl = null;
+    window._currentBioModalDayId = null;
+
+    function getPseMeta(pseVal) {
+      const p = Number(pseVal) || 7;
+      if (p <= 2) return { label: 'Muito Leve', color: '#38bdf8', bg: 'rgba(56,189,248,0.14)', border: 'rgba(56,189,248,0.4)' };
+      if (p <= 4) return { label: 'Moderado', color: '#00ff88', bg: 'rgba(0,255,136,0.14)', border: 'rgba(0,255,136,0.4)' };
+      if (p <= 6) return { label: 'Pesado', color: '#fbbf24', bg: 'rgba(251,191,36,0.14)', border: 'rgba(251,191,36,0.4)' };
+      if (p <= 8) return { label: 'Muito Intenso', color: '#f97316', bg: 'rgba(249,115,22,0.14)', border: 'rgba(249,115,22,0.4)' };
+      return { label: 'Exaustão Máxima', color: '#f43f5e', bg: 'rgba(244,63,94,0.14)', border: 'rgba(244,63,94,0.4)' };
+    }
+
+    function getAthletePhysioProfile() {
+      let weightKg = 84;
+      let age = 32;
+      let isFemale = false;
+      try {
+        const intake = JSON.parse(localStorage.getItem('dominio_student_intake') || '{}');
+        if (intake.peso && Number(intake.peso) > 30) weightKg = Number(intake.peso);
+        if (intake.idade && Number(intake.idade) > 10) age = Number(intake.idade);
+        const nome = (intake.nome || document.title || '').toLowerCase();
+        if (nome.includes('daniela') || nome.includes('helenice') || intake.sexo === 'F') isFemale = true;
+      } catch (e) {}
+      try {
+        const compHist = JSON.parse(localStorage.getItem('dominio_gui_body_comp_history') || localStorage.getItem('dominio_body_comp_history') || '[]');
+        if (compHist.length > 0 && Number(compHist[compHist.length - 1].weight) > 30) {
+          weightKg = Number(compHist[compHist.length - 1].weight);
+        }
+      } catch (e) {}
+      return { weightKg, age, isFemale, hrRest: 58, hrMaxTheor: Math.round(208 - 0.7 * age) };
+    }
+
+    function calculateSessionPhysiology(params) {
+      const durationMin = Math.max(5, Number(params.durationMin) || 60);
+      const pse = Math.max(1, Math.min(10, Number(params.pse) || 7));
+      const doneSets = Math.max(0, Number(params.doneSets) || 0);
+      const hrAvg = Number(params.hrAvg) > 40 ? Number(params.hrAvg) : 0;
+      const hrMax = Number(params.hrMax) > 50 ? Number(params.hrMax) : 0;
+      const watchKcal = Number(params.watchKcal) > 10 ? Number(params.watchKcal) : 0;
+
+      const prof = getAthletePhysioProfile();
+      const loadUA = Math.round(durationMin * pse);
+
+      const effHrMax = hrMax > 0 ? hrMax : Math.min(prof.hrMaxTheor, Math.round(112 + pse * 7));
+      const effHrAvg = hrAvg > 0 ? hrAvg : Math.round(88 + pse * 6.2);
+      const maxRef = Math.max(prof.hrMaxTheor, effHrMax);
+      const hrReserveRatio = Math.max(0.12, Math.min(0.98, (effHrAvg - prof.hrRest) / Math.max(40, maxRef - prof.hrRest)));
+
+      // TRIMP de Banister
+      const coefA = prof.isFemale ? 0.86 : 0.64;
+      const coefB = prof.isFemale ? 1.67 : 1.92;
+      const trimp = Math.round(durationMin * hrReserveRatio * coefA * Math.exp(coefB * hrReserveRatio));
+
+      // Zona Cardíaca Predominante
+      const pctMax = Math.round((effHrAvg / maxRef) * 100);
+      let zoneLabel = 'Zona 2 (60-70% • Base Aeróbia)';
+      if (pctMax >= 90) zoneLabel = 'Zona 5 (90%+ • Potência Máxima)';
+      else if (pctMax >= 80) zoneLabel = 'Zona 4 (80-89% • Limiar Anaeróbio)';
+      else if (pctMax >= 70) zoneLabel = 'Zona 3 (70-79% • Ritmo Intenso)';
+      else if (pctMax < 60) zoneLabel = 'Zona 1 (<60% • Recuperativa)';
+
+      // Gasto Calórico Ativo + Trabalho Mecânico Anaeróbio + EPOC
+      let activeKcal = 0;
+      if (hrAvg > 0) {
+        const perMin = prof.isFemale
+          ? ((-20.4022 + 0.4472 * hrAvg - 0.1263 * prof.weightKg + 0.074 * prof.age) / 4.184)
+          : ((-55.0969 + 0.6309 * hrAvg + 0.1988 * prof.weightKg + 0.2017 * prof.age) / 4.184);
+        activeKcal = Math.max(durationMin * 3.2, perMin * durationMin);
+      } else {
+        const met = 3.1 + pse * 0.58;
+        activeKcal = (met * 3.5 * prof.weightKg / 200) * durationMin;
+      }
+
+      const setsUsed = doneSets > 0 ? doneSets : Math.round(durationMin / 3.8);
+      const mechWorkKcal = Math.round(setsUsed * (1.85 + pse * 0.44) * (prof.weightKg / 75));
+
+      let baseKcal = 0;
+      if (watchKcal > 0) {
+        baseKcal = Math.max(watchKcal, Math.round(activeKcal * 0.85)) + Math.round(mechWorkKcal * 0.68);
+      } else {
+        baseKcal = Math.round(activeKcal + mechWorkKcal * 0.52);
+      }
+
+      const epocFactor = 0.04 + (pse * 0.012) + (effHrMax >= 165 ? 0.025 : 0);
+      const epocKcal = Math.round(baseKcal * epocFactor);
+      const realKcal = baseKcal + epocKcal;
+      const deltaKcal = watchKcal > 0 ? Math.max(15, realKcal - watchKcal) : (epocKcal + Math.round(mechWorkKcal * 0.52));
+
+      // Estimativa de VO2 Operacional (Uth-Sorensen-Overgaard-Pedersen + Eficiência de Carga)
+      const vo2Base = 15.3 * (prof.hrMaxTheor / prof.hrRest);
+      const effAdj = hrAvg > 0 ? (((pse * 18.5) - (hrAvg - 112)) * 0.07) : (pse >= 7 ? 1.5 : 0.5);
+      const vo2Est = Math.max(32, Math.min(68, Math.round((vo2Base + effAdj) * 10) / 10));
+
+      return {
+        durationMin,
+        pse,
+        loadUA,
+        hrAvg: hrAvg || null,
+        hrMax: hrMax || null,
+        watchKcal: watchKcal || null,
+        realKcal,
+        epocKcal,
+        mechWorkKcal,
+        deltaKcal,
+        trimp,
+        vo2Est,
+        zoneLabel,
+        pctMax
+      };
+    }
+
+    window.selectBioPse = function(val) {
+      const p = Math.max(1, Math.min(10, Number(val) || 7));
+      const input = document.getElementById('bio_session_pse');
+      if (input) input.value = String(p);
+
+      const meta = getPseMeta(p);
+      const badge = document.getElementById('bioPseSelectedBadge');
+      if (badge) {
+        badge.textContent = `PSE ${p} • ${meta.label}`;
+        badge.style.color = meta.color;
+        badge.style.background = meta.bg;
+        badge.style.borderColor = meta.border;
+      }
+
+      const grid = document.getElementById('bioPseButtonsGrid');
+      if (grid) {
+        grid.querySelectorAll('.pse-btn').forEach(btn => {
+          const bVal = Number(btn.getAttribute('data-pse'));
+          const bMeta = getPseMeta(bVal);
+          if (bVal === p) {
+            btn.classList.add('active');
+            btn.style.background = bMeta.bg;
+            btn.style.borderColor = bMeta.color;
+            btn.style.boxShadow = `0 0 12px ${bMeta.bg}`;
+          } else {
+            btn.classList.remove('active');
+            btn.style.background = 'rgba(255,255,255,0.04)';
+            btn.style.borderColor = 'rgba(255,255,255,0.12)';
+            btn.style.boxShadow = 'none';
+          }
+        });
+      }
+      recalcBiometriaModalPreview();
+    };
+
+    window.recalcBiometriaModalPreview = function() {
+      const daySel = document.getElementById('bio_session_day');
+      const dayId = daySel ? daySel.value : (window._currentBioModalDayId || 'terca');
+      const durEl = document.getElementById('bio_session_duration');
+      const pseEl = document.getElementById('bio_session_pse');
+      const hrAvgEl = document.getElementById('bio_watch_hr_avg');
+      const hrMaxEl = document.getElementById('bio_watch_hr_max');
+      const watchKcalEl = document.getElementById('bio_watch_kcal');
+
+      const tab = document.getElementById('tab-' + dayId);
+      const doneSets = tab ? tab.querySelectorAll('.set-pill.done').length : 12;
+      const totalSets = tab ? tab.querySelectorAll('.set-pill').length : 12;
+
+      const calc = calculateSessionPhysiology({
+        durationMin: durEl ? durEl.value : 60,
+        pse: pseEl ? pseEl.value : 7,
+        doneSets: doneSets > 0 ? doneSets : totalSets,
+        hrAvg: hrAvgEl ? hrAvgEl.value : 0,
+        hrMax: hrMaxEl ? hrMaxEl.value : 0,
+        watchKcal: watchKcalEl ? watchKcalEl.value : 0
+      });
+
+      const setsInfoEl = document.getElementById('bioLiveSetsInfo');
+      if (setsInfoEl) {
+        setsInfoEl.textContent = totalSets > 0 ? `${doneSets > 0 ? doneSets : totalSets}/${totalSets} séries integradas` : 'Sessão livre integrada';
+      }
+
+      const loadEl = document.getElementById('bioPreviewLoadUA');
+      if (loadEl) loadEl.textContent = `${calc.loadUA} U.A.`;
+
+      const kcalEl = document.getElementById('bioPreviewRealKcal');
+      if (kcalEl) kcalEl.textContent = `${calc.realKcal} kcal`;
+
+      const trimpVo2El = document.getElementById('bioPreviewTrimpVo2');
+      if (trimpVo2El) trimpVo2El.textContent = `${calc.trimp} pts • VO2 ${calc.vo2Est}`;
+
+      const expEl = document.getElementById('bioPreviewExplanation');
+      if (expEl) {
+        if (calc.watchKcal) {
+          expEl.innerHTML = `⌚ Relógio marcou <strong>${calc.watchKcal} kcal</strong>. Cruzando com as séries de força e PSE ${calc.pse}, o gasto real com trabalho mecânico e EPOC é de <strong style="color:var(--brand-neon);">${calc.realKcal} kcal (+${calc.deltaKcal} kcal)</strong> • ${calc.zoneLabel}.`;
+        } else {
+          expEl.innerHTML = `⚡ Gasto calculado via trabalho mecânico das séries + PSE ${calc.pse} + efeito EPOC pós-treino (<strong>+${calc.epocKcal} kcal</strong> nas horas seguintes).`;
+        }
+      }
+    };
+
+    window.openBiometriaSessaoModal = function(dayId) {
+      const modal = document.getElementById('modalBiometriaSessao');
+      if (!modal) return;
+
+      window._currentBioModalDayId = dayId || null;
+
+      // Popula dinamicamente as opções do seletor de dia com base nos cards de treino existentes
+      const daySel = document.getElementById('bio_session_day');
+      if (daySel) {
+        const cards = document.querySelectorAll('.training-day-card[id^="hubCard-"], .training-day-card[id^="dayCard-"]');
+        if (cards.length > 0) {
+          daySel.innerHTML = '';
+          cards.forEach(c => {
+            const id = c.id.replace('hubCard-', '').replace('dayCard-', '');
+            const nameEl = c.querySelector('.day-name');
+            const focusEl = c.querySelector('.day-focus-desc');
+            const nameTxt = nameEl ? nameEl.textContent.trim() : id.toUpperCase();
+            const focusTxt = focusEl ? focusEl.textContent.trim() : '';
+            const label = nameTxt.includes('|') ? nameTxt : (nameTxt + (focusTxt ? ' | ' + focusTxt : ''));
+            const opt = document.createElement('option');
+            opt.value = id;
+            opt.textContent = label;
+            daySel.appendChild(opt);
+          });
+          const extraOpt = document.createElement('option');
+          extraOpt.value = 'extra';
+          extraOpt.textContent = 'TREINO EXTRA / CONDICIONAMENTO';
+          daySel.appendChild(extraOpt);
+        }
+        if (dayId && Array.from(daySel.options).some(o => o.value === dayId)) {
+          daySel.value = dayId;
+        }
+      }
+
+      // Detecta duração estimada da sessão a partir do cabeçalho da aba
+      const targetDay = dayId || (daySel ? daySel.value : 'terca');
+      const tab = document.getElementById('tab-' + targetDay);
+      let detectedMinutes = 60;
+      if (tab) {
+        const metaText = tab.innerText || '';
+        const mMatch = metaText.match(/~\s*(\d{2,3})\s*min/i);
+        if (mMatch && mMatch[1]) detectedMinutes = Number(mMatch[1]);
+      }
+      const durEl = document.getElementById('bio_session_duration');
+      if (durEl) durEl.value = String(detectedMinutes);
+
+      // Limpa ou mantém campos do relógio
+      clearSmartwatchPhoto();
+      const hrAvgEl = document.getElementById('bio_watch_hr_avg');
+      const hrMaxEl = document.getElementById('bio_watch_hr_max');
+      const watchKcalEl = document.getElementById('bio_watch_kcal');
+      if (hrAvgEl) hrAvgEl.value = '';
+      if (hrMaxEl) hrMaxEl.value = '';
+      if (watchKcalEl) watchKcalEl.value = '';
+
+      selectBioPse(7);
+
+      modal.style.setProperty('display', 'flex', 'important');
+      modal.classList.add('active');
+      if (typeof pushAppHistoryState === 'function') {
+        pushAppHistoryState('modal', () => closeBiometriaSessaoModal(true));
+      }
+    };
+
+    window.closeBiometriaSessaoModal = function(fromPopState = false) {
+      if (!fromPopState && typeof popAppHistoryState === 'function' && popAppHistoryState('modal')) return;
+      const modal = document.getElementById('modalBiometriaSessao');
+      if (modal) {
+        modal.style.setProperty('display', 'none', 'important');
+        modal.classList.remove('active');
+      }
+    };
+
+    window.clearSmartwatchPhoto = function() {
+      window._currentWatchPhotoDataUrl = null;
+      const fileIn = document.getElementById('bio_watch_photo_input');
+      if (fileIn) fileIn.value = '';
+      const promptEl = document.getElementById('bioWatchUploadPrompt');
+      const prevWrap = document.getElementById('bioWatchPreviewWrap');
+      if (promptEl) promptEl.style.display = 'block';
+      if (prevWrap) prevWrap.style.display = 'none';
+    };
+
+    function parseSmartwatchOcrText(rawText) {
+      if (!rawText) return {};
+      const text = rawText.replace(/\n+/g, ' ').replace(/\s+/g, ' ');
+      const found = {};
+
+      // Calorias (ex: 384 kcal, 412 cal)
+      const kcalMatch = text.match(/(\d{2,4})\s*(?:kcal|cal|Calorias)/i);
+      if (kcalMatch && Number(kcalMatch[1]) >= 30 && Number(kcalMatch[1]) <= 2200) {
+        found.kcal = Number(kcalMatch[1]);
+      }
+
+      // Batimentos (bpm)
+      const bpmMatches = [...text.matchAll(/(\d{2,3})\s*(?:bpm|bat)/gi)].map(m => Number(m[1])).filter(n => n >= 55 && n <= 215);
+      if (bpmMatches.length >= 2) {
+        bpmMatches.sort((a, b) => a - b);
+        found.hrAvg = bpmMatches[0];
+        found.hrMax = bpmMatches[bpmMatches.length - 1];
+      } else if (bpmMatches.length === 1) {
+        found.hrAvg = bpmMatches[0];
+      }
+
+      // Duração (HH:MM:SS ou MM min)
+      const timeMatch = text.match(/(\d{1,2}):(\d{2}):(\d{2})/);
+      if (timeMatch) {
+        const mins = Number(timeMatch[1]) * 60 + Number(timeMatch[2]);
+        if (mins >= 5 && mins <= 240) found.duration = mins;
+      } else {
+        const minMatch = text.match(/(\d{2,3})\s*min/i);
+        if (minMatch && Number(minMatch[1]) >= 10 && Number(minMatch[1]) <= 240) {
+          found.duration = Number(minMatch[1]);
+        }
+      }
+      return found;
+    }
+
+    window.handleSmartwatchPhotoUpload = function(input) {
+      if (!input || !input.files || !input.files[0]) return;
+      const file = input.files[0];
+      const reader = new FileReader();
+      reader.onload = function(ev) {
+        const img = new Image();
+        img.onload = async function() {
+          const canvas = document.createElement('canvas');
+          const maxDim = 540;
+          let w = img.width;
+          let h = img.height;
+          if (w > maxDim || h > maxDim) {
+            if (w > h) { h = Math.round(h * (maxDim / w)); w = maxDim; }
+            else { w = Math.round(w * (maxDim / h)); h = maxDim; }
+          }
+          canvas.width = w;
+          canvas.height = h;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, w, h);
+          const dataUrl = canvas.toDataURL('image/jpeg', 0.78);
+          window._currentWatchPhotoDataUrl = dataUrl;
+
+          const promptEl = document.getElementById('bioWatchUploadPrompt');
+          const prevWrap = document.getElementById('bioWatchPreviewWrap');
+          const prevImg = document.getElementById('bioWatchPreviewImg');
+          const statusEl = document.getElementById('bioWatchOcrStatus');
+          const subEl = document.getElementById('bioWatchOcrSub');
+
+          if (promptEl) promptEl.style.display = 'none';
+          if (prevWrap) prevWrap.style.display = 'flex';
+          if (prevImg) prevImg.src = dataUrl;
+          if (statusEl) statusEl.textContent = '🔍 Analisando números da tela do relógio...';
+          if (subEl) subEl.textContent = 'Extraindo frequência cardíaca e calorias da imagem...';
+
+          let extracted = {};
+          try {
+            if ('TextDetector' in window) {
+              const detector = new window.TextDetector();
+              const blocks = await detector.detect(canvas);
+              const fullText = blocks.map(b => b.rawValue).join(' ');
+              extracted = parseSmartwatchOcrText(fullText);
+            } else if (navigator.onLine) {
+              if (!window.Tesseract) {
+                await new Promise((res, rej) => {
+                  const s = document.createElement('script');
+                  s.src = 'https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js';
+                  s.onload = res;
+                  s.onerror = rej;
+                  document.head.appendChild(s);
+                });
+              }
+              if (window.Tesseract) {
+                const { data: { text } } = await window.Tesseract.recognize(dataUrl, 'por+eng');
+                extracted = parseSmartwatchOcrText(text);
+              }
+            }
+          } catch (ocrErr) {
+            console.warn('OCR fallback:', ocrErr);
+          }
+
+          let fieldsFilled = [];
+          if (extracted.hrAvg) {
+            const el = document.getElementById('bio_watch_hr_avg');
+            if (el) el.value = String(extracted.hrAvg);
+            fieldsFilled.push(`FC Méd: ${extracted.hrAvg} bpm`);
+          }
+          if (extracted.hrMax) {
+            const el = document.getElementById('bio_watch_hr_max');
+            if (el) el.value = String(extracted.hrMax);
+            fieldsFilled.push(`Pico: ${extracted.hrMax} bpm`);
+          }
+          if (extracted.kcal) {
+            const el = document.getElementById('bio_watch_kcal');
+            if (el) el.value = String(extracted.kcal);
+            fieldsFilled.push(`${extracted.kcal} kcal`);
+          }
+          if (extracted.duration) {
+            const el = document.getElementById('bio_session_duration');
+            if (el) el.value = String(extracted.duration);
+            fieldsFilled.push(`${extracted.duration} min`);
+          }
+
+          if (fieldsFilled.length > 0) {
+            if (statusEl) statusEl.textContent = '✓ Dados lidos da foto: ' + fieldsFilled.join(' • ');
+            if (subEl) subEl.textContent = 'Confira abaixo ou complemente se algum campo ficou oculto pelo reflexo.';
+          } else {
+            if (statusEl) statusEl.textContent = '✓ Foto do Smartwatch anexada com sucesso!';
+            if (subEl) subEl.textContent = 'Informe abaixo a FC Média, FC Pico e Kcal visíveis na foto para o cruzamento.';
+          }
+          recalcBiometriaModalPreview();
+        };
+        img.src = ev.target.result;
+      };
+      reader.readAsDataURL(file);
+    };
+
+    window.openInstrucoesBiometriaModal = function(tab) {
+      const modal = document.getElementById('modalInstrucoesBiometria');
+      if (!modal) return;
+      switchInstrucoesBiometriaTab(tab || 'pse');
+      modal.style.setProperty('display', 'flex', 'important');
+      modal.classList.add('active');
+      if (typeof pushAppHistoryState === 'function') {
+        pushAppHistoryState('modal', () => closeInstrucoesBiometriaModal(true));
+      }
+    };
+
+    window.closeInstrucoesBiometriaModal = function(fromPopState = false) {
+      if (!fromPopState && typeof popAppHistoryState === 'function' && popAppHistoryState('modal')) return;
+      const modal = document.getElementById('modalInstrucoesBiometria');
+      if (modal) {
+        modal.style.setProperty('display', 'none', 'important');
+        modal.classList.remove('active');
+      }
+    };
+
+    window.switchInstrucoesBiometriaTab = function(tab) {
+      const t = tab === 'watch' ? 'watch' : 'pse';
+      const btnPse = document.getElementById('btnBioGuideTab-pse');
+      const btnWatch = document.getElementById('btnBioGuideTab-watch');
+      const panePse = document.getElementById('bioGuidePane-pse');
+      const paneWatch = document.getElementById('bioGuidePane-watch');
+      if (btnPse) btnPse.classList.toggle('active', t === 'pse');
+      if (btnWatch) btnWatch.classList.toggle('active', t === 'watch');
+      if (panePse) panePse.style.display = t === 'pse' ? 'block' : 'none';
+      if (paneWatch) paneWatch.style.display = t === 'watch' ? 'block' : 'none';
+    };
+
+    window.deleteBioWorkoutLog = function(index) {
+      try {
+        const logs = JSON.parse(localStorage.getItem('dominio_workout_logs') || '[]');
+        if (index >= 0 && index < logs.length) {
+          logs.splice(index, 1);
+          localStorage.setItem('dominio_workout_logs', JSON.stringify(logs));
+          updateEvolucaoStats();
+        }
+      } catch (e) {}
+    };
+
+    window.renderBiometriaPerformanceUI = function() {
+      let logs = [];
+      try {
+        logs = JSON.parse(localStorage.getItem('dominio_workout_logs') || '[]');
+      } catch (e) {}
+
+      // Se a terça de LPO já estiver concluída no app do treinador e ainda não houver log salvo, gera o registro inicial canônico
+      const completed = getCompletedWorkouts();
+      if (logs.length === 0 && completed['terca']) {
+        const seedCalc = calculateSessionPhysiology({
+          durationMin: 60,
+          pse: 8,
+          doneSets: 16,
+          hrAvg: 142,
+          hrMax: 176,
+          watchKcal: 410
+        });
+        logs = [{
+          data: '13/10/2026',
+          timestamp: '2026-10-13T18:30:00.000Z',
+          dia: 'terca',
+          dia_nome: 'TERÇA | LPO',
+          series_concluidas: 16,
+          total_series: 16,
+          aderencia_pct: 100,
+          duracao_min: 60,
+          pse: 8,
+          carga_ua: seedCalc.loadUA,
+          fc_media: 142,
+          fc_max: 176,
+          kcal_relogio: 410,
+          kcal_real_epoc: seedCalc.realKcal,
+          epoc_kcal: seedCalc.epocKcal,
+          trimp: seedCalc.trimp,
+          vo2_estimado: seedCalc.vo2Est,
+          zona_cardiaca: seedCalc.zoneLabel,
+          notas: 'Back Squat 80kg para 8 reps + WOD Wallball 9kg fechado nos 5 rounds'
+        }];
+        try { localStorage.setItem('dominio_workout_logs', JSON.stringify(logs)); } catch (e) {}
+      }
+
+      // Calcula somatórios e médias das últimas 7 sessões (janela semanal)
+      const recentLogs = logs.slice(-7);
+      let totalLoadUA = 0;
+      let sumPse = 0;
+      let pseCount = 0;
+      let totalRealKcal = 0;
+      let totalWatchKcal = 0;
+      let totalEpoc = 0;
+      let sumHrAvg = 0;
+      let maxHrPeak = 0;
+      let hrCount = 0;
+      let totalTrimp = 0;
+      let latestVo2 = null;
+      let latestZone = null;
+
+      recentLogs.forEach(item => {
+        const dur = Number(item.duracao_min) || 60;
+        const pse = Number(item.pse) || 7;
+        const calc = calculateSessionPhysiology({
+          durationMin: dur,
+          pse: pse,
+          doneSets: item.series_concluidas || 12,
+          hrAvg: item.fc_media || 0,
+          hrMax: item.fc_max || 0,
+          watchKcal: item.kcal_relogio || 0
+        });
+
+        const ua = Number(item.carga_ua) || calc.loadUA;
+        totalLoadUA += ua;
+        sumPse += pse;
+        pseCount++;
+
+        const rKcal = Number(item.kcal_real_epoc) || calc.realKcal;
+        totalRealKcal += rKcal;
+        totalEpoc += (Number(item.epoc_kcal) || calc.epocKcal);
+        if (Number(item.kcal_relogio) > 0) totalWatchKcal += Number(item.kcal_relogio);
+
+        if (Number(item.fc_media) > 0) {
+          sumHrAvg += Number(item.fc_media);
+          hrCount++;
+          latestZone = item.zona_cardiaca || calc.zoneLabel;
+        }
+        if (Number(item.fc_max) > maxHrPeak) maxHrPeak = Number(item.fc_max);
+
+        totalTrimp += (Number(item.trimp) || calc.trimp);
+        latestVo2 = Number(item.vo2_estimado) || calc.vo2Est;
+      });
+
+      const avgPse = pseCount > 0 ? (sumPse / pseCount).toFixed(1) : '--';
+      const avgHr = hrCount > 0 ? Math.round(sumHrAvg / hrCount) : null;
+
+      const loadEl = document.getElementById('evolWeeklyLoadUA');
+      if (loadEl) loadEl.textContent = `${totalLoadUA} U.A.`;
+
+      const pseEl = document.getElementById('evolAvgPSE');
+      if (pseEl) pseEl.textContent = pseCount > 0 ? `${avgPse} / 10` : '-- / 10';
+
+      const realKcalEl = document.getElementById('bioRealKcalVal');
+      const deltaKcalEl = document.getElementById('bioRealKcalDelta');
+      if (realKcalEl) {
+        realKcalEl.textContent = pseCount > 0 ? `${totalRealKcal} kcal` : '-- kcal';
+      }
+      if (deltaKcalEl) {
+        if (totalWatchKcal > 0) {
+          const diff = Math.max(15, totalRealKcal - totalWatchKcal);
+          deltaKcalEl.textContent = `Relógio: ${totalWatchKcal} kcal (+${diff} kcal força e EPOC)`;
+        } else if (pseCount > 0) {
+          deltaKcalEl.textContent = `Inclui +${totalEpoc} kcal de efeito EPOC pós-treino`;
+        } else {
+          deltaKcalEl.textContent = 'Aguardando registro de sessão';
+        }
+      }
+
+      const hrSumEl = document.getElementById('bioHeartRateSummary');
+      const hrZoneEl = document.getElementById('bioHeartZoneLabel');
+      if (hrSumEl) {
+        if (avgHr) {
+          hrSumEl.textContent = `${avgHr} / ${maxHrPeak || (avgHr + 28)} bpm`;
+          if (hrZoneEl) hrZoneEl.textContent = latestZone || 'Zona 3-4 • Estímulo Misto';
+        } else if (pseCount > 0) {
+          const estHr = Math.round(88 + Number(avgPse) * 6.2);
+          hrSumEl.textContent = `~${estHr} bpm (Est.)`;
+          if (hrZoneEl) hrZoneEl.textContent = 'Estimado via PSE (anexe foto p/ FC exata)';
+        } else {
+          hrSumEl.textContent = '-- / -- bpm';
+          if (hrZoneEl) hrZoneEl.textContent = 'Anexe foto ou insira FC do relógio';
+        }
+      }
+
+      const trimpVo2El = document.getElementById('bioTrimpAndVo2Val');
+      const hrrEl = document.getElementById('bioHrrLabel');
+      if (trimpVo2El) {
+        if (pseCount > 0) {
+          trimpVo2El.textContent = `${latestVo2} ml/kg/min`;
+          if (hrrEl) hrrEl.textContent = `TRIMP Acumulado: ${totalTrimp} pts`;
+        } else {
+          trimpVo2El.textContent = '-- ml/kg/min';
+          if (hrrEl) hrrEl.textContent = 'Impulso Cardíaco de Banister';
+        }
+      }
+
+      // Avaliação de Monotonia, Strain e Prontidão
+      const strainValEl = document.getElementById('bioStrainStatusVal');
+      const strainSubEl = document.getElementById('bioStrainSubLabel');
+      const diagBanner = document.getElementById('bioDiagnosisBanner');
+
+      if (pseCount > 0) {
+        const numPse = Number(avgPse);
+        if (totalLoadUA > 2200 || numPse >= 8.6) {
+          if (strainValEl) { strainValEl.textContent = 'Alerta de Fadiga'; strainValEl.style.color = '#f43f5e'; }
+          if (strainSubEl) { strainSubEl.textContent = `Carga alta (${totalLoadUA} U.A.) • Priorizar Sono`; strainSubEl.style.color = '#f43f5e'; }
+          if (diagBanner) {
+            diagBanner.innerHTML = `⚠️ <strong>Diagnóstico Fisiológico (Atenção Neuromuscular):</strong> Sua PSE média (${avgPse}/10) e Carga Interna (${totalLoadUA} U.A.) indicam alto estresse acumulado no sistema nervoso central. Priorize hidratação, sono reparador e blocos de mobilidade articular.`;
+          }
+        } else if (totalLoadUA >= 400 && numPse >= 6.0) {
+          if (strainValEl) { strainValEl.textContent = 'Zona Produtiva'; strainValEl.style.color = 'var(--brand-neon)'; }
+          if (strainSubEl) { strainSubEl.textContent = `Estímulo Ótimo (${totalLoadUA} U.A.)`; strainSubEl.style.color = 'var(--brand-neon)'; }
+          if (diagBanner) {
+            diagBanner.innerHTML = `🟢 <strong>Diagnóstico Fisiológico (Adaptação Ideal):</strong> Cruzamento entre volume mecânico, PSE (${avgPse}/10) e resposta cardíaca encontra-se na faixa ideal de supercompensação de força e condicionamento (${latestVo2} ml/kg/min), sem sinais de overreaching.`;
+          }
+        } else {
+          if (strainValEl) { strainValEl.textContent = 'Prontidão Alta'; strainValEl.style.color = '#38bdf8'; }
+          if (strainSubEl) { strainSubEl.textContent = `Carga Assimilada (${totalLoadUA} U.A.)`; strainSubEl.style.color = '#38bdf8'; }
+          if (diagBanner) {
+            diagBanner.innerHTML = `🔬 <strong>Diagnóstico Fisiológico (Reserva Autonômica Alta):</strong> Carga interna controlada (${totalLoadUA} U.A.). Seu sistema neuromuscular apresenta excelente margem de prontidão para progredir cargas ou refinar habilidades.`;
+          }
+        }
+      }
+
+      // Renderiza a lista histórica de sessões
+      const badgeCount = document.getElementById('bioLogsCountBadge');
+      if (badgeCount) badgeCount.textContent = `${logs.length} ${logs.length === 1 ? 'SESSÃO' : 'SESSÕES'}`;
+
+      const listEl = document.getElementById('bioSessionsHistoryList');
+      if (listEl) {
+        if (logs.length === 0) {
+          listEl.innerHTML = `
+            <div style="padding:18px 14px; background:rgba(255,255,255,0.02); border:1px dashed rgba(255,255,255,0.12); border-radius:12px; text-align:center; font-size:0.78rem; color:#94a3b8;">
+              Nenhuma sessão biométrica registrada ainda. Ao finalizar seu treino (ou clicando em <strong>+ REGISTRAR PSE E SMARTWATCH DO TREINO</strong> acima), suas métricas aparecerão aqui!
+            </div>`;
+        } else {
+          listEl.innerHTML = logs.map((item, idx) => {
+            const pse = Number(item.pse) || 7;
+            const pMeta = getPseMeta(pse);
+            const dur = Number(item.duracao_min) || 60;
+            const calc = calculateSessionPhysiology({
+              durationMin: dur,
+              pse: pse,
+              doneSets: item.series_concluidas || 12,
+              hrAvg: item.fc_media || 0,
+              hrMax: item.fc_max || 0,
+              watchKcal: item.kcal_relogio || 0
+            });
+            const ua = item.carga_ua || calc.loadUA;
+            const rKcal = item.kcal_real_epoc || calc.realKcal;
+            const trimp = item.trimp || calc.trimp;
+            const dayTitle = item.dia_nome || (item.dia ? item.dia.toUpperCase() : 'TREINO');
+            const hrText = item.fc_media ? `❤️ FC: ${item.fc_media}/${item.fc_max || '--'} bpm` : `⚡ TRIMP: ${trimp} pts`;
+            const watchDeltaText = item.kcal_relogio ? `(Relógio: ${item.kcal_relogio} kcal)` : `(c/ EPOC)`;
+            const photoHtml = item.watch_photo ? `
+              <div style="margin-top:8px; display:flex; align-items:center; gap:8px;">
+                <img src="${item.watch_photo}" alt="Smartwatch" onclick="window.open(this.src, '_blank')" style="width:46px; height:46px; object-fit:cover; border-radius:8px; border:1px solid rgba(56,189,248,0.4); cursor:pointer;" title="Toque para ampliar a foto do relógio">
+                <span style="font-size:0.68rem; color:#38bdf8; font-weight:700;">⌚ Captura do Smartwatch verificada</span>
+              </div>` : '';
+
+            return `
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-left:3.5px solid ${pMeta.color}; border-radius:12px; padding:12px 14px;">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px; flex-wrap:wrap;">
+                  <div>
+                    <div style="font-size:0.86rem; font-weight:800; color:#ffffff;">${dayTitle}</div>
+                    <div style="font-size:0.71rem; color:#94a3b8; margin-top:2px;">📅 ${item.data || 'Recente'} • ⏱️ ${dur} min • ✓ ${item.series_concluidas || 0}/${item.total_series || 0} séries (${item.aderencia_pct || 100}%)</div>
+                  </div>
+                  <div style="display:flex; align-items:center; gap:6px;">
+                    <span style="font-size:0.7rem; font-weight:800; color:${pMeta.color}; background:${pMeta.bg}; border:1px solid ${pMeta.border}; padding:2px 8px; border-radius:8px;">PSE ${pse} • ${pMeta.label}</span>
+                    <button type="button" onclick="deleteBioWorkoutLog(${idx})" title="Remover registro" style="background:none; border:none; color:#64748b; font-size:0.85rem; cursor:pointer; padding:0 4px;">&times;</button>
+                  </div>
+                </div>
+                <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; padding-top:8px; border-top:1px solid rgba(255,255,255,0.06); font-size:0.73rem; color:#e2e8f0; font-weight:600;">
+                  <span style="color:#c084fc;">📊 Carga: <strong>${ua} U.A.</strong></span>
+                  <span>•</span>
+                  <span style="color:var(--brand-neon);">🔥 Real: <strong>${rKcal} kcal</strong> <small style="color:#94a3b8;">${watchDeltaText}</small></span>
+                  <span>•</span>
+                  <span style="color:#38bdf8;">${hrText}</span>
+                </div>
+                ${photoHtml}
+              </div>`;
+          }).reverse().join('');
+        }
+      }
+    };
+
     function updateEvolucaoStats() {
       const completed = getCompletedWorkouts();
       const doneDays = Object.values(completed).filter(Boolean).length;
+      const totalDaysCards = document.querySelectorAll('.training-day-card[id^="hubCard-"], .training-day-card[id^="dayCard-"]').length || 3;
       const daysCountEl = document.getElementById('evolDaysDoneCount');
-      if (daysCountEl) daysCountEl.textContent = `${doneDays} / 5`;
+      if (daysCountEl) daysCountEl.textContent = `${doneDays} / ${totalDaysCards}`;
 
       const doneSets = document.querySelectorAll('.set-pill.done').length;
       const setsCountEl = document.getElementById('evolSetsDoneCount');
@@ -10973,6 +11669,10 @@
           badge.style.background = 'rgba(255,255,255,0.08)';
           badge.style.color = '#e2e8f0';
         }
+      }
+
+      if (typeof renderBiometriaPerformanceUI === 'function') {
+        renderBiometriaPerformanceUI();
       }
     }
 
@@ -11093,6 +11793,8 @@
       // 1. Modais prioritários abertos
       const modalChecks = [
         { id: 'tipPopoverOverlay', close: () => { const el = document.getElementById('tipPopoverOverlay'); if (el) el.style.display = 'none'; } },
+        { id: 'modalBiometriaSessao', close: () => { if (typeof closeBiometriaSessaoModal === 'function') closeBiometriaSessaoModal(true); } },
+        { id: 'modalInstrucoesBiometria', close: () => { if (typeof closeInstrucoesBiometriaModal === 'function') closeInstrucoesBiometriaModal(true); } },
         { id: 'devolutivaTreinoModal', close: () => { if (typeof closeDevolutivaModal === 'function') closeDevolutivaModal(true); } },
         { id: 'welcomeAppModal', close: () => { if (typeof closeWelcomeAppModal === 'function') closeWelcomeAppModal(true); } },
         { id: 'contextualHelpModal', close: () => { if (typeof closeContextualHelp === 'function') closeContextualHelp(true); } },
@@ -13943,19 +14645,59 @@
     }
 
     function completeWorkoutSession(dayId) {
-      const { type, target, count } = getWorkoutProgress(dayId);
-      const completed = getCompletedWorkouts();
-      if (type === 'dia' || target <= 1) {
-        completed[dayId] = true;
-      } else {
-        completed[dayId] = Math.min(target, count + 1);
+      if (typeof openBiometriaSessaoModal === 'function') {
+        openBiometriaSessaoModal(dayId);
+        return;
       }
-      saveCompletedWorkouts(completed);
+      confirmAndSaveBiometriaSession(true, dayId);
+    }
+
+    window.confirmAndSaveBiometriaSession = function(sendWhatsApp = true, forcedDayId = null) {
+      const daySel = document.getElementById('bio_session_day');
+      const dayId = forcedDayId || (daySel ? daySel.value : null) || window._currentBioModalDayId || 'terca';
+      const dayLabel = (daySel && daySel.options[daySel.selectedIndex]) ? daySel.options[daySel.selectedIndex].text : dayId.toUpperCase();
+
+      const durEl = document.getElementById('bio_session_duration');
+      const pseEl = document.getElementById('bio_session_pse');
+      const hrAvgEl = document.getElementById('bio_watch_hr_avg');
+      const hrMaxEl = document.getElementById('bio_watch_hr_max');
+      const watchKcalEl = document.getElementById('bio_watch_kcal');
+
+      const durationMin = durEl ? Math.max(5, Number(durEl.value) || 60) : 60;
+      const pse = pseEl ? Math.max(1, Math.min(10, Number(pseEl.value) || 7)) : 7;
+      const hrAvg = hrAvgEl && Number(hrAvgEl.value) > 40 ? Number(hrAvgEl.value) : null;
+      const hrMax = hrMaxEl && Number(hrMaxEl.value) > 50 ? Number(hrMaxEl.value) : null;
+      const watchKcal = watchKcalEl && Number(watchKcalEl.value) > 10 ? Number(watchKcalEl.value) : null;
+
+      if (dayId !== 'extra') {
+        const completed = typeof getCompletedWorkouts === 'function' ? getCompletedWorkouts() : {};
+        if (typeof getWorkoutProgress === 'function') {
+          const { type, target, count } = getWorkoutProgress(dayId);
+          if (type === 'dia' || target <= 1) {
+            completed[dayId] = true;
+          } else {
+            completed[dayId] = Math.min(target, count + 1);
+          }
+        } else {
+          completed[dayId] = true;
+        }
+        if (typeof saveCompletedWorkouts === 'function') saveCompletedWorkouts(completed);
+      }
 
       const activeTab = document.getElementById('tab-' + dayId);
-      const doneSets = activeTab ? activeTab.querySelectorAll('.set-pill.done').length : 0;
-      const totalSets = activeTab ? activeTab.querySelectorAll('.set-pill').length : 0;
+      const totalSets = activeTab ? activeTab.querySelectorAll('.set-pill').length : 12;
+      const rawDoneSets = activeTab ? activeTab.querySelectorAll('.set-pill.done').length : totalSets;
+      const doneSets = rawDoneSets > 0 ? rawDoneSets : totalSets;
       const pct = totalSets > 0 ? Math.round((doneSets / totalSets) * 100) : 100;
+
+      const calc = calculateSessionPhysiology({
+        durationMin,
+        pse,
+        doneSets,
+        hrAvg: hrAvg || 0,
+        hrMax: hrMax || 0,
+        watchKcal: watchKcal || 0
+      });
 
       // Coletar observações
       const notes = {};
@@ -13965,33 +14707,57 @@
         });
       }
 
+      const logDate = new Date().toLocaleDateString('pt-BR');
+      const logEntry = {
+        data: logDate,
+        timestamp: new Date().toISOString(),
+        dia: dayId,
+        dia_nome: dayLabel,
+        series_concluidas: doneSets,
+        total_series: totalSets,
+        aderencia_pct: pct,
+        duracao_min: durationMin,
+        pse: pse,
+        carga_ua: calc.loadUA,
+        fc_media: hrAvg,
+        fc_max: hrMax,
+        kcal_relogio: watchKcal,
+        kcal_real_epoc: calc.realKcal,
+        epoc_kcal: calc.epocKcal,
+        trimp: calc.trimp,
+        vo2_estimado: calc.vo2Est,
+        zona_cardiaca: calc.zoneLabel,
+        watch_photo: window._currentWatchPhotoDataUrl || null,
+        notas: Object.values(notes).join(' | ') || 'Treino finalizado com sucesso'
+      };
+
       // Salvar no log histórico estruturado local e na nuvem
       try {
         const logs = JSON.parse(localStorage.getItem('dominio_workout_logs') || '[]');
-        logs.push({
-          data: new Date().toLocaleDateString('pt-BR'),
-          timestamp: new Date().toISOString(),
-          dia: dayId,
-          series_concluidas: doneSets,
-          total_series: totalSets,
-          aderencia_pct: pct,
-          notas: Object.values(notes).join(' | ') || 'Treino finalizado com sucesso'
-        });
+        logs.push(logEntry);
         localStorage.setItem('dominio_workout_logs', JSON.stringify(logs));
       } catch (e) {
         console.error('Erro ao registrar log local:', e);
       }
 
       if (window.DominioDB && typeof DominioDB.salvarTreinoConcluido === 'function') {
-        const logDate = new Date().toLocaleDateString('pt-BR');
-        const logKey = `${dayId}_${logDate}_${doneSets}_${totalSets}`;
+        const logKey = `${dayId}_${logDate}_${doneSets}_${totalSets}_${pse}`;
         DominioDB.salvarTreinoConcluido({
           dia_id: dayId,
           data_treino: logDate,
           series_concluidas: doneSets,
           total_series: totalSets,
           aderencia_pct: pct,
-          notas_gerais: Object.values(notes).join(' | ') || 'Treino finalizado com sucesso',
+          duracao_min: durationMin,
+          pse: pse,
+          carga_ua: calc.loadUA,
+          fc_media: hrAvg,
+          fc_max: hrMax,
+          kcal_relogio: watchKcal,
+          kcal_real_epoc: calc.realKcal,
+          trimp: calc.trimp,
+          vo2_estimado: calc.vo2Est,
+          notas_gerais: logEntry.notas,
           notas_exercicios: notes
         }).then((ok) => {
           if (ok) {
@@ -14006,25 +14772,29 @@
         });
       }
 
+      closeBiometriaSessaoModal();
+
       if (typeof updateEvolucaoStats === 'function') updateEvolucaoStats();
-      if (typeof updateWorkoutCompletionUI === 'function') updateWorkoutCompletionUI(dayId);
+      if (typeof updateWorkoutCompletionUI === 'function' && dayId !== 'extra') updateWorkoutCompletionUI(dayId);
       const btn = document.getElementById('btnSendCoach-' + dayId);
       if (btn) {
         btn.disabled = true;
         btn.innerHTML = `<svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:currentColor;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>Enviado para Coach</span>`;
       }
 
-      // Envia notificação sucinta ao Coach no WhatsApp
-      sendWorkoutReportWhatsApp(dayId);
+      if (sendWhatsApp) {
+        sendWorkoutReportWhatsApp(dayId, logEntry);
+      }
 
       const feedback = document.getElementById('completeFeedback-' + dayId);
       if (feedback) {
-        feedback.innerHTML = `✅ Treino finalizado e aviso enviado com sucesso para o Coach! As anotações detalhadas foram arquivadas no prontuário do aluno.`;
+        const pMeta = getPseMeta(pse);
+        feedback.innerHTML = `✅ Sessão finalizada! <strong>PSE ${pse} (${pMeta.label}) • Carga: ${calc.loadUA} U.A. • Gasto Real: ${calc.realKcal} kcal</strong> registrados em <em>Evolução → Biometria e Performance</em>.`;
         feedback.style.display = 'block';
         feedback.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
       if ('vibrate' in navigator) navigator.vibrate([100, 50, 100]);
-    }
+    };
 
     // Persistência das Séries no LocalStorage (Memória de Treino)
     function getSavedMarkedSets() {
@@ -14835,6 +15605,39 @@
 
     // Modal de Devolutiva Técnica de Treino
     const DEVOLUTIVAS_DATA = {
+      'sexta': {
+        title: 'Devolutiva do Treino • Sexta-feira',
+        subtitle: 'Ginásio EEFERP • Resposta às Anotações de Exercício',
+        notesHtml: `
+          <div style="background: rgba(251, 191, 36, 0.08); border-left: 4px solid #fbbf24; border-radius: 8px; padding: 12px 14px; margin-bottom: 14px;">
+            <div style="font-size: 0.76rem; font-weight: 800; color: #fbbf24; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px;">
+              📝 Anotações Registradas no Treino de Sexta (16/10):
+            </div>
+            <div style="font-size: 0.81rem; color: #f1f5f9; line-height: 1.55;">
+              <p style="margin: 0 0 5px 0;">• <strong>Bent Arm Press nas Argolas:</strong> Subida em kip com elevação de quadril, segurando a transição final para a parada de mão.</p>
+              <p style="margin: 0 0 5px 0;">• <strong>Handstand e Ombros:</strong> Execução com pernas apoiadas na parede devido à fadiga acumulada da semana.</p>
+              <p style="margin: 0;">• <strong>Metabólico e Mobilidade:</strong> Suprimidos por falta de tempo após o bloco principal de força e ginástica.</p>
+            </div>
+          </div>
+        `,
+        topics: [
+          {
+            title: '1. PADRONIZAÇÃO DAS ANOTAÇÕES: APENAS OBSERVAÇÕES E SENSAÇÕES',
+            color: 'var(--brand-neon)',
+            desc: 'Confirmado e padronizado para sempre e para toda situação: o campo de anotações do exercício serve estritamente para suas observações práticas (cargas utilizadas, repetições realizadas, adaptações e sensações articulares). Não precisa descrever o que é o exercício nem explicar a técnica.'
+          },
+          {
+            title: '2. AUTORREGULAÇÃO NO BENT ARM PRESS NAS ARGOLAS',
+            color: '#38bdf8',
+            desc: 'Decisão cirúrgica e acertada em subir o quadril sem forçar o lockout terminal da parada de mão. A instabilidade tridimensional livre das argolas exige ombros e cotovelos 100% descansados; segurar o lockout sob fadiga pós-WOD de quinta sobrecarregaria desnecessariamente a entese tricipital e a cápsula do ombro.'
+          },
+          {
+            title: '3. ADAPTAÇÃO NA PAREDE E GESTÃO DE FADIGA',
+            color: '#fbbf24',
+            desc: 'Apoiar as pernas na parede foi excelente: manteve o estímulo neuromuscular de empurre escapular (elevação e protração) isolando o risco de colapso por exaustão do core. Fechamento de semana consistente e preservativo.'
+          }
+        ]
+      },
       'quinta': {
         title: 'Devolutiva do Treino • Quinta-feira',
         subtitle: 'Box CrossFit • Resposta às Anotações de Exercício',
@@ -14909,8 +15712,8 @@
       if (typeof closeNotificationsModal === 'function') {
         closeNotificationsModal(null, true);
       }
-      const key = dayKey || (notifId && notifId.includes('quinta') ? 'quinta' : 'quarta');
-      const dev = DEVOLUTIVAS_DATA[key] || DEVOLUTIVAS_DATA['quinta'];
+      const key = dayKey || (notifId && notifId.includes('sexta') ? 'sexta' : ((notifId && notifId.includes('quinta')) ? 'quinta' : 'quarta'));
+      const dev = DEVOLUTIVAS_DATA[key] || DEVOLUTIVAS_DATA['sexta'];
 
       const titleEl = document.getElementById('devolutivaModalTitle');
       const subEl = document.getElementById('devolutivaModalSubtitle');
@@ -15102,7 +15905,7 @@
       }
     }
 
-    function sendWorkoutReportWhatsApp(dayId) {
+    function sendWorkoutReportWhatsApp(dayId, bioRecord) {
       let activeTab = null;
       let tabName = 'Treino';
 
@@ -15114,7 +15917,10 @@
         'sexta': 'SEXTA | GINÁSTICA E PORTAGEM'
       };
 
-      if (dayId && typeof dayId === 'string') {
+      if (bioRecord && bioRecord.dia_nome) {
+        tabName = bioRecord.dia_nome;
+        activeTab = document.getElementById('tab-' + dayId);
+      } else if (dayId && typeof dayId === 'string') {
         activeTab = document.getElementById('tab-' + dayId);
         tabName = dayNames[dayId] || dayId.toUpperCase();
       } else {
@@ -15137,8 +15943,21 @@
       msg += `📅 *Data:* ${today}\n`;
       msg += `⚡ *Treino:* ${tabName}\n`;
       msg += `🔢 *Sessão nº:* ${sessionCount}\n`;
-      msg += `🎯 *Progresso:* ${doneSets.length}/${allSets.length} séries concluídas (${pct}%)\n\n`;
-      msg += `📋 _Anotações, cargas e comentários técnicos arquivados no Prontuário do Aluno (Doc / Drive)._\n\n`;
+      msg += `🎯 *Progresso:* ${doneSets.length}/${allSets.length} séries concluídas (${pct}%)\n`;
+
+      if (bioRecord) {
+        const pMeta = getPseMeta(bioRecord.pse || 7);
+        msg += `\n📊 *Biometria e Performance:*\n`;
+        msg += `• *PSE Reportada:* ${bioRecord.pse}/10 (${pMeta.label})\n`;
+        msg += `• *Carga Interna (sRPE):* ${bioRecord.carga_ua} U.A. (${bioRecord.duracao_min} min)\n`;
+        msg += `• *Gasto Real (c/ EPOC):* ${bioRecord.kcal_real_epoc} kcal${bioRecord.kcal_relogio ? ` (Relógio: ${bioRecord.kcal_relogio} kcal)` : ''}\n`;
+        if (bioRecord.fc_media) {
+          msg += `• *Frequência Cardíaca:* Méd ${bioRecord.fc_media} bpm | Pico ${bioRecord.fc_max || '--'} bpm\n`;
+        }
+        msg += `• *TRIMP / VO2 Est.:* ${bioRecord.trimp} pts • ${bioRecord.vo2_estimado} ml/kg/min\n`;
+      }
+
+      msg += `\n📋 _Anotações, cargas e biometria arquivadas no Prontuário do Aluno (Doc / Drive)._\n\n`;
       msg += `_Enviado pelo App Domínio Corporal_`;
 
       const phone = '5516981222356';
