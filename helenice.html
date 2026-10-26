@@ -8258,10 +8258,6 @@
               <span style="font-size:0.75rem; font-weight:800; color:#38bdf8; text-transform:uppercase; letter-spacing:0.03em;">📊 Carga e Estímulo Fisiológico</span>
               <span style="font-size:0.68rem; font-weight:700; color:#94a3b8;" id="bioLiveSetsInfo">• Séries integradas</span>
             </div>
-            <button type="button" class="btn-video" onclick="openInstrucoesBiometriaModal()" style="padding: 2.5px 8px; font-size: 0.68rem; margin: 0; background: #0e2238; border: 1px solid #38bdf8; color: #fff; border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px;">
-              <svg viewBox="0 0 24 24" style="width:11px; height:11px; fill:#38bdf8;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-              <span>Entenda o Cálculo</span>
-            </button>
           </div>
           <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:8px; text-align:center;">
             <div style="background:rgba(255,255,255,0.03); border-radius:8px; padding:8px 6px;">
@@ -8277,8 +8273,16 @@
               <div style="font-size:0.88rem; font-weight:900; color:#38bdf8;" id="bioPreviewTrimpVo2">Calculado</div>
             </div>
           </div>
+          <!-- Botão Entenda o Cálculo abaixo das badges das cargas -->
+          <div style="margin-top:10px; display:flex; justify-content:center;">
+            <button type="button" class="btn-video" onclick="openInstrucoesBiometriaModal()" style="padding: 3.5px 12px; font-size: 0.72rem; margin: 0; background: #0e2238; border: 1px solid #38bdf8; color: #fff; border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; gap: 5px;">
+              <svg viewBox="0 0 24 24" style="width:11px; height:11px; fill:#38bdf8;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+              <span>Entenda o Cálculo</span>
+            </button>
+          </div>
+          <!-- Link clicável para a página de evolução -->
           <div style="margin-top:10px; padding-top:8px; border-top:1px solid rgba(255,255,255,0.06); text-align:center; font-size:0.72rem; color:#94a3b8; line-height:1.45;">
-            📊 O relatório completo pode ser gerado na página <strong style="color:#38bdf8;">Biometria e Performance</strong> que está na parte <strong style="color:var(--brand-neon);">Evolução</strong>.
+            📊 O relatório completo pode ser gerado na página <a href="javascript:void(0)" onclick="goToBiometriaPerformanceView()" style="color:#38bdf8; text-decoration:underline; font-weight:700;">Biometria e Performance ↗</a> que está na parte <strong style="color:var(--brand-neon);">Evolução</strong>.
           </div>
         </div>
 
@@ -9526,6 +9530,18 @@
       if (modal) {
         modal.style.setProperty('display', 'none', 'important');
         modal.classList.remove('active');
+      }
+    };
+
+    window.goToBiometriaPerformanceView = function() {
+      if (typeof closeBiometriaSessaoModal === 'function') closeBiometriaSessaoModal();
+      if (typeof switchTab === 'function') {
+        switchTab('evolucao');
+      } else if (typeof openDedicatedView === 'function') {
+        openDedicatedView('evolucao');
+      }
+      if (typeof openEvolucaoView === 'function') {
+        openEvolucaoView('relatorio');
       }
     };
 
