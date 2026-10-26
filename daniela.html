@@ -5892,11 +5892,11 @@
       <!-- Grid de Métricas Atuais do Aluno -->
       <div class="metrics-summary-grid" style="margin-bottom: 0;">
         <div class="metric-summary-card">
-          <div class="metric-value" id="athleteProfileWeight">-- kg</div>
+          <div class="metric-value" id="athleteProfileWeight">62.0 kg</div>
           <div class="metric-label">Peso Atual</div>
         </div>
         <div class="metric-summary-card">
-          <div class="metric-value" id="athleteProfileHeight">-- cm</div>
+          <div class="metric-value" id="athleteProfileHeight">160 cm</div>
           <div class="metric-label">Altura</div>
         </div>
         <div class="metric-summary-card">
@@ -5959,6 +5959,18 @@
       </div>
     </div>
 
+    <!-- Card 5: Assimetria e Suporte Escapular Esquerdo -->
+    <div class="section-card" style="background: var(--bg-card, #11141a); border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1)); border-left: 3.5px solid #f43f5e; border-radius: 14px; padding: 14px 16px; margin-bottom: 14px;">
+      <div class="section-header" style="margin-bottom: 8px;">
+        <div style="font-size: 0.92rem; font-weight: 800; color: #f43f5e; letter-spacing: 0.03em; display: flex; align-items: center; gap: 8px;">
+          <span>⚖️ ASSIMETRIA E SUPORTE ESCAPULAR ESQUERDO</span>
+        </div>
+      </div>
+      <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.65;">
+        <p><strong>• Estabilização Ativa do Lado Esquerdo:</strong> Para compensar a sensação de menor força no braço esquerdo, foque na depressão e elevação ativa da escápula esquerda nos bloqueios e apoios. Em exercícios unilaterais como os toques no ombro (shoulder taps), inicie sempre descarregando o peso sobre o braço esquerdo para recrutar a musculatura estabilizadora com máximo frescor neuromuscular.</p>
+      </div>
+    </div>
+
     <!-- ==================== SEÇÃO: HISTÓRICO DE AVALIAÇÕES ==================== -->
     <div style="margin: 26px 4px 14px 4px; display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
       <h3 style="font-size: 1.15rem; font-weight: 800; color: #fff; margin: 0; letter-spacing: -0.01em;">
@@ -5977,7 +5989,7 @@
             <span style="font-size: 0.68rem; font-weight: 800; color: var(--brand-neon); background: rgba(0, 255, 136, 0.12); border: 1px solid rgba(0, 255, 136, 0.3); padding: 2px 7px; border-radius: 6px;" id="historyCardStatus">✓ Arquivada</span>
           </div>
           <div style="font-size: 0.78rem; color: #94a3b8;" id="historyCardSubtitle">
-            Respondida em: <strong style="color: #cbd5e1;">08/10/2026</strong> • Identificação, Saúde e Metas
+            Respondida em: <strong style="color: #cbd5e1;">18/10/2026</strong> • Identificação, Saúde e Metas
           </div>
         </div>
         <div style="display: flex; align-items: center; gap: 6px; color: var(--brand-neon); font-size: 0.78rem; font-weight: 700; white-space: nowrap; margin-left: 10px;">
@@ -6016,21 +6028,21 @@
 
           <div class="form-group">
             <label class="form-label" for="ass_nome">Nome Completo <span class="req">*</span></label>
-            <input type="text" id="ass_nome" class="form-input" placeholder="Seu nome completo" required oninput="autoSaveAssessmentDraft()">
+            <input type="text" id="ass_nome" class="form-input" placeholder="Seu nome completo" value="DANIELA COLOMBINI" required oninput="autoSaveAssessmentDraft()">
           </div>
 
           <div class="form-grid-4">
             <div class="form-group">
               <label class="form-label" for="ass_nascimento">Data de Nascimento <span class="req">*</span></label>
-              <input type="date" id="ass_nascimento" class="form-input" required oninput="autoSaveAssessmentDraft()">
+              <input type="date" id="ass_nascimento" class="form-input" value="1980-10-11" required oninput="autoSaveAssessmentDraft()">
             </div>
             <div class="form-group">
               <label class="form-label" for="ass_altura">Altura (cm)</label>
-              <input type="number" id="ass_altura" class="form-input" placeholder="Ex: 178" min="100" max="230" oninput="autoSaveAssessmentDraft()">
+              <input type="number" id="ass_altura" class="form-input" placeholder="Ex: 178" value="160" min="100" max="230" oninput="autoSaveAssessmentDraft()">
             </div>
             <div class="form-group">
               <label class="form-label" for="ass_peso">Peso Atual (kg)</label>
-              <input type="number" step="0.1" id="ass_peso" class="form-input" placeholder="Ex: 75.5" oninput="autoSaveAssessmentDraft()">
+              <input type="number" step="0.1" id="ass_peso" class="form-input" placeholder="Ex: 75.5" value="62.0" oninput="autoSaveAssessmentDraft()">
             </div>
             <div class="form-group">
               <label class="form-label" for="ass_gordura">% Gordura (% BF) <span style="font-size:0.7rem; color:var(--text-muted); font-weight:normal;">(opcional)</span></label>
@@ -6040,21 +6052,21 @@
 
           <div class="form-group">
             <label class="form-label" for="ass_rotina">Rotina Diária (Trabalho, Estresse e Sono)</label>
-            <textarea id="ass_rotina" class="form-textarea" rows="2" placeholder="Ex: Trabalho 8h por dia no computador sentado, nível de estresse moderado, durmo em média 7h por noite..." oninput="autoSaveAssessmentDraft()"></textarea>
+            <textarea id="ass_rotina" class="form-textarea" rows="2" placeholder="Ex: Trabalho 8h por dia no computador sentado, nível de estresse moderado, durmo em média 7h por noite..." oninput="autoSaveAssessmentDraft()">Trabalho sentada por poucas horas, dou aulas de Yoga e libero estresse com trabalho de casa. Sono é bom sem problemas.</textarea>
           </div>
 
           <div class="form-grid-3">
             <div class="form-group">
               <label class="form-label" for="ass_dias_disponiveis">Dias Disponíveis na Semana</label>
-              <input type="text" id="ass_dias_disponiveis" class="form-input" placeholder="Ex: 3 a 4 dias (Seg, Qua, Sex...)" oninput="autoSaveAssessmentDraft()">
+              <input type="text" id="ass_dias_disponiveis" class="form-input" value="1" placeholder="Ex: 3 a 4 dias (Seg, Qua, Sex...)" oninput="autoSaveAssessmentDraft()">
             </div>
             <div class="form-group">
               <label class="form-label" for="ass_duracao_disponivel">Duração Disponível por Treino</label>
-              <input type="text" id="ass_duracao_disponivel" class="form-input" placeholder="Ex: 45 a 60 minutos" oninput="autoSaveAssessmentDraft()">
+              <input type="text" id="ass_duracao_disponivel" class="form-input" value="60-90 min" placeholder="Ex: 45 a 60 minutos" oninput="autoSaveAssessmentDraft()">
             </div>
             <div class="form-group">
               <label class="form-label" for="ass_local">Onde vai treinar? (Local)</label>
-              <input type="text" id="ass_local" class="form-input" placeholder="Ex: Casa, Academia, Pilates, Parque..." oninput="autoSaveAssessmentDraft()">
+              <input type="text" id="ass_local" class="form-input" value="Espaço de treino" placeholder="Ex: Casa, Academia, Pilates, Parque..." oninput="autoSaveAssessmentDraft()">
             </div>
           </div>
         </div>
@@ -6069,7 +6081,7 @@
             Escreva livremente sobre qualquer cirurgia prévia, histórico de lesões (ombros, joelhos, coluna, punhos...), dores atuais, desconfortos ou restrições médicas que você possui:
           </p>
           <div class="form-group">
-            <textarea id="ass_historico_clinico" class="form-textarea" rows="3" placeholder="Ex: Operei o menisco do joelho esquerdo há 2 anos e ainda sinto estalo em agachamento fundo; sinto leve pinçamento no ombro direito quando faço desenvolvimento acima da cabeça..." oninput="autoSaveAssessmentDraft()"></textarea>
+            <textarea id="ass_historico_clinico" class="form-textarea" rows="3" placeholder="Ex: Operei o menisco do joelho esquerdo há 2 anos e ainda sinto estalo em agachamento fundo; sinto leve pinçamento no ombro direito quando faço desenvolvimento acima da cabeça..." oninput="autoSaveAssessmentDraft()">Já tive tendinite, e contraturas, nada grave.</textarea>
           </div>
 
           <!-- BOTÃO DE ENVIO DE LAUDOS / EXAMES VIA WHATSAPP -->
@@ -6091,11 +6103,11 @@
           <div class="form-grid-2" style="margin-top: 10px;">
             <div class="form-group">
               <label class="form-label" for="ass_medicamentos">Toma algum medicamento contínuo?</label>
-              <input type="text" id="ass_medicamentos" class="form-input" placeholder="Ex: Não / Tomo remédio para tireoide, etc." oninput="autoSaveAssessmentDraft()">
+              <input type="text" id="ass_medicamentos" class="form-input" value="Slinda" placeholder="Ex: Não / Tomo remédio para tireoide, etc." oninput="autoSaveAssessmentDraft()">
             </div>
             <div class="form-group">
               <label class="form-label" for="ass_condicoes_cronicas">Condição de saúde crônica?</label>
-              <input type="text" id="ass_condicoes_cronicas" class="form-input" placeholder="Ex: Pressão alta, diabetes, asma... (ou Nenhuma)" oninput="autoSaveAssessmentDraft()">
+              <input type="text" id="ass_condicoes_cronicas" class="form-input" value="Nenhuma" placeholder="Ex: Pressão alta, diabetes, asma... (ou Nenhuma)" oninput="autoSaveAssessmentDraft()">
             </div>
           </div>
         </div>
@@ -6109,12 +6121,12 @@
 
           <div class="form-group">
             <label class="form-label" for="ass_historico_esportivo">O que você já treinou previamente?</label>
-            <textarea id="ass_historico_esportivo" class="form-textarea" rows="2" placeholder="Ex: Musculação por 2 anos, natação na adolescência, 6 meses de calistenia básica..." oninput="autoSaveAssessmentDraft()"></textarea>
+            <textarea id="ass_historico_esportivo" class="form-textarea" rows="2" placeholder="Ex: Musculação por 2 anos, natação na adolescência, 6 meses de calistenia básica..." oninput="autoSaveAssessmentDraft()">CrossFit por 4 anos, movimento, handstand, circo, Yoga.</textarea>
           </div>
 
           <div class="form-group">
             <label class="form-label" for="ass_treino_atual">O que treina atualmente? (Modalidade, dias e duração)</label>
-            <textarea id="ass_treino_atual" class="form-textarea" rows="2" placeholder="Ex: Caminhada, musculação leve, pilates 2x na semana, ou sedentária no momento..." oninput="autoSaveAssessmentDraft()"></textarea>
+            <textarea id="ass_treino_atual" class="form-textarea" rows="2" placeholder="Ex: Caminhada, musculação leve, pilates 2x na semana, ou sedentária no momento..." oninput="autoSaveAssessmentDraft()">Yoga 6x 2horas, crossfit 1x 1 hora, Handstand 1x 1 hora.</textarea>
           </div>
 
           <div class="form-grid-3">
@@ -6122,7 +6134,7 @@
               <label class="form-label" for="ass_pullups">Barra Fixa (Pull-ups)</label>
               <select id="ass_pullups" class="form-select" onchange="autoSaveAssessmentDraft()">
                 <option value="">Selecione...</option>
-                <option value="Ainda não faz">Ainda não faz</option>
+                <option value="Ainda não faz" selected>Ainda não faz</option>
                 <option value="Faz com elástico / auxílio">Faz com elástico / auxílio</option>
                 <option value="1 a 3 estritas">1 a 3 reps estritas</option>
                 <option value="4 a 8 estritas">4 a 8 reps estritas</option>
@@ -6137,7 +6149,7 @@
                 <option value="Faz na parede ou inclinado">Na parede ou inclinado</option>
                 <option value="Faz com joelhos no solo">Com joelhos no solo</option>
                 <option value="1 a 5 no chão">1 a 5 reps no chão</option>
-                <option value="6 a 15 no chão">6 a 15 reps no chão</option>
+                <option value="6 a 15 no chão" selected>6 a 15 reps no chão</option>
                 <option value="16 a 30 no chão">16 a 30 reps no chão</option>
                 <option value="Mais de 30 no chão">Mais de 30 reps no chão</option>
               </select>
@@ -6149,7 +6161,7 @@
                 <option value="Iniciante (fadiga rápida)">Iniciante (fadiga rápida)</option>
                 <option value="Moderado (mantém ritmo médio)">Moderado (mantém ritmo)</option>
                 <option value="Bom (boa recuperação)">Bom (boa recuperação)</option>
-                <option value="Avançado (ótimo fôlego)">Avançado (ótimo fôlego)</option>
+                <option value="Avançado (ótimo fôlego)" selected>Avançado (ótimo fôlego)</option>
               </select>
             </div>
           </div>
@@ -6165,27 +6177,27 @@
           <label class="form-label" style="margin-bottom:8px;">Pilares Prioritários (selecione quantos desejar):</label>
           <div class="assessment-checkboxes-grid">
             <label class="check-pill">
-              <input type="checkbox" name="pilares" value="Definição Muscular / Composição Corporal" onchange="autoSaveAssessmentDraft()">
+              <input type="checkbox" name="pilares" value="Definição Muscular / Composição Corporal" checked onchange="autoSaveAssessmentDraft()">
               <span class="check-box-custom"></span>
               <span class="check-pill-text">Definição Muscular / Composição Corporal</span>
             </label>
             <label class="check-pill">
-              <input type="checkbox" name="pilares" value="Ganho de Força e Massa Magra" onchange="autoSaveAssessmentDraft()">
+              <input type="checkbox" name="pilares" value="Ganho de Força e Massa Magra" checked onchange="autoSaveAssessmentDraft()">
               <span class="check-box-custom"></span>
               <span class="check-pill-text">Ganho de Força e Massa Magra</span>
             </label>
             <label class="check-pill">
-              <input type="checkbox" name="pilares" value="Habilidades Calistênicas e Ginástica (Handstand, Muscle-Up)" onchange="autoSaveAssessmentDraft()">
+              <input type="checkbox" name="pilares" value="Habilidades Calistênicas e Ginástica (Handstand, Muscle-Up)" checked onchange="autoSaveAssessmentDraft()">
               <span class="check-box-custom"></span>
               <span class="check-pill-text">Habilidades Calistênicas e Ginástica</span>
             </label>
             <label class="check-pill">
-              <input type="checkbox" name="pilares" value="Reabilitação e Alívio de Dores Articulares" onchange="autoSaveAssessmentDraft()">
+              <input type="checkbox" name="pilares" value="Reabilitação e Alívio de Dores Articulares" checked onchange="autoSaveAssessmentDraft()">
               <span class="check-box-custom"></span>
               <span class="check-pill-text">Reabilitação e Alívio de Dores Articulares</span>
             </label>
             <label class="check-pill">
-              <input type="checkbox" name="pilares" value="Mobilidade e Flexibilidade" onchange="autoSaveAssessmentDraft()">
+              <input type="checkbox" name="pilares" value="Mobilidade e Flexibilidade" checked onchange="autoSaveAssessmentDraft()">
               <span class="check-box-custom"></span>
               <span class="check-pill-text">Mobilidade e Flexibilidade</span>
             </label>
@@ -6196,7 +6208,7 @@
             <p class="block-hint" style="margin-top:2px;">
               Conte com detalhes o que você busca alcançar nesse ciclo, o que é mais importante para você no dia a dia e suas expectativas com o treino:
             </p>
-            <textarea id="ass_contexto_metas" class="form-textarea" rows="4" placeholder="Ex: Minha meta principal é conseguir ficar 10 segundos na parada de mão sem depender da parede, enquanto perco um pouco de gordura na cintura e fortaleço o joelho para não sentir mais dor no final do dia..." oninput="autoSaveAssessmentDraft()"></textarea>
+            <textarea id="ass_contexto_metas" class="form-textarea" rows="4" placeholder="Ex: Minha meta principal é conseguir ficar 10 segundos na parada de mão sem depender da parede, enquanto perco um pouco de gordura na cintura e fortaleço o joelho para não sentir mais dor no final do dia..." oninput="autoSaveAssessmentDraft()">Nesse ciclo seria voltar minha força, definição muscular, aumentar meu equilíbrio na Handstand e fazer barra.</textarea>
           </div>
 
           <div class="form-group" style="margin-top:14px;">
@@ -6204,7 +6216,7 @@
             <p class="block-hint" style="margin-top:2px;">
               Alguma preferência pessoal, rotina específica, detalhe ou observação adicional para o seu acompanhamento:
             </p>
-            <textarea id="ass_algo_mais" class="form-textarea" rows="3" placeholder="Ex: Prefiro treinar pela manhã em jejum; sinto que meu lado esquerdo cansa mais rápido; etc." oninput="autoSaveAssessmentDraft()"></textarea>
+            <textarea id="ass_algo_mais" class="form-textarea" rows="3" placeholder="Ex: Prefiro treinar pela manhã em jejum; sinto que meu lado esquerdo cansa mais rápido; etc." oninput="autoSaveAssessmentDraft()">Sinto que meu braço esquerdo é mais fraco que o direito.</textarea>
           </div>
         </div>
 
@@ -6444,13 +6456,13 @@
           <div style="display: flex; align-items: center; gap: 8px; min-width: 140px;">
             <span style="font-size: 1rem;">📋</span>
             <span style="font-size: 0.85rem; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">PONTO DE PARTIDA</span>
-            <span style="font-size: 0.68rem; font-weight: 700; color: #38bdf8; background: rgba(56,189,248,0.12); border: 1px solid rgba(56,189,248,0.3); padding: 2px 6px; border-radius: 6px;" id="evolIntakeDateBadge">02/07/2026</span>
+            <span style="font-size: 0.68rem; font-weight: 700; color: #38bdf8; background: rgba(56,189,248,0.12); border: 1px solid rgba(56,189,248,0.3); padding: 2px 6px; border-radius: 6px;" id="evolIntakeDateBadge">18/10/2026</span>
           </div>
           <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap; font-size: 0.82rem;">
-            <div><span style="color: #94a3b8; font-size: 0.72rem;">Peso:</span> <strong id="evolIntakeWeight" style="color: #ffffff;">97.8 kg</strong></div>
-            <div><span style="color: #94a3b8; font-size: 0.72rem;">Cintura:</span> <strong id="evolIntakeWaist" style="color: #ffffff;">94.0 cm</strong></div>
-            <div><span style="color: #94a3b8; font-size: 0.72rem;">RCEst:</span> <strong id="evolIntakeWhtr" style="color: #ffffff;">0.53</strong></div>
-            <div><span style="color: #94a3b8; font-size: 0.72rem;">% BF:</span> <strong id="evolIntakeBF" style="color: #ffffff;">23.3%</strong></div>
+            <div><span style="color: #94a3b8; font-size: 0.72rem;">Peso:</span> <strong id="evolIntakeWeight" style="color: #ffffff;">62.0 kg</strong></div>
+            <div><span style="color: #94a3b8; font-size: 0.72rem;">Cintura:</span> <strong id="evolIntakeWaist" style="color: #ffffff;">-- cm</strong></div>
+            <div><span style="color: #94a3b8; font-size: 0.72rem;">RCEst:</span> <strong id="evolIntakeWhtr" style="color: #ffffff;">--</strong></div>
+            <div><span style="color: #94a3b8; font-size: 0.72rem;">% BF:</span> <strong id="evolIntakeBF" style="color: #ffffff;">--%</strong></div>
           </div>
         </div>
 
@@ -6459,13 +6471,13 @@
           <div style="display: flex; align-items: center; gap: 8px; min-width: 140px;">
             <span style="font-size: 1rem;">⚡</span>
             <span style="font-size: 0.85rem; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">INFORMAÇÕES ATUAIS</span>
-            <span style="font-size: 0.68rem; font-weight: 700; color: var(--brand-neon); background: rgba(0,255,136,0.12); border: 1px solid rgba(0,255,136,0.3); padding: 2px 6px; border-radius: 6px;" id="compCurrentDateBadge">15/10/2026</span>
+            <span style="font-size: 0.68rem; font-weight: 700; color: var(--brand-neon); background: rgba(0,255,136,0.12); border: 1px solid rgba(0,255,136,0.3); padding: 2px 6px; border-radius: 6px;" id="compCurrentDateBadge">18/10/2026</span>
           </div>
           <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap; font-size: 0.82rem;">
-            <div><span style="color: #94a3b8; font-size: 0.72rem;">Peso:</span> <strong id="compMetricWeight" style="color: var(--brand-neon);">84.5 kg</strong></div>
-            <div><span style="color: #94a3b8; font-size: 0.72rem;">Cintura:</span> <strong id="compMetricWaist" style="color: var(--brand-neon);">81.0 cm</strong></div>
-            <div><span style="color: #94a3b8; font-size: 0.72rem;">RCEst:</span> <strong id="compMetricWhtr" style="color: #c084fc;">0.45</strong></div>
-            <div><span style="color: #94a3b8; font-size: 0.72rem;">% BF:</span> <strong id="compMetricBF" style="color: #fbbf24;">12.8%</strong></div>
+            <div><span style="color: #94a3b8; font-size: 0.72rem;">Peso:</span> <strong id="compMetricWeight" style="color: var(--brand-neon);">62.0 kg</strong></div>
+            <div><span style="color: #94a3b8; font-size: 0.72rem;">Cintura:</span> <strong id="compMetricWaist" style="color: var(--brand-neon);">-- cm</strong></div>
+            <div><span style="color: #94a3b8; font-size: 0.72rem;">RCEst:</span> <strong id="compMetricWhtr" style="color: #c084fc;">--</strong></div>
+            <div><span style="color: #94a3b8; font-size: 0.72rem;">% BF:</span> <strong id="compMetricBF" style="color: #fbbf24;">--%</strong></div>
           </div>
         </div>
 
@@ -8494,7 +8506,7 @@
     });
 
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '2026-10-16-v169-biometria-performance';
+    const APP_BUILD_VERSION = '2026-10-26-v172-daniela-intake-unlocked';
     if (localStorage.getItem('dominio_daniela_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_daniela_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
@@ -13215,6 +13227,38 @@
       openDedicatedView('avaliacao');
     }
 
+    const DEFAULT_STUDENT_INTAKE = {
+      nome: "DANIELA COLOMBINI",
+      nascimento: "1980-10-11",
+      idade: "46",
+      altura: "160",
+      peso: "62",
+      gordura: "",
+      sexo: "feminino",
+      rotina: "Trabalho sentada por poucas horas, dou aulas de Yoga e libero estresse com trabalho de casa. Sono é bom sem problemas.",
+      dias_disponiveis: "1",
+      duracao_disponivel: "60-90 min",
+      local: "Espaço de treino",
+      historico_clinico: "Já tive tendinite, e contraturas, nada grave.",
+      medicamentos: "Slinda",
+      condicoes_cronicas: "Nenhuma",
+      historico_esportivo: "CrossFit por 4 anos, movimento, handstand, circo, Yoga.",
+      treino_atual: "Yoga 6x 2horas, crossfit 1x 1 hora, Handstand 1x 1 hora.",
+      pullups: "Ainda não faz",
+      pushups: "6 a 15 no chão",
+      cardio: "Avançado (ótimo fôlego)",
+      pilares: [
+        "Definição Muscular / Composição Corporal",
+        "Ganho de Força e Massa Magra",
+        "Habilidades Calistênicas e Ginástica (Handstand, Muscle-Up)",
+        "Reabilitação e Alívio de Dores Articulares",
+        "Mobilidade e Flexibilidade"
+      ],
+      contexto_metas: "Nesse ciclo seria voltar minha força, definição muscular, aumentar meu equilíbrio na Handstand e fazer barra.",
+      algo_mais: "Sinto que meu braço esquerdo é mais fraco que o direito.",
+      timestamp: "2026-10-18T14:30:00.000Z"
+    };
+
     async function checkIntakeGate() {
       let isCompleted = localStorage.getItem('dominio_daniela_assessment_completed') === 'true';
       if (!isCompleted && window.DominioDB && typeof window.DominioDB.carregarAvaliacao === 'function') {
@@ -13228,6 +13272,13 @@
             if (typeof updateAssessmentHistoryUI === 'function') updateAssessmentHistoryUI();
           }
         } catch (e) {}
+      }
+      if (!isCompleted && typeof DEFAULT_STUDENT_INTAKE !== 'undefined') {
+        localStorage.setItem('dominio_daniela_student_intake', JSON.stringify(DEFAULT_STUDENT_INTAKE));
+        localStorage.setItem('dominio_daniela_assessment_completed', 'true');
+        isCompleted = true;
+        syncAthleteMetricsFromIntake();
+        if (typeof updateAssessmentHistoryUI === 'function') updateAssessmentHistoryUI();
       }
       const modal = document.getElementById('intakeGateModal');
       if (!isCompleted) {
@@ -13386,7 +13437,7 @@
           statusEl.style.borderColor = 'rgba(0, 255, 136, 0.3)';
         }
         if (subEl) {
-          subEl.innerHTML = 'Respondida em: <strong style="color: #cbd5e1;">08/10/2026</strong> • Identificação, Saúde e Metas';
+          subEl.innerHTML = 'Respondida em: <strong style="color: #cbd5e1;">18/10/2026</strong> • Identificação, Saúde e Metas';
         }
         if (actionEl) actionEl.textContent = 'Ver Respostas';
         card.onclick = () => openReadOnlyAssessment('inicial');
@@ -13431,6 +13482,16 @@
           } catch (cloudErr) {
             console.warn('[DominioDB] Falha ao buscar avaliação da nuvem:', cloudErr);
           }
+        }
+
+        if (!data && typeof DEFAULT_STUDENT_INTAKE !== 'undefined') {
+          data = DEFAULT_STUDENT_INTAKE;
+          localStorage.setItem('dominio_daniela_student_intake', JSON.stringify(data));
+          localStorage.setItem('dominio_daniela_assessment_completed', 'true');
+          if (typeof updateAssessmentHistoryUI === 'function') updateAssessmentHistoryUI();
+          if (typeof updateDedicatedTopBarGate === 'function') updateDedicatedTopBarGate(true);
+          const gateBanner = document.getElementById('assessmentGateBanner');
+          if (gateBanner) gateBanner.style.display = 'none';
         }
 
         if (!data) return;
