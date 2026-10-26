@@ -1,19 +1,29 @@
 # Planejamento Semanal de Treino: Gui
-**Semana Atual:** 05/10/2026 a 11/10/2026  
-**Status Atual:** Terça-feira (06/10/2026) — ⚡ Box CrossFit Concluído à Tarde ✅ + 🤸 Sessão de 1h de Ginástica no Ginásio EEFERP (17h–18h | BMU, Handstand Linha & Descompressão). *(Sessão com amiga cancelada por mudança de planos).*
+**Semana Atual:** 26/10/2026 a 30/10/2026  
+**Status Atual:** Segunda-feira (26/10/2026) — ⚡ Box CrossFit (Warm up 2 rounds + Complex LPO 6 rounds a cada 1'45" + WOD For Time 18' Thrusters 10 a 1, T2B, Push-ups, V-ups).
 
 ---
 
-## Estrutura Atualizada do Microciclo (05/10 a 11/10/2026)
+## Estrutura Atualizada do Microciclo (26/10 a 30/10/2026)
 
-* **Segunda (05/10 - Concluído):** Box CrossFit (EMOM 12' Butterfly/Strict + Triplo AMRAP Wall Ball / DB Snatch / Clean & Jerk / Thrusters) + Descompressão.
-* **Terça (06/10 - HOJE, Concluído ✅):** 
-  * **Sessão Realizada:** Box CrossFit (Warm-up + Skill 120 reps empurrar: Supino 60kg, Push-ups, Z-Press 15kg @ autoregulação + WOD 20' com 30kg: Abmat sit-ups, 80 Box Jump Overs com step-down, Power Snatches e Thrusters).
-  * **Noite (Decisão Estratégica):** Descanso / Regeneração Ativa (cortisol baixo, restauração glicogênica do SNC, videogame e aperfeiçoamento do app). Volume e intensidade preservados para a sessão nobre de quarta-feira.
-* **Quarta (07/10 - AMANHÃ, 17h às 19h):** Ginásio EEFERP (2h) — **Estrutura Completa de Ginástica Artística/Acrobática** (Ativação articular/core + Habilidades Handstand/Manjota/Press/Croc + Força Estrita HSPU & Tuck Front Lever Row + EMOM 12' Condicionamento + Mobilidade e Recuperação final).
-* **Quinta (08/10):** Dança Contemporânea na EEFERP + 1h Ginásio (Aperfeiçoamento de *Floorwork*/Giros no tatame ou Natação regenerativa soltura).
-* **Sexta (09/10):** Portagem de Força com Amigo (volante ~63 kg, bases em alinhamento de *bone stacking*) + 1h Ginástica no Ginásio (Argolas: RTO Support, RMU, Candle Kip, Felge to support) + **ZERO TREINO DE PERNAS** (Blindagem total para a viagem ao festival no fim de semana).
-* **Sábado e Domingo (10/10 e 11/10):** Viagem / Festival — Muitas horas em pé (membros inferiores e menisco 100% preservados pelo descanso de sexta).
+* **Segunda (26/10 - HOJE):** Box CrossFit — **Complex LPO e WOD 10 a 1** (Warm up 2 rounds + Skill a cada 1'45" Complex Squat Clean / Hang Squat Clean / Push Jerk / Hang Clean + WOD For Time 18' Thruster regressivo 10 a 1 + 8 T2B + 8 Push-up + 8 V-up).
+* **Terça (27/10):** Box CrossFit — LPO e Força (Agachamento / Empurrar).
+* **Quarta (28/10):** Ginásio EEFERP — Ginástica Artística, Argolas e Handstand.
+* **Quinta (29/10):** Dança Contemporânea e Floorwork / Box CrossFit.
+* **Sexta (30/10):** Portagem de Força e Condicionamento.
+
+---
+
+# Histórico Arquivado: Semana Anterior (12/10/2026 a 16/10/2026)
+
+* **Terça (13/10 - Concluído ✅):** Box CrossFit (Back Squats 80kg, DB Reverse Lunges 15kg, Barbell Rows + WOD 5x AMRAP 2' DU, T2B, Box Jump Overs step-down, Wallballs 20lb).
+* **Quarta (14/10 - Concluído ✅):** Ginásio EEFERP (2h) — Ativação, Handstand Manjota, Press HS, HSPU e EMOM 12' Condicionamento.
+* **Quinta (15/10 - Concluído ✅):** Box CrossFit — Condicionamento e Floorwork (Time Cap 35').
+* **Sexta (16/10 - Concluído ✅):** Box CrossFit — Bench Press Skill (4 rounds @ 2'30") + WOD EMOM 15' + Tríade Fortalecimento (Candlestick com salto, Panturrilha degrau, Tibial anterior parede, Handstand shrugs). Registro com PSE e Supabase.
+
+---
+
+# Histórico Arquivado: Semana (05/10/2026 a 11/10/2026)
 
 ---
 

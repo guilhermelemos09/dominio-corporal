@@ -20,10 +20,64 @@
   {
     "data": "2026-10-07",
     "dia": "Quarta",
-    "treino": "Ginásio EEFERP • Ginástica Artística, Manjota & EMOM 12'",
+    "treino": "Ginásio EEFERP • Ginástica Artística, Manjota e EMOM 12'",
     "series_concluidas": 14,
     "total_series": 14,
     "aderencia_pct": 100,
     "notas": "Handstand na manjota alinhado; HSPU em tripé; EMOM 12' com KB Swings preservando o joelho"
+  },
+  {
+    "data": "2026-10-08",
+    "dia": "Quinta",
+    "treino": "Dança Contemporânea e Floorwork na EEFERP",
+    "series_concluidas": 10,
+    "total_series": 10,
+    "aderencia_pct": 100,
+    "notas": "Transições no solo, giros em monobloco e blindagem articular"
+  },
+  {
+    "data": "2026-10-09",
+    "dia": "Sexta",
+    "treino": "Portagem de Força e Argolas Altas (EEFERP)",
+    "series_concluidas": 12,
+    "total_series": 12,
+    "aderencia_pct": 100,
+    "notas": "Portagem com base em alinhamento articular e complex gímnico nas argolas"
+  },
+  {
+    "data": "2026-10-13",
+    "dia": "Terca",
+    "treino": "Box CrossFit • LPO (Back Squat 80kg, Lunges 15kg, AMRAPs DU/T2B/Wallballs)",
+    "series_concluidas": 14,
+    "total_series": 14,
+    "aderencia_pct": 100,
+    "notas": "Squat 80kg e complex LPO finalizados com joelho protegido"
+  },
+  {
+    "data": "2026-10-14",
+    "dia": "Quarta",
+    "treino": "Ginásio EEFERP • Ginástica Artística, Argolas, Manjota, Handstand, EMOM 12'",
+    "series_concluidas": 14,
+    "total_series": 14,
+    "aderencia_pct": 100,
+    "notas": "Handstand e alinhamento em manjota de alto nível"
+  },
+  {
+    "data": "2026-10-15",
+    "dia": "Quinta",
+    "treino": "Box CrossFit • Condicionamento e Floorwork (Time Cap 35')",
+    "series_concluidas": 12,
+    "total_series": 12,
+    "aderencia_pct": 100,
+    "notas": "Sessão aeróbica e transições com controle de impacto"
+  },
+  {
+    "data": "2026-10-16",
+    "dia": "Sexta",
+    "treino": "Box CrossFit • Bench Press Skill + WOD EMOM 15' + Tríade Fortalecimento",
+    "series_concluidas": 16,
+    "total_series": 16,
+    "aderencia_pct": 100,
+    "notas": "Sessão finalizada com sucesso e registrada na nuvem via Supabase com PSE (Candlesticks, Panturrilha degrau, Tibial parede, Shrugs)"
   }
 ]
