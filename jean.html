@@ -1230,6 +1230,50 @@
       line-height: 1.55;
     }
 
+    /* Escala Numérica de Percepção de Esforço (PSE 0 a 10) */
+    .pse-scale-grid {
+      display: grid;
+      grid-template-columns: repeat(11, 1fr);
+      gap: 5px;
+      margin-top: 6px;
+    }
+    .pse-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 9px;
+      padding: 9px 0;
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    .pse-btn:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-1px);
+    }
+    .pse-btn.active {
+      font-weight: 900;
+      color: #ffffff;
+      transform: scale(1.05);
+    }
+    @media (max-width: 480px) {
+      .pse-scale-grid {
+        gap: 3.5px;
+      }
+      .pse-btn {
+        padding: 7px 0;
+        font-size: 0.85rem;
+        border-radius: 7px;
+      }
+    }
+
     /* Coach Profile Button e Bio Modal */
     .coach-profile-btn {
       display: inline-flex;
@@ -4324,7 +4368,15 @@
         <div class="evol-app-btn-title">Composição Corporal</div>
       </div>
 
-      <!-- BOTÃO 2: PROGRESSÃO DE TÉCNICA (FERRAMENTAS CRUZADAS NEON AZUL) -->
+      <!-- BOTÃO 2: BIOMETRIA E PERFORMANCE (GRÁFICO ANALYTICS NEON ROXO) -->
+      <div class="evol-app-btn" onclick="openEvolucaoView('relatorio')">
+        <div class="evol-app-icon-wrap wrap-relatorio">
+          <img src="Midia/icon_evol_relatorio.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='../Midia/icon_evol_relatorio.png';}" alt="Biometria e Performance" class="evol-app-icon-img">
+        </div>
+        <div class="evol-app-btn-title">Biometria e Performance</div>
+      </div>
+
+      <!-- BOTÃO 3: PROGRESSÃO DE TÉCNICA (FERRAMENTAS CRUZADAS NEON AZUL) -->
       <div class="evol-app-btn" onclick="openEvolucaoView('tecnica')">
         <div class="evol-app-icon-wrap wrap-tecnica">
           <img src="Midia/icon_evol_tecnica.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='../Midia/icon_evol_tecnica.png';}" alt="Progressão de Técnica" class="evol-app-icon-img">
@@ -4332,20 +4384,12 @@
         <div class="evol-app-btn-title">Progressão de Técnica</div>
       </div>
 
-      <!-- BOTÃO 3: CENTRAL DE RECORDES (MUQUE / BÍCEPS NEON VERMELHO) -->
+      <!-- BOTÃO 4: CENTRAL DE RECORDES (MUQUE / BÍCEPS NEON VERMELHO) -->
       <div class="evol-app-btn" onclick="openEvolucaoView('recordes')">
         <div class="evol-app-icon-wrap wrap-recordes">
           <img src="Midia/icon_evol_recordes.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='../Midia/icon_evol_recordes.png';}" alt="Central de Recordes" class="evol-app-icon-img">
         </div>
         <div class="evol-app-btn-title">Central de Recordes</div>
-      </div>
-
-      <!-- BOTÃO 4: BIOMETRIA E PERFORMANCE (GRÁFICO ANALYTICS NEON ROXO) -->
-      <div class="evol-app-btn" onclick="openEvolucaoView('relatorio')">
-        <div class="evol-app-icon-wrap wrap-relatorio">
-          <img src="Midia/icon_evol_relatorio.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='../Midia/icon_evol_relatorio.png';}" alt="Biometria e Performance" class="evol-app-icon-img">
-        </div>
-        <div class="evol-app-btn-title">Biometria e Performance</div>
       </div>
 
     </div>
@@ -5581,17 +5625,17 @@
   </div>
 
   <!-- Modal de Instruções Contextuais do App -->
-      <!-- ==================== MODAL: REGISTRAR PSE E SMARTWATCH DO TREINO ==================== -->
+      <!-- ==================== MODAL: FINALIZAR TREINO E REGISTRAR ESFORÇO ==================== -->
   <div id="modalBiometriaSessao" class="modal-overlay" onclick="if(event.target === this) closeBiometriaSessaoModal();">
-    <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 530px;">
+    <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 500px;">
       <div class="modal-header">
         <div style="display:flex; align-items:center; gap:10px;">
-          <div style="width:36px; height:36px; border-radius:10px; background:rgba(192, 132, 252, 0.14); border:1px solid rgba(192, 132, 252, 0.35); display:flex; align-items:center; justify-content:center; font-size:1.25rem;">
-            <span>⌚</span>
+          <div style="width:36px; height:36px; border-radius:10px; background:rgba(0, 255, 136, 0.12); border:1px solid rgba(0, 255, 136, 0.35); display:flex; align-items:center; justify-content:center; font-size:1.2rem; color:var(--brand-neon);">
+            <span>✓</span>
           </div>
           <div>
-            <h3 style="margin:0; font-size:1.02rem; color:#fff;" id="bioModalHeaderTitle">Biometria e Esforço da Sessão</h3>
-            <span style="font-size:0.75rem; color:#c084fc; font-weight:600;" id="bioModalHeaderSub">PSE (Foster) e Cruzamento com Smartwatch</span>
+            <h3 style="margin:0; font-size:1.05rem; color:#fff;" id="bioModalHeaderTitle">Finalizar Treino</h3>
+            <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;" id="bioModalHeaderSub">Registro de Percepção e Biometria</span>
           </div>
         </div>
         <button class="btn-close" type="button" onclick="closeBiometriaSessaoModal()" aria-label="Fechar">&times;</button>
@@ -5617,189 +5661,148 @@
           </div>
         </div>
 
-        <!-- Escala de PSE (Foster 1 a 10) -->
-        <div class="comp-form-group" style="margin-top: 4px;">
+        <!-- Escala Numérica de Percepção de Esforço -->
+        <div class="comp-form-group" style="margin-top: 6px;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
-            <label class="comp-form-label" style="margin:0;">⚡ Percepção Subjetiva de Esforço (PSE 1 a 10) *</label>
-            <span id="bioPseSelectedBadge" style="font-size:0.72rem; font-weight:800; color:#f97316; background:rgba(249,115,22,0.14); border:1px solid rgba(249,115,22,0.35); padding:2px 8px; border-radius:8px;">PSE 7 • Muito Intenso</span>
+            <label class="comp-form-label" style="margin:0;">⚡ Percepção de Esforço</label>
+            <span id="bioPseSelectedBadge" style="font-size:0.72rem; font-weight:800; color:#f97316; background:rgba(249,115,22,0.14); border:1px solid rgba(249,115,22,0.35); padding:2px 8px; border-radius:8px;">Nível 7 • Muito Intenso</span>
           </div>
-          <div style="font-size:0.72rem; color:#94a3b8; margin-bottom:6px;">
-            Quão difícil foi a sessão de hoje para os seus músculos, articulações e fôlego?
+          <div style="font-size:0.75rem; color:#94a3b8; margin-bottom:8px;">
+            De 0 a 10, quão difícil foi o treino de hoje para você?
           </div>
           <input type="hidden" id="bio_session_pse" value="7">
           <div class="pse-scale-grid" id="bioPseButtonsGrid">
-            <button type="button" class="pse-btn" data-pse="1" onclick="selectBioPse(1)"><span class="pse-num">1</span><span class="pse-tag">M. Leve</span></button>
-            <button type="button" class="pse-btn" data-pse="2" onclick="selectBioPse(2)"><span class="pse-num">2</span><span class="pse-tag">Fácil</span></button>
-            <button type="button" class="pse-btn" data-pse="3" onclick="selectBioPse(3)"><span class="pse-num">3</span><span class="pse-tag">Moderado</span></button>
-            <button type="button" class="pse-btn" data-pse="4" onclick="selectBioPse(4)"><span class="pse-num">4</span><span class="pse-tag">Firme</span></button>
-            <button type="button" class="pse-btn" data-pse="5" onclick="selectBioPse(5)"><span class="pse-num">5</span><span class="pse-tag">Pesado</span></button>
-            <button type="button" class="pse-btn" data-pse="6" onclick="selectBioPse(6)"><span class="pse-num">6</span><span class="pse-tag">Forte</span></button>
-            <button type="button" class="pse-btn active" data-pse="7" onclick="selectBioPse(7)"><span class="pse-num">7</span><span class="pse-tag">M. Forte</span></button>
-            <button type="button" class="pse-btn" data-pse="8" onclick="selectBioPse(8)"><span class="pse-num">8</span><span class="pse-tag">Intenso</span></button>
-            <button type="button" class="pse-btn" data-pse="9" onclick="selectBioPse(9)"><span class="pse-num">9</span><span class="pse-tag">Extremo</span></button>
-            <button type="button" class="pse-btn" data-pse="10" onclick="selectBioPse(10)"><span class="pse-num">10</span><span class="pse-tag">Máximo</span></button>
+            <button type="button" class="pse-btn" data-pse="0" onclick="selectBioPse(0)"><span class="pse-num">0</span></button>
+            <button type="button" class="pse-btn" data-pse="1" onclick="selectBioPse(1)"><span class="pse-num">1</span></button>
+            <button type="button" class="pse-btn" data-pse="2" onclick="selectBioPse(2)"><span class="pse-num">2</span></button>
+            <button type="button" class="pse-btn" data-pse="3" onclick="selectBioPse(3)"><span class="pse-num">3</span></button>
+            <button type="button" class="pse-btn" data-pse="4" onclick="selectBioPse(4)"><span class="pse-num">4</span></button>
+            <button type="button" class="pse-btn" data-pse="5" onclick="selectBioPse(5)"><span class="pse-num">5</span></button>
+            <button type="button" class="pse-btn" data-pse="6" onclick="selectBioPse(6)"><span class="pse-num">6</span></button>
+            <button type="button" class="pse-btn active" data-pse="7" onclick="selectBioPse(7)"><span class="pse-num">7</span></button>
+            <button type="button" class="pse-btn" data-pse="8" onclick="selectBioPse(8)"><span class="pse-num">8</span></button>
+            <button type="button" class="pse-btn" data-pse="9" onclick="selectBioPse(9)"><span class="pse-num">9</span></button>
+            <button type="button" class="pse-btn" data-pse="10" onclick="selectBioPse(10)"><span class="pse-num">10</span></button>
           </div>
         </div>
 
-        <!-- Upload de Foto/Print da Tela do Smartwatch -->
-        <div class="comp-form-group" style="margin-top: 10px;">
-          <label class="comp-form-label">📷 Foto ou Print do Treino no Smartwatch (Opcional)</label>
-          <div class="watch-upload-zone" onclick="document.getElementById('bio_watch_photo_input').click()">
-            <input type="file" id="bio_watch_photo_input" accept="image/*" style="display:none;" onchange="handleSmartwatchPhotoUpload(this)">
-            <div id="bioWatchUploadPrompt">
-              <div style="font-size:1.35rem; margin-bottom:4px;">⌚📸</div>
-              <div style="font-size:0.8rem; font-weight:800; color:#38bdf8;">Toque para fotografar ou anexar print do Relógio</div>
-              <div style="font-size:0.7rem; color:#94a3b8; margin-top:2px;">Samsung Health, Apple Fitness, Garmin ou visor do Smartwatch (leitura automática de FC e kcal)</div>
+        <!-- Registro de Dados do Smartwatch (Opcional - Sem Envio de Print) -->
+        <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 12px 14px; margin-top: 14px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+            <div style="font-size: 0.78rem; font-weight: 800; color: #38bdf8; display: flex; align-items: center; gap: 6px;">
+              <span>⌚</span> <span>Dados do Smartwatch (Opcional)</span>
             </div>
-            <div id="bioWatchPreviewWrap" style="display:none; align-items:center; gap:12px; text-align:left;">
-              <img id="bioWatchPreviewImg" src="" alt="Preview Relógio" style="width:68px; height:68px; object-fit:cover; border-radius:10px; border:1px solid rgba(56,189,248,0.4);">
-              <div style="flex:1;">
-                <div style="font-size:0.78rem; font-weight:800; color:var(--brand-neon);" id="bioWatchOcrStatus">✓ Imagem do relógio carregada</div>
-                <div style="font-size:0.7rem; color:#cbd5e1; margin-top:2px;" id="bioWatchOcrSub">Verifique ou ajuste os campos abaixo caso necessário.</div>
-                <button type="button" onclick="event.stopPropagation(); clearSmartwatchPhoto();" style="margin-top:4px; background:rgba(244,63,94,0.15); border:1px solid rgba(244,63,94,0.35); color:#f43f5e; font-size:0.66rem; font-weight:700; padding:2px 8px; border-radius:6px; cursor:pointer;">Remover foto</button>
-              </div>
+            <span style="font-size:0.68rem; color:#94a3b8;">Se utilizou relógio</span>
+          </div>
+          <div style="font-size: 0.72rem; color: #94a3b8; margin-bottom: 10px;">
+            Anote abaixo os valores que o seu smartwatch ou monitor marcou na sessão:
+          </div>
+          <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:8px;">
+            <div class="comp-form-group" style="margin-bottom:0;">
+              <label class="comp-form-label" for="bio_watch_hr_avg" style="font-size:0.69rem;">❤️ FC Média (bpm)</label>
+              <input type="number" id="bio_watch_hr_avg" class="comp-form-input" placeholder="Ex: 135" min="50" max="220" oninput="recalcBiometriaModalPreview()">
+            </div>
+            <div class="comp-form-group" style="margin-bottom:0;">
+              <label class="comp-form-label" for="bio_watch_hr_max" style="font-size:0.69rem;">⚡ FC Máx (bpm)</label>
+              <input type="number" id="bio_watch_hr_max" class="comp-form-input" placeholder="Ex: 170" min="60" max="230" oninput="recalcBiometriaModalPreview()">
+            </div>
+            <div class="comp-form-group" style="margin-bottom:0;">
+              <label class="comp-form-label" for="bio_watch_kcal" style="font-size:0.69rem;">🔥 Calorias (kcal)</label>
+              <input type="number" id="bio_watch_kcal" class="comp-form-input" placeholder="Ex: 380" min="20" max="2500" oninput="recalcBiometriaModalPreview()">
             </div>
           </div>
         </div>
 
-        <!-- Campos do Smartwatch (Preenchidos pela Foto ou Manualmente) -->
-        <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:8px; margin-top:6px;">
-          <div class="comp-form-group" style="margin-bottom:6px;">
-            <label class="comp-form-label" for="bio_watch_hr_avg" style="font-size:0.7rem;">❤️ FC Média (bpm)</label>
-            <input type="number" id="bio_watch_hr_avg" class="comp-form-input" placeholder="Ex: 136" min="50" max="220" oninput="recalcBiometriaModalPreview()">
-          </div>
-          <div class="comp-form-group" style="margin-bottom:6px;">
-            <label class="comp-form-label" for="bio_watch_hr_max" style="font-size:0.7rem;">⚡ FC Pico (bpm)</label>
-            <input type="number" id="bio_watch_hr_max" class="comp-form-input" placeholder="Ex: 172" min="60" max="230" oninput="recalcBiometriaModalPreview()">
-          </div>
-          <div class="comp-form-group" style="margin-bottom:6px;">
-            <label class="comp-form-label" for="bio_watch_kcal" style="font-size:0.7rem;">🔥 Kcal Relógio</label>
-            <input type="number" id="bio_watch_kcal" class="comp-form-input" placeholder="Ex: 380" min="20" max="2500" oninput="recalcBiometriaModalPreview()">
-          </div>
-        </div>
-
-        <!-- Preview Instantâneo do Cruzamento Fisiológico -->
-        <div class="bio-live-calc-box" id="bioLiveCalcPreviewBox">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-            <span style="font-size:0.74rem; font-weight:800; color:#38bdf8; text-transform:uppercase; letter-spacing:0.03em;">🔬 Resultado do Cruzamento (App + Biometria)</span>
-            <span style="font-size:0.68rem; font-weight:700; color:#94a3b8;" id="bioLiveSetsInfo">Séries do dia integradas</span>
+        <!-- Preview Instantâneo com Botão Explicativo -->
+        <div class="bio-live-calc-box" id="bioLiveCalcPreviewBox" style="margin-top:14px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 12px 14px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; gap:8px; flex-wrap:wrap;">
+            <div style="display:flex; align-items:center; gap:6px;">
+              <span style="font-size:0.75rem; font-weight:800; color:#38bdf8; text-transform:uppercase; letter-spacing:0.03em;">📊 Carga e Estímulo Fisiológico</span>
+              <span style="font-size:0.68rem; font-weight:700; color:#94a3b8;" id="bioLiveSetsInfo">• Séries integradas</span>
+            </div>
+            <button type="button" class="btn-video" onclick="openInstrucoesBiometriaModal()" style="padding: 2.5px 8px; font-size: 0.68rem; margin: 0; background: #0e2238; border: 1px solid #38bdf8; color: #fff; border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px;">
+              <svg viewBox="0 0 24 24" style="width:11px; height:11px; fill:#38bdf8;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+              <span>Entenda o Cálculo</span>
+            </button>
           </div>
           <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:8px; text-align:center;">
-            <div style="background:rgba(255,255,255,0.03); border-radius:8px; padding:6px;">
-              <div style="font-size:0.66rem; color:#94a3b8;">Carga (sRPE)</div>
+            <div style="background:rgba(255,255,255,0.03); border-radius:8px; padding:8px 6px;">
+              <div style="font-size:0.66rem; color:#94a3b8;">Carga Interna</div>
               <div style="font-size:0.95rem; font-weight:900; color:#c084fc;" id="bioPreviewLoadUA">420 U.A.</div>
             </div>
-            <div style="background:rgba(255,255,255,0.03); border-radius:8px; padding:6px;">
-              <div style="font-size:0.66rem; color:#94a3b8;">Gasto Real + EPOC</div>
+            <div style="background:rgba(255,255,255,0.03); border-radius:8px; padding:8px 6px;">
+              <div style="font-size:0.66rem; color:#94a3b8;">Gasto Estimado</div>
               <div style="font-size:0.95rem; font-weight:900; color:var(--brand-neon);" id="bioPreviewRealKcal">485 kcal</div>
             </div>
-            <div style="background:rgba(255,255,255,0.03); border-radius:8px; padding:6px;">
-              <div style="font-size:0.66rem; color:#94a3b8;">TRIMP / VO2 Est.</div>
+            <div style="background:rgba(255,255,255,0.03); border-radius:8px; padding:8px 6px;">
+              <div style="font-size:0.66rem; color:#94a3b8;">Densidade / TRIMP</div>
               <div style="font-size:0.88rem; font-weight:900; color:#38bdf8;" id="bioPreviewTrimpVo2">Calculado</div>
             </div>
           </div>
-          <div style="font-size:0.71rem; color:#cbd5e1; margin-top:8px; line-height:1.4;" id="bioPreviewExplanation">
-            Inclui o custo mecânico anaeróbio das séries executadas e o consumo de oxigênio pós-treino (EPOC).
-          </div>
         </div>
 
-        <!-- Botões de Ação -->
-        <div style="display:flex; flex-direction:column; gap:8px; margin-top:16px;">
-          <button type="button" onclick="confirmAndSaveBiometriaSession(true)" style="background:var(--brand-neon); border:none; color:#000; font-size:0.84rem; font-weight:900; border-radius:10px; padding:12px 16px; cursor:pointer; box-shadow:0 0 16px var(--brand-neon-glow); display:flex; align-items:center; justify-content:center; gap:8px;">
+        <!-- Botão Único de Envio Oficial -->
+        <div style="margin-top:16px;">
+          <button type="button" onclick="confirmAndSaveBiometriaSession(true)" style="background:var(--brand-neon); border:none; color:#000; font-size:0.86rem; font-weight:900; border-radius:10px; padding:13px 18px; cursor:pointer; box-shadow:0 0 16px var(--brand-neon-glow); display:flex; align-items:center; justify-content:center; gap:8px; width:100%;">
             <svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:#000;"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
             <span>SALVAR E ENVIAR PARA COACH (WHATSAPP)</span>
           </button>
-          <div style="display:flex; gap:8px;">
-            <button type="button" onclick="confirmAndSaveBiometriaSession(false)" style="flex:1; background:rgba(56,189,248,0.14); border:1px solid rgba(56,189,248,0.4); color:#38bdf8; font-size:0.78rem; font-weight:800; border-radius:8px; padding:9px 12px; cursor:pointer;">
-              ✓ Apenas Salvar no App
-            </button>
-            <button type="button" onclick="closeBiometriaSessaoModal()" style="background:rgba(255,255,255,0.07); border:none; color:#94a3b8; font-size:0.78rem; font-weight:700; border-radius:8px; padding:9px 14px; cursor:pointer;">
-              Cancelar
-            </button>
-          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ==================== MODAL: GUIA DE INSTRUÇÕES DE BIOMETRIA E SMARTWATCH ==================== -->
+  <!-- ==================== MODAL: ENTENDA O CÁLCULO E BIOMETRIA ==================== -->
   <div id="modalInstrucoesBiometria" class="modal-overlay" onclick="if(event.target === this) closeInstrucoesBiometriaModal();">
-    <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 540px;">
+    <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 520px;">
       <div class="modal-header">
         <div style="display:flex; align-items:center; gap:10px;">
-          <div style="width:36px; height:36px; border-radius:10px; background:rgba(192,132,252,0.14); border:1px solid rgba(192,132,252,0.35); display:flex; align-items:center; justify-content:center; font-size:1.25rem;">
-            <span>📊</span>
+          <div style="width:36px; height:36px; border-radius:10px; background:rgba(56, 189, 248, 0.12); border:1px solid rgba(56, 189, 248, 0.35); display:flex; align-items:center; justify-content:center; font-size:1.2rem; color:#38bdf8;">
+            <span>💡</span>
           </div>
           <div>
-            <h3 style="margin:0; font-size:1.02rem; color:#fff;">Guia de Biometria e Performance</h3>
-            <span style="font-size:0.75rem; color:#c084fc; font-weight:600;">Ciência do Esforço (PSE) e Cruzamento com Smartwatch</span>
+            <h3 style="margin:0; font-size:1.02rem; color:#fff;">Entenda o Cálculo</h3>
+            <span style="font-size:0.75rem; color:#38bdf8; font-weight:600;">Como o App Calcula Sua Carga e Gasto Real</span>
           </div>
         </div>
         <button class="btn-close" type="button" onclick="closeInstrucoesBiometriaModal()" aria-label="Fechar">&times;</button>
       </div>
 
-      <div style="padding: 16px 20px; font-size:0.81rem; color:#cbd5e1; line-height:1.6; max-height:78vh; overflow-y:auto;">
-        <!-- Abas Internas do Guia -->
-        <div style="display:flex; gap:8px; margin-bottom:14px; border-bottom:1px solid var(--border-subtle); padding-bottom:10px;">
-          <button type="button" id="btnBioGuideTab-pse" class="help-tab-btn active" onclick="switchInstrucoesBiometriaTab('pse')">⚡ Métricas, PSE e Carga</button>
-          <button type="button" id="btnBioGuideTab-watch" class="help-tab-btn" onclick="switchInstrucoesBiometriaTab('watch')">⌚ Smartwatch e Foto</button>
+      <div style="padding: 16px 20px; font-size:0.83rem; color:#cbd5e1; line-height:1.6; max-height:78vh; overflow-y:auto;">
+        
+        <!-- Explicação para o Leigo -->
+        <div style="margin-bottom:14px; padding:12px 14px; background:rgba(192,132,252,0.07); border-left:3.5px solid #c084fc; border-radius:10px;">
+          <div style="font-weight:800; color:#fff; font-size:0.88rem; margin-bottom:4px;">1. Carga Interna (U.A.)</div>
+          Multiplicação da <strong>Duração do Treino (minutos)</strong> pela sua <strong>Nota de Esforço (0 a 10)</strong>. Por exemplo: 60 minutos com esforço 7 resultam em <strong>420 Unidades Arbitrárias (U.A.)</strong>. Ela indica quanto estresse biológico seu corpo acumulou, permitindo planejar os descansos ideais.
         </div>
 
-        <!-- ABA 1: MÉTRICAS, PSE E CARGA -->
-        <div id="bioGuidePane-pse" style="display:block;">
-          <div style="margin-bottom:12px; padding:11px 13px; background:rgba(249,115,22,0.07); border-left:3.5px solid #f97316; border-radius:8px;">
-            <strong style="color:#fff;">1. O que é a PSE (Escala de Esforço 1 a 10)?</strong><br>
-            A <strong>Percepção Subjetiva de Esforço (Método de Foster)</strong> mede como o seu sistema nervoso central, músculos e articulações sentiram o treino como um todo:<br>
-            • <strong>1 a 2 (Muito Leve):</strong> Mobilidade, soltura ou ativação sem fadiga.<br>
-            • <strong>3 a 4 (Moderado):</strong> Esforço confortável, domínio técnico limpo.<br>
-            • <strong>5 a 6 (Pesado):</strong> Desafiador, respiração profunda e fadiga muscular clara.<br>
-            • <strong>7 a 8 (Muito Intenso):</strong> Séries pesadas próximas do limite técnico ou metabólico forte.<br>
-            • <strong>9 a 10 (Exaustão Máxima):</strong> Esforço absoluto, limite máximo de força ou fôlego.
-          </div>
-
-          <div style="margin-bottom:12px; padding:11px 13px; background:rgba(192,132,252,0.07); border-left:3.5px solid #c084fc; border-radius:8px;">
-            <strong style="color:#fff;">2. Carga Interna em Unidades Arbitrárias (U.A.)</strong><br>
-            Calculada multiplicando a <strong>Duração do Treino (min) × PSE</strong>. Por exemplo: 60 minutos em PSE 7 geram <strong>420 U.A.</strong> Essa métrica permite monitorar o estresse biológico acumulado na semana e ajustar o volume antes que ocorra sobrecarga articular.
-          </div>
-
-          <div style="margin-bottom:12px; padding:11px 13px; background:rgba(0,255,136,0.06); border-left:3.5px solid var(--brand-neon); border-radius:8px;">
-            <strong style="color:#fff;">3. Gasto Calórico Real (Trabalho Mecânico + EPOC)</strong><br>
-            Relógios usam fórmulas de corrida baseadas apenas em batimentos e subestimam o treino de força e calistenia. O app corrige esse erro somando o <strong>custo mecânico anaeróbio das séries realizadas</strong> e o <strong>efeito EPOC</strong> (queima calórica pós-treino para restaurar reservas energéticas e tecido muscular).
-          </div>
-
-          <div style="padding:11px 13px; background:rgba(56,189,248,0.07); border-left:3.5px solid #38bdf8; border-radius:8px;">
-            <strong style="color:#fff;">4. Impulso Cardíaco (TRIMP), VO2 Estimado e Fadiga</strong><br>
-            • <strong>TRIMP de Banister:</strong> Mede a densidade cardiovascular ponderando o tempo e a reserva de frequência cardíaca utilizada.<br>
-            • <strong>VO2 Estimado:</strong> Avalia sua eficiência cardiorrespiratória operacional cruzando a resposta de pulso com a densidade do treino.<br>
-            • <strong>Detector de Fadiga:</strong> Se a sua PSE sobe muito para o mesmo volume de séries, o app sinaliza necessidade de recuperação autonômica e sono.
-          </div>
+        <div style="margin-bottom:14px; padding:12px 14px; background:rgba(0,255,136,0.06); border-left:3.5px solid var(--brand-neon); border-radius:10px;">
+          <div style="font-weight:800; color:#fff; font-size:0.88rem; margin-bottom:4px;">2. Gasto Calórico Real (Trabalho Mecânico + EPOC)</div>
+          Smartwatches calculam calorias baseando-se em corrida contínua e costumam subestimar o treino de força e calistenia. Nosso sistema calcula o trabalho mecânico real das séries que você executou e soma o <strong>efeito EPOC</strong> (calorias extras que seu corpo continua queimando nas horas seguintes para regenerar os tecidos).
         </div>
 
-        <!-- ABA 2: COMO USAR O SMARTWATCH E FOTO -->
-        <div id="bioGuidePane-watch" style="display:none;">
-          <div style="margin-bottom:12px; padding:11px 13px; background:rgba(56,189,248,0.07); border-left:3.5px solid #38bdf8; border-radius:8px;">
-            <strong style="color:#fff;">1. Por que enviar a Foto ou Print do Relógio?</strong><br>
-            Ao fotografar o visor do relógio (Samsung Watch, Apple Watch, Garmin, Polar, Amazfit) ou tirar print do resumo no aplicativo do celular (Samsung Health, Fitness, Strava), você integra seus batimentos cardíacos sem precisar parear Bluetooth ou configurar integrações complexas.
-          </div>
-
-          <div style="margin-bottom:12px; padding:11px 13px; background:rgba(0,255,136,0.06); border-left:3.5px solid var(--brand-neon); border-radius:8px;">
-            <strong style="color:#fff;">2. Qual tela fotografar ao fim do treino?</strong><br>
-            Encerre a sessão no seu relógio e abra a tela de resumo onde aparecem:<br>
-            • <strong>Tempo total de treino</strong><br>
-            • <strong>Frequência Cardíaca Média e Máxima (bpm)</strong><br>
-            • <strong>Calorias estimadas pelo relógio (kcal)</strong>
-          </div>
-
-          <div style="margin-bottom:12px; padding:11px 13px; background:rgba(192,132,252,0.07); border-left:3.5px solid #c084fc; border-radius:8px;">
-            <strong style="color:#fff;">3. Leitura Automática + Edição Livre</strong><br>
-            Ao anexar a foto no modal de finalização, o leitor inteligente identifica os números visíveis e preenche os campos automaticamente. Você também pode digitar ou ajustar qualquer valor manualmente em segundos.
-          </div>
-
-          <div style="padding:11px 13px; background:rgba(251,191,36,0.07); border-left:3.5px solid #fbbf24; border-radius:8px;">
-            <strong style="color:#fff;">4. Posso registrar mesmo quando treinar sem relógio?</strong><br>
-            <strong>Sim!</strong> Basta selecionar sua nota de <strong>PSE (1 a 10)</strong> e confirmar a duração. O app calculará normalmente sua Carga Interna (U.A.), estimativa calórica mecânica e estado de recuperação.
-          </div>
+        <div style="margin-bottom:14px; padding:12px 14px; background:rgba(56,189,248,0.07); border-left:3.5px solid #38bdf8; border-radius:10px;">
+          <div style="font-weight:800; color:#fff; font-size:0.88rem; margin-bottom:4px;">3. Densidade e Estresse Cardíaco (TRIMP)</div>
+          Quando você anota a frequência cardíaca média e máxima do seu relógio, o app calcula a densidade de pulso e o tempo passado em cada zona de esforço, garantindo que o seu coração evolua com total segurança e sem sobretreino.
         </div>
+
+        <!-- Accordion Retrátil da Base Científica (Padrão Ouro GEMINI.md) -->
+        <details class="modal-science-accordion" style="margin-top:16px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px 14px;">
+          <summary style="font-weight:800; color:#cbd5e1; cursor:pointer; outline:none; font-size:0.8rem; user-select:none;">
+            BASE CIENTÍFICA (REFERÊNCIAS)
+          </summary>
+          <div style="margin-top:10px; font-size:0.77rem; color:#94a3b8; line-height:1.55; display:flex; flex-direction:column; gap:8px;">
+            <div class="modal-science-block">
+              <strong class="modal-science-heading" style="color:#e2e8f0;">MÉTODO DE SESSÃO-RPE (sRPE):</strong> A multiplicação da duração em minutos pela percepção subjetiva de esforço (escala CR-10 modificada de Foster) é o padrão ouro na literatura esportiva para monitorar carga interna de treinamento, fadiga neuromuscular e risco de lesão (Foster et al., 2001).
+            </div>
+            <div class="modal-science-block">
+              <strong class="modal-science-heading" style="color:#e2e8f0;">CONSUMO EXCESSIVO DE OXIGÊNIO PÓS-EXERCÍCIO (EPOC):</strong> Exercícios de força de alta intensidade e calistenia causam perturbação metabólica profunda, mantendo a taxa de consumo de oxigênio elevada por horas após a sessão para ressíntese de glicogênio, remoção de metabólitos e restauração miocelular (Børsheim & Bahr, 2003).
+            </div>
+            <div class="modal-science-block">
+              <strong class="modal-science-heading" style="color:#e2e8f0;">IMPULSO DE TREINAMENTO (TRIMP):</strong> O cálculo ponderado pela frequência cardíaca de reserva quantifica a resposta cardiovascular em intensidades não-lineares, correlacionando-se diretamente com adaptações autonômicas do miocárdio (Banister, 1991).
+            </div>
+          </div>
+        </details>
 
         <button type="button" class="btn-submit-assessment" onclick="closeInstrucoesBiometriaModal()" style="margin: 16px 0 0 0; width: 100%;">
           <span>Entendi ➔</span>
@@ -6487,7 +6490,8 @@ Segue o vídeo anexo para sua análise!`;
     window._currentBioModalDayId = null;
 
     function getPseMeta(pseVal) {
-      const p = Number(pseVal) || 7;
+      const p = Number(pseVal);
+      if (isNaN(p) || p <= 0) return { label: 'Sem Esforço / Repouso', color: '#94a3b8', bg: 'rgba(148,163,184,0.14)', border: 'rgba(148,163,184,0.4)' };
       if (p <= 2) return { label: 'Muito Leve', color: '#38bdf8', bg: 'rgba(56,189,248,0.14)', border: 'rgba(56,189,248,0.4)' };
       if (p <= 4) return { label: 'Moderado', color: '#00ff88', bg: 'rgba(0,255,136,0.14)', border: 'rgba(0,255,136,0.4)' };
       if (p <= 6) return { label: 'Pesado', color: '#fbbf24', bg: 'rgba(251,191,36,0.14)', border: 'rgba(251,191,36,0.4)' };
@@ -6666,13 +6670,7 @@ Segue o vídeo anexo para sua análise!`;
       if (trimpVo2El) trimpVo2El.textContent = `${calc.trimp} pts • VO2 ${calc.vo2Est}`;
 
       const expEl = document.getElementById('bioPreviewExplanation');
-      if (expEl) {
-        if (calc.watchKcal) {
-          expEl.innerHTML = `⌚ Relógio marcou <strong>${calc.watchKcal} kcal</strong>. Cruzando com as séries de força e PSE ${calc.pse}, o gasto real com trabalho mecânico e EPOC é de <strong style="color:var(--brand-neon);">${calc.realKcal} kcal (+${calc.deltaKcal} kcal)</strong> • ${calc.zoneLabel}.`;
-        } else {
-          expEl.innerHTML = `⚡ Gasto calculado via trabalho mecânico das séries + PSE ${calc.pse} + efeito EPOC pós-treino (<strong>+${calc.epocKcal} kcal</strong> nas horas seguintes).`;
-        }
-      }
+      if (expEl) expEl.innerHTML = '';
     };
 
     window.openBiometriaSessaoModal = function(dayId) {
@@ -10868,4 +10866,5 @@ window.openWelcomeAppModal = function(notifId = null) {
     </div>
   </div>
 </body>
-</html>
+</html>  if (typeof renderBiometriaPerformanceUI === 'function') renderBiometriaPerformanceUI();
+        
