@@ -7612,11 +7612,8 @@
 
         <!-- Preview Instantâneo com Botão Explicativo -->
         <div class="bio-live-calc-box" id="bioLiveCalcPreviewBox" style="margin-top:14px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 12px 14px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; gap:8px; flex-wrap:wrap;">
-            <div style="display:flex; align-items:center; gap:6px;">
-              <span style="font-size:0.75rem; font-weight:800; color:#38bdf8; text-transform:uppercase; letter-spacing:0.03em;">📊 Carga e Estímulo Fisiológico</span>
-              <span style="font-size:0.68rem; font-weight:700; color:#94a3b8;" id="bioLiveSetsInfo">• Séries integradas</span>
-            </div>
+          <div style="margin-bottom:10px;">
+            <span style="font-size:0.75rem; font-weight:800; color:#38bdf8; text-transform:uppercase; letter-spacing:0.04em;">📊 ESTÍMULO FISIOLÓGICO</span>
           </div>
           <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:8px; text-align:center;">
             <div style="background:rgba(255,255,255,0.03); border-radius:8px; padding:8px 6px;">
@@ -7639,9 +7636,9 @@
               <span>Entenda o Cálculo</span>
             </button>
           </div>
-          <!-- Link clicável para a página de evolução -->
+          <!-- Link clicável sucinto para biometria e performance -->
           <div style="margin-top:10px; padding-top:8px; border-top:1px solid rgba(255,255,255,0.06); text-align:center; font-size:0.72rem; color:#94a3b8; line-height:1.45;">
-            📊 O relatório completo pode ser gerado na página <a href="javascript:void(0)" onclick="goToBiometriaPerformanceView()" style="color:#38bdf8; text-decoration:underline; font-weight:700;">Biometria e Performance ↗</a> que está na parte <strong style="color:var(--brand-neon);">Evolução</strong>.
+            📊 Relatório completo em <a href="javascript:void(0)" onclick="goToBiometriaPerformanceView()" style="color:#38bdf8; text-decoration:underline; font-weight:700;">Biometria e Performance ↗</a>
           </div>
         </div>
 
@@ -7686,8 +7683,13 @@
         </div>
 
         <div style="margin-bottom:14px; padding:12px 14px; background:rgba(56,189,248,0.07); border-left:3.5px solid #38bdf8; border-radius:10px;">
-          <div style="font-weight:800; color:#fff; font-size:0.88rem; margin-bottom:4px;">3. Densidade e Estresse Cardíaco (TRIMP)</div>
-          Quando você anota a frequência cardíaca média e máxima do seu relógio, o app calcula a densidade de pulso e o tempo passado em cada zona de esforço, garantindo que o seu coração evolua com total segurança e sem sobretreino.
+          <div style="font-weight:800; color:#fff; font-size:0.88rem; margin-bottom:4px;">3. Impulso Cardíaco e TRIMP de Banister</div>
+          O <strong>TRIMP (Training Impulse)</strong> mede o estresse biológico real sofrido pelo coração. Diferente de uma média simples de batimentos, o esforço cardiovascular não é linear: treinar perto da sua frequência máxima desgasta o organismo de forma exponencial em relação a um trote leve. Pontuações entre <strong>50 e 120 pts</strong> sinalizam uma sessão produtiva de evolução, enquanto acima de <strong>150 pts</strong> indicam alto desgaste autonômico, pedindo sono reparador e hidratação.
+        </div>
+
+        <div style="margin-bottom:14px; padding:12px 14px; background:rgba(251,191,36,0.07); border-left:3.5px solid #fbbf24; border-radius:10px;">
+          <div style="font-weight:800; color:#fff; font-size:0.88rem; margin-bottom:4px;">4. Consumo de Oxigênio (VO2 Estimado)</div>
+          O app calcula a sua capacidade cardiorrespiratória em <strong>ml/kg/min</strong> a partir da razão entre sua frequência cardíaca máxima, em repouso e a intensidade sustentada na sessão. Essa métrica permite acompanhar a evolução do seu fôlego e potência metabólica ao longo das semanas.
         </div>
 
         <!-- Accordion Retrátil da Base Científica (Padrão Ouro GEMINI.md) -->
@@ -7703,7 +7705,10 @@
               <strong class="modal-science-heading" style="color:#e2e8f0;">CONSUMO EXCESSIVO DE OXIGÊNIO PÓS-EXERCÍCIO (EPOC):</strong> Exercícios de força de alta intensidade e calistenia causam perturbação metabólica profunda, mantendo a taxa de consumo de oxigênio elevada por horas após a sessão para ressíntese de glicogênio, remoção de metabólitos e restauração miocelular (Børsheim & Bahr, 2003).
             </div>
             <div class="modal-science-block">
-              <strong class="modal-science-heading" style="color:#e2e8f0;">IMPULSO DE TREINAMENTO (TRIMP):</strong> O cálculo ponderado pela frequência cardíaca de reserva quantifica a resposta cardiovascular em intensidades não-lineares, correlacionando-se diretamente com adaptações autonômicas do miocárdio (Banister, 1991).
+              <strong class="modal-science-heading" style="color:#e2e8f0;">IMPULSO DE TREINAMENTO (TRIMP DE BANISTER):</strong> A equação de Banister (1991) pondera a duração pelo percentual de reserva cardíaca multiplicado por um fator exponencial de lactato sanguíneo, refletindo o custo miocárdico e metabólico com alta sensibilidade fisiológica.
+            </div>
+            <div class="modal-science-block">
+              <strong class="modal-science-heading" style="color:#e2e8f0;">ESTIMATIVA INDIRETA DE VO2 (MÉTODO UTH-SØRENSEN):</strong> O cálculo de capacidade aeróbia operacional baseia-se na razão entre FC máxima e FC de repouso ($VO_{2\max} \approx 15.3 \times \text{FC}_{\max} / \text{FC}_{\text{rep}}$), com validação científica demonstrando correlação $r = 0.88$ contra testes laboratoriais ergoespirométricos diretos (Uth et al., 2004; Swain et al., 1994).
             </div>
           </div>
         </details>
@@ -8504,7 +8509,8 @@
 
     function calculateSessionPhysiology(params) {
       const durationMin = Math.max(5, Number(params.durationMin) || 60);
-      const pse = Math.max(1, Math.min(10, Number(params.pse) || 7));
+      const numPse = Number(params.pse);
+      const pse = isNaN(numPse) ? 7 : Math.max(0, Math.min(10, numPse));
       const doneSets = Math.max(0, Number(params.doneSets) || 0);
       const hrAvg = Number(params.hrAvg) > 40 ? Number(params.hrAvg) : 0;
       const hrMax = Number(params.hrMax) > 50 ? Number(params.hrMax) : 0;
@@ -8582,14 +8588,15 @@
     }
 
     window.selectBioPse = function(val) {
-      const p = Math.max(1, Math.min(10, Number(val) || 7));
+      const num = Number(val);
+      const p = isNaN(num) ? 7 : Math.max(0, Math.min(10, num));
       const input = document.getElementById('bio_session_pse');
       if (input) input.value = String(p);
 
       const meta = getPseMeta(p);
       const badge = document.getElementById('bioPseSelectedBadge');
       if (badge) {
-        badge.textContent = `PSE ${p} • ${meta.label}`;
+        badge.textContent = `Nível ${p} • ${meta.label}`;
         badge.style.color = meta.color;
         badge.style.background = meta.bg;
         badge.style.borderColor = meta.border;
