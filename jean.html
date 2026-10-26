@@ -4906,81 +4906,65 @@
     </div>
 
     <div id="evolView-relatorio" class="evolucao-view-pane" style="display:none;">
-      <div style="display:flex; align-items:center; justify-content:flex-start; margin-bottom:14px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
+
+      <!-- BARRA SUPERIOR PADRONIZADA: VOLTAR + REGISTRAR SESSÃO + GUIA TÉCNICO -->
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle); flex-wrap:wrap; gap:8px;">
         <button type="button" class="btn-back-workout" onclick="closeEvolucaoView()">
           ← Voltar para Evolução
         </button>
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <button type="button" class="btn-orientacoes-popup" onclick="openBiometriaSessaoModal()" style="background: rgba(0, 255, 136, 0.14); border-color: rgba(0, 255, 136, 0.4); color: var(--brand-neon); font-weight: 800;">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+            <span>+ REGISTRAR SESSÃO</span>
+          </button>
+          <button type="button" class="btn-orientacoes-popup" onclick="openInstrucoesBiometriaModal()">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            <span>GUIA DE BIOMETRIA</span>
+          </button>
+        </div>
       </div>
 
-      <!-- Hero Card de Apresentação (Mesmo Padrão da Composição Corporal) -->
-      <div class="evolucao-hero" style="margin-bottom:12px; position:relative; overflow:hidden;">
+      <!-- HERO CARD DE APRESENTAÇÃO (PADRÃO COMPOSIÇÃO CORPORAL) -->
+      <div class="evolucao-hero" style="margin-bottom:12px; position:relative; overflow:hidden; border-left: 4.5px solid #c084fc;">
         <div>
           <div class="evolucao-title">
             <span>📊 Biometria e Performance</span>
-            <span class="evolucao-badge-delta" id="evolAdherenceBadge">Ativo</span>
+            <span class="evolucao-badge-delta" id="evolAdherenceBadge" style="background: rgba(192, 132, 252, 0.15); color: #c084fc; border: 1px solid rgba(192, 132, 252, 0.35);">Semana Ativa</span>
           </div>
-          <p style="font-size:0.84rem; color:#cbd5e1; font-weight: 500; margin:8px 0 0; line-height: 1.55; max-width:540px;">
-            Cruzamento inteligente do volume mecânico do treino (séries e cargas) com a percepção subjetiva de esforço (PSE) e a biometria do smartwatch para cálculo real de gasto calórico, carga interna, VO2 estimado e recuperação.
+          <p style="font-size:0.84rem; color:#cbd5e1; font-weight: 500; margin:8px 0 0; line-height: 1.55; max-width:560px;">
+            Cruzamento do volume mecânico das séries com a percepção subjetiva de esforço (PSE) e monitoramento cardíaco para cálculo de carga interna, gasto real com EPOC e prontidão neuromuscular.
           </p>
         </div>
       </div>
 
-      <!-- Guias de Instruções de Apoio (Abaixo do Card de Introdução) -->
-      <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:14px;">
-        <button type="button" class="btn-orientacoes-popup" onclick="openInstrucoesBiometriaModal('pse')" title="Entenda a Escala de PSE, Carga Interna (sRPE), Monotonia e VO2">
-          <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-          <span>GUIA DE MÉTRICAS E PSE</span>
-        </button>
-        <button type="button" class="btn-orientacoes-popup" onclick="openInstrucoesBiometriaModal('watch')" title="Como usar a foto do Smartwatch para recalcular calorias e frequência cardíaca">
-          <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M20 12c0-2.54-1.19-4.81-3.04-6.27L16 0H8l-.95 5.73C5.19 7.19 4 9.45 4 12s1.19 4.81 3.05 6.27L8 24h8l.96-5.73C18.81 16.81 20 14.54 20 12zM6 12c0-3.31 2.69-6 6-6s6 2.69 6 6-2.69 6-6 6-6-2.69-6-6z"/></svg>
-          <span>GUIA DO SMARTWATCH</span>
-        </button>
+      <!-- CARD 1: RESUMO DO CICLO SEMANAL (LINHA COMPACTA PADRONIZADA - BORDA VERDE NEON 4.5px) -->
+      <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(0,255,136,0.25); border-left: 4.5px solid var(--brand-neon); border-radius: 12px; padding: 10px 14px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 8px; min-width: 150px;">
+          <span style="font-size: 1rem;">⚡</span>
+          <span style="font-size: 0.85rem; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">SEMANA ATIVA</span>
+          <span style="font-size: 0.68rem; font-weight: 700; color: var(--brand-neon); background: rgba(0,255,136,0.12); border: 1px solid rgba(0,255,136,0.3); padding: 2px 6px; border-radius: 6px;">Ciclo Vigente</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap; font-size: 0.82rem;">
+          <div><span style="color: #94a3b8; font-size: 0.72rem;">Dias:</span> <strong id="evolDaysDoneCount" style="color: var(--brand-neon);">0 / 5</strong></div>
+          <div><span style="color: #94a3b8; font-size: 0.72rem;">Séries:</span> <strong id="evolSetsDoneCount" style="color: #38bdf8;">0</strong></div>
+          <div><span style="color: #94a3b8; font-size: 0.72rem;">Carga:</span> <strong id="evolWeeklyLoadUA" style="color: #c084fc;">0 U.A.</strong></div>
+          <div><span style="color: #94a3b8; font-size: 0.72rem;">PSE Média:</span> <strong id="evolAvgPSE" style="color: #fbbf24;">-- / 10</strong></div>
+        </div>
       </div>
 
-      <!-- BOTÃO BANNER DE REGISTRAR BIOMETRIA / SMARTWATCH -->
-      <button type="button" class="analysis-upload-banner" onclick="openBiometriaSessaoModal()" style="margin-top: 0; margin-bottom: 16px; background: linear-gradient(135deg, #0284c7 0%, var(--brand-neon) 100%); color: #000; font-weight: 900; box-shadow: 0 4px 16px rgba(0, 255, 136, 0.28);">
-        <span style="font-size: 1.15rem; font-weight: 900;">+</span>
-        <span>REGISTRAR PSE E SMARTWATCH DO TREINO</span>
-      </button>
-
-      <!-- BLOCO 1: CONSISTÊNCIA E CARGA INTERNA SEMANAL (MÉTODO FOSTER) -->
-      <div class="comparison-card" style="margin-top:10px; border-left:3.5px solid var(--brand-neon);">
-        <div class="comparison-card-header">
-          <div class="comparison-card-title">⚡ Consistência e Carga Interna (sRPE de Foster)</div>
-          <span style="font-size:0.72rem; color:var(--brand-neon); font-weight:800;">CARGA EXTERNA E SUBJETIVA</span>
-        </div>
-        <p style="font-size:0.78rem; color:var(--text-muted); margin-bottom:10px;">
-          Quantificação do volume executado somada ao estresse neuromuscular percebido na semana:
-        </p>
-        <div class="metrics-summary-grid" style="grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 6px;">
-          <div class="metric-summary-card">
-            <div class="metric-value" id="evolDaysDoneCount" style="color:var(--brand-neon);">0 / 5</div>
-            <div class="metric-label">Dias Concluídos (Semana)</div>
+      <!-- CARD 2: FISIOLOGIA INTEGRADA E BIOMARCADORES (PADRÃO COMPARATIVO - BORDA ROXO 4.5px) -->
+      <div class="comp-standard-card" id="bioCrossMetricsCard" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(192,132,252,0.25); border-left: 4.5px solid #c084fc; border-radius: 14px; padding: 14px 16px; margin-bottom: 14px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 12px; flex-wrap:wrap; gap:8px;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:1.15rem;">🔬</span>
+            <div style="font-size:0.92rem; font-weight:800; color:#ffffff; letter-spacing:0.02em;">FISIOLOGIA INTEGRADA (APP E SMARTWATCH)</div>
           </div>
-          <div class="metric-summary-card">
-            <div class="metric-value" id="evolSetsDoneCount" style="color:#38bdf8;">0</div>
-            <div class="metric-label">Séries Realizadas</div>
-          </div>
-          <div class="metric-summary-card">
-            <div class="metric-value" id="evolWeeklyLoadUA" style="color:#c084fc;">0 U.A.</div>
-            <div class="metric-label">Carga Semanal (Duração × PSE)</div>
-          </div>
-          <div class="metric-summary-card">
-            <div class="metric-value" id="evolAvgPSE" style="color:#fbbf24;">-- / 10</div>
-            <div class="metric-label">PSE Média Reportada</div>
+          <div style="display:flex; gap:6px; flex-wrap:wrap;">
+            <span style="font-size:0.72rem; font-weight:700; color:#c084fc; background:rgba(192,132,252,0.12); border:1px solid rgba(192,132,252,0.3); padding:3px 8px; border-radius:8px;" id="bioCrossBadge">Modelo Bioenergético</span>
           </div>
         </div>
-        <div style="display:none;"><span id="evolVolumeRate">100%</span></div>
-      </div>
-
-      <!-- BLOCO 2: CRUZAMENTO APP + SMARTWATCH (FISIOLOGIA E GASTO REAL) -->
-      <div class="comparison-card" id="bioCrossMetricsCard" style="margin-top:14px; border-left:3.5px solid #c084fc;">
-        <div class="comparison-card-header">
-          <div class="comparison-card-title">⌚ Fisiologia Integrada: App + Smartwatch</div>
-          <span style="font-size:0.72rem; color:#c084fc; font-weight:800;" id="bioCrossBadge">MODELO BIOENERGÉTICO</span>
-        </div>
-        <p style="font-size:0.78rem; color:var(--text-muted); margin-bottom:10px;">
-          Correção biomecânica do gasto calórico (incluindo trabalho anaeróbio de força e efeito EPOC pós-treino) e resposta autonômica cardíaca:
+        <p style="font-size:0.78rem; color:#94a3b8; margin:0 0 12px 0; line-height:1.45;">
+          Trabalho mecânico real somado ao efeito EPOC pós-treino e resposta autonômica da frequência cardíaca:
         </p>
 
         <div class="bio-cross-grid">
@@ -4995,7 +4979,7 @@
           <div class="bio-cross-item" style="border-left: 3px solid #f43f5e;">
             <div style="font-size:0.72rem; color:#94a3b8; font-weight:700; text-transform:uppercase;">❤️ FC Média e Pico</div>
             <div style="font-size:1.22rem; font-weight:900; color:#ffffff; margin:4px 0 2px;" id="bioHeartRateSummary">-- / -- bpm</div>
-            <div style="font-size:0.71rem; color:#f43f5e; font-weight:600;" id="bioHeartZoneLabel">Anexe foto ou insira FC do relógio</div>
+            <div style="font-size:0.71rem; color:#f43f5e; font-weight:600;" id="bioHeartZoneLabel">Insira FC do relógio ao finalizar</div>
           </div>
 
           <!-- Item 3: TRIMP e VO2 Estimado -->
@@ -5009,34 +4993,40 @@
           <div class="bio-cross-item" style="border-left: 3px solid #fbbf24;">
             <div style="font-size:0.72rem; color:#94a3b8; font-weight:700; text-transform:uppercase;">🛡️ Estado de Recuperação</div>
             <div style="font-size:1.12rem; font-weight:900; color:#ffffff; margin:4px 0 2px;" id="bioStrainStatusVal">Prontidão Ideal</div>
-            <div style="font-size:0.71rem; color:#fbbf24; font-weight:600;" id="bioStrainSubLabel">Relação Carga × Esforço</div>
+            <div style="font-size:0.71rem; color:#fbbf24; font-weight:600;" id="bioStrainSubLabel">Relação Carga e Esforço</div>
           </div>
         </div>
 
         <div id="bioDiagnosisBanner" style="margin-top:12px; padding:10px 12px; background:rgba(192,132,252,0.08); border:1px solid rgba(192,132,252,0.25); border-radius:10px; font-size:0.78rem; line-height:1.5; color:#e2e8f0;">
-          🔬 <strong>Diagnóstico Fisiológico:</strong> Ao finalizar cada treino (ou clicando no botão acima), selecione sua nota de PSE (0 a 10) e anexe a foto do resumo do seu Smartwatch para cruzar o volume de força com a resposta cardíaca.
+          🔬 <strong>Diagnóstico Fisiológico:</strong> Ao finalizar cada treino, informe sua nota de esforço (0 a 10) e anote os dados do smartwatch para cruzar o volume mecânico com a resposta cardíaca.
         </div>
       </div>
 
-      <!-- BLOCO 3: HISTÓRICO DE SESSÕES E LEITURAS DO SMARTWATCH -->
-      <div class="comparison-card" style="margin-top:14px; border-left:3.5px solid #fbbf24;">
-        <div class="comparison-card-header">
-          <div class="comparison-card-title">📋 Histórico de Sessões, PSE e Smartwatch</div>
-          <span style="font-size:0.72rem; color:#fbbf24; font-weight:800;" id="bioLogsCountBadge">0 SESSÕES</span>
+      <!-- CARD 3: HISTÓRICO DE SESSÕES (PADRÃO COMPOSIÇÃO - BORDA AMARELA 4.5px) -->
+      <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(251,191,36,0.25); border-left: 4.5px solid #fbbf24; border-radius: 14px; padding: 14px 16px; margin-bottom: 14px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 10px; flex-wrap:wrap; gap:8px;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:1.15rem;">📋</span>
+            <div style="font-size:0.92rem; font-weight:800; color:#ffffff; letter-spacing:0.02em;">HISTÓRICO DE SESSÕES E BIOMETRIA</div>
+          </div>
+          <span style="font-size:0.72rem; font-weight:800; color:#fbbf24; background:rgba(251,191,36,0.12); border:1px solid rgba(251,191,36,0.3); padding:3px 8px; border-radius:8px;" id="bioLogsCountBadge">0 SESSÕES</span>
         </div>
         <div id="bioSessionsHistoryList" style="display:flex; flex-direction:column; gap:10px; margin-top:8px;">
           <!-- Preenchido dinamicamente por renderBiometriaPerformanceUI() -->
         </div>
       </div>
 
-      <!-- Equilíbrio de Ações Motoras (Balanço Biomecânico) -->
-      <div class="comparison-card" style="margin-top:14px; border-left:3.5px solid #38bdf8;">
-        <div class="comparison-card-header">
-          <div class="comparison-card-title">⚖️ Equilíbrio das Ações Motoras (Puxar • Empurrar • Core • Pernas • Cardio)</div>
-          <span style="font-size:0.72rem; color:#38bdf8; font-weight:800;">PRESERVAÇÃO ARTICULAR</span>
+      <!-- CARD 4: EQUILÍBRIO DAS AÇÕES MOTORAS (PADRÃO COMPOSIÇÃO - BORDA CIANO 4.5px) -->
+      <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(56,189,248,0.25); border-left: 4.5px solid #38bdf8; border-radius: 14px; padding: 14px 16px; margin-bottom: 16px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 10px; flex-wrap:wrap; gap:8px;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:1.15rem;">⚖️</span>
+            <div style="font-size:0.92rem; font-weight:800; color:#ffffff; letter-spacing:0.02em;">DISTRIBUIÇÃO DAS AÇÕES MOTORAS</div>
+          </div>
+          <span style="font-size:0.72rem; font-weight:800; color:#38bdf8; background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.3); padding:3px 8px; border-radius:8px;">Preservação Articular</span>
         </div>
-        <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:12px;">
-          Distribuição proporcional de volume mecânico para blindar ombros, cotovelos e joelho esquerdo:
+        <p style="font-size:0.78rem; color:#94a3b8; margin:0 0 12px 0; line-height:1.45;">
+          Balanço neuromuscular entre puxar, empurrar, core, pernas e condicionamento para proteção articular contínua:
         </p>
         
         <div style="display:flex; flex-direction:column; gap:10px;">
@@ -5092,9 +5082,16 @@
         </div>
 
         <div style="margin-top:14px; padding:10px 12px; background:rgba(56,189,248,0.06); border:1px solid rgba(56,189,248,0.2); border-radius:10px; font-size:0.78rem; line-height:1.5; color:#cbd5e1;">
-          💡 <strong>Diagnóstico do Treinador:</strong> Balanço agonista/antagonista estruturado para estabilidade escapular, controle motor e proteção articular progressiva nas sessões do Jean.
+          💡 <strong>Diagnóstico do Treinador:</strong> Balanço agonista e antagonista estruturado para estabilidade escapular, fortalecimento lombo-pélvico e proteção articular progressiva.
         </div>
       </div>
+
+      <!-- BOTÃO NOBRE GERAR RELATÓRIO BIOMÉTRICO (ROXO BIOMETRIA E PERFORMANCE) -->
+      <button type="button" onclick="openBiometriaReportWhatsApp()" style="margin-top: 14px; margin-bottom: 24px; width: 100%; background: linear-gradient(135deg, #a855f7 0%, #9333ea 50%, #7e22ce 100%); color: #ffffff; font-size: 0.98rem; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; padding: 16px 20px; border: none; border-radius: 14px; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer; box-shadow: 0 4px 20px rgba(168, 85, 247, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.25); transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);">
+        <svg viewBox="0 0 24 24" style="width:20px; height:20px; fill:currentColor;"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+        <span>GERAR LAUDO DE BIOMETRIA E PERFORMANCE</span>
+      </button>
+
     </div>
 
     <!-- Ajuda Contextual da Página de Evolução -->
@@ -7151,7 +7148,67 @@ Segue o vídeo anexo para sua análise!`;
       }
     };
 
-    function updateEvolucaoStats() {
+    window.openBiometriaReportWhatsApp = function() {
+      const studentName = document.getElementById('athleteProfileName')?.textContent?.trim() || 'Atleta';
+      let logs = [];
+      try {
+        const studentSlug = (window.location.pathname.split('/').pop().replace('.html','') || '').toLowerCase();
+        const possibleKeys = [
+          `dominio_${studentSlug}_workout_logs`,
+          `dominio_${studentSlug}_dominio_workout_logs`,
+          'dominio_daniela_workout_logs',
+          'dominio_gustavo_workout_logs',
+          'dominio_helenice_dominio_workout_logs',
+          'dominio_jean_workout_logs',
+          'dominio_aluno_workout_logs',
+          'dominio_workout_logs'
+        ];
+        for (const k of possibleKeys) {
+          const raw = localStorage.getItem(k);
+          if (raw) {
+            logs = JSON.parse(raw);
+            if (Array.isArray(logs) && logs.length > 0) break;
+          }
+        }
+      } catch (e) {}
+
+      const daysDone = document.getElementById('evolDaysDoneCount')?.textContent || '0';
+      const setsDone = document.getElementById('evolSetsDoneCount')?.textContent || '0';
+      const loadUa = document.getElementById('evolWeeklyLoadUA')?.textContent || '0 U.A.';
+      const avgPse = document.getElementById('evolAvgPSE')?.textContent || '--';
+      const kcalReal = document.getElementById('bioRealKcalVal')?.textContent || '--';
+      const hrSum = document.getElementById('bioHeartRateSummary')?.textContent || '--';
+      const trimpVo2 = document.getElementById('bioTrimpAndVo2Val')?.textContent || '--';
+      const strain = document.getElementById('bioStrainStatusVal')?.textContent || '--';
+
+      let msg = `📊 *DOMÍNIO CORPORAL | BIOMETRIA E PERFORMANCE*\n`;
+      msg += `👤 *Atleta:* ${studentName}\n`;
+      msg += `📅 *Semana Ativa:*\n`;
+      msg += `• *Dias Concluídos:* ${daysDone}\n`;
+      msg += `• *Séries Totais:* ${setsDone}\n`;
+      msg += `• *Carga Semanal:* ${loadUa}\n`;
+      msg += `• *PSE Média:* ${avgPse}\n\n`;
+      msg += `⚡ *Fisiologia e Bioenergética:*\n`;
+      msg += `• *Gasto Calórico Total:* ${kcalReal}\n`;
+      msg += `• *Frequência Cardíaca:* ${hrSum}\n`;
+      msg += `• *Carga Interna:* ${trimpVo2}\n`;
+      msg += `• *Status Fisiológico:* ${strain}\n\n`;
+      if (logs.length > 0) {
+        msg += `📋 *Últimas Sessões Registradas (${logs.length}):*\n`;
+        logs.slice(-3).forEach(l => {
+          const dia = l.dia_nome || (l.dia ? l.dia.toUpperCase() : 'TREINO');
+          msg += `• ${dia} (${l.data || 'Recente'}): PSE ${l.pse || 7} | ${l.carga_ua || '--'} U.A. | ${l.duracao_min || 60} min\n`;
+        });
+        msg += `\n`;
+      }
+      msg += `*Prof. Gui Lemos*, confira meu painel de biometria e performance atualizado no aplicativo! 🚀`;
+
+      const phone = '5516981222356';
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
+    };
+
+function updateEvolucaoStats() {
       const completed = getCompletedWorkouts();
       const doneDays = Object.values(completed).filter(Boolean).length;
       const totalDaysCards = document.querySelectorAll('.training-day-card[id^="hubCard-"]').length || 5;
