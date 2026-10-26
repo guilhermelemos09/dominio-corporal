@@ -4913,9 +4913,10 @@
       <!-- Drawer Retrátil de Metas do Ciclo -->
       <div id="metasDrawer" class="metas-drawer" style="display: none;">
         <div class="metas-chips-list">
-          <span class="goal-chip-item">📋 Preenchimento da Ficha de Avaliação Inicial</span>
-          <span class="goal-chip-item">⚡ Domínio Postural e Padrões Fundamentais</span>
-          <span class="goal-chip-item">🛡️ Construção de Força e Longevidade</span>
+          <span class="goal-chip-item">🛡️ Automatização da Saída em Pirueta (Zero Medo de Queda)</span>
+          <span class="goal-chip-item">🤸 Consistência nos Chutes Grupado e Afastado</span>
+          <span class="goal-chip-item">🧱 Força e Compressão para Bent-Arm Press</span>
+          <span class="goal-chip-item">🚶‍♀️ Desbloqueio e Deslocamento no Handstand Walk</span>
         </div>
       </div>
     </div>
@@ -4949,49 +4950,17 @@
 
       <!-- Lista Vertical de Dias de Treino -->
       <div class="training-days-list" id="trainingDaysList">
-        <!-- TREINO A -->
-        <div class="training-day-card" id="dayCard-treinoa" data-workout-type="treino" data-target="6" onclick="openDayWorkout('treinoa')">
+        <!-- SESSÃO EXTRA AUTÔNOMA -->
+        <div class="training-day-card" id="dayCard-treinoa" data-workout-type="treino" data-target="4" onclick="openDayWorkout('treinoa')">
           <div class="day-card-left">
             <div class="day-card-name-row">
-              <span class="day-name">SEGUNDA | TREINO A</span>
+              <span class="day-name">SESSÃO EXTRA | HANDSTAND</span>
             </div>
-            <div class="day-focus-desc">Em Estruturação • Foco Personalizado</div>
-            <div class="day-meta-pill">📍 A Definir • ⏱️ ~50 min</div>
+            <div class="day-focus-desc">BENT-ARM PRESS, CHUTES E HSW</div>
+            <div class="day-meta-pill">📍 Casa / Box • ⏱️ ~55 min</div>
           </div>
           <div class="day-card-right">
             <div class="day-status-pill status-pending" id="statusPill-treinoa" onclick="event.stopPropagation(); handleWorkoutStatusClick('treinoa')">
-              <span class="status-icon">›</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- TREINO B -->
-        <div class="training-day-card" id="dayCard-treinob" data-workout-type="treino" data-target="6" onclick="openDayWorkout('treinob')">
-          <div class="day-card-left">
-            <div class="day-card-name-row">
-              <span class="day-name">QUARTA | TREINO B</span>
-            </div>
-            <div class="day-focus-desc">Em Estruturação • Foco Personalizado</div>
-            <div class="day-meta-pill">📍 A Definir • ⏱️ ~50 min</div>
-          </div>
-          <div class="day-card-right">
-            <div class="day-status-pill status-pending" id="statusPill-treinob" onclick="event.stopPropagation(); handleWorkoutStatusClick('treinob')">
-              <span class="status-icon">›</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- TREINO C -->
-        <div class="training-day-card" id="dayCard-treinoc" data-workout-type="treino" data-target="6" onclick="openDayWorkout('treinoc')">
-          <div class="day-card-left">
-            <div class="day-card-name-row">
-              <span class="day-name">SEXTA | TREINO C</span>
-            </div>
-            <div class="day-focus-desc">Em Estruturação • Foco Personalizado</div>
-            <div class="day-meta-pill">📍 A Definir • ⏱️ ~50 min</div>
-          </div>
-          <div class="day-card-right">
-            <div class="day-status-pill status-pending" id="statusPill-treinoc" onclick="event.stopPropagation(); handleWorkoutStatusClick('treinoc')">
               <span class="status-icon">›</span>
             </div>
           </div>
@@ -5020,27 +4989,532 @@
       </div>
     </div>
 
-  <!-- ==================== TAB: TREINO A ==================== -->
+  <!-- ==================== TAB: SESSÃO EXTRA (HANDSTAND) ==================== -->
   <div id="tab-treinoa" class="tab-content">
     <div class="session-overall-meta">
-      <span class="meta-item">📍 A Definir</span>
+      <span class="meta-item">📍 Casa / Box</span>
       <span class="meta-separator">|</span>
-      <span class="meta-item">⏳ ~50 a 60 min</span>
+      <span class="meta-item">⏱️ ~55 min</span>
     </div>
 
     <!-- DIRETRIZES DO TREINO -->
-    <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 18px 16px; margin-bottom: 18px; border-radius: 12px; background: rgba(0, 255, 136, 0.04);">
+    <div class="callout-box" style="border-left: 3.5px solid var(--brand-neon); padding: 18px 16px; margin-bottom: 18px; border-radius: 12px; background: rgba(0, 255, 136, 0.04);">
       <div class="callout-icon" style="font-size:1.4rem;">🎯</div>
       <div>
-        <div class="callout-topic-header" style="color: var(--brand-neon); font-size: 0.95rem; font-weight:800; letter-spacing:0.04em;">TREINO A • EM ESTRUTURAÇÃO</div>
+        <div class="callout-topic-header" style="color: var(--brand-neon); font-size: 0.95rem; font-weight:800; letter-spacing:0.04em;">DIRETRIZES DA SESSÃO AUTÔNOMA</div>
         <div style="font-size: 0.85rem; color: #cbd5e1; margin-top: 6px; line-height: 1.6;">
-          Os blocos de ativação, fortalecimento e mobilidade desta sessão serão inseridos e calibrados pelo Prof. Gui Lemos após a análise detalhada da sua avaliação inicial.
+          Treino semanal de consolidação técnica. Realize sempre as saídas em pirueta (bail out) no aquecimento para zerar o medo de queda, use a parede como rede de proteção nos chutes e concentre-se na descida em prateleira e força do Bent-Arm Press.
         </div>
       </div>
     </div>
 
-    <div style="text-align: center; padding: 32px 16px; color: var(--text-dim); font-size: 0.85rem;">
-      <p>Sessão em formatação pelo treinador.</p>
+    <!-- ==================== SEÇÃO 1: ATIVAÇÃO ==================== -->
+    <div class="section-card sec-aquecimento">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-title">ATIVAÇÃO</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~10 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 1: Mobilidade de Punhos -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>MOBILIDADE DINÂMICA DE PUNHOS EM 4 APOIOS</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('MOBILIDADE DINÂMICA DE PUNHOS EM 4 APOIOS', '<b>Execução:</b> Em 4 apoios no solo com braços estendidos, realize a sequência contínua de descompressão articular:<br>1. Dedos apontados para a frente: faça oscilações suaves do corpo à frente e atrás, transferindo o peso gradativamente para os dedos.<br>2. Dedos apontados para fora: realize círculos lentos no sentido horário e anti-horário.<br>3. Dedos apontados para os joelhos: com as palmas no chão, sente suavemente em direção aos calcanhares sem descolar a palma.<br>4. Dorso das mãos no solo: dedos voltados para dentro, flexione e estenda os dedos em punho fechado e aberto suavemente.<br><br><b>Cuidados:</b> 1. Nunca faça movimentos rápidos ou com dor articular aguda.<br>2. Mantenha os cotovelos 100% esticados durante todas as rotações.<br><br><b>Base científica:</b> PREPARAÇÃO VISCOELÁSTICA DO TECIDO CONJUNTIVO: O aquecimento dinâmico em carga progressiva reduz a viscosidade do líquido sinovial e melhora a complacência ligamentar radiocárpica sob tensão (Bishop, 2003).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 ROUNDS • 60S POR ROUND • ⏱️ REST: 30S</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Round 1</div>
+            <div class="set-pill" onclick="toggleSet(this)">Round 2</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Mobilidade de Punhos • Dani')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-dani-punhos" onclick="toggleCommentBox('ex-dani-punhos')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-dani-punhos" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-dani-punhos" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas observações sobre a Mobilidade:</span>
+            <span class="save-indicator" id="save-status-ex-dani-punhos"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-dani-punhos" placeholder="Ex: Punhos soltos, sem incômodos..." oninput="saveExerciseNote('ex-dani-punhos', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 2: Scapular Push-ups com Plank Lean -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>SCAPULAR PUSH-UPS COM PLANK LEAN</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('SCAPULAR PUSH-UPS COM PLANK LEAN', '<b>Execução:</b> Em prancha alta no solo com braços estendidos e corpo em hollow:<br>1. Afunde o peito aproximando as escápulas sem dobrar os cotovelos (retração).<br>2. Empurre o chão com força máxima afastando as escápulas e arredondando as costas (protração máxima).<br>3. No ponto de protração máxima, projete os ombros à frente da linha dos punhos (plank lean) sustentando por 2 segundos sentindo a pressão nos dedos.<br>4. Retorne suavemente à posição inicial e repita.<br><br><b>Cuidados:</b> 1. Pelve sempre em retroversão (abdômen travado, sem curvar a lombar para baixo).<br>2. Cotovelos 100% esticados durante toda a série.<br><br><b>Base científica:</b> ATIVAÇÃO DO SERRÁTIL ANTERIOR EM CADEIA FECHADA: A protração forçada com avanço do centro de gravidade recruta prioritariamente o serrátil anterior, fundamental para a estabilidade e elevação no handstand (Castelein et al., 2016).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • 8 REPS (2S PAUSA) • ⏱️ REST: 45S</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">3</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Scapular Push-ups • Dani')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-dani-scap" onclick="toggleCommentBox('ex-dani-scap')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-dani-scap" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-dani-scap" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas observações sobre as Escápulas:</span>
+            <span class="save-indicator" id="save-status-ex-dani-scap"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-dani-scap" placeholder="Ex: Ombros firmes no avanço..." oninput="saveExerciseNote('ex-dani-scap', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 3: Drill de Saída em Pirueta na Parede (Bail Out) -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>DRILL DE SAÍDA EM PIRUETA NA PAREDE (BAIL OUT)</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('DRILL DE SAÍDA EM PIRUETA NA PAREDE (BAIL OUT)', '<b>Execução:</b> Este é o drill fundamental para zerar o medo de queda:<br>1. Suba na parada de mãos com a barriga voltada para a parede (peito na parede a cerca de 40 cm).<br>2. Firme o alinhamento corporal empurrando o chão com as duas mãos.<br>3. Inicie a saída intencional: descole um pé da parede, gire a mão de apoio oposta para o lado no chão e deixe a bacia girar, descendo de lado em arco e aterrissando suave em pé no solo (movimento de meia estrela).<br>4. Alterne o lado de saída entre as séries.<br><br><b>Cuidados:</b> 1. Nunca tente saltar para trás; a saída em pirueta é sempre lateral e contínua.<br>2. Mantenha um braço apoiado no chão até o primeiro pé tocar o solo com segurança.<br><br><b>Base científica:</b> EXTINÇÃO DO REFLEXO DEFENSIVO VESTIBULAR: A repetição voluntária e controlada do protocolo de fuga extingue o disparo do sistema límbico de pânico ao desequilíbrio anterior (LeDoux, 2014).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">4 A 5 SAÍDAS INTENCIONAIS • ⏱️ REST: 45S</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">3</div>
+            <div class="set-pill" onclick="toggleSet(this)">4</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Bail Out Pirueta • Dani')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-dani-bailout" onclick="toggleCommentBox('ex-dani-bailout')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-dani-bailout" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-dani-bailout" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas observações sobre a Saída:</span>
+            <span class="save-indicator" id="save-status-ex-dani-bailout"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-dani-bailout" placeholder="Ex: Saída fluida de ambos os lados..." oninput="saveExerciseNote('ex-dani-bailout', this.value)"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SEÇÃO 2: HABILIDADES ==================== -->
+    <div class="section-card sec-skills">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-title">HABILIDADES</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~18 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 4: Kick-up Precision com Anteparo -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>KICK-UP PRECISION COM ANTEPARO (50 CM DA PAREDE)</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('KICK-UP PRECISION COM ANTEPARO (50 CM DA PAREDE)', '<b>Execução:</b> Posicione as mãos no chão a 50 cm de distância de uma parede livre:<br>1. Dê o chute com a perna dominante buscando exatamente a vertical.<br>2. O objetivo é equilibrar no ar sem encostar o calcanhar na parede.<br>3. Se faltar força, retorne no mesmo pé ao chão de forma controlada.<br>4. Se passar ligeiramente, a parede está logo atrás para servir de anteparo suave.<br>5. Segure o equilíbrio apertando as pontas dos dedos no chão.<br><br><b>Cuidados:</b> 1. Não jogue a cabeça para trás; mantenha o olhar fixo no solo entre os polegares.<br>2. Empurre os ombros ativamente para cima durante toda a entrada.<br><br><b>Base científica:</b> CALIBRAÇÃO NEUROMOTORA DE ENTRADA: O anteparo físico seguro reduz a co-contração antecipatória de antagonistas, refinando a dosagem de torque nos flexores do quadril (Schmidt e Lee, 2019).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">6 TENTATIVAS • BUSCA DE EQUILÍBRIO • ⏱️ REST: 60S</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">3</div>
+            <div class="set-pill" onclick="toggleSet(this)">4</div>
+            <div class="set-pill" onclick="toggleSet(this)">5</div>
+            <div class="set-pill" onclick="toggleSet(this)">6</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Kick-up Precision • Dani')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-dani-kickprecision" onclick="toggleCommentBox('ex-dani-kickprecision')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-dani-kickprecision" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-dani-kickprecision" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas observações sobre a Precisão:</span>
+            <span class="save-indicator" id="save-status-ex-dani-kickprecision"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-dani-kickprecision" placeholder="Ex: Consegui 4s no 2º chute sem encostar na parede..." oninput="saveExerciseNote('ex-dani-kickprecision', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 5: Tuck Kick-up (Grupado) -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>TUCK KICK-UP (BURRINHO COM JOELHOS NO PEITO)</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('TUCK KICK-UP (BURRINHO COM JOELHOS NO PEITO)', '<b>Execução:</b><br>1. Mãos no chão na largura dos ombros.<br>2. Salte dobrando os dois joelhos e trazendo as coxas coladas no peito.<br>3. Foque em elevar e frear o quadril diretamente sobre os ombros.<br>4. Mantenha os joelhos bem agrupados sem esticar as pernas.<br>5. Segure 2 a 3 segundos na posição grupada antes de descer com controle.<br><br><b>Cuidados:</b> 1. Não tente estender os joelhos antes de sentir a bacia travada no ponto de equilíbrio.<br>2. Empurre os ombros em direção às orelhas o tempo todo.<br><br><b>Base científica:</b> REDUÇÃO DO BRAÇO DE MOMENTO: O agrupamento das pernas encurta o raio de rotação corporal, diminuindo a aceleração inercial e permitindo que os dedos dos punhos freiem a subida com facilidade (Zatsiorsky e Kraemer, 2006).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">5 A 6 TENTATIVAS • QUADRIL SOBRE OMBROS • ⏱️ REST: 60S</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">3</div>
+            <div class="set-pill" onclick="toggleSet(this)">4</div>
+            <div class="set-pill" onclick="toggleSet(this)">5</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Tuck Kick-up • Dani')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-dani-tuck" onclick="toggleCommentBox('ex-dani-tuck')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-dani-tuck" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-dani-tuck" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas observações sobre o Tuck:</span>
+            <span class="save-indicator" id="save-status-ex-dani-tuck"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-dani-tuck" placeholder="Ex: Consegui segurar 3s grupada..." oninput="saveExerciseNote('ex-dani-tuck', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 6: Straddle Kick-up (Afastado) -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>STRADDLE KICK-UP (CHUTE AFASTADO EM V)</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('STRADDLE KICK-UP (CHUTE AFASTADO EM V)', '<b>Execução:</b><br>1. Dê o chute abrindo imediatamente as pernas afastadas em V amplo no plano lateral.<br>2. Mantenha os joelhos bem esticados e a ponta dos pés ativa.<br>3. A abertura lateral distribui a massa corporal e estabiliza a bacia, diminuindo a sensação de giro brusco para a frente.<br>4. Ajuste o equilíbrio apertando os dedos no solo.<br><br><b>Cuidados:</b> 1. Mantenha a retroversão de bacia ativa (glúteos firmes) para evitar arqueamento lombar.<br>2. Respire de forma calma ao atingir o ponto neutro.<br><br><b>Base científica:</b> ESTABILIDADE FRONTAL AMPLIADA: O afastamento das pernas aumenta a inércia em torno do eixo anteroposterior e diminui o torque de desequilíbrio no plano sagital.', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">5 A 6 TENTATIVAS • ESTABILIZAÇÃO LATERAL • ⏱️ REST: 60S</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">3</div>
+            <div class="set-pill" onclick="toggleSet(this)">4</div>
+            <div class="set-pill" onclick="toggleSet(this)">5</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Straddle Kick-up • Dani')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-dani-straddle" onclick="toggleCommentBox('ex-dani-straddle')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-dani-straddle" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-dani-straddle" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas observações sobre o Afastado:</span>
+            <span class="save-indicator" id="save-status-ex-dani-straddle"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-dani-straddle" placeholder="Ex: Sentimento de maior controle na subida..." oninput="saveExerciseNote('ex-dani-straddle', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 7: Wall Transfers -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>WALL TRANSFERS (TRANSFERÊNCIA DE CARGA NA PAREDE)</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('WALL TRANSFERS (TRANSFERÊNCIA DE CARGA NA PAREDE)', '<b>Execução:</b><br>1. Suba na parada de mãos de costas para a parede.<br>2. Transfira o peso do corpo para o braço direito e descole a mão esquerda do chão, tocando o ombro ou coxa por 1 segundo.<br>3. Apoie a mão esquerda no chão e transfira o peso para o lado esquerdo, descolando a mão direita.<br>4. Alterne os lados de forma cadenciada sem pressa.<br><br><b>Cuidados:</b> 1. Mantenha a elevação do ombro de apoio (empurre constante contra o chão).<br>2. Evite girar o quadril excessivamente.<br><br><b>Base científica:</b> CONDICIONAMENTO UNIMANUAL: O apoio unilateral cíclico fortalece os estabilizadores da articulação glenoumeral e condiciona o ciclo de transferência do peso corporal para o Handstand Walk (Dietz, 2002).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • 8 A 10 TOQUES • ⏱️ REST: 60S</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">3</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Wall Transfers • Dani')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-dani-walltransfers" onclick="toggleCommentBox('ex-dani-walltransfers')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-dani-walltransfers" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-dani-walltransfers" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas observações sobre as Transferências:</span>
+            <span class="save-indicator" id="save-status-ex-dani-walltransfers"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-dani-walltransfers" placeholder="Ex: 8 toques bem firmes..." oninput="saveExerciseNote('ex-dani-walltransfers', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 8: Mini HSW em Direção à Parede -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>MINI HSW EM DIREÇÃO À PAREDE (REDE DE PROTEÇÃO)</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('MINI HSW EM DIREÇÃO À PAREDE (REDE DE PROTEÇÃO)', '<b>Execução:</b><br>1. Inicie a parada de mãos a cerca de 1,2 a 1,5 metro de distância de uma parede livre à sua frente.<br>2. Suba no equilíbrio e, assim que o quadril avançar ligeiramente à frente das mãos, dê 2 a 4 passadas curtas com as mãos em direção à parede.<br>3. Finalize tocando os calcanhares suavemente na parede.<br><br><b>Cuidados:</b> 1. Passos curtos e rápidos, nunca passadas longas.<br>2. Mantenha os braços 100% esticados sem dobrar cotovelos durante os passos.<br><br><b>Base científica:</b> DESLOCAMENTO ANTERIOR DO CENTRO DE PRESSÃO: Ter a parede frontal como anteparo remove a inibição vestibular e facilita o avanço do centro de gravidade necessário para a passada sem risco de queda desgovernada.', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">4 A 5 PASSAGENS • 2 A 4 PASSOS • ⏱️ REST: 75S</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">3</div>
+            <div class="set-pill" onclick="toggleSet(this)">4</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Mini HSW • Dani')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-dani-hswmini" onclick="toggleCommentBox('ex-dani-hswmini')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-dani-hswmini" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-dani-hswmini" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas observações sobre o HSW:</span>
+            <span class="save-indicator" id="save-status-ex-dani-hswmini"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-dani-hswmini" placeholder="Ex: Dei 3 passos com confiança antes da parede..." oninput="saveExerciseNote('ex-dani-hswmini', this.value)"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SEÇÃO 3: FORTALECIMENTO ==================== -->
+    <div class="section-card sec-forca">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-title">FORTALECIMENTO</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~18 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 9: Negativa de Bent-Arm Straddle Press na Parede -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>NEGATIVA DE BENT-ARM STRADDLE PRESS NA PAREDE</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('NEGATIVA DE BENT-ARM STRADDLE PRESS NA PAREDE', '<b>Execução:</b> Exercício construtor primordial para o Bent-Arm Press:<br>1. Suba na parada de mãos de costas para a parede.<br>2. Abra as pernas em V amplo (straddle).<br>3. Flexione os cotovelos lentamente até cerca de 90° (posição de prateleira, cotovelos apontando para trás e cabeça à frente formando um triângulo no chão).<br>4. Desça a bacia e as pernas de forma extremamente lenta e controlada em 5 segundos até os pés tocarem a pontinha no solo.<br><br><b>Cuidados:</b> 1. Cotovelos fechados paralelos; não deixe abrirem para fora.<br>2. Sustente a bacia no alto pelo maior tempo possível durante a descida.<br><br><b>Base científica:</b> SOBRECARGA EXCÊNTRICA EM BENT-ARM: O treino excêntrico em ângulo agudo de cotovelo desenvolve a capacidade tensional necessária para a sustentação e reversão concêntrica na subida do Press (Douglas et al., 2017).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 A 4 SÉRIES • 3 REPS LENTAS (5S) • ⏱️ REST: 75S</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">3</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Negativa Bent-Arm • Dani')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-dani-bentneg" onclick="toggleCommentBox('ex-dani-bentneg')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-dani-bentneg" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-dani-bentneg" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas observações sobre a Negativa:</span>
+            <span class="save-indicator" id="save-status-ex-dani-bentneg"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-dani-bentneg" placeholder="Ex: Descida lenta sustentada em 5s..." oninput="saveExerciseNote('ex-dani-bentneg', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 10: Box Pike Push-up com Avanço de Ombros -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>BOX PIKE PUSH-UP COM AVANÇO DE OMBROS</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('BOX PIKE PUSH-UP COM AVANÇO DE OMBROS', '<b>Execução:</b><br>1. Pés apoiados na caixa, banco ou sofá e mãos no chão na largura dos ombros.<br>2. Dobre o quadril a 90° empilhando o tronco verticalmente sobre as mãos.<br>3. Flexione os cotovelos projetando a cabeça à frente das mãos (formando um triângulo equilátero no solo).<br>4. Toque suavemente a ponta do nariz no chão e empurre com máxima potência até esticar os braços e empurrar o solo no topo.<br><br><b>Cuidados:</b> 1. Cotovelos apontados para trás, nunca abertos para os lados.<br>2. Mantenha o abdômen contraído sem afundar a bacia.<br><br><b>Base científica:</b> FORÇA CONCÊNTRICA VERTICAL: O pike push-up com elevação de pés sobrecarrega o deltoide anterior e tríceps braquial no mesmo padrão de força de empurrar do Bent-Arm Press.', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • 6 A 8 REPS • ⏱️ REST: 60S</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">3</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Box Pike Push-up • Dani')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-dani-boxpike" onclick="toggleCommentBox('ex-dani-boxpike')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-dani-boxpike" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-dani-boxpike" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas observações sobre o Pike Push-up:</span>
+            <span class="save-indicator" id="save-status-ex-dani-boxpike"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-dani-boxpike" placeholder="Ex: 8 reps com boa pausa no topo..." oninput="saveExerciseNote('ex-dani-boxpike', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 11: Transição Corvo ou Tripé para Bent-Arm Press -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>TRANSIÇÃO CORVO OU TRIPÉ PARA BENT-ARM PRESS</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('TRANSIÇÃO CORVO OU TRIPÉ PARA BENT-ARM PRESS', '<b>Execução:</b> Coloque uma almofada firme no chão à frente das mãos como anteparo de segurança:<br>1. Entre na posição de Corvo (Bakasana) com joelhos nos tríceps ou monte a base de tripé com a cabeça apoiada na almofada.<br>2. Transfira o peso para as mãos com cotovelos em 90° formando a prateleira.<br>3. Empurre o solo com força máxima para elevar a bacia e descolar a cabeça da almofada em direção ao bloqueio dos braços.<br><br><b>Cuidados:</b> 1. A almofada protege a cabeça; empurre sempre com os dedos bem espalmados.<br>2. Priorize subir o quadril antes de abrir as pernas.<br><br><b>Base científica:</b> COORDENAÇÃO DE EXTENSÃO BRAÇO-OMBRO: A saída a partir do tripé permite treinar a fase concêntrica de empurre isolando o momento de alavanca com suporte seguro da cabeça.', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • 4 A 5 REPS • ⏱️ REST: 60S</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">3</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Transição Tripé • Dani')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-dani-tripe" onclick="toggleCommentBox('ex-dani-tripe')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-dani-tripe" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-dani-tripe" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas observações sobre a Transição:</span>
+            <span class="save-indicator" id="save-status-ex-dani-tripe"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-dani-tripe" placeholder="Ex: Descolei a cabeça da almofada com força..." oninput="saveExerciseNote('ex-dani-tripe', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 12: Compressão de Solo em Straddle -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>COMPRESSÃO DE SOLO EM STRADDLE</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('COMPRESSÃO DE SOLO EM STRADDLE', '<b>Execução:</b><br>1. Sentada no solo com pernas bem afastadas em V amplo (straddle) e joelhos totalmente esticados.<br>2. Apoie as mãos no chão entre as pernas (quanto mais à frente, mais difícil).<br>3. Trave o abdômen e eleve ambas as pernas do chão em pulsos curtos e controlados de 1 segundo sem reclinar o tronco para trás.<br><br><b>Cuidados:</b> 1. Nunca dobre os joelhos durante os pulsos.<br>2. Mantenha os pés em ponta ativa o tempo todo.<br><br><b>Base científica:</b> INSUFICIÊNCIA ATIVA DE FLEXORES DO QUADRIL: A compressão ativa em straddle fortalece o iliopsoas e reto femoral na porção final de amplitude articular, essencial para puxar as pernas no início da subida do Press.', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • 10 PULSOS • ⏱️ REST: 45S</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">3</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Compressão Straddle • Dani')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-dani-compressao" onclick="toggleCommentBox('ex-dani-compressao')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-dani-compressao" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-dani-compressao" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas observações sobre a Compressão:</span>
+            <span class="save-indicator" id="save-status-ex-dani-compressao"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-dani-compressao" placeholder="Ex: Pernas bem altas e ativas..." oninput="saveExerciseNote('ex-dani-compressao', this.value)"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SEÇÃO 4: MOBILIDADE ==================== -->
+    <div class="section-card sec-flex">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-title">MOBILIDADE</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~5 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 13: Descompressão de Punhos e Ombros -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>DESCOMPRESSÃO ARTICULAR DE PUNHOS E OMBROS</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('DESCOMPRESSÃO ARTICULAR DE PUNHOS E OMBROS', '<b>Execução:</b> Sequência suave de volta à calma:<br>1. Posição da Criança (Child's Pose) com dorso das mãos no chão e punhos invertidos por 45 segundos.<br>2. Abertura torácica na parede ou solo (Puppy Pose) por 45 segundos respirando fundo pelo diafragma.<br>3. Alongamento unilateral de isquiotibiais e glúteos por 45 segundos de cada lado.<br><br><b>Cuidados:</b> 1. Relaxe o pescoço e mantenha respirações longas e profundas.<br>2. Não force em amplitudes de desconforto articular.<br><br><b>Base científica:</b> TRANSIÇÃO PARASSIMPÁTICA E RECUPERAÇÃO: A mobilidade passiva sustentada após estresse mecânico eleva a atividade vagal e diminui os níveis de cortisol circulante (Weerapong et al., 2004).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 EXERCÍCIOS • 45S CADA • VOLTA À CALMA</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Concluído</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Descompressão • Dani')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-dani-descompressao" onclick="toggleCommentBox('ex-dani-descompressao')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-dani-descompressao" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-dani-descompressao" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas observações sobre a Descompressão:</span>
+            <span class="save-indicator" id="save-status-ex-dani-descompressao"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-dani-descompressao" placeholder="Ex: Relaxamento total, punhos aliviados..." oninput="saveExerciseNote('ex-dani-descompressao', this.value)"></textarea>
+        </div>
+      </div>
     </div>
 
     <!-- Card Clean de Finalização de Treino -->
@@ -5068,107 +5542,6 @@
       </button>
     </div>
   </div>
-
-  <!-- ==================== TAB: TREINO B ==================== -->
-  <div id="tab-treinob" class="tab-content">
-    <div class="session-overall-meta">
-      <span class="meta-item">📍 A Definir</span>
-      <span class="meta-separator">|</span>
-      <span class="meta-item">⏳ ~50 a 60 min</span>
-    </div>
-
-    <!-- DIRETRIZES DO TREINO -->
-    <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 18px 16px; margin-bottom: 18px; border-radius: 12px; background: rgba(0, 255, 136, 0.04);">
-      <div class="callout-icon" style="font-size:1.4rem;">🎯</div>
-      <div>
-        <div class="callout-topic-header" style="color: var(--brand-neon); font-size: 0.95rem; font-weight:800; letter-spacing:0.04em;">TREINO B • EM ESTRUTURAÇÃO</div>
-        <div style="font-size: 0.85rem; color: #cbd5e1; margin-top: 6px; line-height: 1.6;">
-          Os blocos de ativação, fortalecimento e mobilidade desta sessão serão inseridos e calibrados pelo Prof. Gui Lemos após a análise detalhada da sua avaliação inicial.
-        </div>
-      </div>
-    </div>
-
-    <div style="text-align: center; padding: 32px 16px; color: var(--text-dim); font-size: 0.85rem;">
-      <p>Sessão em formatação pelo treinador.</p>
-    </div>
-
-    <!-- Card Clean de Finalização de Treino -->
-    <div class="workout-finish-clean-card" id="workoutFinishCard-treinob">
-      <div class="finish-controls-row">
-        <label class="finish-checkbox-label">
-          <input type="checkbox" id="checkFinish-treinob" class="finish-checkbox-input" onchange="toggleFinishWorkoutBtn('treinob', this.checked)">
-          <span class="finish-custom-checkbox"></span>
-          <span class="finish-checkbox-text">Finalizar sessão 🏁</span>
-        </label>
-        <button type="button" class="btn-send-coach" id="btnSendCoach-treinob" onclick="completeWorkoutSession('treinob')" disabled>
-          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-          <span>Enviar para Coach</span>
-        </button>
-      </div>
-      <div id="completeFeedback-treinob" class="complete-feedback-box" style="display:none; width: 100%;">
-        ✅ Treino finalizado e relatório enviado com sucesso para o Coach!
-      </div>
-    </div>
-
-    <!-- Ajuda Contextual do Treino -->
-    <div class="contextual-help-wrap" style="margin-top: 24px; margin-bottom: 80px;">
-      <button type="button" class="btn-contextual-help" onclick="openContextualHelp('treinos')">
-        <span>precisa de ajuda?</span> <u>acesse as instruções</u>
-      </button>
-    </div>
-  </div>
-
-  <!-- ==================== TAB: TREINO C ==================== -->
-  <div id="tab-treinoc" class="tab-content">
-    <div class="session-overall-meta">
-      <span class="meta-item">📍 A Definir</span>
-      <span class="meta-separator">|</span>
-      <span class="meta-item">⏳ ~50 a 60 min</span>
-    </div>
-
-    <!-- DIRETRIZES DO TREINO -->
-    <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 18px 16px; margin-bottom: 18px; border-radius: 12px; background: rgba(0, 255, 136, 0.04);">
-      <div class="callout-icon" style="font-size:1.4rem;">🎯</div>
-      <div>
-        <div class="callout-topic-header" style="color: var(--brand-neon); font-size: 0.95rem; font-weight:800; letter-spacing:0.04em;">TREINO C • EM ESTRUTURAÇÃO</div>
-        <div style="font-size: 0.85rem; color: #cbd5e1; margin-top: 6px; line-height: 1.6;">
-          Os blocos de ativação, fortalecimento e mobilidade desta sessão serão inseridos e calibrados pelo Prof. Gui Lemos após a análise detalhada da sua avaliação inicial.
-        </div>
-      </div>
-    </div>
-
-    <div style="text-align: center; padding: 32px 16px; color: var(--text-dim); font-size: 0.85rem;">
-      <p>Sessão em formatação pelo treinador.</p>
-    </div>
-
-    <!-- Card Clean de Finalização de Treino -->
-    <div class="workout-finish-clean-card" id="workoutFinishCard-treinoc">
-      <div class="finish-controls-row">
-        <label class="finish-checkbox-label">
-          <input type="checkbox" id="checkFinish-treinoc" class="finish-checkbox-input" onchange="toggleFinishWorkoutBtn('treinoc', this.checked)">
-          <span class="finish-custom-checkbox"></span>
-          <span class="finish-checkbox-text">Finalizar sessão 🏁</span>
-        </label>
-        <button type="button" class="btn-send-coach" id="btnSendCoach-treinoc" onclick="completeWorkoutSession('treinoc')" disabled>
-          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-          <span>Enviar para Coach</span>
-        </button>
-      </div>
-      <div id="completeFeedback-treinoc" class="complete-feedback-box" style="display:none; width: 100%;">
-        ✅ Treino finalizado e relatório enviado com sucesso para o Coach!
-      </div>
-    </div>
-
-    <!-- Ajuda Contextual do Treino -->
-    <div class="contextual-help-wrap" style="margin-top: 24px; margin-bottom: 80px;">
-      <button type="button" class="btn-contextual-help" onclick="openContextualHelp('treinos')">
-        <span>precisa de ajuda?</span> <u>acesse as instruções</u>
-      </button>
-    </div>
-  </div>
-
-
-
 
   <!-- ==================== TAB: Mural de Recados ==================== -->
   <div id="tab-recados" class="tab-content">
@@ -5538,18 +5911,55 @@
       <div class="section-title" style="font-size: 1.05rem; font-weight: 800; color: #fff; letter-spacing: 0.04em;">ORIENTAÇÕES GERAIS</div>
     </div>
 
+    <!-- Card 1: Controle de Medo e Queda -->
     <div class="section-card" style="background: var(--bg-card, #11141a); border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1)); border-left: 3.5px solid #38bdf8; border-radius: 14px; padding: 14px 16px; margin-bottom: 14px;">
       <div class="section-header" style="margin-bottom: 8px;">
         <div style="font-size: 0.92rem; font-weight: 800; color: #38bdf8; letter-spacing: 0.03em; display: flex; align-items: center; gap: 8px;">
-          <span>📋 DIRETRIZES DO ALUNO</span>
+          <span>🛡️ CONTROLE DE MEDO E QUEDA (BAIL OUT)</span>
         </div>
       </div>
-      <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.65; padding: 6px 0;">
-        <p>As diretrizes biomecânicas, cuidados articulares e metas de condicionamento serão publicadas pelo <strong>Prof. Gui Lemos</strong> assim que a sua Ficha de Avaliação Inicial for enviada e revisada.</p>
+      <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.65;">
+        <p><strong>• Automatização do Escape Seguro:</strong> O cérebro só solta o controle motor quando tem 100% de certeza de que sabe escapar ileso. A saída em pirueta lateral (bail out) deve ser aquecida em todas as sessões para zerar o reflexo de pânico da queda frontal.</p>
       </div>
     </div>
 
-<!-- ==================== SEÇÃO: HISTÓRICO DE AVALIAÇÕES ==================== -->
+    <!-- Card 2: Chutes em Tuck e Straddle -->
+    <div class="section-card" style="background: var(--bg-card, #11141a); border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1)); border-left: 3.5px solid var(--brand-neon); border-radius: 14px; padding: 14px 16px; margin-bottom: 14px;">
+      <div class="section-header" style="margin-bottom: 8px;">
+        <div style="font-size: 0.92rem; font-weight: 800; color: var(--brand-neon); letter-spacing: 0.03em; display: flex; align-items: center; gap: 8px;">
+          <span>🤸 KICK-UPS EM TUCK E STRADDLE</span>
+        </div>
+      </div>
+      <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.65;">
+        <p><strong>• Centro de Massa Baixo:</strong> As entradas grupada (tuck) e afastada (straddle) reduzem o raio de rotação e a velocidade da subida. Se faltar força, os pés voltam suavemente ao chão; se sobrar, a parede a 50 cm serve como anteparo protetor.</p>
+      </div>
+    </div>
+
+    <!-- Card 3: Bent-Arm Press e Compressão -->
+    <div class="section-card" style="background: var(--bg-card, #11141a); border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1)); border-left: 3.5px solid #fbbf24; border-radius: 14px; padding: 14px 16px; margin-bottom: 14px;">
+      <div class="section-header" style="margin-bottom: 8px;">
+        <div style="font-size: 0.92rem; font-weight: 800; color: #fbbf24; letter-spacing: 0.03em; display: flex; align-items: center; gap: 8px;">
+          <span>🧱 BENT-ARM PRESS E COMPRESSÃO</span>
+        </div>
+      </div>
+      <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.65;">
+        <p><strong>• Força Pura Sem Inércia:</strong> O Bent-Arm Press elimina o chute e constrói força concêntrica e excêntrica de deltoides anteriores e tríceps em 90°. Foco em manter cotovelos fechados paralelos e cabeça projetada à frente em triângulo.</p>
+      </div>
+    </div>
+
+    <!-- Card 4: Handstand Walk com Anteparo -->
+    <div class="section-card" style="background: var(--bg-card, #11141a); border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1)); border-left: 3.5px solid #c084fc; border-radius: 14px; padding: 14px 16px; margin-bottom: 14px;">
+      <div class="section-header" style="margin-bottom: 8px;">
+        <div style="font-size: 0.92rem; font-weight: 800; color: #c084fc; letter-spacing: 0.03em; display: flex; align-items: center; gap: 8px;">
+          <span>🚶‍♀️ HANDSTAND WALK COM ANTEPARO</span>
+        </div>
+      </div>
+      <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.65;">
+        <p><strong>• Caminhada em Direção à Parede:</strong> Para destravar o passo sem medo de capotar, inicie a 1,5 m de uma parede e caminhe em direção a ela com passadas curtas. A parede na frente atua como amortecedor psicológico seguro.</p>
+      </div>
+    </div>
+
+    <!-- ==================== SEÇÃO: HISTÓRICO DE AVALIAÇÕES ==================== -->
     <div style="margin: 26px 4px 14px 4px; display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
       <h3 style="font-size: 1.15rem; font-weight: 800; color: #fff; margin: 0; letter-spacing: -0.01em;">
         📋 Histórico de Avaliações
@@ -8291,9 +8701,7 @@
       if (topBar) topBar.style.display = 'flex';
 
       const dayNames = {
-        'treinoa': 'SEGUNDA | TREINO A',
-        'treinob': 'QUARTA | TREINO B',
-        'treinoc': 'SEXTA | TREINO C'
+        'treinoa': 'SESSÃO EXTRA | HANDSTAND'
       };
 
       const titleEl = document.getElementById('dedicatedBarTitle');
@@ -15523,9 +15931,7 @@ window.openWelcomeAppModal = function(notifId = null) {
       let tabName = 'Treino';
 
       const dayNames = {
-        'treinoa': 'SEGUNDA | TREINO A',
-        'treinob': 'QUARTA | TREINO B',
-        'treinoc': 'SEXTA | TREINO C'
+        'treinoa': 'SESSÃO EXTRA | HANDSTAND'
       };
 
       if (dayId && typeof dayId === 'string') {
