@@ -5284,23 +5284,48 @@
     }
 
 
+    .drawer-video-action-box {
+      margin-top: 12px;
+      padding: 10px 12px;
+      background: rgba(56, 189, 248, 0.04);
+      border: 1px solid rgba(56, 189, 248, 0.16);
+      border-radius: 9px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .drawer-video-action-text {
+      font-size: 0.76rem;
+      color: #cbd5e1;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      line-height: 1.35;
+    }
+    .drawer-video-icon {
+      width: 14px;
+      height: 14px;
+      fill: #38bdf8;
+      flex-shrink: 0;
+    }
     .btn-send-video-drawer {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 6px;
       background: rgba(56, 189, 248, 0.10);
       border: 1px solid rgba(56, 189, 248, 0.35);
       color: #38bdf8;
-      padding: 8px 14px;
-      border-radius: 8px;
-      font-size: 0.76rem;
+      padding: 7px 12px;
+      border-radius: 7px;
+      font-size: 0.74rem;
       font-weight: 800;
       cursor: pointer;
       transition: all 0.2s ease;
       width: 100%;
       text-transform: uppercase;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.03em;
     }
     .btn-send-video-drawer:hover, .btn-send-video-drawer:active {
       background: rgba(56, 189, 248, 0.22);
@@ -5571,11 +5596,15 @@
             <span class="save-indicator" id="save-status-ex-seg-warm"></span>
           </div>
           <textarea class="comment-textarea" id="note-ex-seg-warm" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-seg-warm', this.value)"></textarea>
-          <div class="drawer-video-action-box" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: space-between; gap: 8px;">
-            <span style="font-size: 0.73rem; color: #cbd5e1; font-weight: 600;">Caso queira que o Gui avalie sua postura ou técnica:</span>
-            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Warm Up Dinâmico • Segunda')" style="width: auto; padding: 4px 10px; font-size: 0.69rem; flex-shrink: 0; white-space: nowrap;">
-              <svg viewBox="0 0 24 24" style="width:12px; height:12px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-              <span>Enviar vídeo</span>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">
+              <svg viewBox="0 0 24 24" class="drawer-video-icon"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Caso queira que o Gui avalie sua execução do exercício:</span>
+            </div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Warm Up Dinâmico • Segunda')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
             </button>
           </div>
         </div>
@@ -5629,11 +5658,15 @@
             <span class="save-indicator" id="save-status-ex-seg-lpo"></span>
           </div>
           <textarea class="comment-textarea" id="note-ex-seg-lpo" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-seg-lpo', this.value)"></textarea>
-          <div class="drawer-video-action-box" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: space-between; gap: 8px;">
-            <span style="font-size: 0.73rem; color: #cbd5e1; font-weight: 600;">Caso queira que o Gui avalie sua postura ou técnica:</span>
-            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Complex LPO • Segunda')" style="width: auto; padding: 4px 10px; font-size: 0.69rem; flex-shrink: 0; white-space: nowrap;">
-              <svg viewBox="0 0 24 24" style="width:12px; height:12px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-              <span>Enviar vídeo</span>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">
+              <svg viewBox="0 0 24 24" class="drawer-video-icon"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Caso queira que o Gui avalie sua execução do exercício:</span>
+            </div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Complex LPO • Segunda')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
             </button>
           </div>
         </div>
@@ -5691,11 +5724,15 @@
             <span class="save-indicator" id="save-status-ex-seg-wod"></span>
           </div>
           <textarea class="comment-textarea" id="note-ex-seg-wod" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-seg-wod', this.value)"></textarea>
-          <div class="drawer-video-action-box" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: space-between; gap: 8px;">
-            <span style="font-size: 0.73rem; color: #cbd5e1; font-weight: 600;">Caso queira que o Gui avalie sua postura ou técnica:</span>
-            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('WOD 10 a 1 • Segunda')" style="width: auto; padding: 4px 10px; font-size: 0.69rem; flex-shrink: 0; white-space: nowrap;">
-              <svg viewBox="0 0 24 24" style="width:12px; height:12px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-              <span>Enviar vídeo</span>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">
+              <svg viewBox="0 0 24 24" class="drawer-video-icon"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Caso queira que o Gui avalie sua execução do exercício:</span>
+            </div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('WOD 10 a 1 • Segunda')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
             </button>
           </div>
         </div>
@@ -5813,11 +5850,15 @@
             <span class="save-indicator" id="save-status-ex-ter-cross"></span>
           </div>
           <textarea class="comment-textarea" id="note-ex-ter-cross" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-ter-cross', this.value)"></textarea>
-          <div class="drawer-video-action-box" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: space-between; gap: 8px;">
-            <span style="font-size: 0.73rem; color: #cbd5e1; font-weight: 600;">Caso queira que o Gui avalie sua postura ou técnica:</span>
-            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Sessão CrossFit • Terça')" style="width: auto; padding: 4px 10px; font-size: 0.69rem; flex-shrink: 0; white-space: nowrap;">
-              <svg viewBox="0 0 24 24" style="width:12px; height:12px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-              <span>Enviar vídeo</span>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">
+              <svg viewBox="0 0 24 24" class="drawer-video-icon"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Caso queira que o Gui avalie sua execução do exercício:</span>
+            </div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Sessão CrossFit • Terça')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
             </button>
           </div>
         </div>
@@ -5862,11 +5903,15 @@
             <span class="save-indicator" id="save-status-ex-ter-hs"></span>
           </div>
           <textarea class="comment-textarea" id="note-ex-ter-hs" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-ter-hs', this.value)"></textarea>
-          <div class="drawer-video-action-box" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: space-between; gap: 8px;">
-            <span style="font-size: 0.73rem; color: #cbd5e1; font-weight: 600;">Caso queira que o Gui avalie sua postura ou técnica:</span>
-            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Handstand Pós-WOD • Terça')" style="width: auto; padding: 4px 10px; font-size: 0.69rem; flex-shrink: 0; white-space: nowrap;">
-              <svg viewBox="0 0 24 24" style="width:12px; height:12px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-              <span>Enviar vídeo</span>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">
+              <svg viewBox="0 0 24 24" class="drawer-video-icon"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Caso queira que o Gui avalie sua execução do exercício:</span>
+            </div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Handstand Pós-WOD • Terça')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
             </button>
           </div>
         </div>
@@ -5911,11 +5956,15 @@
             <span class="save-indicator" id="save-status-ex-ter-mob"></span>
           </div>
           <textarea class="comment-textarea" id="note-ex-ter-mob" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-ter-mob', this.value)"></textarea>
-          <div class="drawer-video-action-box" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: space-between; gap: 8px;">
-            <span style="font-size: 0.73rem; color: #cbd5e1; font-weight: 600;">Caso queira que o Gui avalie sua postura ou técnica:</span>
-            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Descompressão • Terça')" style="width: auto; padding: 4px 10px; font-size: 0.69rem; flex-shrink: 0; white-space: nowrap;">
-              <svg viewBox="0 0 24 24" style="width:12px; height:12px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-              <span>Enviar vídeo</span>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">
+              <svg viewBox="0 0 24 24" class="drawer-video-icon"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Caso queira que o Gui avalie sua execução do exercício:</span>
+            </div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Descompressão • Terça')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
             </button>
           </div>
         </div>
@@ -7431,10 +7480,6 @@
               <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
               <span>+ ADICIONAR MEDIÇÃO</span>
             </button>
-            <button type="button" class="btn-orientacoes-popup" onclick="openInstrucoesMedidasModal()">
-              <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
-              <span>GUIA DE MEDIDAS</span>
-            </button>
           </div>
         </div>
 
@@ -8572,8 +8617,7 @@
             <span>⚖️</span>
           </div>
           <div>
-            <h3 style="margin:0; font-size:1.02rem; color:#fff;">Registrar Medição Corporal</h3>
-            <span style="font-size:0.75rem; color:var(--brand-neon); font-weight:600;">Check-in de Composição e Recomposição</span>
+            <h3 style="margin:0; font-size:1.05rem; color:#fff;">Registrar Medição Corporal</h3>
           </div>
         </div>
         <button class="btn-close" type="button" onclick="closeAddMedicaoModal()" aria-label="Fechar">&times;</button>
@@ -8581,62 +8625,80 @@
 
       <div style="padding: 16px 20px; max-height: 75vh; overflow-y: auto;">
         
-        <!-- GUIA DE MEDIDAS RÁPIDO DENTRO DO REGISTRO -->
-        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.25); border-radius:10px; padding:10px 12px; gap:8px; flex-wrap:wrap;">
-          <div style="display:flex; align-items:center; gap:8px;">
-            <span style="font-size:1.1rem;">📏</span>
-            <span style="font-size:0.78rem; color:#cbd5e1;">Dúvidas de como posicionar a fita métrica?</span>
-          </div>
-          <button type="button" class="btn-orientacoes-popup" onclick="openInstrucoesMedidasModal()" style="padding:4px 10px; font-size:0.72rem;">
-            <span>GUIA DE MEDIDAS ↗</span>
+        <!-- GUIA DE MEDIDAS (BOTÃO DESTACADO NO TOPO) -->
+        <div style="margin-bottom: 14px;">
+          <button type="button" class="btn-orientacoes-popup" onclick="openInstrucoesMedidasModal()" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 16px; font-size: 0.82rem; font-weight: 800; border-radius: 10px; background: rgba(56, 189, 248, 0.10); border: 1px solid rgba(56, 189, 248, 0.35); color: #38bdf8;">
+            <svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:currentColor;"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+            <span>GUIA DE MEDIDAS (COMO AFERIR) ↗</span>
           </button>
+        </div>
+
+        <!-- INDICADOR DE RASCUNHO SALVO TEMPORARIAMENTE -->
+        <div id="compDraftIndicator" style="display: none; align-items: center; gap: 6px; padding: 6px 10px; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.22); border-radius: 8px; margin-bottom: 12px; font-size: 0.72rem; color: #38bdf8; font-weight: 600;">
+          <span>💾</span>
+          <span id="compDraftIndicatorText">Rascunho salvo temporariamente</span>
         </div>
 
         <!-- Data e Peso -->
         <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
           <div class="comp-form-group">
             <label class="comp-form-label" for="add_comp_date">📅 Data da Medição</label>
-            <input type="date" id="add_comp_date" class="comp-form-input">
+            <input type="date" id="add_comp_date" class="comp-form-input" onchange="saveCompDraft()">
           </div>
           <div class="comp-form-group">
             <label class="comp-form-label" for="add_comp_weight">⚖️ Peso Corporal (kg) *</label>
-            <input type="number" step="0.1" id="add_comp_weight" class="comp-form-input" placeholder="Ex: 84.5">
+            <input type="number" step="0.1" id="add_comp_weight" class="comp-form-input" placeholder="Ex: 84.5" oninput="saveCompDraft()">
           </div>
         </div>
 
-        <!-- Cintura e Quadril -->
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+        <!-- Cintura e Pescoço -->
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top: 10px;">
           <div class="comp-form-group">
             <label class="comp-form-label" for="add_comp_waist">📏 Cintura (cm) *</label>
-            <input type="number" step="0.1" id="add_comp_waist" class="comp-form-input" placeholder="Ex: 81.0">
+            <input type="number" step="0.1" id="add_comp_waist" class="comp-form-input" placeholder="Ex: 81.0" oninput="saveCompDraft()">
           </div>
-          <div class="comp-form-group">
-            <label class="comp-form-label" for="add_comp_hip">👖 Quadril (cm)</label>
-            <input type="number" step="0.1" id="add_comp_hip" class="comp-form-input" placeholder="Ex: 98.0 (opcional)">
-          </div>
-        </div>
-
-        <!-- Pescoço e % Gordura Manual -->
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
           <div class="comp-form-group">
             <label class="comp-form-label" for="add_comp_neck">👔 Pescoço (cm)</label>
-            <input type="number" step="0.1" id="add_comp_neck" class="comp-form-input" placeholder="Ex: 39.0 (p/ Marinha)">
-          </div>
-          <div class="comp-form-group">
-            <label class="comp-form-label" for="add_comp_bf_manual">🔬 % Gordura (BF)</label>
-            <input type="number" step="0.1" id="add_comp_bf_manual" class="comp-form-input" placeholder="Ex: 12.8 (se souber)">
+            <input type="number" step="0.1" id="add_comp_neck" class="comp-form-input" placeholder="Ex: 39.0" oninput="saveCompDraft()">
           </div>
         </div>
 
-        <div style="font-size:0.72rem; color:#94a3b8; margin:-4px 0 12px 0; line-height: 1.4;">
-          💡 <em>Dica: Caso não saiba o % de gordura, o app calcula automaticamente pela Fórmula da Marinha dos EUA através da cintura e pescoço.</em>
+        <!-- Quadril -->
+        <div class="comp-form-group" style="margin-top: 10px;">
+          <label class="comp-form-label" for="add_comp_hip">👖 Quadril (cm) <span style="font-size:0.68rem; color:#94a3b8; font-weight:500;">(Obrigatório para mulheres / opcional para homens)</span></label>
+          <input type="number" step="0.1" id="add_comp_hip" class="comp-form-input" placeholder="Ex: 98.0" oninput="saveCompDraft()">
+        </div>
+
+        <!-- TÓPICO A PARTE: % DE GORDURA CORPORAL (OPCIONAL) -->
+        <div class="comp-bf-topic-box" style="margin-top: 14px; margin-bottom: 14px; padding: 12px 14px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px;">
+          <div style="font-size: 0.82rem; font-weight: 800; color: #ffffff; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between;">
+            <span>🔬 % DE GORDURA (SE JÁ SOUBER)</span>
+            <span style="font-size: 0.68rem; color: #94a3b8; font-weight: 600; text-transform: uppercase;">Opcional</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div class="comp-form-group">
+              <label class="comp-form-label" for="add_comp_bf_manual">Percentual de Gordura (%)</label>
+              <input type="number" step="0.1" id="add_comp_bf_manual" class="comp-form-input" placeholder="Ex: 12.8" oninput="saveCompDraft()">
+            </div>
+            <div class="comp-form-group">
+              <label class="comp-form-label" for="add_comp_bf_method">Método Utilizado</label>
+              <select id="add_comp_bf_method" class="comp-form-select" onchange="saveCompDraft()">
+                <option value="">Selecione o método...</option>
+                <option value="Bioimpedância (InBody / Balança)">Bioimpedância (InBody / Balança)</option>
+                <option value="DEXA (Densitometria)">DEXA (Densitometria)</option>
+                <option value="Dobras Cutâneas (Adipômetro)">Dobras Cutâneas (Adipômetro)</option>
+                <option value="Ultrassom Corporal">Ultrassom Corporal</option>
+                <option value="Outro">Outro Método</option>
+              </select>
+            </div>
+          </div>
         </div>
 
         <!-- Percepção de Roupas e Energia -->
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top: 10px;">
           <div class="comp-form-group">
             <label class="comp-form-label" for="add_comp_clothes">👕 Ajuste das Roupas</label>
-            <select id="add_comp_clothes" class="comp-form-select">
+            <select id="add_comp_clothes" class="comp-form-select" onchange="saveCompDraft()">
               <option value="folgadas" selected>Roupas mais folgadas</option>
               <option value="normais">Normais e confortáveis</option>
               <option value="apertadas">Roupas mais justas</option>
@@ -8644,7 +8706,7 @@
           </div>
           <div class="comp-form-group">
             <label class="comp-form-label" for="add_comp_energy">⚡ Disposição e Energia</label>
-            <select id="add_comp_energy" class="comp-form-select">
+            <select id="add_comp_energy" class="comp-form-select" onchange="saveCompDraft()">
               <option value="5" selected>⭐⭐⭐⭐⭐ Excelente / Máxima</option>
               <option value="4">⭐⭐⭐⭐ Muito Boa</option>
               <option value="3">⭐⭐⭐ Normal / Regular</option>
@@ -8655,9 +8717,9 @@
         </div>
 
         <!-- Observações -->
-        <div class="comp-form-group">
+        <div class="comp-form-group" style="margin-top: 10px;">
           <label class="comp-form-label" for="add_comp_notes">📝 Observações e Sensações</label>
-          <textarea id="add_comp_notes" class="comp-form-textarea" rows="2" placeholder="Ex: Mais leve nos apoios, calça folgada na cintura..."></textarea>
+          <textarea id="add_comp_notes" class="comp-form-textarea" rows="2" placeholder="Ex: Mais leve nos apoios, calça folgada na cintura..." oninput="saveCompDraft()"></textarea>
         </div>
 
         <!-- Botões de Ação do Modal -->
@@ -9617,7 +9679,7 @@
     };
 
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '180';
+    const APP_BUILD_VERSION = '181';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
@@ -11805,7 +11867,7 @@ function updateEvolucaoStats() {
                 <span style="font-size:0.72rem; color:var(--brand-neon); font-weight:700; background:rgba(0,255,136,0.1); padding:2px 6px; border-radius:6px;">Cintura: ${item.waist.toFixed(1)} cm</span>
                 ${item.neck ? `<span style="font-size:0.72rem; color:#c084fc; font-weight:700; background:rgba(192,132,252,0.1); padding:2px 6px; border-radius:6px;">Pescoço: ${item.neck.toFixed(1)} cm</span>` : ''}
                 ${item.hip ? `<span style="font-size:0.72rem; color:#f43f5e; font-weight:700; background:rgba(244,63,94,0.1); padding:2px 6px; border-radius:6px;">Quadril: ${item.hip.toFixed(1)} cm</span>` : ''}
-                ${item.bfManual ? `<span style="font-size:0.72rem; color:#fbbf24; font-weight:700; background:rgba(251,191,36,0.1); padding:2px 6px; border-radius:6px;">BF: ${item.bfManual}%</span>` : ''}
+                ${item.bfManual ? `<span style="font-size:0.72rem; color:#fbbf24; font-weight:700; background:rgba(251,191,36,0.1); padding:2px 6px; border-radius:6px;">Gordura: ${item.bfManual}%${item.bfMethod ? ' • ' + item.bfMethod : ''}</span>` : ''}
               </div>
               <div style="font-size:0.72rem; color:#94a3b8; display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:2px;">
                 <span>${clothesMap[item.clothes] || '👕 Roupas normais'}</span>
@@ -11822,10 +11884,38 @@ function updateEvolucaoStats() {
       listEl.innerHTML = html;
     }
 
+    function saveCompDraft() {
+      const draft = {
+        date: document.getElementById('add_comp_date')?.value || '',
+        weight: document.getElementById('add_comp_weight')?.value || '',
+        waist: document.getElementById('add_comp_waist')?.value || '',
+        neck: document.getElementById('add_comp_neck')?.value || '',
+        hip: document.getElementById('add_comp_hip')?.value || '',
+        bfManual: document.getElementById('add_comp_bf_manual')?.value || '',
+        bfMethod: document.getElementById('add_comp_bf_method')?.value || '',
+        clothes: document.getElementById('add_comp_clothes')?.value || '',
+        energy: document.getElementById('add_comp_energy')?.value || '',
+        notes: document.getElementById('add_comp_notes')?.value || '',
+        updatedAt: Date.now()
+      };
+      try {
+        localStorage.setItem('dominio_draft_medicao', JSON.stringify(draft));
+        const ind = document.getElementById('compDraftIndicator');
+        const indText = document.getElementById('compDraftIndicatorText');
+        if (ind && indText) {
+          ind.style.display = 'inline-flex';
+          indText.textContent = 'Rascunho salvo temporariamente';
+        }
+      } catch (e) {}
+    }
+    window.saveCompDraft = saveCompDraft;
+
     function openAddMedicaoModal() {
       tempCompPhotos = { front: '', side: '', back: '' };
       const dateEl = document.getElementById('add_comp_date');
-      if (dateEl) dateEl.value = new Date().toISOString().split('T')[0];
+      if (dateEl && !dateEl.value) {
+        dateEl.value = new Date().toISOString().split('T')[0];
+      }
       
       const history = getBodyCompHistory();
       const base = getStudentBaseProfile();
@@ -11836,14 +11926,48 @@ function updateEvolucaoStats() {
       const neckEl = document.getElementById('add_comp_neck');
       const hipEl = document.getElementById('add_comp_hip');
       const bfEl = document.getElementById('add_comp_bf_manual');
+      const bfMethodEl = document.getElementById('add_comp_bf_method');
+      const clothesEl = document.getElementById('add_comp_clothes');
+      const energyEl = document.getElementById('add_comp_energy');
       const notesEl = document.getElementById('add_comp_notes');
+      const ind = document.getElementById('compDraftIndicator');
+      const indText = document.getElementById('compDraftIndicatorText');
 
-      if (weightEl) weightEl.value = latest ? latest.weight : (base.weight || '');
-      if (waistEl) waistEl.value = latest ? latest.waist : '';
-      if (neckEl) neckEl.value = latest ? (latest.neck || '') : '';
-      if (hipEl) hipEl.value = latest ? (latest.hip || '') : '';
-      if (bfEl) bfEl.value = latest ? (latest.bfManual || '') : '';
-      if (notesEl) notesEl.value = '';
+      // Verifica se há rascunho salvo temporariamente no localStorage
+      let draft = null;
+      try {
+        const raw = localStorage.getItem('dominio_draft_medicao');
+        if (raw) draft = JSON.parse(raw);
+      } catch(e) {}
+
+      if (draft && (draft.weight || draft.waist || draft.neck || draft.bfManual || draft.notes)) {
+        if (dateEl && draft.date) dateEl.value = draft.date;
+        if (weightEl) weightEl.value = draft.weight !== undefined ? draft.weight : '';
+        if (waistEl) waistEl.value = draft.waist !== undefined ? draft.waist : '';
+        if (neckEl) neckEl.value = draft.neck !== undefined ? draft.neck : '';
+        if (hipEl) hipEl.value = draft.hip !== undefined ? draft.hip : '';
+        if (bfEl) bfEl.value = draft.bfManual !== undefined ? draft.bfManual : '';
+        if (bfMethodEl) bfMethodEl.value = draft.bfMethod || '';
+        if (clothesEl) clothesEl.value = draft.clothes || 'folgadas';
+        if (energyEl) energyEl.value = draft.energy || '5';
+        if (notesEl) notesEl.value = draft.notes || '';
+        if (ind && indText) {
+          ind.style.display = 'inline-flex';
+          indText.textContent = 'Rascunho anterior restaurado';
+        }
+      } else {
+        if (dateEl) dateEl.value = new Date().toISOString().split('T')[0];
+        if (weightEl) weightEl.value = latest ? latest.weight : (base.weight || '');
+        if (waistEl) waistEl.value = latest ? latest.waist : '';
+        if (neckEl) neckEl.value = latest ? (latest.neck || '') : '';
+        if (hipEl) hipEl.value = latest ? (latest.hip || '') : '';
+        if (bfEl) bfEl.value = latest ? (latest.bfManual || '') : '';
+        if (bfMethodEl) bfMethodEl.value = '';
+        if (clothesEl) clothesEl.value = 'folgadas';
+        if (energyEl) energyEl.value = '5';
+        if (notesEl) notesEl.value = '';
+        if (ind) ind.style.display = 'none';
+      }
 
       ['front', 'side', 'back'].forEach(k => {
         const preview = document.getElementById('preview_' + k);
@@ -11882,6 +12006,7 @@ function updateEvolucaoStats() {
       const neckVal = parseFloat(document.getElementById('add_comp_neck')?.value) || null;
       const hipVal = parseFloat(document.getElementById('add_comp_hip')?.value) || null;
       const bfVal = parseFloat(document.getElementById('add_comp_bf_manual')?.value) || null;
+      const bfMethodVal = document.getElementById('add_comp_bf_method')?.value || null;
       const clothesVal = document.getElementById('add_comp_clothes')?.value || 'normais';
       const energyVal = parseInt(document.getElementById('add_comp_energy')?.value) || 5;
       const notesVal = document.getElementById('add_comp_notes')?.value.trim() || '';
@@ -11905,6 +12030,7 @@ function updateEvolucaoStats() {
         neck: neckVal,
         hip: hipVal,
         bfManual: bfVal,
+        bfMethod: bfMethodVal,
         clothes: clothesVal,
         energy: energyVal,
         notes: notesVal,
@@ -11938,6 +12064,12 @@ function updateEvolucaoStats() {
           notas: notesVal
         });
       }
+
+      try {
+        localStorage.removeItem('dominio_draft_medicao');
+      } catch (e) {}
+      const draftInd = document.getElementById('compDraftIndicator');
+      if (draftInd) draftInd.style.display = 'none';
 
       closeAddMedicaoModal();
       renderBodyCompUI();
@@ -15180,7 +15312,7 @@ function updateEvolucaoStats() {
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=180').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=181').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
