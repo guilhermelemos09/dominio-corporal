@@ -8651,7 +8651,7 @@
             <input type="date" id="add_comp_date" class="comp-form-input" onchange="saveCompDraft()">
           </div>
           <div class="comp-form-group">
-            <label class="comp-form-label" for="add_comp_weight">⚖️ Peso Corporal (kg) *</label>
+            <label class="comp-form-label" for="add_comp_weight">⚖️ Peso Corporal (kg)</label>
             <input type="number" step="0.1" id="add_comp_weight" class="comp-form-input" placeholder="Ex: 84.5" oninput="saveCompDraft()">
           </div>
         </div>
@@ -8659,7 +8659,7 @@
         <!-- Cintura e Pescoço -->
         <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top: 10px;">
           <div class="comp-form-group">
-            <label class="comp-form-label" for="add_comp_waist">📏 Cintura (cm) *</label>
+            <label class="comp-form-label" for="add_comp_waist">📏 Cintura (cm)</label>
             <input type="number" step="0.1" id="add_comp_waist" class="comp-form-input" placeholder="Ex: 81.0" oninput="saveCompDraft()">
           </div>
           <div class="comp-form-group">
@@ -8669,9 +8669,12 @@
         </div>
 
         <!-- Quadril -->
-        <div class="comp-form-group" style="margin-top: 10px;">
-          <label class="comp-form-label" for="add_comp_hip">👖 Quadril (cm) <span style="font-size:0.68rem; color:#94a3b8; font-weight:500;">(Obrigatório para mulheres / opcional para homens)</span></label>
-          <input type="number" step="0.1" id="add_comp_hip" class="comp-form-input" placeholder="Ex: 98.0" oninput="saveCompDraft()">
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top: 10px;">
+          <div class="comp-form-group">
+            <label class="comp-form-label" for="add_comp_hip">👖 Quadril (cm) <span style="font-size:0.68rem; color:#94a3b8; font-weight:500;">(Obrigatório para mulheres)</span></label>
+            <input type="number" step="0.1" id="add_comp_hip" class="comp-form-input" placeholder="Ex: 98.0" oninput="saveCompDraft()">
+          </div>
+          <div></div>
         </div>
 
         <!-- TÓPICO A PARTE: % DE GORDURA CORPORAL (OPCIONAL) -->
@@ -11062,7 +11065,7 @@ function updateEvolucaoStats() {
         if (raw) history = JSON.parse(raw);
       } catch (e) {}
 
-      if (!history || history.length < 19) {
+      if (!history || history.length < 20) {
         const initHistory = [
           {
             id: 'comp_gui_01',
@@ -11310,9 +11313,39 @@ function updateEvolucaoStats() {
             energy: 5,
             notes: 'Pesagem noturna pós-treino (19h08 • 28°C) • Novo Marco: 84.50 kg (-13.30 kg eliminados)',
             photos: null
+          },
+          {
+            id: 'comp_gui_20',
+            date: '2026-10-27',
+            weight: 87.70,
+            waist: 86.0,
+            neck: 39.0,
+            hip: null,
+            bfManual: 16.4,
+            clothes: 'folgadas',
+            energy: 5,
+            notes: 'Tomando tirzepatida 2,5mg e estava há 10 dias sem treinar',
+            photos: null
           }
         ];
         history = initHistory;
+        try {
+          localStorage.setItem('dominio_gui_body_comp_history', JSON.stringify(history));
+        } catch (e) {}
+      } else if (history && !history.some(h => h.date === '2026-10-27')) {
+        history.push({
+          id: 'comp_gui_20',
+          date: '2026-10-27',
+          weight: 87.70,
+          waist: 86.0,
+          neck: 39.0,
+          hip: null,
+          bfManual: 16.4,
+          clothes: 'folgadas',
+          energy: 5,
+          notes: 'Tomando tirzepatida 2,5mg e estava há 10 dias sem treinar',
+          photos: null
+        });
         try {
           localStorage.setItem('dominio_gui_body_comp_history', JSON.stringify(history));
         } catch (e) {}

@@ -7520,6 +7520,7 @@
     </div>
   </div>
 
+    <!-- ==================== MODAL: ADICIONAR MEDIÇÃO CORPORAL ==================== -->
   <div id="modalAddMedicao" class="modal-overlay" onclick="if(event.target === this) closeAddMedicaoModal();">
     <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 520px;">
       <div class="modal-header">
@@ -7528,102 +7529,91 @@
             <span>⚖️</span>
           </div>
           <div>
-            <h3 style="margin:0; font-size:1.02rem; color:#fff;">Registrar Medição Corporal</h3>
-            <span style="font-size:0.75rem; color:var(--brand-neon); font-weight:600;">Check-in de Composição e Recomposição</span>
+            <h3 style="margin:0; font-size:1.05rem; color:#fff;">Registrar Medição Corporal</h3>
           </div>
         </div>
         <button class="btn-close" type="button" onclick="closeAddMedicaoModal()" aria-label="Fechar">&times;</button>
       </div>
 
       <div style="padding: 16px 20px; max-height: 75vh; overflow-y: auto;">
+        
+        <!-- GUIA DE COMO MEDIR (BOTÃO DESTACADO NO TOPO) -->
+        <div style="margin-bottom: 14px;">
+          <button type="button" class="btn-orientacoes-popup" onclick="openInstrucoesMedidasModal()" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 16px; font-size: 0.84rem; font-weight: 800; border-radius: 10px; background: rgba(56, 189, 248, 0.10); border: 1px solid rgba(56, 189, 248, 0.35); color: #38bdf8; text-transform: none; letter-spacing: 0.01em;">
+            <svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:currentColor;"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+            <span>Guia de como medir</span>
+            <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+          </button>
+        </div>
+
+        <!-- INDICADOR DE RASCUNHO SALVO TEMPORARIAMENTE -->
+        <div id="compDraftIndicator" style="display: none; align-items: center; gap: 6px; padding: 6px 10px; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.22); border-radius: 8px; margin-bottom: 12px; font-size: 0.72rem; color: #38bdf8; font-weight: 600;">
+          <span>💾</span>
+          <span id="compDraftIndicatorText">Rascunho salvo temporariamente</span>
+        </div>
+
         <!-- Data e Peso -->
         <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
           <div class="comp-form-group">
             <label class="comp-form-label" for="add_comp_date">📅 Data da Medição</label>
-            <input type="date" id="add_comp_date" class="comp-form-input">
+            <input type="date" id="add_comp_date" class="comp-form-input" onchange="saveCompDraft()">
           </div>
           <div class="comp-form-group">
-            <label class="comp-form-label" for="add_comp_weight">⚖️ Peso Corporal (kg) *</label>
-            <input type="number" step="0.1" id="add_comp_weight" class="comp-form-input" placeholder="Ex: 68.5">
+            <label class="comp-form-label" for="add_comp_weight">⚖️ Peso Corporal (kg)</label>
+            <input type="number" step="0.1" id="add_comp_weight" class="comp-form-input" placeholder="Ex: 68.5" oninput="saveCompDraft()">
           </div>
         </div>
 
-        <!-- Cintura e Quadril -->
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+        <!-- Cintura e Pescoço -->
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top: 10px;">
           <div class="comp-form-group">
-            <label class="comp-form-label" for="add_comp_waist">📏 Cintura (cm) *</label>
-            <input type="number" step="0.1" id="add_comp_waist" class="comp-form-input" placeholder="Ex: 79.0">
+            <label class="comp-form-label" for="add_comp_waist">📏 Cintura (cm)</label>
+            <input type="number" step="0.1" id="add_comp_waist" class="comp-form-input" placeholder="Ex: 79.0" oninput="saveCompDraft()">
           </div>
-          <div class="comp-form-group">
-            <label class="comp-form-label" for="add_comp_hip">👖 Quadril (cm)</label>
-            <input type="number" step="0.1" id="add_comp_hip" class="comp-form-input" placeholder="Ex: 98.0 (opcional)">
-          </div>
-        </div>
-
-        <!-- Pescoço e % Gordura Manual -->
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
           <div class="comp-form-group">
             <label class="comp-form-label" for="add_comp_neck">👔 Pescoço (cm)</label>
-            <input type="number" step="0.1" id="add_comp_neck" class="comp-form-input" placeholder="Ex: 37.0 (p/ Marinha)">
-          </div>
-          <div class="comp-form-group">
-            <label class="comp-form-label" for="add_comp_bf_manual">🔬 % Gordura (BF)</label>
-            <input type="number" step="0.1" id="add_comp_bf_manual" class="comp-form-input" placeholder="Ex: 19.5 (se souber)">
+            <input type="number" step="0.1" id="add_comp_neck" class="comp-form-input" placeholder="Ex: 37.0" oninput="saveCompDraft()">
           </div>
         </div>
 
-        <div style="font-size:0.72rem; color:#94a3b8; margin:-4px 0 12px 0; line-height: 1.4;">
-          💡 <em>Dica: Caso não saiba o % de gordura, o app calcula uma estimativa pela Fórmula da Marinha dos EUA se preencher pescoço e cintura.</em>
+        <!-- Quadril -->
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top: 10px;">
+          <div class="comp-form-group">
+            <label class="comp-form-label" for="add_comp_hip">👖 Quadril (cm) <span style="font-size:0.68rem; color:#94a3b8; font-weight:500;">(Obrigatório para mulheres)</span></label>
+            <input type="number" step="0.1" id="add_comp_hip" class="comp-form-input" placeholder="Ex: 98.0" oninput="saveCompDraft()">
+          </div>
+          <div></div>
         </div>
 
-        <!-- Percepção de Roupas e Energia -->
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
-          <div class="comp-form-group">
-            <label class="comp-form-label" for="add_comp_clothes">👕 Ajuste das Roupas</label>
-            <select id="add_comp_clothes" class="comp-form-select">
-              <option value="folgadas">Roupas mais folgadas</option>
-              <option value="normais" selected>Normais e confortáveis</option>
-              <option value="apertadas">Roupas mais justas</option>
-            </select>
+        <!-- TÓPICO A PARTE: % DE GORDURA CORPORAL (OPCIONAL) -->
+        <div class="comp-bf-topic-box" style="margin-top: 14px; margin-bottom: 14px; padding: 12px 14px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px;">
+          <div style="font-size: 0.82rem; font-weight: 800; color: #ffffff; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between;">
+            <span>🔬 % DE GORDURA (SE JÁ SOUBER)</span>
+            <span style="font-size: 0.68rem; color: #94a3b8; font-weight: 600; text-transform: uppercase;">Opcional</span>
           </div>
-          <div class="comp-form-group">
-            <label class="comp-form-label" for="add_comp_energy">⚡ Disposição e Energia</label>
-            <select id="add_comp_energy" class="comp-form-select">
-              <option value="5" selected>⭐⭐⭐⭐⭐ Excelente / Máxima</option>
-              <option value="4">⭐⭐⭐⭐ Muito Boa</option>
-              <option value="3">⭐⭐⭐ Normal / Regular</option>
-              <option value="2">⭐⭐ Baixa / Cansado</option>
-              <option value="1">⭐ Muito Baixa</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Upload de Fotos Opcionais -->
-        <div class="comp-form-group" style="margin-top:4px;">
-          <label class="comp-form-label">📸 Fotos de Progresso (Opcionais - salvas no aparelho)</label>
-          <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:8px;">
-            <div>
-              <label for="comp_photo_input_front" style="display:block; font-size:0.68rem; color:#94a3b8; margin-bottom:4px; text-align:center;">Frente</label>
-              <input type="file" id="comp_photo_input_front" accept="image/*" style="font-size:0.65rem; color:#94a3b8; width:100%;" onchange="handleCompPhotoPreview(this, 'preview_front')">
-              <div id="preview_front" style="margin-top:4px; height:60px; background:rgba(255,255,255,0.02); border:1px dashed rgba(255,255,255,0.15); border-radius:6px; overflow:hidden; display:flex; align-items:center; justify-content:center; font-size:0.68rem; color:#64748b;">Sem foto</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div class="comp-form-group">
+              <label class="comp-form-label" for="add_comp_bf_manual">Percentual de Gordura (%)</label>
+              <input type="number" step="0.1" id="add_comp_bf_manual" class="comp-form-input" placeholder="Ex: 19.5" oninput="saveCompDraft()">
             </div>
-            <div>
-              <label for="comp_photo_input_side" style="display:block; font-size:0.68rem; color:#94a3b8; margin-bottom:4px; text-align:center;">Lado</label>
-              <input type="file" id="comp_photo_input_side" accept="image/*" style="font-size:0.65rem; color:#94a3b8; width:100%;" onchange="handleCompPhotoPreview(this, 'preview_side')">
-              <div id="preview_side" style="margin-top:4px; height:60px; background:rgba(255,255,255,0.02); border:1px dashed rgba(255,255,255,0.15); border-radius:6px; overflow:hidden; display:flex; align-items:center; justify-content:center; font-size:0.68rem; color:#64748b;">Sem foto</div>
-            </div>
-            <div>
-              <label for="comp_photo_input_back" style="display:block; font-size:0.68rem; color:#94a3b8; margin-bottom:4px; text-align:center;">Costas</label>
-              <input type="file" id="comp_photo_input_back" accept="image/*" style="font-size:0.65rem; color:#94a3b8; width:100%;" onchange="handleCompPhotoPreview(this, 'preview_back')">
-              <div id="preview_back" style="margin-top:4px; height:60px; background:rgba(255,255,255,0.02); border:1px dashed rgba(255,255,255,0.15); border-radius:6px; overflow:hidden; display:flex; align-items:center; justify-content:center; font-size:0.68rem; color:#64748b;">Sem foto</div>
+            <div class="comp-form-group">
+              <label class="comp-form-label" for="add_comp_bf_method">Método Utilizado</label>
+              <select id="add_comp_bf_method" class="comp-form-select" onchange="saveCompDraft()">
+                <option value="">Selecione o método...</option>
+                <option value="Bioimpedância (InBody / Balança)">Bioimpedância (InBody / Balança)</option>
+                <option value="DEXA (Densitometria)">DEXA (Densitometria)</option>
+                <option value="Dobras Cutâneas (Adipômetro)">Dobras Cutâneas (Adipômetro)</option>
+                <option value="Ultrassom Corporal">Ultrassom Corporal</option>
+                <option value="Outro">Outro Método</option>
+              </select>
             </div>
           </div>
         </div>
 
         <!-- Observações -->
-        <div class="comp-form-group">
+        <div class="comp-form-group" style="margin-top: 10px;">
           <label class="comp-form-label" for="add_comp_notes">📝 Observações e Sensações</label>
-          <textarea id="add_comp_notes" class="comp-form-textarea" rows="2" placeholder="Ex: Me sinto mais leve nos apoios, calça mais folgada na cintura..."></textarea>
+          <textarea id="add_comp_notes" class="comp-form-textarea" rows="2" placeholder="Ex: Sensação nas roupas (calça mais folgada), nível de energia, sensação nos treinos..." oninput="saveCompDraft()"></textarea>
         </div>
 
         <!-- Botões de Ação do Modal -->
@@ -10388,10 +10378,36 @@ function updateEvolucaoStats() {
       listEl.innerHTML = html;
     }
 
+    function saveCompDraft() {
+      const draft = {
+        date: document.getElementById('add_comp_date')?.value || '',
+        weight: document.getElementById('add_comp_weight')?.value || '',
+        waist: document.getElementById('add_comp_waist')?.value || '',
+        neck: document.getElementById('add_comp_neck')?.value || '',
+        hip: document.getElementById('add_comp_hip')?.value || '',
+        bfManual: document.getElementById('add_comp_bf_manual')?.value || '',
+        bfMethod: document.getElementById('add_comp_bf_method')?.value || '',
+        notes: document.getElementById('add_comp_notes')?.value || '',
+        updatedAt: Date.now()
+      };
+      try {
+        localStorage.setItem('dominio_draft_medicao_daniela', JSON.stringify(draft));
+        const ind = document.getElementById('compDraftIndicator');
+        const indText = document.getElementById('compDraftIndicatorText');
+        if (ind && indText) {
+          ind.style.display = 'inline-flex';
+          indText.textContent = 'Rascunho salvo temporariamente';
+        }
+      } catch (e) {}
+    }
+    window.saveCompDraft = saveCompDraft;
+
     function openAddMedicaoModal() {
       tempCompPhotos = { front: '', side: '', back: '' };
       const dateEl = document.getElementById('add_comp_date');
-      if (dateEl) dateEl.value = new Date().toISOString().split('T')[0];
+      if (dateEl && !dateEl.value) {
+        dateEl.value = new Date().toISOString().split('T')[0];
+      }
       
       const history = getBodyCompHistory();
       const base = getStudentBaseProfile();
@@ -10402,14 +10418,42 @@ function updateEvolucaoStats() {
       const neckEl = document.getElementById('add_comp_neck');
       const hipEl = document.getElementById('add_comp_hip');
       const bfEl = document.getElementById('add_comp_bf_manual');
+      const bfMethodEl = document.getElementById('add_comp_bf_method');
       const notesEl = document.getElementById('add_comp_notes');
+      const ind = document.getElementById('compDraftIndicator');
+      const indText = document.getElementById('compDraftIndicatorText');
 
-      if (weightEl) weightEl.value = latest ? latest.weight : (base.weight || '');
-      if (waistEl) waistEl.value = latest ? latest.waist : '';
-      if (neckEl) neckEl.value = latest ? (latest.neck || '') : '';
-      if (hipEl) hipEl.value = latest ? (latest.hip || '') : '';
-      if (bfEl) bfEl.value = latest ? (latest.bfManual || '') : '';
-      if (notesEl) notesEl.value = '';
+      // Verifica se há rascunho salvo temporariamente
+      let draft = null;
+      try {
+        const raw = localStorage.getItem('dominio_draft_medicao_daniela');
+        if (raw) draft = JSON.parse(raw);
+      } catch(e) {}
+
+      if (draft && (draft.weight || draft.waist || draft.neck || draft.hip || draft.bfManual || draft.notes)) {
+        if (dateEl && draft.date) dateEl.value = draft.date;
+        if (weightEl) weightEl.value = draft.weight !== undefined ? draft.weight : '';
+        if (waistEl) waistEl.value = draft.waist !== undefined ? draft.waist : '';
+        if (neckEl) neckEl.value = draft.neck !== undefined ? draft.neck : '';
+        if (hipEl) hipEl.value = draft.hip !== undefined ? draft.hip : '';
+        if (bfEl) bfEl.value = draft.bfManual !== undefined ? draft.bfManual : '';
+        if (bfMethodEl) bfMethodEl.value = draft.bfMethod || '';
+        if (notesEl) notesEl.value = draft.notes || '';
+        if (ind && indText) {
+          ind.style.display = 'inline-flex';
+          indText.textContent = 'Rascunho anterior restaurado';
+        }
+      } else {
+        if (dateEl) dateEl.value = new Date().toISOString().split('T')[0];
+        if (weightEl) weightEl.value = latest ? latest.weight : (base.weight || '');
+        if (waistEl) waistEl.value = latest ? latest.waist : '';
+        if (neckEl) neckEl.value = latest ? (latest.neck || '') : '';
+        if (hipEl) hipEl.value = latest ? (latest.hip || '') : '';
+        if (bfEl) bfEl.value = latest ? (latest.bfManual || '') : '';
+        if (bfMethodEl) bfMethodEl.value = '';
+        if (notesEl) notesEl.value = '';
+        if (ind) ind.style.display = 'none';
+      }
 
       ['front', 'side', 'back'].forEach(k => {
         const preview = document.getElementById('preview_' + k);
@@ -10448,8 +10492,7 @@ function updateEvolucaoStats() {
       const neckVal = parseFloat(document.getElementById('add_comp_neck')?.value) || null;
       const hipVal = parseFloat(document.getElementById('add_comp_hip')?.value) || null;
       const bfVal = parseFloat(document.getElementById('add_comp_bf_manual')?.value) || null;
-      const clothesVal = document.getElementById('add_comp_clothes')?.value || 'normais';
-      const energyVal = parseInt(document.getElementById('add_comp_energy')?.value) || 5;
+      const bfMethodVal = document.getElementById('add_comp_bf_method')?.value || null;
       const notesVal = document.getElementById('add_comp_notes')?.value.trim() || '';
 
       if (!weightVal || isNaN(weightVal) || weightVal <= 20 || weightVal > 300) {
@@ -10471,8 +10514,7 @@ function updateEvolucaoStats() {
         neck: neckVal,
         hip: hipVal,
         bfManual: bfVal,
-        clothes: clothesVal,
-        energy: energyVal,
+        bfMethod: bfMethodVal,
         notes: notesVal,
         photos: { ...tempCompPhotos }
       };
@@ -10490,6 +10532,24 @@ function updateEvolucaoStats() {
       } catch (e) {
         console.error('Erro ao salvar no localStorage:', e);
       }
+
+      if (window.DominioDB && typeof DominioDB.salvarMedicao === 'function') {
+        DominioDB.salvarMedicao({
+          data_medicao: dateVal,
+          peso: weightVal,
+          cintura: waistVal,
+          pescoco: neckVal,
+          quadril: hipVal,
+          bf_pct: bfVal,
+          notas: notesVal
+        });
+      }
+
+      try {
+        localStorage.removeItem('dominio_draft_medicao_daniela');
+      } catch (e) {}
+      const draftInd = document.getElementById('compDraftIndicator');
+      if (draftInd) draftInd.style.display = 'none';
 
       closeAddMedicaoModal();
       renderBodyCompUI();
