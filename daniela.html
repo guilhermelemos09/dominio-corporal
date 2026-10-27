@@ -4988,6 +4988,31 @@
       transform: scale(1.1);
     }
 
+
+    .btn-send-video-drawer {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: rgba(56, 189, 248, 0.10);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      width: 100%;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+    .btn-send-video-drawer:hover, .btn-send-video-drawer:active {
+      background: rgba(56, 189, 248, 0.22);
+      border-color: #38bdf8;
+      color: #ffffff;
+    }
+
 </style>
 </head>
 <body>
@@ -5178,21 +5203,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Mobilidade de Punhos • Dani')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-dani-punhos" onclick="toggleCommentBox('ex-dani-punhos')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-dani-punhos" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-dani-punhos" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas observações sobre a Mobilidade:</span>
+            <span>👤 Suas anotações ou dúvidas:</span>
             <span class="save-indicator" id="save-status-ex-dani-punhos"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-dani-punhos" placeholder="Ex: Punhos soltos, sem incômodos..." oninput="saveExerciseNote('ex-dani-punhos', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-dani-punhos" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-dani-punhos', this.value)"></textarea>
+          <div class="drawer-video-action-box" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; flex-direction: column; gap: 5px;">
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Mobilidade de Punhos • Dani')">
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>📹 Enviar vídeo para correção do Coach</span>
+            </button>
+            <span style="font-size: 0.70rem; color: #94a3b8; text-align: center;">Opcional: grave caso queira que o Gui avalie sua postura ou técnica.</span>
+          </div>
         </div>
       </div>
 
@@ -5213,21 +5241,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Scapular Push-ups • Dani')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-dani-scap" onclick="toggleCommentBox('ex-dani-scap')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-dani-scap" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-dani-scap" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas observações sobre as Escápulas:</span>
+            <span>👤 Suas anotações ou dúvidas:</span>
             <span class="save-indicator" id="save-status-ex-dani-scap"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-dani-scap" placeholder="Ex: Ombros firmes no avanço..." oninput="saveExerciseNote('ex-dani-scap', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-dani-scap" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-dani-scap', this.value)"></textarea>
+          <div class="drawer-video-action-box" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; flex-direction: column; gap: 5px;">
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Scapular Push-ups • Dani')">
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>📹 Enviar vídeo para correção do Coach</span>
+            </button>
+            <span style="font-size: 0.70rem; color: #94a3b8; text-align: center;">Opcional: grave caso queira que o Gui avalie sua postura ou técnica.</span>
+          </div>
         </div>
       </div>
 
@@ -5249,21 +5280,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Bail Out Pirueta • Dani')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-dani-bailout" onclick="toggleCommentBox('ex-dani-bailout')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-dani-bailout" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-dani-bailout" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas observações sobre a Saída:</span>
+            <span>👤 Suas anotações ou dúvidas:</span>
             <span class="save-indicator" id="save-status-ex-dani-bailout"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-dani-bailout" placeholder="Ex: Saída fluida de ambos os lados..." oninput="saveExerciseNote('ex-dani-bailout', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-dani-bailout" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-dani-bailout', this.value)"></textarea>
+          <div class="drawer-video-action-box" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; flex-direction: column; gap: 5px;">
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Bail Out Pirueta • Dani')">
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>📹 Enviar vídeo para correção do Coach</span>
+            </button>
+            <span style="font-size: 0.70rem; color: #94a3b8; text-align: center;">Opcional: grave caso queira que o Gui avalie sua postura ou técnica.</span>
+          </div>
         </div>
       </div>
     </div>
@@ -5299,21 +5333,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Kick-up Precision • Dani')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-dani-kickprecision" onclick="toggleCommentBox('ex-dani-kickprecision')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-dani-kickprecision" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-dani-kickprecision" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas observações sobre a Precisão:</span>
+            <span>👤 Suas anotações ou dúvidas:</span>
             <span class="save-indicator" id="save-status-ex-dani-kickprecision"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-dani-kickprecision" placeholder="Ex: Consegui 4s no 2º chute sem encostar na parede..." oninput="saveExerciseNote('ex-dani-kickprecision', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-dani-kickprecision" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-dani-kickprecision', this.value)"></textarea>
+          <div class="drawer-video-action-box" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; flex-direction: column; gap: 5px;">
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Kick-up Precision • Dani')">
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>📹 Enviar vídeo para correção do Coach</span>
+            </button>
+            <span style="font-size: 0.70rem; color: #94a3b8; text-align: center;">Opcional: grave caso queira que o Gui avalie sua postura ou técnica.</span>
+          </div>
         </div>
       </div>
 
@@ -5336,21 +5373,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Tuck Kick-up • Dani')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-dani-tuck" onclick="toggleCommentBox('ex-dani-tuck')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-dani-tuck" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-dani-tuck" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas observações sobre o Tuck:</span>
+            <span>👤 Suas anotações ou dúvidas:</span>
             <span class="save-indicator" id="save-status-ex-dani-tuck"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-dani-tuck" placeholder="Ex: Consegui segurar 3s grupada..." oninput="saveExerciseNote('ex-dani-tuck', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-dani-tuck" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-dani-tuck', this.value)"></textarea>
+          <div class="drawer-video-action-box" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; flex-direction: column; gap: 5px;">
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Tuck Kick-up • Dani')">
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>📹 Enviar vídeo para correção do Coach</span>
+            </button>
+            <span style="font-size: 0.70rem; color: #94a3b8; text-align: center;">Opcional: grave caso queira que o Gui avalie sua postura ou técnica.</span>
+          </div>
         </div>
       </div>
 
@@ -5373,21 +5413,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Straddle Kick-up • Dani')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-dani-straddle" onclick="toggleCommentBox('ex-dani-straddle')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-dani-straddle" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-dani-straddle" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas observações sobre o Afastado:</span>
+            <span>👤 Suas anotações ou dúvidas:</span>
             <span class="save-indicator" id="save-status-ex-dani-straddle"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-dani-straddle" placeholder="Ex: Sentimento de maior controle na subida..." oninput="saveExerciseNote('ex-dani-straddle', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-dani-straddle" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-dani-straddle', this.value)"></textarea>
+          <div class="drawer-video-action-box" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; flex-direction: column; gap: 5px;">
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Straddle Kick-up • Dani')">
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>📹 Enviar vídeo para correção do Coach</span>
+            </button>
+            <span style="font-size: 0.70rem; color: #94a3b8; text-align: center;">Opcional: grave caso queira que o Gui avalie sua postura ou técnica.</span>
+          </div>
         </div>
       </div>
 
@@ -5408,21 +5451,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Wall Transfers • Dani')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-dani-walltransfers" onclick="toggleCommentBox('ex-dani-walltransfers')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-dani-walltransfers" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-dani-walltransfers" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas observações sobre as Transferências:</span>
+            <span>👤 Suas anotações ou dúvidas:</span>
             <span class="save-indicator" id="save-status-ex-dani-walltransfers"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-dani-walltransfers" placeholder="Ex: 8 toques bem firmes..." oninput="saveExerciseNote('ex-dani-walltransfers', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-dani-walltransfers" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-dani-walltransfers', this.value)"></textarea>
+          <div class="drawer-video-action-box" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; flex-direction: column; gap: 5px;">
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Wall Transfers • Dani')">
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>📹 Enviar vídeo para correção do Coach</span>
+            </button>
+            <span style="font-size: 0.70rem; color: #94a3b8; text-align: center;">Opcional: grave caso queira que o Gui avalie sua postura ou técnica.</span>
+          </div>
         </div>
       </div>
 
@@ -5444,21 +5490,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Mini HSW • Dani')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-dani-hswmini" onclick="toggleCommentBox('ex-dani-hswmini')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-dani-hswmini" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-dani-hswmini" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas observações sobre o HSW:</span>
+            <span>👤 Suas anotações ou dúvidas:</span>
             <span class="save-indicator" id="save-status-ex-dani-hswmini"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-dani-hswmini" placeholder="Ex: Dei 3 passos com confiança antes da parede..." oninput="saveExerciseNote('ex-dani-hswmini', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-dani-hswmini" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-dani-hswmini', this.value)"></textarea>
+          <div class="drawer-video-action-box" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; flex-direction: column; gap: 5px;">
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Mini HSW • Dani')">
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>📹 Enviar vídeo para correção do Coach</span>
+            </button>
+            <span style="font-size: 0.70rem; color: #94a3b8; text-align: center;">Opcional: grave caso queira que o Gui avalie sua postura ou técnica.</span>
+          </div>
         </div>
       </div>
     </div>
@@ -5491,21 +5540,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Negativa Bent-Arm • Dani')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-dani-bentneg" onclick="toggleCommentBox('ex-dani-bentneg')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-dani-bentneg" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-dani-bentneg" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas observações sobre a Negativa:</span>
+            <span>👤 Suas anotações ou dúvidas:</span>
             <span class="save-indicator" id="save-status-ex-dani-bentneg"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-dani-bentneg" placeholder="Ex: Descida lenta sustentada em 5s..." oninput="saveExerciseNote('ex-dani-bentneg', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-dani-bentneg" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-dani-bentneg', this.value)"></textarea>
+          <div class="drawer-video-action-box" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; flex-direction: column; gap: 5px;">
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Negativa Bent-Arm • Dani')">
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>📹 Enviar vídeo para correção do Coach</span>
+            </button>
+            <span style="font-size: 0.70rem; color: #94a3b8; text-align: center;">Opcional: grave caso queira que o Gui avalie sua postura ou técnica.</span>
+          </div>
         </div>
       </div>
 
@@ -5526,21 +5578,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Box Pike Push-up • Dani')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-dani-boxpike" onclick="toggleCommentBox('ex-dani-boxpike')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-dani-boxpike" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-dani-boxpike" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas observações sobre o Pike Push-up:</span>
+            <span>👤 Suas anotações ou dúvidas:</span>
             <span class="save-indicator" id="save-status-ex-dani-boxpike"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-dani-boxpike" placeholder="Ex: 8 reps com boa pausa no topo..." oninput="saveExerciseNote('ex-dani-boxpike', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-dani-boxpike" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-dani-boxpike', this.value)"></textarea>
+          <div class="drawer-video-action-box" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; flex-direction: column; gap: 5px;">
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Box Pike Push-up • Dani')">
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>📹 Enviar vídeo para correção do Coach</span>
+            </button>
+            <span style="font-size: 0.70rem; color: #94a3b8; text-align: center;">Opcional: grave caso queira que o Gui avalie sua postura ou técnica.</span>
+          </div>
         </div>
       </div>
 
@@ -5561,21 +5616,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Transição Tripé • Dani')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-dani-tripe" onclick="toggleCommentBox('ex-dani-tripe')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-dani-tripe" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-dani-tripe" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas observações sobre a Transição:</span>
+            <span>👤 Suas anotações ou dúvidas:</span>
             <span class="save-indicator" id="save-status-ex-dani-tripe"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-dani-tripe" placeholder="Ex: Descolei a cabeça da almofada com força..." oninput="saveExerciseNote('ex-dani-tripe', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-dani-tripe" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-dani-tripe', this.value)"></textarea>
+          <div class="drawer-video-action-box" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; flex-direction: column; gap: 5px;">
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Transição Tripé • Dani')">
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>📹 Enviar vídeo para correção do Coach</span>
+            </button>
+            <span style="font-size: 0.70rem; color: #94a3b8; text-align: center;">Opcional: grave caso queira que o Gui avalie sua postura ou técnica.</span>
+          </div>
         </div>
       </div>
 
@@ -5596,21 +5654,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Compressão Straddle • Dani')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-dani-compressao" onclick="toggleCommentBox('ex-dani-compressao')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-dani-compressao" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-dani-compressao" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas observações sobre a Compressão:</span>
+            <span>👤 Suas anotações ou dúvidas:</span>
             <span class="save-indicator" id="save-status-ex-dani-compressao"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-dani-compressao" placeholder="Ex: Pernas bem altas e ativas..." oninput="saveExerciseNote('ex-dani-compressao', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-dani-compressao" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-dani-compressao', this.value)"></textarea>
+          <div class="drawer-video-action-box" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; flex-direction: column; gap: 5px;">
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Compressão Straddle • Dani')">
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>📹 Enviar vídeo para correção do Coach</span>
+            </button>
+            <span style="font-size: 0.70rem; color: #94a3b8; text-align: center;">Opcional: grave caso queira que o Gui avalie sua postura ou técnica.</span>
+          </div>
         </div>
       </div>
     </div>
@@ -5641,21 +5702,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Descompressão • Dani')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-dani-descompressao" onclick="toggleCommentBox('ex-dani-descompressao')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-dani-descompressao" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-dani-descompressao" class="comment-drawer" style="display: none;">
           <div class="comment-header">
-            <span>👤 Suas observações sobre a Descompressão:</span>
+            <span>👤 Suas anotações ou dúvidas:</span>
             <span class="save-indicator" id="save-status-ex-dani-descompressao"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-dani-descompressao" placeholder="Ex: Relaxamento total, punhos aliviados..." oninput="saveExerciseNote('ex-dani-descompressao', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-dani-descompressao" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-dani-descompressao', this.value)"></textarea>
+          <div class="drawer-video-action-box" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; flex-direction: column; gap: 5px;">
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Descompressão • Dani')">
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>📹 Enviar vídeo para correção do Coach</span>
+            </button>
+            <span style="font-size: 0.70rem; color: #94a3b8; text-align: center;">Opcional: grave caso queira que o Gui avalie sua postura ou técnica.</span>
+          </div>
         </div>
       </div>
     </div>
