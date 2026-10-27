@@ -5081,11 +5081,11 @@
       <!-- Drawer Retrátil de Metas do Ciclo -->
       <div id="metasDrawer" class="metas-drawer" style="display: none;">
         <div class="metas-chips-list">
-          <span class="goal-chip-item">🛡️ Automatização da Saída em Pirueta (Zero Medo de Queda)</span>
-          <span class="goal-chip-item">🤸 Consistência nos Chutes Grupado e Afastado</span>
-          <span class="goal-chip-item">🧱 Força e Compressão para Bent-Arm Press</span>
-          <span class="goal-chip-item">🚶‍♀️ Desbloqueio e Deslocamento no Handstand Walk</span>
-        </div>
+            <span class="goal-chip-item">🛡️ Saída em Pirueta (Sem Medo)</span>
+            <span class="goal-chip-item">🤸 Chutes Tuck e Straddle</span>
+            <span class="goal-chip-item">🧱 Força para Bent-Arm Press</span>
+            <span class="goal-chip-item">🚶‍♀️ Handstand Walk (Passadas)</span>
+          </div>
       </div>
     </div>
 
@@ -5165,15 +5165,7 @@
       <span class="meta-item">⏱️ ~55 min</span>
     </div>
 
-    <!-- DIRETRIZES DO TREINO -->
-    <div class="callout-box" style="border-left: 3.5px solid var(--brand-neon); padding: 18px 16px; margin-bottom: 18px; border-radius: 12px; background: rgba(0, 255, 136, 0.04);">
-      <div class="callout-icon" style="font-size:1.4rem;">🎯</div>
-      <div>
-        <div class="callout-topic-header" style="color: var(--brand-neon); font-size: 0.95rem; font-weight:800; letter-spacing:0.04em;">DIRETRIZES DA SESSÃO AUTÔNOMA</div>
-        <div style="font-size: 0.85rem; color: #cbd5e1; margin-top: 6px; line-height: 1.6;">
-          Treino semanal de consolidação técnica. Realize sempre as saídas em pirueta (bail out) no aquecimento para zerar o medo de queda, use a parede como rede de proteção nos chutes e concentre-se na descida em prateleira e força do Bent-Arm Press.
-        </div>
-      </div>
+    
     </div>
 
     <!-- ==================== SEÇÃO 1: ATIVAÇÃO ==================== -->
@@ -5727,7 +5719,7 @@
     <!-- Card Clean de Finalização de Treino -->
     <div class="workout-finish-clean-card" id="workoutFinishCard-treinoa">
       <button type="button" class="btn-finish-workout-trigger" id="btnTriggerFinish-treinoa" onclick="openBiometriaSessaoModal('treinoa')">
-        <span>FINALIZAR</span> <span class="finish-flag-icon">🏁</span> <span>SESSÃO</span>
+        <span class="finish-flag-icon">🏁</span> <span>FINALIZAR SESSÃO</span>
       </button>
       <div id="completeFeedback-treinoa" class="complete-feedback-box" style="display:none; width: 100%; margin-top: 10px;">
         ✅ Sessão finalizada e registrada com sucesso!
@@ -5804,7 +5796,7 @@
     <!-- Card Clean de Finalização de Treino (Quarta) -->
     <div class="workout-finish-clean-card" id="workoutFinishCard-quarta">
       <button type="button" class="btn-finish-workout-trigger" id="btnTriggerFinish-quarta" onclick="openBiometriaSessaoModal('quarta')">
-        <span>FINALIZAR</span> <span class="finish-flag-icon">🏁</span> <span>SESSÃO</span>
+        <span class="finish-flag-icon">🏁</span> <span>FINALIZAR SESSÃO</span>
       </button>
       <div id="completeFeedback-quarta" class="complete-feedback-box" style="display:none; width: 100%; margin-top: 10px;">
         ✅ Sessão finalizada e registrada com sucesso!
@@ -7392,9 +7384,11 @@
         <span class="timer-display" id="timer">01:30</span>
       </div>
       <div class="timer-buttons">
-        <button type="button" class="btn-timer" onclick="startTimer(60)">60"</button>
-        <button type="button" class="btn-timer active" onclick="startTimer(90)">90"</button>
-        <button type="button" class="btn-timer" onclick="startTimer(120)">120"</button>
+        <button type="button" class="btn-timer" onclick="startTimer(30)">30s</button>
+        <button type="button" class="btn-timer" onclick="startTimer(45)">45s</button>
+        <button type="button" class="btn-timer" onclick="startTimer(60)">60s</button>
+        <button type="button" class="btn-timer active" onclick="startTimer(90)">90s</button>
+        <button type="button" class="btn-timer" onclick="startTimer(120)">120s</button>
         <button type="button" class="btn-timer btn-timer-reset" onclick="resetTimer()">Reset</button>
       </div>
     </div>
@@ -8140,7 +8134,7 @@
         <div class="bio-live-calc-box" id="bioLiveCalcPreviewBox" style="margin-top:14px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 14px 16px;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
             <div style="font-size:0.80rem; font-weight:800; color:#38bdf8; text-transform:uppercase; letter-spacing:0.04em; display:flex; align-items:center; gap:6px;">
-              <span>🔥</span> <span>Gasto Calórico Real e EPOC Estimado</span>
+              <span>🔥</span> <span>Gasto Calórico Real</span>
             </div>
             <button type="button" class="btn-video" onclick="openInstrucoesBiometriaModal()" style="padding: 3px 10px; font-size: 0.70rem; margin: 0; background: #0e2238; border: 1px solid #38bdf8; color: #fff; border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; gap: 5px;">
               <svg viewBox="0 0 24 24" style="width:11px; height:11px; fill:#38bdf8;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
@@ -8186,7 +8180,7 @@
           </div>
           <div>
             <h3 style="margin:0; font-size:1.02rem; color:#fff;">Entenda o Cálculo</h3>
-            <span style="font-size:0.75rem; color:#38bdf8; font-weight:600;">Gasto Energético Real e EPOC vs Smartwatch</span>
+            <span style="font-size:0.75rem; color:#38bdf8; font-weight:600;">Metodologia do Gasto Calórico Real e EPOC</span>
           </div>
         </div>
         <button class="btn-close" type="button" onclick="closeInstrucoesBiometriaModal()" aria-label="Fechar">&times;</button>
@@ -8195,18 +8189,30 @@
       <div style="padding: 16px 20px; font-size:0.83rem; color:#cbd5e1; line-height:1.6; max-height:78vh; overflow-y:auto;">
         
         <div style="margin-bottom:14px; padding:12px 14px; background:rgba(244,63,94,0.07); border-left:3.5px solid #f43f5e; border-radius:10px;">
-          <div style="font-weight:800; color:#fff; font-size:0.88rem; margin-bottom:4px;">1. Por que o Smartwatch Subestima o Treino?</div>
-          Os relógios convencionais utilizam sensores ópticos no pulso calibrados primariamente para corrida e ciclismo contínuos. Em treinos de força, calistenia e WODs, as contrações musculares isométricas e a pegada comprimem os capilares locais, provocando atraso na leitura dos batimentos. Além disso, grande parte da energia dessas modalidades provém de vias anaeróbias (ATP-CP e glicolítica), que não consomem oxigênio imediato na execução e são completamente ignoradas pelo algoritmo do relógio.
+          <div style="font-weight:800; color:#fff; font-size:0.88rem; margin-bottom:4px;">1. Podemos Chamar de "Gasto Real"?</div>
+          <strong>Sim, no sentido fisiológico integral.</strong> Nenhum relógio comercial mede calorias diretamente no corpo; todos aplicam fórmulas indiretas estimadas para corrida contínua. Em modalidades com sobrecarga, calistenia e HIIT, o relógio mede apenas o batimento instantâneo e desliga a conta assim que você encerra o treino, ignorando completamente o custo mecânico anaeróbio e o débito metabólico gerado. Nosso modelo integra o bioestresse completo da sessão, aproximando o cálculo do consumo metabólico verdadeiro do organismo.
         </div>
 
         <div style="margin-bottom:14px; padding:12px 14px; background:rgba(0,255,136,0.06); border-left:3.5px solid var(--brand-neon); border-radius:10px;">
-          <div style="font-weight:800; color:#fff; font-size:0.88rem; margin-bottom:4px;">2. Como o App Calcula o Gasto Real</div>
-          Nosso algoritmo combina o <strong>trabalho mecânico real</strong> das séries que você executou, o seu peso corporal e a nota de percepção subjetiva de esforço (PSE). Cada série com sobrecarga impõe um custo metabólico direto de restauração celular, que é integrado à taxa ativa da sessão, corrigindo a subestimação do relógio com fidelidade biomecânica.
+          <div style="font-weight:800; color:#fff; font-size:0.88rem; margin-bottom:4px;">2. Como o Sistema Calcula a Energia Gasta</div>
+          A equação soma 3 componentes essenciais:
+          <ul style="margin: 6px 0 0 16px; padding: 0;">
+            <li style="margin-bottom: 4px;"><strong>Trabalho Mecânico das Séries:</strong> Multiplica o número real de séries executadas pelo custo energético anaeróbio por série (ponderado pelo seu peso corporal e pela percepção de esforço de 0 a 10).</li>
+            <li style="margin-bottom: 4px;"><strong>Gasto Metabólico Ativo:</strong> Consumo energético basal e cardiovascular ajustado pela duração da sessão e intensidade mantida.</li>
+            <li><strong>Compensação do Relógio:</strong> Se você preencher os dados do smartwatch, o sistema utiliza o registro real do seu coração e adiciona o trabalho que o sensor óptico não conseguiu ler.</li>
+          </ul>
         </div>
 
         <div style="margin-bottom:14px; padding:12px 14px; background:rgba(56,189,248,0.07); border-left:3.5px solid #38bdf8; border-radius:10px;">
-          <div style="font-weight:800; color:#fff; font-size:0.88rem; margin-bottom:4px;">3. EPOC (Efeito Pós-Combustão)</div>
-          O <strong>EPOC (Excess Post-Exercise Oxygen Consumption)</strong> representa as calorias extras que o seu organismo continua queimando nas 12 a 24 horas seguintes ao treino para recompor os estoques de fosfocreatina, tamponar o lactato acumulado, reabastecer a mioglobina e reparar os tecidos musculares. Em treinos intensos, o EPOC adiciona de <strong>10% a 25% a mais de gasto calórico</strong> que não aparece no display do seu smartwatch.
+          <div style="font-weight:800; color:#fff; font-size:0.88rem; margin-bottom:4px;">3. O que é o EPOC (Efeito Pós-Queima)?</div>
+          O <strong>EPOC (Excess Post-Exercise Oxygen Consumption)</strong> representa as calorias que o seu corpo continua gastando por <strong>12 a 24 horas após o treino</strong> para:
+          <ul style="margin: 6px 0 0 16px; padding: 0;">
+            <li style="margin-bottom: 3px;">Ressintetizar os estoques de fosfocreatina muscular (PCr).</li>
+            <li style="margin-bottom: 3px;">Tamponar e metabolizar o lactato acumulado nas fibras.</li>
+            <li style="margin-bottom: 3px;">Reoxigenar o sangue e reabastecer a mioglobina celular.</li>
+            <li>Reparar microlesões musculares e acelerar a síntese proteica.</li>
+          </ul>
+          Esse processo consome de <strong>10% a 25% a mais de energia</strong>, que o smartwatch desliga e nunca exibe.
         </div>
 
         <!-- Accordion Retrátil da Base Científica (Padrão Ouro GEMINI.md) -->
@@ -8219,7 +8225,7 @@
               <strong class="modal-science-heading" style="color:#e2e8f0;">CONSUMO EXCESSIVO DE OXIGÊNIO PÓS-EXERCÍCIO (EPOC):</strong> Exercícios de força de alta intensidade e calistenia causam perturbação metabólica profunda, mantendo a taxa de consumo de oxigênio elevada por horas após a sessão para ressíntese de glicogênio, remoção de metabólitos e restauração miocelular (Børsheim & Bahr, 2003).
             </div>
             <div class="modal-science-block">
-              <strong class="modal-science-heading" style="color:#e2e8f0;">ESTIMATIVA DE GASTO ENERGÉTICO EM RESISTÊNCIA:</strong> Estudos que utilizam calorimetria indireta e medição de lactato demonstram que algoritmos baseados apenas em frequência cardíaca subestimam em até 30% o gasto calórico de treinos resistidos com intervalo e componente excêntrico (Scott et al., 2011).
+              <strong class="modal-science-heading" style="color:#e2e8f0;">SUBESTIMAÇÃO DE GASTO EM TREINO RESISTIDO:</strong> Estudos de calorimetria indireta comprovam que algoritmos baseados exclusivamente em frequência cardíaca subestimam em até 30% a demanda calórica de treinos com componentes excêntricos e intervalos anaeróbios (Scott et al., 2011).
             </div>
           </div>
         </details>
@@ -11614,11 +11620,13 @@ function updateEvolucaoStats() {
         if (fill) fill.style.background = '#38bdf8';
 
         presets.innerHTML = `
-          <button class="btn-preset" onclick="addSimpleTimerTime(30)">+30s</button>
-          <button class="btn-preset" onclick="addSimpleTimerTime(60)">+1 min</button>
-          <button class="btn-preset" onclick="addSimpleTimerTime(120)">+2 min</button>
-          <button class="btn-preset" onclick="addSimpleTimerTime(180)">+3 min</button>
-          <button class="btn-preset" onclick="addSimpleTimerTime(300)">+5 min</button>
+          <button class="btn-preset ${timerState.simpleTimerDuration===30?'active':''}" onclick="setSimpleTimerExact(30)">30s</button>
+          <button class="btn-preset ${timerState.simpleTimerDuration===45?'active':''}" onclick="setSimpleTimerExact(45)">45s</button>
+          <button class="btn-preset ${timerState.simpleTimerDuration===60?'active':''}" onclick="setSimpleTimerExact(60)">60s</button>
+          <button class="btn-preset ${timerState.simpleTimerDuration===90?'active':''}" onclick="setSimpleTimerExact(90)">90s</button>
+          <button class="btn-preset ${timerState.simpleTimerDuration===120?'active':''}" onclick="setSimpleTimerExact(120)">2 min</button>
+          <button class="btn-preset ${timerState.simpleTimerDuration===180?'active':''}" onclick="setSimpleTimerExact(180)">3 min</button>
+          <button class="btn-preset" onclick="addSimpleTimerTime(30)" title="Adicionar 30s">+30s</button>
         `;
       }
     }
@@ -11691,6 +11699,14 @@ function updateEvolucaoStats() {
       timerState.tabataPhaseSecondsRemaining = timerState.tabataWorkTime;
       renderTimerMode();
     }
+
+    
+    window.setSimpleTimerExact = function(sec) {
+      if (timerRunning) handleTimerPause();
+      timerState.simpleTimerDuration = sec;
+      timerState.simpleTimerRemaining = sec;
+      renderTimerMode();
+    };
 
     function addSimpleTimerTime(sec) {
       if (timerRunning) return;

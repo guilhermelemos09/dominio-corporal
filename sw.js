@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dominio-corporal-v174';
+const CACHE_NAME = 'dominio-corporal-v175';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
