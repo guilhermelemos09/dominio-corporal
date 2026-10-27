@@ -6732,12 +6732,11 @@
             <div style="font-size:0.92rem; font-weight:800; color:#fff; display:flex; align-items:center; gap:6px;">
               <span>📈</span> <span>Curvas de Tendência Temporal</span>
             </div>
-            <!-- Seletor de 4 Métricas do Gráfico -->
+            <!-- Seletor de Métricas Fisiológicas do Gráfico -->
             <div style="display:flex; gap:5px; background:rgba(0,0,0,0.3); padding:3px; border-radius:8px; border:1px solid rgba(255,255,255,0.08); flex-wrap:wrap;">
               <button type="button" id="btnChartTabWeight" onclick="switchBodyCompChart('weight')" style="background:rgba(56,189,248,0.2); color:#38bdf8; border:none; padding:5px 10px; font-size:0.72rem; font-weight:700; border-radius:6px; cursor:pointer;">Peso (kg)</button>
               <button type="button" id="btnChartTabWaist" onclick="switchBodyCompChart('waist')" style="background:transparent; color:#94a3b8; border:none; padding:5px 10px; font-size:0.72rem; font-weight:700; border-radius:6px; cursor:pointer;">Cintura (cm)</button>
-              <button type="button" id="btnChartTabJoint" onclick="switchBodyCompChart('joint')" style="background:transparent; color:#94a3b8; border:none; padding:5px 10px; font-size:0.72rem; font-weight:700; border-radius:6px; cursor:pointer;">Impacto Articular (kg)</button>
-              <button type="button" id="btnChartTabPower" onclick="switchBodyCompChart('power')" style="background:transparent; color:#94a3b8; border:none; padding:5px 10px; font-size:0.72rem; font-weight:700; border-radius:6px; cursor:pointer;">Força Relativa (%)</button>
+              <button type="button" id="btnChartTabBF" onclick="switchBodyCompChart('bf')" style="background:transparent; color:#94a3b8; border:none; padding:5px 10px; font-size:0.72rem; font-weight:700; border-radius:6px; cursor:pointer;">Gordura Corporal (% BF)</button>
             </div>
           </div>
 
@@ -6747,6 +6746,46 @@
 
           <div id="compChartExplanation" style="margin-top:14px; padding:10px 12px; background:rgba(255,255,255,0.02); border-radius:10px; border:1px solid rgba(255,255,255,0.06); font-size:0.76rem; color:#94a3b8; line-height:1.5;">
             💡 <em>Atualização dinâmica: a curva é recalculada e renderizada instantaneamente a cada nova medição adicionada.</em>
+          </div>
+        </div>
+
+        <!-- CARD 5: DIAGNÓSTICO BIOMECÂNICO ATUAL • CORTE ABSOLUTO DO MOMENTO -->
+        <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-left: 4.5px solid #c084fc; border-radius: 14px; padding: 14px 16px; margin-bottom: 16px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 12px; flex-wrap:wrap; gap:8px;">
+            <div style="font-size:0.92rem; font-weight:800; color:#ffffff; display:flex; align-items:center; gap:8px;">
+              <span>🔬</span> <span>DIAGNÓSTICO BIOMECÂNICO • CORTE DO MOMENTO ATUAL</span>
+            </div>
+            <span style="font-size:0.7rem; font-weight:700; color:#c084fc; background:rgba(192,132,252,0.12); border:1px solid rgba(192,132,252,0.3); padding:3px 8px; border-radius:8px;">Instantâneo Clínico</span>
+          </div>
+
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:12px;">
+            
+            <!-- Bloco 1: Carga Articular e Descompressão -->
+            <div style="background:rgba(0,0,0,0.25); border:1px solid rgba(192,132,252,0.22); border-radius:10px; padding:12px 14px;">
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+                <span style="font-size:0.82rem; font-weight:800; color:#c084fc; display:flex; align-items:center; gap:6px;">
+                  <span>🦵</span> <span>Carga e Alívio Articular</span>
+                </span>
+                <span id="compDescJointBadge" style="font-size:0.75rem; font-weight:800; color:#c084fc;">~ -40.4 kg / passo</span>
+              </div>
+              <p style="margin:0; font-size:0.75rem; color:#cbd5e1; line-height:1.5;" id="compDescJointText">
+                Pela <strong>Regra 4:1 de Messier</strong>, cada 1 kg de gordura corporal inerte reduzido poupa ~4 kg de força compressiva na articulação do joelho a cada passada. No corte atual, isso representa alívio direto sobre as cartilagens patelofemoral e meniscal nas corridas, aterrissagens e agachamentos.
+              </p>
+            </div>
+
+            <!-- Bloco 2: Força Relativa e Rendimento Ginástico -->
+            <div style="background:rgba(0,0,0,0.25); border:1px solid rgba(251,191,36,0.22); border-radius:10px; padding:12px 14px;">
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+                <span style="font-size:0.82rem; font-weight:800; color:#fbbf24; display:flex; align-items:center; gap:6px;">
+                  <span>⚡</span> <span>Força Relativa e Alavanca</span>
+                </span>
+                <span id="compDescPowerBadge" style="font-size:0.75rem; font-weight:800; color:#fbbf24;">+11.5% potência</span>
+              </div>
+              <p style="margin:0; font-size:0.75rem; color:#cbd5e1; line-height:1.5;" id="compDescPowerText">
+                Segundo os princípios de força de <strong>Zatsiorsky e Kraemer</strong>, o tecido adiposo atua biologicamente como um <em>"colete de lastro inerte"</em> sem capacidade contrátil. A recomposição corporal atual aumenta a relação de torque por quilo, facilitando puxadas (pull-ups), flexões em parada de mão (HSPU) e muscle-ups.
+              </p>
+            </div>
+
           </div>
         </div>
 
@@ -10032,8 +10071,7 @@ function updateEvolucaoStats() {
       const tabs = [
         { id: 'btnChartTabWeight', key: 'weight', color: '#38bdf8', bg: 'rgba(56,189,248,0.2)' },
         { id: 'btnChartTabWaist', key: 'waist', color: 'var(--brand-neon)', bg: 'rgba(0,255,136,0.18)' },
-        { id: 'btnChartTabJoint', key: 'joint', color: '#c084fc', bg: 'rgba(192,132,252,0.2)' },
-        { id: 'btnChartTabPower', key: 'power', color: '#fbbf24', bg: 'rgba(251,191,36,0.2)' }
+        { id: 'btnChartTabBF', key: 'bf', color: '#fbbf24', bg: 'rgba(251,191,36,0.2)' }
       ];
       tabs.forEach(t => {
         const btn = document.getElementById(t.id);
@@ -10070,7 +10108,10 @@ function updateEvolucaoStats() {
       const padLeft = 48;
       const padRight = 25;
 
-      const baselineW = history[0].weight;
+      const base = getStudentBaseProfile();
+      const height = base.height || 178;
+      const gender = base.gender || 'masculino';
+
       let strokeColor = '#38bdf8';
       let unit = 'kg';
 
@@ -10080,27 +10121,38 @@ function updateEvolucaoStats() {
       } else if (type === 'waist') {
         strokeColor = 'var(--brand-neon)';
         unit = 'cm';
-      } else if (type === 'joint') {
-        strokeColor = '#c084fc';
-        unit = 'kg';
-      } else if (type === 'power') {
+      } else if (type === 'bf') {
         strokeColor = '#fbbf24';
         unit = '%';
       }
 
       const pointsData = history.map((d) => {
-        let val = 0;
+        let val = null;
         if (type === 'weight') {
           val = d.weight;
         } else if (type === 'waist') {
           val = d.waist;
-        } else if (type === 'joint') {
-          val = Math.max(0, Math.round((baselineW - d.weight) * 4 * 10) / 10);
-        } else if (type === 'power') {
-          val = Math.max(0, Math.round(((baselineW / d.weight) - 1) * 100 * 10) / 10);
+        } else if (type === 'bf') {
+          if (d.bfManual !== null && d.bfManual !== undefined && !isNaN(d.bfManual)) {
+            val = d.bfManual;
+          } else if (d.neck) {
+            val = calculateUSNavyBF(gender, height, d.waist, d.neck, d.hip);
+          }
         }
         return { val, date: d.date || '' };
       }).filter(p => typeof p.val === 'number' && !isNaN(p.val));
+
+      // Atualiza o texto explicativo da curva
+      const explanationEl = document.getElementById('compChartExplanation');
+      if (explanationEl) {
+        if (type === 'weight') {
+          explanationEl.innerHTML = '💡 <strong>Curva de Peso Corporal:</strong> Acompanhamento contínuo da massa corporal total (kg), refletindo balanço calórico, retenção hídrica e ritmo sustentável de recomposição.';
+        } else if (type === 'waist') {
+          explanationEl.innerHTML = '💡 <strong>Curva de Circunferência de Cintura:</strong> Métrica de ouro para redução de adiposidade abdominal e visceral, diretamente associada à sensibilidade à insulina e descompressão metabólica.';
+        } else if (type === 'bf') {
+          explanationEl.innerHTML = '💡 <strong>Curva de Percentual de Gordura (% BF):</strong> Baseada na Fórmula de Circunferências da Marinha dos EUA (Hodgdon & Beckett) e registros manuais. Reflete a evolução real da proporção entre massa muscular e tecido adiposo.';
+        }
+      }
 
       if (pointsData.length === 0) return;
 
