@@ -11592,33 +11592,9 @@ function updateEvolucaoStats() {
         descPowerBadgeEl.textContent = `${powerGainVal > 0 ? '+' : ''}${powerGainVal.toFixed(1)}% potência`;
       }
 
-      // Atualização dinâmica do Card 5 (Diagnóstico Biomecânico - Corte Atual)
-      const descJointBadgeEl = document.getElementById('compDescJointBadge');
-      const descPowerBadgeEl = document.getElementById('compDescPowerBadge');
-      if (descJointBadgeEl) {
-        if (jointReliefVal > 0) {
-          descJointBadgeEl.textContent = `~ -${jointReliefVal.toFixed(1)} kg / passo`;
-        } else {
-          descJointBadgeEl.textContent = 'Ponto Basal Neutro';
-        }
-      }
-      if (descPowerBadgeEl) {
-        descPowerBadgeEl.textContent = `${powerGainVal > 0 ? '+' : ''}${powerGainVal.toFixed(1)}% potência`;
-      }
 
-      // Atualização dinâmica do Card 5 (Diagnóstico Biomecânico - Corte Atual)
-      const descJointBadgeEl = document.getElementById('compDescJointBadge');
-      const descPowerBadgeEl = document.getElementById('compDescPowerBadge');
-      if (descJointBadgeEl) {
-        if (jointReliefVal > 0) {
-          descJointBadgeEl.textContent = `~ -${jointReliefVal.toFixed(1)} kg / passo`;
-        } else {
-          descJointBadgeEl.textContent = 'Ponto Basal Neutro';
-        }
-      }
-      if (descPowerBadgeEl) {
-        descPowerBadgeEl.textContent = `${powerGainVal > 0 ? '+' : ''}${powerGainVal.toFixed(1)}% potência`;
-      }
+
+
 
       // Atualiza Gráficos, Fotos e Histórico
       renderBodyCompChart(currentBodyCompChartType);
