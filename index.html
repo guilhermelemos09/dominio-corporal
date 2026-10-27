@@ -8694,32 +8694,12 @@
           </div>
         </div>
 
-        <!-- Percepção de Roupas e Energia -->
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top: 10px;">
-          <div class="comp-form-group">
-            <label class="comp-form-label" for="add_comp_clothes">👕 Ajuste das Roupas</label>
-            <select id="add_comp_clothes" class="comp-form-select" onchange="saveCompDraft()">
-              <option value="folgadas" selected>Roupas mais folgadas</option>
-              <option value="normais">Normais e confortáveis</option>
-              <option value="apertadas">Roupas mais justas</option>
-            </select>
-          </div>
-          <div class="comp-form-group">
-            <label class="comp-form-label" for="add_comp_energy">⚡ Disposição e Energia</label>
-            <select id="add_comp_energy" class="comp-form-select" onchange="saveCompDraft()">
-              <option value="5" selected>⭐⭐⭐⭐⭐ Excelente / Máxima</option>
-              <option value="4">⭐⭐⭐⭐ Muito Boa</option>
-              <option value="3">⭐⭐⭐ Normal / Regular</option>
-              <option value="2">⭐⭐ Baixa / Cansado</option>
-              <option value="1">⭐ Muito Baixa</option>
-            </select>
-          </div>
-        </div>
+
 
         <!-- Observações -->
         <div class="comp-form-group" style="margin-top: 10px;">
           <label class="comp-form-label" for="add_comp_notes">📝 Observações e Sensações</label>
-          <textarea id="add_comp_notes" class="comp-form-textarea" rows="2" placeholder="Ex: Mais leve nos apoios, calça folgada na cintura..." oninput="saveCompDraft()"></textarea>
+          <textarea id="add_comp_notes" class="comp-form-textarea" rows="2" placeholder="Ex: Sensação nas roupas (calça mais folgada), nível de energia, sensação nos treinos..." oninput="saveCompDraft()"></textarea>
         </div>
 
         <!-- Botões de Ação do Modal -->
@@ -11870,8 +11850,8 @@ function updateEvolucaoStats() {
                 ${item.bfManual ? `<span style="font-size:0.72rem; color:#fbbf24; font-weight:700; background:rgba(251,191,36,0.1); padding:2px 6px; border-radius:6px;">Gordura: ${item.bfManual}%${item.bfMethod ? ' • ' + item.bfMethod : ''}</span>` : ''}
               </div>
               <div style="font-size:0.72rem; color:#94a3b8; display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:2px;">
-                <span>${clothesMap[item.clothes] || '👕 Roupas normais'}</span>
-                <span>⚡ Energia: ${energyStars}</span>
+                ${item.clothes ? `<span>${clothesMap[item.clothes] || '👕 ' + item.clothes}</span>` : ''}
+                ${item.energy ? `<span>⚡ Energia: ${energyStars}</span>` : ''}
                 ${item.notes ? `<span style="color:#cbd5e1;">💬 "${item.notes}"</span>` : ''}
                 ${item.photos && item.photos.front ? `<a href="${item.photos.front}" target="_blank" style="display:inline-flex; align-items:center; gap:4px; font-size:0.72rem; color:var(--brand-neon); text-decoration:none; background:rgba(0,255,136,0.08); border:1px solid rgba(0,255,136,0.22); padding:2px 7px; border-radius:6px; font-weight:700;">📷 Balança ↗</a>` : ''}
               </div>
@@ -12007,8 +11987,8 @@ function updateEvolucaoStats() {
       const hipVal = parseFloat(document.getElementById('add_comp_hip')?.value) || null;
       const bfVal = parseFloat(document.getElementById('add_comp_bf_manual')?.value) || null;
       const bfMethodVal = document.getElementById('add_comp_bf_method')?.value || null;
-      const clothesVal = document.getElementById('add_comp_clothes')?.value || 'normais';
-      const energyVal = parseInt(document.getElementById('add_comp_energy')?.value) || 5;
+      const clothesVal = document.getElementById('add_comp_clothes')?.value || null;
+      const energyVal = parseInt(document.getElementById('add_comp_energy')?.value) || null;
       const notesVal = document.getElementById('add_comp_notes')?.value.trim() || '';
 
       if (!weightVal || isNaN(weightVal) || weightVal <= 20 || weightVal > 300) {
