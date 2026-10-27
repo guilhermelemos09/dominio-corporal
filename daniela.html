@@ -9201,16 +9201,35 @@
       const durEl = document.getElementById('bio_session_duration');
       if (durEl) durEl.value = String(detectedMinutes);
 
-      // Limpa ou mantém campos do relógio
-      clearSmartwatchPhoto();
+      // Pré-preenchimento inteligente: se este treino já foi salvo hoje, resgata os dados para edição
       const hrAvgEl = document.getElementById('bio_watch_hr_avg');
       const hrMaxEl = document.getElementById('bio_watch_hr_max');
       const watchKcalEl = document.getElementById('bio_watch_kcal');
-      if (hrAvgEl) hrAvgEl.value = '';
-      if (hrMaxEl) hrMaxEl.value = '';
-      if (watchKcalEl) watchKcalEl.value = '';
+      
+      let existingLog = null;
+      try {
+        const _slug = (typeof studentSlug !== 'undefined' && studentSlug) ? studentSlug : '';
+        const _key = _slug ? ('dominio_' + _slug + '_workout_logs') : 'dominio_workout_logs';
+        const _logs = JSON.parse(localStorage.getItem(_key) || localStorage.getItem('dominio_workout_logs') || '[]');
+        const todayStr = new Date().toLocaleDateString('pt-BR');
+        existingLog = _logs.slice().reverse().find(l => (l.dia === targetDay || l.dia_id === targetDay) && l.data === todayStr)
+                   || _logs.slice().reverse().find(l => (l.dia === targetDay || l.dia_id === targetDay));
+      } catch (e) {}
 
-      selectBioPse(7);
+      if (existingLog) {
+        if (durEl && existingLog.duracao_min) durEl.value = String(existingLog.duracao_min);
+        if (existingLog.pse) selectBioPse(existingLog.pse);
+        else selectBioPse(7);
+        if (hrAvgEl) hrAvgEl.value = existingLog.fc_media ? String(existingLog.fc_media) : '';
+        if (hrMaxEl) hrMaxEl.value = existingLog.fc_max ? String(existingLog.fc_max) : '';
+        if (watchKcalEl) watchKcalEl.value = existingLog.kcal_relogio ? String(existingLog.kcal_relogio) : '';
+      } else {
+        clearSmartwatchPhoto();
+        if (hrAvgEl) hrAvgEl.value = '';
+        if (hrMaxEl) hrMaxEl.value = '';
+        if (watchKcalEl) watchKcalEl.value = '';
+        selectBioPse(7);
+      }
 
       modal.style.setProperty('display', 'flex', 'important');
       modal.classList.add('active');
@@ -12600,7 +12619,7 @@ function updateEvolucaoStats() {
           if (type === 'dia' || target <= 1) {
             completed[dayId] = true;
           } else {
-            completed[dayId] = Math.min(target, count + 1);
+            if (!isDone) completed[dayId] = Math.min(target, count + 1);
           }
         } else {
           completed[dayId] = true;
@@ -12658,8 +12677,14 @@ function updateEvolucaoStats() {
       // Salvar no log histórico estruturado local e na nuvem
       try {
         const logs = JSON.parse(localStorage.getItem('dominio_daniela_workout_logs') || '[]');
-        logs.push(logEntry);
+        const existingIdx = logs.findIndex(l => (l.dia === dayId || l.dia_id === dayId) && l.data === logDate);
+        if (existingIdx !== -1) {
+          logs[existingIdx] = { ...logs[existingIdx], ...logEntry };
+        } else {
+          logs.push(logEntry);
+        }
         localStorage.setItem('dominio_daniela_workout_logs', JSON.stringify(logs));
+        localStorage.setItem('dominio_workout_logs', JSON.stringify(logs));
       } catch (e) {
         console.error('Erro ao registrar log local:', e);
       }
@@ -12700,23 +12725,34 @@ function updateEvolucaoStats() {
 
       if (typeof updateEvolucaoStats === 'function') updateEvolucaoStats();
       if (typeof updateWorkoutCompletionUI === 'function' && dayId !== 'extra') updateWorkoutCompletionUI(dayId);
-      const btn = document.getElementById('btnSendCoach-' + dayId);
-      if (btn) {
-        btn.disabled = true;
-        btn.innerHTML = `<svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:currentColor;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span>Enviado para Coach</span>`;
+      if (typeof renderTrainingHubDays === 'function') renderTrainingHubDays();
+      if (typeof updateProgress === 'function') updateProgress();
+
+      // Mantém o botão de finalização habilitado para caso o usuário queira voltar e re-enviar observações
+      const triggerBtn = document.getElementById('btnTriggerFinish-' + dayId) || document.getElementById('btnSendCoach-' + dayId);
+      if (triggerBtn) {
+        triggerBtn.disabled = false;
+        triggerBtn.innerHTML = `<span class="finish-flag-icon">🏁</span> <span>ATUALIZAR / REENVIAR SESSÃO</span>`;
       }
 
-      if (sendWhatsApp) {
+      if (sendWhatsApp && typeof sendWorkoutReportWhatsApp === 'function') {
         sendWorkoutReportWhatsApp(dayId, logEntry);
       }
 
       const feedback = document.getElementById('completeFeedback-' + dayId);
       if (feedback) {
         const pMeta = getPseMeta(pse);
-        feedback.innerHTML = `✅ Sessão finalizada! <strong>PSE ${pse} (${pMeta.label}) • Carga: ${calc.loadUA} U.A. • Gasto Real: ${calc.realKcal} kcal</strong> registrados em <em>Evolução → Biometria e Performance</em>.`;
+        feedback.innerHTML = `✅ Sessão salva e registrada com sucesso! <strong>PSE ${pse} • Gasto Real: ${calc.realKcal} kcal</strong>.`;
         feedback.style.display = 'block';
-        feedback.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
+
+      // Retorna para a tela inicial (Hub de Treinos) após registrar
+      setTimeout(() => {
+        if (typeof closeDedicatedView === 'function') {
+          closeDedicatedView();
+        }
+      }, 350);
+
       if ('vibrate' in navigator) navigator.vibrate([100, 50, 100]);
     };
 
