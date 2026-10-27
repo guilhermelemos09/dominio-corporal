@@ -5165,9 +5165,6 @@
       <span class="meta-item">⏱️ ~55 min</span>
     </div>
 
-    
-    </div>
-
     <!-- ==================== SEÇÃO 1: ATIVAÇÃO ==================== -->
     <div class="section-card sec-aquecimento">
       <div class="section-header">
@@ -5712,8 +5709,6 @@
         ✅ Sessão finalizada e registrada com sucesso!
       </div>
     </div>
-      
-    </div>
 
     <!-- Ajuda Contextual do Treino -->
     <div class="contextual-help-wrap" style="margin-top: 24px; margin-bottom: 80px;">
@@ -5780,19 +5775,7 @@
       </div>
 
     </div>
-    <!-- Card Clean de Finalização de Treino (Quarta) -->
-    <div class="workout-finish-clean-card" id="workoutFinishCard-quarta">
-      <button type="button" class="btn-finish-workout-trigger" id="btnTriggerFinish-quarta" onclick="openBiometriaSessaoModal('quarta')">
-        <span class="finish-flag-icon">🏁</span> <span>FINALIZAR SESSÃO</span>
-      </button>
-      <div id="completeFeedback-quarta" class="complete-feedback-box" style="display:none; width: 100%; margin-top: 10px;">
-        ✅ Sessão finalizada e registrada com sucesso!
-      </div>
-    </div>
-      
-    </div>
-
-  </div><!-- end #tab-recados -->
+    </div><!-- end #tab-recados -->
 
 
   <!-- ==================== TAB: ANÁLISE DE VÍDEOS ==================== -->
@@ -7372,10 +7355,9 @@
       </div>
       <div class="timer-buttons">
         <button type="button" class="btn-timer" onclick="startTimer(30)">30s</button>
-        <button type="button" class="btn-timer" onclick="startTimer(45)">45s</button>
         <button type="button" class="btn-timer" onclick="startTimer(60)">60s</button>
         <button type="button" class="btn-timer active" onclick="startTimer(90)">90s</button>
-        <button type="button" class="btn-timer" onclick="startTimer(120)">120s</button>
+        <button type="button" class="btn-timer" onclick="startTimer(180)">180s</button>
         <button type="button" class="btn-timer btn-timer-reset" onclick="resetTimer()">Reset</button>
       </div>
     </div>
@@ -7831,7 +7813,6 @@
       </div>
     </div>
   </div>
-    </div>
   </div>
 
   <!-- Modal de Vídeo e Técnica -->
@@ -11622,10 +11603,8 @@ function updateEvolucaoStats() {
 
         presets.innerHTML = `
           <button class="btn-preset ${timerState.simpleTimerDuration===30?'active':''}" onclick="setSimpleTimerExact(30)">30s</button>
-          <button class="btn-preset ${timerState.simpleTimerDuration===45?'active':''}" onclick="setSimpleTimerExact(45)">45s</button>
           <button class="btn-preset ${timerState.simpleTimerDuration===60?'active':''}" onclick="setSimpleTimerExact(60)">60s</button>
           <button class="btn-preset ${timerState.simpleTimerDuration===90?'active':''}" onclick="setSimpleTimerExact(90)">90s</button>
-          <button class="btn-preset ${timerState.simpleTimerDuration===120?'active':''}" onclick="setSimpleTimerExact(120)">2 min</button>
           <button class="btn-preset ${timerState.simpleTimerDuration===180?'active':''}" onclick="setSimpleTimerExact(180)">3 min</button>
           <button class="btn-preset" onclick="addSimpleTimerTime(30)" title="Adicionar 30s">+30s</button>
         `;
