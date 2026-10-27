@@ -5009,6 +5009,33 @@
       line-height: 1.35;
       width: 100%;
     }
+    .btn-add-medicao-chamativo {
+      width: 100%;
+      background: linear-gradient(135deg, rgba(0, 255, 136, 0.16) 0%, rgba(0, 255, 136, 0.06) 100%);
+      border: 1.5px solid var(--brand-neon);
+      color: var(--brand-neon);
+      padding: 13px 20px;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 18px rgba(0, 255, 136, 0.18);
+      margin-bottom: 16px;
+    }
+    .btn-add-medicao-chamativo:hover, .btn-add-medicao-chamativo:active {
+      background: var(--brand-neon);
+      color: #000000;
+      box-shadow: 0 6px 26px var(--brand-neon-glow);
+      transform: translateY(-1px);
+    }
+
     .btn-send-video-drawer {
       display: inline-flex;
       align-items: center;
@@ -6624,22 +6651,18 @@
       <!-- ==================== SUBPÁGINA 1: ANTROPOMETRIA ==================== -->
       <div id="compSubView-grafico" style="display:none;">
         
-        <!-- BARRA SUPERIOR PADRONIZADA: VOLTAR + ADICIONAR MEDIÇÃO + GUIA DE MEDIDAS -->
-        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle); flex-wrap:wrap; gap:8px;">
-          <button type="button" class="btn-back-workout" onclick="closeCompSubView()">
-            ← Voltar para Composição Corporal
+        <!-- NAVEGAÇÃO DE RETORNO (CAMINHO PARA PÁGINA ANTERIOR) -->
+        <div style="display:flex; align-items:center; justify-content:flex-start; margin-bottom:12px; padding: 4px 0;">
+          <button type="button" class="btn-back-workout" onclick="closeCompSubView()" style="display: inline-flex; align-items: center; gap: 6px; background: transparent; border: none; padding: 4px 0; color: #94a3b8; font-size: 0.8rem; font-weight: 600; cursor: pointer;">
+            <span style="font-size: 0.95rem;">←</span> <span>Composição Corporal</span>
           </button>
-          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-            <button type="button" class="btn-orientacoes-popup" onclick="openAddMedicaoModal()" style="background: rgba(0, 255, 136, 0.14); border-color: rgba(0, 255, 136, 0.4); color: var(--brand-neon); font-weight: 800;">
-              <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-              <span>+ ADICIONAR MEDIÇÃO</span>
-            </button>
-            <button type="button" class="btn-orientacoes-popup" onclick="openInstrucoesMedidasModal()">
-              <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
-              <span>GUIA DE MEDIDAS</span>
-            </button>
-          </div>
         </div>
+
+        <!-- BOTÃO NOBRE ADICIONAR MEDIÇÃO (LINHA TODA, CHAMATIVO, APENAS 1 ÍCONE +) -->
+        <button type="button" class="btn-add-medicao-chamativo" onclick="openAddMedicaoModal()">
+          <svg viewBox="0 0 24 24" style="width:18px; height:18px; fill:currentColor;"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+          <span>ADICIONAR MEDIÇÃO</span>
+        </button>
 
         <!-- CARD 1: PONTO DE PARTIDA (LINHA COMPACTA PADRONIZADA) -->
         <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(56,189,248,0.25); border-left: 4.5px solid #38bdf8; border-radius: 12px; padding: 10px 14px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
