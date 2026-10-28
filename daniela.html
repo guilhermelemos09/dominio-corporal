@@ -6818,7 +6818,7 @@
           <span>ADICIONAR FOTOS</span>
         </button>
 
-        <!-- SEÇÃO PRINCIPAL: COMPARAÇÃO LONGITUDINAL (INICIAL VS. ATUAL) -->
+        <!-- SEÇÃO PRINCIPAL: COMPARAÇÃO LONGITUDINAL (INICIAL VS. ATUAL) COM MENUS RETRÁTEIS -->
         <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-left: 4.5px solid var(--brand-neon); border-radius: 14px; padding: 16px; margin-bottom: 16px;">
           
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:8px;">
@@ -6826,276 +6826,159 @@
               <span style="font-size:1.15rem;">📸</span>
               <div style="font-size:0.95rem; font-weight:800; color:#ffffff; letter-spacing:0.02em;">COMPARAÇÃO: INICIAL VS. ATUAL</div>
             </div>
-            <span style="font-size:0.72rem; font-weight:700; color:var(--brand-neon); background:rgba(0,255,136,0.1); border:1px solid rgba(0,255,136,0.25); padding:3px 8px; border-radius:8px;" id="compPhotosDatesBadge">02/07/2026 vs. Atual</span>
+            <span style="font-size:0.72rem; font-weight:700; color:var(--brand-neon); background:rgba(0,255,136,0.1); border:1px solid rgba(0,255,136,0.25); padding:3px 8px; border-radius:8px;" id="compPhotosDatesBadge">Toque para Expandir</span>
           </div>
 
-          <!-- Três ângulos de Comparação (Frente, Perfil e Costas) -->
-          <div style="display:flex; flex-direction:column; gap:16px;">
+          <!-- AVISO DE PADRONIZAÇÃO (SE AINDA NÃO HOUVER FOTOS OFICIAIS CADASTRADAS) -->
+          
+
+          <!-- Três ângulos de Comparação com Menus Retráteis (Fotos e Análise dentro do Accordion) -->
+          <div style="display:flex; flex-direction:column; gap:12px;">
             
-            <!-- 1. FRENTE (ANTERIOR) -->
-            <div style="background:rgba(0,0,0,0.25); border:1px solid rgba(56,189,248,0.2); border-radius:12px; padding:12px 14px;">
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                <span style="font-size:0.85rem; font-weight:800; color:#38bdf8; display:flex; align-items:center; gap:6px;">
-                  <span>🧍‍♂️</span> <span>1. Postura Frontal (Anterior)</span>
-                </span>
-                <span style="font-size:0.68rem; font-weight:700; color:#38bdf8; background:rgba(56,189,248,0.12); padding:2px 6px; border-radius:6px;">Frente</span>
-              </div>
-              
-              <!-- Moldura comparativa -->
-              <div class="photo-display-frame" style="margin-top:6px;">
-                <img src="Midia/comparacao_frontal_relaxado.jpg" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='../Midia/comparacao_frontal_relaxado.jpg';}" alt="Comparação Frontal" loading="lazy">
-                <div class="photo-split-legend">
-                  <span class="legend-before">⬅️ Inicial (02/07): 97.8 kg</span>
-                  <span class="legend-after">Mais Recente: 84.5 kg (-13.3 kg) ➡️</span>
+            <!-- 1. FRENTE (ANTERIOR) - RETRÁTIL -->
+            <details class="postural-accordion-item" style="background:rgba(0,0,0,0.28); border:1px solid rgba(56,189,248,0.25); border-radius:12px; overflow:hidden;">
+              <summary style="padding:12px 14px; cursor:pointer; list-style:none; display:flex; align-items:center; justify-content:space-between; user-select:none;">
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <span>🧍‍♂️</span>
+                  <span style="font-size:0.86rem; font-weight:800; color:#38bdf8;">1. Postura Frontal (Frente) — Inicial vs. Atual</span>
                 </div>
-              </div>
-
-              <!-- Menu Retrátil para Descrição Técnica (Abre e fecha ao tocar) -->
-              <details class="postural-accordion-item" style="margin-top:10px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); border-radius:8px; overflow:hidden;">
-                <summary style="padding:8px 12px; cursor:pointer; list-style:none; display:flex; align-items:center; justify-content:space-between; font-size:0.75rem; font-weight:700; color:#cbd5e1; user-select:none;">
-                  <span style="display:flex; align-items:center; gap:6px;">
-                    <span>🔬</span> <span>Diagnóstico e Avaliação Visual</span>
-                  </span>
+                <div style="display:flex; align-items:center; gap:6px;">
+                  <span style="font-size:0.68rem; font-weight:700; color:#38bdf8; background:rgba(56,189,248,0.12); padding:2px 7px; border-radius:6px;">Ver Fotos</span>
                   <span style="color:#94a3b8; font-size:0.75rem;">▾</span>
-                </summary>
-                <div style="padding:10px 12px; font-size:0.74rem; color:#94a3b8; line-height:1.55; border-top:1px solid rgba(255,255,255,0.06);">
-                  <ul class="bio-points-list" style="margin:0; padding-left:14px;">
-                    <li><strong>Alinhamento Anterior:</strong> Redução acentuada de lastro periumbilical e flancos, eliminando a tração gravitacional sobre a pelve.</li>
-                    <li><strong>Cintura Escapular e Peitoral:</strong> Retração natural dos ombros, peito aberto e descompressão do trapézio superior.</li>
-                    <li><strong>Membros Inferiores:</strong> Redução evidente de estresse compressivo sobre os joelhos.</li>
+                </div>
+              </summary>
+              <div style="padding:12px 14px; border-top:1px solid rgba(56,189,248,0.15);">
+                
+                <div class="photo-display-frame" style="margin-bottom:12px;">
+                  <img src="Midia/comparacao_frontal_relaxado.jpg" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='../Midia/comparacao_frontal_relaxado.jpg';}" alt="Comparação Frontal" loading="lazy">
+                  <div class="photo-split-legend">
+                    <span class="legend-before">⬅️ Inicial</span>
+                    <span class="legend-after">Mais Recente ➡️</span>
+                  </div>
+                </div>
+                
+                <div style="padding:10px 12px; background:rgba(255,255,255,0.02); border-left:3px solid #38bdf8; border-radius:6px; font-size:0.75rem; color:#cbd5e1; line-height:1.55;">
+                  <strong style="color:#38bdf8;">Diagnóstico e Simetria Anterior:</strong>
+                  <ul class="bio-points-list" style="margin:4px 0 0; padding-left:14px; color:#94a3b8;">
+                    <li><strong>Alinhamento e Silhueta:</strong> Redução evidente de lastro periumbilical e flancos laterais, estabilizando a linha média do tronco.</li>
+                    <li><strong>Cintura Escapular e Peitoral:</strong> Retração natural de ombros e alívio de tensão cervical compensatória.</li>
+                    <li><strong>Membros Inferiores:</strong> Redução da pressão compressiva sobre os joelhos em posição ortostática.</li>
                   </ul>
                 </div>
-              </details>
-            </div>
-
-            <!-- 2. PERFIL / LATERAL -->
-            <div style="background:rgba(0,0,0,0.25); border:1px solid rgba(0,255,136,0.2); border-radius:12px; padding:12px 14px;">
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                <span style="font-size:0.85rem; font-weight:800; color:var(--brand-neon); display:flex; align-items:center; gap:6px;">
-                  <span>📐</span> <span>2. Postura Lateral (Perfil)</span>
-                </span>
-                <span style="font-size:0.68rem; font-weight:700; color:var(--brand-neon); background:rgba(0,255,136,0.12); padding:2px 6px; border-radius:6px;">Perfil</span>
               </div>
-              
-              <!-- Moldura informativa / comparativa -->
-              <div class="photo-display-frame" style="margin-top:6px; background:rgba(0,0,0,0.3); min-height:80px; display:flex; align-items:center; justify-content:center; border-radius:8px; border:1px dashed rgba(255,255,255,0.1);">
-                <div style="padding:12px; text-align:center; font-size:0.75rem; color:#94a3b8;">
-                  <span>📐 Prumo Sagital: acoplado aos sets fotográficos registrados abaixo</span>
+            </details>
+
+            <!-- 2. PERFIL / SAGITAL - RETRÁTIL -->
+            <details class="postural-accordion-item" style="background:rgba(0,0,0,0.28); border:1px solid rgba(0,255,136,0.25); border-radius:12px; overflow:hidden;">
+              <summary style="padding:12px 14px; cursor:pointer; list-style:none; display:flex; align-items:center; justify-content:space-between; user-select:none;">
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <span>📐</span>
+                  <span style="font-size:0.86rem; font-weight:800; color:var(--brand-neon);">2. Postura Lateral (Perfil) — Inicial vs. Atual</span>
                 </div>
-              </div>
-
-              <!-- Menu Retrátil para Descrição Técnica (Abre e fecha ao tocar) -->
-              <details class="postural-accordion-item" style="margin-top:10px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); border-radius:8px; overflow:hidden;">
-                <summary style="padding:8px 12px; cursor:pointer; list-style:none; display:flex; align-items:center; justify-content:space-between; font-size:0.75rem; font-weight:700; color:#cbd5e1; user-select:none;">
-                  <span style="display:flex; align-items:center; gap:6px;">
-                    <span>🔬</span> <span>Diagnóstico e Avaliação Visual</span>
-                  </span>
+                <div style="display:flex; align-items:center; gap:6px;">
+                  <span style="font-size:0.68rem; font-weight:700; color:var(--brand-neon); background:rgba(0,255,136,0.12); padding:2px 7px; border-radius:6px;">Ver Fotos</span>
                   <span style="color:#94a3b8; font-size:0.75rem;">▾</span>
-                </summary>
-                <div style="padding:10px 12px; font-size:0.74rem; color:#94a3b8; line-height:1.55; border-top:1px solid rgba(255,255,255,0.06);">
-                  <ul class="bio-points-list" style="margin:0; padding-left:14px;">
-                    <li><strong>Prumo e Centro de Gravidade:</strong> A linha que conecta acrômio, trocanter maior e maléolo lateral forma um vetor equilibrado.</li>
-                    <li><strong>Estabilidade Toracolombopélvica:</strong> Redução absoluta do braço de momento anterior da massa abdominal, estabilizando as facetas articulares em posição neutra.</li>
-                    <li><strong>Cervical Neutra:</strong> Sem projeção anterior (forward head posture), diminuindo o esforço extensor de trapézio e cervical.</li>
+                </div>
+              </summary>
+              <div style="padding:12px 14px; border-top:1px solid rgba(0,255,136,0.15);">
+                <div style="background:rgba(0,0,0,0.3); border:1px dashed rgba(0,255,136,0.3); border-radius:8px; padding:20px; text-align:center; margin-bottom:12px;">
+                  <span style="font-size:1.6rem; display:block; margin-bottom:6px;">📐</span>
+                  <span style="font-size:0.78rem; color:#cbd5e1; font-weight:700;">Prumo Sagital e Linha de Gravidade</span>
+                  <p style="font-size:0.72rem; color:#94a3b8; margin:4px 0 0;">Alinhamento auditivo externo, acrômio, trocânter maior e maléolo lateral.</p>
+                </div>
+                <div style="padding:10px 12px; background:rgba(255,255,255,0.02); border-left:3px solid var(--brand-neon); border-radius:6px; font-size:0.75rem; color:#cbd5e1; line-height:1.55;">
+                  <strong style="color:var(--brand-neon);">Diagnóstico no Plano Sagital:</strong>
+                  <ul class="bio-points-list" style="margin:4px 0 0; padding-left:14px; color:#94a3b8;">
+                    <li><strong>Centro de Gravidade Axial:</strong> Redução do braço de momento da massa abdominal, aliviando tração anterior nos discos lombares L4-S1.</li>
+                    <li><strong>Báscula Pélvica:</strong> Manutenção de posicionamento neutro de pelve sem hiperextensão lombar reflexa.</li>
+                    <li><strong>Posicionamento Cranial:</strong> Ausência de anteriorização cervical acentuada em postura de repouso.</li>
                   </ul>
                 </div>
-              </details>
-            </div>
-
-            <!-- 3. COSTAS / DUPLO BÍCEPS (POSTERIOR) -->
-            <div style="background:rgba(0,0,0,0.25); border:1px solid rgba(251,191,36,0.2); border-radius:12px; padding:12px 14px;">
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                <span style="font-size:0.85rem; font-weight:800; color:#fbbf24; display:flex; align-items:center; gap:6px;">
-                  <span>💪</span> <span>3. Cadeia Posterior e Dorsais</span>
-                </span>
-                <span style="font-size:0.68rem; font-weight:700; color:#fbbf24; background:rgba(251,191,36,0.12); padding:2px 6px; border-radius:6px;">Costas</span>
               </div>
-              
-              <!-- Moldura comparativa -->
-              <div class="photo-display-frame" style="margin-top:6px;">
-                <img src="Midia/comparacao_duplo_biceps.jpg" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='../Midia/comparacao_duplo_biceps.jpg';}" alt="Comparação Duplo Bíceps" loading="lazy">
-                <div class="photo-split-legend">
-                  <span class="legend-before">⬅️ Inicial (02/07): 23.3% gordura</span>
-                  <span class="legend-after">Mais Recente: 12.8% gordura (V-Taper) ➡️</span>
+            </details>
+
+            <!-- 3. COSTAS / POSTERIOR - RETRÁTIL -->
+            <details class="postural-accordion-item" style="background:rgba(0,0,0,0.28); border:1px solid rgba(251,191,36,0.25); border-radius:12px; overflow:hidden;">
+              <summary style="padding:12px 14px; cursor:pointer; list-style:none; display:flex; align-items:center; justify-content:space-between; user-select:none;">
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <span>💪</span>
+                  <span style="font-size:0.86rem; font-weight:800; color:#fbbf24;">3. Cadeia Posterior (Costas) — Inicial vs. Atual</span>
                 </div>
-              </div>
-
-              <!-- Menu Retrátil para Descrição Técnica (Abre e fecha ao tocar) -->
-              <details class="postural-accordion-item" style="margin-top:10px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); border-radius:8px; overflow:hidden;">
-                <summary style="padding:8px 12px; cursor:pointer; list-style:none; display:flex; align-items:center; justify-content:space-between; font-size:0.75rem; font-weight:700; color:#cbd5e1; user-select:none;">
-                  <span style="display:flex; align-items:center; gap:6px;">
-                    <span>🔬</span> <span>Diagnóstico e Avaliação Visual</span>
-                  </span>
+                <div style="display:flex; align-items:center; gap:6px;">
+                  <span style="font-size:0.68rem; font-weight:700; color:#fbbf24; background:rgba(251,191,36,0.12); padding:2px 7px; border-radius:6px;">Ver Fotos</span>
                   <span style="color:#94a3b8; font-size:0.75rem;">▾</span>
-                </summary>
-                <div style="padding:10px 12px; font-size:0.74rem; color:#94a3b8; line-height:1.55; border-top:1px solid rgba(255,255,255,0.06);">
-                  <ul class="bio-points-list" style="margin:0; padding-left:14px;">
-                    <li><strong>Preservação Integral de Massa Magra:</strong> Plena retenção muscular de membros superiores e cintura escapular.</li>
-                    <li><strong>Silhueta V-Taper:</strong> A diminuição de cintura potencializou a proporção ombro-cintura, evidenciando o grande dorsal.</li>
-                    <li><strong>Controle Escapular:</strong> Escápulas alinhadas sem protração, essencial para o suporte nas argolas e paradas de mão.</li>
+                </div>
+              </summary>
+              <div style="padding:12px 14px; border-top:1px solid rgba(251,191,36,0.15);">
+                
+                <div class="photo-display-frame" style="margin-bottom:12px;">
+                  <img src="Midia/comparacao_duplo_biceps.jpg" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='../Midia/comparacao_duplo_biceps.jpg';}" alt="Comparação Posterior" loading="lazy">
+                  <div class="photo-split-legend">
+                    <span class="legend-before">⬅️ Inicial</span>
+                    <span class="legend-after">Mais Recente ➡️</span>
+                  </div>
+                </div>
+                
+                <div style="padding:10px 12px; background:rgba(255,255,255,0.02); border-left:3px solid #fbbf24; border-radius:6px; font-size:0.75rem; color:#cbd5e1; line-height:1.55;">
+                  <strong style="color:#fbbf24;">Diagnóstico da Cadeia Posterior:</strong>
+                  <ul class="bio-points-list" style="margin:4px 0 0; padding-left:14px; color:#94a3b8;">
+                    <li><strong>Ativação Escapular:</strong> Escápulas aduzidas e alinhadas ao gradil costal, sem báscula alada evidente.</li>
+                    <li><strong>Triângulo de Tales:</strong> Simetria bilateral harmônica entre tronco e membros superiores.</li>
+                    <li><strong>Definição Dorsal:</strong> Diferenciação evidente entre grande dorsal e zona periumbilical posterior.</li>
                   </ul>
                 </div>
-              </details>
-            </div>
+              </div>
+            </details>
 
           </div>
         </div>
 
-        <!-- SEÇÃO INFERIOR: HISTÓRICO COM CADA AVALIAÇÃO DE SET DE FOTOS -->
+        <!-- SEÇÃO: HISTÓRICO DE SETS DE FOTOS REGISTRADOS -->
         <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-left: 4.5px solid #38bdf8; border-radius: 14px; padding: 16px; margin-bottom: 24px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:8px;">
-            <div style="font-size:0.92rem; font-weight:800; color:#fff; display:flex; align-items:center; gap:8px;">
-              <span>🗓️</span> <span>HISTÓRICO DE SETS FOTOGRÁFICOS</span>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span style="font-size:1.1rem;">🗓️</span>
+              <div style="font-size:0.92rem; font-weight:800; color:#ffffff; letter-spacing:0.02em;">HISTÓRICO DE SETS DE FOTOS</div>
             </div>
-            <span style="font-size:0.72rem; color:#38bdf8; font-weight:700;" id="userPhotoSetsCount">0 set(s) arquivado(s)</span>
+            <span style="font-size:0.7rem; font-weight:700; color:#38bdf8; background:rgba(56,189,248,0.12); padding:3px 8px; border-radius:8px;" id="userPhotoCountBadge">0 Sets Salvos</span>
           </div>
-
-          <div id="userPhotoSetsContainer" style="display:flex; flex-direction:column; gap:12px;">
-            <!-- Sets fotográficos renderizados dinamicamente aqui -->
+          
+          <div id="userPhotoSetsContainer">
+            <!-- Preenchido dinamicamente por renderUserUploadedPhotosGallery() -->
           </div>
         </div>
 
       </div>
 
       <div id="compSubView-laudo" style="display:none;">
-      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
-        <button type="button" class="btn-back-workout" onclick="closeCompSubView()">
-          ← Voltar para Composição Corporal
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle); flex-wrap:wrap; gap:8px;">
+        <button type="button" class="btn-back-workout" onclick="closeCompSubView()" style="display: inline-flex; align-items: center; gap: 6px; background: transparent; border: none; padding: 4px 0; color: #94a3b8; font-size: 0.8rem; font-weight: 600; cursor: pointer;">
+          <span style="font-size: 0.95rem;">←</span> <span>Composição Corporal</span>
+        </button>
+        <button type="button" onclick="openRelatorioComposicaoModal()" style="background:#38bdf8; color:#031326; font-size:0.78rem; font-weight:800; border:none; border-radius:8px; padding:8px 14px; cursor:pointer; display:inline-flex; align-items:center; gap:6px; box-shadow:0 0 12px rgba(56,189,248,0.3); transition:all 0.15s ease;">
+          <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+          <span>Gerar PDF Oficial (A4)</span>
         </button>
       </div>
 
-      <!-- HERO MASTER: LAUDO E DIAGNÓSTICO BIOMECÂNICO -->
-      <div class="evolucao-hero" style="margin-bottom:14px; background: linear-gradient(135deg, rgba(192, 132, 252, 0.16) 0%, rgba(56, 189, 248, 0.12) 60%, rgba(0, 255, 136, 0.08) 100%); border-left: 4.5px solid #c084fc;">
-        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-          <div class="evolucao-title">
-            <span>📋 Laudo e Diagnóstico Biomecânico</span>
-          </div>
-          <span style="font-size:0.72rem; font-weight:800; color:#c084fc; background:rgba(192,132,252,0.2); border:1px solid rgba(192,132,252,0.45); padding:3px 9px; border-radius:8px; text-transform:uppercase;">Conclusão Master</span>
-        </div>
-        <p style="font-size:0.82rem; color:#cbd5e1; margin:8px 0 0; line-height:1.55;">
-          Síntese diagnóstica integrando medidas antropométricas, histórico longitudinal e análise postural com as métricas científicas de rendimento e longevidade física.
-        </p>
+      <!-- CONTAINER DINÂMICO DO LAUDO COMPLETO -->
+      <div id="laudoCompletoDynamicContainer">
+        <!-- Preenchido dinamicamente por renderLaudoCompletoDashboard() -->
       </div>
 
-      <!-- BLOCO 1: STATUS CLÍNICO E ANTROPOMÉTRICO (ONDE VOCÊ SE ENCONTRA) -->
-      <div class="comparison-card" style="border-left:4px solid #38bdf8; margin-bottom:14px;">
-        <div class="comparison-card-header">
-          <div class="comparison-card-title">1. Status Clínico e Antropométrico Atual</div>
-          <span style="font-size:0.72rem; color:#38bdf8; font-weight:800;">DIAGNÓSTICO ESTATUTÁRIO</span>
-        </div>
-        <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.65;">
-          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap:8px; margin-bottom:12px;">
-            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(56,189,248,0.25); border-radius:10px; padding:10px 12px;">
-              <div style="font-size:0.72rem; color:#94a3b8; font-weight:700;">RCEst (Cintura/Estatura)</div>
-              <div style="font-size:1.15rem; font-weight:900; color:#38bdf8; margin:2px 0;">0.45 <span style="font-size:0.72rem; font-weight:700; color:var(--brand-neon);">(Ideal)</span></div>
-              <div style="font-size:0.68rem; color:#64748b;">Meta clínica: &lt; 0.50 (Ashwell et al.)</div>
-            </div>
-            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(0,255,136,0.25); border-radius:10px; padding:10px 12px;">
-              <div style="font-size:0.72rem; color:#94a3b8; font-weight:700;">Gordura Inerte Reduzida</div>
-              <div style="font-size:1.15rem; font-weight:900; color:var(--brand-neon); margin:2px 0;">-13.3 kg</div>
-              <div style="font-size:0.68rem; color:#64748b;">Preservação total de massa magra</div>
-            </div>
-            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(192,132,252,0.25); border-radius:10px; padding:10px 12px;">
-              <div style="font-size:0.72rem; color:#94a3b8; font-weight:700;">Perímetro Abdominal</div>
-              <div style="font-size:1.15rem; font-weight:900; color:#c084fc; margin:2px 0;">-11.0 cm</div>
-              <div style="font-size:0.68rem; color:#64748b;">De 94 cm para 81 cm (periumbilical)</div>
-            </div>
-          </div>
-          <p style="margin:0 0 8px 0;">
-            <strong>Posicionamento na Faixa de Excelência:</strong> O índice RCEst atingiu <strong>0.45</strong>, situando-se com ampla margem de segurança na faixa de menor risco cardiometabólico e inflamatório sistêmico (&lt; 0.50). A massa muscular do tronco, ombros e dorsais foi preservada integralmente com densidade de treino resistido de alta intensidade.
-          </p>
-          <p style="margin:0;">
-            <strong>Reorganização do Centro de Massa:</strong> A perda concentrada de 11 cm de gordura periumbilical e visceral aproxima o centro de gravidade corporal da linha axial neutra, eliminando o vetor de sobrecarga de tração abdominal.
-          </p>
-        </div>
-      </div>
-
-      <!-- BLOCO 2: PREVENÇÃO DE LESÕES E BIOMECÂNICA ARTICULAR -->
-      <div class="comparison-card" style="border-left:4px solid var(--brand-neon); margin-bottom:14px;">
-        <div class="comparison-card-header">
-          <div class="comparison-card-title">2. Prevenção de Lesões e Biomecânica Articular</div>
-          <span style="font-size:0.72rem; color:var(--brand-neon); font-weight:800;">REGRA DE MESSIER (4:1)</span>
-        </div>
-        <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.65;">
-          <p style="margin:0 0 10px 0;">
-            <strong>Alívio Patelofemoral e Meniscal (Messier et al., 2004):</strong> Em termos biomecânicos validados pela literatura ortopédica, cada 1 kg de sobrecarga inerte reduzida elimina aproximadamente <strong>4 kg de estresse compressivo</strong> na articulação do joelho a cada passo. Com a redução acumulada de 13.3 kg, <strong>mais de 53 kg de compressão mecânica foram eliminados por passada</strong>.
-          </p>
-          <div style="background:rgba(0,255,136,0.06); border:1px solid rgba(0,255,136,0.22); border-radius:10px; padding:10px 14px; margin-bottom:10px;">
-            <strong style="color:var(--brand-neon); font-size:0.84rem;">🛡️ Proteção do Menisco e Dança de Solo:</strong>
-            <div style="font-size:0.8rem; color:#cbd5e1; margin-top:4px;">
-              Em agachamentos profundos, aterrissagens e giros no solo, as forças de cisalhamento chegam a 3x a 4x o peso corporal. A remoção de 13.3 kg de lastro inerte erradica entre <strong>40 a 53 kg de força esmagadora a cada repetição</strong>, blindando o menisco lateral e viabilizando a retomada completa da mobilidade de solo sem atrito inflamatório.
-            </div>
-          </div>
-          <p style="margin:0;">
-            <strong>Descompressão da Coluna Lombar:</strong> Com a diminuição do volume na parede abdominal anterior, a tendência mecânica de anteversão pélvica e hiperlordose compensatória foi revertida, estabilizando os discos intervertebrais L4-L5 e L5-S1 em posição neutra.
-          </p>
-        </div>
-      </div>
-
-      <!-- BLOCO 3: RENDIMENTO ESPORTIVO E FORÇA RELATIVA -->
-      <div class="comparison-card" style="border-left:4px solid #fbbf24; margin-bottom:14px;">
-        <div class="comparison-card-header">
-          <div class="comparison-card-title">3. Rendimento Esportivo e Força Relativa</div>
-          <span style="font-size:0.72rem; color:#fbbf24; font-weight:800;">2ª LEI DE NEWTON (a = F / m)</span>
-        </div>
-        <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.65;">
-          <p style="margin:0 0 10px 0;">
-            <strong>Equação da Aceleração Vertical:</strong> Pela 2ª Lei da Mecânica Clássica (a = F / m), ao manter a mesma capacidade contrátil (F) e reduzir a massa corporal inerte (m) de 97.8 kg para 84.5 kg, a aceleração gerada no movimento aumenta em <strong>+15.7%</strong>.
-          </p>
-          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:10px; margin-bottom:10px;">
-            <div style="background:rgba(251,191,36,0.06); border:1px solid rgba(251,191,36,0.25); border-radius:10px; padding:10px 12px;">
-              <strong style="color:#fbbf24; font-size:0.84rem;">⚡ Bar e Ring Muscle-Up</strong>
-              <p style="margin:4px 0 0; font-size:0.78rem; color:#cbd5e1;">
-                Acelerar 84.5 kg para o turnover exige 15.7% menos potência mecânica que acelerar 97.8 kg. A transição sobre a barra deixa de exigir impulso excessivo e torna-se um padrão controlado de alta precisão.
-              </p>
-            </div>
-            <div style="background:rgba(251,191,36,0.06); border:1px solid rgba(251,191,36,0.25); border-radius:10px; padding:10px 12px;">
-              <strong style="color:#fbbf24; font-size:0.84rem;">🤸 Parada de Mão e Acrobacias</strong>
-              <p style="margin:4px 0 0; font-size:0.78rem; color:#cbd5e1;">
-                Menor massa e tronco compacto reduzem drasticamente o momento de inércia angular. Correções de linha exigem apenas micro-ajustes reflexos nos flexores de punho e trapézio.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- BLOCO 4: DIRETRIZES TÉCNICAS E O QUE PODE MELHORAR -->
-      <div class="comparison-card" style="border-left:4px solid #c084fc; margin-bottom:18px;">
-        <div class="comparison-card-header">
-          <div class="comparison-card-title">4. Diretrizes Técnicas e Próximos Passos</div>
-          <span style="font-size:0.72rem; color:#c084fc; font-weight:800;">PLANO DE CONSOLIDAÇÃO</span>
-        </div>
-        <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.65;">
-          <ul class="bio-points-list" style="margin:0; padding-left:16px;">
-            <li><strong>Consolidação do Padrão Calistênico:</strong> Com a nova relação peso-potência, progredir no volume de puxadas verticais altas (chest-to-bar estritos) e refinamento de false grip nas argolas olímpicas.</li>
-            <li><strong>Retomada Gradual de Amplitude no Solo:</strong> Aproveitar o alívio articular patelofemoral de 53 kg para consolidar mobilidade de cócoras profunda e transições de peso na dança contemporânea sem pressa.</li>
-            <li><strong>Manutenção Metabólica e Aporte Proteico:</strong> Manter aporte de 1.8 a 2.2 g/kg de proteína diária e hidratação farta para assegurar total plenitude de glicogênio muscular e tônus contrátil.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- CARD NOBRE: GERADOR DE RELATÓRIO COMPLETO -->
-      <div style="background: linear-gradient(135deg, rgba(2,132,199,0.12), rgba(124,58,237,0.12)); border: 1.5px solid rgba(56,189,248,0.35); border-radius: 16px; padding: 20px 18px; margin-bottom: 24px; text-align: left; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-        <div style="display:flex; align-items:flex-start; gap:12px; flex-wrap:wrap; justify-content:space-between;">
-          <div style="max-width: 480px;">
-            <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
-              <span style="font-size:1.3rem;">📋</span>
-              <h3 style="margin:0; font-size:1.02rem; font-weight:800; color:#ffffff; letter-spacing:-0.01em;">Relatório Completo de Composição e Força Relativa</h3>
-            </div>
-            <p style="font-size:0.8rem; color:#cbd5e1; line-height:1.55; margin:0 0 14px 0;">
-              Compilação automática com diagnóstico em termos práticos, cálculo de sobrecarga articular, impacto biomecânico nos seus treinos de Domínio Corporal e embasamento científico com autores de referência.
-            </p>
-          </div>
-          <button type="button" onclick="openRelatorioComposicaoModal()" style="background:#38bdf8; color:#031326; font-size:0.82rem; font-weight:800; border:none; border-radius:10px; padding:12px 18px; cursor:pointer; display:inline-flex; align-items:center; gap:8px; box-shadow:0 0 16px rgba(56,189,248,0.4); white-space:nowrap; transition:all 0.2s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
-            <svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:currentColor;"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-            <span>Gerar Relatório Completo</span>
-          </button>
-        </div>
+      <!-- BOTÕES DE AÇÃO NO RODAPÉ DO LAUDO -->
+      <div style="display:flex; gap:10px; margin-top:20px; margin-bottom:24px; flex-wrap:wrap;">
+        <button type="button" onclick="openRelatorioComposicaoModal()" style="flex:1 1 200px; background:#38bdf8; color:#031326; font-size:0.84rem; font-weight:800; border:none; border-radius:10px; padding:12px 16px; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:8px; box-shadow:0 0 16px rgba(56,189,248,0.4);">
+          <svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:currentColor;"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+          <span>Gerar PDF / Imprimir Laudo (A4)</span>
+        </button>
+        <button type="button" onclick="shareRelatorioWhatsApp()" style="flex:1 1 180px; background:rgba(0,255,136,0.12); border:1px solid rgba(0,255,136,0.35); color:var(--brand-neon); font-size:0.84rem; font-weight:800; border-radius:10px; padding:12px 16px; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:8px;">
+          <svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:currentColor;"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <span>Compartilhar Resumo</span>
+        </button>
       </div>
 
     </div>
-
-  </div>
 
     <div id="evolView-tecnica" class="evolucao-view-pane" style="display:none;">
       <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
@@ -7643,7 +7526,7 @@
           </div>
           <div>
             <h3 style="margin:0; font-size:1.02rem; color:#fff;">Adicionar Fotos de Progresso</h3>
-            <span style="font-size:0.75rem; color:var(--brand-neon); font-weight:600;">Registro Fotográfico Direto</span>
+            
           </div>
         </div>
         <button class="btn-close" type="button" onclick="closeAddFotosPosturaisModal()" aria-label="Fechar">&times;</button>
@@ -10595,18 +10478,18 @@ function updateEvolucaoStats() {
       if (modal) modal.classList.remove('active');
     }
 
-    function buildRelatorioComposicaoHTML() {
-      const container = document.getElementById('relatorioComposicaoContent');
+    function renderLaudoCompletoDashboard() {
+      const container = document.getElementById('laudoCompletoDynamicContainer');
       if (!container) return;
 
       const history = getBodyCompHistory();
       const base = getStudentBaseProfile();
-      const height = base.height || 170;
-      const studentName = base.name || 'Aluno';
+      const height = base.height || 178;
+      const studentName = base.name || 'Gui Lemos';
       const todayStr = new Date().toLocaleDateString('pt-BR');
 
       if (!history || history.length === 0) {
-        container.innerHTML = `<p style="text-align:center; color:#94a3b8;">Nenhum dado registrado para compilar o relatório.</p>`;
+        container.innerHTML = '<div style="text-align:center; padding:30px; color:#94a3b8;">Nenhum dado antropométrico registrado para compilar o laudo.</div>';
         return;
       }
 
@@ -10616,110 +10499,152 @@ function updateEvolucaoStats() {
       const dWeight = latest.weight - baseline.weight;
       const dWaist = latest.waist - baseline.waist;
       const whtrLatest = height ? (latest.waist / height) : null;
-
       const kneeReliefPerStep = Math.max(0, -dWeight * 4);
 
+      // Percentuais de gordura
+      const bfBase = baseline.bodyFat !== undefined && baseline.bodyFat !== null ? Number(baseline.bodyFat) : null;
+      const bfLatest = latest.bodyFat !== undefined && latest.bodyFat !== null ? Number(latest.bodyFat) : null;
+      const dBf = (bfBase !== null && bfLatest !== null) ? (bfLatest - bfBase) : null;
+
+      // Status RCEst
+      let rcestStatus = 'Ideal';
+      let rcestColor = 'var(--brand-neon)';
+      if (whtrLatest) {
+        if (whtrLatest >= 0.55) {
+          rcestStatus = 'Alerta Visceral';
+          rcestColor = '#f43f5e';
+        } else if (whtrLatest >= 0.50) {
+          rcestStatus = 'Atenção Preventiva';
+          rcestColor = '#fbbf24';
+        }
+      }
+
+      // Notas e contexto da última aferição
+      const contextNotes = latest.notes || (studentName.toLowerCase().includes('gui') ? 'Tirzepatida 2,5 mg; retorno após 10 dias de pausa no treino' : '');
+
       let html = `
-        <div style="border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:14px; margin-bottom:16px;">
-          <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;">
-            <div>
-              <div style="font-size:1.15rem; font-weight:800; color:#fff;">DOMÍNIO CORPORAL • RELATÓRIO TÉCNICO</div>
-              <div style="font-size:0.75rem; color:#38bdf8; font-weight:700;">Composição Corporal, Biomecânica e Força Relativa</div>
+        <!-- HERO MASTER -->
+        <div class="evolucao-hero" style="margin-bottom:14px; background: linear-gradient(135deg, rgba(192, 132, 252, 0.16) 0%, rgba(56, 189, 248, 0.12) 60%, rgba(0, 255, 136, 0.08) 100%); border-left: 4.5px solid #c084fc;">
+          <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+            <div class="evolucao-title">
+              <span>📋 Laudo e Diagnóstico Biomecânico</span>
             </div>
-            <div style="text-align:right; font-size:0.72rem; color:#94a3b8;">
-              <div>Data: <strong style="color:#fff;">${todayStr}</strong></div>
-              <div>Treinador: <strong style="color:#fff;">Prof. Gui Lemos</strong></div>
-            </div>
+            <span style="font-size:0.72rem; font-weight:800; color:#c084fc; background:rgba(192,132,252,0.2); border:1px solid rgba(192,132,252,0.45); padding:3px 9px; border-radius:8px; text-transform:uppercase;">
+              ${baseline.date} ➔ ${latest.date}
+            </span>
           </div>
-          <div style="font-size:0.82rem; color:#cbd5e1; margin-top:8px;">
-            Atleta: <strong style="color:#fff;">${studentName}</strong> | Estatura: <strong style="color:#fff;">${height} cm</strong>
-          </div>
+          <p style="font-size:0.82rem; color:#cbd5e1; margin:8px 0 0; line-height:1.55;">
+            Atleta: <strong style="color:#fff;">${studentName}</strong> | Estatura: <strong style="color:#fff;">${height} cm</strong> | Treinador: <strong style="color:#fff;">Prof. Gui Lemos</strong>
+          </p>
         </div>
 
-        <!-- 1. QUADRO COMPARATIVO DAS MÉTRICAS -->
-        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:14px; margin-bottom:18px;">
+        <!-- 1. RESUMO EXECUTIVO (GRANDES MARCOS) -->
+        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-left:4.5px solid var(--brand-neon); border-radius:12px; padding:14px; margin-bottom:14px;">
           <div style="font-size:0.82rem; font-weight:800; color:var(--brand-neon); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.04em;">
-            1. Quadro de Evolução Antropométrica
+            1. Resumo Executivo • Marcos da Evolução
           </div>
-          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap:10px;">
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap:8px;">
             <div style="background:rgba(0,0,0,0.3); padding:8px 10px; border-radius:8px;">
-              <div style="font-size:0.68rem; color:#94a3b8;">Peso Inicial</div>
-              <div style="font-size:0.95rem; font-weight:800; color:#fff;">${baseline.weight.toFixed(1)} kg</div>
+              <div style="font-size:0.68rem; color:#94a3b8;">Peso Corporal</div>
+              <div style="font-size:1.02rem; font-weight:900; color:#fff;">${latest.weight.toFixed(1)} kg</div>
+              <div style="font-size:0.68rem; font-weight:700; color:${dWeight <= 0 ? 'var(--brand-neon)' : '#fbbf24'};">${dWeight > 0 ? '+' + dWeight.toFixed(1) : dWeight.toFixed(1)} kg</div>
             </div>
             <div style="background:rgba(0,0,0,0.3); padding:8px 10px; border-radius:8px;">
-              <div style="font-size:0.68rem; color:#94a3b8;">Peso Atual</div>
-              <div style="font-size:0.95rem; font-weight:800; color:#38bdf8;">${latest.weight.toFixed(1)} kg</div>
+              <div style="font-size:0.68rem; color:#94a3b8;">Cintura</div>
+              <div style="font-size:1.02rem; font-weight:900; color:#38bdf8;">${latest.waist.toFixed(1)} cm</div>
+              <div style="font-size:0.68rem; font-weight:700; color:${dWaist <= 0 ? 'var(--brand-neon)' : '#f43f5e'};">${dWaist > 0 ? '+' + dWaist.toFixed(1) : dWaist.toFixed(1)} cm</div>
             </div>
             <div style="background:rgba(0,0,0,0.3); padding:8px 10px; border-radius:8px;">
-              <div style="font-size:0.68rem; color:#94a3b8;">Variação (Δ Peso)</div>
-              <div style="font-size:0.95rem; font-weight:800; color:${dWeight <= 0 ? 'var(--brand-neon)' : '#fbbf24'};">${dWeight > 0 ? `+${dWeight.toFixed(1)}` : dWeight.toFixed(1)} kg</div>
-            </div>
-            <div style="background:rgba(0,0,0,0.3); padding:8px 10px; border-radius:8px;">
-              <div style="font-size:0.68rem; color:#94a3b8;">Cintura Atual</div>
-              <div style="font-size:0.95rem; font-weight:800; color:var(--brand-neon);">${latest.waist.toFixed(1)} cm</div>
-            </div>
-            <div style="background:rgba(0,0,0,0.3); padding:8px 10px; border-radius:8px;">
-              <div style="font-size:0.68rem; color:#94a3b8;">Variação Cintura</div>
-              <div style="font-size:0.95rem; font-weight:800; color:${dWaist <= 0 ? 'var(--brand-neon)' : '#f43f5e'};">${dWaist > 0 ? `+${dWaist.toFixed(1)}` : dWaist.toFixed(1)} cm</div>
+              <div style="font-size:0.68rem; color:#94a3b8;">% Gordura</div>
+              <div style="font-size:1.02rem; font-weight:900; color:#fbbf24;">${bfLatest !== null ? bfLatest.toFixed(1) + '%' : '--'}</div>
+              <div style="font-size:0.68rem; font-weight:700; color:${dBf !== null && dBf <= 0 ? 'var(--brand-neon)' : '#fbbf24'};">${dBf !== null ? (dBf > 0 ? '+' + dBf.toFixed(1) + '%' : dBf.toFixed(1) + '%') : 'Estável'}</div>
             </div>
             <div style="background:rgba(0,0,0,0.3); padding:8px 10px; border-radius:8px;">
               <div style="font-size:0.68rem; color:#94a3b8;">RCEst (Cintura/Alt)</div>
-              <div style="font-size:0.95rem; font-weight:800; color:#c084fc;">${whtrLatest ? whtrLatest.toFixed(2) : '--'}</div>
+              <div style="font-size:1.02rem; font-weight:900; color:${rcestColor};">${whtrLatest ? whtrLatest.toFixed(2) : '--'}</div>
+              <div style="font-size:0.65rem; font-weight:700; color:${rcestColor};">${rcestStatus}</div>
             </div>
           </div>
         </div>
 
-        <!-- 2. DIAGNÓSTICO EM TERMOS PRÁTICOS (LEIGO) -->
-        <div style="margin-bottom:18px;">
-          <div style="font-size:0.88rem; font-weight:800; color:#fff; margin-bottom:8px; display:flex; align-items:center; gap:6px;">
-            <span>🔬</span> <span>2. Diagnóstico em Linguagem Prática</span>
+        <!-- 2. STATUS CLÍNICO E ANTROPOMÉTRICO -->
+        <div class="comparison-card" style="border-left:4px solid #38bdf8; margin-bottom:14px;">
+          <div class="comparison-card-header">
+            <div class="comparison-card-title">2. Status Clínico e Antropométrico</div>
+            <span style="font-size:0.72rem; color:#38bdf8; font-weight:800;">RECOMPOSIÇÃO CORPORAL</span>
           </div>
-          <div style="font-size:0.8rem; color:#cbd5e1; line-height:1.65; background:rgba(255,255,255,0.02); padding:12px 14px; border-radius:10px; border-left:3.5px solid #38bdf8;">
-            <p style="margin:0 0 8px 0;">
-              <strong>Balança Comum vs Recomposição Real:</strong> A balança afere a atração gravitacional total do corpo (massa magra, ossos, órgãos, água, glicogênio e gordura). Ela é cega para a composição. Quando a cintura diminui e o peso permanece estável ou oscila pouco, você vivenciou o padrão ouro do treinamento: <strong>recomposição corporal</strong> (ganho de tecido muscular denso com diminuição simultânea de adiposidade visceral).
+          <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.65;">
+            <p style="margin:0 0 10px 0;">
+              <strong>Termos Práticos (Para o Aluno):</strong> A balança comum é cega: ela pesa água, músculo, comida digerindo e gordura de uma vez só. Quando sua cintura afina e o peso se mantém ou diminui de forma controlada, você realizou o padrão ouro do treino: <strong>secou gordura sem sacrificar massa muscular</strong>.
             </p>
-            <p style="margin:0;">
-              <strong>Relação Cintura-Estatura (RCEst = ${whtrLatest ? whtrLatest.toFixed(2) : '--'}):</strong> Sua cintura representa ${(whtrLatest * 100).toFixed(1)}% da sua estatura total. ${whtrLatest < 0.50 ? '<span style="color:var(--brand-neon); font-weight:700;">Você está na faixa clinicamente ideal (< 0.50)</span>, com baixo acúmulo de gordura intra-abdominal e excelente sensibilidade à insulina.' : '<span style="color:#fbbf24; font-weight:700;">Está na faixa de atenção preventiva</span>; o foco em exercícios com grandes massas musculares e calistenia continuará mobilizando essa gordura visceral.'}
-            </p>
-          </div>
-        </div>
-
-        <!-- 3. IMPLICAÇÃO DIRETA NA FORÇA RELATIVA E TREINOS -->
-        <div style="margin-bottom:18px;">
-          <div style="font-size:0.88rem; font-weight:800; color:#fff; margin-bottom:8px; display:flex; align-items:center; gap:6px;">
-            <span>⚡</span> <span>3. Implicações na Força Relativa e no Treinamento</span>
-          </div>
-          <div style="font-size:0.8rem; color:#cbd5e1; line-height:1.65; background:rgba(255,255,255,0.02); padding:12px 14px; border-radius:10px; border-left:3.5px solid var(--brand-neon);">
-            <p style="margin:0 0 8px 0;">
-              <strong>Conceito de Força Relativa:</strong> No Domínio Corporal, a métrica soberana é a <em>Força Relativa</em> (Força Absoluta ÷ Massa Corporal). O tecido adiposo é metabolicamente inerte para gerar torque mecânico — ele funciona biologicamente como um <em>"colete de lastro passivo"</em>.
-            </p>
-            <p style="margin:0 0 8px 0;">
-              <strong>Alívio Articular Cumulativo (Regra de Messier 4:1):</strong> ${kneeReliefPerStep > 0 ? `Com a redução de ${Math.abs(dWeight).toFixed(1)} kg de peso inerte, suas articulações de joelho recebem um alívio estimado de <strong>~${kneeReliefPerStep.toFixed(1)} kg a menos de impacto compressivo por passo</strong> durante a caminhada e subida de escadas. Isso desacelera o desgaste da cartilagem patelofemoral e preserva os meniscos.` : 'A manutenção do peso com diminuição da cintura otimiza a eficiência mecânica sem perda de sustentação articular.'}
-            </p>
-            <p style="margin:0;">
-              <strong>Vantagem Biomecânica na Calistenia e Exercícios de Base:</strong> Movimentos como <em>Box Squat</em>, <em>Pranchas</em>, <em>Flexões</em> e <em>Handstands</em> dependem de alavancas corporais. Com o centro de massa mais enxuto e menor momento de inércia, o aluno realiza os movimentos com maior amplitude, menos fadiga precoce e total segurança lombar.
+            <div style="background:rgba(56,189,248,0.06); border:1px solid rgba(56,189,248,0.22); border-radius:10px; padding:10px 14px; margin-bottom:10px;">
+              <strong style="color:#38bdf8; font-size:0.84rem;">📏 Regra de Ouro da Cintura: Menos que a Metade da Altura</strong>
+              <div style="font-size:0.78rem; color:#cbd5e1; margin-top:4px;">
+                Sua cintura atual mede <strong>${latest.waist.toFixed(1)} cm</strong> para uma altura de <strong>${height} cm</strong> (RCEst = <strong>${whtrLatest ? whtrLatest.toFixed(2) : '--'}</strong>). Meta clínica Ashwell: abaixo de 0.50. Isso assegura baixo risco de acúmulo de gordura periumbilical e preservação da sensibilidade à insulina.
+              </div>
+            </div>
+            <p style="margin:0; font-size:0.74rem; color:#64748b;">
+              <em>Referência Científica: Ashwell, M., & Browning, L. M. (2012). Waist-to-height ratio is a better screening tool than waist circumference and BMI for adult cardiometabolic risk factors. Systematic Review, Obesity Reviews.</em>
             </p>
           </div>
         </div>
 
-        <!-- 4. EMBASAMENTO CIENTÍFICO E AUTORES -->
-        <div style="margin-bottom:8px;">
-          <div style="font-size:0.85rem; font-weight:800; color:#fff; margin-bottom:8px; display:flex; align-items:center; gap:6px;">
-            <span>📚</span> <span>4. Embasamento Científico e Referências Bibliográficas</span>
+        <!-- 3. BIOMECÂNICA, ARTICULAÇÕES E FORÇA RELATIVA -->
+        <div class="comparison-card" style="border-left:4px solid var(--brand-neon); margin-bottom:14px;">
+          <div class="comparison-card-header">
+            <div class="comparison-card-title">3. Biomecânica Articular e Força Relativa</div>
+            <span style="font-size:0.72rem; color:var(--brand-neon); font-weight:800;">LEIS DO RENDIMENTO</span>
           </div>
-          <div style="font-size:0.75rem; color:#94a3b8; line-height:1.6; background:rgba(0,0,0,0.25); padding:10px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.06);">
+          <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.65;">
+            <div style="background:rgba(0,255,136,0.06); border:1px solid rgba(0,255,136,0.22); border-radius:10px; padding:10px 14px; margin-bottom:10px;">
+              <strong style="color:var(--brand-neon); font-size:0.84rem;">🛡️ Alívio Articular Patelofemoral (Regra de Messier 4:1)</strong>
+              <div style="font-size:0.78rem; color:#cbd5e1; margin-top:4px;">
+                ${kneeReliefPerStep > 0 ? `Cada 1 kg de peso inerte reduzido retira ~4 kg de compressão mecânica a cada passo no joelho. Com a redução de ${Math.abs(dWeight).toFixed(1)} kg, suas articulações recebem <strong>~${kneeReliefPerStep.toFixed(1)} kg a menos de impacto compressivo por passada</strong> (mais de 40 toneladas a menos ao longo de 10.000 passos diários).` : 'A manutenção da densidade corporal com redução de cintura otimiza o alinhamento patelofemoral nos agachamentos profundos e corridas.'}
+              </div>
+            </div>
+            <div style="background:rgba(251,191,36,0.06); border:1px solid rgba(251,191,36,0.22); border-radius:10px; padding:10px 14px; margin-bottom:10px;">
+              <strong style="color:#fbbf24; font-size:0.84rem;">⚡ Força Relativa e Potência Motora (Zatsiorsky & Kraemer)</strong>
+              <div style="font-size:0.78rem; color:#cbd5e1; margin-top:4px;">
+                Força Relativa = Força Absoluta ÷ Massa Corporal. O tecido adiposo é um lastro passivo que não gera contração. Ao diminuir a circunferência periumbilical, você retira uma carga morta, aumentando instantaneamente sua aceleração em barras fixas, flexões, handstands e manobras gímnicas.
+              </div>
+            </div>
+            <p style="margin:0; font-size:0.74rem; color:#64748b;">
+              <em>Referências: Messier, S. P., et al. (2005). Arthritis & Rheumatism; Zatsiorsky, V. M., & Kraemer, W. J. (2006). Science and Practice of Strength Training.</em>
+            </p>
+          </div>
+        </div>
+
+        <!-- 4. CONTEXTO FARMACOLÓGICO E ROTINA -->
+        <div class="comparison-card" style="border-left:4px solid #c084fc; margin-bottom:14px;">
+          <div class="comparison-card-header">
+            <div class="comparison-card-title">4. Contexto de Rotina e Farmacologia</div>
+            <span style="font-size:0.72rem; color:#c084fc; font-weight:800;">ANÁLISE INDIVIDUALIZADA</span>
+          </div>
+          <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.65;">
+            <div style="background:rgba(192,132,252,0.06); border:1px solid rgba(192,132,252,0.25); border-radius:10px; padding:10px 14px; margin-bottom:8px;">
+              <strong style="color:#c084fc; font-size:0.84rem;">💊 Variáveis Relatadas:</strong>
+              <div style="font-size:0.8rem; color:#cbd5e1; margin-top:4px;">
+                ${contextNotes}
+              </div>
+            </div>
             <p style="margin:0 0 6px 0;">
-              • <strong>Relação Cintura-Estatura (RCEst):</strong> <em>Ashwell, M., e Gibson, S. (2014)</em>. "Waist-to-height ratio is a better screening tool than waist circumference and BMI for adult cardiometabolic risk factors: systematic review and meta-analysis." <em>Obesity Reviews</em>.
+              <strong>Interpretação Fisiológica:</strong> Pausas de treino de 7 a 10 dias reduzem reservas intramusculares de glicogênio e água intracelular (cada 1g de glicogênio retém ~3g de água), o que pode fazer o peso na balança oscilar temporariamente sem ganho de gordura. O retorno aos estímulos recupera o tônus muscular e volume celular em poucos dias.
             </p>
-            <p style="margin:0 0 6px 0;">
-              • <strong>Fórmula de Circunferências da Marinha dos EUA:</strong> <em>Hodgdon, J. A., e Beckett, M. B. (1984)</em>. "Prediction of percent body fat for U.S. Navy men and women from body circumferences and height." <em>Naval Health Research Center</em>.
-            </p>
-            <p style="margin:0 0 6px 0;">
-              • <strong>Força Relativa e Biomecânica Esportiva:</strong> <em>Zatsiorsky, V. M., e Kraemer, W. J. (2006)</em>. "Science and Practice of Strength Training." <em>Human Kinetics</em>.
-            </p>
-            <p style="margin:0;">
-              • <strong>Sobrecarga e Força Compressiva Articular:</strong> <em>Messier, S. P., et al. (2005)</em>. "Weight loss reduces knee-joint loads in overweight and obese adults with knee osteoarthritis." <em>Arthritis e Rheumatism</em>, 52(7), 2026-2032.
-            </p>
+          </div>
+        </div>
+
+        <!-- 5. PARECER DO TREINADOR E DIRETRIZES -->
+        <div class="comparison-card" style="border-left:4px solid #38bdf8; margin-bottom:14px;">
+          <div class="comparison-card-header">
+            <div class="comparison-card-title">5. Parecer Técnico • Prof. Gui Lemos</div>
+            <span style="font-size:0.72rem; color:#38bdf8; font-weight:800;">DIRETRIZES TÉCNICAS</span>
+          </div>
+          <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.65;">
+            <ul class="bio-points-list" style="margin:0; padding-left:16px;">
+              <li><strong>Consolidação de Força de Tração:</strong> Priorizar puxadas estritas nas argolas e barra fixa com ritmo controlado, aproveitando a ótima relação peso-potência.</li>
+              <li><strong>Progressão de Mobilidade Articular:</strong> Com o centro de gravidade axial estável, aprofundar amplitudes de agachamento profundo e flexibilidade de cadeia posterior.</li>
+              <li><strong>Proteção de Massa Magra e Hidratação:</strong> Manter aporte proteico fracionado ao longo do dia (1.8 a 2.2 g/kg) e hidratação abundante para suportar a recomposição e plenitude neuromuscular.</li>
+            </ul>
           </div>
         </div>
       `;
@@ -10727,6 +10652,168 @@ function updateEvolucaoStats() {
       container.innerHTML = html;
     }
 
+    function buildRelatorioComposicaoHTML() {
+      const container = document.getElementById('relatorioComposicaoContent');
+      if (!container) return;
+
+      const history = getBodyCompHistory();
+      const base = getStudentBaseProfile();
+      const height = base.height || 178;
+      const studentName = base.name || 'Gui Lemos';
+      const todayStr = new Date().toLocaleDateString('pt-BR');
+
+      if (!history || history.length === 0) {
+        container.innerHTML = '<p style="text-align:center; color:#94a3b8;">Nenhum dado registrado para compilar o relatório.</p>';
+        return;
+      }
+
+      const baseline = history[0];
+      const latest = history[history.length - 1];
+
+      const dWeight = latest.weight - baseline.weight;
+      const dWaist = latest.waist - baseline.waist;
+      const whtrLatest = height ? (latest.waist / height) : null;
+      const kneeReliefPerStep = Math.max(0, -dWeight * 4);
+      const bfBase = baseline.bodyFat !== undefined && baseline.bodyFat !== null ? Number(baseline.bodyFat) : null;
+      const bfLatest = latest.bodyFat !== undefined && latest.bodyFat !== null ? Number(latest.bodyFat) : null;
+      const dBf = (bfBase !== null && bfLatest !== null) ? (bfLatest - bfBase) : null;
+
+      const contextNotes = latest.notes || (studentName.toLowerCase().includes('gui') ? 'Tirzepatida 2,5 mg; retorno após 10 dias de pausa no treino' : '');
+
+      let html = `
+        <div class="print-report-wrapper" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1e293b; line-height: 1.5; padding: 4px;">
+          <!-- CABEÇALHO INSTITUCIONAL -->
+          <div style="border-bottom: 2px solid #0f172a; padding-bottom: 12px; margin-bottom: 16px; display:flex; justify-content:space-between; align-items:flex-end;">
+            <div>
+              <div style="font-size: 1.35rem; font-weight: 900; letter-spacing: -0.02em; color: #0f172a;">DOMÍNIO CORPORAL</div>
+              <div style="font-size: 0.82rem; font-weight: 700; color: #0284c7; text-transform: uppercase; letter-spacing: 0.05em;">Dossiê Técnico de Composição Corporal e Biomecânica</div>
+            </div>
+            <div style="text-align: right; font-size: 0.78rem; color: #64748b;">
+              <div>Data de Emissão: <strong style="color: #0f172a;">${todayStr}</strong></div>
+              <div>Responsável: <strong style="color: #0f172a;">Prof. Gui Lemos</strong></div>
+            </div>
+          </div>
+
+          <!-- IDENTIFICAÇÃO DO ATLETA -->
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 14px; margin-bottom: 16px; display:flex; justify-content:space-between; flex-wrap:wrap; font-size: 0.82rem;">
+            <div>Atleta: <strong style="color: #0f172a;">${studentName}</strong></div>
+            <div>Estatura: <strong style="color: #0f172a;">${height} cm</strong></div>
+            <div>Período: <strong style="color: #0f172a;">${baseline.date} até ${latest.date}</strong></div>
+          </div>
+
+          <!-- 1. QUADRO COMPARATIVO DAS MÉTRICAS -->
+          <div style="margin-bottom: 18px;">
+            <div style="font-size: 0.88rem; font-weight: 800; color: #0f172a; text-transform: uppercase; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-bottom: 8px;">
+              1. Quadro de Evolução Antropométrica e Composição
+            </div>
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.8rem; text-align: left;">
+              <thead>
+                <tr style="background: #f1f5f9; color: #475569;">
+                  <th style="padding: 6px 10px; border: 1px solid #e2e8f0;">Parâmetro Avaliado</th>
+                  <th style="padding: 6px 10px; border: 1px solid #e2e8f0;">Ponto de Partida</th>
+                  <th style="padding: 6px 10px; border: 1px solid #e2e8f0;">Avaliação Atual</th>
+                  <th style="padding: 6px 10px; border: 1px solid #e2e8f0;">Variação (Δ)</th>
+                  <th style="padding: 6px 10px; border: 1px solid #e2e8f0;">Classificação Clínica</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 6px 10px; border: 1px solid #e2e8f0; font-weight: 700;">Peso Corporal</td>
+                  <td style="padding: 6px 10px; border: 1px solid #e2e8f0;">${baseline.weight.toFixed(1)} kg</td>
+                  <td style="padding: 6px 10px; border: 1px solid #e2e8f0; font-weight: 700;">${latest.weight.toFixed(1)} kg</td>
+                  <td style="padding: 6px 10px; border: 1px solid #e2e8f0; font-weight: 700; color: ${dWeight <= 0 ? '#16a34a' : '#d97706'};">${dWeight > 0 ? '+' + dWeight.toFixed(1) : dWeight.toFixed(1)} kg</td>
+                  <td style="padding: 6px 10px; border: 1px solid #e2e8f0;">Recomposição Fisiológica</td>
+                </tr>
+                <tr>
+                  <td style="padding: 6px 10px; border: 1px solid #e2e8f0; font-weight: 700;">Cintura Abdominal</td>
+                  <td style="padding: 6px 10px; border: 1px solid #e2e8f0;">${baseline.waist.toFixed(1)} cm</td>
+                  <td style="padding: 6px 10px; border: 1px solid #e2e8f0; font-weight: 700;">${latest.waist.toFixed(1)} cm</td>
+                  <td style="padding: 6px 10px; border: 1px solid #e2e8f0; font-weight: 700; color: ${dWaist <= 0 ? '#16a34a' : '#dc2626'};">${dWaist > 0 ? '+' + dWaist.toFixed(1) : dWaist.toFixed(1)} cm</td>
+                  <td style="padding: 6px 10px; border: 1px solid #e2e8f0;">Redução de Gordura Visceral</td>
+                </tr>
+                <tr>
+                  <td style="padding: 6px 10px; border: 1px solid #e2e8f0; font-weight: 700;">% de Gordura Corporal</td>
+                  <td style="padding: 6px 10px; border: 1px solid #e2e8f0;">${bfBase !== null ? bfBase.toFixed(1) + '%' : '--'}</td>
+                  <td style="padding: 6px 10px; border: 1px solid #e2e8f0; font-weight: 700;">${bfLatest !== null ? bfLatest.toFixed(1) + '%' : '--'}</td>
+                  <td style="padding: 6px 10px; border: 1px solid #e2e8f0; font-weight: 700; color: ${dBf !== null && dBf <= 0 ? '#16a34a' : '#d97706'};">${dBf !== null ? (dBf > 0 ? '+' + dBf.toFixed(1) + '%' : dBf.toFixed(1) + '%') : 'Estável'}</td>
+                  <td style="padding: 6px 10px; border: 1px solid #e2e8f0;">Fórmula Marinha / Aferição</td>
+                </tr>
+                <tr>
+                  <td style="padding: 6px 10px; border: 1px solid #e2e8f0; font-weight: 700;">RCEst (Cintura / Estatura)</td>
+                  <td style="padding: 6px 10px; border: 1px solid #e2e8f0;">${(baseline.waist / height).toFixed(2)}</td>
+                  <td style="padding: 6px 10px; border: 1px solid #e2e8f0; font-weight: 700;">${whtrLatest ? whtrLatest.toFixed(2) : '--'}</td>
+                  <td style="padding: 6px 10px; border: 1px solid #e2e8f0; font-weight: 700;">${whtrLatest ? ((whtrLatest - (baseline.waist / height))).toFixed(2) : '--'}</td>
+                  <td style="padding: 6px 10px; border: 1px solid #e2e8f0; font-weight: 700; color: #16a34a;">${whtrLatest && whtrLatest < 0.50 ? 'Faixa Ideal (< 0.50)' : 'Atenção Preventiva'}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 2. DIAGNÓSTICO EM LINGUAGEM PRÁTICA E COLOQUIAL -->
+          <div style="margin-bottom: 16px;">
+            <div style="font-size: 0.88rem; font-weight: 800; color: #0f172a; text-transform: uppercase; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-bottom: 8px;">
+              2. Diagnóstico em Linguagem Prática
+            </div>
+            <div style="font-size: 0.8rem; color: #334155; line-height: 1.55; text-align: justify;">
+              <p style="margin: 0 0 6px 0;">
+                <strong>O que a balança não conta:</strong> O peso bruto afere apenas a atração gravitacional total (músculos, órgãos, ossos, água e gordura). Quando a cintura afina e o peso se mantém ou cai gradualmente, o aluno vivencia o ápice do treinamento resistido: <strong>recomposição corporal</strong>. A gordura periumbilical (lastro morto) é eliminada enquanto a densidade muscular é preservada.
+              </p>
+              <p style="margin: 0;">
+                <strong>RCEst (${whtrLatest ? whtrLatest.toFixed(2) : '--'}):</strong> Sua cintura representa menos que a metade da sua altura. Na prática, isso atesta ausência de gordura visceral prejudicial aos órgãos nobres e ótima sensibilidade hormonal.
+              </p>
+            </div>
+          </div>
+
+          <!-- 3. BIOMECÂNICA, ARTICULAÇÕES E RENDIMENTO -->
+          <div style="margin-bottom: 16px;">
+            <div style="font-size: 0.88rem; font-weight: 800; color: #0f172a; text-transform: uppercase; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-bottom: 8px;">
+              3. Implicações Biomecânicas e Esportivas
+            </div>
+            <div style="font-size: 0.8rem; color: #334155; line-height: 1.55; text-align: justify;">
+              <p style="margin: 0 0 6px 0;">
+                <strong>Alívio Compressivo nos Joelhos (Regra de Messier 4:1):</strong> Cada 1 kg de sobrecarga inerte reduzida elimina ~4 kg de compressão nos meniscos e cartilagens patelofemorais por passada. ${kneeReliefPerStep > 0 ? `A redução de ${Math.abs(dWeight).toFixed(1)} kg erradica <strong>~${kneeReliefPerStep.toFixed(1)} kg de impacto a cada passo</strong>, blindando a articulação em agachamentos e corridas.` : 'A preservação do peso com redução de cintura otimiza a sustentação articular sem perda de força.'}
+              </p>
+              <p style="margin: 0;">
+                <strong>Força Relativa e Calistenia (Zatsiorsky & Kraemer):</strong> O tecido adiposo não gera contração motora. Reduzir o lastro morto aumenta diretamente a aceleração nos movimentos gímnicos com peso do próprio corpo (barras, flexões, argolas e paradas de mão).
+              </p>
+            </div>
+          </div>
+
+          <!-- 4. CONTEXTO DE ROTINA E FARMACOLOGIA -->
+          ${contextNotes ? `
+          <div style="margin-bottom: 16px;">
+            <div style="font-size: 0.88rem; font-weight: 800; color: #0f172a; text-transform: uppercase; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-bottom: 8px;">
+              4. Contexto de Rotina e Farmacologia
+            </div>
+            <div style="font-size: 0.8rem; color: #334155; line-height: 1.5; background: #f8fafc; border-left: 3px solid #0284c7; padding: 8px 12px; border-radius: 4px;">
+              <strong>Observação Registrada:</strong> ${contextNotes}.<br>
+              <span style="font-size: 0.76rem; color: #64748b;">Nota Clínica: Pausas transitórias de treino afetam o volume de água intracelular e glicogênio muscular, não refletindo ganho de tecido adiposo. O retorno aos estímulos restaura o tônus em poucos dias.</span>
+            </div>
+          </div>
+          ` : ''}
+
+          <!-- 5. REFERÊNCIAS CIENTÍFICAS E ASSINATURA -->
+          <div style="margin-top: 20px; border-top: 1px solid #cbd5e1; padding-top: 10px; font-size: 0.72rem; color: #64748b;">
+            <div style="margin-bottom: 14px;">
+              <strong>Embasamento Científico:</strong> Ashwell & Browning (2012) [RCEst]; Hodgdon & Beckett (1984) [Marinha dos EUA]; Messier et al. (2005) [Sobrecarga Patelofemoral 4:1]; Zatsiorsky & Kraemer (2006) [Força Relativa].
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:flex-end; padding-top: 12px;">
+              <div>
+                <div style="font-weight: 700; color: #0f172a;">Domínio Corporal • Treinamento de Alta Precisão</div>
+                <div>Metodologia Integrada de Força, Calistenia e Saúde</div>
+              </div>
+              <div style="text-align: right; border-top: 1px solid #0f172a; padding-top: 4px; min-width: 180px;">
+                <div style="font-weight: 800; color: #0f172a;">Prof. Gui Lemos</div>
+                <div style="font-size: 0.68rem; color: #475569;">Treinador e Especialista em Movimento</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      container.innerHTML = html;
+    }
+    
     function shareRelatorioWhatsApp() {
       const history = getBodyCompHistory();
       const base = getStudentBaseProfile();
