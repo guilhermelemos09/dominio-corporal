@@ -6664,65 +6664,87 @@
           <span>ADICIONAR MEDIÇÃO</span>
         </button>
 
-        <!-- CARD 1: PONTO DE PARTIDA (LINHA COMPACTA PADRONIZADA) -->
-        <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(56,189,248,0.25); border-left: 4.5px solid #38bdf8; border-radius: 12px; padding: 10px 14px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
-          <div style="display: flex; align-items: center; gap: 8px; min-width: 140px;">
-            <span style="font-size: 1rem;">📋</span>
-            <span style="font-size: 0.85rem; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">PONTO DE PARTIDA</span>
-            <span style="font-size: 0.68rem; font-weight: 700; color: #38bdf8; background: rgba(56,189,248,0.12); border: 1px solid rgba(56,189,248,0.3); padding: 2px 6px; border-radius: 6px;" id="evolIntakeDateBadge">18/10/2026</span>
-          </div>
-          <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap; font-size: 0.82rem;">
-            <div><span style="color: #94a3b8; font-size: 0.72rem;">Peso:</span> <strong id="evolIntakeWeight" style="color: #ffffff;">62.0 kg</strong></div>
-            <div><span style="color: #94a3b8; font-size: 0.72rem;">Cintura:</span> <strong id="evolIntakeWaist" style="color: #ffffff;">-- cm</strong></div>
-            <div><span style="color: #94a3b8; font-size: 0.72rem;">RCEst:</span> <strong id="evolIntakeWhtr" style="color: #ffffff;">--</strong></div>
-            <div><span style="color: #94a3b8; font-size: 0.72rem;">% BF:</span> <strong id="evolIntakeBF" style="color: #ffffff;">--%</strong></div>
-          </div>
-        </div>
-
-        <!-- CARD 2: INFORMAÇÕES ATUAIS (LINHA COMPACTA PADRONIZADA) -->
-        <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(0,255,136,0.25); border-left: 4.5px solid var(--brand-neon); border-radius: 12px; padding: 10px 14px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
-          <div style="display: flex; align-items: center; gap: 8px; min-width: 140px;">
-            <span style="font-size: 1rem;">⚡</span>
-            <span style="font-size: 0.85rem; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">INFORMAÇÕES ATUAIS</span>
-            <span style="font-size: 0.68rem; font-weight: 700; color: var(--brand-neon); background: rgba(0,255,136,0.12); border: 1px solid rgba(0,255,136,0.3); padding: 2px 6px; border-radius: 6px;" id="compCurrentDateBadge">18/10/2026</span>
-          </div>
-          <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap; font-size: 0.82rem;">
-            <div><span style="color: #94a3b8; font-size: 0.72rem;">Peso:</span> <strong id="compMetricWeight" style="color: var(--brand-neon);">62.0 kg</strong></div>
-            <div><span style="color: #94a3b8; font-size: 0.72rem;">Cintura:</span> <strong id="compMetricWaist" style="color: var(--brand-neon);">-- cm</strong></div>
-            <div><span style="color: #94a3b8; font-size: 0.72rem;">RCEst:</span> <strong id="compMetricWhtr" style="color: #c084fc;">--</strong></div>
-            <div><span style="color: #94a3b8; font-size: 0.72rem;">% BF:</span> <strong id="compMetricBF" style="color: #fbbf24;">--%</strong></div>
-          </div>
-        </div>
-
-        <!-- CARD 3: COMPARATIVO DA EVOLUÇÃO (MÉTRICAS DESTACADAS LIMPAS) -->
-        <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(192,132,252,0.25); border-left: 4.5px solid #c084fc; border-radius: 14px; padding: 14px 16px; margin-bottom: 16px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 12px; flex-wrap:wrap; gap:8px;">
+        <!-- PAINEL UNIFICADO: EVOLUÇÃO CORPORAL -->
+        <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-left: 4.5px solid var(--brand-neon); border-radius: 14px; padding: 16px; margin-bottom: 16px;">
+          
+          <!-- Cabeçalho do Painel Unificado -->
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 14px; flex-wrap:wrap; gap:8px;">
             <div style="display:flex; align-items:center; gap:8px;">
               <span style="font-size:1.15rem;">📊</span>
-              <div style="font-size:0.92rem; font-weight:800; color:#ffffff; letter-spacing:0.02em;">COMPARATIVO DA EVOLUÇÃO</div>
+              <div style="font-size:0.95rem; font-weight:800; color:#ffffff; letter-spacing:0.02em;">EVOLUÇÃO CORPORAL</div>
             </div>
-            <div style="display:flex; gap:6px; flex-wrap:wrap;">
-              <span style="font-size:0.72rem; font-weight:700; color:#e2e8f0; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); padding:3px 8px; border-radius:8px;" id="compSummaryRange">02/07/2026 vs. Atual</span>
-              <span style="font-size:0.72rem; font-weight:700; color:#c084fc; background:rgba(192,132,252,0.12); border:1px solid rgba(192,132,252,0.3); padding:3px 8px; border-radius:8px;" id="compSummaryPeriod">~1 kg/semana</span>
+            <div style="display:flex; gap:6px; flex-wrap:wrap; align-items:center;">
+              <span style="font-size:0.72rem; font-weight:700; color:#cbd5e1; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); padding:3px 8px; border-radius:8px;" id="compSummaryRange">-- vs. Atual</span>
+              <span style="font-size:0.72rem; font-weight:700; color:var(--brand-neon); background:rgba(0,255,136,0.1); border:1px solid rgba(0,255,136,0.25); padding:3px 8px; border-radius:8px;" id="compSummaryPeriod">-- dias</span>
             </div>
           </div>
-          <div class="metrics-summary-grid" style="margin-bottom:0; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 8px;">
-            <div class="metric-summary-card" style="padding: 10px 12px; border-left:3px solid var(--brand-neon);">
-              <div class="metric-value" id="compStatDeltaWeight" style="font-size:1.15rem; color:var(--brand-neon);">-13.3 kg</div>
-              <div class="metric-label">Δ Peso Corporal</div>
+
+          <!-- Grid Unificado das 3 Métricas Essenciais -->
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
+            
+            <!-- Coluna 1: PESO CORPORAL -->
+            <div style="background:rgba(0,0,0,0.25); border:1px solid rgba(56,189,248,0.2); border-radius:10px; padding:12px 14px; display:flex; flex-direction:column; justify-content:space-between;">
+              <div>
+                <div style="font-size:0.72rem; font-weight:800; color:#38bdf8; text-transform:uppercase; letter-spacing:0.03em; margin-bottom:8px; display:flex; align-items:center; gap:5px;">
+                  <span>⚖️</span> <span>Peso Corporal</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:4px; font-size:0.76rem;">
+                  <span style="color:#94a3b8;">Inicial:</span>
+                  <strong id="evolIntakeWeight" style="color:#cbd5e1;">-- kg</strong>
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:baseline; font-size:0.76rem;">
+                  <span style="color:#94a3b8;">Atual:</span>
+                  <strong id="compMetricWeight" style="color:#ffffff; font-weight:800;">-- kg</strong>
+                </div>
+              </div>
+              <div style="margin-top:10px; padding-top:8px; border-top:1px dashed rgba(255,255,255,0.1); display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:0.7rem; color:#94a3b8; font-weight:600;">Variação</span>
+                <span id="compStatDeltaWeight" style="font-size:0.92rem; font-weight:800; color:var(--brand-neon);">--</span>
+              </div>
             </div>
-            <div class="metric-summary-card" style="padding: 10px 12px; border-left:3px solid #38bdf8;">
-              <div class="metric-value" id="compStatDeltaWaist" style="font-size:1.15rem; color:#38bdf8;">-11.0 cm</div>
-              <div class="metric-label">Δ Cintura</div>
+
+            <!-- Coluna 2: CINTURA ABDOMINAL -->
+            <div style="background:rgba(0,0,0,0.25); border:1px solid rgba(0,255,136,0.2); border-radius:10px; padding:12px 14px; display:flex; flex-direction:column; justify-content:space-between;">
+              <div>
+                <div style="font-size:0.72rem; font-weight:800; color:var(--brand-neon); text-transform:uppercase; letter-spacing:0.03em; margin-bottom:8px; display:flex; align-items:center; gap:5px;">
+                  <span>📏</span> <span>Cintura</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:4px; font-size:0.76rem;">
+                  <span style="color:#94a3b8;">Inicial:</span>
+                  <strong id="evolIntakeWaist" style="color:#cbd5e1;">-- cm</strong>
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:baseline; font-size:0.76rem;">
+                  <span style="color:#94a3b8;">Atual:</span>
+                  <strong id="compMetricWaist" style="color:#ffffff; font-weight:800;">-- cm</strong>
+                </div>
+              </div>
+              <div style="margin-top:10px; padding-top:8px; border-top:1px dashed rgba(255,255,255,0.1); display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:0.7rem; color:#94a3b8; font-weight:600;">Variação</span>
+                <span id="compStatDeltaWaist" style="font-size:0.92rem; font-weight:800; color:#38bdf8;">--</span>
+              </div>
             </div>
-            <div class="metric-summary-card" style="padding: 10px 12px; border-left:3px solid #c084fc;">
-              <div class="metric-value" id="compStatJointRelief" style="font-size:1.15rem; color:#c084fc;">~ -53 kg</div>
-              <div class="metric-label">Alívio Articular / Passo</div>
+
+            <!-- Coluna 3: % GORDURA -->
+            <div style="background:rgba(0,0,0,0.25); border:1px solid rgba(251,191,36,0.2); border-radius:10px; padding:12px 14px; display:flex; flex-direction:column; justify-content:space-between;">
+              <div>
+                <div style="font-size:0.72rem; font-weight:800; color:#fbbf24; text-transform:uppercase; letter-spacing:0.03em; margin-bottom:8px; display:flex; align-items:center; gap:5px;">
+                  <span>🔬</span> <span>% Gordura</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:4px; font-size:0.76rem;">
+                  <span style="color:#94a3b8;">Inicial:</span>
+                  <strong id="evolIntakeBF" style="color:#cbd5e1;">--%</strong>
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:baseline; font-size:0.76rem;">
+                  <span style="color:#94a3b8;">Atual:</span>
+                  <strong id="compMetricBF" style="color:#ffffff; font-weight:800;">--%</strong>
+                </div>
+              </div>
+              <div style="margin-top:10px; padding-top:8px; border-top:1px dashed rgba(255,255,255,0.1); display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:0.7rem; color:#94a3b8; font-weight:600;">Variação</span>
+                <span id="compStatDeltaBF" style="font-size:0.92rem; font-weight:800; color:#fbbf24;">--</span>
+              </div>
             </div>
-            <div class="metric-summary-card" style="padding: 10px 12px; border-left:3px solid #fbbf24;">
-              <div class="metric-value" id="compStatRelativePower" style="font-size:1.15rem; color:#fbbf24;">+15.7%</div>
-              <div class="metric-label">Força Relativa</div>
-            </div>
+
           </div>
         </div>
 
@@ -6736,7 +6758,7 @@
             <div style="display:flex; gap:5px; background:rgba(0,0,0,0.3); padding:3px; border-radius:8px; border:1px solid rgba(255,255,255,0.08); flex-wrap:wrap;">
               <button type="button" id="btnChartTabWeight" onclick="switchBodyCompChart('weight')" style="background:rgba(56,189,248,0.2); color:#38bdf8; border:none; padding:5px 10px; font-size:0.72rem; font-weight:700; border-radius:6px; cursor:pointer;">Peso (kg)</button>
               <button type="button" id="btnChartTabWaist" onclick="switchBodyCompChart('waist')" style="background:transparent; color:#94a3b8; border:none; padding:5px 10px; font-size:0.72rem; font-weight:700; border-radius:6px; cursor:pointer;">Cintura (cm)</button>
-              <button type="button" id="btnChartTabBF" onclick="switchBodyCompChart('bf')" style="background:transparent; color:#94a3b8; border:none; padding:5px 10px; font-size:0.72rem; font-weight:700; border-radius:6px; cursor:pointer;">Gordura Corporal (% BF)</button>
+              <button type="button" id="btnChartTabBF" onclick="switchBodyCompChart('bf')" style="background:transparent; color:#94a3b8; border:none; padding:5px 10px; font-size:0.72rem; font-weight:700; border-radius:6px; cursor:pointer;">% Gordura</button>
             </div>
           </div>
 
@@ -6746,46 +6768,6 @@
 
           <div id="compChartExplanation" style="margin-top:14px; padding:10px 12px; background:rgba(255,255,255,0.02); border-radius:10px; border:1px solid rgba(255,255,255,0.06); font-size:0.76rem; color:#94a3b8; line-height:1.5;">
             💡 <em>Atualização dinâmica: a curva é recalculada e renderizada instantaneamente a cada nova medição adicionada.</em>
-          </div>
-        </div>
-
-        <!-- CARD 5: DIAGNÓSTICO BIOMECÂNICO ATUAL • CORTE ABSOLUTO DO MOMENTO -->
-        <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-left: 4.5px solid #c084fc; border-radius: 14px; padding: 14px 16px; margin-bottom: 16px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 12px; flex-wrap:wrap; gap:8px;">
-            <div style="font-size:0.92rem; font-weight:800; color:#ffffff; display:flex; align-items:center; gap:8px;">
-              <span>🔬</span> <span>DIAGNÓSTICO BIOMECÂNICO • CORTE DO MOMENTO ATUAL</span>
-            </div>
-            <span style="font-size:0.7rem; font-weight:700; color:#c084fc; background:rgba(192,132,252,0.12); border:1px solid rgba(192,132,252,0.3); padding:3px 8px; border-radius:8px;">Instantâneo Clínico</span>
-          </div>
-
-          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:12px;">
-            
-            <!-- Bloco 1: Carga Articular e Descompressão -->
-            <div style="background:rgba(0,0,0,0.25); border:1px solid rgba(192,132,252,0.22); border-radius:10px; padding:12px 14px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
-                <span style="font-size:0.82rem; font-weight:800; color:#c084fc; display:flex; align-items:center; gap:6px;">
-                  <span>🦵</span> <span>Carga e Alívio Articular</span>
-                </span>
-                <span id="compDescJointBadge" style="font-size:0.75rem; font-weight:800; color:#c084fc;">~ -40.4 kg / passo</span>
-              </div>
-              <p style="margin:0; font-size:0.75rem; color:#cbd5e1; line-height:1.5;" id="compDescJointText">
-                Pela <strong>Regra 4:1 de Messier</strong>, cada 1 kg de gordura corporal inerte reduzido poupa ~4 kg de força compressiva na articulação do joelho a cada passada. No corte atual, isso representa alívio direto sobre as cartilagens patelofemoral e meniscal nas corridas, aterrissagens e agachamentos.
-              </p>
-            </div>
-
-            <!-- Bloco 2: Força Relativa e Rendimento Ginástico -->
-            <div style="background:rgba(0,0,0,0.25); border:1px solid rgba(251,191,36,0.22); border-radius:10px; padding:12px 14px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
-                <span style="font-size:0.82rem; font-weight:800; color:#fbbf24; display:flex; align-items:center; gap:6px;">
-                  <span>⚡</span> <span>Força Relativa e Alavanca</span>
-                </span>
-                <span id="compDescPowerBadge" style="font-size:0.75rem; font-weight:800; color:#fbbf24;">+11.5% potência</span>
-              </div>
-              <p style="margin:0; font-size:0.75rem; color:#cbd5e1; line-height:1.5;" id="compDescPowerText">
-                Segundo os princípios de força de <strong>Zatsiorsky e Kraemer</strong>, o tecido adiposo atua biologicamente como um <em>"colete de lastro inerte"</em> sem capacidade contrátil. A recomposição corporal atual aumenta a relação de torque por quilo, facilitando puxadas (pull-ups), flexões em parada de mão (HSPU) e muscle-ups.
-              </p>
-            </div>
-
           </div>
         </div>
 
@@ -7580,7 +7562,7 @@
         <div style="margin-bottom: 14px;">
           <button type="button" class="btn-orientacoes-popup" onclick="openInstrucoesMedidasModal()" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 16px; font-size: 0.84rem; font-weight: 800; border-radius: 10px; background: rgba(56, 189, 248, 0.10); border: 1px solid rgba(56, 189, 248, 0.35); color: #38bdf8; text-transform: none; letter-spacing: 0.01em;">
             <svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:currentColor;"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
-            <span>Guia de como medir</span>
+            <span>Guia: como medir</span>
             <span style="font-size:0.85rem; margin-left:2px;">↗</span>
           </button>
         </div>
@@ -7691,17 +7673,17 @@
         </div>
 
         <div style="margin-bottom:14px; padding:10px 12px; background:rgba(0,255,136,0.06); border-left:3.5px solid var(--brand-neon); border-radius:8px;">
-          <strong style="color:#fff;">📐 Cintura Abdominal (Métrica Rainha da Saúde)</strong><br>
+          <strong style="color:#fff;">📐 Cintura Abdominal</strong><br>
           Posicione a fita métrica na linha do umbigo ou no ponto mais estreito do tronco (entre a última costela e o osso do quadril). Mantenha a fita nivelada e justa à pele, sem apertar. Realize a leitura no final de uma <strong>expiração normal</strong> (sem puxar o abdômen e sem estufar).
         </div>
 
         <div style="margin-bottom:14px; padding:10px 12px; background:rgba(192,132,252,0.06); border-left:3.5px solid #c084fc; border-radius:8px;">
-          <strong style="color:#fff;">👔 Pescoço (Para Fórmula da Marinha)</strong><br>
+          <strong style="color:#fff;">👔 Pescoço</strong><br>
           Passe a fita logo abaixo da laringe (pomo de adão em homens), ligeiramente inclinada para baixo na frente. A fita deve encostar na pele sem estrangular.
         </div>
 
         <div style="padding:10px 12px; background:rgba(251,191,36,0.06); border-left:3.5px solid #fbbf24; border-radius:8px;">
-          <strong style="color:#fff;">👖 Quadril (Para Mulheres)</strong><br>
+          <strong style="color:#fff;">👖 Quadril</strong><br>
           Com os pés unidos, posicione a fita métrica na maior circunferência dos glúteos. Mantenha a fita paralela ao chão.
         </div>
       </div>
@@ -10126,21 +10108,29 @@ function updateEvolucaoStats() {
         unit = '%';
       }
 
-      const pointsData = history.map((d) => {
+      // Agrupa e deduplica medições por data (mantendo o registro mais recente do dia para evitar sobreposição)
+      const dateMap = new Map();
+      history.forEach(d => {
+        if (!d.date) return;
         let val = null;
         if (type === 'weight') {
-          val = d.weight;
+          val = (d.weight !== null && d.weight !== undefined && !isNaN(parseFloat(d.weight))) ? parseFloat(d.weight) : null;
         } else if (type === 'waist') {
-          val = d.waist;
+          val = (d.waist !== null && d.waist !== undefined && !isNaN(parseFloat(d.waist))) ? parseFloat(d.waist) : null;
         } else if (type === 'bf') {
-          if (d.bfManual !== null && d.bfManual !== undefined && !isNaN(d.bfManual)) {
-            val = d.bfManual;
-          } else if (d.neck) {
-            val = calculateUSNavyBF(gender, height, d.waist, d.neck, d.hip);
+          if (d.bfManual !== null && d.bfManual !== undefined && !isNaN(parseFloat(d.bfManual))) {
+            val = parseFloat(d.bfManual);
+          } else if (d.waist) {
+            const neckVal = d.neck ? parseFloat(d.neck) : (gender === 'feminino' ? 37.0 : 39.0);
+            const hipVal = d.hip ? parseFloat(d.hip) : (gender === 'feminino' ? 98.0 : null);
+            val = calculateUSNavyBF(gender, height, parseFloat(d.waist), neckVal, hipVal);
           }
         }
-        return { val, date: d.date || '' };
-      }).filter(p => typeof p.val === 'number' && !isNaN(p.val));
+        if (val !== null && typeof val === 'number' && !isNaN(val)) {
+          dateMap.set(d.date, val);
+        }
+      });
+      const pointsData = Array.from(dateMap.entries()).map(([date, val]) => ({ date, val }));
 
       // Atualiza o texto explicativo da curva
       const explanationEl = document.getElementById('compChartExplanation');
@@ -10205,7 +10195,7 @@ function updateEvolucaoStats() {
 
         if (showLabel) {
           const labelPrefix = (type === 'power' && p.val > 0) ? '+' : '';
-          svg += `<text x="${p.x}" y="${p.y - 8}" fill="#ffffff" font-size="9" font-weight="700" text-anchor="middle" font-family="sans-serif">${labelPrefix}${p.val.toFixed(1)} ${unit}</text>`;
+          const valFormatted = (unit === "%") ? `${p.val.toFixed(1)}%` : `${p.val.toFixed(1)} ${unit}`; svg += `<text x="${p.x}" y="${p.y - 8}" fill="#ffffff" font-size="9" font-weight="700" text-anchor="middle" font-family="sans-serif">${labelPrefix}${valFormatted}</text>`;
           const dateParts = p.date.split('-');
           const dateLabel = (dateParts.length === 3) ? `${dateParts[2]}/${dateParts[1]}` : p.date;
           svg += `<text x="${p.x}" y="${h - 10}" fill="#94a3b8" font-size="8.5" text-anchor="middle" font-family="sans-serif">${dateLabel}</text>`;
