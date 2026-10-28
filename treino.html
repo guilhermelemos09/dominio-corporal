@@ -5530,7 +5530,7 @@
           <div class="day-card-left">
             <div class="day-card-name-row">
               <span class="day-name">TERÇA</span>
-              <span class="day-today-badge" id="todayBadge-terca" style="display:inline-flex;">Hoje</span>
+              <span class="day-today-badge" id="todayBadge-terca" style="display:none;">Hoje</span>
             </div>
             <div class="day-focus-desc">CROSSFIT E GINÁSTICA</div>
             <div class="day-meta-pill">📍 Box CrossFit • ⏱️ ~1h15</div>
@@ -5547,10 +5547,10 @@
           <div class="day-card-left">
             <div class="day-card-name-row">
               <span class="day-name">QUARTA</span>
-              <span class="day-today-badge" id="todayBadge-quarta" style="display:none;">Hoje</span>
+              <span class="day-today-badge" id="todayBadge-quarta" style="display:inline-flex;">Hoje</span>
             </div>
-            <div class="day-focus-desc">A DEFINIR</div>
-            <div class="day-meta-pill">📍 Planejamento • ⏱️ A definir</div>
+            <div class="day-focus-desc">ACRODUO E CANOAGEM</div>
+            <div class="day-meta-pill">📍 Lagoa e Solo • ⏱️ ~1h35</div>
           </div>
           <div class="day-card-right">
             <div class="day-status-pill status-pending" id="statusPill-quarta" onclick="event.stopPropagation(); handleWorkoutStatusClick('quarta')">
@@ -6041,34 +6041,170 @@
     </div>
   </div><!-- end #tab-terca -->
 
-  <!-- ==================== TAB: QUARTA (EM ABERTO • A DEFINIR) ==================== -->
+      <!-- ==================== TAB: HOJE (QUARTA: ACRODUO E CANOAGEM) ==================== -->
   <div id="tab-quarta" class="tab-content">
 
     <!-- LOCAL E DURAÇÃO DA SESSÃO -->
     <div class="session-overall-meta">
-      <span class="meta-item">📍 A Definir</span>
+      <span class="meta-item">📍 Lagoa e Solo</span>
       <span class="meta-separator">|</span>
-      <span class="meta-item">⏱️ Em Planejamento</span>
+      <span class="meta-item">⏳ 35' Canoagem + 1h Acroduo</span>
       <span class="meta-separator">|</span>
-      <span class="meta-item">⏳ Em Aberto</span>
+      <span class="meta-item">⏱️ ~1h35 Total</span>
     </div>
 
-    <!-- DIRETRIZES DA SESSÃO EM ABERTO -->
-    <div class="callout-box" style="border-left: 3.5px solid #64748b; padding: 22px 18px; margin-bottom: 20px; border-radius: 12px; background: rgba(255, 255, 255, 0.03);">
-      <div class="callout-icon" style="font-size:1.5rem;">📋</div>
-      <div>
-        <div class="callout-topic-header" style="color: #ffffff; font-size: 0.98rem; font-weight:800; letter-spacing:0.04em;">QUARTA • SESSÃO EM ABERTO</div>
-        <div style="font-size: 0.85rem; color: #94a3b8; margin-top: 8px; line-height: 1.6;">
-          Os blocos de treino, volumes e cargas desta sessão serão definidos e lançados após a avaliação do rendimento e recuperação dos treinos anteriores da semana.
+    <!-- ==================== SEÇÃO 1: CONDICIONAMENTO ==================== -->
+    <div class="section-card sec-cardio">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-title">CONDICIONAMENTO</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ 35 min</span>
+        </div>
+      </div>
+
+      <!-- EXERCÍCIO 1: CANOAGEM (REMADAS CONTÍNUAS) -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>CANOAGEM (REMADAS CONTÍNUAS)</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('CANOAGEM (REMADAS CONTÍNUAS)', '<b>Execução:</b> 1. Sessão contínua de canoagem na água com duração total de 35 minutos.<br>2. Foco em cadência ritmada de remadas, rotação coordenada de tronco e tração dorsal limpa.<br>3. Monitoramento de frequência cardíaca, distância e velocidade pelo smartwatch.<br><br><b>Cuidados:</b> 1. Manter a ativação do grande dorsal e do core durante a fase aquática da remada para estabilizar a pelve e a coluna lombar.<br>2. Na recuperação aérea da pá, preservar o ombro direito sem elevar excessivamente o trapézio superior.<br><br><b>Base científica:</b> CAPACIDADE AERÓBICA E ESTABILIZAÇÃO TRIDIMENSIONAL: A remada contínua em canoa/caiaque exige alta demanda oxidativa enquanto recruta contrações isométricas e rotacionais do core para equilibrar a embarcação, fortalecendo a fáscia toracolombar sem impacto articular sobre os membros inferiores (Michael et al., 2008).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">35 MINUTOS CONTÍNUOS • CAPACIDADE AERÓBICA • ⏱️ REST: LIVRE</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Remada 10 min</div>
+            <div class="set-pill" onclick="toggleSet(this)">Remada 20 min</div>
+            <div class="set-pill" onclick="toggleSet(this)">Remada 35 min 🏁</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-qua-canoa" onclick="toggleCommentBox('ex-qua-canoa')">
+            <span>💬 Anotar Dados do Relógio (FC, Km, Ritmo)?</span>
+            <span class="comment-dot" id="dot-ex-qua-canoa" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-qua-canoa" class="comment-drawer" style="display: none;">
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
+            <span class="save-indicator" id="save-status-ex-qua-canoa"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-qua-canoa" placeholder="Anotar dados do relógio: FC média/máxima, distância remada (km), ritmo (pace), calorias e como o ombro respondeu..." oninput="saveExerciseNote('ex-qua-canoa', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira anexar fotos ou vídeos da remada:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Canoagem • Quarta')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
 
-    <div style="text-align: center; padding: 40px 16px; color: var(--text-dim); font-size: 0.82rem;">
-      <p style="margin: 0;">Aguardando definição técnica de exercícios.</p>
+    <!-- ==================== SEÇÃO 2: HABILIDADES ==================== -->
+    <div class="section-card sec-skills">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-title">HABILIDADES</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ 1h00</span>
+        </div>
+      </div>
+
+      <!-- EXERCÍCIO 1: ACRODUO (ACROBACIA EM DUPLA) -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>ACRODUO (ACROBACIA EM DUPLA)</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('ACRODUO (ACROBACIA EM DUPLA)', '<b>Execução:</b> 1. Treino de 1 hora de acrobacia em dupla com amiga (portagem e volante).<br>2. Calibração progressiva de pegadas, transferências de peso, alinhamento ósseo estrutural (bone stacking) e contra-pesos.<br>3. Prática de figuras estáticas e transições dinâmicas no colchão ou tatame com comunicação clara e contínua.<br><br><b>Cuidados:</b> 1. Bloqueio ativo e estável de cotovelos e punhos nas sustentações para transferir a carga pelo esqueleto, poupando a musculatura periférica.<br>2. Descer com amortecimento seguro ao primeiro sinal de desalinhamento ou hesitação.<br><br><b>Base científica:</b> COORDENAÇÃO INTERPESSOAL E PROPRIOCEPÇÃO PAREADA: O equilíbrio dinâmico e estático em dupla exige antecipação neuromuscular constante e microajustes no centro de gravidade combinado, ativando estabilizadores profundos da coluna e receptores articulares de forma superior a tarefas isoladas (Latash, 2008).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">1 HORA DE SESSÃO • CALIBRAÇÃO E FIGURAS EM DUPLA • ⏱️ REST: LIVRE</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Aquecimento Dupla</div>
+            <div class="set-pill" onclick="toggleSet(this)">Bases e Conexões</div>
+            <div class="set-pill" onclick="toggleSet(this)">Transições Técnicas</div>
+            <div class="set-pill" onclick="toggleSet(this)">Figuras Estáticas</div>
+            <div class="set-pill" onclick="toggleSet(this)">1h Concluída 🏁</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-qua-acro" onclick="toggleCommentBox('ex-qua-acro')">
+            <span>💬 Anotar Figuras e Sensações?</span>
+            <span class="comment-dot" id="dot-ex-qua-acro" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-qua-acro" class="comment-drawer" style="display: none;">
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
+            <span class="save-indicator" id="save-status-ex-qua-acro"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-qua-acro" placeholder="Anotar figuras executadas, transições testadas, tempo sob tensão e percepção corporal..." oninput="saveExerciseNote('ex-qua-acro', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do Acroduo:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Acroduo • Quarta')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Card Clean de Finalização de Treino (QUARTA) -->
+    <!-- ==================== SEÇÃO 3: MOBILIDADE ==================== -->
+    <div class="section-card sec-flex">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-title">MOBILIDADE</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~8 min</span>
+        </div>
+      </div>
+
+      <!-- DESCOMPRESSÃO DE PUNHOS E OMBROS -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>DESCOMPRESSÃO DE PUNHOS E OMBROS</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('DESCOMPRESSÃO DE PUNHOS E OMBROS', '<b>Execução:</b> 1. Alongamento reverso suave de flexores e extensores de punho no solo (30 segundos cada lado) para soltar a tensão das pegadas contínuas do remo e das conexões do Acroduo.<br>2. Suspensão passiva suave (Protocolo Kirsch) na barra por 40 segundos para descompressão subacromial completa.<br><br><b>Cuidados:</b> Respiração lenta diafragmática; manter o corpo relaxado sem puxar ativamente com os braços.<br><br><b>Base científica:</b> RESTAURAÇÃO ARTICULAR PÓS-TRAÇÃO: A tração gravitacional e o relaxamento da musculatura flexora do carpo aumentam a vascularização local, diminuem o tônus simpático e previnem microlesões cumulativas por sobrecarga de preensão (Weerapong et al., 2004).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">VOLTA À CALMA • ALÍVIO RÁPIDO • ⏱️ REST: LIVRE</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Punhos 30s</div>
+            <div class="set-pill" onclick="toggleSet(this)">Suspensão Kirsch 40s</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-qua-mob" onclick="toggleCommentBox('ex-qua-mob')">
+            <span>💬 Dúvidas ou Observações?</span>
+            <span class="comment-dot" id="dot-ex-qua-mob" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-qua-mob" class="comment-drawer" style="display: none;">
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
+            <span class="save-indicator" id="save-status-ex-qua-mob"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-qua-mob" placeholder="Escreva aqui sua sensação pós-treino ou dúvida..." oninput="saveExerciseNote('ex-qua-mob', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira anexar vídeo da descompressão:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Descompressão • Quarta')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card Clean de Finalização de Treino (Quarta) -->
     <div class="workout-finish-clean-card" id="workoutFinishCard-quarta">
       <button type="button" class="btn-finish-workout-trigger" id="btnTriggerFinish-quarta" onclick="openBiometriaSessaoModal('quarta')">
         <span class="finish-flag-icon">🏁</span> <span>FINALIZAR SESSÃO</span>
@@ -6086,7 +6222,7 @@
     </div>
   </div><!-- end #tab-quarta -->
 
-    <!-- ==================== TAB: QUINTA (EM ABERTO • A DEFINIR) ==================== -->
+  <!-- ==================== TAB: QUINTA (EM ABERTO • A DEFINIR) ==================== -->
   <div id="tab-quinta" class="tab-content">
 
     <!-- LOCAL E DURAÇÃO DA SESSÃO -->
@@ -7863,6 +7999,7 @@
       </div>
 
     </div>
+  </div> <!-- end #evolView-composicao -->
 
     <div id="evolView-tecnica" class="evolucao-view-pane" style="display:none;">
       <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
@@ -9807,9 +9944,9 @@
       const dayNames = {
         'segunda': 'SEGUNDA | COMPLEX LPO E WOD',
         'terca': 'TERÇA | CROSSFIT',
-        'quarta': 'QUARTA | A DEFINIR',
+        'quarta': 'QUARTA | ACRODUO E CANOAGEM',
         'quinta': 'QUINTA | A DEFINIR',
-        'sexta': 'SEXTA | BENCH PRESS E EMOM'
+        'sexta': 'SEXTA | A DEFINIR'
       };
 
       const titleEl = document.getElementById('dedicatedBarTitle');
@@ -15445,9 +15582,9 @@ function updateEvolucaoStats() {
       const dayNames = {
         'segunda': 'SEGUNDA | COMPLEX LPO E WOD',
         'terca': 'TERÇA | CROSSFIT',
-        'quarta': 'QUARTA | A DEFINIR',
+        'quarta': 'QUARTA | ACRODUO E CANOAGEM',
         'quinta': 'QUINTA | A DEFINIR',
-        'sexta': 'SEXTA | BENCH PRESS E EMOM'
+        'sexta': 'SEXTA | A DEFINIR'
       };
 
       if (bioRecord && bioRecord.dia_nome) {
