@@ -6658,9 +6658,6 @@
               <div class="day-card-name-row">
                 <span class="day-name" style="color: #fff; font-weight: 800; letter-spacing: 0.5px;">ANTROPOMETRIA</span>
               </div>
-              <div style="font-size: 0.74rem; color: #94a3b8; margin-top: 4px;">
-                Métricas corporais, circunferências e comparativo de evolução
-              </div>
             </div>
             <div class="day-card-right">
               <div class="day-status-pill status-pending">
@@ -6674,9 +6671,6 @@
             <div class="day-card-left">
               <div class="day-card-name-row">
                 <span class="day-name" style="color: #fff; font-weight: 800; letter-spacing: 0.5px;">FOTOS POSTURAIS</span>
-              </div>
-              <div style="font-size: 0.74rem; color: #94a3b8; margin-top: 4px;">
-                Comparação inicial vs. atual e histórico fotográfico de evolução
               </div>
             </div>
             <div class="day-card-right">
@@ -6867,15 +6861,19 @@
         </button>
 
         <!-- SEÇÃO PRINCIPAL: COMPARAÇÃO LONGITUDINAL (INICIAL VS. ATUAL) COM MENUS RETRÁTEIS -->
-        <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-left: 4.5px solid var(--brand-neon); border-radius: 14px; padding: 16px; margin-bottom: 16px;">
+        <details class="postural-accordion-item" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-left: 4.5px solid var(--brand-neon); border-radius: 14px; margin-bottom: 16px; overflow: hidden;">
           
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:8px;">
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span style="font-size:1.15rem;">📸</span>
-              <div style="font-size:0.95rem; font-weight:800; color:#ffffff; letter-spacing:0.02em;">COMPARAÇÃO: INICIAL VS. ATUAL</div>
+          <summary style="padding: 14px 16px; cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; user-select: none;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 1.15rem;">📸</span>
+              <span style="font-size: 0.95rem; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">COMPARAÇÃO: INICIAL VS. ATUAL</span>
             </div>
-            <span style="font-size:0.72rem; font-weight:700; color:var(--brand-neon); background:rgba(0,255,136,0.1); border:1px solid rgba(0,255,136,0.25); padding:3px 8px; border-radius:8px;" id="compPhotosDatesBadge">Toque para Expandir</span>
-          </div>
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <span style="font-size: 0.72rem; font-weight: 700; color: var(--brand-neon); background: rgba(0,255,136,0.1); border: 1px solid rgba(0,255,136,0.25); padding: 3px 8px; border-radius: 8px;" id="compPhotosDatesBadge">Toque para Abrir</span>
+              <span style="color: #cbd5e1; font-size: 0.75rem;">▾</span>
+            </div>
+          </summary>
+          <div style="padding: 16px; border-top: 1px solid rgba(255,255,255,0.08);">
 
           <!-- AVISO DE PADRONIZAÇÃO (SE AINDA NÃO HOUVER FOTOS OFICIAIS CADASTRADAS) -->
           
@@ -6979,7 +6977,8 @@
             </details>
 
           </div>
-        </div>
+          </div>
+        </details>
 
         <!-- SEÇÃO: HISTÓRICO DE SETS DE FOTOS REGISTRADOS -->
         <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-left: 4.5px solid #38bdf8; border-radius: 14px; padding: 16px; margin-bottom: 24px;">
