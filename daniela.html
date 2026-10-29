@@ -6690,7 +6690,7 @@
 
       </div>
 
-      <!-- ==================== SUBPÁGINA 1: ANTROPOMETRIA ==================== -->
+            <!-- ==================== SUBPÁGINA 1: ANTROPOMETRIA ==================== -->
       <div id="compSubView-grafico" style="display:none;">
         
         <!-- NAVEGAÇÃO DE RETORNO (CAMINHO PARA PÁGINA ANTERIOR) -->
@@ -6706,146 +6706,136 @@
           <span>ADICIONAR MEDIÇÃO</span>
         </button>
 
-        <!-- PAINEL UNIFICADO: EVOLUÇÃO CORPORAL -->
-        <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-left: 4.5px solid var(--brand-neon); border-radius: 14px; padding: 16px; margin-bottom: 16px;">
-          
-          <!-- Cabeçalho do Painel Unificado -->
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 14px; flex-wrap:wrap; gap:8px;">
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span style="font-size:1.15rem;">📊</span>
-              <div style="font-size:0.95rem; font-weight:800; color:#ffffff; letter-spacing:0.02em;">EVOLUÇÃO CORPORAL</div>
+        <!-- SEÇÃO 1: EVOLUÇÃO CORPORAL (MENU RETRÁTIL) -->
+        <details class="postural-accordion-item" open style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-left: 4.5px solid var(--brand-neon); border-radius: 14px; margin-bottom: 16px; overflow: hidden;">
+          <summary style="padding: 14px 16px; cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; user-select: none;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 1.15rem;">📊</span>
+              <span style="font-size: 0.95rem; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">EVOLUÇÃO CORPORAL</span>
             </div>
-            <div style="display:flex; gap:6px; flex-wrap:wrap; align-items:center;">
-              <span style="font-size:0.72rem; font-weight:700; color:#cbd5e1; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); padding:3px 8px; border-radius:8px;" id="compSummaryRange">-- vs. Atual</span>
-              <span style="font-size:0.72rem; font-weight:700; color:var(--brand-neon); background:rgba(0,255,136,0.1); border:1px solid rgba(0,255,136,0.25); padding:3px 8px; border-radius:8px;" id="compSummaryPeriod">-- dias</span>
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <span style="font-size:0.70rem; font-weight:700; color:#cbd5e1; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); padding:3px 8px; border-radius:8px;" id="compSummaryRange">-- vs. Atual</span>
+              <span style="font-size:0.70rem; font-weight:700; color:var(--brand-neon); background:rgba(0,255,136,0.1); border:1px solid rgba(0,255,136,0.25); padding:3px 8px; border-radius:8px;" id="compSummaryPeriod">-- dias</span>
+              <span style="color: #cbd5e1; font-size: 0.75rem; margin-left: 2px;">▾</span>
             </div>
-          </div>
+          </summary>
 
-          <!-- Grid Unificado das 3 Métricas Essenciais -->
-          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
+          <div style="padding: 16px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 10px;">
             
-            <!-- Coluna 1: PESO CORPORAL -->
-            <div style="background:rgba(0,0,0,0.25); border:1px solid rgba(56,189,248,0.2); border-radius:10px; padding:12px 14px; display:flex; flex-direction:column; justify-content:space-between;">
-              <div>
-                <div style="font-size:0.72rem; font-weight:800; color:#38bdf8; text-transform:uppercase; letter-spacing:0.03em; margin-bottom:8px; display:flex; align-items:center; gap:5px;">
-                  <span>⚖️</span> <span>Peso Corporal</span>
-                </div>
-                <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:4px; font-size:0.76rem;">
-                  <span style="color:#94a3b8;">Inicial:</span>
-                  <strong id="evolIntakeWeight" style="color:#cbd5e1;">-- kg</strong>
-                </div>
-                <div style="display:flex; justify-content:space-between; align-items:baseline; font-size:0.76rem;">
-                  <span style="color:#94a3b8;">Atual:</span>
-                  <strong id="compMetricWeight" style="color:#ffffff; font-weight:800;">-- kg</strong>
-                </div>
+            <!-- Linha 1: PESO CORPORAL -->
+            <div style="background:rgba(0,0,0,0.25); border:1px solid rgba(56,189,248,0.2); border-radius:10px; padding:12px 14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-size:1.1rem;">⚖️</span>
+                <span style="font-size:0.84rem; font-weight:800; color:#38bdf8; text-transform:uppercase; letter-spacing:0.03em;">Peso Corporal</span>
               </div>
-              <div style="margin-top:10px; padding-top:8px; border-top:1px dashed rgba(255,255,255,0.1); display:flex; justify-content:space-between; align-items:center;">
-                <span style="font-size:0.7rem; color:#94a3b8; font-weight:600;">Variação</span>
-                <span id="compStatDeltaWeight" style="font-size:0.92rem; font-weight:800; color:var(--brand-neon);">--</span>
-              </div>
-            </div>
-
-            <!-- Coluna 2: CINTURA ABDOMINAL -->
-            <div style="background:rgba(0,0,0,0.25); border:1px solid rgba(0,255,136,0.2); border-radius:10px; padding:12px 14px; display:flex; flex-direction:column; justify-content:space-between;">
-              <div>
-                <div style="font-size:0.72rem; font-weight:800; color:var(--brand-neon); text-transform:uppercase; letter-spacing:0.03em; margin-bottom:8px; display:flex; align-items:center; gap:5px;">
-                  <span>📏</span> <span>Cintura</span>
+              <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+                <div style="font-size:0.76rem; color:#94a3b8;">
+                  Inicial: <strong id="evolIntakeWeight" style="color:#cbd5e1;">-- kg</strong>
                 </div>
-                <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:4px; font-size:0.76rem;">
-                  <span style="color:#94a3b8;">Inicial:</span>
-                  <strong id="evolIntakeWaist" style="color:#cbd5e1;">-- cm</strong>
+                <div style="font-size:0.76rem; color:#94a3b8;">
+                  Atual: <strong id="compMetricWeight" style="color:#ffffff; font-weight:800;">-- kg</strong>
                 </div>
-                <div style="display:flex; justify-content:space-between; align-items:baseline; font-size:0.76rem;">
-                  <span style="color:#94a3b8;">Atual:</span>
-                  <strong id="compMetricWaist" style="color:#ffffff; font-weight:800;">-- cm</strong>
+                <div style="display:flex; align-items:center; gap:6px; background:rgba(0,255,136,0.08); padding:3px 8px; border-radius:6px; border:1px solid rgba(0,255,136,0.2);">
+                  <span style="font-size:0.68rem; color:#94a3b8; font-weight:600;">Variação:</span>
+                  <span id="compStatDeltaWeight" style="font-size:0.86rem; font-weight:800; color:var(--brand-neon);">--</span>
                 </div>
-              </div>
-              <div style="margin-top:10px; padding-top:8px; border-top:1px dashed rgba(255,255,255,0.1); display:flex; justify-content:space-between; align-items:center;">
-                <span style="font-size:0.7rem; color:#94a3b8; font-weight:600;">Variação</span>
-                <span id="compStatDeltaWaist" style="font-size:0.92rem; font-weight:800; color:#38bdf8;">--</span>
               </div>
             </div>
 
-            <!-- Coluna 3: % GORDURA -->
-            <div style="background:rgba(0,0,0,0.25); border:1px solid rgba(251,191,36,0.2); border-radius:10px; padding:12px 14px; display:flex; flex-direction:column; justify-content:space-between;">
-              <div>
-                <div style="font-size:0.72rem; font-weight:800; color:#fbbf24; text-transform:uppercase; letter-spacing:0.03em; margin-bottom:8px; display:flex; align-items:center; gap:5px;">
-                  <span>🔬</span> <span>% Gordura</span>
+            <!-- Linha 2: CINTURA ABDOMINAL -->
+            <div style="background:rgba(0,0,0,0.25); border:1px solid rgba(0,255,136,0.2); border-radius:10px; padding:12px 14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-size:1.1rem;">📏</span>
+                <span style="font-size:0.84rem; font-weight:800; color:var(--brand-neon); text-transform:uppercase; letter-spacing:0.03em;">Cintura</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+                <div style="font-size:0.76rem; color:#94a3b8;">
+                  Inicial: <strong id="evolIntakeWaist" style="color:#cbd5e1;">-- cm</strong>
                 </div>
-                <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:4px; font-size:0.76rem;">
-                  <span style="color:#94a3b8;">Inicial:</span>
-                  <strong id="evolIntakeBF" style="color:#cbd5e1;">--%</strong>
+                <div style="font-size:0.76rem; color:#94a3b8;">
+                  Atual: <strong id="compMetricWaist" style="color:#ffffff; font-weight:800;">-- cm</strong>
                 </div>
-                <div style="display:flex; justify-content:space-between; align-items:baseline; font-size:0.76rem;">
-                  <span style="color:#94a3b8;">Atual:</span>
-                  <strong id="compMetricBF" style="color:#ffffff; font-weight:800;">--%</strong>
+                <div style="display:flex; align-items:center; gap:6px; background:rgba(56,189,248,0.08); padding:3px 8px; border-radius:6px; border:1px solid rgba(56,189,248,0.2);">
+                  <span style="font-size:0.68rem; color:#94a3b8; font-weight:600;">Variação:</span>
+                  <span id="compStatDeltaWaist" style="font-size:0.86rem; font-weight:800; color:#38bdf8;">--</span>
                 </div>
               </div>
-              <div style="margin-top:10px; padding-top:8px; border-top:1px dashed rgba(255,255,255,0.1); display:flex; justify-content:space-between; align-items:center;">
-                <span style="font-size:0.7rem; color:#94a3b8; font-weight:600;">Variação</span>
-                <span id="compStatDeltaBF" style="font-size:0.92rem; font-weight:800; color:#fbbf24;">--</span>
+            </div>
+
+            <!-- Linha 3: % GORDURA -->
+            <div style="background:rgba(0,0,0,0.25); border:1px solid rgba(251,191,36,0.2); border-radius:10px; padding:12px 14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-size:1.1rem;">🔬</span>
+                <span style="font-size:0.84rem; font-weight:800; color:#fbbf24; text-transform:uppercase; letter-spacing:0.03em;">% Gordura</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+                <div style="font-size:0.76rem; color:#94a3b8;">
+                  Inicial: <strong id="evolIntakeBF" style="color:#cbd5e1;">--%</strong>
+                </div>
+                <div style="font-size:0.76rem; color:#94a3b8;">
+                  Atual: <strong id="compMetricBF" style="color:#ffffff; font-weight:800;">--%</strong>
+                </div>
+                <div style="display:flex; align-items:center; gap:6px; background:rgba(251,191,36,0.08); padding:3px 8px; border-radius:6px; border:1px solid rgba(251,191,36,0.2);">
+                  <span style="font-size:0.68rem; color:#94a3b8; font-weight:600;">Variação:</span>
+                  <span id="compStatDeltaBF" style="font-size:0.86rem; font-weight:800; color:#fbbf24;">--</span>
+                </div>
               </div>
             </div>
 
           </div>
-        </div>
+        </details>
 
-        <!-- CARD 4: GRÁFICOS DE EVOLUÇÃO (CURVAS DE TENDÊNCIA TEMPORAL - DIRETO NA ANTROPOMETRIA) -->
-        <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 16px; margin-bottom: 16px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
-            <div style="font-size:0.92rem; font-weight:800; color:#fff; display:flex; align-items:center; gap:6px;">
-              <span>📈</span> <span>Curvas de Tendência Temporal</span>
+        <!-- SEÇÃO 2: GRÁFICOS DE EVOLUÇÃO (MENU RETRÁTIL) -->
+        <details class="postural-accordion-item" open style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-left: 4.5px solid #38bdf8; border-radius: 14px; margin-bottom: 16px; overflow: hidden;">
+          <summary style="padding: 14px 16px; cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; user-select: none;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 1.15rem;">📈</span>
+              <span style="font-size: 0.95rem; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">GRÁFICOS DE EVOLUÇÃO</span>
             </div>
+            <span style="color: #cbd5e1; font-size: 0.75rem;">▾</span>
+          </summary>
+          <div style="padding: 16px; border-top: 1px solid rgba(255,255,255,0.08);">
             <!-- Seletor de Métricas Fisiológicas do Gráfico -->
-            <div style="display:flex; gap:5px; background:rgba(0,0,0,0.3); padding:3px; border-radius:8px; border:1px solid rgba(255,255,255,0.08); flex-wrap:wrap;">
-              <button type="button" id="btnChartTabWeight" onclick="switchBodyCompChart('weight')" style="background:rgba(56,189,248,0.2); color:#38bdf8; border:none; padding:5px 10px; font-size:0.72rem; font-weight:700; border-radius:6px; cursor:pointer;">Peso (kg)</button>
-              <button type="button" id="btnChartTabWaist" onclick="switchBodyCompChart('waist')" style="background:transparent; color:#94a3b8; border:none; padding:5px 10px; font-size:0.72rem; font-weight:700; border-radius:6px; cursor:pointer;">Cintura (cm)</button>
-              <button type="button" id="btnChartTabBF" onclick="switchBodyCompChart('bf')" style="background:transparent; color:#94a3b8; border:none; padding:5px 10px; font-size:0.72rem; font-weight:700; border-radius:6px; cursor:pointer;">% Gordura</button>
+            <div style="display:flex; justify-content:flex-end; margin-bottom:12px;">
+              <div style="display:flex; gap:5px; background:rgba(0,0,0,0.3); padding:3px; border-radius:8px; border:1px solid rgba(255,255,255,0.08); flex-wrap:wrap;">
+                <button type="button" id="btnChartTabWeight" onclick="switchBodyCompChart('weight')" style="background:rgba(56,189,248,0.2); color:#38bdf8; border:none; padding:5px 10px; font-size:0.72rem; font-weight:700; border-radius:6px; cursor:pointer;">Peso (kg)</button>
+                <button type="button" id="btnChartTabWaist" onclick="switchBodyCompChart('waist')" style="background:transparent; color:#94a3b8; border:none; padding:5px 10px; font-size:0.72rem; font-weight:700; border-radius:6px; cursor:pointer;">Cintura (cm)</button>
+                <button type="button" id="btnChartTabBF" onclick="switchBodyCompChart('bf')" style="background:transparent; color:#94a3b8; border:none; padding:5px 10px; font-size:0.72rem; font-weight:700; border-radius:6px; cursor:pointer;">% Gordura</button>
+              </div>
+            </div>
+
+            <div id="compChartContainer" style="width:100%; min-height:190px; position:relative; overflow:hidden;">
+              <!-- SVG dinamicamente gerado via script -->
+            </div>
+
+            <div id="compChartExplanation" style="margin-top:14px; padding:10px 12px; background:rgba(255,255,255,0.02); border-radius:10px; border:1px solid rgba(255,255,255,0.06); font-size:0.76rem; color:#94a3b8; line-height:1.5;">
+              💡 <em>Atualização dinâmica: a curva é recalculada e renderizada instantaneamente a cada nova medição adicionada.</em>
             </div>
           </div>
+        </details>
 
-          <div id="compChartContainer" style="width:100%; min-height:190px; position:relative; overflow:hidden;">
-            <!-- SVG dinamicamente gerado via script -->
+        <!-- SEÇÃO 3: LISTA DE MEDIÇÕES (MENU RETRÁTIL) -->
+        <details class="postural-accordion-item" open style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-left: 4.5px solid #c084fc; border-radius: 14px; margin-bottom: 24px; overflow: hidden;">
+          <summary style="padding: 14px 16px; cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; user-select: none;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 1.15rem;">🗓️</span>
+              <span style="font-size: 0.95rem; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">LISTA DE MEDIÇÕES</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <span style="font-size:0.70rem; color:#c084fc; font-weight:700; background:rgba(192,132,252,0.12); padding:3px 8px; border-radius:8px;" id="compHistoryCount">0 registros</span>
+              <span style="color: #cbd5e1; font-size: 0.75rem;">▾</span>
+            </div>
+          </summary>
+          <div style="padding: 16px; border-top: 1px solid rgba(255,255,255,0.08);">
+            <div id="compHistoryList" style="display:flex; flex-direction:column; gap:8px;">
+              <!-- Linhas do histórico injetadas aqui -->
+            </div>
           </div>
-
-          <div id="compChartExplanation" style="margin-top:14px; padding:10px 12px; background:rgba(255,255,255,0.02); border-radius:10px; border:1px solid rgba(255,255,255,0.06); font-size:0.76rem; color:#94a3b8; line-height:1.5;">
-            💡 <em>Atualização dinâmica: a curva é recalculada e renderizada instantaneamente a cada nova medição adicionada.</em>
-          </div>
-        </div>
-
-        <!-- BOTÃO PARA VER HISTÓRICO DE MEDIÇÕES -->
-        <button type="button" class="btn-orientacoes-popup" onclick="openCompSubView('historico')" style="width: 100%; justify-content: center; padding: 12px 16px; background: rgba(0, 255, 136, 0.08); border-color: rgba(0, 255, 136, 0.3); color: var(--brand-neon); font-weight: 800; font-size: 0.82rem; margin-bottom: 20px;">
-          <svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:currentColor;"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
-          <span>VER HISTÓRICO COMPLETO DE MEDIÇÕES (CHECK-INS) ↗</span>
-        </button>
+        </details>
 
       </div>
 
-      <!-- ==================== SUBPÁGINA 2: HISTÓRICO DE MEDIÇÕES ==================== -->
-      <div id="compSubView-historico" style="display:none;">
-        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
-          <button type="button" class="btn-back-workout" onclick="openCompSubView('grafico')">
-            ← Voltar para Antropometria
-          </button>
-          <span style="font-size:0.75rem; font-weight:800; color:var(--brand-neon); text-transform:uppercase; letter-spacing:0.04em;">Histórico</span>
-        </div>
-        <!-- Card: Histórico Cronológico de Check-ins -->
-        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 16px; margin-bottom: 20px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
-            <div style="font-size:0.92rem; font-weight:800; color:#fff; display:flex; align-items:center; gap:6px;">
-              <span>🗓️</span> <span>Histórico Cronológico de Medições</span>
-            </div>
-            <span style="font-size:0.72rem; color:var(--brand-neon); font-weight:700;" id="compHistoryCount">0 registros</span>
-          </div>
-
-          <div id="compHistoryList" style="display:flex; flex-direction:column; gap:8px;">
-            <!-- Linhas do histórico injetadas aqui -->
-          </div>
-        </div>
-      </div>
-
-      <!-- ==================== SUBPÁGINA 3: FOTOS POSTURAIS ==================== -->
-      <div id="compSubView-fotos" style="display:none;">
+<div id="compSubView-fotos" style="display:none;">
         
         <!-- NAVEGAÇÃO DE RETORNO (PADRÃO ANTROPOMETRIA) -->
         <div style="display:flex; align-items:center; justify-content:flex-start; margin-bottom:12px; padding: 4px 0;">
@@ -8735,8 +8725,9 @@
         if (el) el.style.display = (id === subId) ? 'block' : 'none';
       });
 
-      if (subId === 'grafico' && typeof renderBodyCompChart === 'function') {
-        renderBodyCompChart(currentBodyCompChartType);
+      if (subId === 'grafico') {
+        if (typeof renderBodyCompChart === 'function') renderBodyCompChart(currentBodyCompChartType);
+        if (typeof renderBodyCompHistoryList === 'function') renderBodyCompHistoryList(getBodyCompHistory());
       }
       if (subId === 'historico' && typeof renderBodyCompHistoryList === 'function') {
         renderBodyCompHistoryList(getBodyCompHistory());
@@ -10786,6 +10777,278 @@ function updateEvolucaoStats() {
       `;
 
       container.innerHTML = html;
+    }
+
+    
+    // =========================================================================
+    // GERENCIAMENTO DA LISTA DE MEDIÇÕES E MODAL DE MEDIÇÃO CORPORAL
+    // =========================================================================
+    function getBodyCompStorageKey() {
+      const t = (document.title || '').toLowerCase();
+      if (t.includes('gui')) return 'dominio_gui_body_comp_history';
+      if (t.includes('daniela')) return 'dominio_daniela_body_comp_history';
+      return 'dominio_body_comp_history';
+    }
+
+    function renderBodyCompHistoryList(history) {
+      const countEl = document.getElementById('compHistoryCount');
+      const listEl = document.getElementById('compHistoryList');
+      if (countEl) countEl.textContent = `${history.length} registro(s)`;
+      if (!listEl) return;
+
+      if (!history || history.length === 0) {
+        listEl.innerHTML = `<div style="text-align:center; color:#64748b; font-size:0.78rem; padding:12px;">Nenhuma medição registrada ainda.</div>`;
+        return;
+      }
+
+      const reversed = [...history].reverse();
+      let html = '';
+      reversed.forEach(item => {
+        const dParts = (item.date || '').split('-');
+        const dateFormatted = (dParts.length === 3) ? `${dParts[2]}/${dParts[1]}/${dParts[0]}` : item.date;
+        const wVal = item.weight ? Number(item.weight).toFixed(1) + ' kg' : '--';
+        const waistVal = item.waist ? Number(item.waist).toFixed(1) + ' cm' : null;
+        const bfVal = item.bfManual ? Number(item.bfManual).toFixed(1) + '%' : null;
+
+        html += `
+          <div class="comp-history-item" style="background: rgba(255, 255, 255, 0.025); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap;">
+            <div style="display:flex; flex-direction:column; gap:3px;">
+              <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                <span style="font-size:0.84rem; font-weight:800; color:#fff;">📅 ${dateFormatted}</span>
+                <span style="font-size:0.72rem; color:#38bdf8; font-weight:700; background:rgba(56,189,248,0.1); padding:2px 6px; border-radius:6px;">${wVal}</span>
+                ${waistVal ? `<span style="font-size:0.72rem; color:var(--brand-neon); font-weight:700; background:rgba(0,255,136,0.1); padding:2px 6px; border-radius:6px;">Cintura: ${waistVal}</span>` : ''}
+                ${bfVal ? `<span style="font-size:0.72rem; color:#fbbf24; font-weight:700; background:rgba(251,191,36,0.1); padding:2px 6px; border-radius:6px;">Gordura: ${bfVal}</span>` : ''}
+              </div>
+              ${item.notes ? `<div style="font-size:0.72rem; color:#94a3b8; line-height:1.4;">💬 ${item.notes}</div>` : ''}
+            </div>
+            <button type="button" onclick="deleteBodyCompRecord('${item.id}')" title="Excluir medição" style="background:rgba(248,113,113,0.1); border:1px solid rgba(248,113,113,0.25); color:#f87171; font-size:0.70rem; font-weight:700; border-radius:6px; padding:4px 8px; cursor:pointer;">
+              ✕ Excluir
+            </button>
+          </div>`;
+      });
+      listEl.innerHTML = html;
+    }
+
+    function saveCompDraft() {
+      const draft = {
+        date: document.getElementById('add_comp_date')?.value || '',
+        weight: document.getElementById('add_comp_weight')?.value || '',
+        waist: document.getElementById('add_comp_waist')?.value || '',
+        neck: document.getElementById('add_comp_neck')?.value || '',
+        hip: document.getElementById('add_comp_hip')?.value || '',
+        bfManual: document.getElementById('add_comp_bf_manual')?.value || '',
+        bfMethod: document.getElementById('add_comp_bf_method')?.value || '',
+        clothes: document.getElementById('add_comp_clothes')?.value || '',
+        energy: document.getElementById('add_comp_energy')?.value || '',
+        notes: document.getElementById('add_comp_notes')?.value || '',
+        updatedAt: Date.now()
+      };
+      try {
+        localStorage.setItem('dominio_draft_medicao', JSON.stringify(draft));
+        const ind = document.getElementById('compDraftIndicator');
+        const indText = document.getElementById('compDraftIndicatorText');
+        if (ind && indText) {
+          ind.style.display = 'inline-flex';
+          indText.textContent = 'Rascunho salvo temporariamente';
+        }
+      } catch (e) {}
+    }
+    window.saveCompDraft = saveCompDraft;
+
+    function openAddMedicaoModal() {
+      tempCompPhotos = { front: '', side: '', back: '' };
+      const dateEl = document.getElementById('add_comp_date');
+      if (dateEl && !dateEl.value) {
+        dateEl.value = new Date().toISOString().split('T')[0];
+      }
+      
+      const history = getBodyCompHistory();
+      const base = getStudentBaseProfile();
+      const latest = (history && history.length > 0) ? history[history.length - 1] : null;
+
+      const weightEl = document.getElementById('add_comp_weight');
+      const waistEl = document.getElementById('add_comp_waist');
+      const neckEl = document.getElementById('add_comp_neck');
+      const hipEl = document.getElementById('add_comp_hip');
+      const bfEl = document.getElementById('add_comp_bf_manual');
+      const bfMethodEl = document.getElementById('add_comp_bf_method');
+      const clothesEl = document.getElementById('add_comp_clothes');
+      const energyEl = document.getElementById('add_comp_energy');
+      const notesEl = document.getElementById('add_comp_notes');
+      const ind = document.getElementById('compDraftIndicator');
+      const indText = document.getElementById('compDraftIndicatorText');
+
+      // Verifica se há rascunho salvo temporariamente no localStorage
+      let draft = null;
+      try {
+        const raw = localStorage.getItem('dominio_draft_medicao');
+        if (raw) draft = JSON.parse(raw);
+      } catch(e) {}
+
+      if (draft && (draft.weight || draft.waist || draft.neck || draft.bfManual || draft.notes)) {
+        if (dateEl && draft.date) dateEl.value = draft.date;
+        if (weightEl) weightEl.value = draft.weight !== undefined ? draft.weight : '';
+        if (waistEl) waistEl.value = draft.waist !== undefined ? draft.waist : '';
+        if (neckEl) neckEl.value = draft.neck !== undefined ? draft.neck : '';
+        if (hipEl) hipEl.value = draft.hip !== undefined ? draft.hip : '';
+        if (bfEl) bfEl.value = draft.bfManual !== undefined ? draft.bfManual : '';
+        if (bfMethodEl) bfMethodEl.value = draft.bfMethod || '';
+        if (clothesEl) clothesEl.value = draft.clothes || 'folgadas';
+        if (energyEl) energyEl.value = draft.energy || '5';
+        if (notesEl) notesEl.value = draft.notes || '';
+        if (ind && indText) {
+          ind.style.display = 'inline-flex';
+          indText.textContent = 'Rascunho anterior restaurado';
+        }
+      } else {
+        if (dateEl) dateEl.value = new Date().toISOString().split('T')[0];
+        if (weightEl) weightEl.value = latest ? latest.weight : (base.weight || '');
+        if (waistEl) waistEl.value = latest ? latest.waist : '';
+        if (neckEl) neckEl.value = latest ? (latest.neck || '') : '';
+        if (hipEl) hipEl.value = latest ? (latest.hip || '') : '';
+        if (bfEl) bfEl.value = latest ? (latest.bfManual || '') : '';
+        if (bfMethodEl) bfMethodEl.value = '';
+        if (clothesEl) clothesEl.value = 'folgadas';
+        if (energyEl) energyEl.value = '5';
+        if (notesEl) notesEl.value = '';
+        if (ind) ind.style.display = 'none';
+      }
+
+      ['front', 'side', 'back'].forEach(k => {
+        const preview = document.getElementById('preview_' + k);
+        if (preview) preview.innerHTML = 'Sem foto';
+        const fileIn = document.getElementById('comp_photo_input_' + k);
+        if (fileIn) fileIn.value = '';
+      });
+
+      const modal = document.getElementById('modalAddMedicao');
+      if (modal) modal.classList.add('active');
+    }
+
+    function closeAddMedicaoModal() {
+      const modal = document.getElementById('modalAddMedicao');
+      if (modal) modal.classList.remove('active');
+    }
+
+    function handleCompPhotoPreview(input, previewId) {
+      const preview = document.getElementById(previewId);
+      if (!preview) return;
+      if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const key = previewId.replace('preview_', '');
+          tempCompPhotos[key] = e.target.result;
+          preview.innerHTML = `<img src="${e.target.result}" style="width:100%; height:100%; object-fit:cover; border-radius:4px;">`;
+        };
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    function saveBodyCompRecordFromForm() {
+      const dateVal = document.getElementById('add_comp_date')?.value || new Date().toISOString().split('T')[0];
+      const weightVal = parseFloat(document.getElementById('add_comp_weight')?.value);
+      const waistVal = parseFloat(document.getElementById('add_comp_waist')?.value);
+      const neckVal = parseFloat(document.getElementById('add_comp_neck')?.value) || null;
+      const hipVal = parseFloat(document.getElementById('add_comp_hip')?.value) || null;
+      const bfVal = parseFloat(document.getElementById('add_comp_bf_manual')?.value) || null;
+      const bfMethodVal = document.getElementById('add_comp_bf_method')?.value || null;
+      const clothesVal = document.getElementById('add_comp_clothes')?.value || null;
+      const energyVal = parseInt(document.getElementById('add_comp_energy')?.value) || null;
+      const notesVal = document.getElementById('add_comp_notes')?.value.trim() || '';
+
+      if (!weightVal || isNaN(weightVal) || weightVal <= 20 || weightVal > 300) {
+        alert('Por favor, informe um peso corporal válido em kg.');
+        document.getElementById('add_comp_weight')?.focus();
+        return;
+      }
+      if (!waistVal || isNaN(waistVal) || waistVal <= 30 || waistVal > 250) {
+        alert('Por favor, informe uma medida de cintura válida em cm.');
+        document.getElementById('add_comp_waist')?.focus();
+        return;
+      }
+
+      const newRecord = {
+        id: 'comp_' + Date.now(),
+        date: dateVal,
+        weight: weightVal,
+        waist: waistVal,
+        neck: neckVal,
+        hip: hipVal,
+        bfManual: bfVal,
+        bfMethod: bfMethodVal,
+        clothes: clothesVal,
+        energy: energyVal,
+        notes: notesVal,
+        photos: { ...tempCompPhotos }
+      };
+
+      const history = getBodyCompHistory();
+      const existingIdx = history.findIndex(h => h.date === dateVal);
+      if (existingIdx >= 0) {
+        history[existingIdx] = newRecord;
+      } else {
+        history.push(newRecord);
+      }
+
+      const storageKey = getBodyCompStorageKey();
+
+      try {
+        localStorage.setItem(storageKey, JSON.stringify(history));
+      } catch (e) {
+        console.error('Erro ao salvar no localStorage:', e);
+      }
+
+      if (window.DominioDB && typeof DominioDB.salvarMedicao === 'function') {
+        DominioDB.salvarMedicao({
+          data_medicao: dateVal,
+          peso: weightVal,
+          cintura: waistVal,
+          pescoco: neckVal,
+          quadril: hipVal,
+          bf_pct: bfVal,
+          vestimenta: clothesVal,
+          energia: energyVal,
+          notas: notesVal
+        });
+      }
+
+      try {
+        localStorage.removeItem('dominio_draft_medicao');
+      } catch (e) {}
+      const draftInd = document.getElementById('compDraftIndicator');
+      if (draftInd) draftInd.style.display = 'none';
+
+      closeAddMedicaoModal();
+      renderBodyCompUI();
+    }
+
+    function deleteBodyCompRecord(id) {
+      if (!confirm('Deseja realmente excluir esta medição?')) return;
+      let history = getBodyCompHistory();
+      history = history.filter(h => h.id !== id);
+      const storageKey = getBodyCompStorageKey();
+      try {
+        localStorage.setItem(storageKey, JSON.stringify(history));
+      } catch (e) {}
+      renderBodyCompUI();
+    }
+
+    function openInstrucoesMedidasModal() {
+      const modal = document.getElementById('modalInstrucoesMedidas');
+      if (modal) modal.classList.add('active');
+    }
+    function closeInstrucoesMedidasModal() {
+      const modal = document.getElementById('modalInstrucoesMedidas');
+      if (modal) modal.classList.remove('active');
+    }
+
+    function openInstrucoesFotosModal() {
+      const modal = document.getElementById('modalInstrucoesFotos');
+      if (modal) modal.classList.add('active');
+    }
+    function closeInstrucoesFotosModal() {
+      const modal = document.getElementById('modalInstrucoesFotos');
+      if (modal) modal.classList.remove('active');
     }
 
     function openRelatorioComposicaoModal() {
