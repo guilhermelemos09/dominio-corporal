@@ -6713,14 +6713,14 @@
               <span style="font-size: 1.15rem;">📊</span>
               <span style="font-size: 0.95rem; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">EVOLUÇÃO CORPORAL</span>
             </div>
-            <div style="display: flex; align-items: center; gap: 6px;">
-              <span style="font-size:0.70rem; font-weight:700; color:#cbd5e1; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); padding:3px 8px; border-radius:8px;" id="compSummaryRange">-- vs. Atual</span>
-              <span style="font-size:0.70rem; font-weight:700; color:var(--brand-neon); background:rgba(0,255,136,0.1); border:1px solid rgba(0,255,136,0.25); padding:3px 8px; border-radius:8px;" id="compSummaryPeriod">-- dias</span>
-              <span style="color: #cbd5e1; font-size: 0.75rem; margin-left: 2px;">▾</span>
-            </div>
+            <span style="color: #cbd5e1; font-size: 0.75rem;">▾</span>
           </summary>
 
           <div style="padding: 16px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; justify-content: flex-end; gap: 6px; margin-bottom: 2px; flex-wrap: wrap;">
+              <span style="font-size:0.70rem; font-weight:700; color:#cbd5e1; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); padding:3px 8px; border-radius:8px;" id="compSummaryRange">-- vs. Atual</span>
+              <span style="font-size:0.70rem; font-weight:700; color:var(--brand-neon); background:rgba(0,255,136,0.1); border:1px solid rgba(0,255,136,0.25); padding:3px 8px; border-radius:8px;" id="compSummaryPeriod">-- dias</span>
+            </div>
             
             <!-- Linha 1: PESO CORPORAL -->
             <div style="background:rgba(0,0,0,0.25); border:1px solid rgba(56,189,248,0.2); border-radius:10px; padding:12px 14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
@@ -6865,20 +6865,24 @@
           </div>
         </details>
 
-        <!-- SEÇÃO: ANÁLISES FOTOS INDIVIDUAIS -->
-        <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-left: 4.5px solid #38bdf8; border-radius: 14px; padding: 16px; margin-bottom: 16px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span style="font-size:1.1rem;">🗓️</span>
-              <div style="font-size:0.92rem; font-weight:800; color:#ffffff; letter-spacing:0.02em;">ANÁLISES FOTOS INDIVIDUAIS</div>
+        <!-- SEÇÃO: ANÁLISES FOTOS INDIVIDUAIS (MENU RETRÁTIL) -->
+        <details class="postural-accordion-item" open style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-left: 4.5px solid #38bdf8; border-radius: 14px; margin-bottom: 16px; overflow: hidden;">
+          <summary style="padding: 14px 16px; cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; user-select: none;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 1.15rem;">🗓️</span>
+              <span style="font-size: 0.95rem; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">ANÁLISES FOTOS INDIVIDUAIS</span>
             </div>
-            <span style="font-size:0.7rem; font-weight:700; color:#38bdf8; background:rgba(56,189,248,0.12); padding:3px 8px; border-radius:8px;" id="userPhotoCountBadge">0 Sets Salvos</span>
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <span style="font-size:0.70rem; font-weight:700; color:#38bdf8; background:rgba(56,189,248,0.12); padding:3px 8px; border-radius:8px;" id="userPhotoCountBadge">0 Sets Salvos</span>
+              <span style="color: #cbd5e1; font-size: 0.75rem;">▾</span>
+            </div>
+          </summary>
+          <div style="padding: 16px; border-top: 1px solid rgba(255,255,255,0.08);">
+            <div id="userPhotoSetsContainer">
+              <!-- Preenchido dinamicamente por renderUserUploadedPhotosGallery() -->
+            </div>
           </div>
-          
-          <div id="userPhotoSetsContainer">
-            <!-- Preenchido dinamicamente por renderUserUploadedPhotosGallery() -->
-          </div>
-        </div>
+        </details>
 
         <!-- SEÇÃO: COMPARAÇÕES ANTERIORES (CICLOS ANTERIORES) -->
         <details class="postural-accordion-item" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-left: 4.5px solid #c084fc; border-radius: 14px; margin-bottom: 24px; overflow: hidden;">
@@ -7308,244 +7312,14 @@
         </div>
 
         <!-- Botões de Ação do Modal -->
-        <div style="display:flex; gap:10px; margin-top:16px;">
-          <button type="button" onclick="testAndSaveCloudConfig()" class="btn-primary" style="flex:2; margin:0; padding:11px; font-size:0.85rem;">
-            ✓ Salvar e Conectar
-          </button>
-          <button type="button" onclick="resetCloudConfigToLocal()" style="flex:1; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); color:#94a3b8; border-radius:10px; font-size:0.8rem; font-weight:700; cursor:pointer;">
-            Usar Local
-          </button>
-        </div>
-
-        <div id="cloudTestFeedback" style="display:none; margin-top:12px; padding:8px 12px; border-radius:8px; font-size:0.78rem; font-weight:700;"></div>
-      </div>
-    </div>
-  </div>
-
-    <!-- ==================== MODAL: ADICIONAR MEDIÇÃO CORPORAL ==================== -->
-  <div id="modalAddMedicao" class="modal-overlay" onclick="if(event.target === this) closeAddMedicaoModal();">
-    <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 520px;">
-      <div class="modal-header">
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div style="width:36px; height:36px; border-radius:10px; background:rgba(0, 255, 136, 0.12); border:1px solid rgba(0, 255, 136, 0.3); display:flex; align-items:center; justify-content:center; font-size:1.25rem;">
-            <span>⚖️</span>
-          </div>
-          <div>
-            <h3 style="margin:0; font-size:1.05rem; color:#fff;">Registrar Medição Corporal</h3>
-          </div>
-        </div>
-        <button class="btn-close" type="button" onclick="closeAddMedicaoModal()" aria-label="Fechar">&times;</button>
-      </div>
-
-      <div style="padding: 16px 20px; max-height: 75vh; overflow-y: auto;">
-        
-        <!-- GUIA DE COMO MEDIR (BOTÃO DESTACADO NO TOPO) -->
-        <div style="margin-bottom: 14px;">
-          <button type="button" class="btn-orientacoes-popup" onclick="openInstrucoesMedidasModal()" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 16px; font-size: 0.84rem; font-weight: 800; border-radius: 10px; background: rgba(56, 189, 248, 0.10); border: 1px solid rgba(56, 189, 248, 0.35); color: #38bdf8; text-transform: none; letter-spacing: 0.01em;">
-            <svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:currentColor;"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
-            <span>Guia: como medir</span>
-            <span style="font-size:0.85rem; margin-left:2px;">↗</span>
-          </button>
-        </div>
-
-        <!-- INDICADOR DE RASCUNHO SALVO TEMPORARIAMENTE -->
-        <div id="compDraftIndicator" style="display: none; align-items: center; gap: 6px; padding: 6px 10px; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.22); border-radius: 8px; margin-bottom: 12px; font-size: 0.72rem; color: #38bdf8; font-weight: 600;">
-          <span>💾</span>
-          <span id="compDraftIndicatorText">Rascunho salvo temporariamente</span>
-        </div>
-
-        <!-- Data e Peso -->
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
-          <div class="comp-form-group">
-            <label class="comp-form-label" for="add_comp_date">📅 Data da Medição</label>
-            <input type="date" id="add_comp_date" class="comp-form-input" onchange="saveCompDraft()">
-          </div>
-          <div class="comp-form-group">
-            <label class="comp-form-label" for="add_comp_weight">⚖️ Peso Corporal (kg)</label>
-            <input type="number" step="0.1" id="add_comp_weight" class="comp-form-input" placeholder="Ex: 68.5" oninput="saveCompDraft()">
-          </div>
-        </div>
-
-        <!-- Cintura e Pescoço -->
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top: 10px;">
-          <div class="comp-form-group">
-            <label class="comp-form-label" for="add_comp_waist">📏 Cintura (cm)</label>
-            <input type="number" step="0.1" id="add_comp_waist" class="comp-form-input" placeholder="Ex: 79.0" oninput="saveCompDraft()">
-          </div>
-          <div class="comp-form-group">
-            <label class="comp-form-label" for="add_comp_neck">👔 Pescoço (cm)</label>
-            <input type="number" step="0.1" id="add_comp_neck" class="comp-form-input" placeholder="Ex: 37.0" oninput="saveCompDraft()">
-          </div>
-        </div>
-
-        <!-- Quadril -->
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top: 10px;">
-          <div class="comp-form-group">
-            <label class="comp-form-label" for="add_comp_hip">👖 Quadril (cm) <span style="font-size:0.68rem; color:#94a3b8; font-weight:500;">(Obrigatório para mulheres)</span></label>
-            <input type="number" step="0.1" id="add_comp_hip" class="comp-form-input" placeholder="Ex: 98.0" oninput="saveCompDraft()">
-          </div>
-          <div></div>
-        </div>
-
-        <!-- TÓPICO A PARTE: % DE GORDURA CORPORAL (OPCIONAL) -->
-        <div class="comp-bf-topic-box" style="margin-top: 14px; margin-bottom: 14px; padding: 12px 14px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px;">
-          <div style="font-size: 0.82rem; font-weight: 800; color: #ffffff; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between;">
-            <span>🔬 % DE GORDURA (SE JÁ SOUBER)</span>
-            <span style="font-size: 0.68rem; color: #94a3b8; font-weight: 600; text-transform: uppercase;">Opcional</span>
-          </div>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-            <div class="comp-form-group">
-              <label class="comp-form-label" for="add_comp_bf_manual">Percentual de Gordura (%)</label>
-              <input type="number" step="0.1" id="add_comp_bf_manual" class="comp-form-input" placeholder="Ex: 19.5" oninput="saveCompDraft()">
-            </div>
-            <div class="comp-form-group">
-              <label class="comp-form-label" for="add_comp_bf_method">Método Utilizado</label>
-              <select id="add_comp_bf_method" class="comp-form-select" onchange="saveCompDraft()">
-                <option value="">Selecione o método...</option>
-                <option value="Bioimpedância (InBody / Balança)">Bioimpedância (InBody / Balança)</option>
-                <option value="DEXA (Densitometria)">DEXA (Densitometria)</option>
-                <option value="Dobras Cutâneas (Adipômetro)">Dobras Cutâneas (Adipômetro)</option>
-                <option value="Ultrassom Corporal">Ultrassom Corporal</option>
-                <option value="Outro">Outro Método</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <!-- Observações -->
-        <div class="comp-form-group" style="margin-top: 10px;">
-          <label class="comp-form-label" for="add_comp_notes">📝 Observações e Sensações</label>
-          <textarea id="add_comp_notes" class="comp-form-textarea" rows="2" placeholder="Ex: Sensação nas roupas (calça mais folgada), nível de energia, sensação nos treinos..." oninput="saveCompDraft()"></textarea>
-        </div>
-
-        <!-- Botões de Ação do Modal -->
-        <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:16px;">
-          <button type="button" onclick="closeAddMedicaoModal()" style="background:rgba(255,255,255,0.08); border:none; color:#cbd5e1; font-size:0.8rem; font-weight:700; border-radius:8px; padding:10px 16px; cursor:pointer;">
+        <div style="display:flex; justify-content:flex-end; align-items:center; gap:10px; margin-top:16px;">
+          <button type="button" onclick="closeAddFotosPosturaisModal()" style="background:rgba(255,255,255,0.08); border:none; color:#cbd5e1; font-size:0.8rem; font-weight:700; border-radius:8px; padding:10px 16px; cursor:pointer;">
             Cancelar
           </button>
-          <button type="button" onclick="saveBodyCompRecordFromForm()" style="background:var(--brand-neon); border:none; color:#000; font-size:0.82rem; font-weight:800; border-radius:8px; padding:10px 18px; cursor:pointer; box-shadow:0 0 14px var(--brand-neon-glow);">
-            Salvar Medição
+          <button type="button" onclick="saveAndSendFotosPosturais()" style="background:var(--brand-neon); color:#000; border:none; font-size:0.82rem; font-weight:800; border-radius:8px; padding:10px 20px; cursor:pointer; box-shadow:0 0 12px var(--brand-neon-glow); display:inline-flex; align-items:center; gap:8px;">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            <span>Salvar e Enviar</span>
           </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== MODAL: INSTRUÇÕES DE MEDIÇÃO ==================== -->
-  <div id="modalInstrucoesMedidas" class="modal-overlay" onclick="if(event.target === this) closeInstrucoesMedidasModal();">
-    <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 520px;">
-      <div class="modal-header">
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div style="width:36px; height:36px; border-radius:10px; background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.3); display:flex; align-items:center; justify-content:center; font-size:1.25rem;">
-            <span>📏</span>
-          </div>
-          <div>
-            <h3 style="margin:0; font-size:1.02rem; color:#fff;">Guia de Medição Precisa</h3>
-            <span style="font-size:0.75rem; color:#38bdf8; font-weight:600;">Padronização Antropométrica</span>
-          </div>
-        </div>
-        <button class="btn-close" type="button" onclick="closeInstrucoesMedidasModal()" aria-label="Fechar">&times;</button>
-      </div>
-
-      <div style="padding: 18px 20px; font-size:0.82rem; color:#cbd5e1; line-height:1.65; max-height:75vh; overflow-y:auto;">
-        <div style="margin-bottom:14px; padding:10px 12px; background:rgba(56,189,248,0.06); border-left:3.5px solid #38bdf8; border-radius:8px;">
-          <strong style="color:#fff;">⚖️ Pesagem Correta na Balança</strong><br>
-          Pese sempre pela manhã, em jejum, logo após urinar e antes de ingerir água ou café. Use roupas íntimas leves e descalço. Evite pesar todos os dias para não se iludir com variações naturais de água e sódio.
-        </div>
-
-        <div style="margin-bottom:14px; padding:10px 12px; background:rgba(0,255,136,0.06); border-left:3.5px solid var(--brand-neon); border-radius:8px;">
-          <strong style="color:#fff;">📐 Cintura Abdominal</strong><br>
-          Posicione a fita métrica na linha do umbigo ou no ponto mais estreito do tronco (entre a última costela e o osso do quadril). Mantenha a fita nivelada e justa à pele, sem apertar. Realize a leitura no final de uma <strong>expiração normal</strong> (sem puxar o abdômen e sem estufar).
-        </div>
-
-        <div style="margin-bottom:14px; padding:10px 12px; background:rgba(192,132,252,0.06); border-left:3.5px solid #c084fc; border-radius:8px;">
-          <strong style="color:#fff;">👔 Pescoço</strong><br>
-          Passe a fita logo abaixo da laringe (pomo de adão em homens), ligeiramente inclinada para baixo na frente. A fita deve encostar na pele sem estrangular.
-        </div>
-
-        <div style="padding:10px 12px; background:rgba(251,191,36,0.06); border-left:3.5px solid #fbbf24; border-radius:8px;">
-          <strong style="color:#fff;">👖 Quadril</strong><br>
-          Com os pés unidos, posicione a fita métrica na maior circunferência dos glúteos. Mantenha a fita paralela ao chão.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== MODAL: ADICIONAR FOTOS POSTURAIS ==================== -->
-  <div id="modalAddFotosPosturais" class="modal-overlay" onclick="if(event.target === this) closeAddFotosPosturaisModal();">
-    <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 520px;">
-      <div class="modal-header">
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div style="width:36px; height:36px; border-radius:10px; background:rgba(0, 255, 136, 0.12); border:1px solid rgba(0, 255, 136, 0.3); display:flex; align-items:center; justify-content:center; font-size:1.25rem;">
-            <span>📸</span>
-          </div>
-          <div>
-            <h3 style="margin:0; font-size:1.02rem; color:#fff;">Adicionar Fotos de Progresso</h3>
-            
-          </div>
-        </div>
-        <button class="btn-close" type="button" onclick="closeAddFotosPosturaisModal()" aria-label="Fechar">&times;</button>
-      </div>
-
-      <div style="padding: 18px 20px; max-height: 75vh; overflow-y: auto;">
-        <!-- GUIA: COMO TIRAR AS FOTOS (BOTÃO DESTACADO NO TOPO) -->
-        <div style="margin-bottom: 14px;">
-          <button type="button" class="btn-orientacoes-popup" onclick="openInstrucoesFotosModal()" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 16px; font-size: 0.84rem; font-weight: 800; border-radius: 10px; background: rgba(56, 189, 248, 0.10); border: 1px solid rgba(56, 189, 248, 0.35); color: #38bdf8; text-transform: none; letter-spacing: 0.01em;">
-            <svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:currentColor;"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-            <span>Guia: como tirar as fotos</span>
-            <span style="font-size:0.85rem; margin-left:2px;">↗</span>
-          </button>
-        </div>
-
-        <!-- Data das Fotos -->
-        <div class="comp-form-group" style="margin-bottom: 14px;">
-          <label class="comp-form-label" for="add_postural_date">📅 Data das Fotos</label>
-          <input type="date" id="add_postural_date" class="comp-form-input">
-        </div>
-
-        <!-- Upload de Fotos: Frente, Lado e Costas -->
-        <div class="comp-form-group">
-          <label class="comp-form-label">📸 Selecionar Fotos (salvas com segurança no seu dispositivo)</label>
-          <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:8px;">
-            <div>
-              <label for="postural_photo_front" style="display:block; font-size:0.68rem; color:#94a3b8; margin-bottom:4px; text-align:center;">Frente</label>
-              <input type="file" id="postural_photo_front" accept="image/*" style="font-size:0.65rem; color:#94a3b8; width:100%;" onchange="handleFotoPosturalPreview(this, 'front')">
-              <div id="preview_postural_front" style="margin-top:4px; height:75px; background:rgba(255,255,255,0.02); border:1px dashed rgba(255,255,255,0.15); border-radius:6px; overflow:hidden; display:flex; align-items:center; justify-content:center; font-size:0.68rem; color:#64748b;">Sem foto</div>
-            </div>
-            <div>
-              <label for="postural_photo_side" style="display:block; font-size:0.68rem; color:#94a3b8; margin-bottom:4px; text-align:center;">Lado</label>
-              <input type="file" id="postural_photo_side" accept="image/*" style="font-size:0.65rem; color:#94a3b8; width:100%;" onchange="handleFotoPosturalPreview(this, 'side')">
-              <div id="preview_postural_side" style="margin-top:4px; height:75px; background:rgba(255,255,255,0.02); border:1px dashed rgba(255,255,255,0.15); border-radius:6px; overflow:hidden; display:flex; align-items:center; justify-content:center; font-size:0.68rem; color:#64748b;">Sem foto</div>
-            </div>
-            <div>
-              <label for="postural_photo_back" style="display:block; font-size:0.68rem; color:#94a3b8; margin-bottom:4px; text-align:center;">Costas</label>
-              <input type="file" id="postural_photo_back" accept="image/*" style="font-size:0.65rem; color:#94a3b8; width:100%;" onchange="handleFotoPosturalPreview(this, 'back')">
-              <div id="preview_postural_back" style="margin-top:4px; height:75px; background:rgba(255,255,255,0.02); border:1px dashed rgba(255,255,255,0.15); border-radius:6px; overflow:hidden; display:flex; align-items:center; justify-content:center; font-size:0.68rem; color:#64748b;">Sem foto</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Observações sobre as fotos -->
-        <div class="comp-form-group" style="margin-top: 14px;">
-          <label class="comp-form-label" for="add_postural_notes">📝 Observações e Contexto</label>
-          <textarea id="add_postural_notes" class="comp-form-textarea" rows="2" placeholder="Ex: Fotos matinais em jejum, iluminação natural frontal..."></textarea>
-        </div>
-
-        
-
-        <!-- Botões de Ação do Modal -->
-        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-top:16px;">
-          <button type="button" onclick="sendFotosToWhatsAppCoach()" style="background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.35); color:#38bdf8; font-size:0.78rem; font-weight:700; border-radius:8px; padding:10px 14px; cursor:pointer; display:inline-flex; align-items:center; gap:6px;">
-            <span>📲 Mandar Fotos no WhatsApp</span>
-          </button>
-          <div style="display:flex; gap:8px;">
-            <button type="button" onclick="closeAddFotosPosturaisModal()" style="background:rgba(255,255,255,0.08); border:none; color:#cbd5e1; font-size:0.8rem; font-weight:700; border-radius:8px; padding:10px 16px; cursor:pointer;">
-              Cancelar
-            </button>
-            <button type="button" onclick="saveFotosPosturaisDirectly()" style="background:var(--brand-neon); color:#000; border:none; font-size:0.82rem; font-weight:800; border-radius:8px; padding:10px 20px; cursor:pointer; box-shadow:0 0 12px var(--brand-neon-glow);">
-              Salvar Fotos
-            </button>
-          </div>
         </div>
       </div>
     </div>
@@ -9799,27 +9573,25 @@
       const trimpVo2 = document.getElementById('bioTrimpAndVo2Val')?.textContent || '--';
       const strain = document.getElementById('bioStrainStatusVal')?.textContent || '--';
 
-      let msg = `📊 *DOMÍNIO CORPORAL | BIOMETRIA E PERFORMANCE*\n`;
-      msg += `👤 *Atleta:* ${studentName}\n`;
-      msg += `📅 *Semana Ativa:*\n`;
-      msg += `• *Dias Concluídos:* ${daysDone}\n`;
-      msg += `• *Séries Totais:* ${setsDone}\n`;
-      msg += `• *Carga Semanal:* ${loadUa}\n`;
-      msg += `• *PSE Média:* ${avgPse}\n\n`;
-      msg += `⚡ *Fisiologia e Bioenergética:*\n`;
-      msg += `• *Gasto Calórico Total:* ${kcalReal}\n`;
-      msg += `• *Frequência Cardíaca:* ${hrSum}\n`;
-      msg += `• *Carga Interna:* ${trimpVo2}\n`;
-      msg += `• *Status Fisiológico:* ${strain}\n\n`;
+      let msg = `*Domínio Corporal | Biometria e Performance*\n`;
+      msg += `*Atleta:* ${studentName}\n\n`;
+      msg += `*Resumo Semanal:*\n`;
+      msg += `• Treinos concluídos: ${daysDone}\n`;
+      msg += `• Séries totais: ${setsDone}\n`;
+      msg += `• Carga semanal: ${loadUa}\n`;
+      msg += `• PSE média: ${avgPse}\n`;
+      if (kcalReal && kcalReal !== '--') msg += `• Gasto calórico: ${kcalReal}\n`;
+      if (hrSum && hrSum !== '--') msg += `• Frequência cardíaca: ${hrSum}\n`;
+      if (trimpVo2 && trimpVo2 !== '--') msg += `• Carga interna: ${trimpVo2}\n`;
+      if (strain && strain !== '--') msg += `• Status: ${strain}\n`;
       if (logs.length > 0) {
-        msg += `📋 *Últimas Sessões Registradas (${logs.length}):*\n`;
+        msg += `\n*Últimas Sessões:*\n`;
         logs.slice(-3).forEach(l => {
           const dia = l.dia_nome || (l.dia ? l.dia.toUpperCase() : 'TREINO');
           msg += `• ${dia} (${l.data || 'Recente'}): PSE ${l.pse || 7} | ${l.carga_ua || '--'} U.A. | ${l.duracao_min || 60} min\n`;
         });
-        msg += `\n`;
       }
-      msg += `*Prof. Gui Lemos*, confira meu painel de biometria e performance atualizado no aplicativo! 🚀`;
+      msg += `\nPainel atualizado no aplicativo.`;
 
       const phone = '5516981222356';
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
@@ -10331,9 +10103,92 @@ function updateEvolucaoStats() {
       const dateBR = dateVal.split('-').reverse().join('/');
       const notes = document.getElementById('add_postural_notes')?.value.trim() || '';
 
-      const msg = `📸 *DOMÍNIO CORPORAL | Fotos Posturais de Progresso*\n\n👤 *Aluno:* ${studentName}\n📅 *Data:* ${dateBR}\n${notes ? `📝 *Observações:* ${notes}\n\n` : '\n'}Prof. Gui Lemos, estou te enviando em anexo as minhas fotos posturais para a análise biomecânica e comparativo no aplicativo! 💪`;
+      let msg = `*Domínio Corporal | Fotos de Progresso*\n`;
+      msg += `*Atleta:* ${studentName}\n`;
+      msg += `*Data:* ${dateBR}\n`;
+      if (notes) {
+        msg += `*Observações:* ${notes}\n`;
+      }
+      msg += `\nSeguem as fotos em anexo para avaliação e comparativo.`;
+
       const phone = '5516981222356';
       window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function saveAndSendFotosPosturais() {
+      const dateVal = document.getElementById('add_postural_date')?.value || new Date().toISOString().split('T')[0];
+      const notesVal = document.getElementById('add_postural_notes')?.value.trim() || '';
+
+      const hasAnyPhoto = tempFotosPosturais.front || tempFotosPosturais.side || tempFotosPosturais.back;
+      if (!hasAnyPhoto) {
+        alert('Por favor, selecione ao menos uma foto (Frente, Perfil ou Costas) para salvar e enviar.');
+        return;
+      }
+
+      const history = getBodyCompHistory();
+      const latest = (history && history.length > 0) ? history[history.length - 1] : null;
+      const base = getStudentBaseProfile();
+
+      // Cria um novo registro independente de set de fotos
+      const newRecord = {
+        id: 'comp_foto_' + Date.now(),
+        date: dateVal,
+        weight: latest ? latest.weight : (base.weight || 84.0),
+        waist: latest ? latest.waist : (base.waist || 81.0),
+        neck: latest ? latest.neck : null,
+        hip: latest ? latest.hip : null,
+        bfManual: latest ? latest.bfManual : null,
+        clothes: 'normais',
+        energy: 5,
+        notes: notesVal || 'Fotos de progresso registradas',
+        photos: { ...tempFotosPosturais },
+        coachAnalysis: null
+      };
+
+      history.push(newRecord);
+
+      try {
+        const storageKey = (typeof getBodyCompStorageKey === 'function') ? getBodyCompStorageKey() : 'dominio_daniela_body_comp_history';
+        localStorage.setItem(storageKey, JSON.stringify(history));
+      } catch (e) {
+        console.error('Erro ao salvar fotos no localStorage:', e);
+        alert('Aviso: Armazenamento cheio. As fotos foram compactadas, mas tente remover registros muito antigos caso persista.');
+      }
+
+      // Dispara WhatsApp com mensagem concisa e elegante
+      const studentName = base.name || 'Aluno';
+      const dateBR = dateVal.split('-').reverse().join('/');
+      let msg = `*Domínio Corporal | Fotos de Progresso*\n`;
+      msg += `*Atleta:* ${studentName}\n`;
+      msg += `*Data:* ${dateBR}\n`;
+      if (notesVal) {
+        msg += `*Observações:* ${notesVal}\n`;
+      }
+      msg += `\nSeguem as fotos em anexo para avaliação e comparativo.`;
+
+      const phone = '5516981222356';
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+
+      // Limpa os previews e campos temporários
+      tempFotosPosturais = { front: null, side: null, back: null };
+      ['front', 'side', 'back'].forEach(k => {
+        const preview = document.getElementById('preview_postural_' + k);
+        if (preview) preview.innerHTML = '<span style="font-size:0.68rem; color:#64748b;">Sem foto</span>';
+        const inp = document.getElementById('postural_photo_' + k);
+        if (inp) inp.value = '';
+      });
+      if (document.getElementById('add_postural_notes')) {
+        document.getElementById('add_postural_notes').value = '';
+      }
+
+      closeAddFotosPosturaisModal();
+      renderBodyCompUI();
+      if (typeof renderPosturalComparisonUI === 'function') {
+        renderPosturalComparisonUI();
+      }
+      if (typeof renderUserUploadedPhotosGallery === 'function') {
+        renderUserUploadedPhotosGallery(history);
+      }
     }
     function handleFotoPosturalPreview(input, key) {
       const preview = document.getElementById('preview_postural_' + key);
@@ -10374,64 +10229,7 @@ function updateEvolucaoStats() {
     }
 
     function saveFotosPosturaisDirectly() {
-      const dateVal = document.getElementById('add_postural_date')?.value || new Date().toISOString().split('T')[0];
-      const notesVal = document.getElementById('add_postural_notes')?.value.trim() || '';
-
-      const hasAnyPhoto = tempFotosPosturais.front || tempFotosPosturais.side || tempFotosPosturais.back;
-      if (!hasAnyPhoto) {
-        alert('Por favor, selecione ao menos uma foto (Frente, Perfil ou Costas) para salvar.');
-        return;
-      }
-
-      const history = getBodyCompHistory();
-      const latest = (history && history.length > 0) ? history[history.length - 1] : null;
-      const base = getStudentBaseProfile();
-
-      // Cria um novo registro independente de set de fotos
-      const newRecord = {
-        id: 'comp_foto_' + Date.now(),
-        date: dateVal,
-        weight: latest ? latest.weight : (base.weight || 84.0),
-        waist: latest ? latest.waist : (base.waist || 81.0),
-        neck: latest ? latest.neck : null,
-        hip: latest ? latest.hip : null,
-        bfManual: latest ? latest.bfManual : null,
-        clothes: 'normais',
-        energy: 5,
-        notes: notesVal || 'Fotos posturais registradas',
-        photos: { ...tempFotosPosturais },
-        coachAnalysis: null // Espaço reservado para a análise individual do Prof. Gui Lemos
-      };
-
-      history.push(newRecord);
-
-      try {
-        localStorage.setItem('dominio_daniela_body_comp_history', JSON.stringify(history));
-      } catch (e) {
-        console.error('Erro ao salvar fotos no localStorage:', e);
-        alert('Aviso: Armazenamento cheio. As fotos foram compactadas, mas tente remover registros muito antigos caso persista.');
-      }
-
-      // Limpa os previews e campos temporários
-      tempFotosPosturais = { front: null, side: null, back: null };
-      ['front', 'side', 'back'].forEach(k => {
-        const preview = document.getElementById('preview_postural_' + k);
-        if (preview) preview.innerHTML = '<span style="font-size:0.68rem; color:#64748b;">Sem foto</span>';
-        const inp = document.getElementById('postural_photo_' + k);
-        if (inp) inp.value = '';
-      });
-      if (document.getElementById('add_postural_notes')) {
-        document.getElementById('add_postural_notes').value = '';
-      }
-
-      closeAddFotosPosturaisModal();
-      renderBodyCompUI();
-      if (typeof renderPosturalComparisonUI === 'function') {
-        renderPosturalComparisonUI();
-      }
-      if (typeof renderUserUploadedPhotosGallery === 'function') {
-        renderUserUploadedPhotosGallery(history);
-      }
+      saveAndSendFotosPosturais();
     }
 
     function renderPosturalComparisonUI() {
@@ -11610,13 +11408,12 @@ function updateEvolucaoStats() {
       const studentName = document.getElementById('ass_nome')?.value.trim() || 'Aluno';
       const lesionNotes = document.getElementById('ass_historico_clinico')?.value.trim() || '';
       
-      let msg = `Olá Prof. Gui Lemos! 👋\n\n`;
-      msg += `Estou preenchendo a minha *Ficha de Avaliação* e gostaria de enviar o(s) meu(s) *laudo(s) / exame(s) de diagnóstico* em anexo para sua análise clínica:\n\n`;
-      msg += `👤 *Aluno(a):* ${studentName}\n`;
+      let msg = `*Domínio Corporal | Exames e Laudos*\n`;
+      msg += `*Atleta:* ${studentName}\n`;
       if (lesionNotes) {
-        msg += `🩺 *Histórico de Queixa / Lesão:* ${lesionNotes}\n`;
+        msg += `*Histórico / Queixa:* ${lesionNotes}\n`;
       }
-      msg += `\n📎 *(Estou anexando o arquivo PDF / fotos dos laudos e exames a seguir nesta conversa)*`;
+      msg += `\nSeguem os laudos e exames em anexo para análise clínica.`;
       
       const phone = '5516981222356';
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
@@ -11634,60 +11431,53 @@ function updateEvolucaoStats() {
 
       autoSaveAssessmentDraft();
 
-      let msg = `*📋 DOMÍNIO CORPORAL | Ficha de Avaliação*\n`;
-      msg += `-------------------------------------------\n\n`;
+      let msg = `*Domínio Corporal | Ficha de Avaliação*\n\n`;
 
-      msg += `*👤 1. IDENTIFICAÇÃO E ROTINA*\n`;
-      msg += `• *Nome:* ${data.nome}\n`;
+      msg += `*1. IDENTIFICAÇÃO E ROTINA*\n`;
+      msg += `• Nome: ${data.nome}\n`;
       if (data.nascimento) {
         const parts = data.nascimento.split('-');
         const formattedBirth = (parts.length === 3) ? `${parts[2]}/${parts[1]}/${parts[0]}` : data.nascimento;
-        msg += `• *Data de Nascimento:* ${formattedBirth}${data.idade ? ` (${data.idade} anos)` : ''}\n`;
+        msg += `• Data de Nascimento: ${formattedBirth}${data.idade ? ` (${data.idade} anos)` : ''}\n`;
       } else if (data.idade) {
-        msg += `• *Idade:* ${data.idade} anos\n`;
+        msg += `• Idade: ${data.idade} anos\n`;
       }
       if (data.altura || data.peso || data.gordura) {
         let fisicoParts = [];
         if (data.altura) fisicoParts.push(`${data.altura} cm`);
         if (data.peso) fisicoParts.push(`${data.peso} kg`);
         if (data.gordura) fisicoParts.push(`${data.gordura}% BF`);
-        msg += `• *Físico:* ${fisicoParts.join(' • ')}\n`;
+        msg += `• Físico: ${fisicoParts.join(' • ')}\n`;
       }
-      if (data.rotina) msg += `• *Rotina/Estresse/Sono:* ${data.rotina}\n`;
+      if (data.rotina) msg += `• Rotina/Sono: ${data.rotina}\n`;
       if (data.dias_disponiveis || data.duracao_disponivel) {
-        msg += `• *Disponibilidade:* ${data.dias_disponiveis ? `${data.dias_disponiveis}` : ''}${data.duracao_disponivel ? ` (${data.duracao_disponivel} por sessão)` : ''}\n`;
+        msg += `• Disponibilidade: ${data.dias_disponiveis ? `${data.dias_disponiveis}` : ''}${data.duracao_disponivel ? ` (${data.duracao_disponivel})` : ''}\n`;
       }
-      if (data.local) msg += `• *Local de Treino:* ${data.local}\n\n`;
+      if (data.local) msg += `• Local de Treino: ${data.local}\n\n`;
 
-      msg += `*🛡️ 2. HISTÓRICO CLÍNICO E LESÕES*\n`;
-      msg += `• *Cirurgias/Lesões/Dores:* ${data.historico_clinico ? data.historico_clinico : 'Nenhuma dor ou cirurgia relatada.'}\n`;
-      if (data.medicamentos) msg += `• *Uso Contínuo de Remédios:* ${data.medicamentos}\n`;
-      if (data.condicoes_cronicas) msg += `• *Condições de Saúde Crônicas:* ${data.condicoes_cronicas}\n`;
+      msg += `*2. HISTÓRICO CLÍNICO E LESÕES*\n`;
+      msg += `• Cirurgias/Lesões/Dores: ${data.historico_clinico ? data.historico_clinico : 'Nenhuma relatada.'}\n`;
+      if (data.medicamentos) msg += `• Medicamentos: ${data.medicamentos}\n`;
+      if (data.condicoes_cronicas) msg += `• Condições Crônicas: ${data.condicoes_cronicas}\n`;
       msg += `\n`;
 
-      msg += `*🤸 3. BAGAGEM MOTORA*\n`;
-      if (data.historico_esportivo) msg += `• *Histórico Prévio:* ${data.historico_esportivo}\n`;
-      if (data.treino_atual) msg += `• *Treino Atual:* ${data.treino_atual}\n`;
-      msg += `• *Barra Fixa (Pull-ups):* ${data.pullups || 'Não informado'}\n`;
-      msg += `• *Flexão de Solo (Push-ups):* ${data.pushups || 'Não informado'}\n`;
-      msg += `• *Cardiorrespiratório:* ${data.cardio || 'Não informado'}\n\n`;
+      msg += `*3. BAGAGEM MOTORA*\n`;
+      if (data.historico_esportivo) msg += `• Histórico Prévio: ${data.historico_esportivo}\n`;
+      if (data.treino_atual) msg += `• Treino Atual: ${data.treino_atual}\n`;
+      msg += `• Barra Fixa (Pull-ups): ${data.pullups || 'Não informado'}\n`;
+      msg += `• Flexão de Solo (Push-ups): ${data.pushups || 'Não informado'}\n`;
+      msg += `• Cardiorrespiratório: ${data.cardio || 'Não informado'}\n\n`;
 
-      msg += `*🎯 4. OBJETIVOS DO CICLO*\n`;
+      msg += `*4. OBJETIVOS DO CICLO*\n`;
       if (data.pilares && data.pilares.length > 0) {
-        msg += `• *Pilares Escolhidos:*\n`;
-        data.pilares.forEach(p => { msg += `  ✓ ${p}\n`; });
-      } else {
-        msg += `• *Pilares:* _Nenhum pilar específico assinalado._\n`;
+        msg += `• Pilares: ${data.pilares.join(', ')}\n`;
       }
       if (data.contexto_metas) {
-        msg += `• *Contexto e Expectativas:*\n  "${data.contexto_metas}"\n`;
+        msg += `• Metas: ${data.contexto_metas}\n`;
       }
       if (data.algo_mais) {
-        msg += `• *Mais Algo Que Devo Saber:*\n  "${data.algo_mais}"\n`;
+        msg += `• Observações: ${data.algo_mais}\n`;
       }
-
-      msg += `\n-------------------------------------------\n`;
-      msg += `_Enviado pelo App Domínio Corporal_`;
 
       const phone = '5516981222356';
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
@@ -13644,9 +13434,9 @@ function updateEvolucaoStats() {
       const phone = '5516981222356';
       let text = '';
       if (currentSendVideoExercise) {
-        text = `Olá Gui! Acabei de gravar o vídeo da minha execução do exercício *${currentSendVideoExercise}*.\n\nSegue o vídeo anexo para sua análise técnica!`;
+        text = `*Domínio Corporal | Vídeo de Movimento*\n*Exercício:* ${currentSendVideoExercise}\n\nSegue o vídeo anexo para análise técnica.`;
       } else {
-        text = `Olá Gui! Gravei um vídeo para você avaliar tecnicamente.\n\nSegue o vídeo anexo para sua análise!`;
+        text = `*Domínio Corporal | Vídeo de Movimento*\n\nSegue o vídeo anexo para análise técnica.`;
       }
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
       window.open(url, '_blank');
@@ -13663,9 +13453,9 @@ function updateEvolucaoStats() {
       }
       let text = '';
       if (currentSendVideoExercise) {
-        text = `Olá Gui! Gravei o vídeo da minha execução do exercício *${currentSendVideoExercise}*.\n\nSegue o link para sua análise técnica:\n${link}`;
+        text = `*Domínio Corporal | Vídeo de Movimento*\n*Exercício:* ${currentSendVideoExercise}\n*Link:* ${link}\n\nSegue o link para análise técnica.`;
       } else {
-        text = `Olá Gui! Gravei um vídeo para você avaliar tecnicamente.\n\nSegue o link para sua análise técnica:\n${link}`;
+        text = `*Domínio Corporal | Vídeo de Movimento*\n*Link:* ${link}\n\nSegue o link para análise técnica.`;
       }
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
       window.open(url, '_blank');
@@ -14080,28 +13870,27 @@ window.openWelcomeAppModal = function(notifId = null) {
       const completed = getCompletedWorkouts();
       const sessionCount = Object.values(completed).filter(Boolean).length || 1;
 
-      let msg = `🏋️‍♂️ *DOMÍNIO CORPORAL | Sessão Realizada!*\n\n`;
-      msg += `👤 *Aluno(a):* Daniela Colombini\n`;
-      msg += `📅 *Data:* ${today}\n`;
-      msg += `⚡ *Treino:* ${tabName}\n`;
-      msg += `🔢 *Sessão nº:* ${sessionCount}\n`;
-      msg += `🎯 *Progresso:* ${doneSets.length}/${allSets.length} séries concluídas (${pct}%)\n`;
+      let msg = `*Domínio Corporal | Treino Concluído*\n`;
+      msg += `*Atleta:* Daniela Colombini\n`;
+      msg += `*Treino:* ${tabName}\n`;
+      msg += `*Data:* ${today}\n`;
+      msg += `*Séries:* ${doneSets.length}/${allSets.length} (${pct}%)\n`;
 
       if (bioRecord) {
         const pMeta = getPseMeta(bioRecord.pse || 7);
-        msg += `\n📊 *Biometria e Performance:*\n`;
-        msg += `• *PSE Reportada:* ${bioRecord.pse}/10 (${pMeta.label})\n`;
-        msg += `• *Carga Interna (sRPE):* ${bioRecord.carga_ua} U.A. (${bioRecord.duracao_min} min)\n`;
-        msg += `• *Gasto Real (c/ EPOC):* ${bioRecord.kcal_real_epoc} kcal${bioRecord.kcal_relogio ? ` (Relógio: ${bioRecord.kcal_relogio} kcal)` : ''}\n`;
-        if (bioRecord.fc_media) {
-          msg += `• *Frequência Cardíaca:* Méd ${bioRecord.fc_media} bpm | Pico ${bioRecord.fc_max || '--'} bpm\n`;
+        msg += `*PSE:* ${bioRecord.pse}/10 (${pMeta.label})\n`;
+        msg += `*Duração:* ${bioRecord.duracao_min} min | *Carga:* ${bioRecord.carga_ua} U.A.\n`;
+        if (bioRecord.kcal_real_epoc) {
+          msg += `*Gasto:* ${bioRecord.kcal_real_epoc} kcal\n`;
         }
-        msg += `• *TRIMP / VO2 Est.:* ${bioRecord.trimp} pts • ${bioRecord.vo2_estimado} ml/kg/min\n`;
+        if (bioRecord.fc_media) {
+          msg += `*FC Média:* ${bioRecord.fc_media} bpm${bioRecord.fc_max ? ` (Pico: ${bioRecord.fc_max} bpm)` : ''}\n`;
+        }
       }
 
-
-      msg += `📋 _Anotações, cargas e comentários técnicos arquivados no Prontuário do Aluno (Doc / Drive)._\n\n`;
-      msg += `_Enviado pelo App Domínio Corporal_`;
+      if (bioRecord && bioRecord.notas && bioRecord.notas !== 'Treino finalizado com sucesso') {
+        msg += `*Observações:* ${bioRecord.notas}\n`;
+      }
 
       const phone = '5516981222356';
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
