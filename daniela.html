@@ -6854,14 +6854,14 @@
           </button>
         </div>
 
-        <!-- BOTÃO NOBRE ADICIONAR FOTOS (LINHA TODA, CHAMATIVO, NO MESMO ESTILO DE ANTROPOMETRIA) -->
+        <!-- BOTÃO NOBRE ADICIONAR FOTOS -->
         <button type="button" class="btn-add-medicao-chamativo" onclick="openAddFotosPosturaisModal()">
           <svg viewBox="0 0 24 24" style="width:18px; height:18px; fill:currentColor;"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
           <span>ADICIONAR FOTOS</span>
         </button>
 
-        <!-- SEÇÃO PRINCIPAL: COMPARAÇÃO LONGITUDINAL (INICIAL VS. ATUAL) COM MENUS RETRÁTEIS -->
-        <details class="postural-accordion-item" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-left: 4.5px solid var(--brand-neon); border-radius: 14px; margin-bottom: 16px; overflow: hidden;">
+        <!-- SEÇÃO PRINCIPAL: COMPARAÇÃO LONGITUDINAL (INICIAL VS. MAIS RECENTE) EM MENU RETRÁTIL -->
+        <details class="postural-accordion-item" open style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-left: 4.5px solid var(--brand-neon); border-radius: 14px; margin-bottom: 16px; overflow: hidden;">
           
           <summary style="padding: 14px 16px; cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; user-select: none;">
             <div style="display: flex; align-items: center; gap: 8px;">
@@ -6869,114 +6869,30 @@
               <span style="font-size: 0.95rem; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">COMPARAÇÃO: INICIAL VS. ATUAL</span>
             </div>
             <div style="display: flex; align-items: center; gap: 6px;">
-              <span style="font-size: 0.72rem; font-weight: 700; color: var(--brand-neon); background: rgba(0,255,136,0.1); border: 1px solid rgba(0,255,136,0.25); padding: 3px 8px; border-radius: 8px;" id="compPhotosDatesBadge">Toque para Abrir</span>
+              <span style="font-size: 0.72rem; font-weight: 700; color: var(--brand-neon); background: rgba(0,255,136,0.1); border: 1px solid rgba(0,255,136,0.25); padding: 3px 8px; border-radius: 8px;" id="compPhotosDatesBadge">Toque para Recolher</span>
               <span style="color: #cbd5e1; font-size: 0.75rem;">▾</span>
             </div>
           </summary>
-          <div style="padding: 16px; border-top: 1px solid rgba(255,255,255,0.08);">
 
-          <!-- AVISO DE PADRONIZAÇÃO (SE AINDA NÃO HOUVER FOTOS OFICIAIS CADASTRADAS) -->
-          
-
-          <!-- Três ângulos de Comparação com Menus Retráteis (Fotos e Análise dentro do Accordion) -->
-          <div style="display:flex; flex-direction:column; gap:12px;">
-            
-            <!-- 1. FRENTE (ANTERIOR) - RETRÁTIL -->
-            <details class="postural-accordion-item" style="background:rgba(0,0,0,0.28); border:1px solid rgba(56,189,248,0.25); border-radius:12px; overflow:hidden;">
-              <summary style="padding:12px 14px; cursor:pointer; list-style:none; display:flex; align-items:center; justify-content:space-between; user-select:none;">
-                <div style="display:flex; align-items:center; gap:8px;">
-                  <span>🧍‍♂️</span>
-                  <span style="font-size:0.86rem; font-weight:800; color:#38bdf8;">1. Postura Frontal (Frente) — Inicial vs. Atual</span>
-                </div>
-                <div style="display:flex; align-items:center; gap:6px;">
-                  <span style="font-size:0.68rem; font-weight:700; color:#38bdf8; background:rgba(56,189,248,0.12); padding:2px 7px; border-radius:6px;">Ver Fotos</span>
-                  <span style="color:#94a3b8; font-size:0.75rem;">▾</span>
-                </div>
-              </summary>
-              <div style="padding:12px 14px; border-top:1px solid rgba(56,189,248,0.15);">
-                
-                <div class="photo-display-frame" style="margin-bottom:12px;">
-                  <img src="Midia/comparacao_frontal_relaxado.jpg" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='../Midia/comparacao_frontal_relaxado.jpg';}" alt="Comparação Frontal" loading="lazy">
-                  <div class="photo-split-legend">
-                    <span class="legend-before">⬅️ Inicial</span>
-                    <span class="legend-after">Mais Recente ➡️</span>
-                  </div>
-                </div>
-                
-                <div style="padding:10px 12px; background:rgba(255,255,255,0.02); border-left:3px solid #38bdf8; border-radius:6px; font-size:0.75rem; color:#cbd5e1; line-height:1.55;">
-                  <strong style="color:#38bdf8;">Diagnóstico e Simetria Anterior:</strong>
-                  <ul class="bio-points-list" style="margin:4px 0 0; padding-left:14px; color:#94a3b8;">
-                    <li><strong>Alinhamento e Silhueta:</strong> Redução evidente de lastro periumbilical e flancos laterais, estabilizando a linha média do tronco.</li>
-                    <li><strong>Cintura Escapular e Peitoral:</strong> Retração natural de ombros e alívio de tensão cervical compensatória.</li>
-                    <li><strong>Membros Inferiores:</strong> Redução da pressão compressiva sobre os joelhos em posição ortostática.</li>
-                  </ul>
-                </div>
-              </div>
-            </details>
-
-            <!-- 2. PERFIL / SAGITAL - RETRÁTIL -->
-            <details class="postural-accordion-item" style="background:rgba(0,0,0,0.28); border:1px solid rgba(0,255,136,0.25); border-radius:12px; overflow:hidden;">
-              <summary style="padding:12px 14px; cursor:pointer; list-style:none; display:flex; align-items:center; justify-content:space-between; user-select:none;">
-                <div style="display:flex; align-items:center; gap:8px;">
-                  <span>📐</span>
-                  <span style="font-size:0.86rem; font-weight:800; color:var(--brand-neon);">2. Postura Lateral (Perfil) — Inicial vs. Atual</span>
-                </div>
-                <div style="display:flex; align-items:center; gap:6px;">
-                  <span style="font-size:0.68rem; font-weight:700; color:var(--brand-neon); background:rgba(0,255,136,0.12); padding:2px 7px; border-radius:6px;">Ver Fotos</span>
-                  <span style="color:#94a3b8; font-size:0.75rem;">▾</span>
-                </div>
-              </summary>
-              <div style="padding:12px 14px; border-top:1px solid rgba(0,255,136,0.15);">
-                <div style="background:rgba(0,0,0,0.3); border:1px dashed rgba(0,255,136,0.3); border-radius:8px; padding:20px; text-align:center; margin-bottom:12px;">
-                  <span style="font-size:1.6rem; display:block; margin-bottom:6px;">📐</span>
-                  <span style="font-size:0.78rem; color:#cbd5e1; font-weight:700;">Prumo Sagital e Linha de Gravidade</span>
-                  <p style="font-size:0.72rem; color:#94a3b8; margin:4px 0 0;">Alinhamento auditivo externo, acrômio, trocânter maior e maléolo lateral.</p>
-                </div>
-                <div style="padding:10px 12px; background:rgba(255,255,255,0.02); border-left:3px solid var(--brand-neon); border-radius:6px; font-size:0.75rem; color:#cbd5e1; line-height:1.55;">
-                  <strong style="color:var(--brand-neon);">Diagnóstico no Plano Sagital:</strong>
-                  <ul class="bio-points-list" style="margin:4px 0 0; padding-left:14px; color:#94a3b8;">
-                    <li><strong>Centro de Gravidade Axial:</strong> Redução do braço de momento da massa abdominal, aliviando tração anterior nos discos lombares L4-S1.</li>
-                    <li><strong>Báscula Pélvica:</strong> Manutenção de posicionamento neutro de pelve sem hiperextensão lombar reflexa.</li>
-                    <li><strong>Posicionamento Cranial:</strong> Ausência de anteriorização cervical acentuada em postura de repouso.</li>
-                  </ul>
-                </div>
-              </div>
-            </details>
-
-            <!-- 3. COSTAS / POSTERIOR - RETRÁTIL -->
-            <details class="postural-accordion-item" style="background:rgba(0,0,0,0.28); border:1px solid rgba(251,191,36,0.25); border-radius:12px; overflow:hidden;">
-              <summary style="padding:12px 14px; cursor:pointer; list-style:none; display:flex; align-items:center; justify-content:space-between; user-select:none;">
-                <div style="display:flex; align-items:center; gap:8px;">
-                  <span>💪</span>
-                  <span style="font-size:0.86rem; font-weight:800; color:#fbbf24;">3. Cadeia Posterior (Costas) — Inicial vs. Atual</span>
-                </div>
-                <div style="display:flex; align-items:center; gap:6px;">
-                  <span style="font-size:0.68rem; font-weight:700; color:#fbbf24; background:rgba(251,191,36,0.12); padding:2px 7px; border-radius:6px;">Ver Fotos</span>
-                  <span style="color:#94a3b8; font-size:0.75rem;">▾</span>
-                </div>
-              </summary>
-              <div style="padding:12px 14px; border-top:1px solid rgba(251,191,36,0.15);">
-                
-                <div class="photo-display-frame" style="margin-bottom:12px;">
-                  <img src="Midia/comparacao_duplo_biceps.jpg" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='../Midia/comparacao_duplo_biceps.jpg';}" alt="Comparação Posterior" loading="lazy">
-                  <div class="photo-split-legend">
-                    <span class="legend-before">⬅️ Inicial</span>
-                    <span class="legend-after">Mais Recente ➡️</span>
-                  </div>
-                </div>
-                
-                <div style="padding:10px 12px; background:rgba(255,255,255,0.02); border-left:3px solid #fbbf24; border-radius:6px; font-size:0.75rem; color:#cbd5e1; line-height:1.55;">
-                  <strong style="color:#fbbf24;">Diagnóstico da Cadeia Posterior:</strong>
-                  <ul class="bio-points-list" style="margin:4px 0 0; padding-left:14px; color:#94a3b8;">
-                    <li><strong>Ativação Escapular:</strong> Escápulas aduzidas e alinhadas ao gradil costal, sem báscula alada evidente.</li>
-                    <li><strong>Triângulo de Tales:</strong> Simetria bilateral harmônica entre tronco e membros superiores.</li>
-                    <li><strong>Definição Dorsal:</strong> Diferenciação evidente entre grande dorsal e zona periumbilical posterior.</li>
-                  </ul>
-                </div>
-              </div>
-            </details>
-
+          <div id="dynamicPosturalComparisonContainer" style="padding: 16px; border-top: 1px solid rgba(255,255,255,0.08);">
+            <!-- Renderizado dinamicamente por renderPosturalComparisonUI() -->
           </div>
+        </details>
+
+        <!-- SEÇÃO: HISTÓRICO DE COMPARAÇÕES SUBSTITUÍDAS (CICLOS ANTERIORES) -->
+        <details class="postural-accordion-item" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-left: 4.5px solid #c084fc; border-radius: 14px; margin-bottom: 16px; overflow: hidden;">
+          <summary style="padding: 12px 16px; cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; user-select: none;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 1.05rem;">🏛️</span>
+              <span style="font-size: 0.90rem; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">HISTÓRICO DE COMPARAÇÕES ANTERIORES</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <span style="font-size: 0.70rem; font-weight: 700; color: #c084fc; background: rgba(192,132,252,0.12); padding: 3px 8px; border-radius: 8px;" id="pastComparisonsCountBadge">Ciclos Arquivados</span>
+              <span style="color: #cbd5e1; font-size: 0.75rem;">▾</span>
+            </div>
+          </summary>
+          <div id="pastComparisonsContainer" style="padding: 14px 16px; border-top: 1px solid rgba(255,255,255,0.06);">
+            <!-- Renderizado dinamicamente com ciclos comparativos passados -->
           </div>
         </details>
 
@@ -7637,13 +7553,18 @@
         
 
         <!-- Botões de Ação do Modal -->
-        <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:16px;">
-          <button type="button" onclick="closeAddFotosPosturaisModal()" style="background:rgba(255,255,255,0.08); border:none; color:#cbd5e1; font-size:0.8rem; font-weight:700; border-radius:8px; padding:10px 16px; cursor:pointer;">
-            Cancelar
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-top:16px;">
+          <button type="button" onclick="sendFotosToWhatsAppCoach()" style="background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.35); color:#38bdf8; font-size:0.78rem; font-weight:700; border-radius:8px; padding:10px 14px; cursor:pointer; display:inline-flex; align-items:center; gap:6px;">
+            <span>📲 Mandar Fotos no WhatsApp</span>
           </button>
-          <button type="button" onclick="saveFotosPosturaisDirectly()" style="background:var(--brand-neon); color:#000; border:none; font-size:0.82rem; font-weight:800; border-radius:8px; padding:10px 20px; cursor:pointer; box-shadow:0 0 12px var(--brand-neon-glow);">
-            Salvar Fotos
-          </button>
+          <div style="display:flex; gap:8px;">
+            <button type="button" onclick="closeAddFotosPosturaisModal()" style="background:rgba(255,255,255,0.08); border:none; color:#cbd5e1; font-size:0.8rem; font-weight:700; border-radius:8px; padding:10px 16px; cursor:pointer;">
+              Cancelar
+            </button>
+            <button type="button" onclick="saveFotosPosturaisDirectly()" style="background:var(--brand-neon); color:#000; border:none; font-size:0.82rem; font-weight:800; border-radius:8px; padding:10px 20px; cursor:pointer; box-shadow:0 0 12px var(--brand-neon-glow);">
+              Salvar Fotos
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -8077,7 +7998,7 @@
           </div>
           <!-- Link clicável sucinto para biometria e performance -->
           <div style="margin-top:12px; padding-top:10px; border-top:1px solid rgba(255,255,255,0.06); text-align:center; font-size:0.75rem; color:#94a3b8; line-height:1.45;">
-            📊 Relatório completo em <a href="javascript:void(0)" onclick="goToBiometriaPerformanceView()" style="color:#38bdf8; text-decoration:underline; font-weight:700;">Biometria e Performance ↗</a>
+            📊 Para histórico detalhado e gráficos, acesse em <strong style="color:#e2e8f0;">Ferramentas ➔ Evolução ➔ Biometria</strong>.
           </div>
         </div>
 
@@ -10152,16 +10073,52 @@ function updateEvolucaoStats() {
       if (modal) modal.classList.remove('active');
     }
 
+    function sendFotosToWhatsAppCoach() {
+      const base = getStudentBaseProfile();
+      const studentName = base.name || 'Aluno';
+      const dateVal = document.getElementById('add_postural_date')?.value || new Date().toISOString().split('T')[0];
+      const dateBR = dateVal.split('-').reverse().join('/');
+      const notes = document.getElementById('add_postural_notes')?.value.trim() || '';
+
+      const msg = `📸 *DOMÍNIO CORPORAL | Fotos Posturais de Progresso*\n\n👤 *Aluno:* ${studentName}\n📅 *Data:* ${dateBR}\n${notes ? `📝 *Observações:* ${notes}\n\n` : '\n'}Prof. Gui Lemos, estou te enviando em anexo as minhas fotos posturais para a análise biomecânica e comparativo no aplicativo! 💪`;
+      const phone = '5516981222356';
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
     function handleFotoPosturalPreview(input, key) {
       const preview = document.getElementById('preview_postural_' + key);
       if (!preview) return;
       if (input.files && input.files[0]) {
+        const file = input.files[0];
         const reader = new FileReader();
         reader.onload = function(e) {
-          tempFotosPosturais[key] = e.target.result;
-          preview.innerHTML = `<img src="${e.target.result}" style="width:100%; height:100%; object-fit:cover; border-radius:4px;">`;
+          const img = new Image();
+          img.onload = function() {
+            // Compressão automática via Canvas mantendo proporção (max 1200px)
+            const maxDim = 1200;
+            let w = img.width;
+            let h = img.height;
+            if (w > maxDim || h > maxDim) {
+              if (w > h) {
+                h = Math.round((h * maxDim) / w);
+                w = maxDim;
+              } else {
+                w = Math.round((w * maxDim) / h);
+                h = maxDim;
+              }
+            }
+            const canvas = document.createElement('canvas');
+            canvas.width = w;
+            canvas.height = h;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, w, h);
+            // Reduz de 8MB para ~120KB JPEG de alta qualidade
+            const compressedBase64 = canvas.toDataURL('image/jpeg', 0.78);
+            tempFotosPosturais[key] = compressedBase64;
+            preview.innerHTML = `<img src="${compressedBase64}" style="width:100%; height:100%; object-fit:cover; border-radius:4px;">`;
+          };
+          img.src = e.target.result;
         };
-        reader.readAsDataURL(input.files[0]);
+        reader.readAsDataURL(file);
       }
     }
 
@@ -10171,473 +10128,323 @@ function updateEvolucaoStats() {
 
       const hasAnyPhoto = tempFotosPosturais.front || tempFotosPosturais.side || tempFotosPosturais.back;
       if (!hasAnyPhoto) {
-        alert('Por favor, selecione ao menos uma foto (Frente, Lado ou Costas) para salvar.');
+        alert('Por favor, selecione ao menos uma foto (Frente, Perfil ou Costas) para salvar.');
         return;
       }
 
       const history = getBodyCompHistory();
-      const existingIdx = history.findIndex(h => h.date === dateVal);
-      if (existingIdx >= 0) {
-        history[existingIdx].photos = { ...(history[existingIdx].photos || {}), ...tempFotosPosturais };
-        if (notesVal) {
-          history[existingIdx].notes = history[existingIdx].notes ? (history[existingIdx].notes + ' • ' + notesVal) : notesVal;
-        }
-      } else {
-        const latest = (history && history.length > 0) ? history[history.length - 1] : null;
-        const base = getStudentBaseProfile();
-        const newRecord = {
-          id: 'comp_' + Date.now(),
-          date: dateVal,
-          weight: latest ? latest.weight : (base.weight || 70.0),
-          waist: latest ? latest.waist : (base.height ? Math.round(base.height * 0.48 * 10) / 10 : 80.0),
-          neck: latest ? latest.neck : null,
-          hip: latest ? latest.hip : null,
-          bfManual: latest ? latest.bfManual : null,
-          clothes: 'normais',
-          energy: 5,
-          notes: notesVal || 'Fotos posturais registradas',
-          photos: { ...tempFotosPosturais }
-        };
-        history.push(newRecord);
-      }
+      const latest = (history && history.length > 0) ? history[history.length - 1] : null;
+      const base = getStudentBaseProfile();
+
+      // Cria um novo registro independente de set de fotos
+      const newRecord = {
+        id: 'comp_foto_' + Date.now(),
+        date: dateVal,
+        weight: latest ? latest.weight : (base.weight || 84.0),
+        waist: latest ? latest.waist : (base.waist || 81.0),
+        neck: latest ? latest.neck : null,
+        hip: latest ? latest.hip : null,
+        bfManual: latest ? latest.bfManual : null,
+        clothes: 'normais',
+        energy: 5,
+        notes: notesVal || 'Fotos posturais registradas',
+        photos: { ...tempFotosPosturais },
+        coachAnalysis: null // Espaço reservado para a análise individual do Prof. Gui Lemos
+      };
+
+      history.push(newRecord);
 
       try {
         localStorage.setItem('dominio_daniela_body_comp_history', JSON.stringify(history));
       } catch (e) {
         console.error('Erro ao salvar fotos no localStorage:', e);
+        alert('Aviso: Armazenamento cheio. As fotos foram compactadas, mas tente remover registros muito antigos caso persista.');
+      }
+
+      // Limpa os previews e campos temporários
+      tempFotosPosturais = { front: null, side: null, back: null };
+      ['front', 'side', 'back'].forEach(k => {
+        const preview = document.getElementById('preview_postural_' + k);
+        if (preview) preview.innerHTML = '<span style="font-size:0.68rem; color:#64748b;">Sem foto</span>';
+        const inp = document.getElementById('postural_photo_' + k);
+        if (inp) inp.value = '';
+      });
+      if (document.getElementById('add_postural_notes')) {
+        document.getElementById('add_postural_notes').value = '';
       }
 
       closeAddFotosPosturaisModal();
       renderBodyCompUI();
+      if (typeof renderPosturalComparisonUI === 'function') {
+        renderPosturalComparisonUI();
+      }
+      if (typeof renderUserUploadedPhotosGallery === 'function') {
+        renderUserUploadedPhotosGallery(history);
+      }
+    }
+
+    function renderPosturalComparisonUI() {
+      const container = document.getElementById('dynamicPosturalComparisonContainer');
+      const datesBadge = document.getElementById('compPhotosDatesBadge');
+      if (!container) return;
+
+      const history = getBodyCompHistory();
+      // Filtra sets que tenham fotos
+      const photoSets = (history || []).filter(item => item.photos && (item.photos.front || item.photos.side || item.photos.back));
+
+      if (photoSets.length === 0) {
+        if (datesBadge) datesBadge.textContent = 'Aguardando Fotos';
+        container.innerHTML = `
+          <div style="background:rgba(56,189,248,0.06); border:1px dashed rgba(56,189,248,0.3); border-radius:10px; padding:20px; text-align:center; color:#cbd5e1;">
+            <span style="font-size:1.8rem; display:block; margin-bottom:6px;">📷</span>
+            <strong style="color:#38bdf8; font-size:0.86rem;">Nenhum set de fotos registrado ainda</strong>
+            <p style="font-size:0.76rem; color:#94a3b8; margin:6px 0 0;">Toque no botão <strong>"ADICIONAR FOTOS"</strong> acima para registrar sua primeira entrada. Aceita mesmo se tiver apenas 1 foto (ex: só Frente)!</p>
+          </div>`;
+        return;
+      }
+
+      // Entrada Inicial (primeira cadastrada) e Entrada Atual (mais recente)
+      const initialSet = photoSets[0];
+      const latestSet = photoSets[photoSets.length - 1];
+
+      const dInitial = (initialSet.date || '').split('-').reverse().join('/');
+      const dLatest = (latestSet.date || '').split('-').reverse().join('/');
+
+      if (datesBadge) {
+        datesBadge.textContent = (photoSets.length === 1) ? `Inicial: ${dInitial}` : `${dInitial} vs. ${dLatest}`;
+      }
+
+      const isSingleSet = (photoSets.length === 1);
+
+      const angles = [
+        { key: 'front', title: '1. Postura Frontal (Frente)', icon: '🧍‍♂️', color: '#38bdf8' },
+        { key: 'side', title: '2. Postura Lateral (Perfil)', icon: '📐', color: 'var(--brand-neon)' },
+        { key: 'back', title: '3. Cadeia Posterior (Costas)', icon: '💪', color: '#fbbf24' }
+      ];
+
+      let html = '<div style="display:flex; flex-direction:column; gap:12px;">';
+
+      angles.forEach(a => {
+        const initImg = initialSet.photos ? initialSet.photos[a.key] : null;
+        const latestImg = latestSet.photos ? latestSet.photos[a.key] : null;
+
+        const hasAnyThisAngle = initImg || latestImg;
+
+        html += `
+          <details class="postural-accordion-item" ${hasAnyThisAngle ? 'open' : ''} style="background:rgba(0,0,0,0.28); border:1px solid rgba(255,255,255,0.08); border-left:3.5px solid ${a.color}; border-radius:12px; overflow:hidden;">
+            <summary style="padding:12px 14px; cursor:pointer; list-style:none; display:flex; align-items:center; justify-content:space-between; user-select:none;">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span>${a.icon}</span>
+                <span style="font-size:0.86rem; font-weight:800; color:${a.color};">${a.title}</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:6px;">
+                <span style="font-size:0.68rem; font-weight:700; color:${a.color}; background:rgba(255,255,255,0.06); padding:2px 7px; border-radius:6px;">
+                  ${hasAnyThisAngle ? 'Visualizar' : 'Sem foto'}
+                </span>
+                <span style="color:#94a3b8; font-size:0.75rem;">▾</span>
+              </div>
+            </summary>
+            
+            <div style="padding:12px 14px; border-top:1px solid rgba(255,255,255,0.06);">
+              ${hasAnyThisAngle ? `
+                <!-- Moldura Lado a Lado Inicial vs. Atual -->
+                <div style="display:grid; grid-template-columns: ${isSingleSet ? '1fr' : '1fr 1fr'}; gap:10px; margin-bottom:12px;">
+                  <!-- Inicial -->
+                  <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:8px; text-align:center;">
+                    <span style="display:block; font-size:0.70rem; font-weight:800; color:#38bdf8; margin-bottom:6px;">
+                      ⬅️ Inicial (${dInitial})${initialSet.weight ? ` • ${initialSet.weight.toFixed(1)} kg` : ''}
+                    </span>
+                    ${initImg ? `
+                      <a href="${initImg}" target="_blank" style="display:block; height:180px; border-radius:8px; overflow:hidden; background:#000;">
+                        <img src="${initImg}" alt="Foto Inicial ${a.title}" style="width:100%; height:100%; object-fit:cover;">
+                      </a>
+                    ` : `
+                      <div style="height:180px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.02); border-radius:8px; color:#64748b; font-size:0.72rem;">
+                        Não registrada na entrada inicial
+                      </div>
+                    `}
+                  </div>
+
+                  <!-- Mais Recente (se houver mais de 1 set) -->
+                  ${!isSingleSet ? `
+                  <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(0,255,136,0.2); border-radius:10px; padding:8px; text-align:center;">
+                    <span style="display:block; font-size:0.70rem; font-weight:800; color:var(--brand-neon); margin-bottom:6px;">
+                      Mais Recente (${dLatest})${latestSet.weight ? ` • ${latestSet.weight.toFixed(1)} kg` : ''} ➡️
+                    </span>
+                    ${latestImg ? `
+                      <a href="${latestImg}" target="_blank" style="display:block; height:180px; border-radius:8px; overflow:hidden; background:#000;">
+                        <img src="${latestImg}" alt="Foto Atual ${a.title}" style="width:100%; height:100%; object-fit:cover;">
+                      </a>
+                    ` : `
+                      <div style="height:180px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.02); border-radius:8px; color:#64748b; font-size:0.72rem;">
+                        Não registrada neste último set
+                      </div>
+                    `}
+                  </div>
+                  ` : ''}
+                </div>
+              ` : `
+                <div style="background:rgba(0,0,0,0.25); border:1px dashed rgba(255,255,255,0.1); border-radius:8px; padding:16px; text-align:center; color:#94a3b8; font-size:0.76rem; margin-bottom:10px;">
+                  Nenhuma foto registrada para este ângulo (${a.title}) até o momento.
+                </div>
+              `}
+
+              <!-- Espaço Limpo para a Análise Oficial do Treinador (Sem textos inventados) -->
+              ${(latestSet.coachAnalysis && latestSet.coachAnalysis[a.key]) ? `
+                <div style="padding:10px 12px; background:rgba(56,189,248,0.06); border-left:3.5px solid #38bdf8; border-radius:6px; font-size:0.78rem; color:#f1f5f9; line-height:1.55;">
+                  <strong style="color:#38bdf8;">🔬 Parecer Técnico do Prof. Gui Lemos:</strong>
+                  <div style="margin-top:4px; color:#e2e8f0;">${latestSet.coachAnalysis[a.key]}</div>
+                </div>
+              ` : `
+                <div style="padding:8px 12px; background:rgba(255,255,255,0.02); border-left:3px solid #38bdf8; border-radius:6px; font-size:0.74rem; color:#94a3b8; line-height:1.5;">
+                  <strong style="color:#38bdf8;">🔬 Parecer Técnico:</strong> Aguardando elaboração da análise técnica oficial do Prof. Gui Lemos para este ciclo.
+                </div>
+              `}
+            </div>
+          </details>`;
+      });
+
+      html += '</div>';
+      container.innerHTML = html;
+
+      // Renderiza também o histórico de comparações anteriores se houver mais de 2 sets
+      renderPastComparisonsHistory(photoSets);
+    }
+
+    function renderPastComparisonsHistory(photoSets) {
+      const container = document.getElementById('pastComparisonsContainer');
+      const badge = document.getElementById('pastComparisonsCountBadge');
+      if (!container) return;
+
+      if (!photoSets || photoSets.length <= 2) {
+        if (badge) badge.textContent = 'Nenhum ciclo anterior';
+        container.innerHTML = `
+          <div style="text-align:center; color:#94a3b8; font-size:0.76rem; padding:12px;">
+            Quando novas fotos forem adicionadas e substituírem a comparação atual, os ciclos comparativos anteriores ficarão arquivados aqui automaticamente.
+          </div>`;
+        return;
+      }
+
+      // Sets intermediários arquivados
+      const pastSets = photoSets.slice(1, -1);
+      if (badge) badge.textContent = `${pastSets.length} ciclo(s) arquivado(s)`;
+
+      let html = '';
+      pastSets.reverse().forEach((s, idx) => {
+        const dStr = (s.date || '').split('-').reverse().join('/');
+        html += `
+          <div style="background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px 12px; margin-bottom:8px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <strong style="color:#c084fc; font-size:0.80rem;">Ciclo Intermediário de ${dStr}</strong>
+              <span style="font-size:0.70rem; color:#94a3b8;">Peso: ${s.weight ? s.weight.toFixed(1) + ' kg' : '--'}</span>
+            </div>
+            <div style="font-size:0.74rem; color:#cbd5e1;">
+              ${s.notes ? `<strong>Notas do Atleta:</strong> ${s.notes}<br>` : ''}
+              ${s.coachNotes ? `<strong style="color:#38bdf8;">Parecer do Treinador:</strong> ${s.coachNotes}` : 'Registro mantido no prontuário de evolução.'}
+            </div>
+          </div>`;
+      });
+      container.innerHTML = html;
     }
 
     function renderUserUploadedPhotosGallery(history) {
       const container = document.getElementById('userPhotoSetsContainer');
-      const countEl = document.getElementById('userPhotoSetsCount');
+      const countBadge = document.getElementById('userPhotoCountBadge');
       if (!container) return;
 
       const sets = (history || []).filter(item => item.photos && (item.photos.front || item.photos.side || item.photos.back));
 
-      if (countEl) countEl.textContent = `${sets.length} set(s) arquivado(s)`;
+      if (countBadge) {
+        countBadge.textContent = sets.length === 1 ? '1 Set Salvo' : `${sets.length} Sets Salvos`;
+      }
 
       if (sets.length === 0) {
         container.innerHTML = `
-          <div style="text-align: center; color: #64748b; font-size: 0.76rem; padding: 16px; background: rgba(255,255,255,0.02); border-radius: 8px; border: 1px dashed rgba(255,255,255,0.08);">
-            Nenhum set de fotos adicional registrado ainda. Toque em "ADICIONAR FOTOS" acima para arquivar novas fotos de progresso!
+          <div style="text-align: center; color: #94a3b8; font-size: 0.78rem; padding: 18px; background: rgba(255,255,255,0.02); border-radius: 8px; border: 1px dashed rgba(255,255,255,0.1);">
+            Nenhum set de fotos arquivado ainda. Toque em <strong>"ADICIONAR FOTOS"</strong> para salvar seu primeiro registro!
           </div>`;
         return;
       }
 
       let html = '';
-      [...sets].reverse().forEach(s => {
+      [...sets].reverse().forEach((s, idx) => {
         const dParts = (s.date || '').split('-');
         const dateBR = (dParts.length === 3) ? `${dParts[2]}/${dParts[1]}/${dParts[0]}` : s.date;
+
         html += `
-          <div style="background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:12px 14px;">
+          <div style="background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:12px 14px; margin-bottom:12px;">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; flex-wrap:wrap; gap:6px;">
-              <span style="font-size:0.82rem; font-weight:800; color:#ffffff;">Set Fotográfico • ${dateBR}</span>
-              <span style="font-size:0.72rem; color:#94a3b8;">Peso: <strong style="color:#fff;">${s.weight ? s.weight.toFixed(1) + ' kg' : '--'}</strong> • Cintura: <strong style="color:#fff;">${s.waist ? s.waist.toFixed(1) + ' cm' : '--'}</strong></span>
+              <span style="font-size:0.86rem; font-weight:800; color:#ffffff;">Set Fotográfico • ${dateBR}</span>
+              <span style="font-size:0.74rem; color:#cbd5e1;">
+                Peso: <strong style="color:#fff;">${s.weight ? Number(s.weight).toFixed(1) + ' kg' : '--'}</strong> • Cintura: <strong style="color:#00ff88;">${s.waist ? Number(s.waist).toFixed(1) + ' cm' : '--'}</strong>
+              </span>
             </div>
-            <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:8px;">
+            
+            <!-- Grid das fotos do set (Frente, Perfil, Costas) -->
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(90px, 1fr)); gap:8px;">
               ${['front', 'side', 'back'].map(k => {
                 const label = k === 'front' ? 'Frente' : (k === 'side' ? 'Perfil' : 'Costas');
                 const url = s.photos[k];
                 if (url) {
                   return `
-                    <div>
-                      <a href="${url}" target="_blank" style="display:block; height:120px; border-radius:8px; overflow:hidden; background:#000; border:1px solid rgba(255,255,255,0.1);">
+                    <div style="text-align:center;">
+                      <a href="${url}" target="_blank" style="display:block; height:130px; border-radius:8px; overflow:hidden; background:#000; border:1px solid rgba(255,255,255,0.12);">
                         <img src="${url}" alt="${label} ${dateBR}" style="width:100%; height:100%; object-fit:cover;">
                       </a>
-                      <div style="text-align:center; font-size:0.68rem; font-weight:700; color:#cbd5e1; margin-top:4px;">${label}</div>
+                      <span style="display:block; font-size:0.68rem; font-weight:700; color:#38bdf8; margin-top:4px;">${label}</span>
                     </div>`;
                 } else {
                   return `
-                    <div style="height:120px; border-radius:8px; background:rgba(255,255,255,0.02); border:1px dashed rgba(255,255,255,0.1); display:flex; flex-direction:column; align-items:center; justify-content:center; color:#64748b; font-size:0.68rem;">
-                      <span>Sem foto</span>
-                      <span style="font-size:0.62rem; color:#475569;">${label}</span>
+                    <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:130px; background:rgba(255,255,255,0.02); border:1px dashed rgba(255,255,255,0.08); border-radius:8px;">
+                      <span style="font-size:0.65rem; color:#64748b;">${label}</span>
+                      <span style="font-size:0.60rem; color:#475569;">Não enviada</span>
                     </div>`;
                 }
               }).join('')}
             </div>
+
             ${s.notes ? `
-              <div style="margin-top:10px; padding:8px 10px; background:rgba(56,189,248,0.05); border-left:3px solid #38bdf8; border-radius:6px; font-size:0.75rem; color:#cbd5e1; line-height:1.45;">
-                <strong style="color:#38bdf8;">Avaliação / Observações:</strong> ${s.notes}
+              <div style="margin-top:10px; padding:8px 10px; background:rgba(255,255,255,0.02); border-left:3px solid #38bdf8; border-radius:6px; font-size:0.75rem; color:#cbd5e1; line-height:1.45;">
+                <strong style="color:#38bdf8;">Observações do Atleta:</strong> ${s.notes}
+              </div>
+            ` : ''}
+
+            ${s.coachNotes ? `
+              <div style="margin-top:8px; padding:8px 10px; background:rgba(0,255,136,0.04); border-left:3px solid var(--brand-neon); border-radius:6px; font-size:0.75rem; color:#f1f5f9; line-height:1.45;">
+                <strong style="color:var(--brand-neon);">Parecer Individual do Prof. Gui Lemos:</strong> ${s.coachNotes}
               </div>
             ` : ''}
           </div>`;
       });
-      container.innerHTML = html;
-    }
-
-    function renderBodyCompHistoryList(history) {
-      const countEl = document.getElementById('compHistoryCount');
-      const listEl = document.getElementById('compHistoryList');
-      if (countEl) countEl.textContent = `${history.length} registro(s)`;
-      if (!listEl) return;
-
-      if (!history || history.length === 0) {
-        listEl.innerHTML = `<div style="text-align:center; color:#64748b; font-size:0.78rem; padding:12px;">Nenhuma medição registrada ainda.</div>`;
-        return;
-      }
-
-      const reversed = [...history].reverse();
-      let html = '';
-      reversed.forEach(item => {
-        const dParts = (item.date || '').split('-');
-        const dateFormatted = (dParts.length === 3) ? `${dParts[2]}/${dParts[1]}/${dParts[0]}` : item.date;
-        const clothesMap = {
-          'folgadas': '👕 Roupas mais folgadas',
-          'normais': '👕 Roupas confortáveis',
-          'apertadas': '👕 Roupas ajustadas'
-        };
-        const energyStars = '⭐'.repeat(parseInt(item.energy) || 4);
-
-        html += `
-          <div class="comp-history-item">
-            <div style="display:flex; flex-direction:column; gap:4px;">
-              <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-                <span style="font-size:0.85rem; font-weight:800; color:#fff;">📅 ${dateFormatted}</span>
-                <span style="font-size:0.72rem; color:#38bdf8; font-weight:700; background:rgba(56,189,248,0.1); padding:2px 6px; border-radius:6px;">${item.weight.toFixed(1)} kg</span>
-                <span style="font-size:0.72rem; color:var(--brand-neon); font-weight:700; background:rgba(0,255,136,0.1); padding:2px 6px; border-radius:6px;">Cintura: ${item.waist.toFixed(1)} cm</span>
-                ${item.bfManual ? `<span style="font-size:0.72rem; color:#fbbf24; font-weight:700; background:rgba(251,191,36,0.1); padding:2px 6px; border-radius:6px;">BF: ${item.bfManual}%</span>` : ''}
-              </div>
-              <div style="font-size:0.72rem; color:#94a3b8; display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
-                <span>${clothesMap[item.clothes] || '👕 Roupas normais'}</span>
-                <span>⚡ Energia: ${energyStars}</span>
-                ${item.notes ? `<span style="color:#cbd5e1;">💬 "${item.notes}"</span>` : ''}
-              </div>
-            </div>
-            <button type="button" onclick="deleteBodyCompRecord('${item.id}')" title="Excluir medição" style="background:rgba(244,63,94,0.1); border:1px solid rgba(244,63,94,0.25); color:#f43f5e; font-size:0.72rem; border-radius:6px; padding:4px 8px; cursor:pointer;">
-              ✕ Excluir
-            </button>
-          </div>`;
-      });
-      listEl.innerHTML = html;
-    }
-
-    function saveCompDraft() {
-      const draft = {
-        date: document.getElementById('add_comp_date')?.value || '',
-        weight: document.getElementById('add_comp_weight')?.value || '',
-        waist: document.getElementById('add_comp_waist')?.value || '',
-        neck: document.getElementById('add_comp_neck')?.value || '',
-        hip: document.getElementById('add_comp_hip')?.value || '',
-        bfManual: document.getElementById('add_comp_bf_manual')?.value || '',
-        bfMethod: document.getElementById('add_comp_bf_method')?.value || '',
-        notes: document.getElementById('add_comp_notes')?.value || '',
-        updatedAt: Date.now()
-      };
-      try {
-        localStorage.setItem('dominio_draft_medicao_daniela', JSON.stringify(draft));
-        const ind = document.getElementById('compDraftIndicator');
-        const indText = document.getElementById('compDraftIndicatorText');
-        if (ind && indText) {
-          ind.style.display = 'inline-flex';
-          indText.textContent = 'Rascunho salvo temporariamente';
-        }
-      } catch (e) {}
-    }
-    window.saveCompDraft = saveCompDraft;
-
-    function openAddMedicaoModal() {
-      tempCompPhotos = { front: '', side: '', back: '' };
-      const dateEl = document.getElementById('add_comp_date');
-      if (dateEl && !dateEl.value) {
-        dateEl.value = new Date().toISOString().split('T')[0];
-      }
-      
-      const history = getBodyCompHistory();
-      const base = getStudentBaseProfile();
-      const latest = (history && history.length > 0) ? history[history.length - 1] : null;
-
-      const weightEl = document.getElementById('add_comp_weight');
-      const waistEl = document.getElementById('add_comp_waist');
-      const neckEl = document.getElementById('add_comp_neck');
-      const hipEl = document.getElementById('add_comp_hip');
-      const bfEl = document.getElementById('add_comp_bf_manual');
-      const bfMethodEl = document.getElementById('add_comp_bf_method');
-      const notesEl = document.getElementById('add_comp_notes');
-      const ind = document.getElementById('compDraftIndicator');
-      const indText = document.getElementById('compDraftIndicatorText');
-
-      // Verifica se há rascunho salvo temporariamente
-      let draft = null;
-      try {
-        const raw = localStorage.getItem('dominio_draft_medicao_daniela');
-        if (raw) draft = JSON.parse(raw);
-      } catch(e) {}
-
-      if (draft && (draft.weight || draft.waist || draft.neck || draft.hip || draft.bfManual || draft.notes)) {
-        if (dateEl && draft.date) dateEl.value = draft.date;
-        if (weightEl) weightEl.value = draft.weight !== undefined ? draft.weight : '';
-        if (waistEl) waistEl.value = draft.waist !== undefined ? draft.waist : '';
-        if (neckEl) neckEl.value = draft.neck !== undefined ? draft.neck : '';
-        if (hipEl) hipEl.value = draft.hip !== undefined ? draft.hip : '';
-        if (bfEl) bfEl.value = draft.bfManual !== undefined ? draft.bfManual : '';
-        if (bfMethodEl) bfMethodEl.value = draft.bfMethod || '';
-        if (notesEl) notesEl.value = draft.notes || '';
-        if (ind && indText) {
-          ind.style.display = 'inline-flex';
-          indText.textContent = 'Rascunho anterior restaurado';
-        }
-      } else {
-        if (dateEl) dateEl.value = new Date().toISOString().split('T')[0];
-        if (weightEl) weightEl.value = latest ? latest.weight : (base.weight || '');
-        if (waistEl) waistEl.value = latest ? latest.waist : '';
-        if (neckEl) neckEl.value = latest ? (latest.neck || '') : '';
-        if (hipEl) hipEl.value = latest ? (latest.hip || '') : '';
-        if (bfEl) bfEl.value = latest ? (latest.bfManual || '') : '';
-        if (bfMethodEl) bfMethodEl.value = '';
-        if (notesEl) notesEl.value = '';
-        if (ind) ind.style.display = 'none';
-      }
-
-      ['front', 'side', 'back'].forEach(k => {
-        const preview = document.getElementById('preview_' + k);
-        if (preview) preview.innerHTML = 'Sem foto';
-        const fileIn = document.getElementById('comp_photo_input_' + k);
-        if (fileIn) fileIn.value = '';
-      });
-
-      const modal = document.getElementById('modalAddMedicao');
-      if (modal) modal.classList.add('active');
-    }
-
-    function closeAddMedicaoModal() {
-      const modal = document.getElementById('modalAddMedicao');
-      if (modal) modal.classList.remove('active');
-    }
-
-    function handleCompPhotoPreview(input, previewId) {
-      const preview = document.getElementById(previewId);
-      if (!preview) return;
-      if (input.files && input.files[0]) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          const key = previewId.replace('preview_', '');
-          tempCompPhotos[key] = e.target.result;
-          preview.innerHTML = `<img src="${e.target.result}" style="width:100%; height:100%; object-fit:cover; border-radius:4px;">`;
-        };
-        reader.readAsDataURL(input.files[0]);
-      }
-    }
-
-    function saveBodyCompRecordFromForm() {
-      const dateVal = document.getElementById('add_comp_date')?.value || new Date().toISOString().split('T')[0];
-      const weightVal = parseFloat(document.getElementById('add_comp_weight')?.value);
-      const waistVal = parseFloat(document.getElementById('add_comp_waist')?.value);
-      const neckVal = parseFloat(document.getElementById('add_comp_neck')?.value) || null;
-      const hipVal = parseFloat(document.getElementById('add_comp_hip')?.value) || null;
-      const bfVal = parseFloat(document.getElementById('add_comp_bf_manual')?.value) || null;
-      const bfMethodVal = document.getElementById('add_comp_bf_method')?.value || null;
-      const notesVal = document.getElementById('add_comp_notes')?.value.trim() || '';
-
-      if (!weightVal || isNaN(weightVal) || weightVal <= 20 || weightVal > 300) {
-        alert('Por favor, informe um peso corporal válido em kg.');
-        document.getElementById('add_comp_weight')?.focus();
-        return;
-      }
-      if (!waistVal || isNaN(waistVal) || waistVal <= 30 || waistVal > 250) {
-        alert('Por favor, informe uma medida de cintura válida em cm.');
-        document.getElementById('add_comp_waist')?.focus();
-        return;
-      }
-
-      const newRecord = {
-        id: 'comp_' + Date.now(),
-        date: dateVal,
-        weight: weightVal,
-        waist: waistVal,
-        neck: neckVal,
-        hip: hipVal,
-        bfManual: bfVal,
-        bfMethod: bfMethodVal,
-        notes: notesVal,
-        photos: { ...tempCompPhotos }
-      };
-
-      const history = getBodyCompHistory();
-      const existingIdx = history.findIndex(h => h.date === dateVal);
-      if (existingIdx >= 0) {
-        history[existingIdx] = newRecord;
-      } else {
-        history.push(newRecord);
-      }
-
-      try {
-        localStorage.setItem('dominio_daniela_body_comp_history', JSON.stringify(history));
-      } catch (e) {
-        console.error('Erro ao salvar no localStorage:', e);
-      }
-
-      if (window.DominioDB && typeof DominioDB.salvarMedicao === 'function') {
-        DominioDB.salvarMedicao({
-          data_medicao: dateVal,
-          peso: weightVal,
-          cintura: waistVal,
-          pescoco: neckVal,
-          quadril: hipVal,
-          bf_pct: bfVal,
-          notas: notesVal
-        });
-      }
-
-      try {
-        localStorage.removeItem('dominio_draft_medicao_daniela');
-      } catch (e) {}
-      const draftInd = document.getElementById('compDraftIndicator');
-      if (draftInd) draftInd.style.display = 'none';
-
-      closeAddMedicaoModal();
-      renderBodyCompUI();
-    }
-
-    function deleteBodyCompRecord(id) {
-      if (!confirm('Deseja realmente excluir esta medição?')) return;
-      let history = getBodyCompHistory();
-      history = history.filter(h => h.id !== id);
-      try {
-        localStorage.setItem('dominio_daniela_body_comp_history', JSON.stringify(history));
-      } catch (e) {}
-      renderBodyCompUI();
-    }
-
-    function openInstrucoesMedidasModal() {
-      const modal = document.getElementById('modalInstrucoesMedidas');
-      if (modal) modal.classList.add('active');
-    }
-    function closeInstrucoesMedidasModal() {
-      const modal = document.getElementById('modalInstrucoesMedidas');
-      if (modal) modal.classList.remove('active');
-    }
-
-    function openInstrucoesFotosModal() {
-      const modal = document.getElementById('modalInstrucoesFotos');
-      if (modal) modal.classList.add('active');
-    }
-    function closeInstrucoesFotosModal() {
-      const modal = document.getElementById('modalInstrucoesFotos');
-      if (modal) modal.classList.remove('active');
-    }
-
-    function openRelatorioComposicaoModal() {
-      buildRelatorioComposicaoHTML();
-      const modal = document.getElementById('modalRelatorioComposicao');
-      if (modal) modal.classList.add('active');
-    }
-    function closeRelatorioComposicaoModal() {
-      const modal = document.getElementById('modalRelatorioComposicao');
-      if (modal) modal.classList.remove('active');
-    }
-
-    function getLaudosHistoryKey() {
-      const base = getStudentBaseProfile();
-      const name = (base && base.name) ? base.name.toLowerCase() : 'aluno';
-      if (name.includes('gui')) return 'dominio_gui_laudos_history';
-      if (name.includes('daniela')) return 'dominio_daniela_laudos_history';
-      return 'dominio_' + name.replace(/\s+/g, '_') + '_laudos_history';
-    }
-
-    function getLaudosHistory() {
-      const key = getLaudosHistoryKey();
-      try {
-        const raw = localStorage.getItem(key);
-        if (raw) return JSON.parse(raw);
-      } catch (e) {}
-      return [];
-    }
-
-    function saveCurrentLaudoToHistory() {
-      const history = getBodyCompHistory();
-      if (!history || history.length === 0) return null;
-      const latest = history[history.length - 1];
-      const base = getStudentBaseProfile();
-      const height = base.height || 178;
-      const key = getLaudosHistoryKey();
-
-      let laudos = getLaudosHistory();
-
-      // Regra anti-duplicação: limita a 1 laudo por nova adição de medidas (mesma data e mesmo peso)
-      const existingIdx = laudos.findIndex(l => l.measurementDate === latest.date && Math.abs(Number(l.weight) - Number(latest.weight)) < 0.05);
-
-      const now = new Date();
-      const nowStr = now.toLocaleDateString('pt-BR') + ' às ' + now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
-      const whtr = height ? (latest.waist / height) : null;
-      const bf = (latest.bodyFat !== undefined && latest.bodyFat !== null) ? Number(latest.bodyFat) : null;
-
-      const laudoEntry = {
-        id: 'laudo_' + latest.date + '_' + Number(latest.weight).toFixed(1),
-        measurementDate: latest.date,
-        generatedAt: nowStr,
-        weight: Number(latest.weight),
-        waist: Number(latest.waist),
-        bodyFat: bf,
-        rcest: whtr,
-        notes: latest.notes || ''
-      };
-
-      if (existingIdx !== -1) {
-        // Já existe laudo para esta aferição: atualiza apenas os dados/data sem duplicar item na lista
-        laudos[existingIdx] = { ...laudos[existingIdx], ...laudoEntry };
-      } else {
-        // Nova medição: insere novo registro no topo
-        laudos.unshift(laudoEntry);
-      }
-
-      try {
-        localStorage.setItem(key, JSON.stringify(laudos));
-      } catch (e) {}
-
-      renderLaudosHistory();
-      return laudoEntry;
-    }
-
-    function renderLaudosHistory() {
-      const container = document.getElementById('laudosHistoryList');
-      const badge = document.getElementById('laudosHistoryBadge');
-      if (!container) return;
-
-      const laudos = getLaudosHistory();
-      if (badge) {
-        badge.textContent = laudos.length === 1 ? '1 Laudo Arquivado' : `${laudos.length} Laudos Arquivados`;
-      }
-
-      if (laudos.length === 0) {
-        container.innerHTML = `
-          <div style="background: rgba(0,0,0,0.25); border: 1px dashed rgba(255,255,255,0.12); border-radius: 10px; padding: 18px; text-align: center; color: #cbd5e1; font-size: 0.8rem;">
-            Nenhum laudo arquivado ainda. Toque em <strong>"Gerar Laudo e Salvar no Histórico"</strong> para criar o primeiro registro oficial.
-          </div>`;
-        return;
-      }
-
-      let html = '';
-      laudos.forEach((item, idx) => {
-        const dStr = item.measurementDate ? item.measurementDate.split('-').reverse().join('/') : '--';
-        const bfStr = item.bodyFat !== null ? ` • % Gordura: <strong style="color:#fbbf24;">${Number(item.bodyFat).toFixed(1)}%</strong>` : '';
-        const rcestStr = item.rcest ? ` • RCEst: <strong style="color:#38bdf8;">${Number(item.rcest).toFixed(2)}</strong>` : '';
-
-        html += `
-          <div class="assessment-history-card" onclick="openRelatorioComposicaoModal()" style="background: var(--card-bg, #11141a); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 12px; padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 4px 14px rgba(0,0,0,0.4);" onmouseover="this.style.borderColor='#38bdf8'" onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.12)'">
-            <div style="display: flex; flex-direction: column; gap: 4px;">
-              <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-                <span style="font-size: 0.92rem; font-weight: 800; color: #ffffff;">Laudo Biomecânico • Aferição de ${dStr}</span>
-                <span style="font-size: 0.68rem; font-weight: 800; color: #38bdf8; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.3); padding: 2px 7px; border-radius: 6px;">✓ Arquivado</span>
-              </div>
-              <div style="font-size: 0.78rem; color: #cbd5e1;">
-                Peso: <strong style="color: #fff;">${Number(item.weight).toFixed(1)} kg</strong> • Cintura: <strong style="color: #00ff88;">${Number(item.waist).toFixed(1)} cm</strong>${bfStr}${rcestStr}
-              </div>
-              <div style="font-size: 0.7rem; color: #94a3b8;">
-                Gerado em: ${item.generatedAt}
-              </div>
-            </div>
-            <div style="display: flex; align-items: center; gap: 6px; color: #38bdf8; font-size: 0.78rem; font-weight: 700; white-space: nowrap; margin-left: 10px;">
-              <span>Ver / PDF</span>
-              <span style="font-size: 0.95rem;">↗</span>
-            </div>
-          </div>`;
-      });
 
       container.innerHTML = html;
+    }
+
+    // =========================================================================
+    // SISTEMA DE NOTIFICAÇÕES DINÂMICAS PARA NOVAS ANÁLISES
+    // =========================================================================
+    function addAppNotification(notif) {
+      if (!notif || !notif.id) return;
+      try {
+        const raw = localStorage.getItem('dominio_custom_notifications');
+        let customNotifs = raw ? JSON.parse(raw) : [];
+        const existingIdx = customNotifs.findIndex(n => n.id === notif.id);
+        if (existingIdx !== -1) {
+          customNotifs[existingIdx] = notif;
+        } else {
+          customNotifs.unshift(notif);
+        }
+        localStorage.setItem('dominio_custom_notifications', JSON.stringify(customNotifs));
+
+        // Marca como não lida
+        const readMap = getReadNotifications();
+        delete readMap[notif.id];
+        saveReadNotifications(readMap);
+
+        if (typeof updateNotificationsUI === 'function') {
+          updateNotificationsUI();
+        }
+      } catch (e) {}
     }
 
     function renderLaudoCompletoDashboard() {
@@ -12826,12 +12633,14 @@ function updateEvolucaoStats() {
         feedback.style.display = 'block';
       }
 
-      // Retorna para a tela inicial (Hub de Treinos) após registrar
-      setTimeout(() => {
-        if (typeof closeDedicatedView === 'function') {
-          closeDedicatedView();
-        }
-      }, 350);
+      // Retorno imediato à página inicial do app (Home Hub de Treinos)
+      if (typeof closeDedicatedView === 'function') {
+        closeDedicatedView();
+      }
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      const hubTab = document.getElementById('tab-treinos');
+      if (hubTab) hubTab.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'instant' });
 
       if ('vibrate' in navigator) navigator.vibrate([100, 50, 100]);
     };
