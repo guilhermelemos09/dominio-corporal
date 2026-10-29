@@ -10529,8 +10529,10 @@
       if (subId === 'historico' && typeof renderBodyCompHistoryList === 'function') {
         renderBodyCompHistoryList(getBodyCompHistory());
       }
-      if (subId === 'fotos' && typeof renderBodyCompPhotosGallery === 'function') {
-        renderBodyCompPhotosGallery();
+      if (subId === 'fotos') {
+        if (typeof renderPosturalComparisonUI === 'function') renderPosturalComparisonUI();
+        if (typeof renderUserUploadedPhotosGallery === 'function') renderUserUploadedPhotosGallery(getBodyCompHistory());
+        if (typeof renderBodyCompPhotosGallery === 'function') renderBodyCompPhotosGallery();
       }
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -11674,7 +11676,10 @@ function updateEvolucaoStats() {
             side: null,
             back: null
           },
-          coachNotes: "O que vemos no corpo: Maior acúmulo de gordura concentrado na região da barriga e nas laterais da cintura (flancos). O peitoral e o abdômen têm contornos pouco visíveis por conta da camada de gordura e de retenção de líquidos.\n\nImpacto prático nos treinos: Esse peso extra no centro do corpo atua como uma \"carga inerte\" (peso que não gera força): sobrecarrega os joelhos e a coluna a cada passada e dificulta bastante exercícios com o peso do próprio corpo, como subir na barra fixa, fazer flexões e equilibrar na parada de mão."
+          coachNotes: "O que vemos no corpo: Camada adiposa concentrada na região abdominal e flancos (cintura de 94 cm). O peitoral e as linhas do abdômen possuem baixa definição visível em função da retenção hídrica e da gordura subcutânea.\n\nImpacto prático nos treinos: Lastro inerte passivo significativo que sobrecarregava a coluna lombar e aumentava a pressão compressiva nos joelhos a cada aterrissagem, além de limitar a relação força/peso na barra fixa e em posições invertidas de ginástica.",
+          coachAnalysis: {
+            front: "Ponto de Partida (Baseline): Registro inicial com 97.8 kg e 23.3% de gordura. Estrutura óssea robusta, porém com lastro inerte acentuado na linha de cintura que comprometia a agilidade em movimentos de ginástica acrobática."
+          }
         },
         {
           id: 'comp_gui_foto_0510',
@@ -11686,13 +11691,16 @@ function updateEvolucaoStats() {
           bfManual: 14.6,
           clothes: 'folgadas',
           energy: 5,
-          notes: 'Marco de recomposição corporal e registro fotográfico',
+          notes: 'Marco de recomposição corporal profunda (-11.6 kg)',
           photos: {
             front: 'Midia/Fotos_Posturais/gui_2026-10-05_frente.jpeg',
             side: null,
             back: null
           },
-          coachNotes: "O que vemos no corpo: Mudança visual marcante. A cintura afinou expressivamente e a barriga recolheu por completo. As divisões naturais do abdômen e o contorno do peitoral ficaram nítidos mesmo com a postura relaxada. As coxas também mostram muito mais desenho e separação muscular.\n\nImpacto prático nos treinos: O corpo fica muito mais leve, ágil e eficiente. Tirar esse peso morto da cintura alivia dezenas de quilos de pressão sobre as articulações dos joelhos a cada impacto e multiplica a força relativa do atleta para puxar o próprio corpo na barra ou sustentar posições invertidas."
+          coachNotes: "O que vemos no corpo: Transformação corporal nítida. A cintura reduziu 12 cm (de 94 para 82 cm), revelando as inserções musculares do reto abdominal e serrátil. O peitoral e os deltoides ganharam recorte atlético com separação visível em postura totalmente relaxada.\n\nImpacto prático nos treinos: Menos 11.6 kg de lastro inerte representam aproximadamente 46.4 kg a menos de força compressiva articular a cada passada e salto (Regra de Messier 4:1). A potência relativa multiplicou, permitindo o retorno sólido aos Muscle-Ups e transições nas argolas.",
+          coachAnalysis: {
+            front: "Pico de Recomposição: Perda de 11.6 kg de massa inerte com preservação estrita de tecido magro. Cintura em 82 cm garantiu mobilidade pélvica e facilitou o alinhamento de prumo no Handstand."
+          }
         },
         {
           id: 'comp_gui_foto_2310',
@@ -11704,15 +11712,15 @@ function updateEvolucaoStats() {
           bfManual: 15.8,
           clothes: 'folgadas',
           energy: 5,
-          notes: 'Registro fotográfico recente pós-pausa de treinos',
+          notes: 'Registro fotográfico recente – Consolidação, Densidade e Tirzepatida',
           photos: {
             front: 'Midia/Fotos_Posturais/gui_2026-10-23_frente.jpeg',
             side: null,
             back: null
           },
-          coachNotes: "O que vemos no corpo: A estrutura atlética conquistada foi muito bem preservada. Os ombros, braços e peitoral continuam firmes e preenchidos. Há apenas uma leve retenção líquida superficial (comum após alguns dias sem treinar), mas a linha da cintura e a postura continuam totalmente transformadas em relação ao início.\n\nImpacto prático nos treinos: A massa muscular construída nos últimos meses está protegida. Com a retomada dos treinos regulares, o corpo elimina essa retenção temporária em poucos dias e restabelece a definição muscular máxima.",
+          coachNotes: "O que vemos no corpo: Manutenção sólida da estrutura atlética. A densidade muscular de ombros, braços e peitoral superior está preservada. Observa-se apenas uma leve retenção líquida subcutânea compatível com a pausa prévia de 10 dias, sem acúmulo de gordura profunda.\n\nImpacto prático nos treinos: Sob o protocolo de Tirzepatida 2,5mg, a sensibilidade metabólica e o controle de apetite estão alinhados. O retorno aos treinos (Crossfit, Handstand e Canoagem) já reativa a depleção glicogênica e restabelece a definição máxima com proteção total das articulações.",
           coachAnalysis: {
-            front: "Evolução Real: Comparando a foto de 02 de julho com a de 23 de outubro, a transformação corporal é evidente. Houve uma recomposição corporal fidedigna: perda significativa de gordura na região da cintura e melhora da proporção do tronco (ombros mais destacados em relação à cintura).\n\nBenefício Clínico e Esportivo: O atleta agora se movimenta com muito mais facilidade e menor desgaste articular. A musculatura desenvolvida funciona como uma armadura protetora para a coluna e joelhos, garantindo mais segurança e rendimento no Crossfit, na calistenia e nas acrobacias."
+            front: "Evolução Comparativa (02/07 vs. Atual):\n• Recomposição Fidedigna: Redução sustentada de ~10.6 kg de peso corporal e ~9 cm de cintura em relação ao ponto de partida.\n• Formação do V-Taper: Ombros e tórax mantêm proporção ampla em relação à linha da cintura, evidenciando ganho de tônus nos deltoides e grande dorsal.\n• Alívio Articular Mensurável: Redução média de 42.4 kg de impacto patelofemoral e meniscal a cada passada (Messier et al.).\n• Força Relativa: Lastro passivo substancialmente menor, potencializando alavancas gímnicas em One Arm Handstand, Bent Arm Press e transições acrobáticas com parceiro."
           }
         }
       ];
@@ -12591,6 +12599,109 @@ function updateEvolucaoStats() {
       saveAndSendFotosPosturais();
     }
 
+    function renderUserUploadedPhotosGallery(history) {
+      const container = document.getElementById('userPhotoSetsContainer');
+      const badge = document.getElementById('userPhotoCountBadge');
+      if (!container) return;
+
+      const h = history || getBodyCompHistory();
+      const photoSets = (h || []).filter(item => item.photos && (item.photos.front || item.photos.side || item.photos.back));
+
+      if (badge) {
+        badge.textContent = `${photoSets.length} Set(s) Salvo(s)`;
+      }
+
+      if (photoSets.length === 0) {
+        container.innerHTML = `
+          <div style="background:rgba(56,189,248,0.06); border:1px dashed rgba(56,189,248,0.3); border-radius:10px; padding:16px; text-align:center; color:#94a3b8; font-size:0.78rem;">
+            Nenhum set de fotos individuais arquivado. Toque em "ADICIONAR FOTOS" acima para incluir.
+          </div>`;
+        return;
+      }
+
+      // Ordena cronologicamente invertido (mais recente primeiro)
+      const reversedSets = photoSets.slice().reverse();
+      let html = '<div style="display:flex; flex-direction:column; gap:16px;">';
+
+      reversedSets.forEach(s => {
+        const dStr = (s.date || '').split('-').reverse().join('/');
+        const wStr = s.weight ? `${s.weight.toFixed(1)} kg` : '--';
+        const waistStr = s.waist ? `${s.waist.toFixed(1)} cm` : '--';
+        const bfStr = s.bfManual ? `${s.bfManual.toFixed(1)}%` : (s.bf ? `${s.bf.toFixed(1)}%` : '--');
+
+        let statusBadge = '<span style="font-size:0.68rem; font-weight:700; color:#38bdf8; background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.3); padding:2px 8px; border-radius:6px;">Registro</span>';
+        if (s.date === '2026-07-02') {
+          statusBadge = '<span style="font-size:0.68rem; font-weight:700; color:#fbbf24; background:rgba(251,191,36,0.12); border:1px solid rgba(251,191,36,0.3); padding:2px 8px; border-radius:6px;">🏁 Ponto de Partida</span>';
+        } else if (s.date === '2026-10-05') {
+          statusBadge = '<span style="font-size:0.68rem; font-weight:700; color:var(--brand-neon); background:rgba(0,255,136,0.12); border:1px solid rgba(0,255,136,0.3); padding:2px 8px; border-radius:6px;">⚡ Recomposição Profunda (-11.6 kg)</span>';
+        } else if (s.date >= '2026-10-23') {
+          statusBadge = '<span style="font-size:0.68rem; font-weight:700; color:#38bdf8; background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.3); padding:2px 8px; border-radius:6px;">🔥 Atual • Consolidação e Densidade</span>';
+        }
+
+        const frontImg = s.photos ? s.photos.front : null;
+        const sideImg = s.photos ? s.photos.side : null;
+        const backImg = s.photos ? s.photos.back : null;
+
+        html += `
+          <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:14px; box-shadow:0 4px 14px rgba(0,0,0,0.3);">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+              <div>
+                <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px; flex-wrap:wrap;">
+                  <strong style="color:#ffffff; font-size:0.92rem;">Entrada Fotográfica • ${dStr}</strong>
+                  ${statusBadge}
+                </div>
+                <div style="font-size:0.75rem; color:#94a3b8;">
+                  Peso: <strong style="color:#f1f5f9;">${wStr}</strong> • Cintura: <strong style="color:#f1f5f9;">${waistStr}</strong> • % BF: <strong style="color:var(--brand-neon);">${bfStr}</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Grade de Imagens da Entrada -->
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap:10px; margin-bottom:12px;">
+              ${frontImg ? `
+                <div style="background:#000; border-radius:8px; overflow:hidden; border:1px solid rgba(255,255,255,0.1);">
+                  <a href="${frontImg}" target="_blank" style="display:block; height:220px; background:#000;">
+                    <img src="${frontImg}" alt="Frente ${dStr}" style="width:100%; height:100%; object-fit:cover;">
+                  </a>
+                  <div style="padding:4px 6px; text-align:center; font-size:0.68rem; font-weight:700; color:#38bdf8; background:rgba(56,189,248,0.1);">POSTURA FRONTAL</div>
+                </div>
+              ` : ''}
+              ${sideImg ? `
+                <div style="background:#000; border-radius:8px; overflow:hidden; border:1px solid rgba(255,255,255,0.1);">
+                  <a href="${sideImg}" target="_blank" style="display:block; height:220px; background:#000;">
+                    <img src="${sideImg}" alt="Perfil ${dStr}" style="width:100%; height:100%; object-fit:cover;">
+                  </a>
+                  <div style="padding:4px 6px; text-align:center; font-size:0.68rem; font-weight:700; color:var(--brand-neon); background:rgba(0,255,136,0.1);">POSTURA LATERAL</div>
+                </div>
+              ` : ''}
+              ${backImg ? `
+                <div style="background:#000; border-radius:8px; overflow:hidden; border:1px solid rgba(255,255,255,0.1);">
+                  <a href="${backImg}" target="_blank" style="display:block; height:220px; background:#000;">
+                    <img src="${backImg}" alt="Costas ${dStr}" style="width:100%; height:100%; object-fit:cover;">
+                  </a>
+                  <div style="padding:4px 6px; text-align:center; font-size:0.68rem; font-weight:700; color:#fbbf24; background:rgba(251,191,36,0.1);">POSTURA POSTERIOR</div>
+                </div>
+              ` : ''}
+            </div>
+
+            <!-- Parecer do Treinador Gui Lemos -->
+            ${s.coachNotes ? `
+              <div style="background:rgba(56,189,248,0.06); border-left:3.5px solid #38bdf8; border-radius:8px; padding:10px 12px; font-size:0.78rem; color:#cbd5e1; line-height:1.55;">
+                <strong style="color:#38bdf8; display:block; margin-bottom:4px; font-size:0.80rem;">🔬 Diagnóstico e Parecer Técnico:</strong>
+                <div style="white-space:pre-line;">${s.coachNotes}</div>
+              </div>
+            ` : (s.notes ? `
+              <div style="background:rgba(255,255,255,0.03); border-left:3px solid #64748b; border-radius:6px; padding:8px 10px; font-size:0.75rem; color:#94a3b8;">
+                <strong>Observações:</strong> ${s.notes}
+              </div>
+            ` : '')}
+          </div>`;
+      });
+
+      html += '</div>';
+      container.innerHTML = html;
+    }
+
     function renderPosturalComparisonUI() {
       const container = document.getElementById('dynamicPosturalComparisonContainer');
       const datesBadge = document.getElementById('compPhotosDatesBadge');
@@ -12754,6 +12865,7 @@ function updateEvolucaoStats() {
                 ${s.coachNotes}
               </div>
             ` : ''}
+            </div>
           </div>`;
       });
 
