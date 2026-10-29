@@ -7718,6 +7718,58 @@
   </div>
 
 
+  
+  <!-- ==================== MODAL: CONTINUAR OU INICIAR NOVA SESSÃO ==================== -->
+  <div id="modalWorkoutSessionPrompt" class="modal-overlay" onclick="if(event.target === this) closeWorkoutSessionPromptModal();">
+    <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 440px; border-left: 4.5px solid var(--brand-neon);">
+      <div class="modal-header" style="border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 12px; margin-bottom: 14px; display: flex; align-items: flex-start; justify-content: space-between; gap: 10px;">
+        <div>
+          <div style="font-size: 0.72rem; font-weight: 800; color: var(--brand-neon); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 5px;">
+            <span>⚡</span> <span>Sessão em Andamento</span>
+          </div>
+          <div id="promptModalWorkoutTitle" style="font-size: 1.15rem; font-weight: 900; color: #ffffff; margin-top: 2px;">
+            SESSÃO DE TREINO
+          </div>
+        </div>
+        <span id="promptModalProgressPill" style="font-size: 0.72rem; font-weight: 800; color: #38bdf8; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.3); padding: 4px 10px; border-radius: 12px; white-space: nowrap;">
+          1/4 Concluído
+        </span>
+      </div>
+
+      <p style="font-size: 0.82rem; color: #94a3b8; line-height: 1.5; margin: 0 0 14px 0;">
+        Você já possui uma sessão concluída e arquivada neste ciclo. Como deseja prosseguir hoje?
+      </p>
+
+      <!-- Bloco de Lembrete das Cargas Anteriores -->
+      <div id="promptModalPrevNotesWrap" style="display: none; margin-bottom: 16px; background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 12px; padding: 12px 14px;">
+        <div style="font-size: 0.74rem; font-weight: 800; color: #38bdf8; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+          <span>📌</span> <span>Cargas e Anotações da Última Sessão</span>
+        </div>
+        <div id="promptModalPrevNotesList" style="font-size: 0.78rem; color: #cbd5e1; line-height: 1.5; max-height: 130px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px;">
+          <!-- Injetado dinamicamente -->
+        </div>
+      </div>
+
+      <!-- Botões de Ação -->
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <button type="button" id="btnPromptStartNewSession" onclick="handlePromptStartNewSession()" style="width: 100%; background: var(--brand-neon); color: #000000; border: none; border-radius: 12px; padding: 14px 16px; font-size: 0.88rem; font-weight: 900; letter-spacing: 0.03em; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; box-shadow: 0 4px 14px rgba(0, 255, 136, 0.3); transition: transform 0.15s ease;">
+          <span id="promptBtnNewSessionTitle" style="display: flex; align-items: center; gap: 6px;">
+            <span>▶</span> <span>INICIAR NOVA SESSÃO (2 de 4)</span>
+          </span>
+          <span style="font-size: 0.68rem; font-weight: 700; color: rgba(0, 0, 0, 0.75);">Zera as séries para hoje e lembra as cargas nos exercícios</span>
+        </button>
+
+        <button type="button" id="btnPromptReviewSession" onclick="handlePromptReviewSession()" style="width: 100%; background: rgba(255, 255, 255, 0.04); color: #e2e8f0; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 12px; padding: 12px 16px; font-size: 0.82rem; font-weight: 800; letter-spacing: 0.02em; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; transition: background 0.15s ease;">
+          <span style="display: flex; align-items: center; gap: 6px;">
+            <span>👁️</span> <span>REVISAR SESSÃO ANTERIOR</span>
+          </span>
+          <span style="font-size: 0.68rem; font-weight: 600; color: #94a3b8;">Ver marcações e anotações como foram enviadas</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
   <!-- Modal de Ajuda Contextual e Instruções do Aplicativo -->
   <div id="contextualHelpModal" class="modal-overlay" onclick="if(event.target === this) closeContextualHelp();">
     <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 520px;">
@@ -8329,34 +8381,198 @@
       });
     }
 
-    function openDayWorkout(dayId) {
-      if (localStorage.getItem('dominio_gustavo_assessment_completed') !== 'true') {
-        const modal = document.getElementById('intakeGateModal');
-        if (modal) modal.classList.add('active');
-        if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'bioModal' }, 'bio');
-        if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'welcomeAppModal' }, 'boas-vindas');
-      if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'contextualHelpModal' }, 'ajuda');
-        if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'notificationsModal' }, 'notificacoes');
-        if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'sendVideoModal' }, 'enviar-video');
-      if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'videoModal' }, 'video');
+    
+    // =========================================================================
+    // CONTROLE DE SESSÃO CONTÍNUA, LEMBRETE DE CARGAS E REINÍCIO INTELIGENTE
+    // =========================================================================
+
+    function getPreviousNotesForDay(dayId) {
+      const tab = document.getElementById('tab-' + dayId);
+      if (!tab) return [];
+      const results = [];
+      tab.querySelectorAll('.comment-textarea').forEach(ta => {
+        const exId = ta.id.replace('note-', '');
+        const card = ta.closest('.exercise-card');
+        const nameEl = card ? card.querySelector('.ex-title span') : null;
+        const exName = nameEl ? nameEl.textContent.trim() : 'Exercício';
+        const noteText = ta.value.trim() || localStorage.getItem('dominio_prev_note_' + exId) || '';
+        if (noteText && noteText.trim()) {
+          results.push({ exId, exName, text: noteText.trim() });
+        }
+      });
+      return results;
+    }
+
+    function applyPrevNoteReference(exId, prevNote) {
+      if (!prevNote || !prevNote.trim()) return;
+      const box = document.getElementById('comment-box-' + exId);
+      if (!box) return;
+
+      const existing = box.querySelector('.prev-note-hint');
+      if (existing) existing.remove();
+
+      const hintEl = document.createElement('div');
+      hintEl.className = 'prev-note-hint';
+      hintEl.style.cssText = 'margin-bottom: 8px; padding: 7px 10px; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 8px; font-size: 0.75rem; color: #cbd5e1; line-height: 1.4; display: flex; align-items: flex-start; gap: 6px;';
+      hintEl.innerHTML = `<span style="font-size: 0.85rem; line-height: 1;">📌</span> <div><strong style="color: #38bdf8;">Última anotação:</strong> <span>${prevNote}</span></div>`;
+
+      const header = box.querySelector('.comment-header');
+      if (header) {
+        header.parentNode.insertBefore(hintEl, header.nextSibling);
+      } else {
+        box.insertBefore(hintEl, box.firstChild);
+      }
+
+      const dot = document.getElementById('dot-' + exId);
+      if (dot) dot.style.display = 'inline-block';
+      const btn = document.getElementById('btn-comment-' + exId);
+      if (btn) btn.classList.add('has-note');
+    }
+
+    window.openWorkoutSessionPromptModal = function(dayId, progressInfo) {
+      window._pendingWorkoutPromptDayId = dayId;
+      const modal = document.getElementById('modalWorkoutSessionPrompt');
+      if (!modal) {
+        proceedToOpenDayWorkout(dayId);
         return;
       }
+
+      const { type, target, count } = progressInfo || getWorkoutProgress(dayId);
+      const nextCount = Math.min(target, count + 1);
+
+      const titleEl = document.getElementById('promptModalWorkoutTitle');
+      if (titleEl) {
+        const cardTitle = document.querySelector('#dayCard-' + dayId + ' .day-name')?.textContent?.trim();
+        titleEl.textContent = cardTitle || dayId.toUpperCase();
+      }
+
+      const pillEl = document.getElementById('promptModalProgressPill');
+      if (pillEl) {
+        if (type === 'treino' && target > 1) {
+          pillEl.textContent = `${count}/${target} Concluído`;
+          pillEl.style.color = '#38bdf8';
+          pillEl.style.borderColor = 'rgba(56, 189, 248, 0.3)';
+          pillEl.style.background = 'rgba(56, 189, 248, 0.12)';
+        } else {
+          pillEl.textContent = '✓ Concluído';
+          pillEl.style.color = 'var(--brand-neon)';
+          pillEl.style.borderColor = 'rgba(0, 255, 136, 0.3)';
+          pillEl.style.background = 'rgba(0, 255, 136, 0.12)';
+        }
+      }
+
+      const btnTitleEl = document.getElementById('promptBtnNewSessionTitle');
+      if (btnTitleEl) {
+        if (type === 'treino' && target > 1) {
+          btnTitleEl.innerHTML = `<span>▶</span> <span>INICIAR NOVA SESSÃO (${nextCount} de ${target})</span>`;
+        } else {
+          btnTitleEl.innerHTML = `<span>▶</span> <span>INICIAR NOVA SESSÃO</span>`;
+        }
+      }
+
+      const notes = getPreviousNotesForDay(dayId);
+      const notesWrap = document.getElementById('promptModalPrevNotesWrap');
+      const notesList = document.getElementById('promptModalPrevNotesList');
+      if (notesWrap && notesList) {
+        if (notes.length > 0) {
+          notesWrap.style.display = 'block';
+          notesList.innerHTML = notes.map(n => `
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 6px 10px;">
+              <div style="font-weight: 800; font-size: 0.73rem; color: #38bdf8;">${n.exName}</div>
+              <div style="color: #f1f5f9; font-size: 0.77rem; margin-top: 2px;">${n.text}</div>
+            </div>
+          `).join('');
+        } else {
+          notesWrap.style.display = 'none';
+          notesList.innerHTML = '';
+        }
+      }
+
+      modal.style.display = 'flex';
+      modal.classList.add('active');
+    };
+
+    window.closeWorkoutSessionPromptModal = function() {
+      const modal = document.getElementById('modalWorkoutSessionPrompt');
+      if (modal) {
+        modal.style.display = 'none';
+        modal.classList.remove('active');
+      }
+      window._pendingWorkoutPromptDayId = null;
+    };
+
+    window.handlePromptStartNewSession = function() {
+      const dayId = window._pendingWorkoutPromptDayId;
+      closeWorkoutSessionPromptModal();
+      if (dayId) {
+        startNewWorkoutSession(dayId);
+      }
+    };
+
+    window.handlePromptReviewSession = function() {
+      const dayId = window._pendingWorkoutPromptDayId;
+      closeWorkoutSessionPromptModal();
+      if (dayId) {
+        proceedToOpenDayWorkout(dayId, true);
+      }
+    };
+
+    window.startNewWorkoutSession = function(dayId) {
+      const tab = document.getElementById('tab-' + dayId);
+      if (!tab) return;
+
+      tab.querySelectorAll('.comment-textarea').forEach(ta => {
+        const exId = ta.id.replace('note-', '');
+        const currentVal = ta.value.trim();
+        if (currentVal) {
+          try {
+            localStorage.setItem('dominio_prev_note_' + exId, currentVal);
+          } catch (e) {}
+          ta.value = '';
+        }
+        const prevNote = localStorage.getItem('dominio_prev_note_' + exId);
+        if (prevNote) {
+          applyPrevNoteReference(exId, prevNote);
+        }
+      });
+
+      tab.querySelectorAll('.set-pill.done').forEach(pill => {
+        pill.classList.remove('done');
+      });
+
+      try {
+        const saved = getSavedMarkedSets();
+        let changed = false;
+        Object.keys(saved).forEach(k => {
+          if (k.startsWith(dayId + '_') || k.startsWith('tab-' + dayId + '_')) {
+            delete saved[k];
+            changed = true;
+          }
+        });
+        if (changed) saveMarkedSets(saved);
+      } catch (e) {}
+
+      const banner = document.getElementById('workoutSessionModeBanner-' + dayId);
+      if (banner) banner.remove();
+
+      updateProgress();
+      if (typeof updateEvolucaoStats === 'function') updateEvolucaoStats();
+
+      proceedToOpenDayWorkout(dayId, false);
+    };
+
+    window.proceedToOpenDayWorkout = function(dayId, isReviewMode = false) {
       lastActiveDayTab = dayId;
       document.body.classList.add('in-dedicated-view', 'in-day-workout');
       document.body.classList.remove('in-view-avaliacao', 'in-view-perfil', 'in-view-timers');
       const topBar = document.getElementById('dedicatedTopBar');
       if (topBar) topBar.style.display = 'flex';
 
-      const dayNames = {
-        'treinoa': 'SEGUNDA | TREINO A',
-        'treinob': 'QUARTA | TREINO B',
-        'treinoc': 'SEXTA | TREINO C'
-      };
-
+      const card = document.getElementById('dayCard-' + dayId);
+      const cardTitle = card ? card.querySelector('.day-name')?.textContent?.trim() : null;
       const titleEl = document.getElementById('dedicatedBarTitle');
-      if (titleEl) titleEl.textContent = dayNames[dayId] || 'Treino do Dia';
+      if (titleEl) titleEl.textContent = cardTitle || dayId.toUpperCase();
 
-      // Esconde todas as abas e ativa a do dia
       document.querySelectorAll('.tab-content').forEach(c => {
         c.classList.remove('active');
       });
@@ -8364,15 +8580,66 @@
       const target = document.getElementById('tab-' + dayId);
       if (target) {
         target.classList.add('active');
+
+        const existingBanner = document.getElementById('workoutSessionModeBanner-' + dayId);
+        if (existingBanner) existingBanner.remove();
+
+        if (isReviewMode) {
+          const banner = document.createElement('div');
+          banner.id = 'workoutSessionModeBanner-' + dayId;
+          banner.className = 'workout-session-mode-banner';
+          banner.style.cssText = 'margin: 0 0 16px 0; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 12px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; box-shadow: 0 4px 14px rgba(0,0,0,0.25);';
+          banner.innerHTML = `
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span style="font-size:1.1rem;">👁️</span>
+              <div>
+                <div style="font-size:0.8rem; font-weight:800; color:#38bdf8;">MODO REVISÃO</div>
+                <div style="font-size:0.72rem; color:#94a3b8;">Exibindo marcações da sessão anterior.</div>
+              </div>
+            </div>
+            <button type="button" onclick="startNewWorkoutSession('${dayId}')" style="background: var(--brand-neon); color: #000000; border: none; border-radius: 8px; padding: 6px 14px; font-size: 0.75rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 8px rgba(0,255,136,0.3);">
+              <span>▶</span> <span>Zerar Séries e Iniciar Nova Sessão</span>
+            </button>
+          `;
+          target.insertBefore(banner, target.firstChild);
+        }
+
+        target.querySelectorAll('.comment-textarea').forEach(ta => {
+          const exId = ta.id.replace('note-', '');
+          const prevNote = localStorage.getItem('dominio_prev_note_' + exId);
+          if (prevNote) applyPrevNoteReference(exId, prevNote);
+        });
       }
 
       updateWorkoutCompletionUI(dayId);
       updateProgress();
       window.scrollTo({ top: 0, behavior: 'smooth' });
       if (typeof pushAppHistoryState === 'function') pushAppHistoryState('day', { dayId: dayId }, 'treino-' + dayId);
+    };
+
+    function openDayWorkout(dayId) {
+      if (localStorage.getItem('dominio_daniela_assessment_completed') !== 'true' &&
+          localStorage.getItem('dominio_assessment_completed') !== 'true' &&
+          localStorage.getItem('dominio_gustavo_assessment_completed') !== 'true' &&
+          localStorage.getItem('dominio_helenice_assessment_completed') !== 'true' &&
+          localStorage.getItem('dominio_jean_assessment_completed') !== 'true') {
+        const modal = document.getElementById('intakeGateModal');
+        if (modal) modal.classList.add('active');
+        return;
+      }
+
+      const { type, target, count, isDone } = getWorkoutProgress(dayId);
+      const tab = document.getElementById('tab-' + dayId);
+      const doneSets = tab ? tab.querySelectorAll('.set-pill.done').length : 0;
+
+      if ((count > 0 || isDone) && doneSets > 0) {
+        openWorkoutSessionPromptModal(dayId, { type, target, count, isDone, doneSets });
+        return;
+      }
+
+      proceedToOpenDayWorkout(dayId, false);
     }
 
-    
     function openCompSubView(subId) {
       if (typeof pushAppHistoryState === 'function') pushAppHistoryState('compSubView', { subId }, 'comp-' + subId);
       const hubMenu = document.getElementById('compHubMenu');

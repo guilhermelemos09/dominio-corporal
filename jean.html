@@ -5821,6 +5821,58 @@
   </div>
 
 
+  
+  <!-- ==================== MODAL: CONTINUAR OU INICIAR NOVA SESSÃO ==================== -->
+  <div id="modalWorkoutSessionPrompt" class="modal-overlay" onclick="if(event.target === this) closeWorkoutSessionPromptModal();">
+    <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 440px; border-left: 4.5px solid var(--brand-neon);">
+      <div class="modal-header" style="border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 12px; margin-bottom: 14px; display: flex; align-items: flex-start; justify-content: space-between; gap: 10px;">
+        <div>
+          <div style="font-size: 0.72rem; font-weight: 800; color: var(--brand-neon); text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 5px;">
+            <span>⚡</span> <span>Sessão em Andamento</span>
+          </div>
+          <div id="promptModalWorkoutTitle" style="font-size: 1.15rem; font-weight: 900; color: #ffffff; margin-top: 2px;">
+            SESSÃO DE TREINO
+          </div>
+        </div>
+        <span id="promptModalProgressPill" style="font-size: 0.72rem; font-weight: 800; color: #38bdf8; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.3); padding: 4px 10px; border-radius: 12px; white-space: nowrap;">
+          1/4 Concluído
+        </span>
+      </div>
+
+      <p style="font-size: 0.82rem; color: #94a3b8; line-height: 1.5; margin: 0 0 14px 0;">
+        Você já possui uma sessão concluída e arquivada neste ciclo. Como deseja prosseguir hoje?
+      </p>
+
+      <!-- Bloco de Lembrete das Cargas Anteriores -->
+      <div id="promptModalPrevNotesWrap" style="display: none; margin-bottom: 16px; background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 12px; padding: 12px 14px;">
+        <div style="font-size: 0.74rem; font-weight: 800; color: #38bdf8; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+          <span>📌</span> <span>Cargas e Anotações da Última Sessão</span>
+        </div>
+        <div id="promptModalPrevNotesList" style="font-size: 0.78rem; color: #cbd5e1; line-height: 1.5; max-height: 130px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px;">
+          <!-- Injetado dinamicamente -->
+        </div>
+      </div>
+
+      <!-- Botões de Ação -->
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <button type="button" id="btnPromptStartNewSession" onclick="handlePromptStartNewSession()" style="width: 100%; background: var(--brand-neon); color: #000000; border: none; border-radius: 12px; padding: 14px 16px; font-size: 0.88rem; font-weight: 900; letter-spacing: 0.03em; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; box-shadow: 0 4px 14px rgba(0, 255, 136, 0.3); transition: transform 0.15s ease;">
+          <span id="promptBtnNewSessionTitle" style="display: flex; align-items: center; gap: 6px;">
+            <span>▶</span> <span>INICIAR NOVA SESSÃO (2 de 4)</span>
+          </span>
+          <span style="font-size: 0.68rem; font-weight: 700; color: rgba(0, 0, 0, 0.75);">Zera as séries para hoje e lembra as cargas nos exercícios</span>
+        </button>
+
+        <button type="button" id="btnPromptReviewSession" onclick="handlePromptReviewSession()" style="width: 100%; background: rgba(255, 255, 255, 0.04); color: #e2e8f0; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 12px; padding: 12px 16px; font-size: 0.82rem; font-weight: 800; letter-spacing: 0.02em; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; transition: background 0.15s ease;">
+          <span style="display: flex; align-items: center; gap: 6px;">
+            <span>👁️</span> <span>REVISAR SESSÃO ANTERIOR</span>
+          </span>
+          <span style="font-size: 0.68rem; font-weight: 600; color: #94a3b8;">Ver marcações e anotações como foram enviadas</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
   <!-- Modal de Ajuda Contextual e Instruções do Aplicativo -->
   <div id="contextualHelpModal" class="modal-overlay" onclick="if(event.target === this) closeContextualHelp();">
     <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 520px;">
@@ -6438,32 +6490,198 @@ Segue o vídeo anexo para sua análise!`;
       return;
     }
 
-    function openDayWorkout(dayId) {
-      if (localStorage.getItem('dominio_assessment_completed') !== 'true') {
-        const modal = document.getElementById('intakeGateModal');
-        if (modal) modal.classList.add('active');
-        if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'welcomeAppModal' }, 'boas-vindas');
-      if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'contextualHelpModal' }, 'ajuda');
-      if (typeof pushAppHistoryState === 'function') pushAppHistoryState('modal', { modalId: 'videoModal' }, 'video');
+    
+    // =========================================================================
+    // CONTROLE DE SESSÃO CONTÍNUA, LEMBRETE DE CARGAS E REINÍCIO INTELIGENTE
+    // =========================================================================
+
+    function getPreviousNotesForDay(dayId) {
+      const tab = document.getElementById('tab-' + dayId);
+      if (!tab) return [];
+      const results = [];
+      tab.querySelectorAll('.comment-textarea').forEach(ta => {
+        const exId = ta.id.replace('note-', '');
+        const card = ta.closest('.exercise-card');
+        const nameEl = card ? card.querySelector('.ex-title span') : null;
+        const exName = nameEl ? nameEl.textContent.trim() : 'Exercício';
+        const noteText = ta.value.trim() || localStorage.getItem('dominio_prev_note_' + exId) || '';
+        if (noteText && noteText.trim()) {
+          results.push({ exId, exName, text: noteText.trim() });
+        }
+      });
+      return results;
+    }
+
+    function applyPrevNoteReference(exId, prevNote) {
+      if (!prevNote || !prevNote.trim()) return;
+      const box = document.getElementById('comment-box-' + exId);
+      if (!box) return;
+
+      const existing = box.querySelector('.prev-note-hint');
+      if (existing) existing.remove();
+
+      const hintEl = document.createElement('div');
+      hintEl.className = 'prev-note-hint';
+      hintEl.style.cssText = 'margin-bottom: 8px; padding: 7px 10px; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 8px; font-size: 0.75rem; color: #cbd5e1; line-height: 1.4; display: flex; align-items: flex-start; gap: 6px;';
+      hintEl.innerHTML = `<span style="font-size: 0.85rem; line-height: 1;">📌</span> <div><strong style="color: #38bdf8;">Última anotação:</strong> <span>${prevNote}</span></div>`;
+
+      const header = box.querySelector('.comment-header');
+      if (header) {
+        header.parentNode.insertBefore(hintEl, header.nextSibling);
+      } else {
+        box.insertBefore(hintEl, box.firstChild);
+      }
+
+      const dot = document.getElementById('dot-' + exId);
+      if (dot) dot.style.display = 'inline-block';
+      const btn = document.getElementById('btn-comment-' + exId);
+      if (btn) btn.classList.add('has-note');
+    }
+
+    window.openWorkoutSessionPromptModal = function(dayId, progressInfo) {
+      window._pendingWorkoutPromptDayId = dayId;
+      const modal = document.getElementById('modalWorkoutSessionPrompt');
+      if (!modal) {
+        proceedToOpenDayWorkout(dayId);
         return;
       }
+
+      const { type, target, count } = progressInfo || getWorkoutProgress(dayId);
+      const nextCount = Math.min(target, count + 1);
+
+      const titleEl = document.getElementById('promptModalWorkoutTitle');
+      if (titleEl) {
+        const cardTitle = document.querySelector('#dayCard-' + dayId + ' .day-name')?.textContent?.trim();
+        titleEl.textContent = cardTitle || dayId.toUpperCase();
+      }
+
+      const pillEl = document.getElementById('promptModalProgressPill');
+      if (pillEl) {
+        if (type === 'treino' && target > 1) {
+          pillEl.textContent = `${count}/${target} Concluído`;
+          pillEl.style.color = '#38bdf8';
+          pillEl.style.borderColor = 'rgba(56, 189, 248, 0.3)';
+          pillEl.style.background = 'rgba(56, 189, 248, 0.12)';
+        } else {
+          pillEl.textContent = '✓ Concluído';
+          pillEl.style.color = 'var(--brand-neon)';
+          pillEl.style.borderColor = 'rgba(0, 255, 136, 0.3)';
+          pillEl.style.background = 'rgba(0, 255, 136, 0.12)';
+        }
+      }
+
+      const btnTitleEl = document.getElementById('promptBtnNewSessionTitle');
+      if (btnTitleEl) {
+        if (type === 'treino' && target > 1) {
+          btnTitleEl.innerHTML = `<span>▶</span> <span>INICIAR NOVA SESSÃO (${nextCount} de ${target})</span>`;
+        } else {
+          btnTitleEl.innerHTML = `<span>▶</span> <span>INICIAR NOVA SESSÃO</span>`;
+        }
+      }
+
+      const notes = getPreviousNotesForDay(dayId);
+      const notesWrap = document.getElementById('promptModalPrevNotesWrap');
+      const notesList = document.getElementById('promptModalPrevNotesList');
+      if (notesWrap && notesList) {
+        if (notes.length > 0) {
+          notesWrap.style.display = 'block';
+          notesList.innerHTML = notes.map(n => `
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 6px 10px;">
+              <div style="font-weight: 800; font-size: 0.73rem; color: #38bdf8;">${n.exName}</div>
+              <div style="color: #f1f5f9; font-size: 0.77rem; margin-top: 2px;">${n.text}</div>
+            </div>
+          `).join('');
+        } else {
+          notesWrap.style.display = 'none';
+          notesList.innerHTML = '';
+        }
+      }
+
+      modal.style.display = 'flex';
+      modal.classList.add('active');
+    };
+
+    window.closeWorkoutSessionPromptModal = function() {
+      const modal = document.getElementById('modalWorkoutSessionPrompt');
+      if (modal) {
+        modal.style.display = 'none';
+        modal.classList.remove('active');
+      }
+      window._pendingWorkoutPromptDayId = null;
+    };
+
+    window.handlePromptStartNewSession = function() {
+      const dayId = window._pendingWorkoutPromptDayId;
+      closeWorkoutSessionPromptModal();
+      if (dayId) {
+        startNewWorkoutSession(dayId);
+      }
+    };
+
+    window.handlePromptReviewSession = function() {
+      const dayId = window._pendingWorkoutPromptDayId;
+      closeWorkoutSessionPromptModal();
+      if (dayId) {
+        proceedToOpenDayWorkout(dayId, true);
+      }
+    };
+
+    window.startNewWorkoutSession = function(dayId) {
+      const tab = document.getElementById('tab-' + dayId);
+      if (!tab) return;
+
+      tab.querySelectorAll('.comment-textarea').forEach(ta => {
+        const exId = ta.id.replace('note-', '');
+        const currentVal = ta.value.trim();
+        if (currentVal) {
+          try {
+            localStorage.setItem('dominio_prev_note_' + exId, currentVal);
+          } catch (e) {}
+          ta.value = '';
+        }
+        const prevNote = localStorage.getItem('dominio_prev_note_' + exId);
+        if (prevNote) {
+          applyPrevNoteReference(exId, prevNote);
+        }
+      });
+
+      tab.querySelectorAll('.set-pill.done').forEach(pill => {
+        pill.classList.remove('done');
+      });
+
+      try {
+        const saved = getSavedMarkedSets();
+        let changed = false;
+        Object.keys(saved).forEach(k => {
+          if (k.startsWith(dayId + '_') || k.startsWith('tab-' + dayId + '_')) {
+            delete saved[k];
+            changed = true;
+          }
+        });
+        if (changed) saveMarkedSets(saved);
+      } catch (e) {}
+
+      const banner = document.getElementById('workoutSessionModeBanner-' + dayId);
+      if (banner) banner.remove();
+
+      updateProgress();
+      if (typeof updateEvolucaoStats === 'function') updateEvolucaoStats();
+
+      proceedToOpenDayWorkout(dayId, false);
+    };
+
+    window.proceedToOpenDayWorkout = function(dayId, isReviewMode = false) {
       lastActiveDayTab = dayId;
-      document.body.classList.add('in-dedicated-view');
+      document.body.classList.add('in-dedicated-view', 'in-day-workout');
+      document.body.classList.remove('in-view-avaliacao', 'in-view-perfil', 'in-view-timers');
       const topBar = document.getElementById('dedicatedTopBar');
       if (topBar) topBar.style.display = 'flex';
 
-      const dayNames = {
-        'segunda': 'SEGUNDA | CROSSFIT',
-        'terca': 'TERÇA | BMU E ACRODUO',
-        'quarta': 'QUARTA | HANDSTAND',
-        'quinta': 'QUINTA | DANÇA E FORÇA',
-        'sexta': 'SEXTA | ARGOLAS E PORTAGEM'
-      };
-
+      const card = document.getElementById('dayCard-' + dayId);
+      const cardTitle = card ? card.querySelector('.day-name')?.textContent?.trim() : null;
       const titleEl = document.getElementById('dedicatedBarTitle');
-      if (titleEl) titleEl.textContent = dayNames[dayId] || 'Treino do Dia';
+      if (titleEl) titleEl.textContent = cardTitle || dayId.toUpperCase();
 
-      // Esconde todas as abas e ativa a do dia
       document.querySelectorAll('.tab-content').forEach(c => {
         c.classList.remove('active');
       });
@@ -6471,952 +6689,66 @@ Segue o vídeo anexo para sua análise!`;
       const target = document.getElementById('tab-' + dayId);
       if (target) {
         target.classList.add('active');
+
+        const existingBanner = document.getElementById('workoutSessionModeBanner-' + dayId);
+        if (existingBanner) existingBanner.remove();
+
+        if (isReviewMode) {
+          const banner = document.createElement('div');
+          banner.id = 'workoutSessionModeBanner-' + dayId;
+          banner.className = 'workout-session-mode-banner';
+          banner.style.cssText = 'margin: 0 0 16px 0; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 12px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; box-shadow: 0 4px 14px rgba(0,0,0,0.25);';
+          banner.innerHTML = `
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span style="font-size:1.1rem;">👁️</span>
+              <div>
+                <div style="font-size:0.8rem; font-weight:800; color:#38bdf8;">MODO REVISÃO</div>
+                <div style="font-size:0.72rem; color:#94a3b8;">Exibindo marcações da sessão anterior.</div>
+              </div>
+            </div>
+            <button type="button" onclick="startNewWorkoutSession('${dayId}')" style="background: var(--brand-neon); color: #000000; border: none; border-radius: 8px; padding: 6px 14px; font-size: 0.75rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 8px rgba(0,255,136,0.3);">
+              <span>▶</span> <span>Zerar Séries e Iniciar Nova Sessão</span>
+            </button>
+          `;
+          target.insertBefore(banner, target.firstChild);
+        }
+
+        target.querySelectorAll('.comment-textarea').forEach(ta => {
+          const exId = ta.id.replace('note-', '');
+          const prevNote = localStorage.getItem('dominio_prev_note_' + exId);
+          if (prevNote) applyPrevNoteReference(exId, prevNote);
+        });
       }
 
       updateWorkoutCompletionUI(dayId);
       updateProgress();
       window.scrollTo({ top: 0, behavior: 'smooth' });
       if (typeof pushAppHistoryState === 'function') pushAppHistoryState('day', { dayId: dayId }, 'treino-' + dayId);
-    }
-
-    
-    function isAnyEvolViewOpen() {
-      const viewIds = ['composicao', 'tecnica', 'recordes', 'relatorio'];
-      return viewIds.some(id => {
-        const el = document.getElementById('evolView-' + id);
-        return el && el.style.display === 'block';
-      });
-    }
-
-    function switchEvolucaoPane(paneId) {
-      openEvolucaoView(paneId === 'consistencia' ? 'relatorio' : paneId);
-    }
-
-    // =========================================================================
-    // MOTOR DE BIOMETRIA E PERFORMANCE (PSE FOSTER + SMARTWATCH + EPOC + TRIMP)
-    // =========================================================================
-    window._currentWatchPhotoDataUrl = null;
-    window._currentBioModalDayId = null;
-
-    function getPseMeta(pseVal) {
-      const p = Number(pseVal);
-      if (isNaN(p) || p <= 0) return { label: 'Sem Esforço / Repouso', color: '#94a3b8', bg: 'rgba(148,163,184,0.14)', border: 'rgba(148,163,184,0.4)' };
-      if (p <= 2) return { label: 'Muito Leve', color: '#38bdf8', bg: 'rgba(56,189,248,0.14)', border: 'rgba(56,189,248,0.4)' };
-      if (p <= 4) return { label: 'Moderado', color: '#00ff88', bg: 'rgba(0,255,136,0.14)', border: 'rgba(0,255,136,0.4)' };
-      if (p <= 6) return { label: 'Pesado', color: '#fbbf24', bg: 'rgba(251,191,36,0.14)', border: 'rgba(251,191,36,0.4)' };
-      if (p <= 8) return { label: 'Muito Intenso', color: '#f97316', bg: 'rgba(249,115,22,0.14)', border: 'rgba(249,115,22,0.4)' };
-      return { label: 'Exaustão Máxima', color: '#f43f5e', bg: 'rgba(244,63,94,0.14)', border: 'rgba(244,63,94,0.4)' };
-    }
-
-    function getAthletePhysioProfile() {
-      let weightKg = 78;
-      let age = 31;
-      let isFemale = false;
-      try {
-        const intake = JSON.parse(localStorage.getItem('dominio_student_intake') || localStorage.getItem('dominio_student_intake') || '{}');
-        if (intake.peso && Number(intake.peso) > 30) weightKg = Number(intake.peso);
-        if (intake.idade && Number(intake.idade) > 10) age = Number(intake.idade);
-        const nome = (intake.nome || document.title || '').toLowerCase();
-        if (nome.includes('daniela') || nome.includes('helenice') || intake.sexo === 'F') isFemale = true;
-      } catch (e) {}
-      try {
-        const compHist = JSON.parse(localStorage.getItem('dominio_body_comp_history') || localStorage.getItem('dominio_body_comp_history') || '[]');
-        if (compHist.length > 0 && Number(compHist[compHist.length - 1].weight) > 30) {
-          weightKg = Number(compHist[compHist.length - 1].weight);
-        }
-      } catch (e) {}
-      return { weightKg, age, isFemale, hrRest: 58, hrMaxTheor: Math.round(208 - 0.7 * age) };
-    }
-
-    function calculateSessionPhysiology(params) {
-      const durationMin = Math.max(5, Number(params.durationMin) || 60);
-      const numPse = Number(params.pse);
-      const pse = isNaN(numPse) ? 7 : Math.max(0, Math.min(10, numPse));
-      const doneSets = Math.max(0, Number(params.doneSets) || 0);
-      const hrAvg = Number(params.hrAvg) > 40 ? Number(params.hrAvg) : 0;
-      const hrMax = Number(params.hrMax) > 50 ? Number(params.hrMax) : 0;
-      const watchKcal = Number(params.watchKcal) > 10 ? Number(params.watchKcal) : 0;
-
-      const prof = getAthletePhysioProfile();
-      const loadUA = Math.round(durationMin * pse);
-
-      const effHrMax = hrMax > 0 ? hrMax : Math.min(prof.hrMaxTheor, Math.round(112 + pse * 7));
-      const effHrAvg = hrAvg > 0 ? hrAvg : Math.round(88 + pse * 6.2);
-      const maxRef = Math.max(prof.hrMaxTheor, effHrMax);
-      const hrReserveRatio = Math.max(0.12, Math.min(0.98, (effHrAvg - prof.hrRest) / Math.max(40, maxRef - prof.hrRest)));
-
-      // TRIMP de Banister
-      const coefA = prof.isFemale ? 0.86 : 0.64;
-      const coefB = prof.isFemale ? 1.67 : 1.92;
-      const trimp = Math.round(durationMin * hrReserveRatio * coefA * Math.exp(coefB * hrReserveRatio));
-
-      // Zona Cardíaca Predominante
-      const pctMax = Math.round((effHrAvg / maxRef) * 100);
-      let zoneLabel = 'Zona 2 (60-70% • Base Aeróbia)';
-      if (pctMax >= 90) zoneLabel = 'Zona 5 (90%+ • Potência Máxima)';
-      else if (pctMax >= 80) zoneLabel = 'Zona 4 (80-89% • Limiar Anaeróbio)';
-      else if (pctMax >= 70) zoneLabel = 'Zona 3 (70-79% • Ritmo Intenso)';
-      else if (pctMax < 60) zoneLabel = 'Zona 1 (<60% • Recuperativa)';
-
-      // Gasto Calórico Ativo + Trabalho Mecânico Anaeróbio + EPOC
-      let activeKcal = 0;
-      if (hrAvg > 0) {
-        const perMin = prof.isFemale
-          ? ((-20.4022 + 0.4472 * hrAvg - 0.1263 * prof.weightKg + 0.074 * prof.age) / 4.184)
-          : ((-55.0969 + 0.6309 * hrAvg + 0.1988 * prof.weightKg + 0.2017 * prof.age) / 4.184);
-        activeKcal = Math.max(durationMin * 3.2, perMin * durationMin);
-      } else {
-        const met = 3.1 + pse * 0.58;
-        activeKcal = (met * 3.5 * prof.weightKg / 200) * durationMin;
-      }
-
-      const setsUsed = doneSets > 0 ? doneSets : Math.round(durationMin / 3.8);
-      const mechWorkKcal = Math.round(setsUsed * (1.85 + pse * 0.44) * (prof.weightKg / 75));
-
-      let baseKcal = 0;
-      if (watchKcal > 0) {
-        baseKcal = Math.max(watchKcal, Math.round(activeKcal * 0.85)) + Math.round(mechWorkKcal * 0.68);
-      } else {
-        baseKcal = Math.round(activeKcal + mechWorkKcal * 0.52);
-      }
-
-      const epocFactor = 0.04 + (pse * 0.012) + (effHrMax >= 165 ? 0.025 : 0);
-      const epocKcal = Math.round(baseKcal * epocFactor);
-      const realKcal = baseKcal + epocKcal;
-      const deltaKcal = watchKcal > 0 ? Math.max(15, realKcal - watchKcal) : (epocKcal + Math.round(mechWorkKcal * 0.52));
-
-      // Estimativa de VO2 Operacional (Uth-Sorensen-Overgaard-Pedersen + Eficiência de Carga)
-      const vo2Base = 15.3 * (prof.hrMaxTheor / prof.hrRest);
-      const effAdj = hrAvg > 0 ? (((pse * 18.5) - (hrAvg - 112)) * 0.07) : (pse >= 7 ? 1.5 : 0.5);
-      const vo2Est = Math.max(32, Math.min(68, Math.round((vo2Base + effAdj) * 10) / 10));
-
-      return {
-        durationMin,
-        pse,
-        loadUA,
-        hrAvg: hrAvg || null,
-        hrMax: hrMax || null,
-        watchKcal: watchKcal || null,
-        realKcal,
-        epocKcal,
-        mechWorkKcal,
-        deltaKcal,
-        trimp,
-        vo2Est,
-        zoneLabel,
-        pctMax
-      };
-    }
-
-    window.selectBioPse = function(val) {
-      const num = Number(val);
-      const p = isNaN(num) ? 7 : Math.max(0, Math.min(10, num));
-      const input = document.getElementById('bio_session_pse');
-      if (input) input.value = String(p);
-
-      const meta = getPseMeta(p);
-      const badge = document.getElementById('bioPseSelectedBadge');
-      if (badge) {
-        badge.textContent = `Nível ${p} • ${meta.label}`;
-        badge.style.color = meta.color;
-        badge.style.background = meta.bg;
-        badge.style.borderColor = meta.border;
-      }
-
-      const grid = document.getElementById('bioPseButtonsGrid');
-      if (grid) {
-        grid.querySelectorAll('.pse-btn').forEach(btn => {
-          const bVal = Number(btn.getAttribute('data-pse'));
-          const bMeta = getPseMeta(bVal);
-          if (bVal === p) {
-            btn.classList.add('active');
-            btn.style.background = bMeta.bg;
-            btn.style.borderColor = bMeta.color;
-            btn.style.boxShadow = `0 0 12px ${bMeta.bg}`;
-          } else {
-            btn.classList.remove('active');
-            btn.style.background = 'rgba(255,255,255,0.04)';
-            btn.style.borderColor = 'rgba(255,255,255,0.12)';
-            btn.style.boxShadow = 'none';
-          }
-        });
-      }
-      recalcBiometriaModalPreview();
     };
 
-    window.recalcBiometriaModalPreview = function() {
-      const daySel = document.getElementById('bio_session_day');
-      const dayId = daySel ? daySel.value : (window._currentBioModalDayId || 'terca');
-      const durEl = document.getElementById('bio_session_duration');
-      const pseEl = document.getElementById('bio_session_pse');
-      const hrAvgEl = document.getElementById('bio_watch_hr_avg');
-      const hrMaxEl = document.getElementById('bio_watch_hr_max');
-      const watchKcalEl = document.getElementById('bio_watch_kcal');
-
-      const tab = document.getElementById('tab-' + dayId);
-      const doneSets = tab ? tab.querySelectorAll('.set-pill.done').length : 12;
-      const totalSets = tab ? tab.querySelectorAll('.set-pill').length : 12;
-
-      const calc = calculateSessionPhysiology({
-        durationMin: durEl ? durEl.value : 60,
-        pse: pseEl ? pseEl.value : 7,
-        doneSets: doneSets > 0 ? doneSets : totalSets,
-        hrAvg: hrAvgEl ? hrAvgEl.value : 0,
-        hrMax: hrMaxEl ? hrMaxEl.value : 0,
-        watchKcal: watchKcalEl ? watchKcalEl.value : 0
-      });
-
-      const setsInfoEl = document.getElementById('bioLiveSetsInfo');
-      if (setsInfoEl) {
-        setsInfoEl.textContent = totalSets > 0 ? `${doneSets > 0 ? doneSets : totalSets}/${totalSets} séries integradas` : 'Sessão livre integrada';
-      }
-
-      const loadEl = document.getElementById('bioPreviewLoadUA');
-      if (loadEl) loadEl.textContent = `${calc.loadUA} U.A.`;
-
-      const kcalEl = document.getElementById('bioPreviewRealKcal');
-      if (kcalEl) kcalEl.textContent = `${calc.realKcal} kcal`;
-
-      const trimpVo2El = document.getElementById('bioPreviewTrimpVo2');
-      if (trimpVo2El) trimpVo2El.textContent = `${calc.trimp} pts • VO2 ${calc.vo2Est}`;
-
-      const expEl = document.getElementById('bioPreviewExplanation');
-      if (expEl) expEl.innerHTML = '';
-    };
-
-    window.openBiometriaSessaoModal = function(dayId) {
-      const modal = document.getElementById('modalBiometriaSessao');
-      if (!modal) return;
-
-      window._currentBioModalDayId = dayId || null;
-
-      // Popula dinamicamente as opções do seletor de dia com base nos cards de treino existentes
-      const daySel = document.getElementById('bio_session_day');
-      if (daySel) {
-        const cards = document.querySelectorAll('.training-day-card[id^="hubCard-"]');
-        if (cards.length > 0) {
-          daySel.innerHTML = '';
-          cards.forEach(c => {
-            const id = c.id.replace('hubCard-', '');
-            const nameEl = c.querySelector('.day-name');
-            const focusEl = c.querySelector('.day-focus-desc');
-            const label = (nameEl ? nameEl.textContent.trim() : id.toUpperCase()) + (focusEl ? ' | ' + focusEl.textContent.trim() : '');
-            const opt = document.createElement('option');
-            opt.value = id;
-            opt.textContent = label;
-            daySel.appendChild(opt);
-          });
-          const extraOpt = document.createElement('option');
-          extraOpt.value = 'extra';
-          extraOpt.textContent = 'TREINO EXTRA / CONDICIONAMENTO';
-          daySel.appendChild(extraOpt);
-        }
-        if (dayId && Array.from(daySel.options).some(o => o.value === dayId)) {
-          daySel.value = dayId;
-        }
-      }
-
-      // Detecta duração estimada da sessão a partir do cabeçalho da aba
-      const targetDay = dayId || (daySel ? daySel.value : 'terca');
-      const tab = document.getElementById('tab-' + targetDay);
-      let detectedMinutes = 60;
-      if (tab) {
-        const metaText = tab.innerText || '';
-        const mMatch = metaText.match(/~\s*(\d{2,3})\s*min/i);
-        if (mMatch && mMatch[1]) detectedMinutes = Number(mMatch[1]);
-      }
-      const durEl = document.getElementById('bio_session_duration');
-      if (durEl) durEl.value = String(detectedMinutes);
-
-      // Limpa ou mantém campos do relógio
-      clearSmartwatchPhoto();
-      const hrAvgEl = document.getElementById('bio_watch_hr_avg');
-      const hrMaxEl = document.getElementById('bio_watch_hr_max');
-      const watchKcalEl = document.getElementById('bio_watch_kcal');
-      if (hrAvgEl) hrAvgEl.value = '';
-      if (hrMaxEl) hrMaxEl.value = '';
-      if (watchKcalEl) watchKcalEl.value = '';
-
-      selectBioPse(7);
-
-      modal.style.setProperty('display', 'flex', 'important');
-      modal.classList.add('active');
-      if (typeof pushAppHistoryState === 'function') {
-        pushAppHistoryState('modal', () => closeBiometriaSessaoModal(true));
-      }
-    };
-
-    window.closeBiometriaSessaoModal = function(fromPopState = false) {
-      if (!fromPopState && typeof popAppHistoryState === 'function' && popAppHistoryState('modal')) return;
-      const modal = document.getElementById('modalBiometriaSessao');
-      if (modal) {
-        modal.style.setProperty('display', 'none', 'important');
-        modal.classList.remove('active');
-      }
-    };
-
-    window.clearSmartwatchPhoto = function() {
-      window._currentWatchPhotoDataUrl = null;
-      const fileIn = document.getElementById('bio_watch_photo_input');
-      if (fileIn) fileIn.value = '';
-      const promptEl = document.getElementById('bioWatchUploadPrompt');
-      const prevWrap = document.getElementById('bioWatchPreviewWrap');
-      if (promptEl) promptEl.style.display = 'block';
-      if (prevWrap) prevWrap.style.display = 'none';
-    };
-
-    function parseSmartwatchOcrText(rawText) {
-      if (!rawText) return {};
-      const text = rawText.replace(/\n+/g, ' ').replace(/\s+/g, ' ');
-      const found = {};
-
-      // Calorias (ex: 384 kcal, 412 cal)
-      const kcalMatch = text.match(/(\d{2,4})\s*(?:kcal|cal|Calorias)/i);
-      if (kcalMatch && Number(kcalMatch[1]) >= 30 && Number(kcalMatch[1]) <= 2200) {
-        found.kcal = Number(kcalMatch[1]);
-      }
-
-      // Batimentos (bpm)
-      const bpmMatches = [...text.matchAll(/(\d{2,3})\s*(?:bpm|bat)/gi)].map(m => Number(m[1])).filter(n => n >= 55 && n <= 215);
-      if (bpmMatches.length >= 2) {
-        bpmMatches.sort((a, b) => a - b);
-        found.hrAvg = bpmMatches[0];
-        found.hrMax = bpmMatches[bpmMatches.length - 1];
-      } else if (bpmMatches.length === 1) {
-        found.hrAvg = bpmMatches[0];
-      }
-
-      // Duração (HH:MM:SS ou MM min)
-      const timeMatch = text.match(/(\d{1,2}):(\d{2}):(\d{2})/);
-      if (timeMatch) {
-        const mins = Number(timeMatch[1]) * 60 + Number(timeMatch[2]);
-        if (mins >= 5 && mins <= 240) found.duration = mins;
-      } else {
-        const minMatch = text.match(/(\d{2,3})\s*min/i);
-        if (minMatch && Number(minMatch[1]) >= 10 && Number(minMatch[1]) <= 240) {
-          found.duration = Number(minMatch[1]);
-        }
-      }
-      return found;
-    }
-
-    window.handleSmartwatchPhotoUpload = function(input) {
-      if (!input || !input.files || !input.files[0]) return;
-      const file = input.files[0];
-      const reader = new FileReader();
-      reader.onload = function(ev) {
-        const img = new Image();
-        img.onload = async function() {
-          const canvas = document.createElement('canvas');
-          const maxDim = 540;
-          let w = img.width;
-          let h = img.height;
-          if (w > maxDim || h > maxDim) {
-            if (w > h) { h = Math.round(h * (maxDim / w)); w = maxDim; }
-            else { w = Math.round(w * (maxDim / h)); h = maxDim; }
-          }
-          canvas.width = w;
-          canvas.height = h;
-          const ctx = canvas.getContext('2d');
-          ctx.drawImage(img, 0, 0, w, h);
-          const dataUrl = canvas.toDataURL('image/jpeg', 0.78);
-          window._currentWatchPhotoDataUrl = dataUrl;
-
-          const promptEl = document.getElementById('bioWatchUploadPrompt');
-          const prevWrap = document.getElementById('bioWatchPreviewWrap');
-          const prevImg = document.getElementById('bioWatchPreviewImg');
-          const statusEl = document.getElementById('bioWatchOcrStatus');
-          const subEl = document.getElementById('bioWatchOcrSub');
-
-          if (promptEl) promptEl.style.display = 'none';
-          if (prevWrap) prevWrap.style.display = 'flex';
-          if (prevImg) prevImg.src = dataUrl;
-          if (statusEl) statusEl.textContent = '🔍 Analisando números da tela do relógio...';
-          if (subEl) subEl.textContent = 'Extraindo frequência cardíaca e calorias da imagem...';
-
-          let extracted = {};
-          try {
-            if ('TextDetector' in window) {
-              const detector = new window.TextDetector();
-              const blocks = await detector.detect(canvas);
-              const fullText = blocks.map(b => b.rawValue).join(' ');
-              extracted = parseSmartwatchOcrText(fullText);
-            } else if (navigator.onLine) {
-              if (!window.Tesseract) {
-                await new Promise((res, rej) => {
-                  const s = document.createElement('script');
-                  s.src = 'https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js';
-                  s.onload = res;
-                  s.onerror = rej;
-                  document.head.appendChild(s);
-                });
-              }
-              if (window.Tesseract) {
-                const { data: { text } } = await window.Tesseract.recognize(dataUrl, 'por+eng');
-                extracted = parseSmartwatchOcrText(text);
-              }
-            }
-          } catch (ocrErr) {
-            console.warn('OCR fallback:', ocrErr);
-          }
-
-          let fieldsFilled = [];
-          if (extracted.hrAvg) {
-            const el = document.getElementById('bio_watch_hr_avg');
-            if (el) el.value = String(extracted.hrAvg);
-            fieldsFilled.push(`FC Méd: ${extracted.hrAvg} bpm`);
-          }
-          if (extracted.hrMax) {
-            const el = document.getElementById('bio_watch_hr_max');
-            if (el) el.value = String(extracted.hrMax);
-            fieldsFilled.push(`Pico: ${extracted.hrMax} bpm`);
-          }
-          if (extracted.kcal) {
-            const el = document.getElementById('bio_watch_kcal');
-            if (el) el.value = String(extracted.kcal);
-            fieldsFilled.push(`${extracted.kcal} kcal`);
-          }
-          if (extracted.duration) {
-            const el = document.getElementById('bio_session_duration');
-            if (el) el.value = String(extracted.duration);
-            fieldsFilled.push(`${extracted.duration} min`);
-          }
-
-          if (fieldsFilled.length > 0) {
-            if (statusEl) statusEl.textContent = '✓ Dados lidos da foto: ' + fieldsFilled.join(' • ');
-            if (subEl) subEl.textContent = 'Confira abaixo ou complemente se algum campo ficou oculto pelo reflexo.';
-          } else {
-            if (statusEl) statusEl.textContent = '✓ Foto do Smartwatch anexada com sucesso!';
-            if (subEl) subEl.textContent = 'Informe abaixo a FC Média, FC Pico e Kcal visíveis na foto para o cruzamento.';
-          }
-          recalcBiometriaModalPreview();
-        };
-        img.src = ev.target.result;
-      };
-      reader.readAsDataURL(file);
-    };
-
-    window.openInstrucoesBiometriaModal = function(tab) {
-      const modal = document.getElementById('modalInstrucoesBiometria');
-      if (!modal) return;
-      switchInstrucoesBiometriaTab(tab || 'pse');
-      modal.style.setProperty('display', 'flex', 'important');
-      modal.classList.add('active');
-      if (typeof pushAppHistoryState === 'function') {
-        pushAppHistoryState('modal', () => closeInstrucoesBiometriaModal(true));
-      }
-    };
-
-    window.closeInstrucoesBiometriaModal = function(fromPopState = false) {
-      if (!fromPopState && typeof popAppHistoryState === 'function' && popAppHistoryState('modal')) return;
-      const modal = document.getElementById('modalInstrucoesBiometria');
-      if (modal) {
-        modal.style.setProperty('display', 'none', 'important');
-        modal.classList.remove('active');
-      }
-    };
-
-    window.goToBiometriaPerformanceView = function() {
-      if (typeof closeBiometriaSessaoModal === 'function') closeBiometriaSessaoModal();
-      if (typeof switchTab === 'function') {
-        switchTab('evolucao');
-      } else if (typeof openDedicatedView === 'function') {
-        openDedicatedView('evolucao');
-      }
-      if (typeof openEvolucaoView === 'function') {
-        openEvolucaoView('relatorio');
-      }
-    };
-
-    window.switchInstrucoesBiometriaTab = function(tab) {
-      const t = tab === 'watch' ? 'watch' : 'pse';
-      const btnPse = document.getElementById('btnBioGuideTab-pse');
-      const btnWatch = document.getElementById('btnBioGuideTab-watch');
-      const panePse = document.getElementById('bioGuidePane-pse');
-      const paneWatch = document.getElementById('bioGuidePane-watch');
-      if (btnPse) btnPse.classList.toggle('active', t === 'pse');
-      if (btnWatch) btnWatch.classList.toggle('active', t === 'watch');
-      if (panePse) panePse.style.display = t === 'pse' ? 'block' : 'none';
-      if (paneWatch) paneWatch.style.display = t === 'watch' ? 'block' : 'none';
-    };
-
-    window.deleteBioWorkoutLog = function(index) {
-      try {
-        const logs = JSON.parse(localStorage.getItem('dominio_aluno_workout_logs') || '[]');
-        if (index >= 0 && index < logs.length) {
-          logs.splice(index, 1);
-          localStorage.setItem('dominio_aluno_workout_logs', JSON.stringify(logs));
-          updateEvolucaoStats();
-        }
-      } catch (e) {}
-    };
-
-    window.renderBiometriaPerformanceUI = function() {
-      let logs = [];
-      try {
-        logs = JSON.parse(localStorage.getItem('dominio_aluno_workout_logs') || '[]');
-      } catch (e) {}
-
-      // Calcula somatórios e médias das últimas 7 sessões (janela semanal)
-      const recentLogs = logs.slice(-7);
-      let totalLoadUA = 0;
-      let sumPse = 0;
-      let pseCount = 0;
-      let totalRealKcal = 0;
-      let totalWatchKcal = 0;
-      let totalEpoc = 0;
-      let sumHrAvg = 0;
-      let maxHrPeak = 0;
-      let hrCount = 0;
-      let totalTrimp = 0;
-      let latestVo2 = null;
-      let latestZone = null;
-
-      recentLogs.forEach(item => {
-        const dur = Number(item.duracao_min) || 60;
-        const pse = Number(item.pse) || 7;
-        const calc = calculateSessionPhysiology({
-          durationMin: dur,
-          pse: pse,
-          doneSets: item.series_concluidas || 12,
-          hrAvg: item.fc_media || 0,
-          hrMax: item.fc_max || 0,
-          watchKcal: item.kcal_relogio || 0
-        });
-
-        const ua = Number(item.carga_ua) || calc.loadUA;
-        totalLoadUA += ua;
-        sumPse += pse;
-        pseCount++;
-
-        const rKcal = Number(item.kcal_real_epoc) || calc.realKcal;
-        totalRealKcal += rKcal;
-        totalEpoc += (Number(item.epoc_kcal) || calc.epocKcal);
-        if (Number(item.kcal_relogio) > 0) totalWatchKcal += Number(item.kcal_relogio);
-
-        if (Number(item.fc_media) > 0) {
-          sumHrAvg += Number(item.fc_media);
-          hrCount++;
-          latestZone = item.zona_cardiaca || calc.zoneLabel;
-        }
-        if (Number(item.fc_max) > maxHrPeak) maxHrPeak = Number(item.fc_max);
-
-        totalTrimp += (Number(item.trimp) || calc.trimp);
-        latestVo2 = Number(item.vo2_estimado) || calc.vo2Est;
-      });
-
-      const avgPse = pseCount > 0 ? (sumPse / pseCount).toFixed(1) : '--';
-      const avgHr = hrCount > 0 ? Math.round(sumHrAvg / hrCount) : null;
-
-      const loadEl = document.getElementById('evolWeeklyLoadUA');
-      if (loadEl) loadEl.textContent = `${totalLoadUA} U.A.`;
-
-      const pseEl = document.getElementById('evolAvgPSE');
-      if (pseEl) pseEl.textContent = pseCount > 0 ? `${avgPse} / 10` : '-- / 10';
-
-      const realKcalEl = document.getElementById('bioRealKcalVal');
-      const deltaKcalEl = document.getElementById('bioRealKcalDelta');
-      if (realKcalEl) {
-        realKcalEl.textContent = pseCount > 0 ? `${totalRealKcal} kcal` : '-- kcal';
-      }
-      if (deltaKcalEl) {
-        if (totalWatchKcal > 0) {
-          const diff = Math.max(15, totalRealKcal - totalWatchKcal);
-          deltaKcalEl.textContent = `Relógio: ${totalWatchKcal} kcal (+${diff} kcal força e EPOC)`;
-        } else if (pseCount > 0) {
-          deltaKcalEl.textContent = `Inclui +${totalEpoc} kcal de efeito EPOC pós-treino`;
-        } else {
-          deltaKcalEl.textContent = 'Aguardando registro de sessão';
-        }
-      }
-
-      const hrSumEl = document.getElementById('bioHeartRateSummary');
-      const hrZoneEl = document.getElementById('bioHeartZoneLabel');
-      if (hrSumEl) {
-        if (avgHr) {
-          hrSumEl.textContent = `${avgHr} / ${maxHrPeak || (avgHr + 28)} bpm`;
-          if (hrZoneEl) hrZoneEl.textContent = latestZone || 'Zona 3-4 • Estímulo Misto';
-        } else if (pseCount > 0) {
-          const estHr = Math.round(88 + Number(avgPse) * 6.2);
-          hrSumEl.textContent = `~${estHr} bpm (Est.)`;
-          if (hrZoneEl) hrZoneEl.textContent = 'Estimado via PSE (anexe foto p/ FC exata)';
-        } else {
-          hrSumEl.textContent = '-- / -- bpm';
-          if (hrZoneEl) hrZoneEl.textContent = 'Anexe foto ou insira FC do relógio';
-        }
-      }
-
-      const trimpVo2El = document.getElementById('bioTrimpAndVo2Val');
-      const hrrEl = document.getElementById('bioHrrLabel');
-      if (trimpVo2El) {
-        if (pseCount > 0) {
-          trimpVo2El.textContent = `${latestVo2} ml/kg/min`;
-          if (hrrEl) hrrEl.textContent = `TRIMP Acumulado: ${totalTrimp} pts`;
-        } else {
-          trimpVo2El.textContent = '-- ml/kg/min';
-          if (hrrEl) hrrEl.textContent = 'Impulso Cardíaco de Banister';
-        }
-      }
-
-      // Avaliação de Monotonia, Strain e Prontidão
-      const strainValEl = document.getElementById('bioStrainStatusVal');
-      const strainSubEl = document.getElementById('bioStrainSubLabel');
-      const diagBanner = document.getElementById('bioDiagnosisBanner');
-
-      if (pseCount > 0) {
-        const numPse = Number(avgPse);
-        if (totalLoadUA > 2200 || numPse >= 8.6) {
-          if (strainValEl) { strainValEl.textContent = 'Alerta de Fadiga'; strainValEl.style.color = '#f43f5e'; }
-          if (strainSubEl) { strainSubEl.textContent = `Carga alta (${totalLoadUA} U.A.) • Priorizar Sono`; strainSubEl.style.color = '#f43f5e'; }
-          if (diagBanner) {
-            diagBanner.innerHTML = `⚠️ <strong>Diagnóstico Fisiológico (Atenção Neuromuscular):</strong> Sua PSE média (${avgPse}/10) e Carga Interna (${totalLoadUA} U.A.) indicam alto estresse acumulado no sistema nervoso central. Priorize hidratação, sono reparador e blocos de mobilidade articular.`;
-          }
-        } else if (totalLoadUA >= 400 && numPse >= 6.0) {
-          if (strainValEl) { strainValEl.textContent = 'Zona Produtiva'; strainValEl.style.color = 'var(--brand-neon)'; }
-          if (strainSubEl) { strainSubEl.textContent = `Estímulo Ótimo (${totalLoadUA} U.A.)`; strainSubEl.style.color = 'var(--brand-neon)'; }
-          if (diagBanner) {
-            diagBanner.innerHTML = `🟢 <strong>Diagnóstico Fisiológico (Adaptação Ideal):</strong> Cruzamento entre volume mecânico, PSE (${avgPse}/10) e resposta cardíaca encontra-se na faixa ideal de supercompensação de força e condicionamento (${latestVo2} ml/kg/min), sem sinais de overreaching.`;
-          }
-        } else {
-          if (strainValEl) { strainValEl.textContent = 'Prontidão Alta'; strainValEl.style.color = '#38bdf8'; }
-          if (strainSubEl) { strainSubEl.textContent = `Carga Assimilada (${totalLoadUA} U.A.)`; strainSubEl.style.color = '#38bdf8'; }
-          if (diagBanner) {
-            diagBanner.innerHTML = `🔬 <strong>Diagnóstico Fisiológico (Reserva Autonômica Alta):</strong> Carga interna controlada (${totalLoadUA} U.A.). Seu sistema neuromuscular apresenta excelente margem de prontidão para progredir cargas ou refinar habilidades.`;
-          }
-        }
-      }
-
-      // Renderiza a lista histórica de sessões
-      const badgeCount = document.getElementById('bioLogsCountBadge');
-      if (badgeCount) badgeCount.textContent = `${logs.length} ${logs.length === 1 ? 'SESSÃO' : 'SESSÕES'}`;
-
-      const listEl = document.getElementById('bioSessionsHistoryList');
-      if (listEl) {
-        if (logs.length === 0) {
-          listEl.innerHTML = `
-            <div style="padding:18px 14px; background:rgba(255,255,255,0.02); border:1px dashed rgba(255,255,255,0.12); border-radius:12px; text-align:center; font-size:0.78rem; color:#94a3b8;">
-              Nenhuma sessão biométrica registrada ainda. Ao finalizar seu treino (ou clicando em <strong>+ REGISTRAR PSE E SMARTWATCH DO TREINO</strong> acima), suas métricas aparecerão aqui!
-            </div>`;
-        } else {
-          listEl.innerHTML = logs.map((item, idx) => {
-            const pse = Number(item.pse) || 7;
-            const pMeta = getPseMeta(pse);
-            const dur = Number(item.duracao_min) || 60;
-            const calc = calculateSessionPhysiology({
-              durationMin: dur,
-              pse: pse,
-              doneSets: item.series_concluidas || 12,
-              hrAvg: item.fc_media || 0,
-              hrMax: item.fc_max || 0,
-              watchKcal: item.kcal_relogio || 0
-            });
-            const ua = item.carga_ua || calc.loadUA;
-            const rKcal = item.kcal_real_epoc || calc.realKcal;
-            const trimp = item.trimp || calc.trimp;
-            const dayTitle = item.dia_nome || (item.dia ? item.dia.toUpperCase() : 'TREINO');
-            const hrText = item.fc_media ? `❤️ FC: ${item.fc_media}/${item.fc_max || '--'} bpm` : `⚡ TRIMP: ${trimp} pts`;
-            const watchDeltaText = item.kcal_relogio ? `(Relógio: ${item.kcal_relogio} kcal)` : `(c/ EPOC)`;
-            const photoHtml = item.watch_photo ? `
-              <div style="margin-top:8px; display:flex; align-items:center; gap:8px;">
-                <img src="${item.watch_photo}" alt="Smartwatch" onclick="window.open(this.src, '_blank')" style="width:46px; height:46px; object-fit:cover; border-radius:8px; border:1px solid rgba(56,189,248,0.4); cursor:pointer;" title="Toque para ampliar a foto do relógio">
-                <span style="font-size:0.68rem; color:#38bdf8; font-weight:700;">⌚ Captura do Smartwatch verificada</span>
-              </div>` : '';
-
-            return `
-              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-left:3.5px solid ${pMeta.color}; border-radius:12px; padding:12px 14px;">
-                <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px; flex-wrap:wrap;">
-                  <div>
-                    <div style="font-size:0.86rem; font-weight:800; color:#ffffff;">${dayTitle}</div>
-                    <div style="font-size:0.71rem; color:#94a3b8; margin-top:2px;">📅 ${item.data || 'Recente'} • ⏱️ ${dur} min • ✓ ${item.series_concluidas || 0}/${item.total_series || 0} séries (${item.aderencia_pct || 100}%)</div>
-                  </div>
-                  <div style="display:flex; align-items:center; gap:6px;">
-                    <span style="font-size:0.7rem; font-weight:800; color:${pMeta.color}; background:${pMeta.bg}; border:1px solid ${pMeta.border}; padding:2px 8px; border-radius:8px;">PSE ${pse} • ${pMeta.label}</span>
-                    <button type="button" onclick="deleteBioWorkoutLog(${idx})" title="Remover registro" style="background:none; border:none; color:#64748b; font-size:0.85rem; cursor:pointer; padding:0 4px;">&times;</button>
-                  </div>
-                </div>
-                <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; padding-top:8px; border-top:1px solid rgba(255,255,255,0.06); font-size:0.73rem; color:#e2e8f0; font-weight:600;">
-                  <span style="color:#c084fc;">📊 Carga: <strong>${ua} U.A.</strong></span>
-                  <span>•</span>
-                  <span style="color:var(--brand-neon);">🔥 Real: <strong>${rKcal} kcal</strong> <small style="color:#94a3b8;">${watchDeltaText}</small></span>
-                  <span>•</span>
-                  <span style="color:#38bdf8;">${hrText}</span>
-                </div>
-                ${photoHtml}
-              </div>`;
-          }).reverse().join('');
-        }
-      }
-    };
-
-    window.openBiometriaReportWhatsApp = function() {
-      const studentName = document.getElementById('athleteProfileName')?.textContent?.trim() || 'Atleta';
-      let logs = [];
-      try {
-        const studentSlug = (window.location.pathname.split('/').pop().replace('.html','') || '').toLowerCase();
-        const possibleKeys = [
-          `dominio_${studentSlug}_workout_logs`,
-          `dominio_${studentSlug}_dominio_workout_logs`,
-          'dominio_daniela_workout_logs',
-          'dominio_gustavo_workout_logs',
-          'dominio_helenice_dominio_workout_logs',
-          'dominio_jean_workout_logs',
-          'dominio_aluno_workout_logs',
-          'dominio_workout_logs'
-        ];
-        for (const k of possibleKeys) {
-          const raw = localStorage.getItem(k);
-          if (raw) {
-            logs = JSON.parse(raw);
-            if (Array.isArray(logs) && logs.length > 0) break;
-          }
-        }
-      } catch (e) {}
-
-      const daysDone = document.getElementById('evolDaysDoneCount')?.textContent || '0';
-      const setsDone = document.getElementById('evolSetsDoneCount')?.textContent || '0';
-      const loadUa = document.getElementById('evolWeeklyLoadUA')?.textContent || '0 U.A.';
-      const avgPse = document.getElementById('evolAvgPSE')?.textContent || '--';
-      const kcalReal = document.getElementById('bioRealKcalVal')?.textContent || '--';
-      const hrSum = document.getElementById('bioHeartRateSummary')?.textContent || '--';
-      const trimpVo2 = document.getElementById('bioTrimpAndVo2Val')?.textContent || '--';
-      const strain = document.getElementById('bioStrainStatusVal')?.textContent || '--';
-
-      let msg = `📊 *DOMÍNIO CORPORAL | BIOMETRIA E PERFORMANCE*\n`;
-      msg += `👤 *Atleta:* ${studentName}\n`;
-      msg += `📅 *Semana Ativa:*\n`;
-      msg += `• *Dias Concluídos:* ${daysDone}\n`;
-      msg += `• *Séries Totais:* ${setsDone}\n`;
-      msg += `• *Carga Semanal:* ${loadUa}\n`;
-      msg += `• *PSE Média:* ${avgPse}\n\n`;
-      msg += `⚡ *Fisiologia e Bioenergética:*\n`;
-      msg += `• *Gasto Calórico Total:* ${kcalReal}\n`;
-      msg += `• *Frequência Cardíaca:* ${hrSum}\n`;
-      msg += `• *Carga Interna:* ${trimpVo2}\n`;
-      msg += `• *Status Fisiológico:* ${strain}\n\n`;
-      if (logs.length > 0) {
-        msg += `📋 *Últimas Sessões Registradas (${logs.length}):*\n`;
-        logs.slice(-3).forEach(l => {
-          const dia = l.dia_nome || (l.dia ? l.dia.toUpperCase() : 'TREINO');
-          msg += `• ${dia} (${l.data || 'Recente'}): PSE ${l.pse || 7} | ${l.carga_ua || '--'} U.A. | ${l.duracao_min || 60} min\n`;
-        });
-        msg += `\n`;
-      }
-      msg += `*Prof. Gui Lemos*, confira meu painel de biometria e performance atualizado no aplicativo! 🚀`;
-
-      const phone = '5516981222356';
-      const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
-      window.open(url, '_blank');
-    };
-
-function updateEvolucaoStats() {
-      const completed = getCompletedWorkouts();
-      const doneDays = Object.values(completed).filter(Boolean).length;
-      const totalDaysCards = document.querySelectorAll('.training-day-card[id^="hubCard-"]').length || 5;
-      const daysCountEl = document.getElementById('evolDaysDoneCount');
-      if (daysCountEl) daysCountEl.textContent = `${doneDays} / ${totalDaysCards}`;
-
-      const doneSets = document.querySelectorAll('.set-pill.done').length;
-      const setsCountEl = document.getElementById('evolSetsDoneCount');
-      if (setsCountEl) setsCountEl.textContent = doneSets;
-
-      const badge = document.getElementById('evolAdherenceBadge');
-      if (badge) {
-        if (doneDays >= 4) {
-          badge.textContent = 'Alta Consistência (80%+)';
-          badge.style.background = 'rgba(0,255,136,0.15)';
-          badge.style.color = 'var(--brand-neon)';
-        } else if (doneDays >= 2) {
-          badge.textContent = 'Em Progresso';
-          badge.style.background = 'rgba(56,189,248,0.15)';
-          badge.style.color = '#38bdf8';
-        } else {
-          badge.textContent = 'Semana Ativa';
-          badge.style.background = 'rgba(255,255,255,0.08)';
-          badge.style.color = '#e2e8f0';
-        }
-      }
-
-      if (typeof renderBiometriaPerformanceUI === 'function') {
-        renderBiometriaPerformanceUI();
-      }
-    }
-
-    function openDedicatedView(sectionId) {
-      closeBioModal();
-      closeVideoModal();
-
-      document.body.classList.add('in-dedicated-view');
-      const topBar = document.getElementById('dedicatedTopBar');
-      if (topBar) topBar.style.display = 'flex';
-
-      const titles = {
-        'timers': 'Central de Timers',
-        'analises': 'Análise de Vídeos',
-        'evolucao': 'Evolução e Antropometria',
-        'perfil': '',
-        'avaliacao': 'Ficha de Avaliação'
-      };
-      const titleEl = document.getElementById('dedicatedBarTitle');
-      if (titleEl) titleEl.textContent = titles[sectionId] || 'Central Especializada';
-
-      // Esconde todas as abas
-      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-
-      // Ativa a aba dedicada
-      const target = document.getElementById('tab-' + sectionId);
-      if (target) {
-        target.classList.add('active');
-      }
-
-      if (sectionId === 'timers') {
-        if (!timersReturnWorkoutDay) {
-          const backBtn = document.getElementById('btnDedicatedBack');
-          if (backBtn) backBtn.innerHTML = '‹ Voltar';
-        }
-        if (typeof initTimerUI === 'function') initTimerUI();
-      }
-      if (sectionId === 'evolucao') {
-        if (typeof closeEvolucaoView === 'function') {
-          closeEvolucaoView();
-        }
-        if (typeof updateEvolucaoStats === 'function') {
-          updateEvolucaoStats();
-        }
-      }
-      if (sectionId === 'avaliacao') {
-        loadStudentAssessment();
-        const banner = document.getElementById('assessmentGateBanner');
-        const isCompleted = localStorage.getItem('dominio_assessment_completed') === 'true';
-        if (banner) {
-          banner.style.display = isCompleted ? 'none' : 'block';
-        }
-        updateDedicatedTopBarGate(isCompleted);
-      }
-
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      if (typeof pushAppHistoryState === 'function') pushAppHistoryState('dedicated', { sectionId: sectionId }, sectionId);
-    }
-
-    function closeDedicatedView(fromPopState = false) {
-      if (localStorage.getItem('dominio_assessment_completed') !== 'true') {
-        alert('🔒 Para liberar o acesso aos seus treinos, você precisa primeiro preencher e enviar a Ficha de Avaliação.');
-        return;
-      }
-      closeBioModal();
-      closeVideoModal();
-
-      // Desativa temporariamente eventos de ponteiro no header para eliminar ghost click de toque móvel caindo no botão Bio
-      const hdr = document.getElementById('mainAppHeader');
-      if (hdr) {
-        hdr.style.pointerEvents = 'none';
-        setTimeout(() => { if (hdr) hdr.style.pointerEvents = ''; }, 450);
-      }
-
-      document.body.classList.remove('in-dedicated-view');
-      const topBar = document.getElementById('dedicatedTopBar');
-      if (topBar) topBar.style.display = 'none';
-
-      // Esconde todas as abas
-      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-
-      renderTrainingHubDays();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function handleDedicatedBackClick(e) {
-      if (e) {
-        if (typeof e.stopPropagation === 'function') e.stopPropagation();
-        if (typeof e.preventDefault === 'function') e.preventDefault();
-      }
-
-      // 1. Modais prioritários abertos
-      const modalChecks = [
-        { id: 'tipPopoverOverlay', close: () => { const el = document.getElementById('tipPopoverOverlay'); if (el) el.style.display = 'none'; } },
-        { id: 'welcomeAppModal', close: () => { if (typeof closeWelcomeAppModal === 'function') closeWelcomeAppModal(true); } },
-        { id: 'contextualHelpModal', close: () => { if (typeof closeContextualHelp === 'function') closeContextualHelp(true); } },
-        { id: 'notificationsModal', close: () => { if (typeof closeNotificationsModal === 'function') closeNotificationsModal(null, true, true); } },
-        { id: 'sendVideoModal', close: () => { if (typeof closeSendVideoModal === 'function') closeSendVideoModal(true); } },
-        { id: 'videoModal', close: () => { if (typeof closeVideoModal === 'function') closeVideoModal(true); } },
-        { id: 'bioModal', close: () => { if (typeof closeBioModal === 'function') closeBioModal(true); } }
-      ];
-      for (const item of modalChecks) {
-        const el = document.getElementById(item.id);
-        if (el && (el.classList.contains('active') || el.style.display === 'flex' || el.style.display === 'block')) {
-          item.close();
-          return;
-        }
-      }
-
-      // 2. Subpáginas dentro de Evolução
-      if (document.body.classList.contains('in-view-evolucao') && typeof isAnyEvolViewOpen === 'function' && isAnyEvolViewOpen()) {
-        closeEvolucaoView(true);
-        return;
-      }
-
-      // 3. Subpáginas dentro de Análises
-      const skillsCards = document.getElementById('skillsCardsView');
-      if (skillsCards && skillsCards.style.display === 'block') {
-        backToSkillsCategoryMenu(true);
-        return;
-      }
-      const viewHabilidades = document.getElementById('analysisView-habilidades');
-      const viewExercicios = document.getElementById('analysisView-exercicios');
-      if ((viewHabilidades && viewHabilidades.style.display === 'block') ||
-          (viewExercicios && viewExercicios.style.display === 'block')) {
-        closeAnalysisCategoryView(true);
-        return;
-      }
-
-      // 4. Se estava em Timers e veio de um treino ativo (WOD)
-      if (document.body.classList.contains('in-view-timers') && timersReturnWorkoutDay) {
-        const retDay = timersReturnWorkoutDay;
-        timersReturnWorkoutDay = null;
-        openDayWorkout(retDay);
-        return;
-      }
-
-      // 5. Se estava na Ficha de Avaliação e veio do Perfil
-      if (document.body.classList.contains('in-view-avaliacao') && assessmentReturnTarget === 'perfil') {
-        assessmentReturnTarget = null;
-        openDedicatedView('perfil');
-        return;
-      }
-
-      // 6. Retorna para a tela inicial
-      closeDedicatedView(true);
-    }
-
-    function updateDedicatedTopBarGate(isUnlocked) {
-      const backBtn = document.getElementById('btnDedicatedBack');
-      if (!backBtn) return;
-      if (!isUnlocked) {
-        backBtn.innerHTML = '🔒 Ficha Obrigatória';
-        backBtn.style.opacity = '0.7';
-      } else {
-        backBtn.innerHTML = '‹ Voltar aos Treinos';
-        backBtn.style.opacity = '1';
-      }
-    }
-
-    function startIntakeGate() {
-      const modal = document.getElementById('intakeGateModal');
-      if (modal) modal.classList.remove('active');
-      openDedicatedView('avaliacao');
-    }
-
-    function checkIntakeGate() {
-      const isCompleted = localStorage.getItem('dominio_assessment_completed') === 'true';
-      if (!isCompleted) {
+    function openDayWorkout(dayId) {
+      if (localStorage.getItem('dominio_daniela_assessment_completed') !== 'true' &&
+          localStorage.getItem('dominio_assessment_completed') !== 'true' &&
+          localStorage.getItem('dominio_gustavo_assessment_completed') !== 'true' &&
+          localStorage.getItem('dominio_helenice_assessment_completed') !== 'true' &&
+          localStorage.getItem('dominio_jean_assessment_completed') !== 'true') {
         const modal = document.getElementById('intakeGateModal');
         if (modal) modal.classList.add('active');
-        updateDedicatedTopBarGate(false);
-      } else {
-        updateDedicatedTopBarGate(true);
+        return;
       }
+
+      const { type, target, count, isDone } = getWorkoutProgress(dayId);
+      const tab = document.getElementById('tab-' + dayId);
+      const doneSets = tab ? tab.querySelectorAll('.set-pill.done').length : 0;
+
+      if ((count > 0 || isDone) && doneSets > 0) {
+        openWorkoutSessionPromptModal(dayId, { type, target, count, isDone, doneSets });
+        return;
+      }
+
+      proceedToOpenDayWorkout(dayId, false);
     }
 
-    
-    
     function openCompSubView(subId) {
       if (typeof pushAppHistoryState === 'function') pushAppHistoryState('compSubView', { subId }, 'comp-' + subId);
       const hubMenu = document.getElementById('compHubMenu');
