@@ -5567,7 +5567,7 @@
               <span class="day-today-badge" id="todayBadge-quinta" style="display:inline-flex;">Hoje</span>
             </div>
             <div class="day-focus-desc">HANDSTAND</div>
-            <div class="day-meta-pill">📍 Ginásio EEFERP • ⏱️ ~1h40</div>
+            <div class="day-meta-pill">📍 Ginásio EEFERP • ⏱️ ~1h00</div>
           </div>
           <div class="day-card-right">
             <div class="day-status-pill status-pending" id="statusPill-quinta" onclick="event.stopPropagation(); handleWorkoutStatusClick('quinta')">
@@ -6229,9 +6229,9 @@
     <div class="session-overall-meta">
       <span class="meta-item">📍 Ginásio EEFERP</span>
       <span class="meta-separator">|</span>
-      <span class="meta-item">⏳ 40' Contemporâneo + 1h Ginástica</span>
+      <span class="meta-item">⏳ 1h Ginástica e Handstand</span>
       <span class="meta-separator">|</span>
-      <span class="meta-item">⏱️ ~1h40 Total</span>
+      <span class="meta-item">⏱️ ~1h00 Total</span>
     </div>
 
     <!-- ==================== SEÇÃO 1: ATIVAÇÃO ==================== -->
@@ -9707,13 +9707,13 @@
             <span class="notif-item-arrow">›</span>
           </div>
 
-          <!-- Notificação: Devolutiva de Treino (Quinta-feira • Box CrossFit) -->
-          <div class="notif-item unread" data-notif-id="notif-devolutiva-quinta-1510" onclick="openDevolutivaModal('notif-devolutiva-quinta-1510', 'quinta')">
-            <span class="notif-item-icon">📋</span>
+          <!-- Notificação: Devolutiva de Treino (Quinta-feira • Handstand e Ginástica) -->
+          <div class="notif-item unread" data-notif-id="notif-devolutiva-quinta-2910" onclick="openDevolutivaModal('notif-devolutiva-quinta-2910', 'quinta')">
+            <span class="notif-item-icon">🤸‍♂️</span>
             <div style="flex:1; min-width:0;">
-              <div class="notif-item-title">Devolutiva do Treino • Quinta-feira (Box)</div>
-              <div class="notif-item-desc">Resposta do Prof. Gui: BMU em todos os rounds, cargas de 40kg na barra e 20kg nos halteres, e ajuste de histórico da dança.</div>
-              <div class="notif-item-time">⏱️ Quinta • Resposta às Anotações</div>
+              <div class="notif-item-title">Devolutiva do Treino • Quinta-feira (Handstand)</div>
+              <div class="notif-item-desc">Análise de One Arm Handstand, Bent Arm Press (carpado/grupado/straddle), piruetas e histórico ajustado.</div>
+              <div class="notif-item-time">⏱️ Hoje • Resposta às Anotações</div>
             </div>
             <span class="notif-item-arrow">›</span>
           </div>
@@ -15477,33 +15477,41 @@ function updateEvolucaoStats() {
       },
       'quinta': {
         title: 'Devolutiva do Treino • Quinta-feira',
-        subtitle: 'Box CrossFit • Resposta às Anotações de Exercício',
+        subtitle: 'Ginásio EEFERP • Resposta às Anotações de Handstand e Ginástica',
         notesHtml: `
-          <div style="background: rgba(251, 191, 36, 0.08); border-left: 4px solid #fbbf24; border-radius: 8px; padding: 12px 14px; margin-bottom: 14px;">
-            <div style="font-size: 0.76rem; font-weight: 800; color: #fbbf24; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px;">
-              📝 Anotações Registradas no Treino de Quinta:
+          <div style="background: rgba(0, 255, 136, 0.08); border-left: 4px solid var(--brand-neon); border-radius: 8px; padding: 12px 14px; margin-bottom: 14px;">
+            <div style="font-size: 0.76rem; font-weight: 800; color: var(--brand-neon); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px;">
+              🤸‍♂️ Registros e Habilidades Concluídas (29/10):
             </div>
             <div style="font-size: 0.81rem; color: #f1f5f9; line-height: 1.55;">
-              <p style="margin: 0 0 5px 0;">• <strong>WOD em Dupla:</strong> Faltou apenas 1 round do último. Bar Muscle-Up (BMU) executado em todas as séries, cargas de 40 kg na barra e 20 kg nos halteres. Repetições divididas pela metade com o parceiro.</p>
-              <p style="margin: 0;">• <strong>Contemporâneo:</strong> Não compareceu por falta de tempo. Retirado do histórico da sessão conforme solicitado.</p>
+              <p style="margin: 0 0 5px 0;">• <strong>Handstand Livre:</strong> Variações completas executadas (Full, Tucked, Straddle e no Espacate).</p>
+              <p style="margin: 0 0 5px 0;">• <strong>Piruetas e Weight Shifts:</strong> 4 shoulder taps consecutivos e Handstand Walk com piruetas de 90°.</p>
+              <p style="margin: 0 0 5px 0;">• <strong>One Arm Handstand:</strong> Sustentação livre firme no braço direito apenas com as pontas dos dedos contralaterais.</p>
+              <p style="margin: 0 0 5px 0;">• <strong>Bent Arm Press:</strong> 2 repetições em grupado (tuck), afastado (straddle) e 1 em carpado (pike).</p>
+              <p style="margin: 0;">• <strong>Ajuste de Histórico:</strong> Aula de contemporâneo removida do histórico da sessão (não houve tempo hábil para comparecer).</p>
             </div>
           </div>
         `,
         topics: [
           {
-            title: '1. BAR MUSCLE-UP (BMU) COM CONSISTÊNCIA TOTAL',
+            title: '1. CONTROLE GEOMÉTRICO TRIDIMENSIONAL NO HANDSTAND LIVRE',
             color: 'var(--brand-neon)',
-            desc: 'Execução do BMU mantida em todos os rounds com ótima eficiência mecânica e transição ágil, mesmo sob estresse metabólico e frequência cardíaca elevada.'
+            desc: 'A alternância entre Full, Tuck, Straddle e Espacate demonstra domínio refinado da gestão do centro de gravidade e momento de inércia. Passar do tuck (menor inércia, microajustes rápidos de punho) para o espacate e straddle (abertura ampla nos planos frontal e sagital) exige controle de adutores e estabilidade pélvica de padrão ouro.'
           },
           {
-            title: '2. CADÊNCIA E GESTÃO DE CARGAS (40 KG E 20 KG)',
+            title: '2. TRANSIÇÃO UNILATERAL E PIRUETAS (4 SHOULDER TAPS E HSW 90°)',
             color: '#38bdf8',
-            desc: 'A escolha de 40 kg na barra e 20 kg nos halteres proporcionou excelente sobrecarga neuromuscular sem perda de qualidade cinética na extensão concêntrica de quadril e estabilização escapular.'
+            desc: 'Sustentar 4 shoulder taps em cadeia fechada e executar Handstand Walk com giro de 90° comprova altíssima protração escapular do serrátil anterior sob carga dinâmica monopodal, transferindo a força de frenagem digital com precisão milimétrica sem colapso lombar.'
           },
           {
-            title: '3. AJUSTE DE HISTÓRICO E RECUPERAÇÃO DO SNC',
+            title: '3. ONE ARM HANDSTAND (OAHS) E BENT ARM PRESS CARPADO',
             color: '#c084fc',
-            desc: 'A dança contemporânea foi devidamente excluída do histórico do dia. Evitar a sobreposição de uma sessão de solo após um WOD pesado preservou o sistema nervoso central e a entese dos cotovelos/ombros para o treino de Sexta (Ginástica e Portagem).'
+            desc: 'Sustentar o braço direito apenas na ponta dos dedos opostos significa que mais de 90% do vetor de compressão e torque estabilizador já estão sob comando do seu ombro e antebraço direitos. No Bent Arm Press, fechar a série com a subida em carpado (pike) — que possui o maior braço de momento da cintura escapular — coroa a sessão com pico de potência concêntrica de peitoral superior e tríceps.'
+          },
+          {
+            title: '4. HISTÓRICO AJUSTADO: 1H GINÁSTICA E HANDSTAND',
+            color: '#fbbf24',
+            desc: 'A dança contemporânea foi devidamente retirada do cabeçalho e histórico da sessão. Focar os 60 minutos exclusivamente no Handstand de alta precisão preservou a integridade sinovial dos punhos e o sistema nervoso central para fechar a semana.'
           }
         ]
       },
