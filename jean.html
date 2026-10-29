@@ -6780,8 +6780,10 @@ Segue o vídeo anexo para sua análise!`;
       if (subId === 'historico' && typeof renderBodyCompHistoryList === 'function') {
         renderBodyCompHistoryList(getBodyCompHistory());
       }
-      if (subId === 'fotos' && typeof renderBodyCompPhotosGallery === 'function') {
-        renderBodyCompPhotosGallery();
+      if (subId === 'fotos') {
+        if (typeof renderPosturalComparisonUI === 'function') renderPosturalComparisonUI();
+        if (typeof renderUserUploadedPhotosGallery === 'function') renderUserUploadedPhotosGallery(getBodyCompHistory());
+        if (typeof renderBodyCompPhotosGallery === 'function') renderBodyCompPhotosGallery();
       }
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -8340,12 +8342,13 @@ function updateEvolucaoStats() {
             </div>
             <div style="font-size:0.74rem; color:#cbd5e1;">
               ${s.notes ? `<strong>Notas do Atleta:</strong> ${s.notes}<br>` : ''}
-              ${s.coachNotes ? `
+              ${(s.coachNotes || s.coachAnalysis) ? `
               <div style="margin-top:8px; padding:8px 10px; background:rgba(0,255,136,0.04); border-left:3.5px solid var(--brand-neon); border-radius:6px; font-size:0.76rem; color:#f1f5f9; line-height:1.55; white-space:pre-line;">
                 <strong style="color:var(--brand-neon); display:block; margin-bottom:4px;">Parecer Individual do Prof. Gui Lemos:</strong>
                 ${s.coachNotes}
               </div>
             ` : ''}
+            </div>
           </div>`;
       });
 
@@ -8428,10 +8431,10 @@ function updateEvolucaoStats() {
             </div>
 
             <!-- Parecer do Treinador Gui Lemos -->
-            ${s.coachNotes ? `
+            ${(s.coachNotes || s.coachAnalysis) ? `
               <div style="background:rgba(56,189,248,0.06); border-left:3.5px solid #38bdf8; border-radius:8px; padding:10px 12px; font-size:0.78rem; color:#cbd5e1; line-height:1.55;">
                 <strong style="color:#38bdf8; display:block; margin-bottom:4px; font-size:0.80rem;">🔬 Diagnóstico e Parecer Técnico:</strong>
-                <div style="white-space:pre-line;">${s.coachNotes}</div>
+                <div style="white-space:pre-line;">${s.coachNotes || s.coachAnalysis}</div>
               </div>
             ` : (s.notes ? `
               <div style="background:rgba(255,255,255,0.03); border-left:3px solid #64748b; border-radius:6px; padding:8px 10px; font-size:0.75rem; color:#94a3b8;">
@@ -11751,5 +11754,6 @@ window.openWelcomeAppModal = function(notifId = null) {
     </div>
   </div>
 </body>
-</html>  if (typeof renderBiometriaPerformanceUI === 'function') renderBiometriaPerformanceUI();
+</html>
+  if (typeof renderBiometriaPerformanceUI === 'function') renderBiometriaPerformanceUI();
         

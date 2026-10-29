@@ -43,7 +43,15 @@ Este documento cataloga a base bibliográfica, clínica, biomecânica e fisioló
 | **Remada Apoiada no Banco** | Suporte Torácico Anterior | Estabilização do tórax elimina as forças cisalhantes lombares, direcionando a tensão com segurança para romboides e latíssimo. | *(Neumann, 2016; Schoenfeld, 2020)* |
 | **Flexão Inclinada no Banco** | Ajuste do Braço de Momento Gravitacional | Inclinação reduz a carga gravitacional efetiva, protegendo o manguito rotador e o espaço subacromial contra impacto. | *(Neumann, 2016; Escamilla et al., 2001)* |
 | **Parada de Mão (Handstand)** | Coativação de Cintura Escapular e Punhos | Carga em cadeia cinética fechada com ativação de serrátil anterior e trapézio inferior, promovendo propriocepção e densidade mineral óssea. | *(Neumann, 2016; Kapandji, 2019)* |
-| **Wall Balls e WOD Metabólico** | Densidade Metabólica e Biogênese Mitocondrial | Intervalos de alta densidade estimulando AMPK, capilarização muscular e capacidade tamponante neuromuscular. | *(Powers & Howley, 2018; ACSM, 2022)* |
+| **Wall Balls e WOD Metabólico** | Densidade Metabólica e Biogênese Mitocondrial | Intervalos de alta densidade estimulando AMPK, capilarização muscular e capacidade tamponante neuromuscular. | *(Powers e Howley, 2018; ACSM, 2022)* |
+| **Scapular Pull-ups** | Controle Escapulotorácico | Depressão e retração ativas isoladas aumentam a ativação de trapézio inferior e romboides para ancorar o úmero na extensão horizontal. | *(Neumann, 2016)* |
+| **Full Front Lever com Superband** | Especificidade Neuromuscular Angular | Isometrias apresentam transferência restrita a ±15° da posição treinada; a band permite vivenciar o vetor exato do Full a 0°. | *(Schoenfeld, 2020; Neumann, 2016)* |
+| **Advanced Tuck Front Lever** | Ajuste do Braço de Momento Gravitacional | Afastamento das coxas a 90° amplia o braço de momento da gravidade sobre o complexo do ombro sem suporte externo. | *(Neumann, 2016; Kapandji, 2019)* |
+| **Dragon Flag no Banco** | Antiextensão Lombopélvica em Alavanca | Sobrecarga excêntrica no reto abdominal e oblíquos para contenção da pelve sem quebrar o quadril na alavanca. | *(Escamilla et al., 2001; Schoenfeld, 2020)* |
+| **Straight-Arm Pulldown com Superband** | Ativação Isolada do Latíssimo do Dorso | Recrutamento do grande dorsal com cotovelos em extensão rígida, aumentando excitabilidade neural e lubrificação tendínea. | *(Neumann, 2016)* |
+| **Negativas de Front Lever** | Adaptação Miotendínea Excêntrica | Pico de tensão mecânica na fase excêntrica estimula síntese de colágeno conectivo de bíceps distal e tríceps longo. | *(Schoenfeld, 2020)* |
+| **Front Lever Raises** | Força Concêntrica de Extensão | Capacidade contrátil dinâmica dos extensores e depressores do complexo escapuloumeral em cadeia cinética fechada. | *(Neumann, 2016)* |
+| **Tuck Front Lever Rows nas Argolas** | Hipertrofia e Fechamento Escapular | Estresse isométrico de estabilização do tronco associado à força dinâmica de retratores e flexores de cotovelo. | *(Schoenfeld, 2020; Escamilla et al., 2001)* |
 
 ---
 

@@ -5041,6 +5041,38 @@
             </div>
           </div>
         </div>
+
+        <!-- EXTRA 1 | FRONT LEVER -->
+        <div class="training-day-card" id="dayCard-extra1" data-workout-type="treino" data-target="4" onclick="openDayWorkout('extra1')">
+          <div class="day-card-left">
+            <div class="day-card-name-row">
+              <span class="day-name">EXTRA 1 | FRONT LEVER</span>
+            </div>
+            <div class="day-focus-desc">Isometria e Padrão Motor • Alavanca Neural</div>
+            <div class="day-meta-pill">📍 Box CrossFit • ⏱️ ~25 min</div>
+          </div>
+          <div class="day-card-right">
+            <div class="day-status-pill status-pending" id="statusPill-extra1" onclick="event.stopPropagation(); handleWorkoutStatusClick('extra1')">
+              <span class="status-icon">›</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- EXTRA 2 | FRONT LEVER -->
+        <div class="training-day-card" id="dayCard-extra2" data-workout-type="treino" data-target="4" onclick="openDayWorkout('extra2')">
+          <div class="day-card-left">
+            <div class="day-card-name-row">
+              <span class="day-name">EXTRA 2 | FRONT LEVER</span>
+            </div>
+            <div class="day-focus-desc">Força Dinâmica e Sobrecarga Excêntrica</div>
+            <div class="day-meta-pill">📍 Box CrossFit • ⏱️ ~25 min</div>
+          </div>
+          <div class="day-card-right">
+            <div class="day-status-pill status-pending" id="statusPill-extra2" onclick="event.stopPropagation(); handleWorkoutStatusClick('extra2')">
+              <span class="status-icon">›</span>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Card de Contato WhatsApp com o Treinador -->
@@ -5213,6 +5245,431 @@
   </div>
 
 
+
+
+  
+  <!-- ==================== TAB: EXTRA 1 ==================== -->
+  <div id="tab-extra1" class="tab-content">
+    <div class="session-overall-meta">
+      <span class="meta-item">📍 Box CrossFit</span>
+      <span class="meta-separator">|</span>
+      <span class="meta-item">⏳ ~25 min</span>
+      <span class="meta-separator">|</span>
+      <span class="meta-item">🎯 Alavanca Neural</span>
+    </div>
+
+    <!-- ==================== SEÇÃO 1: ATIVAÇÃO ==================== -->
+    <div class="section-card sec-aquecimento">
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+        <div class="section-title-wrap">
+          <div class="section-title">ATIVAÇÃO</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~5 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 1: Scapular Pull-ups -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>SCAPULAR PULL-UPS</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Scapular Pull-ups (Retração e Depressão)', '<b>Execução:</b> Pendure-se na barra com pegada pronada na largura dos ombros e cotovelos 100% estendidos. Sem dobrar os braços, tracione as escápulas ativamente para baixo e para trás (depressão e retração), elevando o tórax. Sustente 3 segundos de contração máxima no topo e desça controlando de volta ao ponto morto (dead hang).<br><br><b>Cuidados:</b> Não use impulso das pernas nem flexione os cotovelos para subir. O movimento é exclusivamente escapular.<br><br><b>Base científica:</b> CONTROLE ESCAPULOTORÁCICO: A retração e depressão ativas isoladas aumentam a ativação do trapézio inferior e romboides, preparando a cintura escapular para ancorar o úmero na extensão horizontal sem sobrecarga no espaço subacromial. (Neumann, 2016).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 SÉRIES • 6 REPS (PAUSA 3S)</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1 • 6 reps (3s pausa)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2 • 6 reps (3s pausa)</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Scapular Pull-ups')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-ext1-scap" onclick="toggleCommentBox('ex-ext1-scap')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-ext1-scap" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-ext1-scap" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (Scapular Pull-ups):</span>
+            <span class="save-indicator" id="save-status-ex-ext1-scap"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-ext1-scap" placeholder="Ex: Escápulas bem encaixadas, boa firmeza..." oninput="saveExerciseNote('ex-ext1-scap', this.value)"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SEÇÃO 2: HABILIDADES ==================== -->
+    <div class="section-card sec-skills">
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+        <div class="section-title-wrap">
+          <div class="section-title">HABILIDADES</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~14 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 2: Full Front Lever com Superband -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>FULL FRONT LEVER COM SUPERBAND</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Full Front Lever com Superband', '<b>Execução:</b> Passe a superband média na barra e posicione sob o quadril ou nos pés. Segure firme na barra e tracione o corpo com braços 100% estendidos até a horizontal completa. Alinhe ombros, quadris e tornozelos em uma única linha rígida com retroversão pélvica ativa (hollow body), pernas unidas e ponta dos pés estendida. Sustente de 4 a 6 segundos com respiração cadenciada.<br><br><b>Cuidados:</b> Cotovelos travados em extensão rígida durante todo o tempo. Pare a série 2 segundos antes de perder a horizontalidade ou dobrar os braços. Descanse 2 minutos completos entre as séries.<br><br><b>Base científica:</b> ESPECIFICIDADE NEUROMUSCULAR ANGULAR: O treino de isometria apresenta ganho de força restrito a uma variação de ±15° do ângulo articular treinado. O uso da faixa elástica permite vivenciar a geometria exata do corpo estendido a 0° com alívio gravitacional controlado, recrutando o latíssimo do dorso e a cabeça longa do tríceps no vetor específico do Full. (Schoenfeld, 2020; Neumann, 2016).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">4 SÉRIES • 4-6 SEG (RPE 7-8)</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1 • 5s</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2 • 5s</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3 • 5s</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 4 • 5s</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Full Front Lever com Superband')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-ext1-fullband" onclick="toggleCommentBox('ex-ext1-fullband')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-ext1-fullband" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-ext1-fullband" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (Full Front Lever com Band):</span>
+            <span class="save-indicator" id="save-status-ex-ext1-fullband"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-ext1-fullband" placeholder="Ex: Qual cor de band usada, tempo de isometria, sensação de alinhamento..." oninput="saveExerciseNote('ex-ext1-fullband', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 3: Advanced Tuck Front Lever -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>ADVANCED TUCK FRONT LEVER</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Advanced Tuck Front Lever', '<b>Execução:</b> Na barra fixa ou argolas, tracione o corpo com braços retos até que a coluna torácica e lombar fiquem 100% planas e paralelas ao solo. Descole as coxas do abdômen abrindo os joelhos em ângulo de 90° exato em relação ao tronco. Mantenha depressão e retração escapular contínuas.<br><br><b>Cuidados:</b> Não arredonde as costas (evite cifose torácica compensatória). Mantenha os quadris na mesma altura dos ombros. Descanse 90 segundos entre as séries.<br><br><b>Base científica:</b> AJUSTE DO BRAÇO DE MOMENTO: O afastamento das coxas a 90° em relação ao tronco aumenta o braço de momento da gravidade sobre o complexo do ombro sem suporte elástico, promovendo alta sobrecarga tensional isométrica livre. (Neumann, 2016; Kapandji, 2019).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • 6-8 SEG</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1 • 6-8s</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2 • 6-8s</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3 • 6-8s</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Advanced Tuck Front Lever')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-ext1-advtuck" onclick="toggleCommentBox('ex-ext1-advtuck')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-ext1-advtuck" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-ext1-advtuck" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (Advanced Tuck):</span>
+            <span class="save-indicator" id="save-status-ex-ext1-advtuck"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-ext1-advtuck" placeholder="Ex: Ângulo de quadril mantido, estabilidade das escápulas..." oninput="saveExerciseNote('ex-ext1-advtuck', this.value)"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SEÇÃO 3: FORTALECIMENTO ==================== -->
+    <div class="section-card sec-forca">
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+        <div class="section-title-wrap">
+          <div class="section-title">FORTALECIMENTO</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~6 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 4: Dragon Flag no Banco -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>DRAGON FLAG NO BANCO</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Dragon Flag no Banco', '<b>Execução:</b> Deite no banco reto segurando firme nas bordas atrás da cabeça. Eleve o corpo rígido como uma tábua até a posição vertical (vela), apoiando apenas sobre a cintura escapular. Desça lentamente tronco e pernas em bloco único até cerca de 30° do banco sem arquear a lombar. Pause 1 segundo e retorne com controle.<br><br><b>Cuidados:</b> Não dobre os quadris na descida e evite qualquer apoio com o pescoço. O abdômen e os glúteos devem permanecer em contração máxima.<br><br><b>Base científica:</b> ANTIEXTENSÃO LOMBOPÉLVICA: Fortalece a musculatura profunda do core (reto abdominal e oblíquos) sob máxima alavanca gravitacional excêntrica, garantindo a contenção pélvica necessária para que o quadril não quebre para baixo no Front Lever. (Escamilla et al., 2001; Schoenfeld, 2020).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • 5-6 REPS</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1 • 5 reps</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2 • 5 reps</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3 • 5 reps</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Dragon Flag no Banco')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-ext1-dragon" onclick="toggleCommentBox('ex-ext1-dragon')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-ext1-dragon" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-ext1-dragon" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (Dragon Flag):</span>
+            <span class="save-indicator" id="save-status-ex-ext1-dragon"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-ext1-dragon" placeholder="Ex: Amplitude alcançada, firmeza no core..." oninput="saveExerciseNote('ex-ext1-dragon', this.value)"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card Clean de Finalização de Treino -->
+    <div class="workout-finish-clean-card" id="workoutFinishCard-extra1">
+      <div class="finish-controls-row">
+        <label class="finish-checkbox-label">
+          <input type="checkbox" id="checkFinish-extra1" class="finish-checkbox-input" onchange="toggleFinishWorkoutBtn('extra1', this.checked)">
+          <span class="finish-custom-checkbox"></span>
+          <span class="finish-checkbox-text">Finalizar sessão 🏁</span>
+        </label>
+        <button type="button" class="btn-send-coach" id="btnSendCoach-extra1" onclick="completeWorkoutSession('extra1')" disabled>
+          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          <span>Enviar para Coach</span>
+        </button>
+      </div>
+      <div id="completeFeedback-extra1" class="complete-feedback-box" style="display:none; width: 100%;">
+        ✅ Treino finalizado e relatório enviado com sucesso para o Coach!
+      </div>
+    </div>
+
+    <!-- Ajuda Contextual do Treino -->
+    <div class="contextual-help-wrap" style="margin-top: 24px; margin-bottom: 80px;">
+      <button type="button" class="btn-contextual-help" onclick="openContextualHelp('treinos')">
+        <span>precisa de ajuda?</span> <u>acesse as instruções</u>
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== TAB: EXTRA 2 ==================== -->
+  <div id="tab-extra2" class="tab-content">
+    <div class="session-overall-meta">
+      <span class="meta-item">📍 Box CrossFit</span>
+      <span class="meta-separator">|</span>
+      <span class="meta-item">⏳ ~25 min</span>
+      <span class="meta-separator">|</span>
+      <span class="meta-item">🎯 Dinâmico e Excêntrico</span>
+    </div>
+
+    <!-- ==================== SEÇÃO 1: ATIVAÇÃO ==================== -->
+    <div class="section-card sec-aquecimento">
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+        <div class="section-title-wrap">
+          <div class="section-title">ATIVAÇÃO</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~5 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 1: Straight-Arm Pulldown -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>STRAIGHT-ARM PULLDOWN COM SUPERBAND</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Straight-Arm Pulldown com Superband', '<b>Execução:</b> Fixe a superband em um ponto alto da barra. Segure a faixa com ambas as mãos na largura dos ombros, braços 100% esticados e tronco levemente inclinado à frente. Tracione a faixa para baixo até a linha das coxas, contraindo o grande dorsal com força no ponto final. Retorne controlando o movimento por 2 segundos sem perder a tensão.<br><br><b>Cuidados:</b> Não dobre os cotovelos para transformar o exercício em tríceps pushdown. Mantenha os ombros deprimidos e longe das orelhas.<br><br><b>Base científica:</b> ATIVAÇÃO ISOLADA DO LATÍSSIMO: Recruta a linha de tração do grande dorsal e redondo maior com cotovelos em extensão rígida, aumentando a excitabilidade neural e lubrificando os tendões antes das cargas dinâmicas suspensas. (Neumann, 2016).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 SÉRIES • 12 REPS</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1 • 12 reps</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2 • 12 reps</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Straight-Arm Pulldown com Superband')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-ext2-pulldown" onclick="toggleCommentBox('ex-ext2-pulldown')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-ext2-pulldown" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-ext2-pulldown" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (Pulldown):</span>
+            <span class="save-indicator" id="save-status-ex-ext2-pulldown"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-ext2-pulldown" placeholder="Ex: Tensão da band, contração de dorsal..." oninput="saveExerciseNote('ex-ext2-pulldown', this.value)"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SEÇÃO 2: HABILIDADES ==================== -->
+    <div class="section-card sec-skills">
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+        <div class="section-title-wrap">
+          <div class="section-title">HABILIDADES</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~12 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 2: Negativas de Front Lever -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>NEGATIVAS DE FRONT LEVER</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Negativas de Front Lever', '<b>Execução:</b> Suba na barra ou argolas até a posição invertida vertical (vela). Com braços completamente estendidos e corpo em bloco rígido, inicie a descida controlada. Resista ativamente à gravidade levando 5 segundos para descer da vertical até a horizontal de Front Lever. Ao passar da linha horizontal, finalize a descida suavemente até os pés tocarem o solo.<br><br><b>Cuidados:</b> Cotovelos absolutamente travados em extensão total. Não deixe o quadril cair antes dos ombros. Descanse 2 minutos completos entre as séries para proteção do bíceps distal e recuperação neural.<br><br><b>Base científica:</b> ADAPTAÇÃO MIOTENDÍNEA EXCÊNTRICA: As ações musculares excêntricas geram picos elevados de tensão mecânica com menor custo metabólico, estimulando a síntese de colágeno na junção miotendínea e preparando a estrutura conectiva do bíceps distal e tríceps longo para a sustentação estática. (Schoenfeld, 2020).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • 2 DESCIDAS (5S CADA)</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1 • 2 descidas (5s)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2 • 2 descidas (5s)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3 • 2 descidas (5s)</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Negativas de Front Lever')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-ext2-neg" onclick="toggleCommentBox('ex-ext2-neg')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-ext2-neg" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-ext2-neg" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (Negativas):</span>
+            <span class="save-indicator" id="save-status-ex-ext2-neg"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-ext2-neg" placeholder="Ex: Segundos reais na descida, ponto de maior dificuldade..." oninput="saveExerciseNote('ex-ext2-neg', this.value)"></textarea>
+        </div>
+      </div>
+
+      <!-- Ex 3: Front Lever Raises -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>FRONT LEVER RAISES</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Front Lever Raises (Elevação Dinâmica)', '<b>Execução:</b> A partir da posição suspensa reta (dead hang), tracione a barra empurrando as mãos para baixo com cotovelos travados. Eleve o corpo em advanced tuck (ou pernas estendidas com elástico leve) até que o corpo atinja a linha horizontal com o solo. Pause 1 segundo na horizontal e desça controlando.<br><br><b>Cuidados:</b> Não use impulso de quadril ou balanço (kipping). O movimento deve ser 100% estrito e guiado pela grande dorsal.<br><br><b>Base científica:</b> FORÇA CONCÊNTRICA DE EXTENSÃO: Desenvolve a capacidade contrátil dinâmica dos depressores e extensores do complexo escapuloumeral em cadeia cinética fechada. (Neumann, 2016).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • 4-5 REPS</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1 • 4-5 reps</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2 • 4-5 reps</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3 • 4-5 reps</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Front Lever Raises')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-ext2-raises" onclick="toggleCommentBox('ex-ext2-raises')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-ext2-raises" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-ext2-raises" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (Raises):</span>
+            <span class="save-indicator" id="save-status-ex-ext2-raises"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-ext2-raises" placeholder="Ex: Feito em tuck ou com band leve, altura atingida..." oninput="saveExerciseNote('ex-ext2-raises', this.value)"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SEÇÃO 3: FORTALECIMENTO ==================== -->
+    <div class="section-card sec-forca">
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+        <div class="section-title-wrap">
+          <div class="section-title">FORTALECIMENTO</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~8 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 4: Tuck Front Lever Rows nas Argolas -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>TUCK FRONT LEVER ROWS NAS ARGOLAS</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Tuck Front Lever Rows nas Argolas', '<b>Execução:</b> Nas argolas ajustadas à meia altura, entre na posição de tuck horizontal (costas paralelas ao solo). Tracione as argolas até as costelas, aproximando as escápulas com máxima amplitude no topo da puxada. Permita a rotação livre dos punhos nas argolas para conforto articular. Estenda os braços controlando o retorno.<br><br><b>Cuidados:</b> Não deixe a pelve despencar durante a puxada. Mantenha as costas retas e o queixo recolhido.<br><br><b>Base científica:</b> HIPERTROFIA E FECHAMENTO ESCAPULAR: Combina o estresse isométrico de estabilização do tronco na horizontal com a força dinâmica de flexores de cotovelo e retratores escapulares, gerando espessura e densidade na musculatura posterior. (Schoenfeld, 2020; Escamilla et al., 2001).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • 6-8 REPS</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1 • 6-8 reps</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2 • 6-8 reps</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3 • 6-8 reps</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Tuck Front Lever Rows nas Argolas')">
+            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar sua execução</span>
+          </button>
+          <button type="button" class="btn-comment" id="btn-comment-ex-ext2-rows" onclick="toggleCommentBox('ex-ext2-rows')">
+            <span>💬 Observações?</span>
+            <span class="comment-dot" id="dot-ex-ext2-rows" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-ext2-rows" class="comment-drawer" style="display: none;">
+          <div class="comment-header">
+            <span>👤 Suas anotações (Tuck Rows):</span>
+            <span class="save-indicator" id="save-status-ex-ext2-rows"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-ext2-rows" placeholder="Ex: Amplitude da puxada, rotação das argolas..." oninput="saveExerciseNote('ex-ext2-rows', this.value)"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card Clean de Finalização de Treino -->
+    <div class="workout-finish-clean-card" id="workoutFinishCard-extra2">
+      <div class="finish-controls-row">
+        <label class="finish-checkbox-label">
+          <input type="checkbox" id="checkFinish-extra2" class="finish-checkbox-input" onchange="toggleFinishWorkoutBtn('extra2', this.checked)">
+          <span class="finish-custom-checkbox"></span>
+          <span class="finish-checkbox-text">Finalizar sessão 🏁</span>
+        </label>
+        <button type="button" class="btn-send-coach" id="btnSendCoach-extra2" onclick="completeWorkoutSession('extra2')" disabled>
+          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          <span>Enviar para Coach</span>
+        </button>
+      </div>
+      <div id="completeFeedback-extra2" class="complete-feedback-box" style="display:none; width: 100%;">
+        ✅ Treino finalizado e relatório enviado com sucesso para o Coach!
+      </div>
+    </div>
+
+    <!-- Ajuda Contextual do Treino -->
+    <div class="contextual-help-wrap" style="margin-top: 24px; margin-bottom: 80px;">
+      <button type="button" class="btn-contextual-help" onclick="openContextualHelp('treinos')">
+        <span>precisa de ajuda?</span> <u>acesse as instruções</u>
+      </button>
+    </div>
+  </div>
 
 
   <!-- ==================== TAB: Mural de Recados ==================== -->
@@ -8207,7 +8664,7 @@
     }
 
     function renderTrainingHubDays() {
-      const workouts = ['treinoa', 'treinob', 'treinoc'];
+      const workouts = ['treinoa', 'treinob', 'treinoc', 'extra1', 'extra2'];
       workouts.forEach(w => {
         const pill = document.getElementById('statusPill-' + w);
         const card = document.getElementById('dayCard-' + w);
@@ -8516,8 +8973,10 @@
       if (subId === 'historico' && typeof renderBodyCompHistoryList === 'function') {
         renderBodyCompHistoryList(getBodyCompHistory());
       }
-      if (subId === 'fotos' && typeof renderBodyCompPhotosGallery === 'function') {
-        renderBodyCompPhotosGallery();
+      if (subId === 'fotos') {
+        if (typeof renderPosturalComparisonUI === 'function') renderPosturalComparisonUI();
+        if (typeof renderUserUploadedPhotosGallery === 'function') renderUserUploadedPhotosGallery(getBodyCompHistory());
+        if (typeof renderBodyCompPhotosGallery === 'function') renderBodyCompPhotosGallery();
       }
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -10076,12 +10535,13 @@ function updateEvolucaoStats() {
             </div>
             <div style="font-size:0.74rem; color:#cbd5e1;">
               ${s.notes ? `<strong>Notas do Atleta:</strong> ${s.notes}<br>` : ''}
-              ${s.coachNotes ? `
+              ${(s.coachNotes || s.coachAnalysis) ? `
               <div style="margin-top:8px; padding:8px 10px; background:rgba(0,255,136,0.04); border-left:3.5px solid var(--brand-neon); border-radius:6px; font-size:0.76rem; color:#f1f5f9; line-height:1.55; white-space:pre-line;">
                 <strong style="color:var(--brand-neon); display:block; margin-bottom:4px;">Parecer Individual do Prof. Gui Lemos:</strong>
                 ${s.coachNotes}
               </div>
             ` : ''}
+            </div>
           </div>`;
       });
 
@@ -10164,10 +10624,10 @@ function updateEvolucaoStats() {
             </div>
 
             <!-- Parecer do Treinador Gui Lemos -->
-            ${s.coachNotes ? `
+            ${(s.coachNotes || s.coachAnalysis) ? `
               <div style="background:rgba(56,189,248,0.06); border-left:3.5px solid #38bdf8; border-radius:8px; padding:10px 12px; font-size:0.78rem; color:#cbd5e1; line-height:1.55;">
                 <strong style="color:#38bdf8; display:block; margin-bottom:4px; font-size:0.80rem;">🔬 Diagnóstico e Parecer Técnico:</strong>
-                <div style="white-space:pre-line;">${s.coachNotes}</div>
+                <div style="white-space:pre-line;">${s.coachNotes || s.coachAnalysis}</div>
               </div>
             ` : (s.notes ? `
               <div style="background:rgba(255,255,255,0.03); border-left:3px solid #64748b; border-radius:6px; padding:8px 10px; font-size:0.75rem; color:#94a3b8;">
@@ -13969,7 +14429,9 @@ window.openWelcomeAppModal = function(notifId = null) {
       const dayNames = {
         'treinoa': 'SEGUNDA | TREINO A',
         'treinob': 'QUARTA | TREINO B',
-        'treinoc': 'SEXTA | TREINO C'
+        'treinoc': 'SEXTA | TREINO C',
+        'extra1': 'EXTRA 1 | FRONT LEVER',
+        'extra2': 'EXTRA 2 | FRONT LEVER'
       };
 
       if (dayId && typeof dayId === 'string') {
