@@ -2461,24 +2461,72 @@
       flex-wrap: wrap;
     }
     @media print {
+      @page {
+        size: A4 portrait;
+        margin: 10mm 12mm;
+      }
+      html, body {
+        background: #ffffff !important;
+        color: #0f172a !important;
+        height: auto !important;
+        min-height: 100% !important;
+        overflow: visible !important;
+      }
       body * {
         visibility: hidden !important;
       }
-      #modalRelatorioComposicao, #modalRelatorioComposicao * {
+      #modalRelatorioComposicao,
+      #modalRelatorioComposicao * {
         visibility: visible !important;
       }
       #modalRelatorioComposicao {
-        position: absolute !important;
-        left: 0 !important;
-        top: 0 !important;
+        position: static !important;
+        display: block !important;
         width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
         background: #ffffff !important;
-        color: #000000 !important;
+        color: #0f172a !important;
         box-shadow: none !important;
         border: none !important;
+        overflow: visible !important;
+        inset: auto !important;
+        transform: none !important;
+      }
+      #modalRelatorioComposicao .modal-card {
+        position: static !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #ffffff !important;
+        border: none !important;
+        box-shadow: none !important;
+        overflow: visible !important;
+        max-height: none !important;
+        transform: none !important;
+      }
+      #relatorioComposicaoContent {
+        max-height: none !important;
+        height: auto !important;
+        overflow: visible !important;
+        padding: 0 !important;
+        color: #0f172a !important;
       }
       .no-print {
         display: none !important;
+      }
+      .print-report-wrapper {
+        page-break-inside: auto !important;
+      }
+      .print-section {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        margin-bottom: 12px !important;
+      }
+      table {
+        page-break-inside: avoid !important;
       }
     }
 
@@ -4889,7 +4937,131 @@
       border-left: 4.5px solid var(--brand-neon) !important;
       box-shadow: 0 4px 18px rgba(0, 0, 0, 0.55), 0 0 16px rgba(0, 255, 136, 0.06) !important;
     }
-  </style>
+  
+    /* ==================== AJUSTES DE RESPONSIVIDADE E VOLUME DE SÉRIES ==================== */
+    .ex-volume-sets-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px 12px;
+      margin-bottom: 10px;
+      padding: 6px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      max-width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    .ex-volume-badge {
+      font-size: 0.76rem !important;
+      font-weight: 800 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.03em !important;
+      color: #e2e8f0 !important;
+      background: none !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      white-space: normal !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 4px !important;
+      max-width: 100% !important;
+      overflow-wrap: break-word !important;
+      word-break: break-word !important;
+      line-height: 1.35 !important;
+    }
+    .sets-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .ex-title {
+      font-size: 0.90rem !important;
+      font-weight: 800 !important;
+      color: #ffffff !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.02em !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 8px !important;
+      flex-wrap: wrap !important;
+      line-height: 1.35 !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    .ex-title > span:first-child {
+      flex: 1 1 auto;
+      min-width: 0;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+    .ex-title .btn-video {
+      flex-shrink: 0;
+    }
+    .btn-finish-workout-trigger {
+      width: 100%;
+      background: linear-gradient(135deg, rgba(0, 255, 136, 0.18) 0%, rgba(56, 189, 248, 0.14) 100%);
+      border: 2px solid var(--brand-neon);
+      border-radius: 14px;
+      padding: 16px 20px;
+      color: #ffffff;
+      font-size: 1.05rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 4px 20px rgba(0, 255, 136, 0.25);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      text-transform: uppercase;
+    }
+    .btn-finish-workout-trigger:hover,
+    .btn-finish-workout-trigger:active {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 26px rgba(0, 255, 136, 0.42);
+      background: linear-gradient(135deg, rgba(0, 255, 136, 0.28) 0%, rgba(56, 189, 248, 0.22) 100%);
+    }
+    .finish-flag-icon {
+      font-size: 1.35rem;
+      line-height: 1;
+      display: inline-block;
+      transform: scale(1.1);
+    }
+
+
+    .btn-send-video-drawer {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: rgba(56, 189, 248, 0.10);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      width: 100%;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+    .btn-send-video-drawer:hover, .btn-send-video-drawer:active {
+      background: rgba(56, 189, 248, 0.22);
+      border-color: #38bdf8;
+      color: #ffffff;
+    }
+
+</style>
 </head>
 <body>
 
@@ -4992,56 +5164,8 @@
         <h2 class="training-section-title">ROTINA DE TREINO</h2>
       </div>
 
-      <!-- Lista Vertical de Dias de Treino -->
+            <!-- Lista Vertical de Dias de Treino -->
       <div class="training-days-list" id="trainingDaysList">
-        <!-- TREINO A -->
-        <div class="training-day-card" id="dayCard-treinoa" data-workout-type="treino" data-target="6" onclick="openDayWorkout('treinoa')">
-          <div class="day-card-left">
-            <div class="day-card-name-row">
-              <span class="day-name">SEGUNDA | TREINO A</span>
-            </div>
-            <div class="day-focus-desc">Em Estruturação • Foco Personalizado</div>
-            <div class="day-meta-pill">📍 A Definir • ⏱️ ~50 min</div>
-          </div>
-          <div class="day-card-right">
-            <div class="day-status-pill status-pending" id="statusPill-treinoa" onclick="event.stopPropagation(); handleWorkoutStatusClick('treinoa')">
-              <span class="status-icon">›</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- TREINO B -->
-        <div class="training-day-card" id="dayCard-treinob" data-workout-type="treino" data-target="6" onclick="openDayWorkout('treinob')">
-          <div class="day-card-left">
-            <div class="day-card-name-row">
-              <span class="day-name">QUARTA | TREINO B</span>
-            </div>
-            <div class="day-focus-desc">Em Estruturação • Foco Personalizado</div>
-            <div class="day-meta-pill">📍 A Definir • ⏱️ ~50 min</div>
-          </div>
-          <div class="day-card-right">
-            <div class="day-status-pill status-pending" id="statusPill-treinob" onclick="event.stopPropagation(); handleWorkoutStatusClick('treinob')">
-              <span class="status-icon">›</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- TREINO C -->
-        <div class="training-day-card" id="dayCard-treinoc" data-workout-type="treino" data-target="6" onclick="openDayWorkout('treinoc')">
-          <div class="day-card-left">
-            <div class="day-card-name-row">
-              <span class="day-name">SEXTA | TREINO C</span>
-            </div>
-            <div class="day-focus-desc">Em Estruturação • Foco Personalizado</div>
-            <div class="day-meta-pill">📍 A Definir • ⏱️ ~50 min</div>
-          </div>
-          <div class="day-card-right">
-            <div class="day-status-pill status-pending" id="statusPill-treinoc" onclick="event.stopPropagation(); handleWorkoutStatusClick('treinoc')">
-              <span class="status-icon">›</span>
-            </div>
-          </div>
-        </div>
-
         <!-- EXTRA 1 | FRONT LEVER -->
         <div class="training-day-card" id="dayCard-extra1" data-workout-type="treino" data-target="4" onclick="openDayWorkout('extra1')">
           <div class="day-card-left">
@@ -5097,157 +5221,6 @@
       </div>
     </div>
 
-  <!-- ==================== TAB: TREINO A ==================== -->
-  <div id="tab-treinoa" class="tab-content">
-    <div class="session-overall-meta">
-      <span class="meta-item">📍 A Definir</span>
-      <span class="meta-separator">|</span>
-      <span class="meta-item">⏳ ~50 a 60 min</span>
-    </div>
-
-    <!-- DIRETRIZES DO TREINO -->
-    <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 18px 16px; margin-bottom: 18px; border-radius: 12px; background: rgba(0, 255, 136, 0.04);">
-      <div class="callout-icon" style="font-size:1.4rem;">🎯</div>
-      <div>
-        <div class="callout-topic-header" style="color: var(--brand-neon); font-size: 0.95rem; font-weight:800; letter-spacing:0.04em;">TREINO A • EM ESTRUTURAÇÃO</div>
-        <div style="font-size: 0.85rem; color: #cbd5e1; margin-top: 6px; line-height: 1.6;">
-          Os blocos de ativação, fortalecimento e mobilidade desta sessão serão inseridos e calibrados pelo Prof. Gui Lemos após a análise detalhada da sua avaliação inicial.
-        </div>
-      </div>
-    </div>
-
-    <div style="text-align: center; padding: 32px 16px; color: var(--text-dim); font-size: 0.85rem;">
-      <p>Sessão em formatação pelo treinador.</p>
-    </div>
-
-    <!-- Card Clean de Finalização de Treino -->
-    <div class="workout-finish-clean-card" id="workoutFinishCard-treinoa">
-      <div class="finish-controls-row">
-        <label class="finish-checkbox-label">
-          <input type="checkbox" id="checkFinish-treinoa" class="finish-checkbox-input" onchange="toggleFinishWorkoutBtn('treinoa', this.checked)">
-          <span class="finish-custom-checkbox"></span>
-          <span class="finish-checkbox-text">Finalizar sessão 🏁</span>
-        </label>
-        <button type="button" class="btn-send-coach" id="btnSendCoach-treinoa" onclick="completeWorkoutSession('treinoa')" disabled>
-          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-          <span>Enviar para Coach</span>
-        </button>
-      </div>
-      <div id="completeFeedback-treinoa" class="complete-feedback-box" style="display:none; width: 100%;">
-        ✅ Treino finalizado e relatório enviado com sucesso para o Coach!
-      </div>
-    </div>
-
-    <!-- Ajuda Contextual do Treino -->
-    <div class="contextual-help-wrap" style="margin-top: 24px; margin-bottom: 80px;">
-      <button type="button" class="btn-contextual-help" onclick="openContextualHelp('treinos')">
-        <span>precisa de ajuda?</span> <u>acesse as instruções</u>
-      </button>
-    </div>
-  </div>
-
-  <!-- ==================== TAB: TREINO B ==================== -->
-  <div id="tab-treinob" class="tab-content">
-    <div class="session-overall-meta">
-      <span class="meta-item">📍 A Definir</span>
-      <span class="meta-separator">|</span>
-      <span class="meta-item">⏳ ~50 a 60 min</span>
-    </div>
-
-    <!-- DIRETRIZES DO TREINO -->
-    <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 18px 16px; margin-bottom: 18px; border-radius: 12px; background: rgba(0, 255, 136, 0.04);">
-      <div class="callout-icon" style="font-size:1.4rem;">🎯</div>
-      <div>
-        <div class="callout-topic-header" style="color: var(--brand-neon); font-size: 0.95rem; font-weight:800; letter-spacing:0.04em;">TREINO B • EM ESTRUTURAÇÃO</div>
-        <div style="font-size: 0.85rem; color: #cbd5e1; margin-top: 6px; line-height: 1.6;">
-          Os blocos de ativação, fortalecimento e mobilidade desta sessão serão inseridos e calibrados pelo Prof. Gui Lemos após a análise detalhada da sua avaliação inicial.
-        </div>
-      </div>
-    </div>
-
-    <div style="text-align: center; padding: 32px 16px; color: var(--text-dim); font-size: 0.85rem;">
-      <p>Sessão em formatação pelo treinador.</p>
-    </div>
-
-    <!-- Card Clean de Finalização de Treino -->
-    <div class="workout-finish-clean-card" id="workoutFinishCard-treinob">
-      <div class="finish-controls-row">
-        <label class="finish-checkbox-label">
-          <input type="checkbox" id="checkFinish-treinob" class="finish-checkbox-input" onchange="toggleFinishWorkoutBtn('treinob', this.checked)">
-          <span class="finish-custom-checkbox"></span>
-          <span class="finish-checkbox-text">Finalizar sessão 🏁</span>
-        </label>
-        <button type="button" class="btn-send-coach" id="btnSendCoach-treinob" onclick="completeWorkoutSession('treinob')" disabled>
-          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-          <span>Enviar para Coach</span>
-        </button>
-      </div>
-      <div id="completeFeedback-treinob" class="complete-feedback-box" style="display:none; width: 100%;">
-        ✅ Treino finalizado e relatório enviado com sucesso para o Coach!
-      </div>
-    </div>
-
-    <!-- Ajuda Contextual do Treino -->
-    <div class="contextual-help-wrap" style="margin-top: 24px; margin-bottom: 80px;">
-      <button type="button" class="btn-contextual-help" onclick="openContextualHelp('treinos')">
-        <span>precisa de ajuda?</span> <u>acesse as instruções</u>
-      </button>
-    </div>
-  </div>
-
-  <!-- ==================== TAB: TREINO C ==================== -->
-  <div id="tab-treinoc" class="tab-content">
-    <div class="session-overall-meta">
-      <span class="meta-item">📍 A Definir</span>
-      <span class="meta-separator">|</span>
-      <span class="meta-item">⏳ ~50 a 60 min</span>
-    </div>
-
-    <!-- DIRETRIZES DO TREINO -->
-    <div class="callout-box" style="border-left: 3px solid var(--brand-neon); padding: 18px 16px; margin-bottom: 18px; border-radius: 12px; background: rgba(0, 255, 136, 0.04);">
-      <div class="callout-icon" style="font-size:1.4rem;">🎯</div>
-      <div>
-        <div class="callout-topic-header" style="color: var(--brand-neon); font-size: 0.95rem; font-weight:800; letter-spacing:0.04em;">TREINO C • EM ESTRUTURAÇÃO</div>
-        <div style="font-size: 0.85rem; color: #cbd5e1; margin-top: 6px; line-height: 1.6;">
-          Os blocos de ativação, fortalecimento e mobilidade desta sessão serão inseridos e calibrados pelo Prof. Gui Lemos após a análise detalhada da sua avaliação inicial.
-        </div>
-      </div>
-    </div>
-
-    <div style="text-align: center; padding: 32px 16px; color: var(--text-dim); font-size: 0.85rem;">
-      <p>Sessão em formatação pelo treinador.</p>
-    </div>
-
-    <!-- Card Clean de Finalização de Treino -->
-    <div class="workout-finish-clean-card" id="workoutFinishCard-treinoc">
-      <div class="finish-controls-row">
-        <label class="finish-checkbox-label">
-          <input type="checkbox" id="checkFinish-treinoc" class="finish-checkbox-input" onchange="toggleFinishWorkoutBtn('treinoc', this.checked)">
-          <span class="finish-custom-checkbox"></span>
-          <span class="finish-checkbox-text">Finalizar sessão 🏁</span>
-        </label>
-        <button type="button" class="btn-send-coach" id="btnSendCoach-treinoc" onclick="completeWorkoutSession('treinoc')" disabled>
-          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-          <span>Enviar para Coach</span>
-        </button>
-      </div>
-      <div id="completeFeedback-treinoc" class="complete-feedback-box" style="display:none; width: 100%;">
-        ✅ Treino finalizado e relatório enviado com sucesso para o Coach!
-      </div>
-    </div>
-
-    <!-- Ajuda Contextual do Treino -->
-    <div class="contextual-help-wrap" style="margin-top: 24px; margin-bottom: 80px;">
-      <button type="button" class="btn-contextual-help" onclick="openContextualHelp('treinos')">
-        <span>precisa de ajuda?</span> <u>acesse as instruções</u>
-      </button>
-    </div>
-  </div>
-
-
-
-
-  
   <!-- ==================== TAB: EXTRA 1 ==================== -->
   <div id="tab-extra1" class="tab-content">
     <div class="session-overall-meta">
@@ -6763,145 +6736,47 @@
           </div>
         </details></div>
 
+            <!-- ==================== SUBPÁGINA 3: LAUDO TÉCNICO COMPLETO ==================== -->
       <div id="compSubView-laudo" style="display:none;">
-      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
-        <button type="button" class="btn-back-workout" onclick="closeCompSubView()">
-          ← Voltar para Composição Corporal
-        </button>
-      </div>
-
-      <!-- HERO MASTER: LAUDO E DIAGNÓSTICO BIOMECÂNICO -->
-      <div class="evolucao-hero" style="margin-bottom:14px; background: linear-gradient(135deg, rgba(192, 132, 252, 0.16) 0%, rgba(56, 189, 248, 0.12) 60%, rgba(0, 255, 136, 0.08) 100%); border-left: 4.5px solid #c084fc;">
-        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-          <div class="evolucao-title">
-            <span>📋 Laudo e Diagnóstico Biomecânico</span>
-          </div>
-          <span style="font-size:0.72rem; font-weight:800; color:#c084fc; background:rgba(192,132,252,0.2); border:1px solid rgba(192,132,252,0.45); padding:3px 9px; border-radius:8px; text-transform:uppercase;">Conclusão Master</span>
-        </div>
-        <p style="font-size:0.82rem; color:#cbd5e1; margin:8px 0 0; line-height:1.55;">
-          Síntese diagnóstica integrando medidas antropométricas, histórico longitudinal e análise postural com as métricas científicas de rendimento e longevidade física.
-        </p>
-      </div>
-
-      <!-- BLOCO 1: STATUS CLÍNICO E ANTROPOMÉTRICO (ONDE VOCÊ SE ENCONTRA) -->
-      <div class="comparison-card" style="border-left:4px solid #38bdf8; margin-bottom:14px;">
-        <div class="comparison-card-header">
-          <div class="comparison-card-title">1. Status Clínico e Antropométrico Atual</div>
-          <span style="font-size:0.72rem; color:#38bdf8; font-weight:800;">DIAGNÓSTICO ESTATUTÁRIO</span>
-        </div>
-        <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.65;">
-          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap:8px; margin-bottom:12px;">
-            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(56,189,248,0.25); border-radius:10px; padding:10px 12px;">
-              <div style="font-size:0.72rem; color:#94a3b8; font-weight:700;">RCEst (Cintura/Estatura)</div>
-              <div style="font-size:1.15rem; font-weight:900; color:#38bdf8; margin:2px 0;">0.45 <span style="font-size:0.72rem; font-weight:700; color:var(--brand-neon);">(Ideal)</span></div>
-              <div style="font-size:0.68rem; color:#64748b;">Meta clínica: &lt; 0.50 (Ashwell et al.)</div>
-            </div>
-            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(0,255,136,0.25); border-radius:10px; padding:10px 12px;">
-              <div style="font-size:0.72rem; color:#94a3b8; font-weight:700;">Gordura Inerte Reduzida</div>
-              <div style="font-size:1.15rem; font-weight:900; color:var(--brand-neon); margin:2px 0;">-13.3 kg</div>
-              <div style="font-size:0.68rem; color:#64748b;">Preservação total de massa magra</div>
-            </div>
-            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(192,132,252,0.25); border-radius:10px; padding:10px 12px;">
-              <div style="font-size:0.72rem; color:#94a3b8; font-weight:700;">Perímetro Abdominal</div>
-              <div style="font-size:1.15rem; font-weight:900; color:#c084fc; margin:2px 0;">-11.0 cm</div>
-              <div style="font-size:0.68rem; color:#64748b;">De 94 cm para 81 cm (periumbilical)</div>
-            </div>
-          </div>
-          <p style="margin:0 0 8px 0;">
-            <strong>Posicionamento na Faixa de Excelência:</strong> O índice RCEst atingiu <strong>0.45</strong>, situando-se com ampla margem de segurança na faixa de menor risco cardiometabólico e inflamatório sistêmico (&lt; 0.50). A massa muscular do tronco, ombros e dorsais foi preservada integralmente com densidade de treino resistido de alta intensidade.
-          </p>
-          <p style="margin:0;">
-            <strong>Reorganização do Centro de Massa:</strong> A perda concentrada de 11 cm de gordura periumbilical e visceral aproxima o centro de gravidade corporal da linha axial neutra, eliminando o vetor de sobrecarga de tração abdominal.
-          </p>
-        </div>
-      </div>
-
-      <!-- BLOCO 2: PREVENÇÃO DE LESÕES E BIOMECÂNICA ARTICULAR -->
-      <div class="comparison-card" style="border-left:4px solid var(--brand-neon); margin-bottom:14px;">
-        <div class="comparison-card-header">
-          <div class="comparison-card-title">2. Prevenção de Lesões e Biomecânica Articular</div>
-          <span style="font-size:0.72rem; color:var(--brand-neon); font-weight:800;">REGRA DE MESSIER (4:1)</span>
-        </div>
-        <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.65;">
-          <p style="margin:0 0 10px 0;">
-            <strong>Alívio Patelofemoral e Meniscal (Messier et al., 2004):</strong> Em termos biomecânicos validados pela literatura ortopédica, cada 1 kg de sobrecarga inerte reduzida elimina aproximadamente <strong>4 kg de estresse compressivo</strong> na articulação do joelho a cada passo. Com a redução acumulada de 13.3 kg, <strong>mais de 53 kg de compressão mecânica foram eliminados por passada</strong>.
-          </p>
-          <div style="background:rgba(0,255,136,0.06); border:1px solid rgba(0,255,136,0.22); border-radius:10px; padding:10px 14px; margin-bottom:10px;">
-            <strong style="color:var(--brand-neon); font-size:0.84rem;">🛡️ Proteção do Menisco e Dança de Solo:</strong>
-            <div style="font-size:0.8rem; color:#cbd5e1; margin-top:4px;">
-              Em agachamentos profundos, aterrissagens e giros no solo, as forças de cisalhamento chegam a 3x a 4x o peso corporal. A remoção de 13.3 kg de lastro inerte erradica entre <strong>40 a 53 kg de força esmagadora a cada repetição</strong>, blindando o menisco lateral e viabilizando a retomada completa da mobilidade de solo sem atrito inflamatório.
-            </div>
-          </div>
-          <p style="margin:0;">
-            <strong>Descompressão da Coluna Lombar:</strong> Com a diminuição do volume na parede abdominal anterior, a tendência mecânica de anteversão pélvica e hiperlordose compensatória foi revertida, estabilizando os discos intervertebrais L4-L5 e L5-S1 em posição neutra.
-          </p>
-        </div>
-      </div>
-
-      <!-- BLOCO 3: RENDIMENTO ESPORTIVO E FORÇA RELATIVA -->
-      <div class="comparison-card" style="border-left:4px solid #fbbf24; margin-bottom:14px;">
-        <div class="comparison-card-header">
-          <div class="comparison-card-title">3. Rendimento Esportivo e Força Relativa</div>
-          <span style="font-size:0.72rem; color:#fbbf24; font-weight:800;">2ª LEI DE NEWTON (a = F / m)</span>
-        </div>
-        <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.65;">
-          <p style="margin:0 0 10px 0;">
-            <strong>Equação da Aceleração Vertical:</strong> Pela 2ª Lei da Mecânica Clássica (a = F / m), ao manter a mesma capacidade contrátil (F) e reduzir a massa corporal inerte (m) de 97.8 kg para 84.5 kg, a aceleração gerada no movimento aumenta em <strong>+15.7%</strong>.
-          </p>
-          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:10px; margin-bottom:10px;">
-            <div style="background:rgba(251,191,36,0.06); border:1px solid rgba(251,191,36,0.25); border-radius:10px; padding:10px 12px;">
-              <strong style="color:#fbbf24; font-size:0.84rem;">⚡ Bar e Ring Muscle-Up</strong>
-              <p style="margin:4px 0 0; font-size:0.78rem; color:#cbd5e1;">
-                Acelerar 84.5 kg para o turnover exige 15.7% menos potência mecânica que acelerar 97.8 kg. A transição sobre a barra deixa de exigir impulso excessivo e torna-se um padrão controlado de alta precisão.
-              </p>
-            </div>
-            <div style="background:rgba(251,191,36,0.06); border:1px solid rgba(251,191,36,0.25); border-radius:10px; padding:10px 12px;">
-              <strong style="color:#fbbf24; font-size:0.84rem;">🤸 Parada de Mão e Acrobacias</strong>
-              <p style="margin:4px 0 0; font-size:0.78rem; color:#cbd5e1;">
-                Menor massa e tronco compacto reduzem drasticamente o momento de inércia angular. Correções de linha exigem apenas micro-ajustes reflexos nos flexores de punho e trapézio.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- BLOCO 4: DIRETRIZES TÉCNICAS E O QUE PODE MELHORAR -->
-      <div class="comparison-card" style="border-left:4px solid #c084fc; margin-bottom:18px;">
-        <div class="comparison-card-header">
-          <div class="comparison-card-title">4. Diretrizes Técnicas e Próximos Passos</div>
-          <span style="font-size:0.72rem; color:#c084fc; font-weight:800;">PLANO DE CONSOLIDAÇÃO</span>
-        </div>
-        <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.65;">
-          <ul class="bio-points-list" style="margin:0; padding-left:16px;">
-            <li><strong>Consolidação do Padrão Calistênico:</strong> Com a nova relação peso-potência, progredir no volume de puxadas verticais altas (chest-to-bar estritos) e refinamento de false grip nas argolas olímpicas.</li>
-            <li><strong>Retomada Gradual de Amplitude no Solo:</strong> Aproveitar o alívio articular patelofemoral de 53 kg para consolidar mobilidade de cócoras profunda e transições de peso na dança contemporânea sem pressa.</li>
-            <li><strong>Manutenção Metabólica e Aporte Proteico:</strong> Manter aporte de 1.8 a 2.2 g/kg de proteína diária e hidratação farta para assegurar total plenitude de glicogênio muscular e tônus contrátil.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- CARD NOBRE: GERADOR DE RELATÓRIO COMPLETO -->
-      <div style="background: linear-gradient(135deg, rgba(2,132,199,0.12), rgba(124,58,237,0.12)); border: 1.5px solid rgba(56,189,248,0.35); border-radius: 16px; padding: 20px 18px; margin-bottom: 24px; text-align: left; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-        <div style="display:flex; align-items:flex-start; gap:12px; flex-wrap:wrap; justify-content:space-between;">
-          <div style="max-width: 480px;">
-            <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
-              <span style="font-size:1.3rem;">📋</span>
-              <h3 style="margin:0; font-size:1.02rem; font-weight:800; color:#ffffff; letter-spacing:-0.01em;">Relatório Completo de Composição e Força Relativa</h3>
-            </div>
-            <p style="font-size:0.8rem; color:#cbd5e1; line-height:1.55; margin:0 0 14px 0;">
-              Compilação automática com diagnóstico em termos práticos, cálculo de sobrecarga articular, impacto biomecânico nos seus treinos de Domínio Corporal e embasamento científico com autores de referência.
-            </p>
-          </div>
-          <button type="button" onclick="openRelatorioComposicaoModal()" style="background:#38bdf8; color:#031326; font-size:0.82rem; font-weight:800; border:none; border-radius:10px; padding:12px 18px; cursor:pointer; display:inline-flex; align-items:center; gap:8px; box-shadow:0 0 16px rgba(56,189,248,0.4); white-space:nowrap; transition:all 0.2s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
-            <svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:currentColor;"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-            <span>Gerar Relatório Completo</span>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle); flex-wrap:wrap; gap:8px;">
+          <button type="button" class="btn-back-workout" onclick="closeCompSubView()" style="display: inline-flex; align-items: center; gap: 6px; background: transparent; border: none; padding: 4px 0; color: #94a3b8; font-size: 0.8rem; font-weight: 600; cursor: pointer;">
+            <span style="font-size: 0.95rem;">←</span> <span>Composição Corporal</span>
+          </button>
+          <button type="button" onclick="openRelatorioComposicaoModal()" style="background:#38bdf8; color:#031326; font-size:0.78rem; font-weight:800; border:none; border-radius:8px; padding:8px 14px; cursor:pointer; display:inline-flex; align-items:center; gap:6px; box-shadow:0 0 12px rgba(56,189,248,0.3); transition:all 0.15s ease;">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+            <span>Gerar PDF Oficial (A4)</span>
           </button>
         </div>
+
+        <!-- CONTAINER DINÂMICO DO LAUDO COMPLETO (SÍNTESE + ANÁLISES COM ALTO CONTRASTE) -->
+        <div id="laudoCompletoDynamicContainer">
+          <!-- Preenchido dinamicamente por renderLaudoCompletoDashboard() -->
+        </div>
+
+        <!-- BOTÃO NOBRE DE GERAR LAUDO / IMPRIMIR (LINHA TODA) -->
+        <div style="margin-top:20px; margin-bottom:24px;">
+          <button type="button" class="btn-add-medicao-chamativo" onclick="openRelatorioComposicaoModal()" style="width:100%; display:flex; align-items:center; justify-content:center; gap:8px;">
+            <svg viewBox="0 0 24 24" style="width:18px; height:18px; fill:currentColor;"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+            <span>GERAR LAUDO E SALVAR NO HISTÓRICO (PDF A4)</span>
+          </button>
+        </div>
+
+        <!-- SEÇÃO: HISTÓRICO DE LAUDOS ARQUIVADOS -->
+        <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-left: 4.5px solid #38bdf8; border-radius: 14px; padding: 16px; margin-bottom: 24px;">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span style="font-size:1.1rem;">📋</span>
+              <div style="font-size:0.95rem; font-weight:800; color:#ffffff; letter-spacing:0.02em;">HISTÓRICO DE LAUDOS ARQUIVADOS</div>
+            </div>
+            <span style="font-size:0.72rem; font-weight:700; color:#38bdf8; background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.3); padding:3px 8px; border-radius:12px; text-transform:uppercase;" id="laudosHistoryBadge">0 Laudos</span>
+          </div>
+          
+          <div id="laudosHistoryList" style="display:flex; flex-direction:column; gap:10px;">
+            <!-- Preenchido dinamicamente por renderLaudosHistory() -->
+          </div>
+        </div>
       </div>
-
-    </div>
-
-  </div>
+    </div> <!-- end #evolView-composicao -->
 
     <div id="evolView-tecnica" class="evolucao-view-pane" style="display:none;">
       <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
@@ -8014,7 +7889,7 @@
               <strong class="modal-science-heading" style="color:#e2e8f0;">MÉTODO DE SESSÃO-RPE (sRPE):</strong> A multiplicação da duração em minutos pela percepção subjetiva de esforço (escala CR-10 modificada de Foster) é o padrão ouro na literatura esportiva para monitorar carga interna de treinamento, fadiga neuromuscular e risco de lesão (Foster et al., 2001).
             </div>
             <div class="modal-science-block">
-              <strong class="modal-science-heading" style="color:#e2e8f0;">CONSUMO EXCESSIVO DE OXIGÊNIO PÓS-EXERCÍCIO (EPOC):</strong> Exercícios de força de alta intensidade e calistenia causam perturbação metabólica profunda, mantendo a taxa de consumo de oxigênio elevada por horas após a sessão para ressíntese de glicogênio, remoção de metabólitos e restauração miocelular (Børsheim & Bahr, 2003).
+              <strong class="modal-science-heading" style="color:#e2e8f0;">CONSUMO EXCESSIVO DE OXIGÊNIO PÓS-EXERCÍCIO (EPOC):</strong> Exercícios de força de alta intensidade e calistenia causam perturbação metabólica profunda, mantendo a taxa de consumo de oxigênio elevada por horas após a sessão para ressíntese de glicogênio, remoção de metabólitos e restauração miocelular (Børsheim e Bahr, 2003).
             </div>
             <div class="modal-science-block">
               <strong class="modal-science-heading" style="color:#e2e8f0;">IMPULSO DE TREINAMENTO (TRIMP DE BANISTER):</strong> A equação de Banister (1991) pondera a duração pelo percentual de reserva cardíaca multiplicado por um fator exponencial de lactato sanguíneo, refletindo o custo miocárdico e metabólico com alta sensibilidade fisiológica.
@@ -8562,7 +8437,7 @@
 
     let timersReturnWorkoutDay = null;
     let assessmentReturnTarget = null;
-    let lastActiveDayTab = 'treinoa';
+    let lastActiveDayTab = 'extra1';
 
     function switchDayTab(dayId) {
       openDayWorkout(dayId);
@@ -8664,7 +8539,7 @@
     }
 
     function renderTrainingHubDays() {
-      const workouts = ['treinoa', 'treinob', 'treinoc', 'extra1', 'extra2'];
+      const workouts = ['extra1', 'extra2'];
       workouts.forEach(w => {
         const pill = document.getElementById('statusPill-' + w);
         const card = document.getElementById('dayCard-' + w);
@@ -8972,6 +8847,10 @@
       }
       if (subId === 'historico' && typeof renderBodyCompHistoryList === 'function') {
         renderBodyCompHistoryList(getBodyCompHistory());
+      }
+      if (subId === 'laudo') {
+        if (typeof renderLaudoCompletoDashboard === 'function') renderLaudoCompletoDashboard();
+        if (typeof renderLaudosHistory === 'function') if (typeof renderLaudosHistory === 'function') renderLaudosHistory();
       }
       if (subId === 'fotos') {
         if (typeof renderPosturalComparisonUI === 'function') renderPosturalComparisonUI();
@@ -9808,12 +9687,12 @@ function updateEvolucaoStats() {
     function getStudentBaseProfile() {
       let data = {};
       try {
-        const raw = localStorage.getItem('dominio_aluno_student_intake');
+        const raw = localStorage.getItem('dominio_gustavo_student_intake') || localStorage.getItem('dominio_aluno_student_intake');
         if (raw) data = JSON.parse(raw);
       } catch (e) {}
-      const name = data.nome || document.getElementById('athleteProfileName')?.textContent || 'Aluno';
-      const weight = parseFloat(data.peso) || null;
-      const height = parseFloat(data.altura) || null;
+      const name = data.nome || document.getElementById('athleteProfileName')?.textContent || 'Gustavo Donato';
+      const weight = parseFloat(data.peso) || 64.0;
+      const height = parseFloat(data.altura || data.estatura) || 172;
       const bf = (data.gordura !== undefined && data.gordura !== '') ? parseFloat(data.gordura) : null;
       const gender = (data.sexo || 'masculino').toLowerCase();
       return { name, weight, height, bf, gender };
@@ -10675,8 +10554,8 @@ function updateEvolucaoStats() {
 
       const history = getBodyCompHistory();
       const base = getStudentBaseProfile();
-      const height = base.height || 178;
-      const studentName = base.name || 'Gui Lemos';
+      const height = base.height || 172;
+      const studentName = base.name || 'Gustavo Donato';
 
       if (!history || history.length === 0) {
         container.innerHTML = '<div style="text-align:center; padding:30px; color:#cbd5e1; font-size:0.85rem;">Nenhum dado antropométrico registrado para compilar o laudo.</div>';
@@ -10786,7 +10665,7 @@ function updateEvolucaoStats() {
               </div>
             </div>
             <p style="margin:0; font-size:0.74rem; color:#cbd5e1;">
-              <em>Referência Científica: Ashwell, M., & Browning, L. M. (2012). Waist-to-height ratio is a better screening tool than waist circumference and BMI for adult cardiometabolic risk factors. Systematic Review, Obesity Reviews.</em>
+              <em>Referência Científica: Ashwell, M. e Browning, L. M. (2012). Waist-to-height ratio is a better screening tool than waist circumference and BMI for adult cardiometabolic risk factors. Systematic Review, Obesity Reviews.</em>
             </p>
           </div>
         </div>
@@ -10805,13 +10684,13 @@ function updateEvolucaoStats() {
               </div>
             </div>
             <div style="background:rgba(251,191,36,0.08); border:1px solid rgba(251,191,36,0.28); border-radius:10px; padding:12px 14px; margin-bottom:10px;">
-              <strong style="color:#fbbf24; font-size:0.86rem;">⚡ Força Relativa e Potência Motora (Zatsiorsky & Kraemer)</strong>
+              <strong style="color:#fbbf24; font-size:0.86rem;">⚡ Força Relativa e Potência Motora (Zatsiorsky e Kraemer)</strong>
               <div style="font-size:0.82rem; color:#f1f5f9; margin-top:4px;">
                 Força Relativa = Força Absoluta ÷ Massa Corporal. O tecido adiposo é um lastro passivo que não gera contração. Ao diminuir a circunferência periumbilical, você retira uma carga morta, aumentando instantaneamente sua aceleração em barras fixas, flexões, handstands e manobras gímnicas.
               </div>
             </div>
             <p style="margin:0; font-size:0.74rem; color:#cbd5e1;">
-              <em>Referências: Messier, S. P., et al. (2005). Arthritis & Rheumatism; Zatsiorsky, V. M., & Kraemer, W. J. (2006). Science and Practice of Strength Training.</em>
+              <em>Referências: Messier, S. P., et al. (2005). Arthritis and Rheumatism; Zatsiorsky, V. M. e Kraemer, W. J. (2006). Science and Practice of Strength Training.</em>
             </p>
           </div>
         </div>
@@ -10852,7 +10731,7 @@ function updateEvolucaoStats() {
       `;
 
       container.innerHTML = html;
-      renderLaudosHistory();
+      if (typeof renderLaudosHistory === 'function') renderLaudosHistory();
     }
 
     function buildRelatorioComposicaoHTML() {
@@ -10861,8 +10740,8 @@ function updateEvolucaoStats() {
 
       const history = getBodyCompHistory();
       const base = getStudentBaseProfile();
-      const height = base.height || 178;
-      const studentName = base.name || 'Gui Lemos';
+      const height = base.height || 172;
+      const studentName = base.name || 'Gustavo Donato';
       const todayStr = new Date().toLocaleDateString('pt-BR');
 
       if (!history || history.length === 0) {
@@ -10881,7 +10760,7 @@ function updateEvolucaoStats() {
       const bfLatest = latest.bodyFat !== undefined && latest.bodyFat !== null ? Number(latest.bodyFat) : null;
       const dBf = (bfBase !== null && bfLatest !== null) ? (bfLatest - bfBase) : null;
 
-      const contextNotes = latest.notes || (studentName.toLowerCase().includes('gui') ? 'Tirzepatida 2,5 mg; retorno após 10 dias de pausa no treino' : '');
+      const contextNotes = latest.notes || '';
 
       let html = `
         <div class="print-report-wrapper" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #0f172a; line-height: 1.5; padding: 0;">
@@ -10978,7 +10857,7 @@ function updateEvolucaoStats() {
                 <strong>Alívio Compressivo nos Joelhos (Regra de Messier 4:1):</strong> Cada 1 kg de sobrecarga inerte reduzida elimina ~4 kg de compressão nos meniscos e cartilagens patelofemorais por passada. ${kneeReliefPerStep > 0 ? `A redução de ${Math.abs(dWeight).toFixed(1)} kg erradica <strong>~${kneeReliefPerStep.toFixed(1)} kg de impacto a cada passo</strong>, blindando a articulação em agachamentos e corridas.` : 'A preservação do peso com redução de cintura otimiza a sustentação articular sem perda de força.'}
               </p>
               <p style="margin: 0;">
-                <strong>Força Relativa e Calistenia (Zatsiorsky & Kraemer):</strong> O tecido adiposo não gera contração motora. Reduzir o lastro morto aumenta diretamente a aceleração nos movimentos gímnicos com peso do próprio corpo (barras, flexões, argolas e paradas de mão).
+                <strong>Força Relativa e Calistenia (Zatsiorsky e Kraemer):</strong> O tecido adiposo não gera contração motora. Reduzir o lastro morto aumenta diretamente a aceleração nos movimentos gímnicos com peso do próprio corpo (barras, flexões, argolas e paradas de mão).
               </p>
             </div>
           </div>
@@ -10999,7 +10878,7 @@ function updateEvolucaoStats() {
           <!-- 5. REFERÊNCIAS CIENTÍFICAS E ASSINATURA -->
           <div class="print-section" style="margin-top: 18px; border-top: 1px solid #cbd5e1; padding-top: 10px; font-size: 0.72rem; color: #475569;">
             <div style="margin-bottom: 12px;">
-              <strong>Embasamento Científico:</strong> Ashwell & Browning (2012) [RCEst]; Hodgdon & Beckett (1984) [Marinha dos EUA]; Messier et al. (2005) [Sobrecarga Patelofemoral 4:1]; Zatsiorsky & Kraemer (2006) [Força Relativa].
+              <strong>Embasamento Científico:</strong> Ashwell e Browning (2012) [RCEst]; Hodgdon e Beckett (1984) [Marinha dos EUA]; Messier et al. (2005) [Sobrecarga Patelofemoral 4:1]; Zatsiorsky e Kraemer (2006) [Força Relativa].
             </div>
             <div style="display:flex; justify-content:space-between; align-items:flex-end; padding-top: 10px;">
               <div>
@@ -11292,6 +11171,7 @@ function updateEvolucaoStats() {
     }
 
     function openRelatorioComposicaoModal() {
+      if (typeof saveCurrentLaudoToHistory === 'function') saveCurrentLaudoToHistory();
       buildRelatorioComposicaoHTML();
       const modal = document.getElementById('modalRelatorioComposicao');
       if (modal) modal.classList.add('active');
@@ -14427,9 +14307,6 @@ window.openWelcomeAppModal = function(notifId = null) {
       let tabName = 'Treino';
 
       const dayNames = {
-        'treinoa': 'SEGUNDA | TREINO A',
-        'treinob': 'QUARTA | TREINO B',
-        'treinoc': 'SEXTA | TREINO C',
         'extra1': 'EXTRA 1 | FRONT LEVER',
         'extra2': 'EXTRA 2 | FRONT LEVER'
       };

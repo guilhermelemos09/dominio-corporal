@@ -5775,7 +5775,7 @@
       <div class="exercise-card">
         <div class="ex-title">
           <span>DESCOMPRESSÃO ARTICULAR</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('DESCOMPRESSÃO ARTICULAR DE PUNHOS E OMBROS', '<b>Execução:</b> Sequência suave de volta à calma:<br>1. Posição da Criança (Child's Pose) com dorso das mãos no chão e punhos invertidos por 45 segundos.<br>2. Abertura torácica na parede ou solo (Puppy Pose) por 45 segundos respirando fundo pelo diafragma.<br>3. Alongamento unilateral de isquiotibiais e glúteos por 45 segundos de cada lado.<br><br><b>Cuidados:</b> 1. Relaxe o pescoço e mantenha respirações longas e profundas.<br>2. Não force em amplitudes de desconforto articular.<br><br><b>Base científica:</b> TRANSIÇÃO PARASSIMPÁTICA E RECUPERAÇÃO: A mobilidade passiva sustentada após estresse mecânico eleva a atividade vagal e diminui os níveis de cortisol circulante (Weerapong et al., 2004).', '')">
+          <button type="button" class="btn-video" onclick="openVideoModal('DESCOMPRESSÃO ARTICULAR DE PUNHOS E OMBROS', '<b>Execução:</b> Sequência suave de volta à calma:<br>1. Posição da Criança (Balasana) com dorso das mãos no chão e punhos invertidos por 45 segundos.<br>2. Abertura torácica na parede ou solo (Puppy Pose) por 45 segundos respirando fundo pelo diafragma.<br>3. Alongamento unilateral de isquiotibiais e glúteos por 45 segundos de cada lado.<br><br><b>Cuidados:</b> 1. Relaxe o pescoço e mantenha respirações longas e profundas.<br>2. Não force em amplitudes de desconforto articular.<br><br><b>Base científica:</b> TRANSIÇÃO PARASSIMPÁTICA E RECUPERAÇÃO: A mobilidade passiva sustentada após estresse mecânico eleva a atividade vagal e diminui os níveis de cortisol circulante (Weerapong et al., 2004).', '')">
             <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
@@ -7620,14 +7620,20 @@
         <!-- Preenchido dinamicamente por buildRelatorioComposicaoHTML() -->
       </div>
 
-      <div class="no-print" style="padding: 14px 20px; background: rgba(0,0,0,0.4); border-top: 1px solid var(--border-subtle); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
-        <button type="button" onclick="closeRelatorioComposicaoModal()" style="background:rgba(255,255,255,0.08); border:none; color:#cbd5e1; font-size:0.8rem; font-weight:700; border-radius:8px; padding:10px 16px; cursor:pointer;">
+      <div class="no-print" style="padding: 14px 20px; background: rgba(0,0,0,0.3); border-top: 1px solid var(--border-subtle); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+        <button type="button" onclick="closeRelatorioComposicaoModal()" style="background:rgba(255,255,255,0.08); border:none; color:#cbd5e1; font-size:0.8rem; font-weight:700; border-radius:8px; padding:9px 14px; cursor:pointer;">
           Fechar
         </button>
-        <button type="button" onclick="window.print()" style="background:#38bdf8; border:none; color:#031326; font-size:0.84rem; font-weight:800; border-radius:8px; padding:10px 20px; cursor:pointer; display:inline-flex; align-items:center; gap:8px; box-shadow:0 0 16px rgba(56,189,248,0.4);">
-          <svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:currentColor;"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
-          <span>Imprimir / Salvar em PDF (A4)</span>
-        </button>
+        <div style="display:flex; gap:8px;">
+          <button type="button" onclick="window.print()" style="background:rgba(56,189,248,0.15); border:1px solid rgba(56,189,248,0.35); color:#38bdf8; font-size:0.8rem; font-weight:700; border-radius:8px; padding:9px 14px; cursor:pointer; display:inline-flex; align-items:center; gap:6px;">
+            <svg viewBox="0 0 24 24" style="width:15px; height:15px; fill:currentColor;"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+            <span>Imprimir / PDF</span>
+          </button>
+          <button type="button" onclick="shareRelatorioWhatsApp()" style="background:var(--brand-neon); border:none; color:#000; font-size:0.8rem; font-weight:800; border-radius:8px; padding:9px 16px; cursor:pointer; display:inline-flex; align-items:center; gap:6px; box-shadow:0 0 14px rgba(0,255,136,0.3);">
+            <svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:currentColor;"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c4.54 0 8.24 3.7 8.24 8.24 0 2.2-.86 4.28-2.42 5.84a8.188 8.188 0 0 1-5.82 2.41c-1.45 0-2.87-.38-4.13-1.11l-.3-.18-3.12.82.83-3.04-.2-.31a8.175 8.175 0 0 1-1.25-4.43c0-4.54 3.7-8.24 8.25-8.24zm4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+            <span>Enviar no WhatsApp</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -8537,7 +8543,7 @@
     });
 
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '2026-10-26-v172-daniela-intake-unlocked';
+    const APP_BUILD_VERSION = '2026-10-29-v189-daniela-evolucao-fix';
     if (localStorage.getItem('dominio_daniela_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_daniela_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
@@ -14177,6 +14183,253 @@ window.openWelcomeAppModal = function(notifId = null) {
     loadAllNotes();
     initTimerUI();
     
+    function shareRelatorioWhatsApp() {
+      const history = getBodyCompHistory();
+      const base = getStudentBaseProfile();
+      const studentName = base.name || 'Daniela Colombini';
+      const baseline = (history && history.length > 0) ? history[0] : null;
+      const latest = (history && history.length > 0) ? history[history.length - 1] : null;
+
+      let msg = `*📋 DOMÍNIO CORPORAL | Check-in de Composição e Evolução*\n`;
+      msg += `-------------------------------------------\n`;
+      msg += `👤 *Aluno(a):* ${studentName}\n`;
+      msg += `📅 *Data:* ${new Date().toLocaleDateString('pt-BR')}\n\n`;
+
+      if (latest) {
+        msg += `⚖️ *Peso Atual:* ${latest.weight.toFixed(1)} kg`;
+        if (baseline && baseline !== latest) {
+          const dW = latest.weight - baseline.weight;
+          msg += ` (${dW > 0 ? '+' : ''}${dW.toFixed(1)} kg)\n`;
+        } else {
+          msg += `\n`;
+        }
+
+        msg += `📏 *Cintura:* ${latest.waist.toFixed(1)} cm`;
+        if (baseline && baseline !== latest) {
+          const dC = latest.waist - baseline.waist;
+          msg += ` (${dC > 0 ? '+' : ''}${dC.toFixed(1)} cm)\n`;
+        } else {
+          msg += `\n`;
+        }
+
+        if (latest.bfManual) {
+          msg += `🔬 *% Gordura:* ${latest.bfManual}%\n`;
+        }
+
+        const clothesMap = {
+          'folgadas': 'Mais folgadas',
+          'normais': 'Normais e confortáveis',
+          'apertadas': 'Mais justas'
+        };
+        msg += `👕 *Roupas:* ${clothesMap[latest.clothes] || 'Normais'}\n`;
+        msg += `⚡ *Disposição:* ${'⭐'.repeat(latest.energy || 5)}\n`;
+        if (latest.notes) {
+          msg += `📝 *Observação:* ${latest.notes}\n`;
+        }
+      }
+
+      msg += `\n*Prof. Gui Lemos*, confira meu relatório atualizado no aplicativo! 💪`;
+      const phone = '5516981222356';
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
+    }
+
+    function openDedicatedView(sectionId) {
+      closeBioModal();
+      closeVideoModal();
+
+      document.body.classList.add('in-dedicated-view');
+      document.body.classList.remove(
+        'in-view-avaliacao',
+        'in-view-perfil',
+        'in-view-timers',
+        'in-view-analises',
+        'in-view-evolucao',
+        'in-view-recados',
+        'in-day-workout'
+      );
+      document.body.classList.add('in-view-' + sectionId);
+      const topBar = document.getElementById('dedicatedTopBar');
+      if (topBar) topBar.style.display = 'flex';
+
+      const titles = {
+        'timers': 'Timers',
+        'analises': 'Análise de Vídeos',
+        'recados': 'Mural de Recados',
+        'evolucao': 'Evolução',
+        'perfil': 'Ficha da Aluna',
+        'avaliacao': 'Ficha de Avaliação'
+      };
+      const titleEl = document.getElementById('dedicatedBarTitle');
+      if (titleEl) titleEl.textContent = titles[sectionId] || 'Central Especializada';
+
+      // Esconde todas as abas
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+      // Ativa a aba dedicada
+      const target = document.getElementById('tab-' + sectionId);
+      if (target) {
+        target.classList.add('active');
+      }
+
+      if (sectionId === 'perfil' || sectionId === 'evolucao') {
+        if (typeof syncAthleteMetricsFromIntake === 'function') {
+          syncAthleteMetricsFromIntake();
+        }
+      }
+
+      if (sectionId === 'analises' && typeof closeAnalysisCategoryView === 'function') {
+        closeAnalysisCategoryView();
+      }
+
+      if (sectionId === 'timers') {
+        if (!timersReturnWorkoutDay) {
+          const backBtn = document.getElementById('btnDedicatedBack');
+          if (backBtn) backBtn.innerHTML = '‹ Voltar';
+        }
+        if (typeof initTimerUI === 'function') initTimerUI();
+      }
+      if (sectionId === 'evolucao') {
+        if (typeof closeEvolucaoView === 'function') {
+          closeEvolucaoView(true);
+        }
+        if (typeof updateEvolucaoStats === 'function') {
+          updateEvolucaoStats();
+        }
+      }
+      if (sectionId === 'avaliacao') {
+        loadStudentAssessment();
+        const banner = document.getElementById('assessmentGateBanner');
+        const isCompleted = localStorage.getItem('dominio_daniela_assessment_completed') === 'true' ||
+                            localStorage.getItem('daniela_assessment_completed') === 'true' ||
+                            localStorage.getItem('dominio_assessment_completed') === 'true';
+        if (banner) {
+          banner.style.display = isCompleted ? 'none' : 'block';
+        }
+        updateDedicatedTopBarGate(isCompleted);
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (typeof pushAppHistoryState === 'function') pushAppHistoryState('dedicated', { sectionId: sectionId }, sectionId);
+    }
+
+    function closeDedicatedView(fromPopState = false) {
+      closeBioModal();
+      closeVideoModal();
+
+      // Desativa temporariamente eventos de ponteiro no header para eliminar ghost click de toque móvel caindo no botão Bio
+      const hdr = document.getElementById('mainAppHeader');
+      if (hdr) {
+        hdr.style.pointerEvents = 'none';
+        setTimeout(() => { if (hdr) hdr.style.pointerEvents = ''; }, 450);
+      }
+
+      document.body.classList.remove(
+        'in-dedicated-view',
+        'in-day-workout',
+        'in-view-avaliacao',
+        'in-view-perfil',
+        'in-view-timers',
+        'in-view-analises',
+        'in-view-evolucao',
+        'in-view-recados'
+      );
+      const topBar = document.getElementById('dedicatedTopBar');
+      if (topBar) topBar.style.display = 'none';
+      const backBtn = document.getElementById('btnDedicatedBack');
+      if (backBtn) backBtn.innerHTML = '‹ Voltar';
+
+      // Esconde todas as abas
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+      if (typeof closeEvolucaoView === 'function') {
+        closeEvolucaoView(true);
+      }
+      renderTrainingHubDays();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function handleDedicatedBackClick(e) {
+      if (e) {
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+      }
+
+      // 1. Modais prioritários abertos
+      const modalChecks = [
+        { id: 'tipPopoverOverlay', close: () => { const el = document.getElementById('tipPopoverOverlay'); if (el) el.style.display = 'none'; } },
+        { id: 'modalBiometriaSessao', close: () => { if (typeof closeBiometriaSessaoModal === 'function') closeBiometriaSessaoModal(true); } },
+        { id: 'modalInstrucoesBiometria', close: () => { if (typeof closeInstrucoesBiometriaModal === 'function') closeInstrucoesBiometriaModal(true); } },
+        { id: 'modalInstrucoesFotos', close: () => { if (typeof closeInstrucoesFotosModal === 'function') closeInstrucoesFotosModal(true); } },
+        { id: 'modalInstrucoesMedidas', close: () => { if (typeof closeInstrucoesMedidasModal === 'function') closeInstrucoesMedidasModal(true); } },
+        { id: 'modalRelatorioComposicao', close: () => { if (typeof closeRelatorioComposicaoModal === 'function') closeRelatorioComposicaoModal(true); } },
+        { id: 'modalAddMedicao', close: () => { if (typeof closeAddMedicaoModal === 'function') closeAddMedicaoModal(true); } },
+        { id: 'modalAddFotosPosturais', close: () => { if (typeof closeAddFotosPosturaisModal === 'function') closeAddFotosPosturaisModal(true); } },
+        { id: 'welcomeAppModal', close: () => { if (typeof closeWelcomeAppModal === 'function') closeWelcomeAppModal(true); } },
+        { id: 'contextualHelpModal', close: () => { if (typeof closeContextualHelp === 'function') closeContextualHelp(true); } },
+        { id: 'notificationsModal', close: () => { if (typeof closeNotificationsModal === 'function') closeNotificationsModal(null, true, true); } },
+        { id: 'sendVideoModal', close: () => { if (typeof closeSendVideoModal === 'function') closeSendVideoModal(true); } },
+        { id: 'videoModal', close: () => { if (typeof closeVideoModal === 'function') closeVideoModal(true); } },
+        { id: 'bioModal', close: () => { if (typeof closeBioModal === 'function') closeBioModal(true); } }
+      ];
+      for (const item of modalChecks) {
+        const el = document.getElementById(item.id);
+        if (el && (el.classList.contains('active') || el.style.display === 'flex' || el.style.display === 'block')) {
+          item.close();
+          return;
+        }
+      }
+
+      // 2. Subpáginas dentro de Evolução
+      if (document.body.classList.contains('in-view-evolucao')) {
+        const compSubIds = ['grafico', 'historico', 'fotos', 'laudo'];
+        const isCompSubOpen = compSubIds.some(id => {
+          const el = document.getElementById('compSubView-' + id);
+          return el && el.style.display === 'block';
+        });
+        if (isCompSubOpen) {
+          if (typeof closeCompSubView === 'function') closeCompSubView(true);
+          return;
+        }
+        if (typeof isAnyEvolViewOpen === 'function' && isAnyEvolViewOpen()) {
+          closeEvolucaoView(true);
+          return;
+        }
+      }
+
+      // 3. Subpáginas dentro de Análises
+      const skillsCards = document.getElementById('skillsCardsView');
+      if (skillsCards && skillsCards.style.display === 'block') {
+        backToSkillsCategoryMenu(true);
+        return;
+      }
+      const viewHabilidades = document.getElementById('analysisView-habilidades');
+      const viewExercicios = document.getElementById('analysisView-exercicios');
+      if ((viewHabilidades && viewHabilidades.style.display === 'block') ||
+          (viewExercicios && viewExercicios.style.display === 'block')) {
+        closeAnalysisCategoryView(true);
+        return;
+      }
+
+      // 4. Se estava em Timers e veio de um treino ativo (WOD)
+      if (document.body.classList.contains('in-view-timers') && timersReturnWorkoutDay) {
+        const retDay = timersReturnWorkoutDay;
+        timersReturnWorkoutDay = null;
+        openDayWorkout(retDay);
+        return;
+      }
+
+      // 5. Se estava na Ficha de Avaliação e veio do Perfil
+      if (document.body.classList.contains('in-view-avaliacao') && assessmentReturnTarget === 'perfil') {
+        assessmentReturnTarget = null;
+        openDedicatedView('perfil');
+        return;
+      }
+
+      // 6. Retorna para a tela inicial
+      closeDedicatedView(true);
+    }
+
     function updateDedicatedTopBarGate(isUnlocked) {
       const backBtn = document.getElementById('btnDedicatedBack');
       if (!backBtn) return;
