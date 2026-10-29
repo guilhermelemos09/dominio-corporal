@@ -6843,198 +6843,212 @@
 
       <!-- ==================== SUBPÁGINA 1: ANTROPOMETRIA ==================== -->
       <div id="compSubView-grafico" style="display:none;">
-        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
-          <button type="button" class="btn-back-workout" onclick="closeCompSubView()">
-            ← Voltar para Composição Corporal
-          </button>
-          <span style="font-size:0.75rem; font-weight:800; color:#38bdf8; text-transform:uppercase; letter-spacing:0.04em;">Antropometria</span>
-        </div>
-
-        <!-- Card 1: Ponto de Partida (Ficha Inicial) -->
-        <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(56,189,248,0.25); border-left: 4.5px solid #38bdf8; border-radius: 14px; padding: 14px 16px; margin-bottom: 12px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 10px; flex-wrap:wrap; gap:6px;">
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span style="font-size:1.15rem;">📋</span>
-              <div style="font-size:0.92rem; font-weight:800; color:#ffffff; letter-spacing:0.02em;">PONTO DE PARTIDA</div>
-            </div>
-            <span style="font-size:0.72rem; font-weight:700; color:#38bdf8; background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.3); padding:3px 8px; border-radius:8px;" id="evolIntakeDateBadge">Ficha Inicial</span>
-          </div>
-          <div class="metrics-summary-grid" style="margin-bottom:0; grid-template-columns: repeat(auto-fit, minmax(105px, 1fr)); gap: 8px;">
-            <div class="metric-summary-card" style="padding: 10px 12px;">
-              <div class="metric-value" id="evolIntakeWeight" style="font-size:1.15rem; color:#fff;">-- kg</div>
-              <div class="metric-label">Peso Inicial</div>
-            </div>
-            <div class="metric-summary-card" style="padding: 10px 12px;">
-              <div class="metric-value" id="evolIntakeWaist" style="font-size:1.15rem; color:#fff;">-- cm</div>
-              <div class="metric-label">Cintura Inicial</div>
-            </div>
-            <div class="metric-summary-card" style="padding: 10px 12px;">
-              <div class="metric-value" id="evolIntakeWhtr" style="font-size:1.15rem; color:#fff;">--</div>
-              <div class="metric-label">RCEst Inicial</div>
-            </div>
-            <div class="metric-summary-card" style="padding: 10px 12px;">
-              <div class="metric-value" id="evolIntakeBF" style="font-size:1.15rem; color:#fff;">--%</div>
-              <div class="metric-label">% BF Inicial</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 2: Informações Atuais (Última Entrada) -->
-        <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(0,255,136,0.25); border-left: 4.5px solid var(--brand-neon); border-radius: 14px; padding: 14px 16px; margin-bottom: 12px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 10px; flex-wrap:wrap; gap:6px;">
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span style="font-size:1.15rem;">⚡</span>
-              <div style="font-size:0.92rem; font-weight:800; color:#ffffff; letter-spacing:0.02em;">INFORMAÇÕES ATUAIS</div>
-            </div>
-            <span style="font-size:0.72rem; font-weight:700; color:var(--brand-neon); background:rgba(0,255,136,0.12); border:1px solid rgba(0,255,136,0.3); padding:3px 8px; border-radius:8px;" id="compCurrentDateBadge">Última Entrada</span>
-          </div>
-          <div class="metrics-summary-grid" style="margin-bottom:0; grid-template-columns: repeat(auto-fit, minmax(105px, 1fr)); gap: 8px;">
-            <div class="metric-summary-card" style="padding: 10px 12px;">
-              <div class="metric-value" id="compMetricWeight" style="font-size:1.15rem; color:var(--brand-neon);">-- kg</div>
-              <div class="metric-label">Peso Atual</div>
-            </div>
-            <div class="metric-summary-card" style="padding: 10px 12px;">
-              <div class="metric-value" id="compMetricWaist" style="font-size:1.15rem; color:var(--brand-neon);">-- cm</div>
-              <div class="metric-label">Cintura Atual</div>
-            </div>
-            <div class="metric-summary-card" style="padding: 10px 12px;">
-              <div class="metric-value" id="compMetricWhtr" style="font-size:1.15rem; color:#c084fc;">--</div>
-              <div class="metric-label">RCEst Atual</div>
-            </div>
-            <div class="metric-summary-card" style="padding: 10px 12px;">
-              <div class="metric-value" id="compMetricBF" style="font-size:1.15rem; color:#fbbf24;">--%</div>
-              <div class="metric-label">% BF Atual</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3: Comparativo da Evolução (Destaque Estruturado Sem Texto Corrido) -->
-        <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(192,132,252,0.25); border-left: 4.5px solid #c084fc; border-radius: 14px; padding: 14px 16px; margin-bottom: 16px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 12px; flex-wrap:wrap; gap:8px;">
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span style="font-size:1.15rem;">📊</span>
-              <div style="font-size:0.92rem; font-weight:800; color:#ffffff; letter-spacing:0.02em;">COMPARATIVO DA EVOLUÇÃO</div>
-            </div>
-            <div style="display:flex; gap:6px; flex-wrap:wrap;">
-              <span style="font-size:0.72rem; font-weight:700; color:#e2e8f0; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); padding:3px 8px; border-radius:8px;" id="compSummaryRange">Início vs. Atual</span>
-              <span style="font-size:0.72rem; font-weight:700; color:#c084fc; background:rgba(192,132,252,0.12); border:1px solid rgba(192,132,252,0.3); padding:3px 8px; border-radius:8px;" id="compSummaryPeriod">Acompanhamento Ativo</span>
-            </div>
-          </div>
-          <div class="metrics-summary-grid" style="margin-bottom:0; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 8px;">
-            <div class="metric-summary-card" style="padding: 10px 12px; border-left:3px solid var(--brand-neon);">
-              <div class="metric-value" id="compStatDeltaWeight" style="font-size:1.15rem; color:var(--brand-neon);">0.0 kg</div>
-              <div class="metric-label">Δ Peso Corporal</div>
-            </div>
-            <div class="metric-summary-card" style="padding: 10px 12px; border-left:3px solid #38bdf8;">
-              <div class="metric-value" id="compStatDeltaWaist" style="font-size:1.15rem; color:#38bdf8;">0.0 cm</div>
-              <div class="metric-label">Δ Cintura</div>
-            </div>
-            <div class="metric-summary-card" style="padding: 10px 12px; border-left:3px solid #c084fc;">
-              <div class="metric-value" id="compStatJointRelief" style="font-size:1.15rem; color:#c084fc;">~ 0 kg</div>
-              <div class="metric-label">Alívio Articular / Passo</div>
-            </div>
-            <div class="metric-summary-card" style="padding: 10px 12px; border-left:3px solid #fbbf24;">
-              <div class="metric-value" id="compStatRelativePower" style="font-size:1.15rem; color:#fbbf24;">+0.0%</div>
-              <div class="metric-label">Força Relativa</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 4: Curva de Evolução Temporal (4 Métricas) -->
-        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 16px; margin-bottom: 20px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
-            <div style="font-size:0.92rem; font-weight:800; color:#fff; display:flex; align-items:center; gap:6px;">
-              <span>📈</span> <span>Curva de Evolução Temporal</span>
-            </div>
-            <!-- Seletor de 4 Métricas do Gráfico -->
-            <div style="display:flex; gap:5px; background:rgba(0,0,0,0.3); padding:3px; border-radius:8px; border:1px solid rgba(255,255,255,0.08); flex-wrap:wrap;">
-              <button type="button" id="btnChartTabWeight" onclick="switchBodyCompChart('weight')" style="background:rgba(56,189,248,0.2); color:#38bdf8; border:none; padding:4px 9px; font-size:0.72rem; font-weight:700; border-radius:6px; cursor:pointer;">Peso (kg)</button>
-              <button type="button" id="btnChartTabWaist" onclick="switchBodyCompChart('waist')" style="background:transparent; color:#94a3b8; border:none; padding:4px 9px; font-size:0.72rem; font-weight:700; border-radius:6px; cursor:pointer;">Cintura (cm)</button>
-              <button type="button" id="btnChartTabJoint" onclick="switchBodyCompChart('joint')" style="background:transparent; color:#94a3b8; border:none; padding:4px 9px; font-size:0.72rem; font-weight:700; border-radius:6px; cursor:pointer;">Impacto Articular (kg)</button>
-              <button type="button" id="btnChartTabPower" onclick="switchBodyCompChart('power')" style="background:transparent; color:#94a3b8; border:none; padding:4px 9px; font-size:0.72rem; font-weight:700; border-radius:6px; cursor:pointer;">Força Relativa (%)</button>
-            </div>
-          </div>
-
-          <div id="compChartContainer" style="width:100%; min-height:190px; position:relative; overflow:hidden;">
-            <!-- SVG dinamicamente gerado via script -->
-          </div>
-        </div>
-      </div>
-
-      <!-- ==================== SUBPÁGINA 2: HISTÓRICO DE MEDIÇÕES ==================== -->
-      <div id="compSubView-historico" style="display:none;">
-        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
-          <button type="button" class="btn-back-workout" onclick="closeCompSubView()">
-            ← Voltar para Composição Corporal
+        
+        <!-- NAVEGAÇÃO DE RETORNO (CAMINHO PARA PÁGINA ANTERIOR) -->
+        <div style="display:flex; align-items:center; justify-content:flex-start; margin-bottom:12px; padding: 4px 0;">
+          <button type="button" class="btn-back-workout" onclick="closeCompSubView()" style="display: inline-flex; align-items: center; gap: 6px; background: transparent; border: none; padding: 4px 0; color: #94a3b8; font-size: 0.8rem; font-weight: 600; cursor: pointer;">
+            <span style="font-size: 0.95rem;">←</span> <span>Composição Corporal</span>
           </button>
         </div>
-        <!-- Card: Histórico Cronológico de Check-ins -->
-        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 16px; margin-bottom: 20px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
-            <div style="font-size:0.92rem; font-weight:800; color:#fff; display:flex; align-items:center; gap:6px;">
-              <span>🗓️</span> <span>Histórico Cronológico de Medições</span>
+
+        <!-- BOTÃO NOBRE ADICIONAR MEDIÇÃO (LINHA TODA, CHAMATIVO, APENAS 1 ÍCONE +) -->
+        <button type="button" class="btn-add-medicao-chamativo" onclick="openAddMedicaoModal()">
+          <svg viewBox="0 0 24 24" style="width:18px; height:18px; fill:currentColor;"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+          <span>ADICIONAR MEDIÇÃO</span>
+        </button>
+
+        <!-- SEÇÃO 1: EVOLUÇÃO CORPORAL (MENU RETRÁTIL) -->
+        <details class="postural-accordion-item" open style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-left: 4.5px solid var(--brand-neon); border-radius: 14px; margin-bottom: 16px; overflow: hidden;">
+          <summary style="padding: 14px 16px; cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; user-select: none;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 1.15rem;">📊</span>
+              <span style="font-size: 0.95rem; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">EVOLUÇÃO CORPORAL</span>
             </div>
-            <span style="font-size:0.72rem; color:var(--brand-neon); font-weight:700;" id="compHistoryCount">0 registros</span>
-          </div>
+            <span style="color: #cbd5e1; font-size: 0.75rem;">▾</span>
+          </summary>
 
-          <div id="compHistoryList" style="display:flex; flex-direction:column; gap:8px;">
-            <!-- Linhas do histórico injetadas aqui -->
-          </div>
-        </div>
-      </div>
-
-      <!-- ==================== SUBPÁGINA 3: FOTOS POSTURAIS ==================== -->
-      <div id="compSubView-fotos" style="display:none;">
-        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle); flex-wrap:wrap; gap:8px;">
-          <button type="button" class="btn-back-workout" onclick="closeCompSubView()">
-            ← Voltar para Composição Corporal
-          </button>
-          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-            <button type="button" class="btn-orientacoes-popup" onclick="openAddFotosPosturaisModal()" style="background: rgba(0, 255, 136, 0.14); border-color: rgba(0, 255, 136, 0.4); color: var(--brand-neon); font-weight: 800;">
-              <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-              <span>ADICIONAR FOTOS</span>
-            </button>
-            <button type="button" class="btn-orientacoes-popup" onclick="openInstrucoesFotosModal()">
-              <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-              <span>GUIA DE FOTOS</span>
-            </button>
-          </div>
-        </div>
-        <!-- Card: Comparativo Visual de Fotos (Antes vs Recente) -->
-        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 16px; margin-bottom: 20px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:8px;">
-            <div style="font-size:0.92rem; font-weight:800; color:#fff; display:flex; align-items:center; gap:6px;">
-              <span>📸</span> <span>Registro Fotográfico Padronizado</span>
+          <div style="padding: 16px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; justify-content: flex-end; gap: 6px; margin-bottom: 2px; flex-wrap: wrap;">
+              <span style="font-size:0.70rem; font-weight:700; color:#cbd5e1; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); padding:3px 8px; border-radius:8px;" id="compSummaryRange">-- vs. Atual</span>
+              <span style="font-size:0.70rem; font-weight:700; color:var(--brand-neon); background:rgba(0,255,136,0.1); border:1px solid rgba(0,255,136,0.25); padding:3px 8px; border-radius:8px;" id="compSummaryPeriod">-- dias</span>
             </div>
-            <span style="font-size:0.72rem; color:#94a3b8; background:rgba(255,255,255,0.05); padding:3px 8px; border-radius:6px;">Privado no dispositivo</span>
-          </div>
-
-          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:12px;" id="compPhotosGallery">
-            <!-- Slots das Fotos: Frente, Lado, Costas -->
-          </div>
-
-          <!-- Botão de Ação Direta para Adicionar / Atualizar Fotos -->
-          <button type="button" class="analysis-upload-banner" onclick="openAddFotosPosturaisModal()" style="margin-top: 16px; margin-bottom: 4px; background: rgba(0, 255, 136, 0.12); border: 1.5px solid var(--brand-neon); color: #fff; font-weight: 800;">
-            <span style="font-size: 1.1rem; color: var(--brand-neon);">📸</span>
-            <span>Adicionar Novas Fotos Posturais</span>
-          </button>
-
-          <!-- Seção Dinâmica de Fotos Adicionadas pelo Aluno -->
-          <div id="userUploadedPhotosSection" style="margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.08);">
-            <div style="font-size: 0.88rem; font-weight: 800; color: #fff; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+            
+            <!-- Linha 1: PESO CORPORAL -->
+            <div style="background:rgba(0,0,0,0.25); border:1px solid rgba(56,189,248,0.2); border-radius:10px; padding:12px 14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
               <div style="display:flex; align-items:center; gap:8px;">
-                <span>🗂️</span> <span>Histórico Fotográfico Completo</span>
+                <span style="font-size:1.1rem;">⚖️</span>
+                <span style="font-size:0.84rem; font-weight:800; color:#38bdf8; text-transform:uppercase; letter-spacing:0.03em;">Peso Corporal</span>
               </div>
-              <span style="font-size:0.72rem; color:var(--brand-neon); font-weight:700;" id="userPhotosCount">0 fotos</span>
+              <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+                <div style="font-size:0.76rem; color:#94a3b8;">
+                  Inicial: <strong id="evolIntakeWeight" style="color:#cbd5e1;">-- kg</strong>
+                </div>
+                <div style="font-size:0.76rem; color:#94a3b8;">
+                  Atual: <strong id="compMetricWeight" style="color:#ffffff; font-weight:800;">-- kg</strong>
+                </div>
+                <div style="display:flex; align-items:center; gap:6px; background:rgba(0,255,136,0.08); padding:3px 8px; border-radius:6px; border:1px solid rgba(0,255,136,0.2);">
+                  <span style="font-size:0.68rem; color:#94a3b8; font-weight:600;">Variação:</span>
+                  <span id="compStatDeltaWeight" style="font-size:0.86rem; font-weight:800; color:var(--brand-neon);">--</span>
+                </div>
+              </div>
             </div>
-            <div id="userUploadedPhotosGallery" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
-              <!-- Fotos adicionadas renderizadas aqui -->
+
+            <!-- Linha 2: CINTURA ABDOMINAL -->
+            <div style="background:rgba(0,0,0,0.25); border:1px solid rgba(0,255,136,0.2); border-radius:10px; padding:12px 14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-size:1.1rem;">📏</span>
+                <span style="font-size:0.84rem; font-weight:800; color:var(--brand-neon); text-transform:uppercase; letter-spacing:0.03em;">Cintura</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+                <div style="font-size:0.76rem; color:#94a3b8;">
+                  Inicial: <strong id="evolIntakeWaist" style="color:#cbd5e1;">-- cm</strong>
+                </div>
+                <div style="font-size:0.76rem; color:#94a3b8;">
+                  Atual: <strong id="compMetricWaist" style="color:#ffffff; font-weight:800;">-- cm</strong>
+                </div>
+                <div style="display:flex; align-items:center; gap:6px; background:rgba(56,189,248,0.08); padding:3px 8px; border-radius:6px; border:1px solid rgba(56,189,248,0.2);">
+                  <span style="font-size:0.68rem; color:#94a3b8; font-weight:600;">Variação:</span>
+                  <span id="compStatDeltaWaist" style="font-size:0.86rem; font-weight:800; color:#38bdf8;">--</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Linha 3: % GORDURA -->
+            <div style="background:rgba(0,0,0,0.25); border:1px solid rgba(251,191,36,0.2); border-radius:10px; padding:12px 14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-size:1.1rem;">🔬</span>
+                <span style="font-size:0.84rem; font-weight:800; color:#fbbf24; text-transform:uppercase; letter-spacing:0.03em;">% Gordura</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+                <div style="font-size:0.76rem; color:#94a3b8;">
+                  Inicial: <strong id="evolIntakeBF" style="color:#cbd5e1;">--%</strong>
+                </div>
+                <div style="font-size:0.76rem; color:#94a3b8;">
+                  Atual: <strong id="compMetricBF" style="color:#ffffff; font-weight:800;">--%</strong>
+                </div>
+                <div style="display:flex; align-items:center; gap:6px; background:rgba(251,191,36,0.08); padding:3px 8px; border-radius:6px; border:1px solid rgba(251,191,36,0.2);">
+                  <span style="font-size:0.68rem; color:#94a3b8; font-weight:600;">Variação:</span>
+                  <span id="compStatDeltaBF" style="font-size:0.86rem; font-weight:800; color:#fbbf24;">--</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </details>
+
+        <!-- SEÇÃO 2: GRÁFICOS DE EVOLUÇÃO (MENU RETRÁTIL) -->
+        <details class="postural-accordion-item" open style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-left: 4.5px solid #38bdf8; border-radius: 14px; margin-bottom: 16px; overflow: hidden;">
+          <summary style="padding: 14px 16px; cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; user-select: none;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 1.15rem;">📈</span>
+              <span style="font-size: 0.95rem; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">GRÁFICOS DE EVOLUÇÃO</span>
+            </div>
+            <span style="color: #cbd5e1; font-size: 0.75rem;">▾</span>
+          </summary>
+          <div style="padding: 16px; border-top: 1px solid rgba(255,255,255,0.08);">
+            <!-- Seletor de Métricas Fisiológicas do Gráfico -->
+            <div style="display:flex; justify-content:flex-end; margin-bottom:12px;">
+              <div style="display:flex; gap:5px; background:rgba(0,0,0,0.3); padding:3px; border-radius:8px; border:1px solid rgba(255,255,255,0.08); flex-wrap:wrap;">
+                <button type="button" id="btnChartTabWeight" onclick="switchBodyCompChart('weight')" style="background:rgba(56,189,248,0.2); color:#38bdf8; border:none; padding:5px 10px; font-size:0.72rem; font-weight:700; border-radius:6px; cursor:pointer;">Peso (kg)</button>
+                <button type="button" id="btnChartTabWaist" onclick="switchBodyCompChart('waist')" style="background:transparent; color:#94a3b8; border:none; padding:5px 10px; font-size:0.72rem; font-weight:700; border-radius:6px; cursor:pointer;">Cintura (cm)</button>
+                <button type="button" id="btnChartTabBF" onclick="switchBodyCompChart('bf')" style="background:transparent; color:#94a3b8; border:none; padding:5px 10px; font-size:0.72rem; font-weight:700; border-radius:6px; cursor:pointer;">% Gordura</button>
+              </div>
+            </div>
+
+            <div id="compChartContainer" style="width:100%; min-height:190px; position:relative; overflow:hidden;">
+              <!-- SVG dinamicamente gerado via script -->
+            </div>
+
+            <div id="compChartExplanation" style="margin-top:14px; padding:10px 12px; background:rgba(255,255,255,0.02); border-radius:10px; border:1px solid rgba(255,255,255,0.06); font-size:0.76rem; color:#94a3b8; line-height:1.5;">
+              💡 <em>Atualização dinâmica: a curva é recalculada e renderizada instantaneamente a cada nova medição adicionada.</em>
             </div>
           </div>
-        </div>
+        </details>
+
+        <!-- SEÇÃO 3: LISTA DE MEDIÇÕES (MENU RETRÁTIL) -->
+        <details class="postural-accordion-item" open style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-left: 4.5px solid #c084fc; border-radius: 14px; margin-bottom: 24px; overflow: hidden;">
+          <summary style="padding: 14px 16px; cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; user-select: none;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 1.15rem;">🗓️</span>
+              <span style="font-size: 0.95rem; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">LISTA DE MEDIÇÕES</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <span style="font-size:0.70rem; color:#c084fc; font-weight:700; background:rgba(192,132,252,0.12); padding:3px 8px; border-radius:8px;" id="compHistoryCount">0 registros</span>
+              <span style="color: #cbd5e1; font-size: 0.75rem;">▾</span>
+            </div>
+          </summary>
+          <div style="padding: 16px; border-top: 1px solid rgba(255,255,255,0.08);">
+            <div id="compHistoryList" style="display:flex; flex-direction:column; gap:8px;">
+              <!-- Linhas do histórico injetadas aqui -->
+            </div>
+          </div>
+        </details>
+
       </div>
 
-      <!-- ==================== SUBPÁGINA 4: LAUDO E IMPACTO ARTICULAR ==================== -->
+<div id="compSubView-fotos" style="display:none;">
+        
+        <!-- NAVEGAÇÃO DE RETORNO (PADRÃO ANTROPOMETRIA) -->
+        <div style="display:flex; align-items:center; justify-content:flex-start; margin-bottom:12px; padding: 4px 0;">
+          <button type="button" class="btn-back-workout" onclick="closeCompSubView()" style="display: inline-flex; align-items: center; gap: 6px; background: transparent; border: none; padding: 4px 0; color: #94a3b8; font-size: 0.8rem; font-weight: 600; cursor: pointer;">
+            <span style="font-size: 0.95rem;">←</span> <span>Composição Corporal</span>
+          </button>
+        </div>
+
+        <!-- BOTÃO NOBRE ADICIONAR FOTOS -->
+        <button type="button" class="btn-add-medicao-chamativo" onclick="openAddFotosPosturaisModal()">
+          <svg viewBox="0 0 24 24" style="width:18px; height:18px; fill:currentColor;"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+          <span>ADICIONAR FOTOS</span>
+        </button>
+
+        <!-- SEÇÃO PRINCIPAL: COMPARAÇÃO LONGITUDINAL (INICIAL VS. MAIS RECENTE) EM MENU RETRÁTIL -->
+        <details class="postural-accordion-item" open style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-left: 4.5px solid var(--brand-neon); border-radius: 14px; margin-bottom: 16px; overflow: hidden;">
+          <summary style="padding: 14px 16px; cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; user-select: none;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 1.15rem;">📸</span>
+              <span style="font-size: 0.95rem; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">COMPARAÇÃO: INICIAL VS. ATUAL</span>
+            </div>
+            <span style="color: #cbd5e1; font-size: 0.75rem;">▾</span>
+          </summary>
+
+          <div id="dynamicPosturalComparisonContainer" style="padding: 16px; border-top: 1px solid rgba(255,255,255,0.08);">
+            <!-- Renderizado dinamicamente por renderPosturalComparisonUI() -->
+          </div>
+        </details>
+
+        <!-- SEÇÃO: ANÁLISES FOTOS INDIVIDUAIS (MENU RETRÁTIL) -->
+        <details class="postural-accordion-item" open style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-left: 4.5px solid #38bdf8; border-radius: 14px; margin-bottom: 16px; overflow: hidden;">
+          <summary style="padding: 14px 16px; cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; user-select: none;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 1.15rem;">🗓️</span>
+              <span style="font-size: 0.95rem; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">ANÁLISES FOTOS INDIVIDUAIS</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <span style="font-size:0.70rem; font-weight:700; color:#38bdf8; background:rgba(56,189,248,0.12); padding:3px 8px; border-radius:8px;" id="userPhotoCountBadge">0 Sets Salvos</span>
+              <span style="color: #cbd5e1; font-size: 0.75rem;">▾</span>
+            </div>
+          </summary>
+          <div style="padding: 16px; border-top: 1px solid rgba(255,255,255,0.08);">
+            <div id="userPhotoSetsContainer">
+              <!-- Preenchido dinamicamente por renderUserUploadedPhotosGallery() -->
+            </div>
+          </div>
+        </details>
+
+        <!-- SEÇÃO: COMPARAÇÕES ANTERIORES (CICLOS ANTERIORES) -->
+        <details class="postural-accordion-item" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-left: 4.5px solid #c084fc; border-radius: 14px; margin-bottom: 24px; overflow: hidden;">
+          <summary style="padding: 12px 16px; cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; user-select: none;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 1.05rem;">🏛️</span>
+              <span style="font-size: 0.90rem; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">COMPARAÇÕES ANTERIORES</span>
+            </div>
+            <span style="color: #cbd5e1; font-size: 0.75rem;">▾</span>
+          </summary>
+          <div id="pastComparisonsContainer" style="padding: 14px 16px; border-top: 1px solid rgba(255,255,255,0.06);">
+            <!-- Renderizado dinamicamente com ciclos comparativos passados -->
+          </div>
+        </details></div>
+
       <div id="compSubView-laudo" style="display:none;">
         <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
           <button type="button" class="btn-back-workout" onclick="closeCompSubView()">
@@ -7622,102 +7636,93 @@
             <span>⚖️</span>
           </div>
           <div>
-            <h3 style="margin:0; font-size:1.02rem; color:#fff;">Registrar Medição Corporal</h3>
-            <span style="font-size:0.75rem; color:var(--brand-neon); font-weight:600;">Check-in de Composição e Recomposição</span>
+            <h3 style="margin:0; font-size:1.05rem; color:#fff;">Registrar Medição Corporal</h3>
           </div>
         </div>
         <button class="btn-close" type="button" onclick="closeAddMedicaoModal()" aria-label="Fechar">&times;</button>
       </div>
 
       <div style="padding: 16px 20px; max-height: 75vh; overflow-y: auto;">
+        
+        <!-- GUIA DE COMO MEDIR (BOTÃO DESTACADO NO TOPO) -->
+        <div style="margin-bottom: 14px;">
+          <button type="button" class="btn-orientacoes-popup" onclick="openInstrucoesMedidasModal()" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 16px; font-size: 0.84rem; font-weight: 800; border-radius: 10px; background: rgba(56, 189, 248, 0.10); border: 1px solid rgba(56, 189, 248, 0.35); color: #38bdf8; text-transform: none; letter-spacing: 0.01em;">
+            <svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:currentColor;"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+            <span>Guia: como medir</span>
+            <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+          </button>
+        </div>
+
+        <!-- INDICADOR DE RASCUNHO SALVO TEMPORARIAMENTE -->
+        <div id="compDraftIndicator" style="display: none; align-items: center; gap: 6px; padding: 6px 10px; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.22); border-radius: 8px; margin-bottom: 12px; font-size: 0.72rem; color: #38bdf8; font-weight: 600;">
+          <span>💾</span>
+          <span id="compDraftIndicatorText">Rascunho salvo temporariamente</span>
+        </div>
+
         <!-- Data e Peso -->
         <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
           <div class="comp-form-group">
             <label class="comp-form-label" for="add_comp_date">📅 Data da Medição</label>
-            <input type="date" id="add_comp_date" class="comp-form-input">
+            <input type="date" id="add_comp_date" class="comp-form-input" onchange="saveCompDraft()">
           </div>
           <div class="comp-form-group">
-            <label class="comp-form-label" for="add_comp_weight">⚖️ Peso Corporal (kg) *</label>
-            <input type="number" step="0.1" id="add_comp_weight" class="comp-form-input" placeholder="Ex: 68.5">
+            <label class="comp-form-label" for="add_comp_weight">⚖️ Peso Corporal (kg)</label>
+            <input type="number" step="0.1" id="add_comp_weight" class="comp-form-input" placeholder="Ex: 84.5" oninput="saveCompDraft()">
           </div>
         </div>
 
-        <!-- Cintura e Quadril -->
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+        <!-- Cintura e Pescoço -->
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top: 10px;">
           <div class="comp-form-group">
-            <label class="comp-form-label" for="add_comp_waist">📏 Cintura (cm) *</label>
-            <input type="number" step="0.1" id="add_comp_waist" class="comp-form-input" placeholder="Ex: 79.0">
+            <label class="comp-form-label" for="add_comp_waist">📏 Cintura (cm)</label>
+            <input type="number" step="0.1" id="add_comp_waist" class="comp-form-input" placeholder="Ex: 81.0" oninput="saveCompDraft()">
           </div>
-          <div class="comp-form-group">
-            <label class="comp-form-label" for="add_comp_hip">👖 Quadril (cm)</label>
-            <input type="number" step="0.1" id="add_comp_hip" class="comp-form-input" placeholder="Ex: 98.0 (opcional)">
-          </div>
-        </div>
-
-        <!-- Pescoço e % Gordura Manual -->
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
           <div class="comp-form-group">
             <label class="comp-form-label" for="add_comp_neck">👔 Pescoço (cm)</label>
-            <input type="number" step="0.1" id="add_comp_neck" class="comp-form-input" placeholder="Ex: 37.0 (p/ Marinha)">
-          </div>
-          <div class="comp-form-group">
-            <label class="comp-form-label" for="add_comp_bf_manual">🔬 % Gordura (BF)</label>
-            <input type="number" step="0.1" id="add_comp_bf_manual" class="comp-form-input" placeholder="Ex: 19.5 (se souber)">
+            <input type="number" step="0.1" id="add_comp_neck" class="comp-form-input" placeholder="Ex: 39.0" oninput="saveCompDraft()">
           </div>
         </div>
 
-        <div style="font-size:0.72rem; color:#94a3b8; margin:-4px 0 12px 0; line-height: 1.4;">
-          💡 <em>Dica: Caso não saiba o % de gordura, o app calcula uma estimativa pela Fórmula da Marinha dos EUA se preencher pescoço e cintura.</em>
+        <!-- Quadril -->
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top: 10px;">
+          <div class="comp-form-group">
+            <label class="comp-form-label" for="add_comp_hip">👖 Quadril (cm) <span style="font-size:0.68rem; color:#94a3b8; font-weight:500;">(Obrigatório para mulheres)</span></label>
+            <input type="number" step="0.1" id="add_comp_hip" class="comp-form-input" placeholder="Ex: 98.0" oninput="saveCompDraft()">
+          </div>
+          <div></div>
         </div>
 
-        <!-- Percepção de Roupas e Energia -->
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
-          <div class="comp-form-group">
-            <label class="comp-form-label" for="add_comp_clothes">👕 Ajuste das Roupas</label>
-            <select id="add_comp_clothes" class="comp-form-select">
-              <option value="folgadas">Roupas mais folgadas</option>
-              <option value="normais" selected>Normais e confortáveis</option>
-              <option value="apertadas">Roupas mais justas</option>
-            </select>
+        <!-- TÓPICO A PARTE: % DE GORDURA CORPORAL (OPCIONAL) -->
+        <div class="comp-bf-topic-box" style="margin-top: 14px; margin-bottom: 14px; padding: 12px 14px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px;">
+          <div style="font-size: 0.82rem; font-weight: 800; color: #ffffff; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between;">
+            <span>🔬 % DE GORDURA (SE JÁ SOUBER)</span>
+            <span style="font-size: 0.68rem; color: #94a3b8; font-weight: 600; text-transform: uppercase;">Opcional</span>
           </div>
-          <div class="comp-form-group">
-            <label class="comp-form-label" for="add_comp_energy">⚡ Disposição e Energia</label>
-            <select id="add_comp_energy" class="comp-form-select">
-              <option value="5" selected>⭐⭐⭐⭐⭐ Excelente / Máxima</option>
-              <option value="4">⭐⭐⭐⭐ Muito Boa</option>
-              <option value="3">⭐⭐⭐ Normal / Regular</option>
-              <option value="2">⭐⭐ Baixa / Cansado</option>
-              <option value="1">⭐ Muito Baixa</option>
-            </select>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div class="comp-form-group">
+              <label class="comp-form-label" for="add_comp_bf_manual">Percentual de Gordura (%)</label>
+              <input type="number" step="0.1" id="add_comp_bf_manual" class="comp-form-input" placeholder="Ex: 12.8" oninput="saveCompDraft()">
+            </div>
+            <div class="comp-form-group">
+              <label class="comp-form-label" for="add_comp_bf_method">Método Utilizado</label>
+              <select id="add_comp_bf_method" class="comp-form-select" onchange="saveCompDraft()">
+                <option value="">Selecione o método...</option>
+                <option value="Bioimpedância (InBody / Balança)">Bioimpedância (InBody / Balança)</option>
+                <option value="DEXA (Densitometria)">DEXA (Densitometria)</option>
+                <option value="Dobras Cutâneas (Adipômetro)">Dobras Cutâneas (Adipômetro)</option>
+                <option value="Ultrassom Corporal">Ultrassom Corporal</option>
+                <option value="Outro">Outro Método</option>
+              </select>
+            </div>
           </div>
         </div>
 
-        <!-- Upload de Fotos Opcionais -->
-        <div class="comp-form-group" style="margin-top:4px;">
-          <label class="comp-form-label">📸 Fotos de Progresso (Opcionais - salvas no aparelho)</label>
-          <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:8px;">
-            <div>
-              <label for="comp_photo_input_front" style="display:block; font-size:0.68rem; color:#94a3b8; margin-bottom:4px; text-align:center;">Frente</label>
-              <input type="file" id="comp_photo_input_front" accept="image/*" style="font-size:0.65rem; color:#94a3b8; width:100%;" onchange="handleCompPhotoPreview(this, 'preview_front')">
-              <div id="preview_front" style="margin-top:4px; height:60px; background:rgba(255,255,255,0.02); border:1px dashed rgba(255,255,255,0.15); border-radius:6px; overflow:hidden; display:flex; align-items:center; justify-content:center; font-size:0.68rem; color:#64748b;">Sem foto</div>
-            </div>
-            <div>
-              <label for="comp_photo_input_side" style="display:block; font-size:0.68rem; color:#94a3b8; margin-bottom:4px; text-align:center;">Lado</label>
-              <input type="file" id="comp_photo_input_side" accept="image/*" style="font-size:0.65rem; color:#94a3b8; width:100%;" onchange="handleCompPhotoPreview(this, 'preview_side')">
-              <div id="preview_side" style="margin-top:4px; height:60px; background:rgba(255,255,255,0.02); border:1px dashed rgba(255,255,255,0.15); border-radius:6px; overflow:hidden; display:flex; align-items:center; justify-content:center; font-size:0.68rem; color:#64748b;">Sem foto</div>
-            </div>
-            <div>
-              <label for="comp_photo_input_back" style="display:block; font-size:0.68rem; color:#94a3b8; margin-bottom:4px; text-align:center;">Costas</label>
-              <input type="file" id="comp_photo_input_back" accept="image/*" style="font-size:0.65rem; color:#94a3b8; width:100%;" onchange="handleCompPhotoPreview(this, 'preview_back')">
-              <div id="preview_back" style="margin-top:4px; height:60px; background:rgba(255,255,255,0.02); border:1px dashed rgba(255,255,255,0.15); border-radius:6px; overflow:hidden; display:flex; align-items:center; justify-content:center; font-size:0.68rem; color:#64748b;">Sem foto</div>
-            </div>
-          </div>
-        </div>
+
 
         <!-- Observações -->
-        <div class="comp-form-group">
+        <div class="comp-form-group" style="margin-top: 10px;">
           <label class="comp-form-label" for="add_comp_notes">📝 Observações e Sensações</label>
-          <textarea id="add_comp_notes" class="comp-form-textarea" rows="2" placeholder="Ex: Me sinto mais leve nos apoios, calça mais folgada na cintura..."></textarea>
+          <textarea id="add_comp_notes" class="comp-form-textarea" rows="2" placeholder="Ex: Sensação nas roupas (calça mais folgada), nível de energia, sensação nos treinos..." oninput="saveCompDraft()"></textarea>
         </div>
 
         <!-- Botões de Ação do Modal -->
@@ -7756,17 +7761,17 @@
         </div>
 
         <div style="margin-bottom:14px; padding:10px 12px; background:rgba(0,255,136,0.06); border-left:3.5px solid var(--brand-neon); border-radius:8px;">
-          <strong style="color:#fff;">📐 Cintura Abdominal (Métrica Rainha da Saúde)</strong><br>
+          <strong style="color:#fff;">📐 Cintura Abdominal</strong><br>
           Posicione a fita métrica na linha do umbigo ou no ponto mais estreito do tronco (entre a última costela e o osso do quadril). Mantenha a fita nivelada e justa à pele, sem apertar. Realize a leitura no final de uma <strong>expiração normal</strong> (sem puxar o abdômen e sem estufar).
         </div>
 
         <div style="margin-bottom:14px; padding:10px 12px; background:rgba(192,132,252,0.06); border-left:3.5px solid #c084fc; border-radius:8px;">
-          <strong style="color:#fff;">👔 Pescoço (Para Fórmula da Marinha)</strong><br>
+          <strong style="color:#fff;">👔 Pescoço</strong><br>
           Passe a fita logo abaixo da laringe (pomo de adão em homens), ligeiramente inclinada para baixo na frente. A fita deve encostar na pele sem estrangular.
         </div>
 
         <div style="padding:10px 12px; background:rgba(251,191,36,0.06); border-left:3.5px solid #fbbf24; border-radius:8px;">
-          <strong style="color:#fff;">👖 Quadril (Para Mulheres)</strong><br>
+          <strong style="color:#fff;">👖 Quadril</strong><br>
           Com os pés unidos, posicione a fita métrica na maior circunferência dos glúteos. Mantenha a fita paralela ao chão.
         </div>
       </div>
@@ -7783,13 +7788,22 @@
           </div>
           <div>
             <h3 style="margin:0; font-size:1.02rem; color:#fff;">Adicionar Fotos de Progresso</h3>
-            <span style="font-size:0.75rem; color:var(--brand-neon); font-weight:600;">Registro Fotográfico Direto</span>
+            
           </div>
         </div>
         <button class="btn-close" type="button" onclick="closeAddFotosPosturaisModal()" aria-label="Fechar">&times;</button>
       </div>
 
       <div style="padding: 18px 20px; max-height: 75vh; overflow-y: auto;">
+        <!-- GUIA: COMO TIRAR AS FOTOS (BOTÃO DESTACADO NO TOPO) -->
+        <div style="margin-bottom: 14px;">
+          <button type="button" class="btn-orientacoes-popup" onclick="openInstrucoesFotosModal()" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 16px; font-size: 0.84rem; font-weight: 800; border-radius: 10px; background: rgba(56, 189, 248, 0.10); border: 1px solid rgba(56, 189, 248, 0.35); color: #38bdf8; text-transform: none; letter-spacing: 0.01em;">
+            <svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:currentColor;"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+            <span>Guia: como tirar as fotos</span>
+            <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+          </button>
+        </div>
+
         <!-- Data das Fotos -->
         <div class="comp-form-group" style="margin-bottom: 14px;">
           <label class="comp-form-label" for="add_postural_date">📅 Data das Fotos</label>
@@ -7824,17 +7838,16 @@
           <textarea id="add_postural_notes" class="comp-form-textarea" rows="2" placeholder="Ex: Fotos matinais em jejum, iluminação natural frontal..."></textarea>
         </div>
 
-        <div style="font-size:0.72rem; color:#94a3b8; line-height:1.45; margin-top:8px;">
-          💡 <em>As fotos ficam salvas no seu histórico de evolução para comparação temporal e acompanhamento nos laudos biomecânicos.</em>
-        </div>
+        
 
         <!-- Botões de Ação do Modal -->
-        <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:16px;">
+        <div style="display:flex; justify-content:flex-end; align-items:center; gap:10px; margin-top:16px;">
           <button type="button" onclick="closeAddFotosPosturaisModal()" style="background:rgba(255,255,255,0.08); border:none; color:#cbd5e1; font-size:0.8rem; font-weight:700; border-radius:8px; padding:10px 16px; cursor:pointer;">
             Cancelar
           </button>
-          <button type="button" onclick="saveFotosPosturaisDirectly()" style="background:var(--brand-neon); color:#000; border:none; font-size:0.82rem; font-weight:800; border-radius:8px; padding:10px 20px; cursor:pointer; box-shadow:0 0 12px var(--brand-neon-glow);">
-            Salvar Fotos
+          <button type="button" onclick="saveAndSendFotosPosturais()" style="background:var(--brand-neon); color:#000; border:none; font-size:0.82rem; font-weight:800; border-radius:8px; padding:10px 20px; cursor:pointer; box-shadow:0 0 12px var(--brand-neon-glow); display:inline-flex; align-items:center; gap:8px;">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            <span>Salvar e Enviar</span>
           </button>
         </div>
       </div>
@@ -9303,8 +9316,9 @@
         if (el) el.style.display = (id === subId) ? 'block' : 'none';
       });
 
-      if (subId === 'grafico' && typeof renderBodyCompChart === 'function') {
-        renderBodyCompChart(currentBodyCompChartType);
+      if (subId === 'grafico') {
+        if (typeof renderBodyCompChart === 'function') renderBodyCompChart(currentBodyCompChartType);
+        if (typeof renderBodyCompHistoryList === 'function') renderBodyCompHistoryList(getBodyCompHistory());
       }
       if (subId === 'historico' && typeof renderBodyCompHistoryList === 'function') {
         renderBodyCompHistoryList(getBodyCompHistory());
@@ -9404,18 +9418,18 @@
     }
 
     function getAthletePhysioProfile() {
-      let weightKg = 68;
-      let age = 64;
-      let isFemale = true;
+      let weightKg = 72;
+      let age = 30;
+      let isFemale = false;
       try {
-        const intake = JSON.parse(localStorage.getItem('dominio_helenice_dominio_student_intake') || localStorage.getItem('dominio_student_intake') || '{}');
+        const intake = JSON.parse(localStorage.getItem('dominio_aluno_student_intake') || localStorage.getItem('dominio_student_intake') || '{}');
         if (intake.peso && Number(intake.peso) > 30) weightKg = Number(intake.peso);
         if (intake.idade && Number(intake.idade) > 10) age = Number(intake.idade);
         const nome = (intake.nome || document.title || '').toLowerCase();
         if (nome.includes('daniela') || nome.includes('helenice') || intake.sexo === 'F') isFemale = true;
       } catch (e) {}
       try {
-        const compHist = JSON.parse(localStorage.getItem('dominio_helenice_dominio_body_comp_history') || localStorage.getItem('dominio_body_comp_history') || '[]');
+        const compHist = JSON.parse(localStorage.getItem('dominio_helenice_body_comp_history') || localStorage.getItem('dominio_body_comp_history') || '[]');
         if (compHist.length > 0 && Number(compHist[compHist.length - 1].weight) > 30) {
           weightKg = Number(compHist[compHist.length - 1].weight);
         }
@@ -9541,7 +9555,7 @@
 
     window.recalcBiometriaModalPreview = function() {
       const daySel = document.getElementById('bio_session_day');
-      const dayId = daySel ? daySel.value : (window._currentBioModalDayId || 'terca');
+      const dayId = daySel ? daySel.value : (window._currentBioModalDayId || 'dia1');
       const durEl = document.getElementById('bio_session_duration');
       const pseEl = document.getElementById('bio_session_pse');
       const hrAvgEl = document.getElementById('bio_watch_hr_avg');
@@ -9561,22 +9575,20 @@
         watchKcal: watchKcalEl ? watchKcalEl.value : 0
       });
 
-      const setsInfoEl = document.getElementById('bioLiveSetsInfo');
-      if (setsInfoEl) {
-        setsInfoEl.textContent = totalSets > 0 ? `${doneSets > 0 ? doneSets : totalSets}/${totalSets} séries integradas` : 'Sessão livre integrada';
-      }
-
-      const loadEl = document.getElementById('bioPreviewLoadUA');
-      if (loadEl) loadEl.textContent = `${calc.loadUA} U.A.`;
-
       const kcalEl = document.getElementById('bioPreviewRealKcal');
       if (kcalEl) kcalEl.textContent = `${calc.realKcal} kcal`;
 
-      const trimpVo2El = document.getElementById('bioPreviewTrimpVo2');
-      if (trimpVo2El) trimpVo2El.textContent = `${calc.trimp} pts • VO2 ${calc.vo2Est}`;
+      const deltaEl = document.getElementById('bioPreviewDeltaKcal');
+      if (deltaEl) {
+        if (calc.watchKcal && calc.watchKcal > 0) {
+          deltaEl.textContent = `+${calc.deltaKcal} kcal além do relógio`;
+        } else {
+          deltaEl.textContent = `Trabalho das séries + EPOC`;
+        }
+      }
 
-      const expEl = document.getElementById('bioPreviewExplanation');
-      if (expEl) expEl.innerHTML = '';
+      const epocEl = document.getElementById('bioPreviewEpocKcal');
+      if (epocEl) epocEl.textContent = `~${calc.epocKcal} kcal`;
     };
 
     window.openBiometriaSessaoModal = function(dayId) {
@@ -9837,10 +9849,10 @@
 
     window.deleteBioWorkoutLog = function(index) {
       try {
-        const logs = JSON.parse(localStorage.getItem('dominio_helenice_dominio_workout_logs') || '[]');
+        const logs = JSON.parse(localStorage.getItem('dominio_aluno_workout_logs') || '[]');
         if (index >= 0 && index < logs.length) {
           logs.splice(index, 1);
-          localStorage.setItem('dominio_helenice_dominio_workout_logs', JSON.stringify(logs));
+          localStorage.setItem('dominio_aluno_workout_logs', JSON.stringify(logs));
           updateEvolucaoStats();
         }
       } catch (e) {}
@@ -9849,7 +9861,7 @@
     window.renderBiometriaPerformanceUI = function() {
       let logs = [];
       try {
-        logs = JSON.parse(localStorage.getItem('dominio_helenice_dominio_workout_logs') || '[]');
+        logs = JSON.parse(localStorage.getItem('dominio_aluno_workout_logs') || '[]');
       } catch (e) {}
 
       // Calcula somatórios e médias das últimas 7 sessões (janela semanal)
@@ -10076,27 +10088,25 @@
       const trimpVo2 = document.getElementById('bioTrimpAndVo2Val')?.textContent || '--';
       const strain = document.getElementById('bioStrainStatusVal')?.textContent || '--';
 
-      let msg = `📊 *DOMÍNIO CORPORAL | BIOMETRIA E PERFORMANCE*\n`;
-      msg += `👤 *Atleta:* ${studentName}\n`;
-      msg += `📅 *Semana Ativa:*\n`;
-      msg += `• *Dias Concluídos:* ${daysDone}\n`;
-      msg += `• *Séries Totais:* ${setsDone}\n`;
-      msg += `• *Carga Semanal:* ${loadUa}\n`;
-      msg += `• *PSE Média:* ${avgPse}\n\n`;
-      msg += `⚡ *Fisiologia e Bioenergética:*\n`;
-      msg += `• *Gasto Calórico Total:* ${kcalReal}\n`;
-      msg += `• *Frequência Cardíaca:* ${hrSum}\n`;
-      msg += `• *Carga Interna:* ${trimpVo2}\n`;
-      msg += `• *Status Fisiológico:* ${strain}\n\n`;
+      let msg = `*Domínio Corporal | Biometria e Performance*\n`;
+      msg += `*Atleta:* ${studentName}\n\n`;
+      msg += `*Resumo Semanal:*\n`;
+      msg += `• Treinos concluídos: ${daysDone}\n`;
+      msg += `• Séries totais: ${setsDone}\n`;
+      msg += `• Carga semanal: ${loadUa}\n`;
+      msg += `• PSE média: ${avgPse}\n`;
+      if (kcalReal && kcalReal !== '--') msg += `• Gasto calórico: ${kcalReal}\n`;
+      if (hrSum && hrSum !== '--') msg += `• Frequência cardíaca: ${hrSum}\n`;
+      if (trimpVo2 && trimpVo2 !== '--') msg += `• Carga interna: ${trimpVo2}\n`;
+      if (strain && strain !== '--') msg += `• Status: ${strain}\n`;
       if (logs.length > 0) {
-        msg += `📋 *Últimas Sessões Registradas (${logs.length}):*\n`;
+        msg += `\n*Últimas Sessões:*\n`;
         logs.slice(-3).forEach(l => {
           const dia = l.dia_nome || (l.dia ? l.dia.toUpperCase() : 'TREINO');
           msg += `• ${dia} (${l.data || 'Recente'}): PSE ${l.pse || 7} | ${l.carga_ua || '--'} U.A. | ${l.duracao_min || 60} min\n`;
         });
-        msg += `\n`;
       }
-      msg += `*Prof. Gui Lemos*, confira meu painel de biometria e performance atualizado no aplicativo! 🚀`;
+      msg += `\nPainel atualizado no aplicativo.`;
 
       const phone = '5516981222356';
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
@@ -10137,7 +10147,7 @@ function updateEvolucaoStats() {
     }
 
     /* ===================================================
-       MOTOR DE COMPOSIÇÃO CORPORAL E FORÇA RELATIVA (US NAVY)
+       MOTOR DE COMPOSIÇÃO CORPORAL E FORÇA RELATIVA
        =================================================== */
     let currentBodyCompChartType = 'weight';
     let tempCompPhotos = { front: '', side: '', back: '' };
@@ -10146,14 +10156,14 @@ function updateEvolucaoStats() {
     function getStudentBaseProfile() {
       let data = {};
       try {
-        const raw = localStorage.getItem('dominio_helenice_dominio_student_intake') || localStorage.getItem('dominio_student_intake') || localStorage.getItem('dominio_aluno_student_intake');
+        const raw = localStorage.getItem('dominio_aluno_student_intake');
         if (raw) data = JSON.parse(raw);
       } catch (e) {}
-      const name = data.nome || document.getElementById('athleteProfileName')?.textContent || 'Helenice';
-      const weight = parseFloat(data.peso) || parseFloat(document.getElementById('athleteProfileWeight')?.textContent) || 62.0;
-      const height = parseFloat(data.altura) || parseFloat(document.getElementById('athleteProfileHeight')?.textContent) || 160;
-      const bf = (data.gordura !== undefined && data.gordura !== '') ? parseFloat(data.gordura) : (parseFloat(document.getElementById('athleteProfileBF')?.textContent) || 28.5);
-      const gender = (data.sexo || 'feminino').toLowerCase();
+      const name = data.nome || document.getElementById('athleteProfileName')?.textContent || 'Aluno';
+      const weight = parseFloat(data.peso) || null;
+      const height = parseFloat(data.altura) || null;
+      const bf = (data.gordura !== undefined && data.gordura !== '') ? parseFloat(data.gordura) : null;
+      const gender = (data.sexo || 'masculino').toLowerCase();
       return { name, weight, height, bf, gender };
     }
 
@@ -10164,30 +10174,28 @@ function updateEvolucaoStats() {
         if (raw) history = JSON.parse(raw);
       } catch (e) {}
 
+      // Se o histórico estiver vazio, tenta inicializar com o Ponto de Partida da Ficha de Avaliação
       if (!history || history.length === 0) {
-        
         const base = getStudentBaseProfile();
-        const initWeight = base.weight || 62.0;
-        const initHeight = base.height || 160.0;
-        const initWaist = (initHeight > 100) ? Math.round(initHeight * 0.49 * 10) / 10 : 78.0;
-        const initEntry = {
-          id: 'comp_init',
-          date: '2026-10-08',
-          weight: initWeight,
-          waist: initWaist,
-          neck: 34.0,
-          hip: 98.0,
-          bfManual: base.bf || 28.5,
-          clothes: 'normais',
-          energy: 4,
-          notes: 'Ponto de Partida • Ficha Inicial',
-          photos: { front: '', side: '', back: '' }
-        };
-        history = [initEntry];
-        try {
-          localStorage.setItem('dominio_helenice_body_comp_history', JSON.stringify(history));
-        } catch (e) {}
-
+        if (base.weight && base.height) {
+          const initEntry = {
+            id: 'comp_init',
+            date: new Date().toISOString().split('T')[0],
+            weight: base.weight,
+            waist: (base.height > 100) ? Math.round(base.height * 0.49 * 10) / 10 : 80.0,
+            neck: 38.0,
+            hip: null,
+            bfManual: base.bf,
+            clothes: 'normais',
+            energy: 4,
+            notes: 'Ponto de Partida • Ficha Inicial',
+            photos: { front: '', side: '', back: '' }
+          };
+          history = [initEntry];
+          try {
+            localStorage.setItem('dominio_helenice_body_comp_history', JSON.stringify(history));
+          } catch (e) {}
+        }
       }
       history.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
       return history;
@@ -10582,113 +10590,697 @@ function updateEvolucaoStats() {
       if (modal) modal.classList.remove('active');
     }
 
-    function handleFotoPosturalPreview(input, key) {
-      const preview = document.getElementById('preview_postural_' + key);
-      if (!preview) return;
-      if (input.files && input.files[0]) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          tempFotosPosturais[key] = e.target.result;
-          preview.innerHTML = `<img src="${e.target.result}" style="width:100%; height:100%; object-fit:cover; border-radius:4px;">`;
-        };
-        reader.readAsDataURL(input.files[0]);
+    function sendFotosToWhatsAppCoach() {
+      const base = getStudentBaseProfile();
+      const studentName = base.name || 'Helenice';
+      const dateVal = document.getElementById('add_postural_date')?.value || new Date().toISOString().split('T')[0];
+      const dateBR = dateVal.split('-').reverse().join('/');
+      const notes = document.getElementById('add_postural_notes')?.value.trim() || '';
+
+      let msg = `*Domínio Corporal | Fotos de Progresso*\n`;
+      msg += `*Atleta:* ${studentName}\n`;
+      msg += `*Data:* ${dateBR}\n`;
+      if (notes) {
+        msg += `*Observações:* ${notes}\n`;
       }
+      msg += `\nSeguem as fotos em anexo para avaliação e comparativo.`;
+
+      const phone = '5516981222356';
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
-    function saveFotosPosturaisDirectly() {
+    function saveAndSendFotosPosturais() {
       const dateVal = document.getElementById('add_postural_date')?.value || new Date().toISOString().split('T')[0];
       const notesVal = document.getElementById('add_postural_notes')?.value.trim() || '';
 
       const hasAnyPhoto = tempFotosPosturais.front || tempFotosPosturais.side || tempFotosPosturais.back;
       if (!hasAnyPhoto) {
-        alert('Por favor, selecione ao menos uma foto (Frente, Lado ou Costas) para salvar.');
+        alert('Por favor, selecione ao menos uma foto (Frente, Perfil ou Costas) para salvar e enviar.');
         return;
       }
 
       const history = getBodyCompHistory();
-      const existingIdx = history.findIndex(h => h.date === dateVal);
-      if (existingIdx >= 0) {
-        history[existingIdx].photos = { ...(history[existingIdx].photos || {}), ...tempFotosPosturais };
-        if (notesVal) {
-          history[existingIdx].notes = history[existingIdx].notes ? (history[existingIdx].notes + ' • ' + notesVal) : notesVal;
-        }
-      } else {
-        const latest = (history && history.length > 0) ? history[history.length - 1] : null;
-        const base = getStudentBaseProfile();
-        const newRecord = {
-          id: 'comp_' + Date.now(),
-          date: dateVal,
-          weight: latest ? latest.weight : (base.weight || 70.0),
-          waist: latest ? latest.waist : (base.height ? Math.round(base.height * 0.48 * 10) / 10 : 80.0),
-          neck: latest ? latest.neck : null,
-          hip: latest ? latest.hip : null,
-          bfManual: latest ? latest.bfManual : null,
-          clothes: 'normais',
-          energy: 5,
-          notes: notesVal || 'Fotos posturais registradas',
-          photos: { ...tempFotosPosturais }
-        };
-        history.push(newRecord);
-      }
+      const latest = (history && history.length > 0) ? history[history.length - 1] : null;
+      const base = getStudentBaseProfile();
+
+      // Cria um novo registro independente de set de fotos
+      const newRecord = {
+        id: 'comp_foto_' + Date.now(),
+        date: dateVal,
+        weight: latest ? latest.weight : (base.weight || 84.0),
+        waist: latest ? latest.waist : (base.waist || 81.0),
+        neck: latest ? latest.neck : null,
+        hip: latest ? latest.hip : null,
+        bfManual: latest ? latest.bfManual : null,
+        clothes: 'normais',
+        energy: 5,
+        notes: notesVal || 'Fotos de progresso registradas',
+        photos: { ...tempFotosPosturais },
+        coachAnalysis: null
+      };
+
+      history.push(newRecord);
 
       try {
-        localStorage.setItem('dominio_helenice_body_comp_history', JSON.stringify(history));
+        const storageKey = (typeof getBodyCompStorageKey === 'function') ? getBodyCompStorageKey() : 'dominio_helenice_body_comp_history';
+        localStorage.setItem(storageKey, JSON.stringify(history));
       } catch (e) {
         console.error('Erro ao salvar fotos no localStorage:', e);
+        alert('Aviso: Armazenamento cheio. As fotos foram compactadas, mas tente remover registros muito antigos caso persista.');
+      }
+
+      // Dispara WhatsApp com mensagem concisa e elegante
+      const studentName = base.name || 'Helenice';
+      const dateBR = dateVal.split('-').reverse().join('/');
+      let msg = `*Domínio Corporal | Fotos de Progresso*\n`;
+      msg += `*Atleta:* ${studentName}\n`;
+      msg += `*Data:* ${dateBR}\n`;
+      if (notesVal) {
+        msg += `*Observações:* ${notesVal}\n`;
+      }
+      msg += `\nSeguem as fotos em anexo para avaliação e comparativo.`;
+
+      const phone = '5516981222356';
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+
+      // Limpa os previews e campos temporários
+      tempFotosPosturais = { front: null, side: null, back: null };
+      ['front', 'side', 'back'].forEach(k => {
+        const preview = document.getElementById('preview_postural_' + k);
+        if (preview) preview.innerHTML = '<span style="font-size:0.68rem; color:#64748b;">Sem foto</span>';
+        const inp = document.getElementById('postural_photo_' + k);
+        if (inp) inp.value = '';
+      });
+      if (document.getElementById('add_postural_notes')) {
+        document.getElementById('add_postural_notes').value = '';
       }
 
       closeAddFotosPosturaisModal();
       renderBodyCompUI();
+      if (typeof renderPosturalComparisonUI === 'function') {
+        renderPosturalComparisonUI();
+      }
+      if (typeof renderUserUploadedPhotosGallery === 'function') {
+        renderUserUploadedPhotosGallery(history);
+      }
+    }
+    function handleFotoPosturalPreview(input, key) {
+      const preview = document.getElementById('preview_postural_' + key);
+      if (!preview) return;
+      if (input.files && input.files[0]) {
+        const file = input.files[0];
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const img = new Image();
+          img.onload = function() {
+            // Compressão automática via Canvas mantendo proporção (max 1200px)
+            const maxDim = 1200;
+            let w = img.width;
+            let h = img.height;
+            if (w > maxDim || h > maxDim) {
+              if (w > h) {
+                h = Math.round((h * maxDim) / w);
+                w = maxDim;
+              } else {
+                w = Math.round((w * maxDim) / h);
+                h = maxDim;
+              }
+            }
+            const canvas = document.createElement('canvas');
+            canvas.width = w;
+            canvas.height = h;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, w, h);
+            // Reduz de 8MB para ~120KB JPEG de alta qualidade
+            const compressedBase64 = canvas.toDataURL('image/jpeg', 0.78);
+            tempFotosPosturais[key] = compressedBase64;
+            preview.innerHTML = `<img src="${compressedBase64}" style="width:100%; height:100%; object-fit:cover; border-radius:4px;">`;
+          };
+          img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
     }
 
-    function renderUserUploadedPhotosGallery(history) {
-      const gallery = document.getElementById('userUploadedPhotosGallery');
-      const countEl = document.getElementById('userPhotosCount');
-      if (!gallery) return;
+    function saveFotosPosturaisDirectly() {
+      saveAndSendFotosPosturais();
+    }
 
-      const photoList = [];
-      (history || []).forEach(item => {
-        if (item.photos) {
-          ['front', 'side', 'back'].forEach(k => {
-            if (item.photos[k]) {
-              const labelMap = { front: 'Frente', side: 'Perfil', back: 'Costas' };
-              photoList.push({
-                date: item.date,
-                weight: item.weight,
-                type: labelMap[k] || k,
-                url: item.photos[k]
-              });
-            }
-          });
-        }
-      });
+    function renderPosturalComparisonUI() {
+      const container = document.getElementById('dynamicPosturalComparisonContainer');
+      const datesBadge = document.getElementById('compPhotosDatesBadge');
+      if (!container) return;
 
-      if (countEl) countEl.textContent = `${photoList.length} foto(s)`;
+      const history = getBodyCompHistory();
+      // Filtra sets que tenham fotos
+      const photoSets = (history || []).filter(item => item.photos && (item.photos.front || item.photos.side || item.photos.back));
 
-      if (photoList.length === 0) {
-        gallery.innerHTML = `
-          <div style="grid-column: 1 / -1; text-align: center; color: #64748b; font-size: 0.76rem; padding: 14px; background: rgba(255,255,255,0.02); border-radius: 8px; border: 1px dashed rgba(255,255,255,0.08);">
-            Nenhuma foto adicional registrada ainda. Clique em "ADICIONAR FOTOS" para cadastrar seu progresso visual!
+      if (photoSets.length === 0) {
+        if (datesBadge) datesBadge.textContent = 'Aguardando Fotos';
+        container.innerHTML = `
+          <div style="background:rgba(56,189,248,0.06); border:1px dashed rgba(56,189,248,0.3); border-radius:10px; padding:20px; text-align:center; color:#cbd5e1;">
+            <span style="font-size:1.8rem; display:block; margin-bottom:6px;">📷</span>
+            <strong style="color:#38bdf8; font-size:0.86rem;">Nenhum set de fotos registrado ainda</strong>
+            <p style="font-size:0.76rem; color:#94a3b8; margin:6px 0 0;">Toque no botão <strong>"ADICIONAR FOTOS"</strong> acima para registrar sua primeira entrada. Aceita mesmo se tiver apenas 1 foto (ex: só Frente)!</p>
           </div>`;
         return;
       }
 
-      let html = '';
-      photoList.reverse().forEach(p => {
-        const dParts = (p.date || '').split('-');
-        const dateFormatted = (dParts.length === 3) ? `${dParts[2]}/${dParts[1]}` : p.date;
+      // Entrada Inicial (primeira cadastrada) e Entrada Atual (mais recente)
+      const initialSet = photoSets[0];
+      const latestSet = photoSets[photoSets.length - 1];
+
+      const dInitial = (initialSet.date || '').split('-').reverse().join('/');
+      const dLatest = (latestSet.date || '').split('-').reverse().join('/');
+
+      if (datesBadge) {
+        datesBadge.textContent = (photoSets.length === 1) ? `Inicial: ${dInitial}` : `${dInitial} vs. ${dLatest}`;
+      }
+
+      const isSingleSet = (photoSets.length === 1);
+
+      const angles = [
+        { key: 'front', title: '1. Postura Frontal (Frente)', icon: '🧍‍♂️', color: '#38bdf8' },
+        { key: 'side', title: '2. Postura Lateral (Perfil)', icon: '📐', color: 'var(--brand-neon)' },
+        { key: 'back', title: '3. Cadeia Posterior (Costas)', icon: '💪', color: '#fbbf24' }
+      ];
+
+      let html = '<div style="display:flex; flex-direction:column; gap:12px;">';
+
+      angles.forEach(a => {
+        const initImg = initialSet.photos ? initialSet.photos[a.key] : null;
+        const latestImg = latestSet.photos ? latestSet.photos[a.key] : null;
+
+        const hasAnyThisAngle = initImg || latestImg;
+
         html += `
-          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column;">
-            <a href="${p.url}" target="_blank" style="display:block; height:120px; overflow:hidden; background:#000;">
-              <img src="${p.url}" alt="${p.type} ${dateFormatted}" style="width:100%; height:100%; object-fit:cover; transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-            </a>
-            <div style="padding: 6px 8px; display:flex; justify-content:space-between; align-items:center; font-size:0.7rem;">
-              <span style="font-weight:800; color:#fff;">${p.type}</span>
-              <span style="color:var(--brand-neon); font-weight:700;">${dateFormatted}</span>
+          <details class="postural-accordion-item" ${hasAnyThisAngle ? 'open' : ''} style="background:rgba(0,0,0,0.28); border:1px solid rgba(255,255,255,0.08); border-left:3.5px solid ${a.color}; border-radius:12px; overflow:hidden;">
+            <summary style="padding:12px 14px; cursor:pointer; list-style:none; display:flex; align-items:center; justify-content:space-between; user-select:none;">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span>${a.icon}</span>
+                <span style="font-size:0.86rem; font-weight:800; color:${a.color};">${a.title}</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:6px;">
+                <span style="font-size:0.68rem; font-weight:700; color:${a.color}; background:rgba(255,255,255,0.06); padding:2px 7px; border-radius:6px;">
+                  ${hasAnyThisAngle ? 'Visualizar' : 'Sem foto'}
+                </span>
+                <span style="color:#94a3b8; font-size:0.75rem;">▾</span>
+              </div>
+            </summary>
+            
+            <div style="padding:12px 14px; border-top:1px solid rgba(255,255,255,0.06);">
+              ${hasAnyThisAngle ? `
+                <!-- Moldura Lado a Lado Inicial vs. Atual -->
+                <div style="display:grid; grid-template-columns: ${isSingleSet ? '1fr' : '1fr 1fr'}; gap:10px; margin-bottom:12px;">
+                  <!-- Inicial -->
+                  <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:8px; text-align:center;">
+                    <span style="display:block; font-size:0.70rem; font-weight:800; color:#38bdf8; margin-bottom:6px;">
+                      ⬅️ Inicial (${dInitial})${initialSet.weight ? ` • ${initialSet.weight.toFixed(1)} kg` : ''}
+                    </span>
+                    ${initImg ? `
+                      <a href="${initImg}" target="_blank" style="display:block; height:180px; border-radius:8px; overflow:hidden; background:#000;">
+                        <img src="${initImg}" alt="Foto Inicial ${a.title}" style="width:100%; height:100%; object-fit:cover;">
+                      </a>
+                    ` : `
+                      <div style="height:180px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.02); border-radius:8px; color:#64748b; font-size:0.72rem;">
+                        Não registrada na entrada inicial
+                      </div>
+                    `}
+                  </div>
+
+                  <!-- Mais Recente (se houver mais de 1 set) -->
+                  ${!isSingleSet ? `
+                  <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(0,255,136,0.2); border-radius:10px; padding:8px; text-align:center;">
+                    <span style="display:block; font-size:0.70rem; font-weight:800; color:var(--brand-neon); margin-bottom:6px;">
+                      Mais Recente (${dLatest})${latestSet.weight ? ` • ${latestSet.weight.toFixed(1)} kg` : ''} ➡️
+                    </span>
+                    ${latestImg ? `
+                      <a href="${latestImg}" target="_blank" style="display:block; height:180px; border-radius:8px; overflow:hidden; background:#000;">
+                        <img src="${latestImg}" alt="Foto Atual ${a.title}" style="width:100%; height:100%; object-fit:cover;">
+                      </a>
+                    ` : `
+                      <div style="height:180px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.02); border-radius:8px; color:#64748b; font-size:0.72rem;">
+                        Não registrada neste último set
+                      </div>
+                    `}
+                  </div>
+                  ` : ''}
+                </div>
+              ` : `
+                <div style="background:rgba(0,0,0,0.25); border:1px dashed rgba(255,255,255,0.1); border-radius:8px; padding:16px; text-align:center; color:#94a3b8; font-size:0.76rem; margin-bottom:10px;">
+                  Nenhuma foto registrada para este ângulo (${a.title}) até o momento.
+                </div>
+              `}
+
+              <!-- Espaço Limpo para a Análise Oficial do Treinador (Sem textos inventados) -->
+              ${(latestSet.coachAnalysis && latestSet.coachAnalysis[a.key]) ? `
+                <div style="padding:10px 12px; background:rgba(56,189,248,0.06); border-left:3.5px solid #38bdf8; border-radius:6px; font-size:0.78rem; color:#f1f5f9; line-height:1.55; white-space:pre-line;">
+                  <strong style="color:#38bdf8; display:block; margin-bottom:4px;">Parecer Comparativo do Prof. Gui Lemos:</strong>
+                  ${latestSet.coachAnalysis[a.key]}
+                </div>
+              ` : `
+                <div style="padding:8px 12px; background:rgba(255,255,255,0.02); border-left:3px solid #38bdf8; border-radius:6px; font-size:0.74rem; color:#94a3b8; line-height:1.5;">
+                  <strong style="color:#38bdf8;">🔬 Parecer Técnico:</strong> Aguardando elaboração da análise técnica oficial do Prof. Gui Lemos para este ciclo.
+                </div>
+              `}
             </div>
+          </details>`;
+      });
+
+      html += '</div>';
+      container.innerHTML = html;
+
+      // Renderiza também o histórico de comparações anteriores se houver mais de 2 sets
+      renderPastComparisonsHistory(photoSets);
+    }
+
+    function renderPastComparisonsHistory(photoSets) {
+      const container = document.getElementById('pastComparisonsContainer');
+      const badge = document.getElementById('pastComparisonsCountBadge');
+      if (!container) return;
+
+      if (!photoSets || photoSets.length <= 2) {
+        if (badge) badge.textContent = 'Nenhum ciclo anterior';
+        container.innerHTML = `
+          <div style="text-align:center; color:#94a3b8; font-size:0.76rem; padding:12px;">
+            Quando novas fotos forem adicionadas e substituírem a comparação atual, os ciclos comparativos anteriores ficarão arquivados aqui automaticamente.
+          </div>`;
+        return;
+      }
+
+      // Sets intermediários arquivados
+      const pastSets = photoSets.slice(1, -1);
+      if (badge) badge.textContent = `${pastSets.length} ciclo(s) arquivado(s)`;
+
+      let html = '';
+      pastSets.reverse().forEach((s, idx) => {
+        const dStr = (s.date || '').split('-').reverse().join('/');
+        html += `
+          <div style="background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px 12px; margin-bottom:8px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <strong style="color:#c084fc; font-size:0.80rem;">Ciclo Intermediário de ${dStr}</strong>
+              <span style="font-size:0.70rem; color:#94a3b8;">Peso: ${s.weight ? s.weight.toFixed(1) + ' kg' : '--'}</span>
+            </div>
+            <div style="font-size:0.74rem; color:#cbd5e1;">
+              ${s.notes ? `<strong>Notas do Atleta:</strong> ${s.notes}<br>` : ''}
+              ${s.coachNotes ? `
+              <div style="margin-top:8px; padding:8px 10px; background:rgba(0,255,136,0.04); border-left:3.5px solid var(--brand-neon); border-radius:6px; font-size:0.76rem; color:#f1f5f9; line-height:1.55; white-space:pre-line;">
+                <strong style="color:var(--brand-neon); display:block; margin-bottom:4px;">Parecer Individual do Prof. Gui Lemos:</strong>
+                ${s.coachNotes}
+              </div>
+            ` : ''}
           </div>`;
       });
-      gallery.innerHTML = html;
+
+      container.innerHTML = html;
+    }
+
+    // =========================================================================
+    // SISTEMA DE NOTIFICAÇÕES DINÂMICAS PARA NOVAS ANÁLISES
+    // =========================================================================
+    function addAppNotification(notif) {
+      if (!notif || !notif.id) return;
+      try {
+        const raw = localStorage.getItem('dominio_custom_notifications');
+        let customNotifs = raw ? JSON.parse(raw) : [];
+        const existingIdx = customNotifs.findIndex(n => n.id === notif.id);
+        if (existingIdx !== -1) {
+          customNotifs[existingIdx] = notif;
+        } else {
+          customNotifs.unshift(notif);
+        }
+        localStorage.setItem('dominio_custom_notifications', JSON.stringify(customNotifs));
+
+        // Marca como não lida
+        const readMap = getReadNotifications();
+        delete readMap[notif.id];
+        saveReadNotifications(readMap);
+
+        if (typeof updateNotificationsUI === 'function') {
+          updateNotificationsUI();
+        }
+      } catch (e) {}
+    }
+
+    function renderLaudoCompletoDashboard() {
+      const container = document.getElementById('laudoCompletoDynamicContainer');
+      if (!container) return;
+
+      const history = getBodyCompHistory();
+      const base = getStudentBaseProfile();
+      const height = base.height || 178;
+      const studentName = base.name || 'Gui Lemos';
+
+      if (!history || history.length === 0) {
+        container.innerHTML = '<div style="text-align:center; padding:30px; color:#cbd5e1; font-size:0.85rem;">Nenhum dado antropométrico registrado para compilar o laudo.</div>';
+        return;
+      }
+
+      const baseline = history[0];
+      const latest = history[history.length - 1];
+
+      const dWeight = latest.weight - baseline.weight;
+      const dWaist = latest.waist - baseline.waist;
+      const whtrLatest = height ? (latest.waist / height) : null;
+      const kneeReliefPerStep = Math.max(0, -dWeight * 4);
+
+      // Percentuais de gordura
+      const bfBase = baseline.bodyFat !== undefined && baseline.bodyFat !== null ? Number(baseline.bodyFat) : null;
+      const bfLatest = latest.bodyFat !== undefined && latest.bodyFat !== null ? Number(latest.bodyFat) : null;
+      const dBf = (bfBase !== null && bfLatest !== null) ? (bfLatest - bfBase) : null;
+
+      // Status RCEst
+      let rcestStatus = 'Faixa Ideal (< 0.50)';
+      let rcestColor = '#00ff88';
+      if (whtrLatest) {
+        if (whtrLatest >= 0.55) {
+          rcestStatus = 'Alerta Visceral (≥ 0.55)';
+          rcestColor = '#f43f5e';
+        } else if (whtrLatest >= 0.50) {
+          rcestStatus = 'Atenção Preventiva (0.50-0.54)';
+          rcestColor = '#fbbf24';
+        }
+      }
+
+      // Notas e contexto da última aferição
+      const contextNotes = latest.notes || (studentName.toLowerCase().includes('gui') ? 'Tirzepatida 2,5 mg; retorno após 10 dias de pausa no treino' : '');
+
+      let html = `
+        <!-- HERO MASTER DO LAUDO COM ALTO CONTRASTE -->
+        <div class="evolucao-hero" style="margin-bottom:14px; background: linear-gradient(135deg, rgba(192, 132, 252, 0.18) 0%, rgba(56, 189, 248, 0.14) 60%, rgba(0, 255, 136, 0.10) 100%); border-left: 4.5px solid #c084fc;">
+          <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+            <div class="evolucao-title" style="color:#ffffff; font-weight:900;">
+              <span>📋 Laudo e Diagnóstico Biomecânico</span>
+            </div>
+            <span style="font-size:0.72rem; font-weight:800; color:#ffffff; background:rgba(192,132,252,0.3); border:1px solid rgba(192,132,252,0.5); padding:3px 9px; border-radius:8px; text-transform:uppercase;">
+              ${baseline.date} ➔ ${latest.date}
+            </span>
+          </div>
+          <p style="font-size:0.84rem; color:#f1f5f9; margin:8px 0 0; line-height:1.55;">
+            Atleta: <strong style="color:#ffffff;">${studentName}</strong> | Estatura: <strong style="color:#ffffff;">${height} cm</strong> | Treinador: <strong style="color:#38bdf8;">Prof. Gui Lemos</strong>
+          </p>
+        </div>
+
+        <!-- 1. RESUMO EXECUTIVO EM MENU RETRÁTIL COM ALTO CONTRASTE -->
+        <details class="postural-accordion-item" open style="background: rgba(255,255,255,0.04); border: 1px solid rgba(0, 255, 136, 0.35); border-left: 4.5px solid var(--brand-neon); border-radius: 12px; margin-bottom: 14px; overflow: hidden;">
+          <summary style="padding: 12px 14px; cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; user-select: none;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 1.05rem;">⚡</span>
+              <span style="font-size: 0.92rem; font-weight: 900; color: #ffffff; letter-spacing: 0.02em;">1. RESUMO EXECUTIVO • MARCOS DA EVOLUÇÃO</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <span style="font-size: 0.72rem; font-weight: 700; color: var(--brand-neon); background: rgba(0, 255, 136, 0.15); padding: 3px 8px; border-radius: 6px;">Toque para recolher</span>
+              <span style="color: #cbd5e1; font-size: 0.75rem;">▾</span>
+            </div>
+          </summary>
+          <div style="padding: 12px 14px; border-top: 1px solid rgba(255,255,255,0.08);">
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(105px, 1fr)); gap:10px; margin-bottom:12px;">
+              <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); padding:10px; border-radius:8px;">
+                <div style="font-size:0.72rem; color:#cbd5e1; font-weight:700;">Peso Corporal</div>
+                <div style="font-size:1.15rem; font-weight:900; color:#ffffff;">${latest.weight.toFixed(1)} kg</div>
+                <div style="font-size:0.72rem; font-weight:800; color:${dWeight <= 0 ? 'var(--brand-neon)' : '#fbbf24'};">${dWeight > 0 ? '+' + dWeight.toFixed(1) : dWeight.toFixed(1)} kg</div>
+              </div>
+              <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); padding:10px; border-radius:8px;">
+                <div style="font-size:0.72rem; color:#cbd5e1; font-weight:700;">Cintura</div>
+                <div style="font-size:1.15rem; font-weight:900; color:#38bdf8;">${latest.waist.toFixed(1)} cm</div>
+                <div style="font-size:0.72rem; font-weight:800; color:${dWaist <= 0 ? 'var(--brand-neon)' : '#f43f5e'};">${dWaist > 0 ? '+' + dWaist.toFixed(1) : dWaist.toFixed(1)} cm</div>
+              </div>
+              <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); padding:10px; border-radius:8px;">
+                <div style="font-size:0.72rem; color:#cbd5e1; font-weight:700;">% Gordura</div>
+                <div style="font-size:1.15rem; font-weight:900; color:#fbbf24;">${bfLatest !== null ? bfLatest.toFixed(1) + '%' : '--'}</div>
+                <div style="font-size:0.72rem; font-weight:800; color:${dBf !== null && dBf <= 0 ? 'var(--brand-neon)' : '#fbbf24'};">${dBf !== null ? (dBf > 0 ? '+' + dBf.toFixed(1) + '%' : dBf.toFixed(1) + '%') : 'Estável'}</div>
+              </div>
+              <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); padding:10px; border-radius:8px;">
+                <div style="font-size:0.72rem; color:#cbd5e1; font-weight:700;">RCEst (Cintura/Alt)</div>
+                <div style="font-size:1.15rem; font-weight:900; color:${rcestColor};">${whtrLatest ? whtrLatest.toFixed(2) : '--'}</div>
+                <div style="font-size:0.68rem; font-weight:800; color:${rcestColor};">${rcestStatus}</div>
+              </div>
+            </div>
+            <div style="background:rgba(0,0,0,0.35); border-radius:8px; padding:10px 12px; font-size:0.82rem; color:#f1f5f9; line-height:1.6;">
+              <strong style="color:var(--brand-neon);">Síntese Clínica:</strong> Recomposição corporal de alta qualidade. A redução de <strong>${Math.abs(dWaist).toFixed(1)} cm de cintura</strong> associada à estabilidade de força muscular atesta eliminação de adiposidade visceral periumbilical e preservação integral de massa contrátil.
+            </div>
+          </div>
+        </details>
+
+        <!-- 2. STATUS CLÍNICO E ANTROPOMÉTRICO (ALTO CONTRASTE) -->
+        <div class="comparison-card" style="border-left:4px solid #38bdf8; margin-bottom:14px; background:rgba(255,255,255,0.03);">
+          <div class="comparison-card-header">
+            <div class="comparison-card-title" style="color:#ffffff; font-weight:900;">2. Status Clínico e Antropométrico</div>
+            <span style="font-size:0.72rem; color:#38bdf8; font-weight:800;">RECOMPOSIÇÃO CORPORAL</span>
+          </div>
+          <div style="font-size:0.84rem; color:#f1f5f9; line-height:1.65;">
+            <p style="margin:0 0 10px 0;">
+              <strong style="color:#ffffff;">Termos Práticos (Para o Aluno):</strong> A balança comum é cega: ela pesa água, músculo, alimento e gordura de uma só vez. Quando sua cintura afina e o peso se mantém ou diminui de forma controlada, você realizou o padrão ouro do treinamento: <strong>secou gordura sem sacrificar massa muscular</strong>.
+            </p>
+            <div style="background:rgba(56,189,248,0.1); border:1px solid rgba(56,189,248,0.3); border-radius:10px; padding:12px 14px; margin-bottom:10px;">
+              <strong style="color:#38bdf8; font-size:0.86rem;">📏 Regra de Ouro da Cintura: Menos que a Metade da Altura</strong>
+              <div style="font-size:0.82rem; color:#f1f5f9; margin-top:4px;">
+                Sua cintura atual mede <strong>${latest.waist.toFixed(1)} cm</strong> para uma altura de <strong>${height} cm</strong> (RCEst = <strong>${whtrLatest ? whtrLatest.toFixed(2) : '--'}</strong>). Meta clínica Ashwell: abaixo de 0.50. Isso assegura baixo risco de acúmulo de gordura periumbilical e preservação da sensibilidade à insulina.
+              </div>
+            </div>
+            <p style="margin:0; font-size:0.74rem; color:#cbd5e1;">
+              <em>Referência Científica: Ashwell, M., & Browning, L. M. (2012). Waist-to-height ratio is a better screening tool than waist circumference and BMI for adult cardiometabolic risk factors. Systematic Review, Obesity Reviews.</em>
+            </p>
+          </div>
+        </div>
+
+        <!-- 3. BIOMECÂNICA, ARTICULAÇÕES E FORÇA RELATIVA (ALTO CONTRASTE) -->
+        <div class="comparison-card" style="border-left:4px solid var(--brand-neon); margin-bottom:14px; background:rgba(255,255,255,0.03);">
+          <div class="comparison-card-header">
+            <div class="comparison-card-title" style="color:#ffffff; font-weight:900;">3. Biomecânica Articular e Força Relativa</div>
+            <span style="font-size:0.72rem; color:var(--brand-neon); font-weight:800;">LEIS DO RENDIMENTO</span>
+          </div>
+          <div style="font-size:0.84rem; color:#f1f5f9; line-height:1.65;">
+            <div style="background:rgba(0,255,136,0.08); border:1px solid rgba(0,255,136,0.28); border-radius:10px; padding:12px 14px; margin-bottom:10px;">
+              <strong style="color:var(--brand-neon); font-size:0.86rem;">🛡️ Alívio Articular Patelofemoral (Regra de Messier 4:1)</strong>
+              <div style="font-size:0.82rem; color:#f1f5f9; margin-top:4px;">
+                ${kneeReliefPerStep > 0 ? `Cada 1 kg de peso inerte reduzido retira ~4 kg de compressão mecânica a cada passo no joelho. Com a redução acumulada de ${Math.abs(dWeight).toFixed(1)} kg, suas articulações recebem <strong>~${kneeReliefPerStep.toFixed(1)} kg a menos de impacto compressivo por passada</strong> (mais de 40 toneladas a menos ao longo de 10.000 passos diários).` : 'A manutenção da densidade corporal com redução de cintura otimiza o alinhamento patelofemoral nos agachamentos profundos e corridas.'}
+              </div>
+            </div>
+            <div style="background:rgba(251,191,36,0.08); border:1px solid rgba(251,191,36,0.28); border-radius:10px; padding:12px 14px; margin-bottom:10px;">
+              <strong style="color:#fbbf24; font-size:0.86rem;">⚡ Força Relativa e Potência Motora (Zatsiorsky & Kraemer)</strong>
+              <div style="font-size:0.82rem; color:#f1f5f9; margin-top:4px;">
+                Força Relativa = Força Absoluta ÷ Massa Corporal. O tecido adiposo é um lastro passivo que não gera contração. Ao diminuir a circunferência periumbilical, você retira uma carga morta, aumentando instantaneamente sua aceleração em barras fixas, flexões, handstands e manobras gímnicas.
+              </div>
+            </div>
+            <p style="margin:0; font-size:0.74rem; color:#cbd5e1;">
+              <em>Referências: Messier, S. P., et al. (2005). Arthritis & Rheumatism; Zatsiorsky, V. M., & Kraemer, W. J. (2006). Science and Practice of Strength Training.</em>
+            </p>
+          </div>
+        </div>
+
+        <!-- 4. CONTEXTO FARMACOLÓGICO E ROTINA (ALTO CONTRASTE) -->
+        <div class="comparison-card" style="border-left:4px solid #c084fc; margin-bottom:14px; background:rgba(255,255,255,0.03);">
+          <div class="comparison-card-header">
+            <div class="comparison-card-title" style="color:#ffffff; font-weight:900;">4. Contexto de Rotina e Farmacologia</div>
+            <span style="font-size:0.72rem; color:#c084fc; font-weight:800;">ANÁLISE INDIVIDUALIZADA</span>
+          </div>
+          <div style="font-size:0.84rem; color:#f1f5f9; line-height:1.65;">
+            <div style="background:rgba(192,132,252,0.1); border:1px solid rgba(192,132,252,0.3); border-radius:10px; padding:12px 14px; margin-bottom:8px;">
+              <strong style="color:#c084fc; font-size:0.86rem;">💊 Variáveis Relatadas:</strong>
+              <div style="font-size:0.82rem; color:#ffffff; margin-top:4px; font-weight:600;">
+                ${contextNotes}
+              </div>
+            </div>
+            <p style="margin:0 0 6px 0;">
+              <strong>Interpretação Fisiológica:</strong> Pausas de treino de 7 a 10 dias reduzem reservas intramusculares de glicogênio e água intracelular (cada 1g de glicogênio retém ~3g de água), o que pode fazer o peso na balança oscilar temporariamente sem ganho de gordura. O retorno aos estímulos recupera o tônus muscular e volume celular em poucos dias.
+            </p>
+          </div>
+        </div>
+
+        <!-- 5. PARECER DO TREINADOR E DIRETRIZES (ALTO CONTRASTE) -->
+        <div class="comparison-card" style="border-left:4px solid #38bdf8; margin-bottom:14px; background:rgba(255,255,255,0.03);">
+          <div class="comparison-card-header">
+            <div class="comparison-card-title" style="color:#ffffff; font-weight:900;">5. Parecer Técnico • Prof. Gui Lemos</div>
+            <span style="font-size:0.72rem; color:#38bdf8; font-weight:800;">DIRETRIZES TÉCNICAS</span>
+          </div>
+          <div style="font-size:0.84rem; color:#f1f5f9; line-height:1.65;">
+            <ul class="bio-points-list" style="margin:0; padding-left:16px;">
+              <li><strong style="color:#ffffff;">Consolidação de Força de Tração:</strong> Priorizar puxadas estritas nas argolas e barra fixa com ritmo controlado, aproveitando a ótima relação peso-potência.</li>
+              <li><strong style="color:#ffffff;">Progressão de Mobilidade Articular:</strong> Com o centro de gravidade axial estável, aprofundar amplitudes de agachamento profundo e flexibilidade de cadeia posterior.</li>
+              <li><strong style="color:#ffffff;">Proteção de Massa Magra e Hidratação:</strong> Manter aporte proteico fracionado ao longo do dia (1.8 a 2.2 g/kg) e hidratação abundante para suportar a recomposição e plenitude neuromuscular.</li>
+            </ul>
+          </div>
+        </div>
+      `;
+
+      container.innerHTML = html;
+      renderLaudosHistory();
+    }
+
+    function buildRelatorioComposicaoHTML() {
+      const container = document.getElementById('relatorioComposicaoContent');
+      if (!container) return;
+
+      const history = getBodyCompHistory();
+      const base = getStudentBaseProfile();
+      const height = base.height || 178;
+      const studentName = base.name || 'Gui Lemos';
+      const todayStr = new Date().toLocaleDateString('pt-BR');
+
+      if (!history || history.length === 0) {
+        container.innerHTML = '<p style="text-align:center; color:#475569; padding:20px;">Nenhum dado registrado para compilar o relatório.</p>';
+        return;
+      }
+
+      const baseline = history[0];
+      const latest = history[history.length - 1];
+
+      const dWeight = latest.weight - baseline.weight;
+      const dWaist = latest.waist - baseline.waist;
+      const whtrLatest = height ? (latest.waist / height) : null;
+      const kneeReliefPerStep = Math.max(0, -dWeight * 4);
+      const bfBase = baseline.bodyFat !== undefined && baseline.bodyFat !== null ? Number(baseline.bodyFat) : null;
+      const bfLatest = latest.bodyFat !== undefined && latest.bodyFat !== null ? Number(latest.bodyFat) : null;
+      const dBf = (bfBase !== null && bfLatest !== null) ? (bfLatest - bfBase) : null;
+
+      const contextNotes = latest.notes || (studentName.toLowerCase().includes('gui') ? 'Tirzepatida 2,5 mg; retorno após 10 dias de pausa no treino' : '');
+
+      let html = `
+        <div class="print-report-wrapper" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #0f172a; line-height: 1.5; padding: 0;">
+          
+          <!-- CABEÇALHO INSTITUCIONAL -->
+          <div class="print-section" style="border-bottom: 2px solid #0f172a; padding-bottom: 12px; margin-bottom: 14px; display:flex; justify-content:space-between; align-items:flex-end;">
+            <div>
+              <div style="font-size: 1.35rem; font-weight: 900; letter-spacing: -0.02em; color: #0f172a;">DOMÍNIO CORPORAL</div>
+              <div style="font-size: 0.82rem; font-weight: 700; color: #0284c7; text-transform: uppercase; letter-spacing: 0.05em;">Dossiê Técnico de Composição Corporal e Biomecânica</div>
+            </div>
+            <div style="text-align: right; font-size: 0.78rem; color: #475569;">
+              <div>Data de Emissão: <strong style="color: #0f172a;">${todayStr}</strong></div>
+              <div>Responsável: <strong style="color: #0f172a;">Prof. Gui Lemos</strong></div>
+            </div>
+          </div>
+
+          <!-- IDENTIFICAÇÃO DO ATLETA -->
+          <div class="print-section" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; display:flex; justify-content:space-between; flex-wrap:wrap; font-size: 0.82rem;">
+            <div>Atleta: <strong style="color: #0f172a;">${studentName}</strong></div>
+            <div>Estatura: <strong style="color: #0f172a;">${height} cm</strong></div>
+            <div>Período: <strong style="color: #0f172a;">${baseline.date} até ${latest.date}</strong></div>
+          </div>
+
+          <!-- 1. QUADRO COMPARATIVO DAS MÉTRICAS -->
+          <div class="print-section" style="margin-bottom: 16px;">
+            <div style="font-size: 0.88rem; font-weight: 800; color: #0f172a; text-transform: uppercase; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-bottom: 8px;">
+              1. Quadro de Evolução Antropométrica e Composição
+            </div>
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.8rem; text-align: left;">
+              <thead>
+                <tr style="background: #f1f5f9; color: #334155;">
+                  <th style="padding: 6px 10px; border: 1px solid #cbd5e1;">Parâmetro Avaliado</th>
+                  <th style="padding: 6px 10px; border: 1px solid #cbd5e1;">Ponto de Partida</th>
+                  <th style="padding: 6px 10px; border: 1px solid #cbd5e1;">Avaliação Atual</th>
+                  <th style="padding: 6px 10px; border: 1px solid #cbd5e1;">Variação (Δ)</th>
+                  <th style="padding: 6px 10px; border: 1px solid #cbd5e1;">Classificação Clínica</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700;">Peso Corporal</td>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1;">${baseline.weight.toFixed(1)} kg</td>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700;">${latest.weight.toFixed(1)} kg</td>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700; color: ${dWeight <= 0 ? '#16a34a' : '#d97706'};">${dWeight > 0 ? '+' + dWeight.toFixed(1) : dWeight.toFixed(1)} kg</td>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1;">Recomposição Fisiológica</td>
+                </tr>
+                <tr>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700;">Cintura Abdominal</td>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1;">${baseline.waist.toFixed(1)} cm</td>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700;">${latest.waist.toFixed(1)} cm</td>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700; color: ${dWaist <= 0 ? '#16a34a' : '#dc2626'};">${dWaist > 0 ? '+' + dWaist.toFixed(1) : dWaist.toFixed(1)} cm</td>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1;">Redução de Gordura Visceral</td>
+                </tr>
+                <tr>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700;">% de Gordura Corporal</td>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1;">${bfBase !== null ? bfBase.toFixed(1) + '%' : '--'}</td>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700;">${bfLatest !== null ? bfLatest.toFixed(1) + '%' : '--'}</td>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700; color: ${dBf !== null && dBf <= 0 ? '#16a34a' : '#d97706'};">${dBf !== null ? (dBf > 0 ? '+' + dBf.toFixed(1) + '%' : dBf.toFixed(1) + '%') : 'Estável'}</td>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1;">Fórmula Marinha / Aferição</td>
+                </tr>
+                <tr>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700;">RCEst (Cintura / Estatura)</td>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1;">${(baseline.waist / height).toFixed(2)}</td>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700;">${whtrLatest ? whtrLatest.toFixed(2) : '--'}</td>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700;">${whtrLatest ? ((whtrLatest - (baseline.waist / height))).toFixed(2) : '--'}</td>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700; color: #16a34a;">${whtrLatest && whtrLatest < 0.50 ? 'Faixa Ideal (< 0.50)' : 'Atenção Preventiva'}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 2. DIAGNÓSTICO EM LINGUAGEM PRÁTICA E COLOQUIAL -->
+          <div class="print-section" style="margin-bottom: 14px;">
+            <div style="font-size: 0.88rem; font-weight: 800; color: #0f172a; text-transform: uppercase; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-bottom: 6px;">
+              2. Diagnóstico em Linguagem Prática
+            </div>
+            <div style="font-size: 0.8rem; color: #1e293b; line-height: 1.55; text-align: justify;">
+              <p style="margin: 0 0 6px 0;">
+                <strong>O que a balança não conta:</strong> O peso bruto afere apenas a atração gravitacional total (músculos, órgãos, ossos, água e gordura). Quando a cintura afina e o peso se mantém ou cai gradualmente, o aluno vivencia o ápice do treinamento resistido: <strong>recomposição corporal</strong>. A gordura periumbilical (lastro passivo inerte) é eliminada enquanto a densidade muscular é preservada.
+              </p>
+              <p style="margin: 0;">
+                <strong>RCEst (${whtrLatest ? whtrLatest.toFixed(2) : '--'}):</strong> Sua cintura representa menos que a metade da sua altura. Na prática, isso atesta ausência de gordura visceral prejudicial aos órgãos nobres e ótima sensibilidade hormonal.
+              </p>
+            </div>
+          </div>
+
+          <!-- 3. BIOMECÂNICA, ARTICULAÇÕES E RENDIMENTO -->
+          <div class="print-section" style="margin-bottom: 14px;">
+            <div style="font-size: 0.88rem; font-weight: 800; color: #0f172a; text-transform: uppercase; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-bottom: 6px;">
+              3. Implicações Biomecânicas e Esportivas
+            </div>
+            <div style="font-size: 0.8rem; color: #1e293b; line-height: 1.55; text-align: justify;">
+              <p style="margin: 0 0 6px 0;">
+                <strong>Alívio Compressivo nos Joelhos (Regra de Messier 4:1):</strong> Cada 1 kg de sobrecarga inerte reduzida elimina ~4 kg de compressão nos meniscos e cartilagens patelofemorais por passada. ${kneeReliefPerStep > 0 ? `A redução de ${Math.abs(dWeight).toFixed(1)} kg erradica <strong>~${kneeReliefPerStep.toFixed(1)} kg de impacto a cada passo</strong>, blindando a articulação em agachamentos e corridas.` : 'A preservação do peso com redução de cintura otimiza a sustentação articular sem perda de força.'}
+              </p>
+              <p style="margin: 0;">
+                <strong>Força Relativa e Calistenia (Zatsiorsky & Kraemer):</strong> O tecido adiposo não gera contração motora. Reduzir o lastro morto aumenta diretamente a aceleração nos movimentos gímnicos com peso do próprio corpo (barras, flexões, argolas e paradas de mão).
+              </p>
+            </div>
+          </div>
+
+          <!-- 4. CONTEXTO DE ROTINA E FARMACOLOGIA -->
+          ${contextNotes ? `
+          <div class="print-section" style="margin-bottom: 14px;">
+            <div style="font-size: 0.88rem; font-weight: 800; color: #0f172a; text-transform: uppercase; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-bottom: 6px;">
+              4. Contexto de Rotina e Farmacologia
+            </div>
+            <div style="font-size: 0.8rem; color: #1e293b; line-height: 1.5; background: #f8fafc; border-left: 3px solid #0284c7; padding: 8px 12px; border-radius: 4px;">
+              <strong>Observação Registrada:</strong> ${contextNotes}.<br>
+              <span style="font-size: 0.76rem; color: #475569;">Nota Clínica: Pausas transitórias de treino afetam o volume de água intracelular e glicogênio muscular, não refletindo ganho de tecido adiposo. O retorno aos estímulos restaura o tônus em poucos dias.</span>
+            </div>
+          </div>
+          ` : ''}
+
+          <!-- 5. REFERÊNCIAS CIENTÍFICAS E ASSINATURA -->
+          <div class="print-section" style="margin-top: 18px; border-top: 1px solid #cbd5e1; padding-top: 10px; font-size: 0.72rem; color: #475569;">
+            <div style="margin-bottom: 12px;">
+              <strong>Embasamento Científico:</strong> Ashwell & Browning (2012) [RCEst]; Hodgdon & Beckett (1984) [Marinha dos EUA]; Messier et al. (2005) [Sobrecarga Patelofemoral 4:1]; Zatsiorsky & Kraemer (2006) [Força Relativa].
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:flex-end; padding-top: 10px;">
+              <div>
+                <div style="font-weight: 700; color: #0f172a;">Domínio Corporal • Treinamento de Alta Precisão</div>
+                <div>Metodologia Integrada de Força, Calistenia e Saúde</div>
+              </div>
+              <div style="text-align: right; border-top: 1px solid #0f172a; padding-top: 4px; min-width: 180px;">
+                <div style="font-weight: 800; color: #0f172a;">Prof. Gui Lemos</div>
+                <div style="font-size: 0.68rem; color: #475569;">Treinador e Especialista em Movimento</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      `;
+
+      container.innerHTML = html;
+    }
+
+    
+    // =========================================================================
+    // GERENCIAMENTO DA LISTA DE MEDIÇÕES E MODAL DE MEDIÇÃO CORPORAL
+    // =========================================================================
+    function getBodyCompStorageKey() {
+      const t = (document.title || '').toLowerCase();
+      if (t.includes('gui')) return 'dominio_gui_body_comp_history';
+      if (t.includes('daniela')) return 'dominio_daniela_body_comp_history';
+      return 'dominio_body_comp_history';
     }
 
     function renderBodyCompHistoryList(history) {
@@ -10707,31 +11299,22 @@ function updateEvolucaoStats() {
       reversed.forEach(item => {
         const dParts = (item.date || '').split('-');
         const dateFormatted = (dParts.length === 3) ? `${dParts[2]}/${dParts[1]}/${dParts[0]}` : item.date;
-        const clothesMap = {
-          'folgadas': '👕 Roupas mais folgadas',
-          'normais': '👕 Roupas confortáveis',
-          'apertadas': '👕 Roupas ajustadas'
-        };
-        const energyStars = '⭐'.repeat(parseInt(item.energy) || 4);
+        const wVal = item.weight ? Number(item.weight).toFixed(1) + ' kg' : '--';
+        const waistVal = item.waist ? Number(item.waist).toFixed(1) + ' cm' : null;
+        const bfVal = item.bfManual ? Number(item.bfManual).toFixed(1) + '%' : null;
 
         html += `
-          <div class="comp-history-item">
-            <div style="display:flex; flex-direction:column; gap:4px;">
+          <div class="comp-history-item" style="background: rgba(255, 255, 255, 0.025); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap;">
+            <div style="display:flex; flex-direction:column; gap:3px;">
               <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-                <span style="font-size:0.85rem; font-weight:800; color:#fff;">📅 ${dateFormatted}</span>
-                <span style="font-size:0.72rem; color:#38bdf8; font-weight:700; background:rgba(56,189,248,0.1); padding:2px 6px; border-radius:6px;">${item.weight.toFixed(1)} kg</span>
-                <span style="font-size:0.72rem; color:var(--brand-neon); font-weight:700; background:rgba(0,255,136,0.1); padding:2px 6px; border-radius:6px;">Cintura: ${item.waist.toFixed(1)} cm</span>
-                ${item.neck ? `<span style="font-size:0.72rem; color:#c084fc; font-weight:700; background:rgba(192,132,252,0.1); padding:2px 6px; border-radius:6px;">Pescoço: ${item.neck.toFixed(1)} cm</span>` : ''}
-                ${item.hip ? `<span style="font-size:0.72rem; color:#f43f5e; font-weight:700; background:rgba(244,63,94,0.1); padding:2px 6px; border-radius:6px;">Quadril: ${item.hip.toFixed(1)} cm</span>` : ''}
-                ${item.bfManual ? `<span style="font-size:0.72rem; color:#fbbf24; font-weight:700; background:rgba(251,191,36,0.1); padding:2px 6px; border-radius:6px;">BF: ${item.bfManual}%</span>` : ''}
+                <span style="font-size:0.84rem; font-weight:800; color:#fff;">📅 ${dateFormatted}</span>
+                <span style="font-size:0.72rem; color:#38bdf8; font-weight:700; background:rgba(56,189,248,0.1); padding:2px 6px; border-radius:6px;">${wVal}</span>
+                ${waistVal ? `<span style="font-size:0.72rem; color:var(--brand-neon); font-weight:700; background:rgba(0,255,136,0.1); padding:2px 6px; border-radius:6px;">Cintura: ${waistVal}</span>` : ''}
+                ${bfVal ? `<span style="font-size:0.72rem; color:#fbbf24; font-weight:700; background:rgba(251,191,36,0.1); padding:2px 6px; border-radius:6px;">Gordura: ${bfVal}</span>` : ''}
               </div>
-              <div style="font-size:0.72rem; color:#94a3b8; display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
-                <span>${clothesMap[item.clothes] || '👕 Roupas normais'}</span>
-                <span>⚡ Energia: ${energyStars}</span>
-                ${item.notes ? `<span style="color:#cbd5e1;">💬 "${item.notes}"</span>` : ''}
-              </div>
+              ${item.notes ? `<div style="font-size:0.72rem; color:#94a3b8; line-height:1.4;">💬 ${item.notes}</div>` : ''}
             </div>
-            <button type="button" onclick="deleteBodyCompRecord('${item.id}')" title="Excluir medição" style="background:rgba(244,63,94,0.1); border:1px solid rgba(244,63,94,0.25); color:#f43f5e; font-size:0.72rem; border-radius:6px; padding:4px 8px; cursor:pointer;">
+            <button type="button" onclick="deleteBodyCompRecord('${item.id}')" title="Excluir medição" style="background:rgba(248,113,113,0.1); border:1px solid rgba(248,113,113,0.25); color:#f87171; font-size:0.70rem; font-weight:700; border-radius:6px; padding:4px 8px; cursor:pointer;">
               ✕ Excluir
             </button>
           </div>`;
@@ -10739,10 +11322,38 @@ function updateEvolucaoStats() {
       listEl.innerHTML = html;
     }
 
+    function saveCompDraft() {
+      const draft = {
+        date: document.getElementById('add_comp_date')?.value || '',
+        weight: document.getElementById('add_comp_weight')?.value || '',
+        waist: document.getElementById('add_comp_waist')?.value || '',
+        neck: document.getElementById('add_comp_neck')?.value || '',
+        hip: document.getElementById('add_comp_hip')?.value || '',
+        bfManual: document.getElementById('add_comp_bf_manual')?.value || '',
+        bfMethod: document.getElementById('add_comp_bf_method')?.value || '',
+        clothes: document.getElementById('add_comp_clothes')?.value || '',
+        energy: document.getElementById('add_comp_energy')?.value || '',
+        notes: document.getElementById('add_comp_notes')?.value || '',
+        updatedAt: Date.now()
+      };
+      try {
+        localStorage.setItem('dominio_draft_medicao', JSON.stringify(draft));
+        const ind = document.getElementById('compDraftIndicator');
+        const indText = document.getElementById('compDraftIndicatorText');
+        if (ind && indText) {
+          ind.style.display = 'inline-flex';
+          indText.textContent = 'Rascunho salvo temporariamente';
+        }
+      } catch (e) {}
+    }
+    window.saveCompDraft = saveCompDraft;
+
     function openAddMedicaoModal() {
       tempCompPhotos = { front: '', side: '', back: '' };
       const dateEl = document.getElementById('add_comp_date');
-      if (dateEl) dateEl.value = new Date().toISOString().split('T')[0];
+      if (dateEl && !dateEl.value) {
+        dateEl.value = new Date().toISOString().split('T')[0];
+      }
       
       const history = getBodyCompHistory();
       const base = getStudentBaseProfile();
@@ -10753,14 +11364,48 @@ function updateEvolucaoStats() {
       const neckEl = document.getElementById('add_comp_neck');
       const hipEl = document.getElementById('add_comp_hip');
       const bfEl = document.getElementById('add_comp_bf_manual');
+      const bfMethodEl = document.getElementById('add_comp_bf_method');
+      const clothesEl = document.getElementById('add_comp_clothes');
+      const energyEl = document.getElementById('add_comp_energy');
       const notesEl = document.getElementById('add_comp_notes');
+      const ind = document.getElementById('compDraftIndicator');
+      const indText = document.getElementById('compDraftIndicatorText');
 
-      if (weightEl) weightEl.value = latest ? latest.weight : (base.weight || '');
-      if (waistEl) waistEl.value = latest ? latest.waist : '';
-      if (neckEl) neckEl.value = latest ? (latest.neck || '') : '';
-      if (hipEl) hipEl.value = latest ? (latest.hip || '') : '';
-      if (bfEl) bfEl.value = latest ? (latest.bfManual || '') : '';
-      if (notesEl) notesEl.value = '';
+      // Verifica se há rascunho salvo temporariamente no localStorage
+      let draft = null;
+      try {
+        const raw = localStorage.getItem('dominio_draft_medicao');
+        if (raw) draft = JSON.parse(raw);
+      } catch(e) {}
+
+      if (draft && (draft.weight || draft.waist || draft.neck || draft.bfManual || draft.notes)) {
+        if (dateEl && draft.date) dateEl.value = draft.date;
+        if (weightEl) weightEl.value = draft.weight !== undefined ? draft.weight : '';
+        if (waistEl) waistEl.value = draft.waist !== undefined ? draft.waist : '';
+        if (neckEl) neckEl.value = draft.neck !== undefined ? draft.neck : '';
+        if (hipEl) hipEl.value = draft.hip !== undefined ? draft.hip : '';
+        if (bfEl) bfEl.value = draft.bfManual !== undefined ? draft.bfManual : '';
+        if (bfMethodEl) bfMethodEl.value = draft.bfMethod || '';
+        if (clothesEl) clothesEl.value = draft.clothes || 'folgadas';
+        if (energyEl) energyEl.value = draft.energy || '5';
+        if (notesEl) notesEl.value = draft.notes || '';
+        if (ind && indText) {
+          ind.style.display = 'inline-flex';
+          indText.textContent = 'Rascunho anterior restaurado';
+        }
+      } else {
+        if (dateEl) dateEl.value = new Date().toISOString().split('T')[0];
+        if (weightEl) weightEl.value = latest ? latest.weight : (base.weight || '');
+        if (waistEl) waistEl.value = latest ? latest.waist : '';
+        if (neckEl) neckEl.value = latest ? (latest.neck || '') : '';
+        if (hipEl) hipEl.value = latest ? (latest.hip || '') : '';
+        if (bfEl) bfEl.value = latest ? (latest.bfManual || '') : '';
+        if (bfMethodEl) bfMethodEl.value = '';
+        if (clothesEl) clothesEl.value = 'folgadas';
+        if (energyEl) energyEl.value = '5';
+        if (notesEl) notesEl.value = '';
+        if (ind) ind.style.display = 'none';
+      }
 
       ['front', 'side', 'back'].forEach(k => {
         const preview = document.getElementById('preview_' + k);
@@ -10799,8 +11444,9 @@ function updateEvolucaoStats() {
       const neckVal = parseFloat(document.getElementById('add_comp_neck')?.value) || null;
       const hipVal = parseFloat(document.getElementById('add_comp_hip')?.value) || null;
       const bfVal = parseFloat(document.getElementById('add_comp_bf_manual')?.value) || null;
-      const clothesVal = document.getElementById('add_comp_clothes')?.value || 'normais';
-      const energyVal = parseInt(document.getElementById('add_comp_energy')?.value) || 5;
+      const bfMethodVal = document.getElementById('add_comp_bf_method')?.value || null;
+      const clothesVal = document.getElementById('add_comp_clothes')?.value || null;
+      const energyVal = parseInt(document.getElementById('add_comp_energy')?.value) || null;
       const notesVal = document.getElementById('add_comp_notes')?.value.trim() || '';
 
       if (!weightVal || isNaN(weightVal) || weightVal <= 20 || weightVal > 300) {
@@ -10822,6 +11468,7 @@ function updateEvolucaoStats() {
         neck: neckVal,
         hip: hipVal,
         bfManual: bfVal,
+        bfMethod: bfMethodVal,
         clothes: clothesVal,
         energy: energyVal,
         notes: notesVal,
@@ -10836,11 +11483,33 @@ function updateEvolucaoStats() {
         history.push(newRecord);
       }
 
+      const storageKey = getBodyCompStorageKey();
+
       try {
-        localStorage.setItem('dominio_helenice_body_comp_history', JSON.stringify(history));
+        localStorage.setItem(storageKey, JSON.stringify(history));
       } catch (e) {
         console.error('Erro ao salvar no localStorage:', e);
       }
+
+      if (window.DominioDB && typeof DominioDB.salvarMedicao === 'function') {
+        DominioDB.salvarMedicao({
+          data_medicao: dateVal,
+          peso: weightVal,
+          cintura: waistVal,
+          pescoco: neckVal,
+          quadril: hipVal,
+          bf_pct: bfVal,
+          vestimenta: clothesVal,
+          energia: energyVal,
+          notas: notesVal
+        });
+      }
+
+      try {
+        localStorage.removeItem('dominio_draft_medicao');
+      } catch (e) {}
+      const draftInd = document.getElementById('compDraftIndicator');
+      if (draftInd) draftInd.style.display = 'none';
 
       closeAddMedicaoModal();
       renderBodyCompUI();
@@ -10850,8 +11519,9 @@ function updateEvolucaoStats() {
       if (!confirm('Deseja realmente excluir esta medição?')) return;
       let history = getBodyCompHistory();
       history = history.filter(h => h.id !== id);
+      const storageKey = getBodyCompStorageKey();
       try {
-        localStorage.setItem('dominio_helenice_body_comp_history', JSON.stringify(history));
+        localStorage.setItem(storageKey, JSON.stringify(history));
       } catch (e) {}
       renderBodyCompUI();
     }
@@ -11276,16 +11946,15 @@ function updateEvolucaoStats() {
     }
 
     window.sendMedicalReportWhatsApp = function() {
-      const studentName = document.getElementById('ass_nome')?.value.trim() || 'Aluno';
+      const studentName = document.getElementById('ass_nome')?.value.trim() || 'Helenice';
       const lesionNotes = document.getElementById('ass_historico_clinico')?.value.trim() || '';
       
-      let msg = `Olá Prof. Gui Lemos! 👋\n\n`;
-      msg += `Estou preenchendo a minha *Ficha de Avaliação* e gostaria de enviar o(s) meu(s) *laudo(s) / exame(s) de diagnóstico* em anexo para sua análise clínica:\n\n`;
-      msg += `👤 *Aluno(a):* ${studentName}\n`;
+      let msg = `*Domínio Corporal | Exames e Laudos*\n`;
+      msg += `*Atleta:* ${studentName}\n`;
       if (lesionNotes) {
-        msg += `🩺 *Histórico de Queixa / Lesão:* ${lesionNotes}\n`;
+        msg += `*Histórico / Queixa:* ${lesionNotes}\n`;
       }
-      msg += `\n📎 *(Estou anexando o arquivo PDF / fotos dos laudos e exames a seguir nesta conversa)*`;
+      msg += `\nSeguem os laudos e exames em anexo para análise clínica.`;
       
       const phone = '5516981222356';
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
@@ -11303,60 +11972,53 @@ function updateEvolucaoStats() {
 
       autoSaveAssessmentDraft();
 
-      let msg = `*📋 DOMÍNIO CORPORAL | Ficha de Avaliação*\n`;
-      msg += `-------------------------------------------\n\n`;
+      let msg = `*Domínio Corporal | Ficha de Avaliação*\n\n`;
 
-      msg += `*👤 1. IDENTIFICAÇÃO E ROTINA*\n`;
-      msg += `• *Nome:* ${data.nome}\n`;
+      msg += `*1. IDENTIFICAÇÃO E ROTINA*\n`;
+      msg += `• Nome: ${data.nome}\n`;
       if (data.nascimento) {
         const parts = data.nascimento.split('-');
         const formattedBirth = (parts.length === 3) ? `${parts[2]}/${parts[1]}/${parts[0]}` : data.nascimento;
-        msg += `• *Data de Nascimento:* ${formattedBirth}${data.idade ? ` (${data.idade} anos)` : ''}\n`;
+        msg += `• Data de Nascimento: ${formattedBirth}${data.idade ? ` (${data.idade} anos)` : ''}\n`;
       } else if (data.idade) {
-        msg += `• *Idade:* ${data.idade} anos\n`;
+        msg += `• Idade: ${data.idade} anos\n`;
       }
       if (data.altura || data.peso || data.gordura) {
         let fisicoParts = [];
         if (data.altura) fisicoParts.push(`${data.altura} cm`);
         if (data.peso) fisicoParts.push(`${data.peso} kg`);
         if (data.gordura) fisicoParts.push(`${data.gordura}% BF`);
-        msg += `• *Físico:* ${fisicoParts.join(' • ')}\n`;
+        msg += `• Físico: ${fisicoParts.join(' • ')}\n`;
       }
-      if (data.rotina) msg += `• *Rotina/Estresse/Sono:* ${data.rotina}\n`;
+      if (data.rotina) msg += `• Rotina/Sono: ${data.rotina}\n`;
       if (data.dias_disponiveis || data.duracao_disponivel) {
-        msg += `• *Disponibilidade:* ${data.dias_disponiveis ? `${data.dias_disponiveis}` : ''}${data.duracao_disponivel ? ` (${data.duracao_disponivel} por sessão)` : ''}\n`;
+        msg += `• Disponibilidade: ${data.dias_disponiveis ? `${data.dias_disponiveis}` : ''}${data.duracao_disponivel ? ` (${data.duracao_disponivel})` : ''}\n`;
       }
-      if (data.local) msg += `• *Local de Treino:* ${data.local}\n\n`;
+      if (data.local) msg += `• Local de Treino: ${data.local}\n\n`;
 
-      msg += `*🛡️ 2. HISTÓRICO CLÍNICO E LESÕES*\n`;
-      msg += `• *Cirurgias/Lesões/Dores:* ${data.historico_clinico ? data.historico_clinico : 'Nenhuma dor ou cirurgia relatada.'}\n`;
-      if (data.medicamentos) msg += `• *Uso Contínuo de Remédios:* ${data.medicamentos}\n`;
-      if (data.condicoes_cronicas) msg += `• *Condições de Saúde Crônicas:* ${data.condicoes_cronicas}\n`;
+      msg += `*2. HISTÓRICO CLÍNICO E LESÕES*\n`;
+      msg += `• Cirurgias/Lesões/Dores: ${data.historico_clinico ? data.historico_clinico : 'Nenhuma relatada.'}\n`;
+      if (data.medicamentos) msg += `• Medicamentos: ${data.medicamentos}\n`;
+      if (data.condicoes_cronicas) msg += `• Condições Crônicas: ${data.condicoes_cronicas}\n`;
       msg += `\n`;
 
-      msg += `*🤸 3. BAGAGEM MOTORA*\n`;
-      if (data.historico_esportivo) msg += `• *Histórico Prévio:* ${data.historico_esportivo}\n`;
-      if (data.treino_atual) msg += `• *Treino Atual:* ${data.treino_atual}\n`;
-      msg += `• *Barra Fixa (Pull-ups):* ${data.pullups || 'Não informado'}\n`;
-      msg += `• *Flexão de Solo (Push-ups):* ${data.pushups || 'Não informado'}\n`;
-      msg += `• *Cardiorrespiratório:* ${data.cardio || 'Não informado'}\n\n`;
+      msg += `*3. BAGAGEM MOTORA*\n`;
+      if (data.historico_esportivo) msg += `• Histórico Prévio: ${data.historico_esportivo}\n`;
+      if (data.treino_atual) msg += `• Treino Atual: ${data.treino_atual}\n`;
+      msg += `• Barra Fixa (Pull-ups): ${data.pullups || 'Não informado'}\n`;
+      msg += `• Flexão de Solo (Push-ups): ${data.pushups || 'Não informado'}\n`;
+      msg += `• Cardiorrespiratório: ${data.cardio || 'Não informado'}\n\n`;
 
-      msg += `*🎯 4. OBJETIVOS DO CICLO*\n`;
+      msg += `*4. OBJETIVOS DO CICLO*\n`;
       if (data.pilares && data.pilares.length > 0) {
-        msg += `• *Pilares Escolhidos:*\n`;
-        data.pilares.forEach(p => { msg += `  ✓ ${p}\n`; });
-      } else {
-        msg += `• *Pilares:* _Nenhum pilar específico assinalado._\n`;
+        msg += `• Pilares: ${data.pilares.join(', ')}\n`;
       }
       if (data.contexto_metas) {
-        msg += `• *Contexto e Expectativas:*\n  "${data.contexto_metas}"\n`;
+        msg += `• Metas: ${data.contexto_metas}\n`;
       }
       if (data.algo_mais) {
-        msg += `• *Mais Algo Que Devo Saber:*\n  "${data.algo_mais}"\n`;
+        msg += `• Observações: ${data.algo_mais}\n`;
       }
-
-      msg += `\n-------------------------------------------\n`;
-      msg += `_Enviado pelo App Domínio Corporal_`;
 
       const phone = '5516981222356';
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
@@ -13261,9 +13923,9 @@ function updateEvolucaoStats() {
       const phone = '5516981222356';
       let text = '';
       if (currentSendVideoExercise) {
-        text = `Olá Gui! Acabei de gravar o vídeo da minha execução do exercício *${currentSendVideoExercise}*.\n\nSegue o vídeo anexo para sua análise técnica!`;
+        text = `*Domínio Corporal | Vídeo de Movimento*\n*Exercício:* ${currentSendVideoExercise}\n\nSegue o vídeo anexo para análise técnica.`;
       } else {
-        text = `Olá Gui! Gravei um vídeo para você avaliar tecnicamente.\n\nSegue o vídeo anexo para sua análise!`;
+        text = `*Domínio Corporal | Vídeo de Movimento*\n\nSegue o vídeo anexo para análise técnica.`;
       }
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
       window.open(url, '_blank');
@@ -13280,9 +13942,9 @@ function updateEvolucaoStats() {
       }
       let text = '';
       if (currentSendVideoExercise) {
-        text = `Olá Gui! Gravei o vídeo da minha execução do exercício *${currentSendVideoExercise}*.\n\nSegue o link para sua análise técnica:\n${link}`;
+        text = `*Domínio Corporal | Vídeo de Movimento*\n*Exercício:* ${currentSendVideoExercise}\n*Link:* ${link}\n\nSegue o link para análise técnica.`;
       } else {
-        text = `Olá Gui! Gravei um vídeo para você avaliar tecnicamente.\n\nSegue o link para sua análise técnica:\n${link}`;
+        text = `*Domínio Corporal | Vídeo de Movimento*\n*Link:* ${link}\n\nSegue o link para análise técnica.`;
       }
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
       window.open(url, '_blank');
@@ -13759,28 +14421,27 @@ window.openWelcomeAppModal = function(notifId = null) {
       const completed = getCompletedWorkouts();
       const sessionCount = Object.values(completed).filter(Boolean).length || 1;
 
-      let msg = `🏋️‍♂️ *DOMÍNIO CORPORAL | Sessão Realizada!*\n\n`;
-      msg += `👤 *Aluno(a):* Helenice de Paula Lemos\n`;
-      msg += `📅 *Data:* ${today}\n`;
-      msg += `⚡ *Treino:* ${tabName}\n`;
-      msg += `🔢 *Sessão nº:* ${sessionCount}\n`;
-      msg += `🎯 *Progresso:* ${doneSets.length}/${allSets.length} séries concluídas (${pct}%)\n`;
+      let msg = `*Domínio Corporal | Treino Concluído*\n`;
+      msg += `*Atleta:* Helenice\n`;
+      msg += `*Treino:* ${tabName}\n`;
+      msg += `*Data:* ${today}\n`;
+      msg += `*Séries:* ${doneSets.length}/${allSets.length} (${pct}%)\n`;
 
       if (bioRecord) {
         const pMeta = getPseMeta(bioRecord.pse || 7);
-        msg += `\n📊 *Biometria e Performance:*\n`;
-        msg += `• *PSE Reportada:* ${bioRecord.pse}/10 (${pMeta.label})\n`;
-        msg += `• *Carga Interna (sRPE):* ${bioRecord.carga_ua} U.A. (${bioRecord.duracao_min} min)\n`;
-        msg += `• *Gasto Real (c/ EPOC):* ${bioRecord.kcal_real_epoc} kcal${bioRecord.kcal_relogio ? ` (Relógio: ${bioRecord.kcal_relogio} kcal)` : ''}\n`;
-        if (bioRecord.fc_media) {
-          msg += `• *Frequência Cardíaca:* Méd ${bioRecord.fc_media} bpm | Pico ${bioRecord.fc_max || '--'} bpm\n`;
+        msg += `*PSE:* ${bioRecord.pse}/10 (${pMeta.label})\n`;
+        msg += `*Duração:* ${bioRecord.duracao_min} min | *Carga:* ${bioRecord.carga_ua} U.A.\n`;
+        if (bioRecord.kcal_real_epoc) {
+          msg += `*Gasto:* ${bioRecord.kcal_real_epoc} kcal\n`;
         }
-        msg += `• *TRIMP / VO2 Est.:* ${bioRecord.trimp} pts • ${bioRecord.vo2_estimado} ml/kg/min\n`;
+        if (bioRecord.fc_media) {
+          msg += `*FC Média:* ${bioRecord.fc_media} bpm${bioRecord.fc_max ? ` (Pico: ${bioRecord.fc_max} bpm)` : ''}\n`;
+        }
       }
 
-
-      msg += `📋 _Anotações, cargas e comentários técnicos arquivados no Prontuário do Aluno (Doc / Drive)._\n\n`;
-      msg += `_Enviado pelo App Domínio Corporal_`;
+      if (bioRecord && bioRecord.notas && bioRecord.notas !== 'Treino finalizado com sucesso') {
+        msg += `*Observações:* ${bioRecord.notas}\n`;
+      }
 
       const phone = '5516981222356';
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
