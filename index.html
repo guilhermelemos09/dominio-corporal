@@ -11427,6 +11427,89 @@ function updateEvolucaoStats() {
         if (raw) history = JSON.parse(raw);
       } catch (e) {}
 
+      
+      
+      // Sincronização automática das 3 fotos posturais e análises do Prof. Gui Lemos
+      const officialPhotoSets = [
+        {
+          id: 'comp_gui_foto_0207',
+          date: '2026-07-02',
+          weight: 97.80,
+          waist: 94.0,
+          neck: 41.0,
+          hip: null,
+          bfManual: 23.3,
+          clothes: 'apertadas',
+          energy: 3,
+          notes: 'Ponto de Partida – Bioimpedância Oficial e Fotos Iniciais',
+          photos: {
+            front: 'Midia/Fotos_Posturais/gui_2026-07-02_frente.jpeg',
+            side: null,
+            back: null
+          },
+          coachNotes: "O que vemos no corpo: Maior acúmulo de gordura concentrado na região da barriga e nas laterais da cintura (flancos). O peitoral e o abdômen têm contornos pouco visíveis por conta da camada de gordura e de retenção de líquidos.\n\nImpacto prático nos treinos: Esse peso extra no centro do corpo atua como uma \"carga inerte\" (peso que não gera força): sobrecarrega os joelhos e a coluna a cada passada e dificulta bastante exercícios com o peso do próprio corpo, como subir na barra fixa, fazer flexões e equilibrar na parada de mão."
+        },
+        {
+          id: 'comp_gui_foto_0510',
+          date: '2026-10-05',
+          weight: 86.20,
+          waist: 82.0,
+          neck: 39.0,
+          hip: null,
+          bfManual: 14.6,
+          clothes: 'folgadas',
+          energy: 5,
+          notes: 'Marco de recomposição corporal e registro fotográfico',
+          photos: {
+            front: 'Midia/Fotos_Posturais/gui_2026-10-05_frente.jpeg',
+            side: null,
+            back: null
+          },
+          coachNotes: "O que vemos no corpo: Mudança visual marcante. A cintura afinou expressivamente e a barriga recolheu por completo. As divisões naturais do abdômen e o contorno do peitoral ficaram nítidos mesmo com a postura relaxada. As coxas também mostram muito mais desenho e separação muscular.\n\nImpacto prático nos treinos: O corpo fica muito mais leve, ágil e eficiente. Tirar esse peso morto da cintura alivia dezenas de quilos de pressão sobre as articulações dos joelhos a cada impacto e multiplica a força relativa do atleta para puxar o próprio corpo na barra ou sustentar posições invertidas."
+        },
+        {
+          id: 'comp_gui_foto_2310',
+          date: '2026-10-23',
+          weight: 87.20,
+          waist: 85.0,
+          neck: 39.0,
+          hip: null,
+          bfManual: 15.8,
+          clothes: 'folgadas',
+          energy: 5,
+          notes: 'Registro fotográfico recente pós-pausa de treinos',
+          photos: {
+            front: 'Midia/Fotos_Posturais/gui_2026-10-23_frente.jpeg',
+            side: null,
+            back: null
+          },
+          coachNotes: "O que vemos no corpo: A estrutura atlética conquistada foi muito bem preservada. Os ombros, braços e peitoral continuam firmes e preenchidos. Há apenas uma leve retenção líquida superficial (comum após alguns dias sem treinar), mas a linha da cintura e a postura continuam totalmente transformadas em relação ao início.\n\nImpacto prático nos treinos: A massa muscular construída nos últimos meses está protegida. Com a retomada dos treinos regulares, o corpo elimina essa retenção temporária em poucos dias e restabelece a definição muscular máxima.",
+          coachAnalysis: {
+            front: "Evolução Real: Comparando a foto de 02 de julho com a de 23 de outubro, a transformação corporal é evidente. Houve uma recomposição corporal fidedigna: perda significativa de gordura na região da cintura e melhora da proporção do tronco (ombros mais destacados em relação à cintura).\n\nBenefício Clínico e Esportivo: O atleta agora se movimenta com muito mais facilidade e menor desgaste articular. A musculatura desenvolvida funciona como uma armadura protetora para a coluna e joelhos, garantindo mais segurança e rendimento no Crossfit, na calistenia e nas acrobacias."
+          }
+        }
+      ];
+
+      if (!history || history.length === 0) {
+        history = [];
+      }
+
+      // Garante a presença e atualização das 3 entradas fotográficas no histórico
+      officialPhotoSets.forEach(set => {
+        const existingIdx = history.findIndex(h => h.date === set.date);
+        if (existingIdx !== -1) {
+          // Atualiza as fotos e pareceres mantendo os dados
+          history[existingIdx].photos = set.photos;
+          history[existingIdx].coachNotes = set.coachNotes;
+          if (set.coachAnalysis) history[existingIdx].coachAnalysis = set.coachAnalysis;
+        } else {
+          history.push(set);
+        }
+      });
+
+      // Ordena cronologicamente
+      history.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+
       if (!history || history.length < 20) {
         const initHistory = [
           {
@@ -12389,9 +12472,9 @@ function updateEvolucaoStats() {
 
               <!-- Espaço Limpo para a Análise Oficial do Treinador (Sem textos inventados) -->
               ${(latestSet.coachAnalysis && latestSet.coachAnalysis[a.key]) ? `
-                <div style="padding:10px 12px; background:rgba(56,189,248,0.06); border-left:3.5px solid #38bdf8; border-radius:6px; font-size:0.78rem; color:#f1f5f9; line-height:1.55;">
-                  <strong style="color:#38bdf8;">🔬 Parecer Técnico do Prof. Gui Lemos:</strong>
-                  <div style="margin-top:4px; color:#e2e8f0;">${latestSet.coachAnalysis[a.key]}</div>
+                <div style="padding:10px 12px; background:rgba(56,189,248,0.06); border-left:3.5px solid #38bdf8; border-radius:6px; font-size:0.78rem; color:#f1f5f9; line-height:1.55; white-space:pre-line;">
+                  <strong style="color:#38bdf8; display:block; margin-bottom:4px;">Parecer Comparativo do Prof. Gui Lemos:</strong>
+                  ${latestSet.coachAnalysis[a.key]}
                 </div>
               ` : `
                 <div style="padding:8px 12px; background:rgba(255,255,255,0.02); border-left:3px solid #38bdf8; border-radius:6px; font-size:0.74rem; color:#94a3b8; line-height:1.5;">
@@ -12438,78 +12521,10 @@ function updateEvolucaoStats() {
             </div>
             <div style="font-size:0.74rem; color:#cbd5e1;">
               ${s.notes ? `<strong>Notas do Atleta:</strong> ${s.notes}<br>` : ''}
-              ${s.coachNotes ? `<strong style="color:#38bdf8;">Parecer do Treinador:</strong> ${s.coachNotes}` : 'Registro mantido no prontuário de evolução.'}
-            </div>
-          </div>`;
-      });
-      container.innerHTML = html;
-    }
-
-    function renderUserUploadedPhotosGallery(history) {
-      const container = document.getElementById('userPhotoSetsContainer');
-      const countBadge = document.getElementById('userPhotoCountBadge');
-      if (!container) return;
-
-      const sets = (history || []).filter(item => item.photos && (item.photos.front || item.photos.side || item.photos.back));
-
-      if (countBadge) {
-        countBadge.textContent = sets.length === 1 ? '1 Set Salvo' : `${sets.length} Sets Salvos`;
-      }
-
-      if (sets.length === 0) {
-        container.innerHTML = `
-          <div style="text-align: center; color: #94a3b8; font-size: 0.78rem; padding: 18px; background: rgba(255,255,255,0.02); border-radius: 8px; border: 1px dashed rgba(255,255,255,0.1);">
-            Nenhum set de fotos arquivado ainda. Toque em <strong>"ADICIONAR FOTOS"</strong> para salvar seu primeiro registro!
-          </div>`;
-        return;
-      }
-
-      let html = '';
-      [...sets].reverse().forEach((s, idx) => {
-        const dParts = (s.date || '').split('-');
-        const dateBR = (dParts.length === 3) ? `${dParts[2]}/${dParts[1]}/${dParts[0]}` : s.date;
-
-        html += `
-          <div style="background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:12px 14px; margin-bottom:12px;">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; flex-wrap:wrap; gap:6px;">
-              <span style="font-size:0.86rem; font-weight:800; color:#ffffff;">Set Fotográfico • ${dateBR}</span>
-              <span style="font-size:0.74rem; color:#cbd5e1;">
-                Peso: <strong style="color:#fff;">${s.weight ? Number(s.weight).toFixed(1) + ' kg' : '--'}</strong> • Cintura: <strong style="color:#00ff88;">${s.waist ? Number(s.waist).toFixed(1) + ' cm' : '--'}</strong>
-              </span>
-            </div>
-            
-            <!-- Grid das fotos do set (Frente, Perfil, Costas) -->
-            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(90px, 1fr)); gap:8px;">
-              ${['front', 'side', 'back'].map(k => {
-                const label = k === 'front' ? 'Frente' : (k === 'side' ? 'Perfil' : 'Costas');
-                const url = s.photos[k];
-                if (url) {
-                  return `
-                    <div style="text-align:center;">
-                      <a href="${url}" target="_blank" style="display:block; height:130px; border-radius:8px; overflow:hidden; background:#000; border:1px solid rgba(255,255,255,0.12);">
-                        <img src="${url}" alt="${label} ${dateBR}" style="width:100%; height:100%; object-fit:cover;">
-                      </a>
-                      <span style="display:block; font-size:0.68rem; font-weight:700; color:#38bdf8; margin-top:4px;">${label}</span>
-                    </div>`;
-                } else {
-                  return `
-                    <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:130px; background:rgba(255,255,255,0.02); border:1px dashed rgba(255,255,255,0.08); border-radius:8px;">
-                      <span style="font-size:0.65rem; color:#64748b;">${label}</span>
-                      <span style="font-size:0.60rem; color:#475569;">Não enviada</span>
-                    </div>`;
-                }
-              }).join('')}
-            </div>
-
-            ${s.notes ? `
-              <div style="margin-top:10px; padding:8px 10px; background:rgba(255,255,255,0.02); border-left:3px solid #38bdf8; border-radius:6px; font-size:0.75rem; color:#cbd5e1; line-height:1.45;">
-                <strong style="color:#38bdf8;">Observações do Atleta:</strong> ${s.notes}
-              </div>
-            ` : ''}
-
-            ${s.coachNotes ? `
-              <div style="margin-top:8px; padding:8px 10px; background:rgba(0,255,136,0.04); border-left:3px solid var(--brand-neon); border-radius:6px; font-size:0.75rem; color:#f1f5f9; line-height:1.45;">
-                <strong style="color:var(--brand-neon);">Parecer Individual do Prof. Gui Lemos:</strong> ${s.coachNotes}
+              ${s.coachNotes ? `
+              <div style="margin-top:8px; padding:8px 10px; background:rgba(0,255,136,0.04); border-left:3.5px solid var(--brand-neon); border-radius:6px; font-size:0.76rem; color:#f1f5f9; line-height:1.55; white-space:pre-line;">
+                <strong style="color:var(--brand-neon); display:block; margin-bottom:4px;">Parecer Individual do Prof. Gui Lemos:</strong>
+                ${s.coachNotes}
               </div>
             ` : ''}
           </div>`;
