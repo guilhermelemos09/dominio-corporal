@@ -10066,7 +10066,7 @@
       if (btn) btn.classList.add('is-spinning');
 
       try {
-        if (window.DominioDB) {
+        if (typeof DominioDB !== 'undefined') {
           if (typeof DominioDB.flushSyncQueue === 'function') await DominioDB.flushSyncQueue();
           if (typeof DominioDB.syncExistingLocalDataToCloud === 'function') await DominioDB.syncExistingLocalDataToCloud();
         }
@@ -10568,7 +10568,7 @@
       if (viewId === 'composicao') {
         if (typeof closeCompSubView === 'function') closeCompSubView(true);
         if (typeof renderBodyCompUI === 'function') renderBodyCompUI();
-        if (window.DominioDB) {
+        if (typeof DominioDB !== 'undefined') {
           if (typeof DominioDB.updateCloudStatusUI === 'function') DominioDB.updateCloudStatusUI();
           if (typeof DominioDB.syncExistingLocalDataToCloud === 'function') DominioDB.syncExistingLocalDataToCloud();
         }
@@ -16324,7 +16324,7 @@ function updateEvolucaoStats() {
         updateNotificationsUI();
 
     // Sincronização inicial automática com a nuvem (Supabase)
-    if (window.DominioDB) {
+    if (typeof DominioDB !== 'undefined') {
       if (typeof DominioDB.updateCloudStatusUI === 'function') DominioDB.updateCloudStatusUI();
       if (typeof DominioDB.syncExistingLocalDataToCloud === 'function') DominioDB.syncExistingLocalDataToCloud();
     }
@@ -16509,7 +16509,7 @@ function updateEvolucaoStats() {
     updateNotificationsUI();
 
     // Sincronização automática com a nuvem (Supabase) na inicialização
-    if (window.DominioDB) {
+    if (typeof DominioDB !== 'undefined') {
       if (typeof DominioDB.updateCloudStatusUI === 'function') DominioDB.updateCloudStatusUI();
       if (typeof DominioDB.flushSyncQueue === 'function') DominioDB.flushSyncQueue();
       if (typeof DominioDB.syncExistingLocalDataToCloud === 'function') DominioDB.syncExistingLocalDataToCloud();

@@ -8743,7 +8743,7 @@
       if (btn) btn.classList.add('is-spinning');
 
       try {
-        if (window.DominioDB) {
+        if (typeof DominioDB !== 'undefined') {
           if (typeof DominioDB.flushSyncQueue === 'function') await DominioDB.flushSyncQueue();
           if (typeof DominioDB.syncExistingLocalDataToCloud === 'function') await DominioDB.syncExistingLocalDataToCloud();
         }
@@ -9223,7 +9223,7 @@
       if (viewId === 'composicao') {
         if (typeof closeCompSubView === 'function') closeCompSubView(true);
         if (typeof renderBodyCompUI === 'function') renderBodyCompUI();
-        if (window.DominioDB) {
+        if (typeof DominioDB !== 'undefined') {
           if (typeof DominioDB.updateCloudStatusUI === 'function') DominioDB.updateCloudStatusUI();
           if (typeof DominioDB.syncExistingLocalDataToCloud === 'function') DominioDB.syncExistingLocalDataToCloud();
         }
@@ -10757,6 +10757,100 @@ function updateEvolucaoStats() {
 
       container.innerHTML = html;
     }
+    function renderUserUploadedPhotosGallery(history) {
+      const container = document.getElementById('userPhotoSetsContainer');
+      const badge = document.getElementById('userPhotoCountBadge');
+      if (!container) return;
+
+      const h = history || getBodyCompHistory();
+      const photoSets = (h || []).filter(item => item.photos && (item.photos.front || item.photos.side || item.photos.back));
+
+      if (badge) {
+        badge.textContent = `${photoSets.length} Set(s) Salvo(s)`;
+      }
+
+      if (photoSets.length === 0) {
+        container.innerHTML = `
+          <div style="background:rgba(56,189,248,0.06); border:1px dashed rgba(56,189,248,0.3); border-radius:10px; padding:16px; text-align:center; color:#94a3b8; font-size:0.78rem;">
+            Nenhum set de fotos individuais arquivado. Toque em "ADICIONAR FOTOS" acima para incluir.
+          </div>`;
+        return;
+      }
+
+      // Ordena cronologicamente invertido (mais recente primeiro)
+      const reversedSets = photoSets.slice().reverse();
+      let html = '<div style="display:flex; flex-direction:column; gap:16px;">';
+
+      reversedSets.forEach(s => {
+        const dStr = (s.date || '').split('-').reverse().join('/');
+        const wStr = s.weight ? `${s.weight.toFixed(1)} kg` : '--';
+        const waistStr = s.waist ? `${s.waist.toFixed(1)} cm` : '--';
+        const bfStr = s.bfManual ? `${s.bfManual.toFixed(1)}%` : (s.bf ? `${s.bf.toFixed(1)}%` : '--');
+
+        const frontImg = s.photos ? s.photos.front : null;
+        const sideImg = s.photos ? s.photos.side : null;
+        const backImg = s.photos ? s.photos.back : null;
+
+        html += `
+          <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:14px; box-shadow:0 4px 14px rgba(0,0,0,0.3);">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+              <div>
+                <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px; flex-wrap:wrap;">
+                  <strong style="color:#ffffff; font-size:0.92rem;">Entrada Fotográfica • ${dStr}</strong>
+                  <span style="font-size:0.68rem; font-weight:700; color:#38bdf8; background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.3); padding:2px 8px; border-radius:6px;">Registro</span>
+                </div>
+                <div style="font-size:0.75rem; color:#94a3b8;">
+                  Peso: <strong style="color:#f1f5f9;">${wStr}</strong> • Cintura: <strong style="color:#f1f5f9;">${waistStr}</strong> • % BF: <strong style="color:var(--brand-neon);">${bfStr}</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Grade de Imagens da Entrada -->
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap:10px; margin-bottom:12px;">
+              ${frontImg ? `
+                <div style="background:#000; border-radius:8px; overflow:hidden; border:1px solid rgba(255,255,255,0.1);">
+                  <a href="${frontImg}" target="_blank" style="display:block; height:220px; background:#000;">
+                    <img src="${frontImg}" alt="Frente ${dStr}" style="width:100%; height:100%; object-fit:cover;">
+                  </a>
+                  <div style="padding:4px 6px; text-align:center; font-size:0.68rem; font-weight:700; color:#38bdf8; background:rgba(56,189,248,0.1);">POSTURA FRONTAL</div>
+                </div>
+              ` : ''}
+              ${sideImg ? `
+                <div style="background:#000; border-radius:8px; overflow:hidden; border:1px solid rgba(255,255,255,0.1);">
+                  <a href="${sideImg}" target="_blank" style="display:block; height:220px; background:#000;">
+                    <img src="${sideImg}" alt="Perfil ${dStr}" style="width:100%; height:100%; object-fit:cover;">
+                  </a>
+                  <div style="padding:4px 6px; text-align:center; font-size:0.68rem; font-weight:700; color:var(--brand-neon); background:rgba(0,255,136,0.1);">POSTURA LATERAL</div>
+                </div>
+              ` : ''}
+              ${backImg ? `
+                <div style="background:#000; border-radius:8px; overflow:hidden; border:1px solid rgba(255,255,255,0.1);">
+                  <a href="${backImg}" target="_blank" style="display:block; height:220px; background:#000;">
+                    <img src="${backImg}" alt="Costas ${dStr}" style="width:100%; height:100%; object-fit:cover;">
+                  </a>
+                  <div style="padding:4px 6px; text-align:center; font-size:0.68rem; font-weight:700; color:#fbbf24; background:rgba(251,191,36,0.1);">POSTURA POSTERIOR</div>
+                </div>
+              ` : ''}
+            </div>
+
+            <!-- Parecer do Treinador Gui Lemos -->
+            ${s.coachNotes ? `
+              <div style="background:rgba(56,189,248,0.06); border-left:3.5px solid #38bdf8; border-radius:8px; padding:10px 12px; font-size:0.78rem; color:#cbd5e1; line-height:1.55;">
+                <strong style="color:#38bdf8; display:block; margin-bottom:4px; font-size:0.80rem;">🔬 Diagnóstico e Parecer Técnico:</strong>
+                <div style="white-space:pre-line;">${s.coachNotes}</div>
+              </div>
+            ` : (s.notes ? `
+              <div style="background:rgba(255,255,255,0.03); border-left:3px solid #64748b; border-radius:6px; padding:8px 10px; font-size:0.75rem; color:#94a3b8;">
+                <strong>Observações:</strong> ${s.notes}
+              </div>
+            ` : '')}
+          </div>`;
+      });
+
+      html += '</div>';
+      container.innerHTML = html;
+    }
+    
 
     // =========================================================================
     // SISTEMA DE NOTIFICAÇÕES DINÂMICAS PARA NOVAS ANÁLISES
@@ -14382,7 +14476,7 @@ window.openWelcomeAppModal = function(notifId = null) {
     updateNotificationsUI();
 
     // Sincronização automática com a nuvem (Supabase) na inicialização
-    if (window.DominioDB) {
+    if (typeof DominioDB !== 'undefined') {
       if (typeof DominioDB.updateCloudStatusUI === 'function') DominioDB.updateCloudStatusUI();
       if (typeof DominioDB.flushSyncQueue === 'function') DominioDB.flushSyncQueue();
       if (typeof DominioDB.syncExistingLocalDataToCloud === 'function') DominioDB.syncExistingLocalDataToCloud();
