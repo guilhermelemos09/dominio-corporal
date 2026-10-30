@@ -7522,37 +7522,30 @@
           <span id="compDraftIndicatorText">Rascunho salvo temporariamente</span>
         </div>
 
-        <!-- Data e Peso -->
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
-          <div class="comp-form-group">
-            <label class="comp-form-label" for="add_comp_date">📅 Data da Medição</label>
-            <input type="date" id="add_comp_date" class="comp-form-input" onchange="saveCompDraft()">
-          </div>
-          <div class="comp-form-group">
-            <label class="comp-form-label" for="add_comp_weight">⚖️ Peso Corporal (kg)</label>
-            <input type="number" step="0.1" id="add_comp_weight" class="comp-form-input" placeholder="Ex: 84.5" oninput="saveCompDraft()">
-          </div>
+        <!-- Medições Corporais (Uma abaixo da outra) -->
+        <div class="comp-form-group">
+          <label class="comp-form-label" for="add_comp_date">📅 Data da Medição</label>
+          <input type="date" id="add_comp_date" class="comp-form-input" onchange="saveCompDraft()">
         </div>
 
-        <!-- Cintura e Pescoço -->
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top: 10px;">
-          <div class="comp-form-group">
-            <label class="comp-form-label" for="add_comp_waist">📏 Cintura (cm)</label>
-            <input type="number" step="0.1" id="add_comp_waist" class="comp-form-input" placeholder="Ex: 81.0" oninput="saveCompDraft()">
-          </div>
-          <div class="comp-form-group">
-            <label class="comp-form-label" for="add_comp_neck">👔 Pescoço (cm)</label>
-            <input type="number" step="0.1" id="add_comp_neck" class="comp-form-input" placeholder="Ex: 39.0" oninput="saveCompDraft()">
-          </div>
+        <div class="comp-form-group" style="margin-top: 10px;">
+          <label class="comp-form-label" for="add_comp_weight">⚖️ Peso Corporal (kg)</label>
+          <input type="number" step="0.1" id="add_comp_weight" class="comp-form-input" placeholder="Ex: 84.5" oninput="saveCompDraft()">
         </div>
 
-        <!-- Quadril -->
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top: 10px;">
-          <div class="comp-form-group">
-            <label class="comp-form-label" for="add_comp_hip">👖 Quadril (cm) <span style="font-size:0.68rem; color:#94a3b8; font-weight:500;">(Obrigatório para mulheres)</span></label>
-            <input type="number" step="0.1" id="add_comp_hip" class="comp-form-input" placeholder="Ex: 98.0" oninput="saveCompDraft()">
-          </div>
-          <div></div>
+        <div class="comp-form-group" style="margin-top: 10px;">
+          <label class="comp-form-label" for="add_comp_waist">📏 Cintura (cm)</label>
+          <input type="number" step="0.1" id="add_comp_waist" class="comp-form-input" placeholder="Ex: 81.0" oninput="saveCompDraft()">
+        </div>
+
+        <div class="comp-form-group" style="margin-top: 10px;">
+          <label class="comp-form-label" for="add_comp_neck">👔 Pescoço (cm)</label>
+          <input type="number" step="0.1" id="add_comp_neck" class="comp-form-input" placeholder="Ex: 39.0" oninput="saveCompDraft()">
+        </div>
+
+        <div class="comp-form-group" style="margin-top: 10px;">
+          <label class="comp-form-label" for="add_comp_hip">👖 Quadril (cm) <span style="font-size:0.68rem; color:#94a3b8; font-weight:500;">(Obrigatório para mulheres)</span></label>
+          <input type="number" step="0.1" id="add_comp_hip" class="comp-form-input" placeholder="Ex: 98.0" oninput="saveCompDraft()">
         </div>
 
         <!-- TÓPICO A PARTE: % DE GORDURA CORPORAL (OPCIONAL) -->
@@ -7561,12 +7554,12 @@
             <span>🔬 % DE GORDURA (SE JÁ SOUBER)</span>
             <span style="font-size: 0.68rem; color: #94a3b8; font-weight: 600; text-transform: uppercase;">Opcional</span>
           </div>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-            <div class="comp-form-group">
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div class="comp-form-group" style="margin-bottom: 0;">
               <label class="comp-form-label" for="add_comp_bf_manual">Percentual de Gordura (%)</label>
               <input type="number" step="0.1" id="add_comp_bf_manual" class="comp-form-input" placeholder="Ex: 12.8" oninput="saveCompDraft()">
             </div>
-            <div class="comp-form-group">
+            <div class="comp-form-group" style="margin-bottom: 0;">
               <label class="comp-form-label" for="add_comp_bf_method">Método Utilizado</label>
               <select id="add_comp_bf_method" class="comp-form-select" onchange="saveCompDraft()">
                 <option value="">Selecione o método...</option>
@@ -8053,12 +8046,11 @@
       </div>
 
       <div style="padding: 16px 20px; max-height: 78vh; overflow-y: auto;">
-        <!-- Sessão Concluída e Duração -->
-        <div style="display:grid; grid-template-columns: 1.25fr 0.75fr; gap:10px; align-items:flex-end;">
-          <div class="comp-form-group" style="margin-bottom:0;">
-            <label class="comp-form-label">🏋️‍♂️ Sessão Concluída</label>
-            <div id="bio_session_display" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-left: 3.5px solid var(--brand-neon); border-radius: 10px; padding: 10px 12px; color: #ffffff; font-size: 0.82rem; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: flex; align-items: center; min-height: 42px;">
-              Treino do Dia
+        <!-- Parabéns Sessão Concluída e Duração -->
+        <div style="display:grid; grid-template-columns: 1.3fr 0.7fr; gap:10px; align-items:flex-end; margin-bottom: 6px;">
+          <div style="margin-bottom:0;">
+            <div id="bio_session_display" style="background: rgba(0, 255, 136, 0.08); border: 1px solid rgba(0, 255, 136, 0.25); border-left: 3.5px solid var(--brand-neon); border-radius: 10px; padding: 10px 12px; color: #ffffff; font-size: 0.84rem; font-weight: 800; display: flex; align-items: center; gap: 6px; min-height: 42px; box-sizing: border-box;">
+              <span>🎉 Parabéns! Sessão concluída!</span>
             </div>
             <input type="hidden" id="bio_session_day" value="">
           </div>
@@ -8717,7 +8709,7 @@
     });
 
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '2026-10-29-v190-finalizar-treino-clean';
+    const APP_BUILD_VERSION = '2026-10-29-v191-parabens-sessao-medicoes-stacked';
     if (localStorage.getItem('dominio_helenice_dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_helenice_dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
@@ -9509,10 +9501,12 @@
         }
       }
 
+      window._currentBioModalSessionTitle = sessionTitle;
+
       const dayDisplay = document.getElementById('bio_session_display');
       if (dayDisplay) {
-        dayDisplay.textContent = sessionTitle;
-        dayDisplay.title = sessionTitle;
+        dayDisplay.textContent = '🎉 Parabéns! Sessão concluída!';
+        dayDisplay.title = sessionTitle || 'Sessão concluída';
       }
 
       // Detecta duração estimada da sessão
@@ -13291,9 +13285,8 @@ function updateEvolucaoStats() {
 
     window.confirmAndSaveBiometriaSession = function(sendWhatsApp = true, forcedDayId = null) {
       const dayInput = document.getElementById('bio_session_day');
-      const dayDisplay = document.getElementById('bio_session_display');
       const dayId = forcedDayId || (dayInput ? dayInput.value : null) || window._currentBioModalDayId || 'treinoa';
-      const dayLabel = dayDisplay ? dayDisplay.textContent.trim() : ((typeof dayNames !== 'undefined' && dayNames[dayId]) ? dayNames[dayId] : dayId.toUpperCase());
+      const dayLabel = window._currentBioModalSessionTitle || ((typeof dayNames !== 'undefined' && dayNames[dayId]) ? dayNames[dayId] : dayId.toUpperCase());
 
       const durEl = document.getElementById('bio_session_duration');
       const pseEl = document.getElementById('bio_session_pse');
