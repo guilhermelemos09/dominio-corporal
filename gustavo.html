@@ -1462,16 +1462,18 @@
     .pse-scale-grid {
       display: grid;
       grid-template-columns: repeat(11, 1fr);
-      gap: 5px;
-      margin-top: 6px;
+      gap: 3.5px;
+      margin-top: 4px;
+      margin-bottom: 4px;
     }
     .pse-btn {
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 9px;
-      padding: 9px 0;
+      border-radius: 6px;
+      padding: 5px 0;
+      min-height: 28px;
       color: #cbd5e1;
-      font-size: 0.95rem;
+      font-size: 0.80rem;
       font-weight: 800;
       cursor: pointer;
       display: flex;
@@ -1482,6 +1484,11 @@
       -webkit-tap-highlight-color: transparent;
       user-select: none;
     }
+    .pse-btn .pse-num {
+      font-size: 0.80rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
     .pse-btn:hover {
       border-color: rgba(255, 255, 255, 0.3);
       transform: translateY(-1px);
@@ -1489,16 +1496,20 @@
     .pse-btn.active {
       font-weight: 900;
       color: #ffffff;
-      transform: scale(1.05);
+      transform: scale(1.04);
     }
     @media (max-width: 480px) {
       .pse-scale-grid {
-        gap: 3.5px;
+        gap: 2.5px;
       }
       .pse-btn {
-        padding: 7px 0;
-        font-size: 0.85rem;
-        border-radius: 7px;
+        padding: 4px 0;
+        font-size: 0.74rem;
+        border-radius: 5px;
+        min-height: 26px;
+      }
+      .pse-btn .pse-num {
+        font-size: 0.74rem;
       }
     }
 
@@ -6447,7 +6458,7 @@
         <div class="evol-app-icon-wrap wrap-relatorio">
           <img src="Midia/icon_evol_relatorio.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='../Midia/icon_evol_relatorio.png';}" alt="Biometria e Performance" class="evol-app-icon-img">
         </div>
-        <div class="evol-app-btn-title">Biometria e Performance</div>
+        <div class="evol-app-btn-title">Biometria e Desempenho</div>
       </div>
 
       <!-- BOTÃO 3: PROGRESSÃO DE TÉCNICA (FERRAMENTAS CRUZADAS NEON AZUL) -->
@@ -6455,7 +6466,7 @@
         <div class="evol-app-icon-wrap wrap-tecnica">
           <img src="Midia/icon_evol_tecnica.png" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='../Midia/icon_evol_tecnica.png';}" alt="Progressão de Técnica" class="evol-app-icon-img">
         </div>
-        <div class="evol-app-btn-title">Progressão de Técnica</div>
+        <div class="evol-app-btn-title">Progressão Técnica</div>
       </div>
 
       <!-- BOTÃO 4: CENTRAL DE RECORDES (MUQUE / BÍCEPS NEON VERMELHO) -->
@@ -6789,264 +6800,83 @@
       </div>
     </div> <!-- end #evolView-composicao -->
 
+        <!-- ==================== SUBPÁGINA: PROGRESSÃO TÉCNICA ==================== -->
     <div id="evolView-tecnica" class="evolucao-view-pane" style="display:none;">
-      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
+      <div style="display:flex; align-items:center; justify-content:flex-start; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
         <button type="button" class="btn-back-workout" onclick="closeEvolucaoView()">
           ← Voltar para Evolução
         </button>
       </div>
 
-      <div class="evolucao-hero">
-        <div class="evolucao-title">
-          <span>🤸 Progressão de Técnica e Marcos</span>
-          <span class="evolucao-badge-delta">Em Construção</span>
+      <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(56, 189, 248, 0.25); border-left: 4.5px solid #38bdf8; border-radius: 14px; padding: 36px 20px; text-align: center; margin-top: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.35);">
+        <div style="font-size: 2.5rem; margin-bottom: 14px;">🤸</div>
+        <div style="display: inline-block; font-size: 0.72rem; font-weight: 800; color: #38bdf8; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.35); padding: 4px 14px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px;">
+          EM BREVE!
         </div>
-        <p style="font-size:0.8rem; color:var(--text-muted); margin:6px 0 0;">
-          Acompanhamento cronológico do seu ganho motor, postura, alavancas e segurança articular.
+        <div style="font-size: 1.15rem; font-weight: 900; color: #ffffff; letter-spacing: -0.01em; margin-bottom: 8px;">
+          Progressão Técnica
+        </div>
+        <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.55; max-width: 360px; margin: 0 auto;">
+          O acompanhamento cronológico dos seus marcos motores, padrões de movimento e ajustes posturais estará disponível em breve.
         </p>
-      </div>
-
-      <div style="background: rgba(255,255,255,0.03); border: 1px dashed rgba(255,255,255,0.15); border-radius: 14px; padding: 28px 16px; text-align: center; margin-top: 16px;">
-        <span style="font-size: 2rem;">🎯</span>
-        <div style="font-size: 0.95rem; font-weight: 700; color: #fff; margin-top: 8px;">Marcos Técnicos de Gustavo Donato</div>
-        <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 6px; line-height: 1.5; max-width: 320px; margin-left: auto; margin-right: auto;">
-          Conforme as aulas forem acontecendo, suas conquistas nos movimentos e ajustes de postura serão documentados aqui.
-        </div>
       </div>
     </div>
 
+    <!-- ==================== SUBPÁGINA: CENTRAL DE RECORDES ==================== -->
     <div id="evolView-recordes" class="evolucao-view-pane" style="display:none;">
-      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
+      <div style="display:flex; align-items:center; justify-content:flex-start; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
         <button type="button" class="btn-back-workout" onclick="closeEvolucaoView()">
           ← Voltar para Evolução
         </button>
       </div>
 
-      <div class="evolucao-hero">
-        <div class="evolucao-title">
-          <span>💪 Central de Recordes (PR)</span>
-          <span class="evolucao-badge-delta" style="background:rgba(244,63,94,0.15); color:#f43f5e; border-color:rgba(244,63,94,0.3);">Recordes Pessoais</span>
+      <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(244, 63, 94, 0.25); border-left: 4.5px solid #f43f5e; border-radius: 14px; padding: 36px 20px; text-align: center; margin-top: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.35);">
+        <div style="font-size: 2.5rem; margin-bottom: 14px;">🏆</div>
+        <div style="display: inline-block; font-size: 0.72rem; font-weight: 800; color: #f43f5e; background: rgba(244, 63, 94, 0.12); border: 1px solid rgba(244, 63, 94, 0.35); padding: 4px 14px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px;">
+          EM BREVE!
         </div>
-        <p style="font-size:0.8rem; color:var(--text-muted); margin:6px 0 0;">
-          Histórico e registro das suas melhores marcas, cargas e tempos de superação.
+        <div style="font-size: 1.15rem; font-weight: 900; color: #ffffff; letter-spacing: -0.01em; margin-bottom: 8px;">
+          Central de Recordes
+        </div>
+        <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.55; max-width: 360px; margin: 0 auto;">
+          O histórico de recordes pessoais (PRs), cargas máximas e marcas de superação estará disponível em breve.
         </p>
-
-        <div class="metrics-summary-grid">
-          <div class="metric-summary-card">
-            <div class="metric-value" style="color:#f43f5e;">--</div>
-            <div class="metric-label">Carga Máxima</div>
-          </div>
-          <div class="metric-summary-card">
-            <div class="metric-value" style="color:var(--brand-neon);">--</div>
-            <div class="metric-label">Resistência</div>
-          </div>
-          <div class="metric-summary-card">
-            <div class="metric-value" style="color:#38bdf8;">--</div>
-            <div class="metric-label">Isometria</div>
-          </div>
-          <div class="metric-summary-card">
-            <div class="metric-value" style="color:#fbbf24;">--</div>
-            <div class="metric-label">Postura</div>
-          </div>
-        </div>
-      </div>
-
-      <div style="background: rgba(255,255,255,0.03); border: 1px dashed rgba(255,255,255,0.15); border-radius: 14px; padding: 28px 16px; text-align: center; margin-top: 16px;">
-        <span style="font-size: 2rem;">🏆</span>
-        <div style="font-size: 0.95rem; font-weight: 700; color: #fff; margin-top: 8px;">Nenhum recorde registrado ainda</div>
-        <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 6px; line-height: 1.5; max-width: 320px; margin-left: auto; margin-right: auto;">
-          Durante suas sessões, seus recordes pessoais (PRs) e marcas de superação serão salvos neste espaço!
-        </div>
       </div>
     </div>
 
+    <!-- ==================== SUBPÁGINA: BIOMETRIA E DESEMPENHO ==================== -->
     <div id="evolView-relatorio" class="evolucao-view-pane" style="display:none;">
-
-      <!-- BARRA SUPERIOR PADRONIZADA: VOLTAR + REGISTRAR SESSÃO + GUIA TÉCNICO -->
-      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle); flex-wrap:wrap; gap:8px;">
+      <div style="display:flex; align-items:center; justify-content:flex-start; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
         <button type="button" class="btn-back-workout" onclick="closeEvolucaoView()">
           ← Voltar para Evolução
         </button>
-        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-          <button type="button" class="btn-orientacoes-popup" onclick="openBiometriaSessaoModal()" style="background: rgba(0, 255, 136, 0.14); border-color: rgba(0, 255, 136, 0.4); color: var(--brand-neon); font-weight: 800;">
-            <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-            <span>+ REGISTRAR SESSÃO</span>
-          </button>
-          <button type="button" class="btn-orientacoes-popup" onclick="openInstrucoesBiometriaModal()">
-            <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-            <span>GUIA DE BIOMETRIA</span>
-          </button>
-        </div>
       </div>
 
-      <!-- HERO CARD DE APRESENTAÇÃO (PADRÃO COMPOSIÇÃO CORPORAL) -->
-      <div class="evolucao-hero" style="margin-bottom:12px; position:relative; overflow:hidden; border-left: 4.5px solid #c084fc;">
-        <div>
-          <div class="evolucao-title">
-            <span>📊 Biometria e Performance</span>
-            <span class="evolucao-badge-delta" id="evolAdherenceBadge" style="background: rgba(192, 132, 252, 0.15); color: #c084fc; border: 1px solid rgba(192, 132, 252, 0.35);">Semana Ativa</span>
-          </div>
-          <p style="font-size:0.84rem; color:#cbd5e1; font-weight: 500; margin:8px 0 0; line-height: 1.55; max-width:560px;">
-            Cruzamento do volume mecânico das séries com a percepção subjetiva de esforço (PSE) e monitoramento cardíaco para cálculo de carga interna, gasto real com EPOC e prontidão neuromuscular.
-          </p>
+      <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(192, 132, 252, 0.25); border-left: 4.5px solid #c084fc; border-radius: 14px; padding: 36px 20px; text-align: center; margin-top: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.35);">
+        <div style="font-size: 2.5rem; margin-bottom: 14px;">📊</div>
+        <div style="display: inline-block; font-size: 0.72rem; font-weight: 800; color: #c084fc; background: rgba(192, 132, 252, 0.12); border: 1px solid rgba(192, 132, 252, 0.35); padding: 4px 14px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px;">
+          EM BREVE!
         </div>
-      </div>
-
-      <!-- CARD 1: RESUMO DO CICLO SEMANAL (LINHA COMPACTA PADRONIZADA - BORDA VERDE NEON 4.5px) -->
-      <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(0,255,136,0.25); border-left: 4.5px solid var(--brand-neon); border-radius: 12px; padding: 10px 14px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
-        <div style="display: flex; align-items: center; gap: 8px; min-width: 150px;">
-          <span style="font-size: 1rem;">⚡</span>
-          <span style="font-size: 0.85rem; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">SEMANA ATIVA</span>
-          <span style="font-size: 0.68rem; font-weight: 700; color: var(--brand-neon); background: rgba(0,255,136,0.12); border: 1px solid rgba(0,255,136,0.3); padding: 2px 6px; border-radius: 6px;">Ciclo Vigente</span>
+        <div style="font-size: 1.15rem; font-weight: 900; color: #ffffff; letter-spacing: -0.01em; margin-bottom: 8px;">
+          Biometria e Desempenho
         </div>
-        <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap; font-size: 0.82rem;">
-          <div><span style="color: #94a3b8; font-size: 0.72rem;">Dias:</span> <strong id="evolDaysDoneCount" style="color: var(--brand-neon);">0 / 5</strong></div>
-          <div><span style="color: #94a3b8; font-size: 0.72rem;">Séries:</span> <strong id="evolSetsDoneCount" style="color: #38bdf8;">0</strong></div>
-          <div><span style="color: #94a3b8; font-size: 0.72rem;">Carga:</span> <strong id="evolWeeklyLoadUA" style="color: #c084fc;">0 U.A.</strong></div>
-          <div><span style="color: #94a3b8; font-size: 0.72rem;">PSE Média:</span> <strong id="evolAvgPSE" style="color: #fbbf24;">-- / 10</strong></div>
-        </div>
-      </div>
-
-      <!-- CARD 2: FISIOLOGIA INTEGRADA E BIOMARCADORES (PADRÃO COMPARATIVO - BORDA ROXO 4.5px) -->
-      <div class="comp-standard-card" id="bioCrossMetricsCard" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(192,132,252,0.25); border-left: 4.5px solid #c084fc; border-radius: 14px; padding: 14px 16px; margin-bottom: 14px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 12px; flex-wrap:wrap; gap:8px;">
-          <div style="display:flex; align-items:center; gap:8px;">
-            <span style="font-size:1.15rem;">🔬</span>
-            <div style="font-size:0.92rem; font-weight:800; color:#ffffff; letter-spacing:0.02em;">FISIOLOGIA INTEGRADA (APP E SMARTWATCH)</div>
-          </div>
-          <div style="display:flex; gap:6px; flex-wrap:wrap;">
-            <span style="font-size:0.72rem; font-weight:700; color:#c084fc; background:rgba(192,132,252,0.12); border:1px solid rgba(192,132,252,0.3); padding:3px 8px; border-radius:8px;" id="bioCrossBadge">Modelo Bioenergético</span>
-          </div>
-        </div>
-        <p style="font-size:0.78rem; color:#94a3b8; margin:0 0 12px 0; line-height:1.45;">
-          Trabalho mecânico real somado ao efeito EPOC pós-treino e resposta autonômica da frequência cardíaca:
+        <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.55; max-width: 360px; margin: 0 auto;">
+          O módulo de integração biométrica, percepção de esforço e acompanhamento fisiológico estará disponível em breve.
         </p>
 
-        <div class="bio-cross-grid">
-          <!-- Item 1: Calorias Reais Recalculadas -->
-          <div class="bio-cross-item" style="border-left: 3px solid var(--brand-neon);">
-            <div style="font-size:0.72rem; color:#94a3b8; font-weight:700; text-transform:uppercase;">🔥 Gasto Real (c/ EPOC)</div>
-            <div style="font-size:1.22rem; font-weight:900; color:#ffffff; margin:4px 0 2px;" id="bioRealKcalVal">-- kcal</div>
-            <div style="font-size:0.71rem; color:var(--brand-neon); font-weight:600;" id="bioRealKcalDelta">Aguardando registro de sessão</div>
-          </div>
-
-          <!-- Item 2: Resposta Cardíaca e Zona -->
-          <div class="bio-cross-item" style="border-left: 3px solid #f43f5e;">
-            <div style="font-size:0.72rem; color:#94a3b8; font-weight:700; text-transform:uppercase;">❤️ FC Média e Pico</div>
-            <div style="font-size:1.22rem; font-weight:900; color:#ffffff; margin:4px 0 2px;" id="bioHeartRateSummary">-- / -- bpm</div>
-            <div style="font-size:0.71rem; color:#f43f5e; font-weight:600;" id="bioHeartZoneLabel">Insira FC do relógio ao finalizar</div>
-          </div>
-
-          <!-- Item 3: TRIMP e VO2 Estimado -->
-          <div class="bio-cross-item" style="border-left: 3px solid #38bdf8;">
-            <div style="font-size:0.72rem; color:#94a3b8; font-weight:700; text-transform:uppercase;">🫁 VO2 Est. e TRIMP</div>
-            <div style="font-size:1.22rem; font-weight:900; color:#ffffff; margin:4px 0 2px;" id="bioTrimpAndVo2Val">-- ml/kg/min</div>
-            <div style="font-size:0.71rem; color:#38bdf8; font-weight:600;" id="bioHrrLabel">Impulso Cardíaco de Banister</div>
-          </div>
-
-          <!-- Item 4: Monotonia e Strain (Detector de Fadiga) -->
-          <div class="bio-cross-item" style="border-left: 3px solid #fbbf24;">
-            <div style="font-size:0.72rem; color:#94a3b8; font-weight:700; text-transform:uppercase;">🛡️ Estado de Recuperação</div>
-            <div style="font-size:1.12rem; font-weight:900; color:#ffffff; margin:4px 0 2px;" id="bioStrainStatusVal">Prontidão Ideal</div>
-            <div style="font-size:0.71rem; color:#fbbf24; font-weight:600;" id="bioStrainSubLabel">Relação Carga e Esforço</div>
-          </div>
-        </div>
-
-        <div id="bioDiagnosisBanner" style="margin-top:12px; padding:10px 12px; background:rgba(192,132,252,0.08); border:1px solid rgba(192,132,252,0.25); border-radius:10px; font-size:0.78rem; line-height:1.5; color:#e2e8f0;">
-          🔬 <strong>Diagnóstico Fisiológico:</strong> Ao finalizar cada treino, informe sua nota de esforço (0 a 10) e anote os dados do smartwatch para cruzar o volume mecânico com a resposta cardíaca.
+        <!-- Elementos ocultos para segurança de chamadas JS -->
+        <div style="display:none;">
+          <span id="evolDaysDoneCount">0 / 0</span>
+          <span id="evolSetsDoneCount">0</span>
+          <span id="evolWeeklyLoadUA">0 U.A.</span>
+          <span id="evolAvgPSE">-- / 10</span>
+          <span id="evolAdherenceBadge">Semana Ativa</span>
+          <span id="bioRealKcalVal">--</span>
+          <span id="bioAvgHrVal">--</span>
+          <span id="bioPeakHrVal">--</span>
+          <div id="bioCrossMetricsCard"></div>
         </div>
       </div>
-
-      <!-- CARD 3: HISTÓRICO DE SESSÕES (PADRÃO COMPOSIÇÃO - BORDA AMARELA 4.5px) -->
-      <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(251,191,36,0.25); border-left: 4.5px solid #fbbf24; border-radius: 14px; padding: 14px 16px; margin-bottom: 14px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 10px; flex-wrap:wrap; gap:8px;">
-          <div style="display:flex; align-items:center; gap:8px;">
-            <span style="font-size:1.15rem;">📋</span>
-            <div style="font-size:0.92rem; font-weight:800; color:#ffffff; letter-spacing:0.02em;">HISTÓRICO DE SESSÕES E BIOMETRIA</div>
-          </div>
-          <span style="font-size:0.72rem; font-weight:800; color:#fbbf24; background:rgba(251,191,36,0.12); border:1px solid rgba(251,191,36,0.3); padding:3px 8px; border-radius:8px;" id="bioLogsCountBadge">0 SESSÕES</span>
-        </div>
-        <div id="bioSessionsHistoryList" style="display:flex; flex-direction:column; gap:10px; margin-top:8px;">
-          <!-- Preenchido dinamicamente por renderBiometriaPerformanceUI() -->
-        </div>
-      </div>
-
-      <!-- CARD 4: EQUILÍBRIO DAS AÇÕES MOTORAS (PADRÃO COMPOSIÇÃO - BORDA CIANO 4.5px) -->
-      <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(56,189,248,0.25); border-left: 4.5px solid #38bdf8; border-radius: 14px; padding: 14px 16px; margin-bottom: 16px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 10px; flex-wrap:wrap; gap:8px;">
-          <div style="display:flex; align-items:center; gap:8px;">
-            <span style="font-size:1.15rem;">⚖️</span>
-            <div style="font-size:0.92rem; font-weight:800; color:#ffffff; letter-spacing:0.02em;">DISTRIBUIÇÃO DAS AÇÕES MOTORAS</div>
-          </div>
-          <span style="font-size:0.72rem; font-weight:800; color:#38bdf8; background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.3); padding:3px 8px; border-radius:8px;">Preservação Articular</span>
-        </div>
-        <p style="font-size:0.78rem; color:#94a3b8; margin:0 0 12px 0; line-height:1.45;">
-          Balanço neuromuscular entre puxar, empurrar, core, pernas e condicionamento para proteção articular contínua:
-        </p>
-        
-        <div style="display:flex; flex-direction:column; gap:10px;">
-          <div>
-            <div style="display:flex; justify-content:space-between; font-size:0.78rem; font-weight:700; margin-bottom:4px;">
-              <span style="color:#38bdf8;">🟢 Puxada Vertical e Horizontal (Strict Pull-Up, RMU, Remadas)</span>
-              <span style="color:#fff;">26% do volume</span>
-            </div>
-            <div style="background:rgba(255,255,255,0.08); height:7px; border-radius:10px; overflow:hidden;">
-              <div style="background:linear-gradient(90deg, #0284c7, #38bdf8); height:100%; width:26%; border-radius:10px;"></div>
-            </div>
-          </div>
-
-          <div>
-            <div style="display:flex; justify-content:space-between; font-size:0.78rem; font-weight:700; margin-bottom:4px;">
-              <span style="color:#c084fc;">🔵 Empurrar e Depressão (Dips nas Argolas, Push-ups, HSPU)</span>
-              <span style="color:#fff;">22% do volume</span>
-            </div>
-            <div style="background:rgba(255,255,255,0.08); height:7px; border-radius:10px; overflow:hidden;">
-              <div style="background:linear-gradient(90deg, #9333ea, #c084fc); height:100%; width:22%; border-radius:10px;"></div>
-            </div>
-          </div>
-
-          <div>
-            <div style="display:flex; justify-content:space-between; font-size:0.78rem; font-weight:700; margin-bottom:4px;">
-              <span style="color:#fbbf24;">🟡 Core e Compressão Pélvica (Hollow Rocks, L-Sit, V-Sit)</span>
-              <span style="color:#fff;">20% do volume</span>
-            </div>
-            <div style="background:rgba(255,255,255,0.08); height:7px; border-radius:10px; overflow:hidden;">
-              <div style="background:linear-gradient(90deg, #d97706, #fbbf24); height:100%; width:20%; border-radius:10px;"></div>
-            </div>
-          </div>
-
-          <div>
-            <div style="display:flex; justify-content:space-between; font-size:0.78rem; font-weight:700; margin-bottom:4px;">
-              <span style="color:var(--brand-neon);">🟣 Membros Inferiores e Quadril (RDL, Saltos, Afundos, Isometrias)</span>
-              <span style="color:#fff;">18% do volume</span>
-            </div>
-            <div style="background:rgba(255,255,255,0.08); height:7px; border-radius:10px; overflow:hidden;">
-              <div style="background:linear-gradient(90deg, #059669, var(--brand-neon)); height:100%; width:18%; border-radius:10px;"></div>
-            </div>
-          </div>
-
-          <div>
-            <div style="display:flex; justify-content:space-between; font-size:0.78rem; font-weight:700; margin-bottom:4px;">
-              <span style="color:#f43f5e;">🔴 Condicionamento Metabólico e Técnico (Box WOD, Dança, Handstand)</span>
-              <span style="color:#fff;">14% do volume</span>
-            </div>
-            <div style="background:rgba(255,255,255,0.08); height:7px; border-radius:10px; overflow:hidden;">
-              <div style="background:linear-gradient(90deg, #e11d48, #f43f5e); height:100%; width:14%; border-radius:10px;"></div>
-            </div>
-          </div>
-        </div>
-
-        <div style="margin-top:14px; padding:10px 12px; background:rgba(56,189,248,0.06); border:1px solid rgba(56,189,248,0.2); border-radius:10px; font-size:0.78rem; line-height:1.5; color:#cbd5e1;">
-          💡 <strong>Diagnóstico do Treinador:</strong> Balanço agonista e antagonista estruturado para estabilidade escapular, fortalecimento lombo-pélvico e proteção articular progressiva.
-        </div>
-      </div>
-
-      <!-- BOTÃO NOBRE GERAR RELATÓRIO BIOMÉTRICO (ROXO BIOMETRIA E PERFORMANCE) -->
-      <button type="button" onclick="openBiometriaReportWhatsApp()" style="margin-top: 14px; margin-bottom: 24px; width: 100%; background: linear-gradient(135deg, #a855f7 0%, #9333ea 50%, #7e22ce 100%); color: #ffffff; font-size: 0.98rem; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; padding: 16px 20px; border: none; border-radius: 14px; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer; box-shadow: 0 4px 20px rgba(168, 85, 247, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.25); transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);">
-        <svg viewBox="0 0 24 24" style="width:20px; height:20px; fill:currentColor;"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-        <span>GERAR LAUDO DE BIOMETRIA E PERFORMANCE</span>
-      </button>
-
     </div>
 
     <!-- Ajuda Contextual da Página de Evolução -->
@@ -7723,25 +7553,18 @@
           </div>
           <div>
             <h3 style="margin:0; font-size:1.05rem; color:#fff;" id="bioModalHeaderTitle">Finalizar Treino</h3>
-            <span style="font-size:0.75rem; color:#94a3b8; font-weight:600;" id="bioModalHeaderSub">Registro de Percepção e Biometria</span>
           </div>
         </div>
         <button class="btn-close" type="button" onclick="closeBiometriaSessaoModal()" aria-label="Fechar">&times;</button>
       </div>
 
       <div style="padding: 16px 20px; max-height: 78vh; overflow-y: auto;">
-        <!-- Parabéns Sessão Concluída e Duração -->
-        <div style="display:grid; grid-template-columns: 1.3fr 0.7fr; gap:10px; align-items:flex-end; margin-bottom: 6px;">
-          <div style="margin-bottom:0;">
-            <div id="bio_session_display" style="background: rgba(0, 255, 136, 0.08); border: 1px solid rgba(0, 255, 136, 0.25); border-left: 3.5px solid var(--brand-neon); border-radius: 10px; padding: 10px 12px; color: #ffffff; font-size: 0.84rem; font-weight: 800; display: flex; align-items: center; gap: 6px; min-height: 42px; box-sizing: border-box;">
-              <span>🎉 Parabéns! Sessão concluída!</span>
-            </div>
-            <input type="hidden" id="bio_session_day" value="">
-          </div>
-          <div class="comp-form-group" style="margin-bottom:0;">
-            <label class="comp-form-label" for="bio_session_duration">⏱️ Duração (min) *</label>
-            <input type="number" id="bio_session_duration" class="comp-form-input" value="60" min="5" max="240" oninput="recalcBiometriaModalPreview()">
-          </div>
+        <!-- Duração Real -->
+        <div class="comp-form-group" style="margin-bottom: 8px;">
+          <label class="comp-form-label" for="bio_session_duration">⏱️ Duração Real (min)</label>
+          <input type="number" id="bio_session_duration" class="comp-form-input" value="60" min="5" max="240" oninput="recalcBiometriaModalPreview()">
+          <input type="hidden" id="bio_session_day" value="">
+          <span id="bio_session_display" style="display:none;"></span>
         </div>
 
         <!-- Escala Numérica de Percepção de Esforço -->
@@ -7750,7 +7573,7 @@
             <label class="comp-form-label" style="margin:0;">⚡ Percepção de Esforço</label>
             <span id="bioPseSelectedBadge" style="font-size:0.72rem; font-weight:800; color:#f97316; background:rgba(249,115,22,0.14); border:1px solid rgba(249,115,22,0.35); padding:2px 8px; border-radius:8px;">Nível 7 • Muito Intenso</span>
           </div>
-          <div style="font-size:0.88rem; font-weight:700; color:#ffffff; margin-bottom:8px;">
+          <div style="font-size:0.78rem; font-weight:700; color:#ffffff; margin-bottom:6px;">
             De 0 a 10, quão difícil foi o treino de hoje para você?
           </div>
           <input type="hidden" id="bio_session_pse" value="7">
@@ -7771,14 +7594,10 @@
 
         <!-- Registro de Dados do Smartwatch (Opcional - Sem Envio de Print) -->
         <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 12px 14px; margin-top: 14px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
             <div style="font-size: 0.78rem; font-weight: 800; color: #38bdf8; display: flex; align-items: center; gap: 6px;">
               <span>⌚</span> <span>Dados do Smartwatch (Opcional)</span>
             </div>
-            
-          </div>
-          <div style="font-size: 0.82rem; font-weight:600; color: #cbd5e1; margin-bottom: 10px;">
-            Anote abaixo os valores que o seu smartwatch marcou na sessão:
           </div>
           <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:8px;">
             <div class="comp-form-group" style="margin-bottom:0;">
@@ -8379,7 +8198,7 @@
     });
 
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '2026-10-29-v192-padronizacao-gui-finalizar';
+    const APP_BUILD_VERSION = '2026-10-30-v193-em-breve-evolucao';
     if (localStorage.getItem('dominio_gustavo_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_gustavo_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
@@ -8401,9 +8220,9 @@
       if (btn) btn.classList.add('is-spinning');
 
       try {
-        if (window.DominioDB) {
-          if (typeof DominioDB.flushSyncQueue === 'function') await DominioDB.flushSyncQueue();
-          if (typeof DominioDB.syncExistingLocalDataToCloud === 'function') await DominioDB.syncExistingLocalDataToCloud();
+        if (typeof window !== 'undefined' && window.DominioDB) {
+          if (typeof window.DominioDB.flushSyncQueue === 'function') await window.DominioDB.flushSyncQueue();
+          if (typeof window.DominioDB.syncExistingLocalDataToCloud === 'function') await window.DominioDB.syncExistingLocalDataToCloud();
         }
       } catch (e) {
         console.warn('Erro ao sincronizar na atualização:', e);
@@ -8887,9 +8706,9 @@
       if (viewId === 'composicao') {
         if (typeof closeCompSubView === 'function') closeCompSubView(true);
         if (typeof renderBodyCompUI === 'function') renderBodyCompUI();
-        if (window.DominioDB) {
-          if (typeof DominioDB.updateCloudStatusUI === 'function') DominioDB.updateCloudStatusUI();
-          if (typeof DominioDB.syncExistingLocalDataToCloud === 'function') DominioDB.syncExistingLocalDataToCloud();
+        if (typeof window !== 'undefined' && window.DominioDB) {
+          if (typeof window.DominioDB.updateCloudStatusUI === 'function') window.DominioDB.updateCloudStatusUI();
+          if (typeof window.DominioDB.syncExistingLocalDataToCloud === 'function') window.DominioDB.syncExistingLocalDataToCloud();
         }
       }
       if (viewId === 'relatorio' && typeof updateEvolucaoStats === 'function') {
