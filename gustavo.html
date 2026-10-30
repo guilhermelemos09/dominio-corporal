@@ -4058,27 +4058,7 @@
     .btn-tip-cue:active {
       transform: scale(0.97);
     }
-    /* Ordem dos Botões de Cues: Cuidados (1º), Instruções (2º), Dicas (3º) */
-    .cue-cuidados, .cue-alerta {
-      order: 1 !important;
-    }
-    .cue-instrucoes {
-      order: 2 !important;
-    }
-    .cue-dicas, .cue-dica, .cue-importante {
-      order: 3 !important;
-    }
-
-    .ex-cues-row {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 8px;
-      margin-bottom: 10px;
-    }
-
-        /* Título do Exercício em Caixa Alta e Negrito com Suporte a Botão de Vídeo */
+    /* Título do Exercício em Caixa Alta e Negrito com Suporte a Botão de Vídeo */
     .ex-title {
       font-size: 0.92rem;
       font-weight: 800;
@@ -5310,7 +5290,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">2 SÉRIES • 6 REPS (PAUSA 3S)</div>
+          <div class="ex-volume-badge">2 SÉRIES • 6 REPS (PAUSA 3S) • ⏱️ REST: 60S</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1 • 6 reps (3s pausa)</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2 • 6 reps (3s pausa)</div>
@@ -5359,7 +5339,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">4 SÉRIES • 4-6 SEG (RPE 7-8)</div>
+          <div class="ex-volume-badge">4 SÉRIES • 4-6 SEG (RPE 7-8) • ⏱️ REST: 90S</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1 • 5s</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2 • 5s</div>
@@ -5398,7 +5378,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 SÉRIES • 6-8 SEG</div>
+          <div class="ex-volume-badge">3 SÉRIES • 6-8 SEG • ⏱️ REST: 90S</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1 • 6-8s</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2 • 6-8s</div>
@@ -5448,7 +5428,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 SÉRIES • 5-6 REPS</div>
+          <div class="ex-volume-badge">3 SÉRIES • 5-6 REPS • ⏱️ REST: 90S</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1 • 5 reps</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2 • 5 reps</div>
@@ -5526,7 +5506,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">2 SÉRIES • 12 REPS</div>
+          <div class="ex-volume-badge">2 SÉRIES • 12 REPS • ⏱️ REST: 60S</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1 • 12 reps</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2 • 12 reps</div>
@@ -5575,7 +5555,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 SÉRIES • 2 DESCIDAS (5S CADA)</div>
+          <div class="ex-volume-badge">3 SÉRIES • 2 DESCIDAS (5S CADA) • ⏱️ REST: 90S</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1 • 2 descidas (5s)</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2 • 2 descidas (5s)</div>
@@ -5613,7 +5593,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 SÉRIES • 4-5 REPS</div>
+          <div class="ex-volume-badge">3 SÉRIES • 4-5 REPS • ⏱️ REST: 90S</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1 • 4-5 reps</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2 • 4-5 reps</div>
@@ -5663,7 +5643,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 SÉRIES • 6-8 REPS</div>
+          <div class="ex-volume-badge">3 SÉRIES • 6-8 REPS • ⏱️ REST: 90S</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1 • 6-8 reps</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2 • 6-8 reps</div>
@@ -6925,11 +6905,12 @@
         <span class="timer-display" id="timer">01:30</span>
       </div>
       <div class="timer-buttons">
-        <button type="button" class="btn-timer" onclick="startTimer(60)">60"</button>
-        <button type="button" class="btn-timer active" onclick="startTimer(90)">90"</button>
-        <button type="button" class="btn-timer" onclick="startTimer(120)">120"</button>
-        <button type="button" class="btn-timer btn-timer-reset" onclick="resetTimer()">Reset</button>
-      </div>
+          <button type="button" class="btn-timer" onclick="startTimer(30)">30s</button>
+          <button type="button" class="btn-timer" onclick="startTimer(60)">60s</button>
+          <button type="button" class="btn-timer active" onclick="startTimer(90)">90s</button>
+          <button type="button" class="btn-timer" onclick="startTimer(180)">180s</button>
+          <button type="button" class="btn-timer btn-timer-reset" onclick="resetTimer()">Reset</button>
+        </div>
     </div>
     <!-- Linha Inferior: Progressão do Treino -->
     <div class="dock-progress-row" id="dockProgressRow">
@@ -7648,7 +7629,7 @@
         <div class="bio-live-calc-box" id="bioLiveCalcPreviewBox" style="display: none; margin-top:14px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 14px 16px;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
             <div style="font-size:0.80rem; font-weight:800; color:#38bdf8; text-transform:uppercase; letter-spacing:0.04em; display:flex; align-items:center; gap:6px;">
-              <span>🔥</span> <span>Gasto Calórico Real</span>
+              <span>⚡</span> <span>ESTÍMULO FISIOLÓGICO</span>
             </div>
             <button type="button" class="btn-video" onclick="openInstrucoesBiometriaModal()" style="padding: 3px 10px; font-size: 0.70rem; margin: 0; background: #0e2238; border: 1px solid #38bdf8; color: #fff; border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; gap: 5px;">
               <svg viewBox="0 0 24 24" style="width:11px; height:11px; fill:#38bdf8;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
@@ -7677,7 +7658,7 @@
         <div style="margin-top:16px;">
           <button type="button" onclick="confirmAndSaveBiometriaSession(true)" style="background:var(--brand-neon); border:none; color:#000; font-size:0.86rem; font-weight:900; border-radius:10px; padding:13px 18px; cursor:pointer; box-shadow:0 0 16px var(--brand-neon-glow); display:flex; align-items:center; justify-content:center; gap:8px; width:100%;">
             <svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:#000;"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-            <span>SALVAR E ENVIAR PARA O COACH</span>
+            <span>SALVAR E ENVIAR PARA COACH (WHATSAPP)</span>
           </button>
         </div>
       </div>
@@ -9042,7 +9023,7 @@
 
       const dayDisplay = document.getElementById('bio_session_display');
       if (dayDisplay) {
-        dayDisplay.textContent = '🎉 Parabéns! Sessão concluída!';
+        dayDisplay.textContent = sessionTitle || 'Sessão Concluída';
         dayDisplay.title = sessionTitle || 'Sessão concluída';
       }
 
@@ -10585,7 +10566,6 @@ function formatVisualAnalysisContent(rawText) {
               <span style="font-size: 0.92rem; font-weight: 900; color: #ffffff; letter-spacing: 0.02em;">1. RESUMO EXECUTIVO • MARCOS DA EVOLUÇÃO</span>
             </div>
             <div style="display: flex; align-items: center; gap: 6px;">
-              <span style="font-size: 0.72rem; font-weight: 700; color: var(--brand-neon); background: rgba(0, 255, 136, 0.15); padding: 3px 8px; border-radius: 6px;">Toque para recolher</span>
               <span style="color: #cbd5e1; font-size: 0.75rem;">▾</span>
             </div>
           </summary>
@@ -13859,14 +13839,12 @@ function formatVisualAnalysisContent(rawText) {
         }
       }
 
-      const modal = document.getElementById('sendVideoModal');
-      if (modal) modal.classList.add('active');
+      const modal = document.getElementById('sendVideoModal'); if (modal) { modal.classList.add('active'); modal.style.display = 'flex'; }
     };
 
     window.closeSendVideoModal = function(fromPopState = false) {
       if (!fromPopState && typeof popAppHistoryState === 'function' && popAppHistoryState('modal')) return;
-      const modal = document.getElementById('sendVideoModal');
-      if (modal) modal.classList.remove('active');
+      const modal = document.getElementById('sendVideoModal'); if (modal) { modal.classList.remove('active'); modal.style.display = 'none'; }
     };
 
     window.toggleDriveLinkInput = function() {
