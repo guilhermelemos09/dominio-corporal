@@ -8268,27 +8268,6 @@
         const data = localStorage.getItem('dominio_gustavo_completed_workouts');
         return data ? JSON.parse(data) : {};
       } catch (e) {
-    async function carregarTreinosRecentes(alunoSlug, limit = 20) {
-      const cfg = getConfig();
-      const slugVal = alunoSlug || cfg.athleteSlug;
-      if (!cfg.supabaseUrl || !cfg.supabaseAnonKey) return [];
-      try {
-        const cleanUrl = cfg.supabaseUrl.replace(/\/+$/, '');
-        const url = `${cleanUrl}/rest/v1/treinos_logs?aluno_slug=eq.${encodeURIComponent(slugVal)}&order=created_at.desc&limit=${limit}`;
-        const resp = await fetch(url, {
-          headers: {
-            'apikey': cfg.supabaseAnonKey,
-            'Authorization': `Bearer ${cfg.supabaseAnonKey}`
-          }
-        });
-        if (!resp.ok) return [];
-        return await resp.json();
-      } catch (e) {
-        console.warn('[DominioDB] Erro ao carregar treinos recentes:', e);
-        return [];
-      }
-    }
-
         return {};
       }
     }
@@ -8646,7 +8625,7 @@
     function openDayWorkout(dayId) {
       const slug = (typeof DOMINIO_APP_CONFIG !== 'undefined' && DOMINIO_APP_CONFIG.athleteSlug) ? DOMINIO_APP_CONFIG.athleteSlug : 'gustavo';
       
-      // Somente novos alunos em modelo genérico ('aluno') são bloqueados pelo gate de ingresso
+      // Somente novos alunos em modelo generico ('aluno') sao bloqueados pelo gate de ingresso
       if (slug === 'aluno' &&
           localStorage.getItem('dominio_assessment_completed') !== 'true' &&
           localStorage.getItem('dominio_' + slug + '_assessment_completed') !== 'true') {
@@ -11475,28 +11454,22 @@ function updateEvolucaoStats() {
     };
 
     async function checkIntakeGate() {
-      let isCompleted = localStorage.getItem('dominio_gustavo_assessment_completed') === 'true';
-      if (!isCompleted && window.DominioDB && typeof window.DominioDB.carregarAvaliacao === 'function') {
-        try {
-          const cloudRecord = await window.DominioDB.carregarAvaliacao('gustavo', 'inicial');
-          if (cloudRecord && cloudRecord.respostas) {
-            localStorage.setItem('dominio_gustavo_student_intake', JSON.stringify(cloudRecord.respostas));
-            localStorage.setItem('dominio_gustavo_assessment_completed', 'true');
-            isCompleted = true;
-            syncAthleteMetricsFromIntake();
-            if (typeof updateAssessmentHistoryUI === 'function') updateAssessmentHistoryUI();
-          }
-        } catch (e) {}
-      }
-      if (!isCompleted && typeof DEFAULT_STUDENT_INTAKE !== 'undefined') {
-        localStorage.setItem('dominio_gustavo_student_intake', JSON.stringify(DEFAULT_STUDENT_INTAKE));
-        localStorage.setItem('dominio_gustavo_assessment_completed', 'true');
-        isCompleted = true;
-        syncAthleteMetricsFromIntake();
-        if (typeof updateAssessmentHistoryUI === 'function') updateAssessmentHistoryUI();
+      const slug = (typeof DOMINIO_APP_CONFIG !== 'undefined' && DOMINIO_APP_CONFIG.athleteSlug) ? DOMINIO_APP_CONFIG.athleteSlug : 'gustavo';
+      
+      // Alunos com fichas ja cadastradas ou pre-configuradas nao passam pelo bloqueio
+      if (slug !== 'aluno') {
+        localStorage.setItem('dominio_' + slug + '_assessment_completed', 'true');
+        if (typeof DEFAULT_STUDENT_INTAKE !== 'undefined' && !localStorage.getItem('dominio_' + slug + '_student_intake')) {
+          localStorage.setItem('dominio_' + slug + '_student_intake', JSON.stringify(DEFAULT_STUDENT_INTAKE));
+        }
+        if (typeof updateDedicatedTopBarGate === 'function') updateDedicatedTopBarGate(true);
+        return;
       }
 
-      const modal = document.getElementById('intakeGateModal');
+      const isCompleted = localStorage.getItem('dominio_' + slug + '_assessment_completed') === 'true' ||
+                          localStorage.getItem(slug + '_assessment_completed') === 'true' ||
+                          localStorage.getItem('dominio_' + slug + '_student_intake') !== null;
+
       if (!isCompleted) {
         if (modal) modal.classList.add('active');
         updateDedicatedTopBarGate(false);
@@ -12786,6 +12759,27 @@ function updateEvolucaoStats() {
       } catch (e) {
         console.warn('[DominioDB] Erro ao carregar avaliação do Supabase:', e);
         return null;
+      }
+    }
+
+    async function carregarTreinosRecentes(alunoSlug, limit = 20) {
+      const cfg = getConfig();
+      const slugVal = alunoSlug || cfg.athleteSlug;
+      if (!cfg.supabaseUrl || !cfg.supabaseAnonKey) return [];
+      try {
+        const cleanUrl = cfg.supabaseUrl.replace(/\/+$/, '');
+        const url = `${cleanUrl}/rest/v1/treinos_logs?aluno_slug=eq.${encodeURIComponent(slugVal)}&order=created_at.desc&limit=${limit}`;
+        const resp = await fetch(url, {
+          headers: {
+            'apikey': cfg.supabaseAnonKey,
+            'Authorization': `Bearer ${cfg.supabaseAnonKey}`
+          }
+        });
+        if (!resp.ok) return [];
+        return await resp.json();
+      } catch (e) {
+        console.warn('[DominioDB] Erro ao carregar treinos recentes:', e);
+        return [];
       }
     }
 
@@ -14274,7 +14268,8 @@ window.openWelcomeAppModal = function(notifId = null) {
     async function syncWorkoutProgressFromCloud() {
       if (!window.DominioDB || typeof window.DominioDB.carregarTreinosRecentes !== 'function') return;
       try {
-        const slug = (typeof DOMINIO_APP_CONFIG !== 'undefined' && DOMINIO_APP_CONFIG.athleteSlug) ? DOMINIO_APP_CONFIG.athleteSlug : 'gustavo';
+        const cfgDb = (window.DominioDB && typeof window.DominioDB.getConfig === 'function') ? window.DominioDB.getConfig() : {};
+        const slug = cfgDb.athleteSlug || (typeof DOMINIO_APP_CONFIG !== 'undefined' && DOMINIO_APP_CONFIG.athleteSlug) || (window.DOMINIO_APP_CONFIG && window.DOMINIO_APP_CONFIG.athleteSlug) || 'gustavo';
         const logs = await window.DominioDB.carregarTreinosRecentes(slug, 20);
         if (!Array.isArray(logs) || logs.length === 0) return;
 

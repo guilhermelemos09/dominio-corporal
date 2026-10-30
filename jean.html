@@ -6546,7 +6546,7 @@ Segue o vídeo anexo para sua análise!`;
     function openDayWorkout(dayId) {
       const slug = (typeof DOMINIO_APP_CONFIG !== 'undefined' && DOMINIO_APP_CONFIG.athleteSlug) ? DOMINIO_APP_CONFIG.athleteSlug : 'jean';
       
-      // Somente novos alunos em modelo genérico ('aluno') são bloqueados pelo gate de ingresso
+      // Somente novos alunos em modelo generico ('aluno') sao bloqueados pelo gate de ingresso
       if (slug === 'aluno' &&
           localStorage.getItem('dominio_assessment_completed') !== 'true' &&
           localStorage.getItem('dominio_' + slug + '_assessment_completed') !== 'true') {
@@ -10571,6 +10571,50 @@ function updateEvolucaoStats() {
       return dispatchCloud('salvarAvaliacao', payload);
     }
 
+    async function carregarAvaliacao(alunoSlug, tipo) {
+      const cfg = getConfig();
+      const slug = alunoSlug || cfg.athleteSlug;
+      const tipoVal = tipo || 'inicial';
+      if (!cfg.supabaseUrl || !cfg.supabaseAnonKey) return null;
+      try {
+        const cleanUrl = cfg.supabaseUrl.replace(/\/+$/, '');
+        const url = `${cleanUrl}/rest/v1/avaliacoes_anamnese?aluno_slug=eq.${encodeURIComponent(slug)}&tipo=eq.${encodeURIComponent(tipoVal)}&order=created_at.desc&limit=1`;
+        const resp = await fetch(url, {
+          headers: {
+            'apikey': cfg.supabaseAnonKey,
+            'Authorization': `Bearer ${cfg.supabaseAnonKey}`
+          }
+        });
+        if (!resp.ok) return null;
+        const list = await resp.json();
+        return (list && list.length > 0) ? list[0] : null;
+      } catch (e) {
+        console.warn('[DominioDB] Erro ao carregar avaliacao do Supabase:', e);
+        return null;
+      }
+    }
+
+    async function carregarTreinosRecentes(alunoSlug, limit = 20) {
+      const cfg = getConfig();
+      const slugVal = alunoSlug || cfg.athleteSlug;
+      if (!cfg.supabaseUrl || !cfg.supabaseAnonKey) return [];
+      try {
+        const cleanUrl = cfg.supabaseUrl.replace(/\/+$/, '');
+        const url = `${cleanUrl}/rest/v1/treinos_logs?aluno_slug=eq.${encodeURIComponent(slugVal)}&order=created_at.desc&limit=${limit}`;
+        const resp = await fetch(url, {
+          headers: {
+            'apikey': cfg.supabaseAnonKey,
+            'Authorization': `Bearer ${cfg.supabaseAnonKey}`
+          }
+        });
+        if (!resp.ok) return [];
+        return await resp.json();
+      } catch (e) {
+        console.warn('[DominioDB] Erro ao carregar treinos recentes:', e);
+        return [];
+      }
+    }
+
     async function testConnection(testCfg) {
       const cfg = testCfg || getConfig();
       const results = { supabase: null, sheets: null };
@@ -10779,6 +10823,8 @@ function updateEvolucaoStats() {
       salvarMedicao: salvarMedicao,
       salvarNotaExercicio: salvarNotaExercicio,
       salvarAvaliacao: salvarAvaliacao,
+      carregarAvaliacao: carregarAvaliacao,
+      carregarTreinosRecentes: carregarTreinosRecentes,
       flushSyncQueue: flushSyncQueue,
       testConnection: testConnection,
       getStatus: getStatus,
@@ -11355,13 +11401,13 @@ function updateEvolucaoStats() {
     function checkIntakeGate() {
       const slug = (typeof DOMINIO_APP_CONFIG !== 'undefined' && DOMINIO_APP_CONFIG.athleteSlug) ? DOMINIO_APP_CONFIG.athleteSlug : 'jean';
       
-      // Alunos com fichas já cadastradas ou pré-configuradas não passam pelo bloqueio
+      // Alunos com fichas ja cadastradas ou pre-configuradas nao passam pelo bloqueio
       if (slug !== 'aluno') {
         localStorage.setItem('dominio_' + slug + '_assessment_completed', 'true');
         if (typeof DEFAULT_STUDENT_INTAKE !== 'undefined' && !localStorage.getItem('dominio_' + slug + '_student_intake')) {
           localStorage.setItem('dominio_' + slug + '_student_intake', JSON.stringify(DEFAULT_STUDENT_INTAKE));
         }
-        updateDedicatedTopBarGate(true);
+        if (typeof updateDedicatedTopBarGate === 'function') updateDedicatedTopBarGate(true);
         return;
       }
 
@@ -11378,7 +11424,78 @@ function updateEvolucaoStats() {
       }
     }
     
+    // Sincronização em Nuvem de Treinos Concluídos entre Dispositivos (Notebook e Celular)
+    async function syncWorkoutProgressFromCloud() {
+      if (!window.DominioDB || typeof window.DominioDB.carregarTreinosRecentes !== 'function') return;
+      try {
+        const cfgDb = (window.DominioDB && typeof window.DominioDB.getConfig === 'function') ? window.DominioDB.getConfig() : {};
+        const slug = cfgDb.athleteSlug || (typeof DOMINIO_APP_CONFIG !== 'undefined' && DOMINIO_APP_CONFIG.athleteSlug) || (window.DOMINIO_APP_CONFIG && window.DOMINIO_APP_CONFIG.athleteSlug) || 'jean';
+        const logs = await window.DominioDB.carregarTreinosRecentes(slug, 20);
+        if (!Array.isArray(logs) || logs.length === 0) return;
+
+        // A. Sincroniza logs históricos locais
+        const storageLogKey = 'dominio_' + slug + '_workout_logs';
+        const localLogs = JSON.parse(localStorage.getItem(storageLogKey) || '[]');
+        let logsUpdated = false;
+        for (const cloudLog of logs) {
+          const exists = localLogs.some(l => l.timestamp === cloudLog.created_at || (l.data === cloudLog.data_treino && (l.dia === cloudLog.dia_id || l.dia_id === cloudLog.dia_id)));
+          if (!exists) {
+            localLogs.push({
+              data: cloudLog.data_treino,
+              timestamp: cloudLog.created_at,
+              dia: cloudLog.dia_id,
+              dia_nome: (typeof dayNames !== 'undefined' && dayNames[cloudLog.dia_id]) ? dayNames[cloudLog.dia_id] : (cloudLog.dia_id ? cloudLog.dia_id.toUpperCase() : 'TREINO'),
+              series_concluidas: cloudLog.series_concluidas,
+              total_series: cloudLog.total_series,
+              aderencia_pct: cloudLog.aderencia_pct,
+              notas: cloudLog.notas_gerais || 'Treino finalizado com sucesso'
+            });
+            logsUpdated = true;
+          }
+        }
+        if (logsUpdated) {
+          localStorage.setItem(storageLogKey, JSON.stringify(localLogs));
+          if (typeof renderWorkoutHistoryLogs === 'function') renderWorkoutHistoryLogs();
+        }
+
+        // B. Sincroniza contadores de progresso da rotina (ex: 1/4, 2/4 ou Concluído)
+        const completed = (typeof getCompletedWorkouts === 'function') ? getCompletedWorkouts() : {};
+        let completedUpdated = false;
+
+        const countsByDay = {};
+        for (const l of logs) {
+          if (!l.dia_id) continue;
+          countsByDay[l.dia_id] = (countsByDay[l.dia_id] || 0) + 1;
+        }
+
+        for (const [dayId, count] of Object.entries(countsByDay)) {
+          const cfg = (typeof getWorkoutConfig === 'function') ? getWorkoutConfig(dayId) : { type: 'treino', target: 4 };
+          if (cfg.type === 'dia' || cfg.target <= 1) {
+            if (!completed[dayId]) {
+              completed[dayId] = true;
+              completedUpdated = true;
+            }
+          } else {
+            const currentCount = typeof completed[dayId] === 'number' ? completed[dayId] : 0;
+            if (count > currentCount) {
+              completed[dayId] = Math.min(cfg.target, count);
+              completedUpdated = true;
+            }
+          }
+        }
+
+        if (completedUpdated) {
+          if (typeof saveCompletedWorkouts === 'function') saveCompletedWorkouts(completed);
+          if (typeof renderTrainingHubDays === 'function') renderTrainingHubDays();
+          if (typeof updateProgress === 'function') updateProgress();
+        }
+      } catch (e) {
+        console.warn('[DominioDB] Erro ao sincronizar progresso do treino da nuvem:', e);
+      }
+    }
+
     checkIntakeGate();
+    syncWorkoutProgressFromCloud();
 
     // Garante que o botão de Bio receba toques imediatos no mobile
     const coachBtn = document.getElementById('btnCoachBio') || document.querySelector('.coach-profile-btn');
