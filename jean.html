@@ -3835,6 +3835,51 @@
         display: none !important;
       }
     }
+
+    .drawer-video-action-box {
+      margin-top: 12px;
+      padding: 10px 12px;
+      background: rgba(56, 189, 248, 0.04);
+      border: 1px solid rgba(56, 189, 248, 0.16);
+      border-radius: 9px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 7px;
+    }
+    .drawer-video-action-text {
+      font-size: 0.73rem;
+      color: #cbd5e1;
+      font-weight: 600;
+      text-align: center;
+      line-height: 1.35;
+      width: 100%;
+    }
+    .btn-send-video-drawer {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: rgba(56, 189, 248, 0.10);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+      padding: 7px 12px;
+      border-radius: 7px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      width: 100%;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .btn-send-video-drawer:hover, .btn-send-video-drawer:active {
+      background: rgba(56, 189, 248, 0.22);
+      border-color: #38bdf8;
+      color: #ffffff;
+    }
+
 </style>
 </head>
 <body>
@@ -6031,13 +6076,13 @@
       }
 
       const modal = document.getElementById('sendVideoModal');
-      if (modal) modal.classList.add('active');
+      if (modal) { modal.classList.add('active'); modal.style.display = 'flex'; }
     };
 
     window.closeSendVideoModal = function(fromPopState = false) {
       if (!fromPopState && typeof popAppHistoryState === 'function' && popAppHistoryState('modal')) return;
       const modal = document.getElementById('sendVideoModal');
-      if (modal) modal.classList.remove('active');
+      if (modal) { modal.classList.remove('active'); modal.style.display = 'none'; }
     };
 
     window.confirmSendVideoWhatsApp = function() {
@@ -8450,7 +8495,7 @@ function updateEvolucaoStats() {
               </div>
             </div>
             <p style="margin:0; font-size:0.74rem; color:#cbd5e1;">
-              <em>Referência Científica: Ashwell, M., & Browning, L. M. (2012). Waist-to-height ratio is a better screening tool than waist circumference and BMI for adult cardiometabolic risk factors. Systematic Review, Obesity Reviews.</em>
+              <em>Referência Científica: Ashwell, M., e Browning, L. M. (2012). Waist-to-height ratio is a better screening tool than waist circumference and BMI for adult cardiometabolic risk factors. Systematic Review, Obesity Reviews.</em>
             </p>
           </div>
         </div>
@@ -8469,13 +8514,13 @@ function updateEvolucaoStats() {
               </div>
             </div>
             <div style="background:rgba(251,191,36,0.08); border:1px solid rgba(251,191,36,0.28); border-radius:10px; padding:12px 14px; margin-bottom:10px;">
-              <strong style="color:#fbbf24; font-size:0.86rem;">⚡ Força Relativa e Potência Motora (Zatsiorsky & Kraemer)</strong>
+              <strong style="color:#fbbf24; font-size:0.86rem;">⚡ Força Relativa e Potência Motora (Zatsiorsky e Kraemer)</strong>
               <div style="font-size:0.82rem; color:#f1f5f9; margin-top:4px;">
                 Força Relativa = Força Absoluta ÷ Massa Corporal. O tecido adiposo é um lastro passivo que não gera contração. Ao diminuir a circunferência periumbilical, você retira uma carga morta, aumentando instantaneamente sua aceleração em barras fixas, flexões, handstands e manobras gímnicas.
               </div>
             </div>
             <p style="margin:0; font-size:0.74rem; color:#cbd5e1;">
-              <em>Referências: Messier, S. P., et al. (2005). Arthritis & Rheumatism; Zatsiorsky, V. M., & Kraemer, W. J. (2006). Science and Practice of Strength Training.</em>
+              <em>Referências: Messier, S. P., et al. (2005). Arthritis e Rheumatism; Zatsiorsky, V. M., e Kraemer, W. J. (2006). Science and Practice of Strength Training.</em>
             </p>
           </div>
         </div>
@@ -8642,7 +8687,7 @@ function updateEvolucaoStats() {
                 <strong>Alívio Compressivo nos Joelhos (Regra de Messier 4:1):</strong> Cada 1 kg de sobrecarga inerte reduzida elimina ~4 kg de compressão nos meniscos e cartilagens patelofemorais por passada. ${kneeReliefPerStep > 0 ? `A redução de ${Math.abs(dWeight).toFixed(1)} kg erradica <strong>~${kneeReliefPerStep.toFixed(1)} kg de impacto a cada passo</strong>, blindando a articulação em agachamentos e corridas.` : 'A preservação do peso com redução de cintura otimiza a sustentação articular sem perda de força.'}
               </p>
               <p style="margin: 0;">
-                <strong>Força Relativa e Calistenia (Zatsiorsky & Kraemer):</strong> O tecido adiposo não gera contração motora. Reduzir o lastro morto aumenta diretamente a aceleração nos movimentos gímnicos com peso do próprio corpo (barras, flexões, argolas e paradas de mão).
+                <strong>Força Relativa e Calistenia (Zatsiorsky e Kraemer):</strong> O tecido adiposo não gera contração motora. Reduzir o lastro morto aumenta diretamente a aceleração nos movimentos gímnicos com peso do próprio corpo (barras, flexões, argolas e paradas de mão).
               </p>
             </div>
           </div>
@@ -8663,7 +8708,7 @@ function updateEvolucaoStats() {
           <!-- 5. REFERÊNCIAS CIENTÍFICAS E ASSINATURA -->
           <div class="print-section" style="margin-top: 18px; border-top: 1px solid #cbd5e1; padding-top: 10px; font-size: 0.72rem; color: #475569;">
             <div style="margin-bottom: 12px;">
-              <strong>Embasamento Científico:</strong> Ashwell & Browning (2012) [RCEst]; Hodgdon & Beckett (1984) [Marinha dos EUA]; Messier et al. (2005) [Sobrecarga Patelofemoral 4:1]; Zatsiorsky & Kraemer (2006) [Força Relativa].
+              <strong>Embasamento Científico:</strong> Ashwell & Browning (2012) [RCEst]; Hodgdon e Beckett (1984) [Marinha dos EUA]; Messier et al. (2005) [Sobrecarga Patelofemoral 4:1]; Zatsiorsky e Kraemer (2006) [Força Relativa].
             </div>
             <div style="display:flex; justify-content:space-between; align-items:flex-end; padding-top: 10px;">
               <div>

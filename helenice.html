@@ -4848,6 +4848,51 @@
         display: none !important;
       }
     }
+
+    .drawer-video-action-box {
+      margin-top: 12px;
+      padding: 10px 12px;
+      background: rgba(56, 189, 248, 0.04);
+      border: 1px solid rgba(56, 189, 248, 0.16);
+      border-radius: 9px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 7px;
+    }
+    .drawer-video-action-text {
+      font-size: 0.73rem;
+      color: #cbd5e1;
+      font-weight: 600;
+      text-align: center;
+      line-height: 1.35;
+      width: 100%;
+    }
+    .btn-send-video-drawer {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: rgba(56, 189, 248, 0.10);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+      padding: 7px 12px;
+      border-radius: 7px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      width: 100%;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .btn-send-video-drawer:hover, .btn-send-video-drawer:active {
+      background: rgba(56, 189, 248, 0.22);
+      border-color: #38bdf8;
+      color: #ffffff;
+    }
+
 </style>
 </head>
 <body>
@@ -5051,21 +5096,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Bike Ergométrica')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-seg-bike" onclick="toggleCommentBox('ex-seg-bike')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-seg-bike" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-seg-bike" class="comment-drawer" style="display: none;">
-          <div class="comment-header">
-            <span>👤 Suas anotações (Bike Ergométrica):</span>
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
             <span class="save-indicator" id="save-status-ex-seg-bike"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-seg-bike" placeholder="Ex: Aquecimento suave, pernas soltas e sem dor..." oninput="saveExerciseNote('ex-seg-bike', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-seg-bike" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-seg-bike', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Bike Ergométrica • Helenice')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -5085,21 +5133,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Liberação da Fáscia Plantar')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-seg-fascia" onclick="toggleCommentBox('ex-seg-fascia')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-seg-fascia" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-seg-fascia" class="comment-drawer" style="display: none;">
-          <div class="comment-header">
-            <span>👤 Suas anotações (Liberação da Fáscia):</span>
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
             <span class="save-indicator" id="save-status-ex-seg-fascia"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-seg-fascia" placeholder="Ex: Sola do pé bem relaxada, sensação de alívio..." oninput="saveExerciseNote('ex-seg-fascia', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-seg-fascia" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-seg-fascia', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Liberação da Fáscia Plantar • Helenice')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -5119,21 +5170,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Cat-Cow')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-seg-catcow" onclick="toggleCommentBox('ex-seg-catcow')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-seg-catcow" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-seg-catcow" class="comment-drawer" style="display: none;">
-          <div class="comment-header">
-            <span>👤 Suas anotações (Cat-Cow):</span>
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
             <span class="save-indicator" id="save-status-ex-seg-catcow"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-seg-catcow" placeholder="Ex: Coluna bem solta, respiração profunda..." oninput="saveExerciseNote('ex-seg-catcow', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-seg-catcow" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-seg-catcow', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Cat-Cow • Helenice')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -5166,21 +5220,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Box Squat')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-seg-boxsquat" onclick="toggleCommentBox('ex-seg-boxsquat')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-seg-boxsquat" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-seg-boxsquat" class="comment-drawer" style="display: none;">
-          <div class="comment-header">
-            <span>👤 Suas anotações (Box Squat):</span>
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
             <span class="save-indicator" id="save-status-ex-seg-boxsquat"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-seg-boxsquat" placeholder="Ex: Subida firme com calcanhares, joelhos confortáveis..." oninput="saveExerciseNote('ex-seg-boxsquat', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-seg-boxsquat" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-seg-boxsquat', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Box Squat • Helenice')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -5201,21 +5258,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Remada Apoiada no Banco')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-seg-remada" onclick="toggleCommentBox('ex-seg-remada')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-seg-remada" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-seg-remada" class="comment-drawer" style="display: none;">
-          <div class="comment-header">
-            <span>👤 Suas anotações (Remada Apoiada):</span>
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
             <span class="save-indicator" id="save-status-ex-seg-remada"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-seg-remada" placeholder="Ex: Puxada limpa nas costas, peito bem apoiado..." oninput="saveExerciseNote('ex-seg-remada', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-seg-remada" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-seg-remada', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Remada Apoiada no Banco • Helenice')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -5236,21 +5296,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Ponte de Glúteos')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-seg-bridge" onclick="toggleCommentBox('ex-seg-bridge')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-seg-bridge" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-seg-bridge" class="comment-drawer" style="display: none;">
-          <div class="comment-header">
-            <span>👤 Suas anotações (Ponte de Glúteos):</span>
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
             <span class="save-indicator" id="save-status-ex-seg-bridge"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-seg-bridge" placeholder="Ex: Senti bem o bumbum queimar, lombar relaxada..." oninput="saveExerciseNote('ex-seg-bridge', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-seg-bridge" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-seg-bridge', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Ponte de Glúteos • Helenice')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -5271,21 +5334,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Panturrilha em Pé')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-seg-panturrilha" onclick="toggleCommentBox('ex-seg-panturrilha')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-seg-panturrilha" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-seg-panturrilha" class="comment-drawer" style="display: none;">
-          <div class="comment-header">
-            <span>👤 Suas anotações (Panturrilha em Pé):</span>
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
             <span class="save-indicator" id="save-status-ex-seg-panturrilha"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-seg-panturrilha" placeholder="Ex: Pés apoiados, circulação ativada sem incômodo no calcanhar..." oninput="saveExerciseNote('ex-seg-panturrilha', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-seg-panturrilha" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-seg-panturrilha', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Panturrilha em Pé • Helenice')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -5319,21 +5385,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Alongamento de Peitoral')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-seg-peitoral" onclick="toggleCommentBox('ex-seg-peitoral')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-seg-peitoral" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-seg-peitoral" class="comment-drawer" style="display: none;">
-          <div class="comment-header">
-            <span>👤 Suas anotações (Alongamento Peitoral):</span>
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
             <span class="save-indicator" id="save-status-ex-seg-peitoral"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-seg-peitoral" placeholder="Ex: Ombros abertos, respiração livre..." oninput="saveExerciseNote('ex-seg-peitoral', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-seg-peitoral" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-seg-peitoral', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Alongamento Peitoral • Helenice')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -5352,21 +5421,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Posição da Criança')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-seg-childpose" onclick="toggleCommentBox('ex-seg-childpose')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-seg-childpose" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-seg-childpose" class="comment-drawer" style="display: none;">
-          <div class="comment-header">
-            <span>👤 Suas anotações (Posição da Criança):</span>
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
             <span class="save-indicator" id="save-status-ex-seg-childpose"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-seg-childpose" placeholder="Ex: Coluna descompactada, sensação de paz e leveza..." oninput="saveExerciseNote('ex-seg-childpose', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-seg-childpose" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-seg-childpose', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Posição da Criança • Helenice')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -5430,21 +5502,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Bike Ergométrica')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-qua-bike" onclick="toggleCommentBox('ex-qua-bike')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-qua-bike" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-qua-bike" class="comment-drawer" style="display: none;">
-          <div class="comment-header">
-            <span>👤 Suas anotações (Bike Ergométrica):</span>
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
             <span class="save-indicator" id="save-status-ex-qua-bike"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-qua-bike" placeholder="Ex: Aquecimento tranquilo, pernas leves..." oninput="saveExerciseNote('ex-qua-bike', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-qua-bike" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-qua-bike', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Bike Ergométrica • Helenice')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -5466,21 +5541,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Mobilidade Torácica')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-qua-toracica" onclick="toggleCommentBox('ex-qua-toracica')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-qua-toracica" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-qua-toracica" class="comment-drawer" style="display: none;">
-          <div class="comment-header">
-            <span>👤 Suas anotações (Mobilidade Torácica):</span>
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
             <span class="save-indicator" id="save-status-ex-qua-toracica"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-qua-toracica" placeholder="Ex: Movimento solto e amplo sem desconforto..." oninput="saveExerciseNote('ex-qua-toracica', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-qua-toracica" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-qua-toracica', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Mobilidade Torácica • Helenice')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -5502,21 +5580,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Bird-Dog Adaptado')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-qua-birddog" onclick="toggleCommentBox('ex-qua-birddog')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-qua-birddog" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-qua-birddog" class="comment-drawer" style="display: none;">
-          <div class="comment-header">
-            <span>👤 Suas anotações (Bird-Dog):</span>
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
             <span class="save-indicator" id="save-status-ex-qua-birddog"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-qua-birddog" placeholder="Ex: Tronco firme, abdômen bem acionado..." oninput="saveExerciseNote('ex-qua-birddog', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-qua-birddog" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-qua-birddog', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Bird-Dog • Helenice')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -5549,21 +5630,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Puxada Alta no Pulley')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-qua-pulley" onclick="toggleCommentBox('ex-qua-pulley')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-qua-pulley" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-qua-pulley" class="comment-drawer" style="display: none;">
-          <div class="comment-header">
-            <span>👤 Suas anotações (Puxada Alta):</span>
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
             <span class="save-indicator" id="save-status-ex-qua-pulley"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-qua-pulley" placeholder="Ex: Puxada limpa no peito, costas bem ativadas..." oninput="saveExerciseNote('ex-qua-pulley', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-qua-pulley" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-qua-pulley', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Puxada Alta no Pulley • Helenice')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -5587,21 +5671,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Abdução de Quadril')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-qua-abducao" onclick="toggleCommentBox('ex-qua-abducao')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-qua-abducao" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-qua-abducao" class="comment-drawer" style="display: none;">
-          <div class="comment-header">
-            <span>👤 Suas anotações (Abdução de Quadril):</span>
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
             <span class="save-indicator" id="save-status-ex-qua-abducao"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-qua-abducao" placeholder="Ex: Lateral do quadril queimando de forma gostosa..." oninput="saveExerciseNote('ex-qua-abducao', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-qua-abducao" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-qua-abducao', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Abdução de Quadril em Pé • Helenice')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -5622,21 +5709,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Flexão Inclinada no Banco')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-qua-flexao" onclick="toggleCommentBox('ex-qua-flexao')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-qua-flexao" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-qua-flexao" class="comment-drawer" style="display: none;">
-          <div class="comment-header">
-            <span>👤 Suas anotações (Flexão Inclinada):</span>
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
             <span class="save-indicator" id="save-status-ex-qua-flexao"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-qua-flexao" placeholder="Ex: Corpo firme e retinho, empurrada segura..." oninput="saveExerciseNote('ex-qua-flexao', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-qua-flexao" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-qua-flexao', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Flexão Inclinada na Parede • Helenice')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -5657,21 +5747,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Panturrilha Isométrica')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-qua-pantisom" onclick="toggleCommentBox('ex-qua-pantisom')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-qua-pantisom" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-qua-pantisom" class="comment-drawer" style="display: none;">
-          <div class="comment-header">
-            <span>👤 Suas anotações (Panturrilha Isométrica):</span>
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
             <span class="save-indicator" id="save-status-ex-qua-pantisom"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-qua-pantisom" placeholder="Ex: Sustentação firme e estável sem dor nos pés..." oninput="saveExerciseNote('ex-qua-pantisom', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-qua-pantisom" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-qua-pantisom', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Panturrilha Isométrica • Helenice')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -5705,21 +5798,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Alongamento de Posterior')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-qua-posterior" onclick="toggleCommentBox('ex-qua-posterior')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-qua-posterior" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-qua-posterior" class="comment-drawer" style="display: none;">
-          <div class="comment-header">
-            <span>👤 Suas anotações (Alongamento Posterior):</span>
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
             <span class="save-indicator" id="save-status-ex-qua-posterior"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-qua-posterior" placeholder="Ex: Posterior bem solto, sem puxar a lombar..." oninput="saveExerciseNote('ex-qua-posterior', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-qua-posterior" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-qua-posterior', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Alongamento de Isquiotibiais • Helenice')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -5738,21 +5834,24 @@
           </div>
         </div>
         <div class="ex-bottom-actions">
-          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Relaxamento 90/90')">
-            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-            <span>Enviar sua execução</span>
-          </button>
           <button type="button" class="btn-comment" id="btn-comment-ex-qua-descanso90" onclick="toggleCommentBox('ex-qua-descanso90')">
-            <span>💬 Observações?</span>
+            <span>💬 Dúvidas ou Observações?</span>
             <span class="comment-dot" id="dot-ex-qua-descanso90" style="display:none;"></span>
           </button>
         </div>
         <div id="comment-box-ex-qua-descanso90" class="comment-drawer" style="display: none;">
-          <div class="comment-header">
-            <span>👤 Suas anotações (Relaxamento 90/90):</span>
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
             <span class="save-indicator" id="save-status-ex-qua-descanso90"></span>
           </div>
-          <textarea class="comment-textarea" id="note-ex-qua-descanso90" placeholder="Ex: Descompressão total da lombar, sensação de alívio..." oninput="saveExerciseNote('ex-qua-descanso90', this.value)"></textarea>
+          <textarea class="comment-textarea" id="note-ex-qua-descanso90" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-qua-descanso90', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Relaxamento 90/90 • Helenice')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -8877,7 +8976,7 @@
           localStorage.getItem('dominio_assessment_completed') !== 'true' &&
           localStorage.getItem('dominio_' + slug + '_assessment_completed') !== 'true') {
         const modal = document.getElementById('intakeGateModal');
-        if (modal) modal.classList.add('active');
+        if (modal) { modal.classList.add('active'); modal.style.display = 'flex'; }
         return;
       }
 
@@ -10229,7 +10328,7 @@ function updateEvolucaoStats() {
 
     function closeAddFotosPosturaisModal() {
       const modal = document.getElementById('modalAddFotosPosturais');
-      if (modal) modal.classList.remove('active');
+      if (modal) { modal.classList.remove('active'); modal.style.display = 'none'; }
     }
 
     function sendFotosToWhatsAppCoach() {
@@ -10776,7 +10875,7 @@ function updateEvolucaoStats() {
               </div>
             </div>
             <p style="margin:0; font-size:0.74rem; color:#cbd5e1;">
-              <em>Referência Científica: Ashwell, M., & Browning, L. M. (2012). Waist-to-height ratio is a better screening tool than waist circumference and BMI for adult cardiometabolic risk factors. Systematic Review, Obesity Reviews.</em>
+              <em>Referência Científica: Ashwell, M., e Browning, L. M. (2012). Waist-to-height ratio is a better screening tool than waist circumference and BMI for adult cardiometabolic risk factors. Systematic Review, Obesity Reviews.</em>
             </p>
           </div>
         </div>
@@ -10795,13 +10894,13 @@ function updateEvolucaoStats() {
               </div>
             </div>
             <div style="background:rgba(251,191,36,0.08); border:1px solid rgba(251,191,36,0.28); border-radius:10px; padding:12px 14px; margin-bottom:10px;">
-              <strong style="color:#fbbf24; font-size:0.86rem;">⚡ Força Relativa e Potência Motora (Zatsiorsky & Kraemer)</strong>
+              <strong style="color:#fbbf24; font-size:0.86rem;">⚡ Força Relativa e Potência Motora (Zatsiorsky e Kraemer)</strong>
               <div style="font-size:0.82rem; color:#f1f5f9; margin-top:4px;">
                 Força Relativa = Força Absoluta ÷ Massa Corporal. O tecido adiposo é um lastro passivo que não gera contração. Ao diminuir a circunferência periumbilical, você retira uma carga morta, aumentando instantaneamente sua aceleração em barras fixas, flexões, handstands e manobras gímnicas.
               </div>
             </div>
             <p style="margin:0; font-size:0.74rem; color:#cbd5e1;">
-              <em>Referências: Messier, S. P., et al. (2005). Arthritis & Rheumatism; Zatsiorsky, V. M., & Kraemer, W. J. (2006). Science and Practice of Strength Training.</em>
+              <em>Referências: Messier, S. P., et al. (2005). Arthritis e Rheumatism; Zatsiorsky, V. M., e Kraemer, W. J. (2006). Science and Practice of Strength Training.</em>
             </p>
           </div>
         </div>
@@ -10968,7 +11067,7 @@ function updateEvolucaoStats() {
                 <strong>Alívio Compressivo nos Joelhos (Regra de Messier 4:1):</strong> Cada 1 kg de sobrecarga inerte reduzida elimina ~4 kg de compressão nos meniscos e cartilagens patelofemorais por passada. ${kneeReliefPerStep > 0 ? `A redução de ${Math.abs(dWeight).toFixed(1)} kg erradica <strong>~${kneeReliefPerStep.toFixed(1)} kg de impacto a cada passo</strong>, blindando a articulação em agachamentos e corridas.` : 'A preservação do peso com redução de cintura otimiza a sustentação articular sem perda de força.'}
               </p>
               <p style="margin: 0;">
-                <strong>Força Relativa e Calistenia (Zatsiorsky & Kraemer):</strong> O tecido adiposo não gera contração motora. Reduzir o lastro morto aumenta diretamente a aceleração nos movimentos gímnicos com peso do próprio corpo (barras, flexões, argolas e paradas de mão).
+                <strong>Força Relativa e Calistenia (Zatsiorsky e Kraemer):</strong> O tecido adiposo não gera contração motora. Reduzir o lastro morto aumenta diretamente a aceleração nos movimentos gímnicos com peso do próprio corpo (barras, flexões, argolas e paradas de mão).
               </p>
             </div>
           </div>
@@ -10989,7 +11088,7 @@ function updateEvolucaoStats() {
           <!-- 5. REFERÊNCIAS CIENTÍFICAS E ASSINATURA -->
           <div class="print-section" style="margin-top: 18px; border-top: 1px solid #cbd5e1; padding-top: 10px; font-size: 0.72rem; color: #475569;">
             <div style="margin-bottom: 12px;">
-              <strong>Embasamento Científico:</strong> Ashwell & Browning (2012) [RCEst]; Hodgdon & Beckett (1984) [Marinha dos EUA]; Messier et al. (2005) [Sobrecarga Patelofemoral 4:1]; Zatsiorsky & Kraemer (2006) [Força Relativa].
+              <strong>Embasamento Científico:</strong> Ashwell & Browning (2012) [RCEst]; Hodgdon e Beckett (1984) [Marinha dos EUA]; Messier et al. (2005) [Sobrecarga Patelofemoral 4:1]; Zatsiorsky e Kraemer (2006) [Força Relativa].
             </div>
             <div style="display:flex; justify-content:space-between; align-items:flex-end; padding-top: 10px;">
               <div>
