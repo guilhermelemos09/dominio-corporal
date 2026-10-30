@@ -150,6 +150,11 @@ Os títulos das seções de treino devem ser **estritamente sucintos, objetivos 
 
     - **Modo TREINO com Meta (`data-workout-type="treino" data-target="N"`):** Exibe a fração de progresso em ciano (`1/N`, `2/N`, `X/N`) a cada treino finalizado ou clique direto na home. Ao atingir a meta estipulada ($N/N$), a pílula se transforma automaticamente no badge verde neon **`✓ Concluído`** idêntico ao do dia. Um novo clique no card finalizado reinicia o ciclo.
 
+    - **Botão de Navegação Canônico e Acessibilidade nos Cards (`.training-day-card`):**
+      - Todo card de treino possui na extremidade direita (`.day-card-right`) tanto a pílula de progresso quanto um botão/seta de navegação dedicado (`.day-card-arrow`), com ícone `›`, garantindo abertura imediata do treino (`openDayWorkout(...)`).
+      - **Toque Universal no Card:** O container `.day-card-left` e seus elementos de texto possuem `pointer-events: none;`, garantindo que toques em qualquer área do card (título, metadados ou corpo) sejam registrados com 100% de confiabilidade em dispositivos móveis (iOS Safari e Android).
+      - **Interação Inteligente da Pílula:** Se o treino ainda estiver pendente ou não iniciado (`count === 0`), o toque na pílula também abre o treino diretamente. Se já estiver em andamento (`count > 0`), o toque na pílula avança/recicla o ciclo, enquanto o toque no corpo do card ou na seta `›` abre a sessão de treino.
+
   - **Cards de Rotina (`.training-day-card`):** Borda lateral contínua de `4.5px solid var(--brand-neon)`, fundo escuro com névoa neon suave e foco do dia estritamente com a skill.
 
   - **Perfil do Atleta (`.student-profile-header-card`):** Aplicação do padrão ciano noturno com borda `4.5px` e névoa horizontal. O container de título `.section-title-wrap` permanece sempre 100% transparente, sem bordas ou fundos, garantindo títulos limpos em branco puro.

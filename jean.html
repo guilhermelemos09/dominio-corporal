@@ -2681,8 +2681,49 @@
     .day-card-right {
       display: flex;
       align-items: center;
+      gap: 8px;
       margin-left: 12px;
       flex-shrink: 0;
+    }
+    .day-card-arrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94a3b8;
+      font-size: 1.15rem;
+      font-weight: 800;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    .training-day-card:hover .day-card-arrow,
+    .day-card-arrow:hover {
+      background: rgba(0, 255, 136, 0.15);
+      border-color: rgba(0, 255, 136, 0.35);
+      color: var(--brand-neon);
+      transform: translateX(2px);
+    }
+    .day-card-arrow:active {
+      transform: scale(0.92);
+    }
+    .training-day-card {
+      cursor: pointer !important;
+      -webkit-tap-highlight-color: rgba(0, 255, 136, 0.12) !important;
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .training-day-card .day-card-left,
+    .training-day-card .day-card-name-row,
+    .training-day-card .day-name,
+    .training-day-card .day-meta-pill {
+      pointer-events: none;
     }
     .day-status-pill {
       display: inline-flex;
@@ -5204,7 +5245,7 @@
       <!-- Lista de Dias da Rotina de Treino (5 Sessões Semanais) -->
       <div class="training-days-list" id="trainingDaysList">
         <!-- TREINO A: EMPURRAR -->
-        <div class="training-day-card" id="dayCard-treinoa" data-workout-type="treino" data-target="4" onclick="openDayWorkout('treinoa')">
+        <div class="training-day-card" id="dayCard-treinoa" role="button" tabindex="0" data-workout-type="treino" data-target="4" onclick="openDayWorkout('treinoa')">
           <div class="day-card-left">
             <div class="day-card-name-row">
               <span class="day-name">TREINO A | EMPURRAR</span>
@@ -5215,11 +5256,14 @@
             <div class="day-status-pill status-pending" id="statusPill-treinoa" onclick="event.stopPropagation(); handleWorkoutStatusClick('treinoa')">
               <span class="status-icon">›</span>
             </div>
+            <div class="day-card-arrow" onclick="event.stopPropagation(); openDayWorkout('treinoa')" title="Abrir Treino" aria-label="Abrir Treino">
+              <span class="status-icon">›</span>
+            </div>
           </div>
         </div>
 
         <!-- TREINO B: CORE E CARDIO 1 -->
-        <div class="training-day-card" id="dayCard-treinob" data-workout-type="treino" data-target="4" onclick="openDayWorkout('treinob')">
+        <div class="training-day-card" id="dayCard-treinob" role="button" tabindex="0" data-workout-type="treino" data-target="4" onclick="openDayWorkout('treinob')">
           <div class="day-card-left">
             <div class="day-card-name-row">
               <span class="day-name">TREINO B | CORE E CARDIO 1</span>
@@ -5230,11 +5274,14 @@
             <div class="day-status-pill status-pending" id="statusPill-treinob" onclick="event.stopPropagation(); handleWorkoutStatusClick('treinob')">
               <span class="status-icon">›</span>
             </div>
+            <div class="day-card-arrow" onclick="event.stopPropagation(); openDayWorkout('treinob')" title="Abrir Treino" aria-label="Abrir Treino">
+              <span class="status-icon">›</span>
+            </div>
           </div>
         </div>
 
         <!-- TREINO C: PUXAR -->
-        <div class="training-day-card" id="dayCard-treinoc" data-workout-type="treino" data-target="4" onclick="openDayWorkout('treinoc')">
+        <div class="training-day-card" id="dayCard-treinoc" role="button" tabindex="0" data-workout-type="treino" data-target="4" onclick="openDayWorkout('treinoc')">
           <div class="day-card-left">
             <div class="day-card-name-row">
               <span class="day-name">TREINO C | PUXAR</span>
@@ -5245,11 +5292,14 @@
             <div class="day-status-pill status-pending" id="statusPill-treinoc" onclick="event.stopPropagation(); handleWorkoutStatusClick('treinoc')">
               <span class="status-icon">›</span>
             </div>
+            <div class="day-card-arrow" onclick="event.stopPropagation(); openDayWorkout('treinoc')" title="Abrir Treino" aria-label="Abrir Treino">
+              <span class="status-icon">›</span>
+            </div>
           </div>
         </div>
 
         <!-- TREINO D: PERNAS -->
-        <div class="training-day-card" id="dayCard-treinod" data-workout-type="treino" data-target="4" onclick="openDayWorkout('treinod')">
+        <div class="training-day-card" id="dayCard-treinod" role="button" tabindex="0" data-workout-type="treino" data-target="4" onclick="openDayWorkout('treinod')">
           <div class="day-card-left">
             <div class="day-card-name-row">
               <span class="day-name">TREINO D | PERNAS</span>
@@ -5260,11 +5310,14 @@
             <div class="day-status-pill status-pending" id="statusPill-treinod" onclick="event.stopPropagation(); handleWorkoutStatusClick('treinod')">
               <span class="status-icon">›</span>
             </div>
+            <div class="day-card-arrow" onclick="event.stopPropagation(); openDayWorkout('treinod')" title="Abrir Treino" aria-label="Abrir Treino">
+              <span class="status-icon">›</span>
+            </div>
           </div>
         </div>
 
         <!-- TREINO E: CORE E CARDIO 2 -->
-        <div class="training-day-card" id="dayCard-treinoe" data-workout-type="treino" data-target="4" onclick="openDayWorkout('treinoe')">
+        <div class="training-day-card" id="dayCard-treinoe" role="button" tabindex="0" data-workout-type="treino" data-target="4" onclick="openDayWorkout('treinoe')">
           <div class="day-card-left">
             <div class="day-card-name-row">
               <span class="day-name">TREINO E | CORE E CARDIO 2</span>
@@ -5273,6 +5326,9 @@
           </div>
           <div class="day-card-right">
             <div class="day-status-pill status-pending" id="statusPill-treinoe" onclick="event.stopPropagation(); handleWorkoutStatusClick('treinoe')">
+              <span class="status-icon">›</span>
+            </div>
+            <div class="day-card-arrow" onclick="event.stopPropagation(); openDayWorkout('treinoe')" title="Abrir Treino" aria-label="Abrir Treino">
               <span class="status-icon">›</span>
             </div>
           </div>
@@ -9208,15 +9264,35 @@
       workouts.forEach(w => {
         const pill = document.getElementById('statusPill-' + w);
         const card = document.getElementById('dayCard-' + w);
+        const arrow = card ? card.querySelector('.day-card-arrow') : null;
         if (!pill) return;
 
+        if (card) {
+          card.onclick = () => openDayWorkout(w);
+          card.style.cursor = 'pointer';
+        }
+        if (arrow) {
+          arrow.onclick = (e) => {
+            e.stopPropagation();
+            openDayWorkout(w);
+          };
+          arrow.style.cursor = 'pointer';
+        }
+
+        const { type, target, count, isDone } = getWorkoutProgress(w);
+
+        // Se o treino ainda nao foi iniciado (0/N), clicar na pilula tambem abre o treino!
+        // Se ja esta em andamento ou concluido, clicar na pilula avanca/redefine o progresso.
         pill.onclick = (e) => {
           e.stopPropagation();
-          handleWorkoutStatusClick(w);
+          if (count === 0 && !isDone) {
+            openDayWorkout(w);
+          } else {
+            handleWorkoutStatusClick(w);
+          }
         };
         pill.style.cursor = 'pointer';
 
-        const { type, target, count, isDone } = getWorkoutProgress(w);
         if (isDone) {
           pill.className = 'day-status-pill status-done';
           pill.title = 'Concluído! Toque para desmarcar ou reiniciar ciclo';
@@ -9224,12 +9300,12 @@
           if (card) card.classList.add('is-done');
         } else if (type === 'treino' && target > 1) {
           pill.className = 'day-status-pill status-counter' + (count === 0 ? ' counter-zero' : '');
-          pill.title = `Progresso: ${count}/${target} sessões. Toque para registrar +1`;
+          pill.title = `Progresso: ${count}/${target} sessões. Toque para abrir o treino ou registrar +1`;
           pill.innerHTML = `<span style="font-weight:900; letter-spacing:0.04em;">${count}/${target}</span>`;
           if (card) card.classList.remove('is-done');
         } else {
           pill.className = 'day-status-pill status-pending';
-          pill.title = 'Pendente. Toque para marcar concluído';
+          pill.title = 'Pendente. Toque para abrir o treino';
           pill.innerHTML = `<span class="status-icon">›</span>`;
           if (card) card.classList.remove('is-done');
         }
@@ -15010,7 +15086,7 @@ window.openWelcomeAppModal = function(notifId = null) {
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=200').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=201').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });

@@ -2510,8 +2510,49 @@
     .day-card-right {
       display: flex;
       align-items: center;
+      gap: 8px;
       margin-left: 12px;
       flex-shrink: 0;
+    }
+    .day-card-arrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94a3b8;
+      font-size: 1.15rem;
+      font-weight: 800;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    .training-day-card:hover .day-card-arrow,
+    .day-card-arrow:hover {
+      background: rgba(0, 255, 136, 0.15);
+      border-color: rgba(0, 255, 136, 0.35);
+      color: var(--brand-neon);
+      transform: translateX(2px);
+    }
+    .day-card-arrow:active {
+      transform: scale(0.92);
+    }
+    .training-day-card {
+      cursor: pointer !important;
+      -webkit-tap-highlight-color: rgba(0, 255, 136, 0.12) !important;
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .training-day-card .day-card-left,
+    .training-day-card .day-card-name-row,
+    .training-day-card .day-name,
+    .training-day-card .day-meta-pill {
+      pointer-events: none;
     }
     .day-status-pill {
       display: inline-flex;
@@ -4984,7 +5025,7 @@
             <!-- Lista Vertical de Dias de Treino -->
       <div class="training-days-list" id="trainingDaysList">
         <!-- TREINO A -->
-        <div class="training-day-card" id="dayCard-segunda" data-workout-type="treino" data-target="6" onclick="openDayWorkout('segunda')">
+        <div class="training-day-card" id="dayCard-segunda" role="button" tabindex="0" data-workout-type="treino" data-target="6" onclick="openDayWorkout('segunda')">
           <div class="day-card-left">
             <div class="day-card-name-row">
               <span class="day-name">SEGUNDA | TREINO A</span>
@@ -4995,11 +5036,13 @@
             <div class="day-status-pill status-pending" id="statusPill-segunda" onclick="event.stopPropagation(); handleWorkoutStatusClick('segunda')">
               <span class="status-icon">›</span>
             </div>
-          </div>
+            <div class="day-card-arrow" onclick="event.stopPropagation(); openDayWorkout('segunda')" title="Abrir Treino" aria-label="Abrir Treino">
+              <span class="status-icon">›</span>
+            </div></div>
         </div>
 
         <!-- TREINO B -->
-        <div class="training-day-card" id="dayCard-quarta" data-workout-type="treino" data-target="6" onclick="openDayWorkout('quarta')">
+        <div class="training-day-card" id="dayCard-quarta" role="button" tabindex="0" data-workout-type="treino" data-target="6" onclick="openDayWorkout('quarta')">
           <div class="day-card-left">
             <div class="day-card-name-row">
               <span class="day-name">QUARTA | TREINO B</span>
@@ -5010,7 +5053,9 @@
             <div class="day-status-pill status-pending" id="statusPill-quarta" onclick="event.stopPropagation(); handleWorkoutStatusClick('quarta')">
               <span class="status-icon">›</span>
             </div>
-          </div>
+            <div class="day-card-arrow" onclick="event.stopPropagation(); openDayWorkout('quarta')" title="Abrir Treino" aria-label="Abrir Treino">
+              <span class="status-icon">›</span>
+            </div></div>
         </div>
       </div>
 
@@ -14514,7 +14559,7 @@ window.openWelcomeAppModal = function(notifId = null) {
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=200').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=201').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
