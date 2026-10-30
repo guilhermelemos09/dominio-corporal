@@ -4282,6 +4282,8 @@
     body.in-view-timers .timer-dock {
       display: none !important;
     }
+
+    @media (max-width: 600px) {
       .section-card {
         padding: 12px 10px !important;
         margin-bottom: 12px !important;
@@ -5230,7 +5232,7 @@
             <div class="day-card-name-row">
               <span class="day-name">SESSÃO EXTRA | HANDSTAND</span>
             </div>
-            <div class="day-focus-desc">BENT-ARM PRESS, CHUTES E HSW</div>
+            <div class="day-focus-desc">STRADDLE PRESS, CHUTES E HSW</div>
             <div class="day-meta-pill">📍 Casa / Box • ⏱️ ~55 min</div>
           </div>
           <div class="day-card-right">
@@ -5529,7 +5531,45 @@
         </div>
       </div>
 
-      <!-- Ex 7: Wall Transfers -->
+<!-- Ex: Chutes Livres para Handstand Full -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>CHUTES LIVRES FULL</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('CHUTES LIVRES PARA HANDSTAND FULL (EQUILÍBRIO LIVRE)', '<b>Execução:</b> Posicione-se no centro do espaço livre, longe de obstáculos:<br>1. Posicione as mãos no chão na largura dos ombros com dedos bem espalmados e ativos.<br>2. Dê o chute com a perna dominante buscando a vertical completa (Handstand Full), unindo as pernas no topo no ponto de equilíbrio neutro.<br>3. Pressione as pontas dos dedos com firmeza contra o solo para frear e controlar o alinhamento corporal.<br>4. Se passar da vertical, utilize a saída em pirueta (Bail Out) com segurança.<br>5. Realize 5 tentativas conscientes e focadas por série.<br><br><b>Cuidados:</b> 1. Mantenha os braços 100% esticados e empurre ativamente os ombros em direção às orelhas.<br>2. Mantenha o olhar fixo no solo entre os polegares, sem quebrar a cervical.<br><br><b>Base científica:</b> REGULAÇÃO DO CENTRO DE PRESSÃO: A prática do chute em espaço livre sem anteparo desenvolve a calibração proprioceptiva fina através da musculatura intrínseca dos flexores dos dedos e ajuste reflexo vestibular (Schmidt e Lee, 2019).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • 5 CHUTES LIVRES • ⏱️ REST: 60s</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">1</div>
+            <div class="set-pill" onclick="toggleSet(this)">2</div>
+            <div class="set-pill" onclick="toggleSet(this)">3</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-dani-chutesfull" onclick="toggleCommentBox('ex-dani-chutesfull')">
+            <span>💬 Dúvidas ou Observações?</span>
+            <span class="comment-dot" id="dot-ex-dani-chutesfull" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-dani-chutesfull" class="comment-drawer" style="display: none;">
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
+            <span class="save-indicator" id="save-status-ex-dani-chutesfull"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-dani-chutesfull" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-dani-chutesfull', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Chutes Livres Full • Dani')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex: Wall Transfers -->
       <div class="exercise-card">
         <div class="ex-title">
           <span>WALL TRANSFERS</span>
@@ -5618,11 +5658,11 @@
         </div>
       </div>
 
-      <!-- Ex 9: Negativa de Bent-Arm Straddle Press na Parede -->
+      <!-- Ex: Negativa Straddle Press Peito na Parede -->
       <div class="exercise-card">
         <div class="ex-title">
-          <span>BENT-ARM PRESS</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('NEGATIVA DE BENT-ARM STRADDLE PRESS NA PAREDE', '<b>Execução:</b> Exercício construtor primordial para o Bent-Arm Press:<br>1. Suba na parada de mãos de costas para a parede.<br>2. Abra as pernas em V amplo (straddle).<br>3. Flexione os cotovelos lentamente até cerca de 90° (posição de prateleira, cotovelos apontando para trás e cabeça à frente formando um triângulo no chão).<br>4. Desça a bacia e as pernas de forma extremamente lenta e controlada em 5 segundos até os pés tocarem a pontinha no solo.<br><br><b>Cuidados:</b> 1. Cotovelos fechados paralelos; não deixe abrirem para fora.<br>2. Sustente a bacia no alto pelo maior tempo possível durante a descida.<br><br><b>Base científica:</b> SOBRECARGA EXCÊNTRICA EM BENT-ARM: O treino excêntrico em ângulo agudo de cotovelo desenvolve a capacidade tensional necessária para a sustentação e reversão concêntrica na subida do Press (Douglas et al., 2017).', 'https://www.youtube.com/shorts/AedG7CX1tn0')">
+          <span>NEGATIVA STRADDLE PRESS PEITO NA PAREDE</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('NEGATIVA STRADDLE PRESS PEITO NA PAREDE', '<b>Execução:</b> Exercício construtor primordial para o Bent-Arm Press:<br>1. Suba na parada de mãos de costas para a parede.<br>2. Abra as pernas em V amplo (straddle).<br>3. Flexione os cotovelos lentamente até cerca de 90° (posição de prateleira, cotovelos apontando para trás e cabeça à frente formando um triângulo no chão).<br>4. Desça a bacia e as pernas de forma extremamente lenta e controlada em 5 segundos até os pés tocarem a pontinha no solo.<br><br><b>Cuidados:</b> 1. Cotovelos fechados paralelos; não deixe abrirem para fora.<br>2. Sustente a bacia no alto pelo maior tempo possível durante a descida.<br><br><b>Base científica:</b> SOBRECARGA EXCÊNTRICA EM BENT-ARM: O treino excêntrico em ângulo agudo de cotovelo desenvolve a capacidade tensional necessária para a sustentação e reversão concêntrica na subida do Press (Douglas et al., 2017).', 'https://www.youtube.com/shorts/AedG7CX1tn0')">
             <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
@@ -5647,7 +5687,7 @@
           <textarea class="comment-textarea" id="note-ex-dani-bentneg" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-dani-bentneg', this.value)"></textarea>
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício:</div>
-            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Negativa Bent-Arm • Dani')">
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Negativa Straddle Press • Dani')">
               <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo</span>
               <span style="font-size:0.85rem; margin-left:2px;">↗</span>
@@ -7036,7 +7076,8 @@
         <span>precisa de ajuda?</span> <u>acesse as instruções</u>
       </button>
     </div>
-      </div><!-- end #tab-evolucao -->
+      </div><!-- end #evolView-composicao -->
+    </div><!-- end #tab-evolucao -->
 
   <!-- Dock Flutuante OLED Stealth 2 em 1: Descanso em Cima, Progressão em Baixo -->
   <div class="timer-dock" id="bottomTimerDock">
@@ -7461,7 +7502,6 @@
       </div>
     </div>
   </div>
-  </div> <!-- Fim #tab-evolucao -->
 
   <!-- Modal de Envio de Vídeo para Análise Técnica -->
   <div id="sendVideoModal" class="modal-overlay" onclick="if(event.target === this) closeSendVideoModal();">

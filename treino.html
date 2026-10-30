@@ -4300,6 +4300,8 @@
     body.in-view-timers .timer-dock {
       display: none !important;
     }
+
+    @media (max-width: 600px) {
       .section-card {
         padding: 12px 10px !important;
         margin-bottom: 12px !important;
@@ -6664,14 +6666,9 @@
 
     <!-- LOCAL E DURAÇÃO DA SESSÃO -->
     <div class="session-overall-meta">
-      <button type="button" class="btn-orientacoes-popup" onclick="openOrientacoesTreino('sexta')">
-        <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-        <span>ORIENTAÇÕES</span>
-      </button>
-      <span class="meta-separator">|</span>
       <span class="meta-item">📍 Box CrossFit</span>
       <span class="meta-separator">|</span>
-      <span class="meta-item">⏳ 40' Argolas + WOD e Skill</span>
+      <span class="meta-item">⏳ 40' Argolas + Cross</span>
       <span class="meta-separator">|</span>
       <span class="meta-item">⏱️ ~1h35 Total</span>
     </div>
@@ -17224,14 +17221,9 @@ Base científica:
           category: '⚠️ Importante'
         },
         'sexta': {
-          title: 'Orientações para a Sessão de Argolas e CrossFit',
-          text: `• Prioridade Neural das Argolas: O bloco de argolas (~40 min) exige máxima estabilização escapulotorácica e força de tração estrita e balística (Front Lever, Ring Muscle-Up e combo Kip MU + Press to HS). Deve ser realizado rigorosamente com o SNC fresco, antes da aula de CrossFit.
-• Gestão de Pegada e Ombros: No Cross, controle as cargas no Bench Press e o volume de pegada no Hang Clean Jerk e Toes to Bar, pois antebraços e tríceps já receberam forte solicitação prévia.
-• Pés nas Fitas no Press to Handstand: Nas primeiras passagens da sequência Kip MU + Press to HS, apoie os pés nas fitas/straps das argolas para conter o balanço lateral e blindar a articulação dos punhos na inversão.
-
-Base científica:
-• Sequenciamento Motor Neuromuscular (Schoenfeld, 2020): O treino de habilidades de alta complexidade motora em estado prévio de frescor neural maximiza o recrutamento de unidades motoras e previne sobrecargas compensatórias nos ombros e coluna lombar.
-• Potência Glicolítica Intermitente (Powers e Howley, 2018; Glaister, 2005): A estrutura EMOM com janelas de recuperação completa a cada 4 minutos otimiza a depuração de lactato e a ressíntese de fosfocreatina.`,
+          title: 'Orientações para a Sessão de Argolas',
+          text: `• Falsa pegada firme com punho sobre a madeira no Ring Muscle-Up.
+• Aterrissagens sempre em tatame ou colchão de alta complacência.`,
           category: '🛡️ ORIENTAÇÕES'
         }
       };
