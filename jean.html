@@ -9048,7 +9048,7 @@
     });
 
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '2026-10-30-v193-cloud-sync-gate-fix';
+    const APP_BUILD_VERSION = '2026-10-30-v200-reorder-clean';
     if (localStorage.getItem('dominio_jean_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_jean_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
@@ -15010,7 +15010,7 @@ window.openWelcomeAppModal = function(notifId = null) {
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=162').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=200').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
