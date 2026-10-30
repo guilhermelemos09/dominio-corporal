@@ -2442,13 +2442,16 @@
       text-align: center;
       position: relative;
     }
-    .comp-photo-slot img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
+    {
+      max-width: 100%;
+      max-height: 240px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
       border-radius: 8px;
       display: block;
-      background: #000;
+      margin: 0 auto;
+      background: #05070a;
     }
     .comp-photo-empty {
       height: 160px;
@@ -5232,7 +5235,7 @@
             <div class="day-card-name-row">
               <span class="day-name">SESSÃO EXTRA | HANDSTAND</span>
             </div>
-            <div class="day-focus-desc">STRADDLE PRESS, CHUTES E HSW</div>
+            <div class="day-focus-desc">NEGATIVE STRADDLE, CHUTES E HSW</div>
             <div class="day-meta-pill">📍 Casa / Box • ⏱️ ~55 min</div>
           </div>
           <div class="day-card-right">
@@ -5658,11 +5661,11 @@
         </div>
       </div>
 
-      <!-- Ex: Negativa Straddle Press Peito na Parede -->
+      <!-- Ex: Negative Straddle Parede -->
       <div class="exercise-card">
         <div class="ex-title">
-          <span>NEGATIVA STRADDLE PRESS PEITO NA PAREDE</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('NEGATIVA STRADDLE PRESS PEITO NA PAREDE', '<b>Execução:</b> Exercício construtor primordial para o Bent-Arm Press:<br>1. Suba na parada de mãos de costas para a parede.<br>2. Abra as pernas em V amplo (straddle).<br>3. Flexione os cotovelos lentamente até cerca de 90° (posição de prateleira, cotovelos apontando para trás e cabeça à frente formando um triângulo no chão).<br>4. Desça a bacia e as pernas de forma extremamente lenta e controlada em 5 segundos até os pés tocarem a pontinha no solo.<br><br><b>Cuidados:</b> 1. Cotovelos fechados paralelos; não deixe abrirem para fora.<br>2. Sustente a bacia no alto pelo maior tempo possível durante a descida.<br><br><b>Base científica:</b> SOBRECARGA EXCÊNTRICA EM BENT-ARM: O treino excêntrico em ângulo agudo de cotovelo desenvolve a capacidade tensional necessária para a sustentação e reversão concêntrica na subida do Press (Douglas et al., 2017).', 'https://www.youtube.com/shorts/AedG7CX1tn0')">
+          <span>NEGATIVE STRADDLE PAREDE</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('NEGATIVE STRADDLE PAREDE', '<b>Execução:</b> Exercício construtor primordial para o Bent-Arm Press:<br>1. Suba na parada de mãos de costas para a parede.<br>2. Abra as pernas em V amplo (straddle).<br>3. Flexione os cotovelos lentamente até cerca de 90° (posição de prateleira, cotovelos apontando para trás e cabeça à frente formando um triângulo no chão).<br>4. Desça a bacia e as pernas de forma extremamente lenta e controlada em 5 segundos até os pés tocarem a pontinha no solo.<br><br><b>Cuidados:</b> 1. Cotovelos fechados paralelos; não deixe abrirem para fora.<br>2. Sustente a bacia no alto pelo maior tempo possível durante a descida.<br><br><b>Base científica:</b> SOBRECARGA EXCÊNTRICA EM BENT-ARM: O treino excêntrico em ângulo agudo de cotovelo desenvolve a capacidade tensional necessária para a sustentação e reversão concêntrica na subida do Press (Douglas et al., 2017).', 'https://www.youtube.com/shorts/AedG7CX1tn0')">
             <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
@@ -5687,7 +5690,7 @@
           <textarea class="comment-textarea" id="note-ex-dani-bentneg" placeholder="Escreva aqui sua sensação, carga utilizada ou dúvida..." oninput="saveExerciseNote('ex-dani-bentneg', this.value)"></textarea>
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício:</div>
-            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Negativa Straddle Press • Dani')">
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Negative Straddle Parede • Dani')">
               <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo</span>
               <span style="font-size:0.85rem; margin-left:2px;">↗</span>
@@ -10171,8 +10174,10 @@ function updateEvolucaoStats() {
         const src = p[pose.key];
         if (src) {
           html += `
-            <div class="comp-photo-slot">
-              <img src="${src}" alt="Foto ${pose.label}">
+            <div class="comp-photo-slot" style="display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:180px;">
+              <a href="${src}" target="_blank" style="display:flex; align-items:center; justify-content:center; width:100%; max-height:220px; background:#05070a; border-radius:8px; overflow:hidden; text-decoration:none;">
+                <img src="${src}" alt="Foto ${pose.label}" style="max-width:100%; max-height:220px; width:auto; height:auto; object-fit:contain; display:block; margin:0 auto;">
+              </a>
               <div style="font-size:0.7rem; font-weight:700; color:#cbd5e1; margin-top:6px;">${pose.label}</div>
             </div>`;
         } else {
@@ -10338,7 +10343,7 @@ function updateEvolucaoStats() {
             // Reduz de 8MB para ~120KB JPEG de alta qualidade
             const compressedBase64 = canvas.toDataURL('image/jpeg', 0.78);
             tempFotosPosturais[key] = compressedBase64;
-            preview.innerHTML = `<img src="${compressedBase64}" style="width:100%; height:100%; object-fit:cover; border-radius:4px;">`;
+            preview.innerHTML = `<img src="${compressedBase64}" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; border-radius:4px; margin:0 auto; display:block;">`;
           };
           img.src = e.target.result;
         };
@@ -10348,6 +10353,170 @@ function updateEvolucaoStats() {
 
     function saveFotosPosturaisDirectly() {
       saveAndSendFotosPosturais();
+    }
+function formatVisualAnalysisContent(rawText) {
+      if (!rawText) return '';
+      const text = (typeof rawText === 'object') ? Object.values(rawText).join('\n\n') : String(rawText);
+
+      // Identifica tópicos canônicos: O que vemos, Impacto no treino, Diagnóstico
+      const regex = /(?:^|\n\n|\n)(?:•\s*|\*\*\s*|\b)?(O que vemos(?: no corpo)?|Impacto(?: prático)? nos? treinos?|Diagnóstico(?: e Recomendações| e Parecer| e Metas)?):\s*/i;
+      const parts = text.split(regex);
+
+      if (parts.length < 3) {
+        return `<div style="white-space:pre-line; color:#cbd5e1; font-size:0.78rem; line-height:1.55;">${text}</div>`;
+      }
+
+      let html = '';
+      if (parts[0].trim()) {
+        html += `<p style="margin:0 0 8px 0; color:#cbd5e1; font-size:0.78rem; line-height:1.5;">${parts[0].trim()}</p>`;
+      }
+
+      for (let i = 1; i < parts.length; i += 2) {
+        const heading = parts[i].trim();
+        const body = (parts[i + 1] || '').trim();
+        const hLow = heading.toLowerCase();
+
+        let color = '#38bdf8';
+        let label = 'O QUE VEMOS';
+        if (hLow.includes('impacto')) {
+          color = '#fbbf24';
+          label = 'IMPACTO NO TREINO';
+        } else if (hLow.includes('diagn') || hLow.includes('meta') || hLow.includes('recomen')) {
+          color = 'var(--brand-neon)';
+          label = 'DIAGNÓSTICO E RECOMENDAÇÕES';
+        }
+
+        html += `
+          <div style="margin-bottom:10px;">
+            <span style="display:inline-block; font-size:0.72rem; font-weight:800; color:${color}; letter-spacing:0.04em; margin-bottom:3px;">${label}</span>
+            <div style="color:#f1f5f9; font-size:0.78rem; line-height:1.55;">${body}</div>
+          </div>`;
+      }
+      return html;
+    }
+
+    function renderUserUploadedPhotosGallery(history) {
+      const container = document.getElementById('userPhotoSetsContainer');
+      const badge = document.getElementById('userPhotoCountBadge');
+      if (!container) return;
+
+      const h = history || getBodyCompHistory();
+      const photoSets = (h || []).filter(item => item.photos && (item.photos.front || item.photos.side || item.photos.back));
+
+      if (badge) {
+        badge.textContent = `${photoSets.length} Set(s) Salvo(s)`;
+      }
+
+      if (photoSets.length === 0) {
+        container.innerHTML = `
+          <div style="background:rgba(56,189,248,0.06); border:1px dashed rgba(56,189,248,0.3); border-radius:10px; padding:16px; text-align:center; color:#94a3b8; font-size:0.78rem;">
+            Nenhum set de fotos individuais arquivado. Toque em "ADICIONAR FOTOS" acima para incluir.
+          </div>`;
+        return;
+      }
+
+      // Ordena cronologicamente invertido (mais recente primeiro)
+      const reversedSets = photoSets.slice().reverse();
+      let html = '<div style="display:flex; flex-direction:column; gap:16px;">';
+
+      reversedSets.forEach(s => {
+        const dStr = (s.date || '').split('-').reverse().join('/');
+        const wStr = s.weight ? `${s.weight.toFixed(1)} kg` : '--';
+        const waistStr = s.waist ? `${s.waist.toFixed(1)} cm` : '--';
+        const bfStr = s.bfManual ? `${s.bfManual.toFixed(1)}%` : (s.bf ? `${s.bf.toFixed(1)}%` : '--');
+
+        let statusBadge = '<span style="font-size:0.68rem; font-weight:700; color:#38bdf8; background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.3); padding:2px 8px; border-radius:6px;">Registro</span>';
+        if (s.date === '2026-07-02') {
+          statusBadge = '<span style="font-size:0.68rem; font-weight:700; color:#fbbf24; background:rgba(251,191,36,0.12); border:1px solid rgba(251,191,36,0.3); padding:2px 8px; border-radius:6px;">🏁 Ponto de Partida</span>';
+        } else if (s.date === '2026-10-05') {
+          statusBadge = '<span style="font-size:0.68rem; font-weight:700; color:var(--brand-neon); background:rgba(0,255,136,0.12); border:1px solid rgba(0,255,136,0.3); padding:2px 8px; border-radius:6px;">⚡ Recomposição Profunda (-11.6 kg)</span>';
+        } else if (s.date >= '2026-10-23') {
+          statusBadge = '<span style="font-size:0.68rem; font-weight:700; color:#38bdf8; background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.3); padding:2px 8px; border-radius:6px;">🔥 Atual • Consolidação e Densidade</span>';
+        }
+
+        const frontImg = s.photos ? s.photos.front : null;
+        const sideImg = s.photos ? s.photos.side : null;
+        const backImg = s.photos ? s.photos.back : null;
+        const countPhotos = (frontImg ? 1 : 0) + (sideImg ? 1 : 0) + (backImg ? 1 : 0);
+
+        html += `
+          <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:14px; box-shadow:0 4px 14px rgba(0,0,0,0.3);">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+              <div>
+                <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px; flex-wrap:wrap;">
+                  <strong style="color:#ffffff; font-size:0.92rem;">Entrada Fotográfica • ${dStr}</strong>
+                  ${statusBadge}
+                </div>
+                <div style="font-size:0.75rem; color:#94a3b8;">
+                  Peso: <strong style="color:#f1f5f9;">${wStr}</strong> • Cintura: <strong style="color:#f1f5f9;">${waistStr}</strong> • % BF: <strong style="color:var(--brand-neon);">${bfStr}</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Layout Lado a Lado: Imagens de um lado (sem cortes) e Análise do outro -->
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:14px; align-items:stretch;">
+              <!-- COLUNA 1: FOTOS EM VISUALIZAÇÃO INTEGRAL (SEM CORTES) -->
+              <div style="display:flex; flex-direction:column; gap:8px; justify-content:center;">
+                <div style="display:grid; grid-template-columns: ${countPhotos > 1 ? 'repeat(auto-fit, minmax(130px, 1fr))' : '1fr'}; gap:8px;">
+                  ${frontImg ? `
+                    <div style="background:#05070a; border-radius:8px; overflow:hidden; border:1px solid rgba(255,255,255,0.1); text-align:center;">
+                      <a href="${frontImg}" target="_blank" style="display:flex; align-items:center; justify-content:center; min-height:220px; max-height:340px; background:#05070a; text-decoration:none;">
+                        <img src="${frontImg}" alt="Frente ${dStr}" style="max-width:100%; max-height:340px; width:auto; height:auto; object-fit:contain; display:block; margin:0 auto;">
+                      </a>
+                      <div style="padding:4px 6px; text-align:center; font-size:0.68rem; font-weight:800; color:#38bdf8; background:rgba(56,189,248,0.1); letter-spacing:0.02em;">POSTURA FRONTAL</div>
+                    </div>
+                  ` : ''}
+                  ${sideImg ? `
+                    <div style="background:#05070a; border-radius:8px; overflow:hidden; border:1px solid rgba(255,255,255,0.1); text-align:center;">
+                      <a href="${sideImg}" target="_blank" style="display:flex; align-items:center; justify-content:center; min-height:220px; max-height:340px; background:#05070a; text-decoration:none;">
+                        <img src="${sideImg}" alt="Perfil ${dStr}" style="max-width:100%; max-height:340px; width:auto; height:auto; object-fit:contain; display:block; margin:0 auto;">
+                      </a>
+                      <div style="padding:4px 6px; text-align:center; font-size:0.68rem; font-weight:800; color:var(--brand-neon); background:rgba(0,255,136,0.1); letter-spacing:0.02em;">POSTURA LATERAL</div>
+                    </div>
+                  ` : ''}
+                  ${backImg ? `
+                    <div style="background:#05070a; border-radius:8px; overflow:hidden; border:1px solid rgba(255,255,255,0.1); text-align:center;">
+                      <a href="${backImg}" target="_blank" style="display:flex; align-items:center; justify-content:center; min-height:220px; max-height:340px; background:#05070a; text-decoration:none;">
+                        <img src="${backImg}" alt="Costas ${dStr}" style="max-width:100%; max-height:340px; width:auto; height:auto; object-fit:contain; display:block; margin:0 auto;">
+                      </a>
+                      <div style="padding:4px 6px; text-align:center; font-size:0.68rem; font-weight:800; color:#fbbf24; background:rgba(251,191,36,0.1); letter-spacing:0.02em;">POSTURA POSTERIOR</div>
+                    </div>
+                  ` : ''}
+                </div>
+              </div>
+
+              <!-- COLUNA 2: ANÁLISE VISUAL E DIAGNÓSTICO -->
+              <div style="display:flex; flex-direction:column; justify-content:space-between;">
+                ${(s.coachNotes || s.coachAnalysis) ? `
+                  <div style="background:rgba(56,189,248,0.06); border-left:3.5px solid #38bdf8; border-radius:8px; padding:12px 14px; font-size:0.78rem; color:#cbd5e1; height:100%; box-sizing:border-box; display:flex; flex-direction:column;">
+                    <div style="font-size:0.88rem; font-weight:800; color:#38bdf8; margin-bottom:8px; letter-spacing:0.02em;">Análise visual</div>
+                    <div style="flex:1;">
+                      ${formatVisualAnalysisContent(s.coachNotes || s.coachAnalysis)}
+                    </div>
+                    ${s.notes ? `
+                      <div style="margin-top:10px; padding-top:8px; border-top:1px solid rgba(255,255,255,0.08); font-size:0.74rem; color:#94a3b8;">
+                        <strong style="color:#cbd5e1;">Notas do Atleta:</strong> ${s.notes}
+                      </div>
+                    ` : ''}
+                  </div>
+                ` : `
+                  <div style="background:rgba(255,255,255,0.03); border-left:3.5px solid #38bdf8; border-radius:8px; padding:12px 14px; font-size:0.76rem; color:#94a3b8; height:100%; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center;">
+                    <div style="font-size:0.88rem; font-weight:800; color:#38bdf8; margin-bottom:6px; letter-spacing:0.02em;">Análise visual</div>
+                    <p style="margin:0 0 8px 0; color:#cbd5e1;">Aguardando elaboração da análise visual e diagnóstico pelo Prof. Gui Lemos.</p>
+                    ${s.notes ? `
+                      <div style="padding-top:6px; border-top:1px solid rgba(255,255,255,0.08); font-size:0.74rem; color:#94a3b8;">
+                        <strong style="color:#cbd5e1;">Notas do Atleta:</strong> ${s.notes}
+                      </div>
+                    ` : ''}
+                  </div>
+                `}
+              </div>
+            </div>
+          </div>`;
+      });
+
+      html += '</div>';
+      container.innerHTML = html;
     }
 
     function renderPosturalComparisonUI() {
@@ -10414,7 +10583,7 @@ function updateEvolucaoStats() {
             
             <div style="padding:12px 14px; border-top:1px solid rgba(255,255,255,0.06);">
               ${hasAnyThisAngle ? `
-                <!-- Moldura Lado a Lado Inicial vs. Atual -->
+                <!-- Moldura Lado a Lado Inicial vs. Atual (Imagens Menores e Integrais) -->
                 <div style="display:grid; grid-template-columns: ${isSingleSet ? '1fr' : '1fr 1fr'}; gap:10px; margin-bottom:12px;">
                   <!-- Inicial -->
                   <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:8px; text-align:center;">
@@ -10422,8 +10591,8 @@ function updateEvolucaoStats() {
                       ⬅️ Inicial (${dInitial})${initialSet.weight ? ` • ${initialSet.weight.toFixed(1)} kg` : ''}
                     </span>
                     ${initImg ? `
-                      <a href="${initImg}" target="_blank" style="display:block; height:180px; border-radius:8px; overflow:hidden; background:#000;">
-                        <img src="${initImg}" alt="Foto Inicial ${a.title}" style="width:100%; height:100%; object-fit:cover;">
+                      <a href="${initImg}" target="_blank" style="display:flex; align-items:center; justify-content:center; min-height:160px; max-height:220px; border-radius:8px; overflow:hidden; background:#05070a; border:1px solid rgba(255,255,255,0.06); text-decoration:none;">
+                        <img src="${initImg}" alt="Foto Inicial ${a.title}" style="max-width:100%; max-height:220px; width:auto; height:auto; object-fit:contain; display:block; margin:0 auto;">
                       </a>
                     ` : `
                       <div style="height:180px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.02); border-radius:8px; color:#64748b; font-size:0.72rem;">
@@ -10439,8 +10608,8 @@ function updateEvolucaoStats() {
                       Mais Recente (${dLatest})${latestSet.weight ? ` • ${latestSet.weight.toFixed(1)} kg` : ''} ➡️
                     </span>
                     ${latestImg ? `
-                      <a href="${latestImg}" target="_blank" style="display:block; height:180px; border-radius:8px; overflow:hidden; background:#000;">
-                        <img src="${latestImg}" alt="Foto Atual ${a.title}" style="width:100%; height:100%; object-fit:cover;">
+                      <a href="${latestImg}" target="_blank" style="display:flex; align-items:center; justify-content:center; min-height:160px; max-height:220px; border-radius:8px; overflow:hidden; background:#05070a; border:1px solid rgba(0,255,136,0.15); text-decoration:none;">
+                        <img src="${latestImg}" alt="Foto Atual ${a.title}" style="max-width:100%; max-height:220px; width:auto; height:auto; object-fit:contain; display:block; margin:0 auto;">
                       </a>
                     ` : `
                       <div style="height:180px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.02); border-radius:8px; color:#64748b; font-size:0.72rem;">
@@ -10456,15 +10625,16 @@ function updateEvolucaoStats() {
                 </div>
               `}
 
-              <!-- Espaço Limpo para a Análise Oficial do Treinador (Sem textos inventados) -->
+              <!-- Espaço Limpo para a Análise Visual Comparativa do Treinador -->
               ${(latestSet.coachAnalysis && latestSet.coachAnalysis[a.key]) ? `
-                <div style="padding:10px 12px; background:rgba(56,189,248,0.06); border-left:3.5px solid #38bdf8; border-radius:6px; font-size:0.78rem; color:#f1f5f9; line-height:1.55; white-space:pre-line;">
-                  <strong style="color:#38bdf8; display:block; margin-bottom:4px;">Parecer Comparativo do Prof. Gui Lemos:</strong>
-                  ${latestSet.coachAnalysis[a.key]}
+                <div style="padding:10px 12px; background:rgba(56,189,248,0.06); border-left:3.5px solid #38bdf8; border-radius:6px; font-size:0.78rem; color:#f1f5f9; line-height:1.55;">
+                  <div style="font-size:0.86rem; font-weight:800; color:#38bdf8; margin-bottom:6px; letter-spacing:0.02em;">Análise visual comparativa</div>
+                  ${formatVisualAnalysisContent(latestSet.coachAnalysis[a.key])}
                 </div>
               ` : `
                 <div style="padding:8px 12px; background:rgba(255,255,255,0.02); border-left:3px solid #38bdf8; border-radius:6px; font-size:0.74rem; color:#94a3b8; line-height:1.5;">
-                  <strong style="color:#38bdf8;">🔬 Parecer Técnico:</strong> Aguardando elaboração da análise técnica oficial do Prof. Gui Lemos para este ciclo.
+                  <div style="font-size:0.86rem; font-weight:800; color:#38bdf8; margin-bottom:4px; letter-spacing:0.02em;">Análise visual comparativa</div>
+                  Aguardando elaboração da análise visual comparativa oficial do Prof. Gui Lemos para este ciclo.
                 </div>
               `}
             </div>
@@ -10508,111 +10678,17 @@ function updateEvolucaoStats() {
             <div style="font-size:0.74rem; color:#cbd5e1;">
               ${s.notes ? `<strong>Notas do Atleta:</strong> ${s.notes}<br>` : ''}
               ${(s.coachNotes || s.coachAnalysis) ? `
-              <div style="margin-top:8px; padding:8px 10px; background:rgba(0,255,136,0.04); border-left:3.5px solid var(--brand-neon); border-radius:6px; font-size:0.76rem; color:#f1f5f9; line-height:1.55; white-space:pre-line;">
-                <strong style="color:var(--brand-neon); display:block; margin-bottom:4px;">Parecer Individual do Prof. Gui Lemos:</strong>
-                ${s.coachNotes}
-              </div>
-            ` : ''}
+                <div style="margin-top:8px; padding:10px 12px; background:rgba(56,189,248,0.06); border-left:3.5px solid #38bdf8; border-radius:6px; font-size:0.76rem; color:#f1f5f9; line-height:1.55;">
+                  <div style="font-size:0.84rem; font-weight:800; color:#38bdf8; margin-bottom:6px; letter-spacing:0.02em;">Análise visual</div>
+                  ${formatVisualAnalysisContent(s.coachNotes || s.coachAnalysis)}
+                </div>
+              ` : ''}
             </div>
           </div>`;
       });
 
       container.innerHTML = html;
     }
-    function renderUserUploadedPhotosGallery(history) {
-      const container = document.getElementById('userPhotoSetsContainer');
-      const badge = document.getElementById('userPhotoCountBadge');
-      if (!container) return;
-
-      const h = history || getBodyCompHistory();
-      const photoSets = (h || []).filter(item => item.photos && (item.photos.front || item.photos.side || item.photos.back));
-
-      if (badge) {
-        badge.textContent = `${photoSets.length} Set(s) Salvo(s)`;
-      }
-
-      if (photoSets.length === 0) {
-        container.innerHTML = `
-          <div style="background:rgba(56,189,248,0.06); border:1px dashed rgba(56,189,248,0.3); border-radius:10px; padding:16px; text-align:center; color:#94a3b8; font-size:0.78rem;">
-            Nenhum set de fotos individuais arquivado. Toque em "ADICIONAR FOTOS" acima para incluir.
-          </div>`;
-        return;
-      }
-
-      // Ordena cronologicamente invertido (mais recente primeiro)
-      const reversedSets = photoSets.slice().reverse();
-      let html = '<div style="display:flex; flex-direction:column; gap:16px;">';
-
-      reversedSets.forEach(s => {
-        const dStr = (s.date || '').split('-').reverse().join('/');
-        const wStr = s.weight ? `${s.weight.toFixed(1)} kg` : '--';
-        const waistStr = s.waist ? `${s.waist.toFixed(1)} cm` : '--';
-        const bfStr = s.bfManual ? `${s.bfManual.toFixed(1)}%` : (s.bf ? `${s.bf.toFixed(1)}%` : '--');
-
-        const frontImg = s.photos ? s.photos.front : null;
-        const sideImg = s.photos ? s.photos.side : null;
-        const backImg = s.photos ? s.photos.back : null;
-
-        html += `
-          <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:14px; box-shadow:0 4px 14px rgba(0,0,0,0.3);">
-            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
-              <div>
-                <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px; flex-wrap:wrap;">
-                  <strong style="color:#ffffff; font-size:0.92rem;">Entrada Fotográfica • ${dStr}</strong>
-                  <span style="font-size:0.68rem; font-weight:700; color:#38bdf8; background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.3); padding:2px 8px; border-radius:6px;">Registro</span>
-                </div>
-                <div style="font-size:0.75rem; color:#94a3b8;">
-                  Peso: <strong style="color:#f1f5f9;">${wStr}</strong> • Cintura: <strong style="color:#f1f5f9;">${waistStr}</strong> • % BF: <strong style="color:var(--brand-neon);">${bfStr}</strong>
-                </div>
-              </div>
-            </div>
-
-            <!-- Grade de Imagens da Entrada -->
-            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap:10px; margin-bottom:12px;">
-              ${frontImg ? `
-                <div style="background:#000; border-radius:8px; overflow:hidden; border:1px solid rgba(255,255,255,0.1);">
-                  <a href="${frontImg}" target="_blank" style="display:block; height:220px; background:#000;">
-                    <img src="${frontImg}" alt="Frente ${dStr}" style="width:100%; height:100%; object-fit:cover;">
-                  </a>
-                  <div style="padding:4px 6px; text-align:center; font-size:0.68rem; font-weight:700; color:#38bdf8; background:rgba(56,189,248,0.1);">POSTURA FRONTAL</div>
-                </div>
-              ` : ''}
-              ${sideImg ? `
-                <div style="background:#000; border-radius:8px; overflow:hidden; border:1px solid rgba(255,255,255,0.1);">
-                  <a href="${sideImg}" target="_blank" style="display:block; height:220px; background:#000;">
-                    <img src="${sideImg}" alt="Perfil ${dStr}" style="width:100%; height:100%; object-fit:cover;">
-                  </a>
-                  <div style="padding:4px 6px; text-align:center; font-size:0.68rem; font-weight:700; color:var(--brand-neon); background:rgba(0,255,136,0.1);">POSTURA LATERAL</div>
-                </div>
-              ` : ''}
-              ${backImg ? `
-                <div style="background:#000; border-radius:8px; overflow:hidden; border:1px solid rgba(255,255,255,0.1);">
-                  <a href="${backImg}" target="_blank" style="display:block; height:220px; background:#000;">
-                    <img src="${backImg}" alt="Costas ${dStr}" style="width:100%; height:100%; object-fit:cover;">
-                  </a>
-                  <div style="padding:4px 6px; text-align:center; font-size:0.68rem; font-weight:700; color:#fbbf24; background:rgba(251,191,36,0.1);">POSTURA POSTERIOR</div>
-                </div>
-              ` : ''}
-            </div>
-
-            <!-- Parecer do Treinador Gui Lemos -->
-            ${(s.coachNotes || s.coachAnalysis) ? `
-              <div style="background:rgba(56,189,248,0.06); border-left:3.5px solid #38bdf8; border-radius:8px; padding:10px 12px; font-size:0.78rem; color:#cbd5e1; line-height:1.55;">
-                <strong style="color:#38bdf8; display:block; margin-bottom:4px; font-size:0.80rem;">🔬 Diagnóstico e Parecer Técnico:</strong>
-                <div style="white-space:pre-line;">${s.coachNotes || s.coachAnalysis}</div>
-              </div>
-            ` : (s.notes ? `
-              <div style="background:rgba(255,255,255,0.03); border-left:3px solid #64748b; border-radius:6px; padding:8px 10px; font-size:0.75rem; color:#94a3b8;">
-                <strong>Observações:</strong> ${s.notes}
-              </div>
-            ` : '')}
-          </div>`;
-      });
-
-      html += '</div>';
-      container.innerHTML = html;
-    }
-    
 
     // =========================================================================
     // SISTEMA DE NOTIFICAÇÕES DINÂMICAS PARA NOVAS ANÁLISES
