@@ -5201,16 +5201,86 @@
         <h2 class="training-section-title">ROTINA DE TREINO</h2>
       </div>
 
-      <div style="background: rgba(255, 255, 255, 0.03); border: 1.5px dashed rgba(0, 255, 136, 0.35); border-radius: 18px; padding: 36px 20px; text-align: center; margin: 12px 0;">
-        <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(0, 255, 136, 0.1); border: 1.5px solid var(--brand-neon); display: flex; align-items: center; justify-content: center; font-size: 1.7rem; margin: 0 auto 16px auto; box-shadow: 0 0 16px var(--brand-neon-glow);">
-          📝
+      <!-- Lista de Dias da Rotina de Treino (5 Sessões Semanais) -->
+      <div class="training-days-list" id="trainingDaysList">
+        <!-- TREINO A: EMPURRAR -->
+        <div class="training-day-card" id="dayCard-treinoa" data-workout-type="treino" data-target="4" onclick="openDayWorkout('treinoa')">
+          <div class="day-card-left">
+            <div class="day-card-name-row">
+              <span class="day-name">TREINO A | EMPURRAR</span>
+            </div>
+            <div class="day-focus-desc">Peitoral, Deltoides e Tríceps • Tensão Mecânica</div>
+            <div class="day-meta-pill">📍 Academia • ⏱️ ~55 min</div>
+          </div>
+          <div class="day-card-right">
+            <div class="day-status-pill status-pending" id="statusPill-treinoa" onclick="event.stopPropagation(); handleWorkoutStatusClick('treinoa')">
+              <span class="status-icon">›</span>
+            </div>
+          </div>
         </div>
-        <h3 style="font-size: 1.2rem; font-weight: 800; color: #ffffff; margin: 0 0 8px 0;">Rotina de Treino em Estruturação</h3>
-        <p style="font-size: 0.86rem; color: #94a3b8; line-height: 1.6; max-width: 440px; margin: 0 auto 20px auto;">
-          O treinador <strong>Gui Lemos</strong> está elaborando a sua rotina personalizada com foco em <strong>Fortalecimento de Core, Estabilidade Lombopélvica e Mobilidade</strong> com base nas respostas da sua Ficha de Avaliação.
-        </p>
-        <div style="display: inline-flex; align-items: center; gap: 8px; font-size: 0.78rem; font-weight: 700; color: var(--brand-neon); background: rgba(0, 255, 136, 0.08); border: 1px solid rgba(0, 255, 136, 0.25); padding: 7px 16px; border-radius: 20px;">
-          ⏳ Aguardando liberação do Treinador
+
+        <!-- TREINO B: PUXAR -->
+        <div class="training-day-card" id="dayCard-treinob" data-workout-type="treino" data-target="4" onclick="openDayWorkout('treinob')">
+          <div class="day-card-left">
+            <div class="day-card-name-row">
+              <span class="day-name">TREINO B | PUXAR</span>
+            </div>
+            <div class="day-focus-desc">Dorsais, Romboides, Deltoide Posterior e Bíceps</div>
+            <div class="day-meta-pill">📍 Academia • ⏱️ ~55 min</div>
+          </div>
+          <div class="day-card-right">
+            <div class="day-status-pill status-pending" id="statusPill-treinob" onclick="event.stopPropagation(); handleWorkoutStatusClick('treinob')">
+              <span class="status-icon">›</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TREINO C: PERNAS -->
+        <div class="training-day-card" id="dayCard-treinoc" data-workout-type="treino" data-target="4" onclick="openDayWorkout('treinoc')">
+          <div class="day-card-left">
+            <div class="day-card-name-row">
+              <span class="day-name">TREINO C | PERNAS</span>
+            </div>
+            <div class="day-focus-desc">Quadríceps, Isquiotibiais, Glúteos • Blindagem Lombar</div>
+            <div class="day-meta-pill">📍 Academia • ⏱️ ~55 min</div>
+          </div>
+          <div class="day-card-right">
+            <div class="day-status-pill status-pending" id="statusPill-treinoc" onclick="event.stopPropagation(); handleWorkoutStatusClick('treinoc')">
+              <span class="status-icon">›</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TREINO D: CORE E CARDIO 1 -->
+        <div class="training-day-card" id="dayCard-treinod" data-workout-type="treino" data-target="4" onclick="openDayWorkout('treinod')">
+          <div class="day-card-left">
+            <div class="day-card-name-row">
+              <span class="day-name">TREINO D | CORE E CARDIO</span>
+            </div>
+            <div class="day-focus-desc">Estabilidade McGill + Híbridos Z-Press + Zona 2</div>
+            <div class="day-meta-pill">📍 Academia • ⏱️ ~60 min</div>
+          </div>
+          <div class="day-card-right">
+            <div class="day-status-pill status-pending" id="statusPill-treinod" onclick="event.stopPropagation(); handleWorkoutStatusClick('treinod')">
+              <span class="status-icon">›</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TREINO E: CORE E CARDIO 2 -->
+        <div class="training-day-card" id="dayCard-treinoe" data-workout-type="treino" data-target="4" onclick="openDayWorkout('treinoe')">
+          <div class="day-card-left">
+            <div class="day-card-name-row">
+              <span class="day-name">TREINO E | CORE E CARDIO</span>
+            </div>
+            <div class="day-focus-desc">Suitcase Carry, Cadeia Cruzada + Queima Lipídica</div>
+            <div class="day-meta-pill">📍 Academia • ⏱️ ~60 min</div>
+          </div>
+          <div class="day-card-right">
+            <div class="day-status-pill status-pending" id="statusPill-treinoe" onclick="event.stopPropagation(); handleWorkoutStatusClick('treinoe')">
+              <span class="status-icon">›</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -5235,6 +5305,1061 @@
         </button>
       </div>
     </div><!-- end #trainingHubSection -->
+
+  <!-- ==================== TAB: TREINO A (EMPURRAR) ==================== -->
+  <div id="tab-treinoa" class="tab-content">
+    <div class="session-overall-meta">
+      <span class="meta-item">📍 Academia</span>
+      <span class="meta-separator">|</span>
+      <span class="meta-item">⏳ ~55 min</span>
+      <span class="meta-separator">|</span>
+      <span class="meta-item">🎯 Tensão Mecânica</span>
+    </div>
+
+    <!-- SEÇÃO 1: ATIVAÇÃO -->
+    <div class="section-card sec-aquecimento">
+      <div class="section-header">
+        <div class="section-title">ATIVAÇÃO</div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~10 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 1: Rotação Externa no Cabo -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>ROTAÇÃO EXTERNA NO CABO (MANGUITO)</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Rotação Externa no Cabo', '1. Posicione a polia na altura do cotovelo com uma toalha dobrada sob o braço.<br>2. Mantenha o cotovelo colado a 90° e rode o antebraço para fora sem mover o tronco.<br>3. Retorne controlando em 2 segundos sem perder a tensão.<br><br><b>Cuidados:</b> Não compense inclinando a coluna lombar ou girando os quadris. Carga leve a moderada.<br><br><b>Base científica:</b> ATIVAÇÃO DO INFRAESPINHAL E REDONDO MENOR: A rotação externa isolada estabiliza a cabeça do úmero na cavidade glenoidal, prevenindo pinçamentos subacromiais durante supinos pesados. (Reinold et al., 2004).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 séries × 15 reps • Descanso: 45s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 2: Descompressão Axial em Dead Hang -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>DESCOMPRESSÃO AXIAL EM DEAD HANG</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Dead Hang com Respiração Diafragmática', '1. Segure na barra fixa com pegada pronada na largura dos ombros.<br>2. Relaxe o peso do corpo completamente, permitindo que a gravidade abra os espaços intervertebrais.<br>3. Respire profundamente pelo diafragma (expansão costal 360°).<br><br><b>Cuidados:</b> Se sentir desconforto nos ombros, apoie a ponta dos pés suavemente no chão para graduar a tração.<br><br><b>Base científica:</b> DESCOMPRESSÃO DISCAL: A tração gravitacional passiva reduz a pressão hidrostática intradiscal e alonga eretores e fáscia toracolombar. (McGill, 2015).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 séries × 20s • Descanso: 45s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 3: Protração Escapular na Polia -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>PROTRAÇÃO ESCAPULAR NA POLIA (SCAP PUSH)</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Protração Escapular na Polia', '1. Em pé de frente para a polia média, segure o cabo com o braço estendido.<br>2. Sem flexionar o cotovelo, empurre o cabo para a frente projetando a escápula (protração máxima).<br>3. Retorne retraindo a escápula com controle.<br><br><b>Cuidados:</b> Mantenha a coluna lombar neutra e o abdômen contraído em bracing.<br><br><b>Base científica:</b> ATIVAÇÃO DO SERRÁTIL ANTERIOR: O serrátil anterior ancora a escápula contra o gradil costal, impedindo a escápula alada durante movimentos de empurrar. (Ludewig et al., 2004).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 séries × 12 reps • Descanso: 45s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 2: FORTALECIMENTO -->
+    <div class="section-card sec-forca">
+      <div class="section-header">
+        <div class="section-title">FORTALECIMENTO</div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~40 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 4: Supino Reto com Halteres -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>SUPINO RETO COM HALTERES (SEMI-NEUTRO)</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Supino Reto com Halteres', '1. Deite no banco com os pés bem apoiados e pelve neutra (sem hiperextensão lombar).<br>2. Segure os halteres em pegada semi-neutra (45°), cotovelos apontando levemente para baixo.<br>3. Desça controlando em 3 segundos até a linha do peito e empurre verticalmente até a extensão.<br><br><b>Cuidados:</b> Mantenha o abdômen travado e escápulas aduzidas. Não tire a cabeça ou os glúteos do banco.<br><br><b>Base científica:</b> HIPERTROFIA PEITORAL E PRESERVAÇÃO GLENOUMERAL: A pegada semi-neutra reduz a rotação interna extrema e o torque no manguito rotador sem diminuir a ativação do peitoral maior. (Schoenfeld, 2016).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">4 séries × 8 a 10 reps • Descanso: 90s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">3</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">4</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 5: Supino Inclinado Articulado -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>SUPINO INCLINADO ARTICULADO</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Supino Inclinado Articulado', '1. Ajuste a altura do banco para que as manoplas fiquem na linha superior do peitoral.<br>2. Apoie as costas firmemente e mantenha a coluna alinhada.<br>3. Empurre até quase estender os cotovelos e retorne em desaceleração excêntrica de 3s.<br><br><b>Cuidados:</b> Evite descolar as costas do encosto para compensar o peso.<br><br><b>Base científica:</b> PORÇÃO CLAVICULAR DO PEITORAL: O ângulo inclinado (30° a 45°) aumenta o recrutamento das fibras superiores do peitoral maior e deltoide anterior. (Trebs et al., 2010).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 séries × 10 a 12 reps • Descanso: 75s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">3</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 6: Elevação Lateral na Polia Média -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>ELEVAÇÃO LATERAL NA POLIA MÉDIA</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Elevação Lateral na Polia Média', '1. Posicione a polia na altura do joelho ou punho em repouso.<br>2. Eleve o braço lateralmente no plano escapular (ligeiramente à frente) até a altura do ombro.<br>3. Segure 1s no topo e desça controlando a tensão contínua.<br><br><b>Cuidados:</b> Não balance o tronco nem encolha os ombros (evite acionar o trapézio superior).<br><br><b>Base científica:</b> TENSÃO CONSTANTE NO DELTOIDE LATERAL: O cabo mantém torque mecânico uniforme em toda a curva de movimento, maximizando o estresse metabólico. (Schoenfeld et al., 2020).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">4 séries × 12 a 15 reps • Descanso: 60s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">3</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">4</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 7: Tríceps Corda na Polia Alta -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>TRÍCEPS CORDA NA POLIA ALTA</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Tríceps Corda na Polia Alta', '1. Cotovelos fixos ao lado do tronco, coluna neutra com leve inclinação anterior do quadril.<br>2. Empurre para baixo e abra a corda no final do curso, buscando pico de contração.<br>3. Retorne até 90° de flexão sem mover os cotovelos para a frente.<br><br><b>Cuidados:</b> Evite jogar o peso do tronco sobre a corda.<br><br><b>Base científica:</b> CABEÇA LATERAL E MEDIAL DO TRÍCEPS: A rotação lateral dos punhos no final amplia o encurtamento da cabeça lateral do tríceps braquial. (Boeckh-Behrens e Buskies, 2000).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 séries × 12 a 15 reps • Descanso: 60s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">3</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 8: Tríceps Testa com Halteres no Banco -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>TRÍCEPS TESTA COM HALTERES NO BANCO</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Tríceps Testa com Halteres', '1. Deitado no banco, segure os halteres com pegada neutra e braços a ~80° (leve inclinação atrás da cabeça).<br>2. Flexione apenas os cotovelos descendo os halteres ao lado das orelhas.<br>3. Estenda os cotovelos empurrando de volta ao ponto inicial.<br><br><b>Cuidados:</b> Não abra os cotovelos excessivamente para fora.<br><br><b>Base científica:</b> CABEÇA LONGA DO TRÍCEPS: A posição inclinada coloca a cabeça longa sob maior estiramento passivo, aumentando a hipertrofia mediada por tensão em comprimento. (Maeo et al., 2022).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 séries × 10 a 12 reps • Descanso: 60s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">3</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 3: MOBILIDADE -->
+    <div class="section-card sec-flexibilidade">
+      <div class="section-header">
+        <div class="section-title">MOBILIDADE</div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~5 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 9: Alongamento Passivo de Peitoral e Ombro -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>ALONGAMENTO PASSIVO DE PEITORAL E OMBRO</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Alongamento Passivo de Peitoral', '1. Apoie o antebraço no batente de uma porta ou espaldar na altura do ombro.<br>2. Gire o tronco lentamente para o lado oposto até sentir alongar peitoral e deltoide anterior.<br>3. Mantenha por 30 segundos respirando suavemente.<br><br><b>Cuidados:</b> Não force se sentir dor articular no ombro.<br><br><b>Base científica:</b> RESTAURAÇÃO DE COMPRIMENTO TECIDUAL: Auxilia na redução da tensão no peitoral menor e na cápsula anterior do ombro pós-supinos. (Page, 2012).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 séries × 30s • Descanso: 30s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card Clean de Finalização de Treino -->
+    <div class="workout-finish-clean-card" id="workoutFinishCard-treinoa">
+      <button type="button" class="btn-finish-workout-trigger" id="btnTriggerFinish-treinoa" onclick="openBiometriaSessaoModal('treinoa')">
+        <span class="finish-flag-icon">🏁</span> <span>FINALIZAR SESSÃO</span>
+      </button>
+      <div id="completeFeedback-treinoa" class="complete-feedback-box" style="display:none; width: 100%; margin-top: 10px;">
+        ✅ Sessão finalizada e registrada com sucesso!
+      </div>
+    </div>
+
+    <!-- Ajuda Contextual do Treino -->
+    <div class="contextual-help-wrap" style="margin-top: 24px; margin-bottom: 80px;">
+      <button type="button" class="btn-contextual-help" onclick="openContextualHelp('treinos')">
+        <span>precisa de ajuda?</span> <u>acesse as instruções</u>
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== TAB: TREINO B (PUXAR) ==================== -->
+  <div id="tab-treinob" class="tab-content">
+    <div class="session-overall-meta">
+      <span class="meta-item">📍 Academia</span>
+      <span class="meta-separator">|</span>
+      <span class="meta-item">⏳ ~55 min</span>
+      <span class="meta-separator">|</span>
+      <span class="meta-item">🎯 Densidade Escapular</span>
+    </div>
+
+    <!-- SEÇÃO 1: ATIVAÇÃO -->
+    <div class="section-card sec-aquecimento">
+      <div class="section-header">
+        <div class="section-title">ATIVAÇÃO</div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~10 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 1: Cat-Cow Segmentado no Solo -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>CAT-COW SEGMENTADO NO SOLO</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Cat-Cow Segmentado', '1. Em 4 apoios no solo, mãos sob os ombros e joelhos sob o quadril.<br>2. Inicie a mobilização pela pelve: retroversão suave, arredondando vértebra por vértebra até a cervical.<br>3. Inverta o movimento partindo do cóccix até abrir o peito suavemente.<br><br><b>Cuidados:</b> Movimento lento e fluido sem forçar o final da extensão lombar.<br><br><b>Base científica:</b> LUBRIFICAÇÃO INTERVERTEBRAL: A flexoextensão sem carga promove fluxo de fluido sinovial e reduz a rigidez matinal nos discos lombares. (McGill, 2015).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 séries × 8 ciclos lentos • Descanso: 45s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 2: Puxada Escapular na Barra Fixa -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>PUXADA ESCAPULAR NA BARRA FIXA</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Puxada Escapular', '1. Pendure-se na barra com pegada pronada ou neutra na largura dos ombros.<br>2. Sem flexionar os cotovelos, deprima e retraia as escápulas, elevando o corpo 5 a 10 cm.<br>3. Segure 2s no topo e desça suavemente.<br><br><b>Cuidados:</b> Não dê trancos com o quadril nem dobre os braços.<br><br><b>Base científica:</b> RECRUTAMENTO DE TRAPÉZIO INFERIOR: Ativação seletiva da musculatura escapular inferior, essencial para estabilização de puxadas verticais. (Cools et al., 2007).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 séries × 10 reps • Descanso: 45s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 3: Dead Hang com Respiração Diafragmática -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>DEAD HANG COM RESPIRAÇÃO DIAFRAGMÁTICA</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Dead Hang', '1. Suspensão passiva em barra fixa com pegada neutra ou pronada.<br>2. Permita a descompressão total da coluna e respire profundamente.<br><br><b>Cuidados:</b> Deixe o tronco relaxado sem tensão excessiva no pescoço.<br><br><b>Base científica:</b> ALÍVIO DISCAL AXIAL: Diminui a pressão nos discos lombares L4-L5 e L5-S1. (McGill, 2015).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 séries × 20s • Descanso: 45s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 2: FORTALECIMENTO -->
+    <div class="section-card sec-forca">
+      <div class="section-header">
+        <div class="section-title">FORTALECIMENTO</div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~40 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 4: Puxada Alta na Polia com Pegada Neutra -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>PUXADA ALTA NA POLIA COM PEGADA NEUTRA</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Puxada Alta Neutra', '1. Sente no aparelho com coxas travadas sob os roletes e tronco alinhado.<br>2. Puxe a barra ou triângulo em direção à fúrcula clavicular, liderando com os cotovelos.<br>3. Retorne controlando em 3s estendendo os braços e permitindo a subida controlada da escápula.<br><br><b>Cuidados:</b> Não incline o tronco para trás excessivamente (máximo 10° a 15°).<br><br><b>Base científica:</b> LARGURA DORSAL E ESPAÇO SUBACROMIAL: A pegada neutra maximiza a alavanca do grande dorsal e reduz o risco de conflito subacromial nos ombros. (Signorile et al., 2002).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">4 séries × 8 a 10 reps • Descanso: 90s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">3</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">4</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 5: Remada Articulada com Apoio no Peito -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>REMADA ARTICULADA COM APOIO NO PEITO</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Remada com Apoio no Peito', '1. Regule o banco para que o apoio torácico fique no esterno.<br>2. Puxe as manoplas fechando as escápulas e mantendo os cotovelos a ~45° do corpo.<br>3. Segure 1s de contração e retorne estendendo com controle.<br><br><b>Cuidados:</b> O apoio no peito elimina completamente a sobrecarga e o cisalhamento na lombar.<br><br><b>Base científica:</b> ISOLAMENTO POSTERIOR SEM CARGA LOMBAR: Ideal para indivíduos com histórico de desconforto lombar, pois transfere 100% da sobrecarga para romboides e latíssimo sem exigir contração compensatória dos eretores espinhais. (McGill, 2015).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">4 séries × 10 a 12 reps • Descanso: 75s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">3</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">4</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 6: Remada Baixa na Polia com Triângulo -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>REMADA BAIXA NA POLIA COM TRIÂNGULO</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Remada Baixa Polia', '1. Sente com joelhos semi-flexionados, pés apoiados e tronco perpendicular ao solo.<br>2. Puxe o triângulo na linha da cicatriz umbilical, mantendo o abdômen rígido em bracing.<br>3. Retorne controlando o peso sem projetar os ombros para a frente.<br><br><b>Cuidados:</b> Não arredonde a coluna lombar nem jogue o tronco para trás ao puxar.<br><br><b>Base científica:</b> ESPESSURA DE DORSAL E ATIVAÇÃO DE CORE: Exige estabilização isométrica do tronco enquanto recruta fortemente as fibras médias do trapézio e latíssimo. (Fenwick et al., 2009).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 séries × 10 a 12 reps • Descanso: 75s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">3</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 7: Crucifixo Inverso na Máquina ou Halteres -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>CRUCIFIXO INVERSO NA MÁQUINA</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Crucifixo Inverso', '1. Apoie o peito no encosto da máquina peck deck invertida.<br>2. Com cotovelos semi-flexionados, abra os braços horizontalmente até a linha dos ombros.<br>3. Retorne com controle sem bater as placas de peso.<br><br><b>Cuidados:</b> Mantenha os ombros longe das orelhas (evite acionar o trapézio superior).<br><br><b>Base científica:</b> DELTOIDE POSTERIOR E CORREÇÃO POSTURAL: Fortalece os rotadores e retratores, equilibrando a cintura escapular contra o encurtamento anterior de postura sentada. (Schoenfeld, 2016).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 séries × 12 a 15 reps • Descanso: 60s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">3</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 8: Rosca Bíceps no Banco Inclinado -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>ROSCA BÍCEPS NO BANCO INCLINADO</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Rosca Bíceps Banco Inclinado', '1. Banco inclinado a 60°, braços caídos perpendicularmente ao solo.<br>2. Flexione os cotovelos supinando os punhos no terço final do movimento.<br>3. Desça controlando em 3 segundos até a extensão completa.<br><br><b>Cuidados:</b> Não projete os cotovelos para a frente para ajudar na subida.<br><br><b>Base científica:</b> CABEÇA LONGA DO BÍCEPS EM ESTIRAMENTO: A extensão glenoumeral pré-estira a cabeça longa, aumentando o torque mecânico e o estímulo hipertrófico. (Oliveira et al., 2009).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 séries × 10 a 12 reps • Descanso: 60s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">3</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 3: MOBILIDADE -->
+    <div class="section-card sec-flexibilidade">
+      <div class="section-header">
+        <div class="section-title">MOBILIDADE</div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~5 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 9: Alongamento do Grande Dorsal -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>ALONGAMENTO DO GRANDE DORSAL</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Alongamento de Dorsal', '1. Segure em um poste, espaldar ou máquina com uma das mãos na altura da cabeça.<br>2. Projete os quadris para trás e para o lado oposto, sentindo o alongamento lateral desde a axila até a pelve.<br>3. Mantenha 30s por lado respirando calmamente.<br><br><b>Cuidados:</b> Não force a lombar em flexão descompensada.<br><br><b>Base científica:</b> ALÍVIO DA TENSÃO TORACOLOMBAR: O latíssimo do dorso insere-se na fáscia toracolombar; seu relaxamento alivia a tração compressiva na junção lombossacra. (Neumann, 2016).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 séries × 30s por lado • Descanso: 30s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card Clean de Finalização de Treino -->
+    <div class="workout-finish-clean-card" id="workoutFinishCard-treinob">
+      <button type="button" class="btn-finish-workout-trigger" id="btnTriggerFinish-treinob" onclick="openBiometriaSessaoModal('treinob')">
+        <span class="finish-flag-icon">🏁</span> <span>FINALIZAR SESSÃO</span>
+      </button>
+      <div id="completeFeedback-treinob" class="complete-feedback-box" style="display:none; width: 100%; margin-top: 10px;">
+        ✅ Sessão finalizada e registrada com sucesso!
+      </div>
+    </div>
+
+    <!-- Ajuda Contextual do Treino -->
+    <div class="contextual-help-wrap" style="margin-top: 24px; margin-bottom: 80px;">
+      <button type="button" class="btn-contextual-help" onclick="openContextualHelp('treinos')">
+        <span>precisa de ajuda?</span> <u>acesse as instruções</u>
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== TAB: TREINO C (PERNAS) ==================== -->
+  <div id="tab-treinoc" class="tab-content">
+    <div class="session-overall-meta">
+      <span class="meta-item">📍 Academia</span>
+      <span class="meta-separator">|</span>
+      <span class="meta-item">⏳ ~55 min</span>
+      <span class="meta-separator">|</span>
+      <span class="meta-item">🎯 Blindagem Lombar</span>
+    </div>
+
+    <!-- SEÇÃO 1: ATIVAÇÃO -->
+    <div class="section-card sec-aquecimento">
+      <div class="section-header">
+        <div class="section-title">ATIVAÇÃO</div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~10 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 1: Mobilidade de Tornozelo em Dorsinflexão -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>MOBILIDADE DE TORNOZELO NO DEGRAU</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Mobilidade de Tornozelo', '1. Apoie o pé em um degrau ou caixa com o joelho alinhado sobre o segundo dedo do pé.<br>2. Projete o joelho para a frente mantendo o calcanhar 100% em contato com o chão.<br>3. Sustente 2s no limite da amplitude e retorne.<br><br><b>Cuidados:</b> Não deixe o calcanhar descolar nem o joelho desabar para dentro (valgo).<br><br><b>Base científica:</b> PREVENÇÃO DE RETROVERSÃO LOMBAR: A restrição na dorsinflexão do tornozelo é uma das causas primordiais do arredondamento precoce da pelve em agachamentos e leg press. (Dill et al., 2014).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 séries × 10 reps por perna • Descanso: 45s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 2: Ponte de Glúteo Unilateral no Solo -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>PONTE DE GLÚTEO UNILATERAL NO SOLO</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Ponte de Glúteo Unilateral', '1. Deitado de barriga para cima, um joelho dobrado com o pé no chão e o outro abraçado contra o peito.<br>2. Empurre pelo calcanhar elevando o quadril até a extensão completa.<br>3. Segure 2s no topo contraindo o glúteo máximo sem hiperextender a lombar.<br><br><b>Cuidados:</b> A perna abraçada impede a coluna lombar de participar do movimento.<br><br><b>Base científica:</b> ATIVAÇÃO SELETIVA DE GLÚTEO MÁXIMO: Restaura o padrão de extensão de quadril isolada, reduzindo a dominância sinérgica dos isquiotibiais e eretores lombares. (McGill, 2015).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 séries × 10 reps por perna • Descanso: 45s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 3: Abdução com Mini-Band ou Caneleira -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>ABDUÇÃO DE QUADRIL COM MINI-BAND</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Abdução de Quadril', '1. Com a mini-band acima dos joelhos, deite de lado com pernas estendidas e tronco alinhado.<br>2. Eleve a perna de cima em ~30° com rotação neutra do pé.<br>3. Desça controlando sem tocar o solo.<br><br><b>Cuidados:</b> Não gire a pelve para trás ao subir.<br><br><b>Base científica:</b> ESTABILIDADE DO GLÚTEO MÉDIO: Essencial para evitar o colapso valgo do fêmur e controlar a báscula pélvica lateral em exercícios unilaterais. (Distefano et al., 2009).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 séries × 15 reps por perna • Descanso: 45s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 2: FORTALECIMENTO -->
+    <div class="section-card sec-forca">
+      <div class="section-header">
+        <div class="section-title">FORTALECIMENTO</div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~40 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 4: Leg Press 45° (Pelve Travada) -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>LEG PRESS 45° (PELVE TRAVADA)</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Leg Press 45°', '1. Apoie os pés na plataforma na largura dos ombros, na altura média.<br>2. Mantenha a pelve e o sacro 100% colados no encosto durante todo o percurso.<br>3. Desça com controle até ~90° de joelho e empurre pelos calcanhares sem travar os joelhos no topo.<br><br><b>Cuidados:</b> REGRA DE OURO: Interrompa a descida imediatamente antes de qualquer arredondamento da pelve.<br><br><b>Base científica:</b> SEGURANÇA LOMBOPÉLVICA NO LEG PRESS: Ao evitar a retroversão no final da flexão de quadril, elimina-se o pico de cisalhamento posterior nos discos L5-S1. (McGill, 2015).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">4 séries × 10 a 12 reps • Descanso: 90s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">3</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">4</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 5: Agachamento Búlgaro com Halteres -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>AGACHAMENTO BÚLGARO COM HALTERES</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Agachamento Búlgaro', '1. Apoie o peito do pé de trás em um banco ou caixa baixa.<br>2. Dê um passo largo à frente com tronco levemente inclinado (~10°) mantendo coluna neutra.<br>3. Desça verticalmente até o joelho de trás quase tocar o chão e suba empurrando pelo calcanhar da frente.<br><br><b>Cuidados:</b> Joelho da frente acompanha o alinhamento do pé.<br><br><b>Base científica:</b> HIPERTROFIA UNILATERAL COM MENOR CARGA ESPINHAL: O exercício unilateral reduz a carga compressiva na coluna pela metade em comparação com agachamentos bilaterais, mantendo ou superando a ativação neuromuscular dos membros inferiores. (Speirs et al., 2016).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 séries × 8 a 10 reps por perna • Descanso: 75s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">3</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 6: Mesa ou Cadeira Flexora -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>MESA OU CADEIRA FLEXORA</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Cadeira/Mesa Flexora', '1. Ajuste o rolete na altura do tendão de Aquiles e trave o apoio de coxa.<br>2. Flexione os joelhos puxando os calcanhares para trás com controle.<br>3. Segure 1s no ponto de máxima contração e estenda controlando em 3s.<br><br><b>Cuidados:</b> Não arqueie a lombar para ajudar na puxada.<br><br><b>Base científica:</b> FORTALECIMENTO ISOLADO DE ISQUIOTIBIAIS: Promove hipertrofia do bíceps femoral e semitendíneo sem nenhuma compressão axial na coluna vertebral. (Schoenfeld et al., 2021).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">4 séries × 10 a 12 reps • Descanso: 60s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">3</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">4</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 7: Cadeira Extensora -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>CADEIRA EXTENSORA</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Cadeira Extensora', '1. Apoie as costas firmemente e alinhe o eixo de rotação da máquina com o joelho.<br>2. Estenda as pernas controladamente até a contração total dos quadríceps.<br>3. Retorne desacelerando em 3 segundos.<br><br><b>Cuidados:</b> Não dê trancos nem chute o peso no início do movimento.<br><br><b>Base científica:</b> TENSÃO NO RETO FEMORAL: Exercício de cadeia cinética aberta que isola e hipertrofia o reto femoral de forma superior a agachamentos. (Ema et al., 2013).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 séries × 12 a 15 reps • Descanso: 60s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">3</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 8: Elevação Pélvica no Banco com Halter -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>ELEVAÇÃO PÉLVICA NO BANCO</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Elevação Pélvica', '1. Apoie a parte superior das costas no banco transversalmente, pés no chão na largura dos quadris.<br>2. Posicione o halter sobre o quadril com acolchoamento.<br>3. Eleve a pelve contraindo os glúteos até formar uma linha reta entre joelhos e ombros, mantendo o queixo recolhido.<br><br><b>Cuidados:</b> A extensão deve ser gerada pelos glúteos, sem hiperextender a lombar no topo.<br><br><b>Base científica:</b> PICO DE TENSÃO EM EXTENSÃO TOTAL: Gera altíssima ativação eletromiográfica do glúteo máximo sem impor forças de cisalhamento aos discos lombares. (Contreras et al., 2015).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 séries × 10 a 12 reps • Descanso: 75s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">3</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 9: Panturrilha Unilateral no Degrau -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>PANTURRILHA UNILATERAL NO DEGRAU</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Panturrilha Unilateral', '1. Apoie a ponta de um pé no degrau e segure em um apoio para equilíbrio.<br>2. Desça o calcanhar sentindo o alongamento do tendão de Aquiles.<br>3. Suba na ponta do pé até a flexão plantar máxima e segure 1s no topo.<br><br><b>Cuidados:</b> Movimento com amplitude completa sem quicar no fundo.<br><br><b>Base científica:</b> HIPERTROFIA DO GASTROCNÊMIO E SÓLEO: Amplitude completa com pausa excêntrica reduz a contribuição elástica passiva e maximiza a tensão mecânica nas fibras musculares. (Schoenfeld, 2016).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">4 séries × 15 reps por perna • Descanso: 45s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">3</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">4</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 3: MOBILIDADE -->
+    <div class="section-card sec-flexibilidade">
+      <div class="section-header">
+        <div class="section-title">MOBILIDADE</div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~5 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 10: Alongamento de Psoas e Quadríceps em Lunge -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>ALONGAMENTO DE PSOAS EM LUNGE</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Alongamento de Psoas', '1. Posição de afundo com joelho de trás apoiado no solo (use colchonete).<br>2. Realize uma retroversão pélvica ativa (trave o glúteo de trás) e projete suavemente o quadril à frente.<br>3. Mantenha 30s por lado respirando profundamente.<br><br><b>Cuidados:</b> Não arqueie a lombar; a sensação deve ser na frente da coxa e virilha da perna apoiada.<br><br><b>Base científica:</b> DESATIVAÇÃO DA TRAÇÃO LOMBAR ANTERIOR: O psoas insere-se nas vértebras lombares; seu encurtamento puxa a lombar em hiperlordose e cisalhamento anterior. (McGill, 2015).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 séries × 30s por perna • Descanso: 30s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card Clean de Finalização de Treino -->
+    <div class="workout-finish-clean-card" id="workoutFinishCard-treinoc">
+      <button type="button" class="btn-finish-workout-trigger" id="btnTriggerFinish-treinoc" onclick="openBiometriaSessaoModal('treinoc')">
+        <span class="finish-flag-icon">🏁</span> <span>FINALIZAR SESSÃO</span>
+      </button>
+      <div id="completeFeedback-treinoc" class="complete-feedback-box" style="display:none; width: 100%; margin-top: 10px;">
+        ✅ Sessão finalizada e registrada com sucesso!
+      </div>
+    </div>
+
+    <!-- Ajuda Contextual do Treino -->
+    <div class="contextual-help-wrap" style="margin-top: 24px; margin-bottom: 80px;">
+      <button type="button" class="btn-contextual-help" onclick="openContextualHelp('treinos')">
+        <span>precisa de ajuda?</span> <u>acesse as instruções</u>
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== TAB: TREINO D (CORE E CARDIO 1) ==================== -->
+  <div id="tab-treinod" class="tab-content">
+    <div class="session-overall-meta">
+      <span class="meta-item">📍 Academia</span>
+      <span class="meta-separator">|</span>
+      <span class="meta-item">⏳ ~60 min</span>
+      <span class="meta-separator">|</span>
+      <span class="meta-item">🎯 McGill Big 3 e Zona 2</span>
+    </div>
+
+    <!-- SEÇÃO 1: ATIVAÇÃO -->
+    <div class="section-card sec-aquecimento">
+      <div class="section-header">
+        <div class="section-title">ATIVAÇÃO</div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~10 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 1: McGill Big 3: Bird-Dog -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>MCGILL BIG 3: BIRD-DOG (PERDIGUEIRO)</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('McGill Bird-Dog', '1. Em 4 apoios com coluna estritamente neutra e abdômen em bracing.<br>2. Estenda o braço direito à frente e a perna esquerda para trás sem deixar a pelve girar nem a lombar arquear.<br>3. Mantenha a mão fechada em punho e calcanhar empurrando a parede imaginária por 4 segundos.<br>4. Retorne suavemente e repita do outro lado.<br><br><b>Cuidados:</b> A coluna não pode se mover 1 milímetro durante a elevação dos membros.<br><br><b>Base científica:</b> RIGIDEZ LOMBOSSACRA E MULTÍFIDOS: O Perdigueiro ativa os eretores torácicos e multífidos lombares contralaterais com compressão discal mínima e sem cisalhamento. (McGill, 2015).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 séries × 6 reps por lado (pausa 4s) • Descanso: 45s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">3</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 2: McGill Big 3: Prancha Lateral -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>MCGILL BIG 3: PRANCHA LATERAL</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('McGill Prancha Lateral', '1. Deite de lado apoiado no antebraço com pés sobrepostos ou um à frente do outro.<br>2. Eleve os quadris formando uma linha reta perfeita da cabeça aos pés.<br>3. Mantenha o glúteo e o abdômen firmemente contraídos.<br><br><b>Cuidados:</b> Não deixe o quadril cair em direção ao chão nem rode os ombros para a frente.<br><br><b>Base científica:</b> QUADRADO LOMBAR E OBLÍQUOS: O exercício padrão ouro para estabilidade lateral da coluna, com ativação máxima do quadrado lombar e baixíssima carga sobre as facetas articulares. (McGill et al., 1999).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 séries × 20 a 30s por lado • Descanso: 45s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">3</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 3: McGill Big 3: Curl-Up Modificado -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>MCGILL BIG 3: CURL-UP MODIFICADO</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('McGill Curl-Up', '1. Deite de costas, uma perna estendida e a outra flexionada com o pé no chão.<br>2. Coloque as duas mãos espalmadas sob a curva lombar para monitorar e manter a lordose neutra intacta.<br>3. Eleve apenas a cabeça e os ombros do solo 2 a 3 cm, sustentando por 5 segundos.<br><br><b>Cuidados:</b> A lombar NÃO encosta no solo nem aplana contra as mãos. O movimento é mínimo e focado.<br><br><b>Base científica:</b> RETO ABDOMINAL SEM FLEXÃO LOMBAR: Ativa vigorosamente a parede abdominal anterior sem flexionar a coluna lombar repetidamente, prevenindo hérnias discais. (McGill, 2015).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 séries × 6 reps de 5s • Descanso: 45s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">3</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 2: FORTALECIMENTO -->
+    <div class="section-card sec-forca">
+      <div class="section-header">
+        <div class="section-title">FORTALECIMENTO</div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~25 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 4: Z-Press com Halteres no Solo -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>Z-PRESS COM HALTERES NO SOLO</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Z-Press com Halteres', '1. Sente-se diretamente no solo com as pernas estendidas à frente em V suave.<br>2. Mantenha o tronco rigorosamente ereto a 90°, sem apoio de encosto.<br>3. Segure os halteres nos ombros e empurre verticalmente até a extensão completa dos cotovelos.<br>4. Desça controlando em 3s mantendo o abdômen empedrado em bracing.<br><br><b>Cuidados:</b> Se o core relaxar, o tronco tombará para trás ou a lombar arqueará. Mantenha a rigidez total.<br><br><b>Base científica:</b> HIPERTROFIA DE DELTOIDES COM DEMANDA MÁXIMA DE CORE: Desenvolvido pelo lendário strongman Žydrūnas Savickas, o Z-Press elimina a assistência das pernas e do encosto, forçando estabilização extrema de eretores, transverso e oblíquos com cargas mais seguras. (Contreras, 2014).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">4 séries × 8 a 10 reps • Descanso: 75s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">3</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">4</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 5: Pallof Press no Cabo -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>PALLOF PRESS NO CABO (ANTI-ROTAÇÃO)</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Pallof Press', '1. Em pé de lado para a polia média, segure o puxador com as duas mãos junto ao peito.<br>2. Pés na largura dos ombros, joelhos semi-flexionados e core ativado.<br>3. Estenda os braços à frente resistindo à força do cabo que tenta rodar seu tronco.<br>4. Segure 2s estendido e retorne as mãos ao peito.<br><br><b>Cuidados:</b> O corpo permanece como uma estátua imóvel durante toda a série.<br><br><b>Base científica:</b> ANTI-ROTAÇÃO ISOMÉTRICA PURA: Treina o complexo oblíquo interno/externo e transverso para absorver torções articulares, principal mecanismo de proteção lombar no esporte e na vida diária. (Pallof, 2006).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 séries × 12 reps por lado • Descanso: 60s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">3</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 6: Flexão de Braços com Apoio em Halteres -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>FLEXÃO COM APOIO EM HALTERES (NEUTRA)</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Flexão com Halteres', '1. Apoie as mãos nas manoplas de halteres sextavados em pegada neutra no solo.<br>2. Mantenha o corpo em prancha rígida (glúteos contraídos, pelve neutra).<br>3. Desça o peito até a linha dos halteres e empurre de volta estendendo os braços.<br><br><b>Cuidados:</b> A pegada no halter mantém o punho neutro sem dor articular.<br><br><b>Base científica:</b> PRANCHA DINÂMICA E EMPURRADA ESCAPULAR: Combina sobrecarga mecânica peitoral com ativação vigorosa do reto abdominal e serrátil anterior. (Schoenfeld, 2016).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 séries × 10 a 12 reps • Descanso: 60s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">3</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 3: CONDICIONAMENTO -->
+    <div class="section-card sec-cardio">
+      <div class="section-header">
+        <div class="section-title">CONDICIONAMENTO</div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~25 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 7: Caminhada em Esteira com Inclinação -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>CAMINHADA COM INCLINAÇÃO (ZONA 2)</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Caminhada Inclinada Zona 2', '1. Ajuste a esteira para inclinação entre 4% e 8% e velocidade constante (4,5 a 5,5 km/h).<br>2. Caminhe mantendo postura ereta, braços oscilando naturalmente e respiração nasal ou mista suave.<br>3. Mantenha a frequência cardíaca entre 60% e 70% da FCM (Zona 2 metabólica).<br><br><b>Cuidados:</b> Não se pendure nas barras de apoio da esteira; mantenha os passos firmes.<br><br><b>Base científica:</b> LIPÓLISE E BIOGÊNESE MITOCONDRIAL: A Zona 2 maximiza a taxa de oxidação de ácidos graxos livres sem elevar excessivamente o cortisol ou impor impacto articular na coluna. Sinergia metabólica direta com a tirzepatida. (San-Millán e Brooks, 2018).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">1 bloco contínuo de 20 a 25 min • Descanso: 0s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card Clean de Finalização de Treino -->
+    <div class="workout-finish-clean-card" id="workoutFinishCard-treinod">
+      <button type="button" class="btn-finish-workout-trigger" id="btnTriggerFinish-treinod" onclick="openBiometriaSessaoModal('treinod')">
+        <span class="finish-flag-icon">🏁</span> <span>FINALIZAR SESSÃO</span>
+      </button>
+      <div id="completeFeedback-treinod" class="complete-feedback-box" style="display:none; width: 100%; margin-top: 10px;">
+        ✅ Sessão finalizada e registrada com sucesso!
+      </div>
+    </div>
+
+    <!-- Ajuda Contextual do Treino -->
+    <div class="contextual-help-wrap" style="margin-top: 24px; margin-bottom: 80px;">
+      <button type="button" class="btn-contextual-help" onclick="openContextualHelp('treinos')">
+        <span>precisa de ajuda?</span> <u>acesse as instruções</u>
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== TAB: TREINO E (CORE E CARDIO 2) ==================== -->
+  <div id="tab-treinoe" class="tab-content">
+    <div class="session-overall-meta">
+      <span class="meta-item">📍 Academia</span>
+      <span class="meta-separator">|</span>
+      <span class="meta-item">⏳ ~60 min</span>
+      <span class="meta-separator">|</span>
+      <span class="meta-item">🎯 Cadeia Cruzada e Metabólico</span>
+    </div>
+
+    <!-- SEÇÃO 1: ATIVAÇÃO -->
+    <div class="section-card sec-aquecimento">
+      <div class="section-header">
+        <div class="section-title">ATIVAÇÃO</div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~10 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 1: Deadbug com Respiração Diafragmática -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>DEADBUG COM RESPIRAÇÃO DIAFRAGMÁTICA</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Deadbug Diafragmático', '1. Deitado de costas, braços para o teto e quadris/joelhos a 90°.<br>2. Expire profundamente pelo diafragma aproximando as costelas da pelve.<br>3. Estenda o braço direito atrás da cabeça e a perna esquerda à frente sem deixar a lombar descolar do solo.<br>4. Retorne e alterne os lados com controle estrito.<br><br><b>Cuidados:</b> A coluna lombar deve permanecer firme contra o chão o tempo todo.<br><br><b>Base científica:</b> ANTI-EXTENSÃO LOMBAR: Recruta o transverso e oblíquos para neutralizar o momento extensor gerado pelo lastro das pernas. (McGill, 2015).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 séries × 8 reps por lado • Descanso: 45s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">3</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 2: Perdigueiro Dinâmico com Desenho de Quadrado -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>PERDIGUEIRO COM DESENHO NO AR</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Perdigueiro Dinâmico', '1. Posição de 4 apoios com braço e perna oposta estendidos.<br>2. Mantendo o tronco imóvel, desenhe um pequeno quadrado no ar com a mão e o pé (10 cm).<br>3. Mantenha 6 repetições por lado e troque.<br><br><b>Cuidados:</b> Exige controle motor fino e estabilização de pelve.<br><br><b>Base científica:</b> CONTROLE PERTURBATÓRIO DOS MULTÍFIDOS: Introduz micro-perturbações dinâmicas que aprimoram a resposta reflexa dos eretores profundos. (McGill, 2015).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 séries × 6 reps por lado • Descanso: 45s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 3: Alongamento Dinâmico em 90/90 de Quadril -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>MOBILIDADE DE QUADRIL EM 90/90</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Mobilidade 90/90', '1. Sentado no chão com as duas pernas flexionadas a 90° (uma em rotação externa e outra interna).<br>2. Mantenha o peito ereto e projete o esterno suavemente sobre a canela da frente.<br>3. Mantenha 30s por lado respirando profundamente.<br><br><b>Cuidados:</b> Não force a articulação do joelho; a rotação deve vir da articulação coxofemoral.<br><br><b>Base científica:</b> ROTAÇÃO INTERNA E EXTERNA DE QUADRIL: A falta de mobilidade rotacional no quadril transfere estresse torsional diretamente para a coluna lombar. (Reiman e Matheson, 2013).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 séries × 30s por lado • Descanso: 30s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 2: FORTALECIMENTO -->
+    <div class="section-card sec-forca">
+      <div class="section-header">
+        <div class="section-title">FORTALECIMENTO</div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~25 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 4: Suitcase Carry (Caminhada do Fazendeiro Unilateral) -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>SUITCASE CARRY (FAZENDEIRO UNILATERAL)</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Suitcase Carry', '1. Segure um halter pesado em apenas uma das mãos ao lado do corpo.<br>2. Mantenha os ombros perfeitamente nivelados (não deixe o peso puxar seu tronco para o lado).<br>3. Caminhe a passos firmes e lentos por 30 metros mantendo rigidez absoluta de core.<br>4. Troque de mão e repita.<br><br><b>Cuidados:</b> O corpo deve parecer que está carregando dois pesos idênticos. Nenhuma inclinação lateral.<br><br><b>Base científica:</b> ANTI-FLEXÃO LATERAL E REFORÇO DO QUADRADO LOMBAR: O carregamento unilateral gera altíssima exigência isométrica no quadrado lombar e oblíquos contralaterais, construindo uma verdadeira armadura ao redor da coluna. (McGill et al., 2009).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">4 passagens de 30m por lado • Descanso: 60s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">3</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">4</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 5: Remada Unilateral no Cabo em Base Dividida -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>REMADA NO CABO EM BASE DIVIDIDA</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Remada Cabo Base Dividida', '1. Ajuste a polia média e fique em posição de split (perna oposta ao braço que puxa à frente).<br>2. Trave o quadril e o abdômen sem deixar o corpo girar.<br>3. Puxe o cabo trazendo o cotovelo rente ao tronco com controle e retorne estendendo.<br><br><b>Cuidados:</b> Não use o impulso do tronco para puxar.<br><br><b>Base científica:</b> TRANSMISSÃO DE FORÇA CRUZADA E HIPERTROFIA: Conecta a força do grande dorsal com o glúteo contralateral via fáscia toracolombar, desenvolvendo hipertrofia com transferência funcional atlética. (Santana, 2015).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 séries × 10 a 12 reps por lado • Descanso: 60s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">3</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 6: Plank Pull-Through com Halter Leve -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>PLANK PULL-THROUGH COM HALTER</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Plank Pull-Through', '1. Posição de prancha alta com as mãos apoiadas e pés na largura dos ombros.<br>2. Posicione um halter leve no chão atrás da mão esquerda.<br>3. Com a mão direita, alcance por baixo do peito, puxe o halter para o lado direito e apoie a mão de volta.<br>4. Repita com a mão esquerda.<br><br><b>Cuidados:</b> Mantenha a pelve rigorosamente estável sem rebolar de um lado para o outro.<br><br><b>Base científica:</b> RESISTÊNCIA À ROTAÇÃO SOB CADEIA ABERTA: O apoio em 3 pontos impõe demanda rotacional aguda ao transverso e oblíquos. (McGill, 2015).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 séries × 8 a 10 reps por lado • Descanso: 60s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">3</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ex 7: Face Pull com Rotação Externa na Polia -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>FACE PULL COM ROTAÇÃO EXTERNA</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Face Pull', '1. Polia alta com corda, pegada neutra ou pronada com polegares apontando para trás.<br>2. Puxe a corda em direção à testa, abrindo as manoplas e rodando os ombros externamente no final.<br>3. Segure 1s de contração escapular e retorne com controle.<br><br><b>Cuidados:</b> Não compense hiperestendendo a coluna lombar ao puxar.<br><br><b>Base científica:</b> SAÚDE DO MANGUITO E DELTOIDE POSTERIOR: Fortalece os rotadores externos e retratores escapulares, melhorando o alinhamento da cabeça do úmero. (Schoenfeld, 2016).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 séries × 12 a 15 reps • Descanso: 60s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">2</button>
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">3</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 3: CONDICIONAMENTO -->
+    <div class="section-card sec-cardio">
+      <div class="section-header">
+        <div class="section-title">CONDICIONAMENTO</div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~25 min</span>
+        </div>
+      </div>
+
+      <!-- Ex 8: Bike Ergométrica em Ritmo Constante -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>BIKE ERGOMÉTRICA OU ELÍPTICO (ZONA 2)</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('Bike Ergométrica Zona 2', '1. Regule o selim na altura do osso do quadril (trocânter maior).<br>2. Pedale em cadência constante (75 a 85 RPM) com carga moderada.<br>3. Mantenha a frequência cardíaca entre 60% e 70% da FCM em ritmo conversacional.<br><br><b>Cuidados:</b> Mantenha a coluna neutra sem curvar as costas sobre o guidão.<br><br><b>Base científica:</b> ZERO IMPACTO AXIAL E SENSIBILIDADE À INSULINA: O ciclismo estacionário é ideal para indivíduos em processo de recomposição corporal, permitindo alto volume oxidativo com impacto nulo na coluna lombar. (San-Millán e Brooks, 2018).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">1 bloco contínuo de 20 a 25 min • Descanso: 0s</div>
+          <div class="set-pills-row">
+            <button type="button" class="set-pill" onclick="toggleSetPill(this)">1</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card Clean de Finalização de Treino -->
+    <div class="workout-finish-clean-card" id="workoutFinishCard-treinoe">
+      <button type="button" class="btn-finish-workout-trigger" id="btnTriggerFinish-treinoe" onclick="openBiometriaSessaoModal('treinoe')">
+        <span class="finish-flag-icon">🏁</span> <span>FINALIZAR SESSÃO</span>
+      </button>
+      <div id="completeFeedback-treinoe" class="complete-feedback-box" style="display:none; width: 100%; margin-top: 10px;">
+        ✅ Sessão finalizada e registrada com sucesso!
+      </div>
+    </div>
+
+    <!-- Ajuda Contextual do Treino -->
+    <div class="contextual-help-wrap" style="margin-top: 24px; margin-bottom: 80px;">
+      <button type="button" class="btn-contextual-help" onclick="openContextualHelp('treinos')">
+        <span>precisa de ajuda?</span> <u>acesse as instruções</u>
+      </button>
+    </div>
+  </div>
 
     <!-- ==================== TAB: Mural de Recados ==================== -->
     <div id="tab-recados" class="tab-content">
@@ -8084,7 +9209,7 @@
     }
 
     function renderTrainingHubDays() {
-      const workouts = ['treinoa', 'treinob', 'treinoc'];
+      const workouts = ['treinoa', 'treinob', 'treinoc', 'treinod', 'treinoe'];
       workouts.forEach(w => {
         const pill = document.getElementById('statusPill-' + w);
         const card = document.getElementById('dayCard-' + w);
@@ -13639,9 +14764,11 @@ window.openWelcomeAppModal = function(notifId = null) {
       let tabName = 'Treino';
 
       const dayNames = {
-        'treinoa': 'SEGUNDA | TREINO A',
-        'treinob': 'QUARTA | TREINO B',
-        'treinoc': 'SEXTA | TREINO C'
+        'treinoa': 'TREINO A | EMPURRAR',
+        'treinob': 'TREINO B | PUXAR',
+        'treinoc': 'TREINO C | PERNAS',
+        'treinod': 'TREINO D | CORE E CARDIO',
+        'treinoe': 'TREINO E | CORE E CARDIO'
       };
 
       if (dayId && typeof dayId === 'string') {
