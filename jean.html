@@ -6198,7 +6198,7 @@ Segue o vídeo anexo para sua análise!`;
     });
 
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '2026-10-30-v193-em-breve-evolucao';
+    const APP_BUILD_VERSION = '2026-10-30-v193-cloud-sync-gate-fix';
     if (localStorage.getItem('dominio_jean_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_jean_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
@@ -6544,11 +6544,12 @@ Segue o vídeo anexo para sua análise!`;
     };
 
     function openDayWorkout(dayId) {
-      if (localStorage.getItem('dominio_daniela_assessment_completed') !== 'true' &&
+      const slug = (typeof DOMINIO_APP_CONFIG !== 'undefined' && DOMINIO_APP_CONFIG.athleteSlug) ? DOMINIO_APP_CONFIG.athleteSlug : 'jean';
+      
+      // Somente novos alunos em modelo genérico ('aluno') são bloqueados pelo gate de ingresso
+      if (slug === 'aluno' &&
           localStorage.getItem('dominio_assessment_completed') !== 'true' &&
-          localStorage.getItem('dominio_gustavo_assessment_completed') !== 'true' &&
-          localStorage.getItem('dominio_helenice_assessment_completed') !== 'true' &&
-          localStorage.getItem('dominio_jean_assessment_completed') !== 'true') {
+          localStorage.getItem('dominio_' + slug + '_assessment_completed') !== 'true') {
         const modal = document.getElementById('intakeGateModal');
         if (modal) modal.classList.add('active');
         return;
@@ -11352,11 +11353,21 @@ function updateEvolucaoStats() {
     }
 
     function checkIntakeGate() {
-      const slug = 'jean';
+      const slug = (typeof DOMINIO_APP_CONFIG !== 'undefined' && DOMINIO_APP_CONFIG.athleteSlug) ? DOMINIO_APP_CONFIG.athleteSlug : 'jean';
+      
+      // Alunos com fichas já cadastradas ou pré-configuradas não passam pelo bloqueio
+      if (slug !== 'aluno') {
+        localStorage.setItem('dominio_' + slug + '_assessment_completed', 'true');
+        if (typeof DEFAULT_STUDENT_INTAKE !== 'undefined' && !localStorage.getItem('dominio_' + slug + '_student_intake')) {
+          localStorage.setItem('dominio_' + slug + '_student_intake', JSON.stringify(DEFAULT_STUDENT_INTAKE));
+        }
+        updateDedicatedTopBarGate(true);
+        return;
+      }
+
       const isCompleted = localStorage.getItem('dominio_' + slug + '_assessment_completed') === 'true' ||
                           localStorage.getItem(slug + '_assessment_completed') === 'true' ||
-                          localStorage.getItem('dominio_' + slug + '_student_intake') !== null ||
-                          slug !== 'aluno'; // Alunos com fichas já pré-cadastradas não ficam travados
+                          localStorage.getItem('dominio_' + slug + '_student_intake') !== null;
 
       if (!isCompleted) {
         const modal = document.getElementById('intakeGateModal');
