@@ -5362,17 +5362,9 @@
 
     <!-- Card Clean de Finalização de Treino (Segunda) -->
     <div class="workout-finish-clean-card" id="workoutFinishCard-segunda">
-      <div class="finish-controls-row">
-        <label class="finish-checkbox-label">
-          <input type="checkbox" id="checkFinish-segunda" class="finish-checkbox-input" onchange="toggleFinishWorkoutBtn('segunda', this.checked)">
-          <span class="finish-custom-checkbox"></span>
-          <span class="finish-checkbox-text">Finalizar sessão 🏁</span>
-        </label>
-        <button type="button" class="btn-send-coach" id="btnSendCoach-segunda" onclick="completeWorkoutSession('segunda')" disabled>
-          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-          <span>Enviar para Coach</span>
-        </button>
-      </div>
+      <button type="button" class="btn-finish-workout-trigger" id="btnTriggerFinish-segunda" onclick="openBiometriaSessaoModal('segunda')">
+        <span class="finish-flag-icon">🏁</span> <span>FINALIZAR SESSÃO</span>
+      </button>
       <div id="completeFeedback-segunda" class="complete-feedback-box" style="display:none; width: 100%;">
         ✅ Treino finalizado e relatório enviado com sucesso para o Coach!
       </div>
@@ -5756,17 +5748,9 @@
 
     <!-- Card Clean de Finalização de Treino (Quarta) -->
     <div class="workout-finish-clean-card" id="workoutFinishCard-quarta">
-      <div class="finish-controls-row">
-        <label class="finish-checkbox-label">
-          <input type="checkbox" id="checkFinish-quarta" class="finish-checkbox-input" onchange="toggleFinishWorkoutBtn('quarta', this.checked)">
-          <span class="finish-custom-checkbox"></span>
-          <span class="finish-checkbox-text">Finalizar sessão 🏁</span>
-        </label>
-        <button type="button" class="btn-send-coach" id="btnSendCoach-quarta" onclick="completeWorkoutSession('quarta')" disabled>
-          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-          <span>Enviar para Coach</span>
-        </button>
-      </div>
+      <button type="button" class="btn-finish-workout-trigger" id="btnTriggerFinish-quarta" onclick="openBiometriaSessaoModal('quarta')">
+        <span class="finish-flag-icon">🏁</span> <span>FINALIZAR SESSÃO</span>
+      </button>
       <div id="completeFeedback-quarta" class="complete-feedback-box" style="display:none; width: 100%;">
         ✅ Treino finalizado e relatório enviado com sucesso para o Coach!
       </div>
@@ -5842,17 +5826,9 @@
     </div>
     <!-- Card Clean de Finalização de Treino (Quarta) -->
     <div class="workout-finish-clean-card" id="workoutFinishCard-quarta">
-      <div class="finish-controls-row">
-        <label class="finish-checkbox-label">
-          <input type="checkbox" id="checkFinish-quarta" class="finish-checkbox-input" onchange="toggleFinishWorkoutBtn('quarta', this.checked)">
-          <span class="finish-custom-checkbox"></span>
-          <span class="finish-checkbox-text">Finalizar sessão 🏁</span>
-        </label>
-        <button type="button" class="btn-send-coach" id="btnSendCoach-quarta" onclick="completeWorkoutSession('quarta')" disabled>
-          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-          <span>Enviar para Coach</span>
-        </button>
-      </div>
+      <button type="button" class="btn-finish-workout-trigger" id="btnTriggerFinish-quarta" onclick="openBiometriaSessaoModal('quarta')">
+        <span class="finish-flag-icon">🏁</span> <span>FINALIZAR SESSÃO</span>
+      </button>
       <div id="completeFeedback-quarta" class="complete-feedback-box" style="display:none; width: 100%;">
         ✅ Treino finalizado e relatório enviado com sucesso para o Coach!
       </div>
@@ -8066,7 +8042,7 @@
             <label class="comp-form-label" style="margin:0;">⚡ Percepção de Esforço</label>
             <span id="bioPseSelectedBadge" style="font-size:0.72rem; font-weight:800; color:#f97316; background:rgba(249,115,22,0.14); border:1px solid rgba(249,115,22,0.35); padding:2px 8px; border-radius:8px;">Nível 7 • Muito Intenso</span>
           </div>
-          <div style="font-size:0.75rem; color:#94a3b8; margin-bottom:8px;">
+          <div style="font-size:0.88rem; font-weight:700; color:#ffffff; margin-bottom:8px;">
             De 0 a 10, quão difícil foi o treino de hoje para você?
           </div>
           <input type="hidden" id="bio_session_pse" value="7">
@@ -8091,10 +8067,10 @@
             <div style="font-size: 0.78rem; font-weight: 800; color: #38bdf8; display: flex; align-items: center; gap: 6px;">
               <span>⌚</span> <span>Dados do Smartwatch (Opcional)</span>
             </div>
-            <span style="font-size:0.68rem; color:#94a3b8;">Se utilizou relógio</span>
+            
           </div>
-          <div style="font-size: 0.72rem; color: #94a3b8; margin-bottom: 10px;">
-            Anote abaixo os valores que o seu smartwatch ou monitor marcou na sessão:
+          <div style="font-size: 0.82rem; font-weight:600; color: #cbd5e1; margin-bottom: 10px;">
+            Anote abaixo os valores que o seu smartwatch marcou na sessão:
           </div>
           <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:8px;">
             <div class="comp-form-group" style="margin-bottom:0;">
@@ -8113,34 +8089,31 @@
         </div>
 
         <!-- Preview Instantâneo com Botão Explicativo -->
-        <div class="bio-live-calc-box" id="bioLiveCalcPreviewBox" style="margin-top:14px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 12px 14px;">
-          <div style="margin-bottom:10px;">
-            <span style="font-size:0.75rem; font-weight:800; color:#38bdf8; text-transform:uppercase; letter-spacing:0.04em;">📊 ESTÍMULO FISIOLÓGICO</span>
-          </div>
-          <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:8px; text-align:center;">
-            <div style="background:rgba(255,255,255,0.03); border-radius:8px; padding:8px 6px;">
-              <div style="font-size:0.66rem; color:#94a3b8;">Carga Interna</div>
-              <div style="font-size:0.95rem; font-weight:900; color:#c084fc;" id="bioPreviewLoadUA">420 U.A.</div>
+        <div class="bio-live-calc-box" id="bioLiveCalcPreviewBox" style="display: none; margin-top:14px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 14px 16px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+            <div style="font-size:0.80rem; font-weight:800; color:#38bdf8; text-transform:uppercase; letter-spacing:0.04em; display:flex; align-items:center; gap:6px;">
+              <span>🔥</span> <span>Gasto Calórico Real</span>
             </div>
-            <div style="background:rgba(255,255,255,0.03); border-radius:8px; padding:8px 6px;">
-              <div style="font-size:0.66rem; color:#94a3b8;">Gasto Estimado</div>
-              <div style="font-size:0.95rem; font-weight:900; color:var(--brand-neon);" id="bioPreviewRealKcal">485 kcal</div>
-            </div>
-            <div style="background:rgba(255,255,255,0.03); border-radius:8px; padding:8px 6px;">
-              <div style="font-size:0.66rem; color:#94a3b8;">Densidade / TRIMP</div>
-              <div style="font-size:0.88rem; font-weight:900; color:#38bdf8;" id="bioPreviewTrimpVo2">Calculado</div>
-            </div>
-          </div>
-          <!-- Botão Entenda o Cálculo abaixo das badges das cargas -->
-          <div style="margin-top:10px; display:flex; justify-content:center;">
-            <button type="button" class="btn-video" onclick="openInstrucoesBiometriaModal()" style="padding: 3.5px 12px; font-size: 0.72rem; margin: 0; background: #0e2238; border: 1px solid #38bdf8; color: #fff; border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; gap: 5px;">
+            <button type="button" class="btn-video" onclick="openInstrucoesBiometriaModal()" style="padding: 3px 10px; font-size: 0.70rem; margin: 0; background: #0e2238; border: 1px solid #38bdf8; color: #fff; border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; gap: 5px;">
               <svg viewBox="0 0 24 24" style="width:11px; height:11px; fill:#38bdf8;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
               <span>Entenda o Cálculo</span>
             </button>
           </div>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; text-align:center;">
+            <div style="background:rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius:10px; padding:10px 8px;">
+              <div style="font-size:0.68rem; color:#94a3b8; font-weight:700; text-transform:uppercase;">Gasto Total Real</div>
+              <div style="font-size:1.15rem; font-weight:900; color:var(--brand-neon); margin-top:2px;" id="bioPreviewRealKcal">485 kcal</div>
+              <div style="font-size:0.65rem; color:#64748b; margin-top:2px;" id="bioPreviewDeltaKcal">+85 kcal além do relógio</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius:10px; padding:10px 8px;">
+              <div style="font-size:0.68rem; color:#94a3b8; font-weight:700; text-transform:uppercase;">EPOC (Pós-Queima)</div>
+              <div style="font-size:1.15rem; font-weight:900; color:#38bdf8; margin-top:2px;" id="bioPreviewEpocKcal">~68 kcal</div>
+              <div style="font-size:0.65rem; color:#64748b; margin-top:2px;">Metabolismo acelerado pós-treino</div>
+            </div>
+          </div>
           <!-- Link clicável sucinto para biometria e performance -->
-          <div style="margin-top:10px; padding-top:8px; border-top:1px solid rgba(255,255,255,0.06); text-align:center; font-size:0.72rem; color:#94a3b8; line-height:1.45;">
-            📊 Relatório completo em <a href="javascript:void(0)" onclick="goToBiometriaPerformanceView()" style="color:#38bdf8; text-decoration:underline; font-weight:700;">Biometria e Performance ↗</a>
+          <div style="margin-top:12px; padding-top:10px; border-top:1px solid rgba(255,255,255,0.06); text-align:center; font-size:0.75rem; color:#94a3b8; line-height:1.45;">
+            📊 Para histórico detalhado e gráficos, acesse em <strong style="color:#e2e8f0;">Ferramentas ➔ Evolução ➔ Biometria</strong>.
           </div>
         </div>
 
@@ -8148,7 +8121,7 @@
         <div style="margin-top:16px;">
           <button type="button" onclick="confirmAndSaveBiometriaSession(true)" style="background:var(--brand-neon); border:none; color:#000; font-size:0.86rem; font-weight:900; border-radius:10px; padding:13px 18px; cursor:pointer; box-shadow:0 0 16px var(--brand-neon-glow); display:flex; align-items:center; justify-content:center; gap:8px; width:100%;">
             <svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:#000;"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-            <span>SALVAR E ENVIAR PARA COACH (WHATSAPP)</span>
+            <span>SALVAR E ENVIAR PARA O COACH</span>
           </button>
         </div>
       </div>
@@ -8709,7 +8682,7 @@
     });
 
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '2026-10-29-v191-parabens-sessao-medicoes-stacked';
+    const APP_BUILD_VERSION = '2026-10-29-v192-padronizacao-gui-finalizar';
     if (localStorage.getItem('dominio_helenice_dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_helenice_dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
@@ -9415,6 +9388,20 @@
       const hrMaxEl = document.getElementById('bio_watch_hr_max');
       const watchKcalEl = document.getElementById('bio_watch_kcal');
 
+      const numHrAvg = hrAvgEl && Number(hrAvgEl.value) > 40 ? Number(hrAvgEl.value) : 0;
+      const numHrMax = hrMaxEl && Number(hrMaxEl.value) > 50 ? Number(hrMaxEl.value) : 0;
+      const numWatchKcal = watchKcalEl && Number(watchKcalEl.value) > 10 ? Number(watchKcalEl.value) : 0;
+
+      const previewBox = document.getElementById('bioLiveCalcPreviewBox');
+      const hasBiometrics = (numHrAvg > 0 || numWatchKcal > 0);
+
+      if (!hasBiometrics) {
+        if (previewBox) previewBox.style.display = 'none';
+        return;
+      }
+
+      if (previewBox) previewBox.style.display = 'block';
+
       const tab = document.getElementById('tab-' + dayId);
       const doneSets = tab ? tab.querySelectorAll('.set-pill.done').length : 12;
       const totalSets = tab ? tab.querySelectorAll('.set-pill').length : 12;
@@ -9423,9 +9410,9 @@
         durationMin: durEl ? durEl.value : 60,
         pse: pseEl ? pseEl.value : 7,
         doneSets: doneSets > 0 ? doneSets : totalSets,
-        hrAvg: hrAvgEl ? hrAvgEl.value : 0,
-        hrMax: hrMaxEl ? hrMaxEl.value : 0,
-        watchKcal: watchKcalEl ? watchKcalEl.value : 0
+        hrAvg: numHrAvg,
+        hrMax: numHrMax,
+        watchKcal: numWatchKcal
       });
 
       const kcalEl = document.getElementById('bioPreviewRealKcal');
