@@ -5166,10 +5166,11 @@
       <!-- Drawer Retrátil de Metas do Ciclo -->
       <div id="metasDrawer" class="metas-drawer" style="display: none;">
         <div class="metas-chips-list">
-            <span class="goal-chip-item">🛡️ Estabilidade Lombopélvica e Preservação da Coluna</span>
-            <span class="goal-chip-item">💪 Fortalecimento Isométrico de Core</span>
-            <span class="goal-chip-item">🤸 Mobilidade Articular e Cadeia Posterior</span>
-          </div>
+          <span class="goal-chip-item">🎯 Emagrecimento e Redução de Gordura Abdominal (Tirzepatida 2,5 mg)</span>
+          <span class="goal-chip-item">💪 Hipertrofia e Preservação de Massa Magra (5 Treinos Semanais)</span>
+          <span class="goal-chip-item">🛡️ Estabilidade Lombopélvica e Preservação da Coluna (McGill)</span>
+          <span class="goal-chip-item">🤸 Mobilidade Articular, Descompressão e Zona 2 Metabólica</span>
+        </div>
       </div>
     </div>
 
@@ -13739,9 +13740,10 @@ window.openWelcomeAppModal = function(notifId = null) {
       peso: "75.5",
       gordura: "",
       rotina: "Trabalho de escritório/computador, nível de estresse moderado e rotina diária regular. Sono médio de 7 a 8 horas por noite.",
-      dias_disponiveis: "3",
-      duracao_disponivel: "45 a 60 min",
-      local: "Academia / Espaço de Treino",
+      dias_disponiveis: "5",
+      duracao_disponivel: "60 min",
+      local: "Academia Convencional de Musculação",
+      medicamentos: "Tirzepatida 2,5 mg semanal",
       historico_clinico: "Necessidade de preservação da coluna e estabilização lombopélvica. Desconforto prévio na região lombar ao realizar esforços descompensados.",
       medicamentos: "Nenhum",
       condicoes_cronicas: "Nenhuma",
@@ -14017,6 +14019,15 @@ window.openWelcomeAppModal = function(notifId = null) {
        ======================================================== */
     if (typeof timersReturnWorkoutDay === 'undefined') var timersReturnWorkoutDay = null;
     if (typeof assessmentReturnTarget === 'undefined') var assessmentReturnTarget = null;
+
+    function toggleMetasDrawer() {
+      const drawer = document.getElementById('metasDrawer');
+      const arrow = document.getElementById('metasArrow');
+      if (!drawer) return;
+      const isHidden = (drawer.style.display === 'none' || !drawer.style.display);
+      drawer.style.display = isHidden ? 'block' : 'none';
+      if (arrow) arrow.textContent = isHidden ? '▴' : '▾';
+    }
 
     function openDedicatedView(sectionId) {
       if (typeof closeBioModal === 'function') closeBioModal();
