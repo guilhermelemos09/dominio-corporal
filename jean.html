@@ -5200,7 +5200,7 @@
         <h2 class="training-section-title">ROTINA DE TREINO</h2>
       </div>
 
-      <div style="background: rgba(255, 255, 255, 0.03); border: 1.5px dashed rgba(0, 255, 136, 0.35); border-radius: 18px; padding: 32px 20px; text-align: center; margin: 12px 0;">
+      <div style="background: rgba(255, 255, 255, 0.03); border: 1.5px dashed rgba(0, 255, 136, 0.35); border-radius: 18px; padding: 36px 20px; text-align: center; margin: 12px 0;">
         <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(0, 255, 136, 0.1); border: 1.5px solid var(--brand-neon); display: flex; align-items: center; justify-content: center; font-size: 1.7rem; margin: 0 auto 16px auto; box-shadow: 0 0 16px var(--brand-neon-glow);">
           📝
         </div>
@@ -5230,271 +5230,72 @@
       <!-- Link Contextual: Precisa de Ajuda? Acesse as Instruções -->
       <div class="contextual-help-wrap" style="margin-top: 18px; margin-bottom: 24px;">
         <button type="button" class="btn-contextual-help" onclick="openContextualHelp('home')">
-          <svg viewBox="0 0 24 24" style="width: 15px; height: 15px; fill: currentColor;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
-          <span>Instruções de Navegação e Ajuda</span>
-        </button>
-      </div>
-
-      <!-- Lista de Dias (Oculta temporariamente até montagem dos treinos) -->
-      <div class="training-days-list" id="trainingDaysList" style="display:none;">
-        <!-- TREINO A -->
-        <div class="training-day-card" id="dayCard-treinoa" data-workout-type="treino" data-target="6" onclick="openDayWorkout('treinoa')">
-          <div class="day-card-left">
-            <div class="day-card-name-row">
-              <span class="day-name">SEGUNDA | TREINO A</span>
-            </div>
-            <div class="day-focus-desc">Em Estruturação • Foco Personalizado</div>
-            <div class="day-meta-pill">📍 A Definir • ⏱️ ~50 min</div>
-          </div>
-          <div class="day-card-right">
-            <div class="day-status-pill status-pending" id="statusPill-treinoa" onclick="event.stopPropagation(); handleWorkoutStatusClick('treinoa')">
-              <span class="status-icon">›</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- TREINO B -->
-        <div class="training-day-card" id="dayCard-treinob" data-workout-type="treino" data-target="6" onclick="openDayWorkout('treinob')">
-          <div class="day-card-left">
-            <div class="day-card-name-row">
-              <span class="day-name">QUARTA | TREINO B</span>
-            </div>
-            <div class="day-focus-desc">Em Estruturação • Foco Personalizado</div>
-            <div class="day-meta-pill">📍 A Definir • ⏱️ ~50 min</div>
-          </div>
-          <div class="day-card-right">
-            <div class="day-status-pill status-pending" id="statusPill-treinob" onclick="event.stopPropagation(); handleWorkoutStatusClick('treinob')">
-              <span class="status-icon">›</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- TREINO C -->
-        <div class="training-day-card" id="dayCard-treinoc" data-workout-type="treino" data-target="6" onclick="openDayWorkout('treinoc')">
-          <div class="day-card-left">
-            <div class="day-card-name-row">
-              <span class="day-name">SEXTA | TREINO C</span>
-            </div>
-            <div class="day-focus-desc">Em Estruturação • Foco Personalizado</div>
-            <div class="day-meta-pill">📍 A Definir • ⏱️ ~50 min</div>
-          </div>
-          <div class="day-card-right">
-            <div class="day-status-pill status-pending" id="statusPill-treinoc" onclick="event.stopPropagation(); handleWorkoutStatusClick('treinoc')">
-              <span class="status-icon">›</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card de Contato WhatsApp com o Treinador -->
-      <div class="whatsapp-support-card" onclick="contactCoachWhatsApp()">
-        <div class="wpp-card-icon-wrap">
-          <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c4.54 0 8.24 3.7 8.24 8.24 0 2.2-.86 4.28-2.42 5.84a8.188 8.188 0 0 1-5.82 2.41c-1.45 0-2.87-.38-4.13-1.11l-.3-.18-3.12.82.83-3.04-.2-.31a8.175 8.175 0 0 1-1.25-4.43c0-4.54 3.7-8.24 8.25-8.24zm4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
-        </div>
-        <div class="wpp-card-info">
-          <div class="wpp-card-title">Dúvidas sobre o Treino</div>
-          <div class="wpp-card-btn-inline">
-            <span>Fale direto com o Gui</span>
-            <span class="wpp-arrow">↗</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Link Contextual: Precisa de Ajuda? Acesse as Instruções -->
-      <div class="contextual-help-wrap" style="margin-top: 18px; margin-bottom: 24px;">
-        <button type="button" class="btn-contextual-help" onclick="openContextualHelp('home')">
           <span>precisa de ajuda?</span> <u>acesse as instruções</u>
         </button>
       </div>
-    </div>
+    </div><!-- end #trainingHubSection -->
 
-  <!-- ==================== TAB: TREINO A ==================== -->
-  <div id="tab-treinoa" class="tab-content">
-    <div class="session-overall-meta">
-      <span class="meta-item">📍 A Definir</span>
-      <span class="meta-separator">|</span>
-      <span class="meta-item">⏳ ~50 a 60 min</span>
-    </div>
+    <!-- ==================== TAB: Mural de Recados ==================== -->
+    <div id="tab-recados" class="tab-content">
 
-    
-    </div>
-
-    <div style="text-align: center; padding: 32px 16px; color: var(--text-dim); font-size: 0.85rem;">
-      <p>Sessão em formatação pelo treinador.</p>
-    </div>
-
-    <!-- Card Clean de Finalização de Treino -->
-    <div class="workout-finish-clean-card" id="workoutFinishCard-treinoa">
-      <button type="button" class="btn-finish-workout-trigger" id="btnTriggerFinish-treinoa" onclick="openBiometriaSessaoModal('treinoa')">
-        <span class="finish-flag-icon">🏁</span> <span>FINALIZAR SESSÃO</span>
-      </button>
-      <div id="completeFeedback-treinoa" class="complete-feedback-box" style="display:none; width: 100%; margin-top: 10px;">
-        ✅ Sessão finalizada e registrada com sucesso!
+      <!-- Card de Cabeçalho do Mural -->
+      <div class="coach-bulletin-card" style="margin-bottom: 20px;">
+        <div class="coach-bulletin-header">
+          <div class="coach-bulletin-profile">
+            <img src="Midia/gui_foto.jpg" onerror="this.onerror=null; this.src='Midia/icon-192.png';" alt="Prof. Gui Lemos" class="coach-bulletin-avatar">
+            <div>
+              <div class="coach-bulletin-title">Mural de Recados e Devolutivas</div>
+              <div class="coach-bulletin-meta">Prof. Guilherme Lemos • Boas-vindas</div>
+            </div>
+          </div>
+          <span class="coach-bulletin-badge">📢 Ativo</span>
+        </div>
+        <div class="coach-bulletin-body">
+          <strong>👋 Bem-vindo ao seu App, Jean Hilário!</strong><br>
+          Este é o seu espaço exclusivo de treinamento no Domínio Corporal. O primeiro passo foi responder à sua <strong>Ficha de Avaliação Inicial</strong> (já registrada com sucesso!). Em breve publicarei sua rotina personalizada de treinos focada em saúde, mobilidade e fortalecimento seguro!
+        </div>
       </div>
-    </div>
 
-    </div>
-
-    <!-- Ajuda Contextual do Treino -->
-    <div class="contextual-help-wrap" style="margin-top: 24px; margin-bottom: 80px;">
-      <button type="button" class="btn-contextual-help" onclick="openContextualHelp('treinos')">
-        <span>precisa de ajuda?</span> <u>acesse as instruções</u>
-      </button>
-    </div>
-  </div>
-
-  <!-- ==================== TAB: TREINO B ==================== -->
-  <div id="tab-treinob" class="tab-content">
-    <div class="session-overall-meta">
-      <span class="meta-item">📍 A Definir</span>
-      <span class="meta-separator">|</span>
-      <span class="meta-item">⏳ ~50 a 60 min</span>
-    </div>
-
-    
-    </div>
-
-    <div style="text-align: center; padding: 32px 16px; color: var(--text-dim); font-size: 0.85rem;">
-      <p>Sessão em formatação pelo treinador.</p>
-    </div>
-
-    <!-- Card Clean de Finalização de Treino -->
-    <div class="workout-finish-clean-card" id="workoutFinishCard-treinob">
-      <button type="button" class="btn-finish-workout-trigger" id="btnTriggerFinish-treinob" onclick="openBiometriaSessaoModal('treinob')">
-        <span class="finish-flag-icon">🏁</span> <span>FINALIZAR SESSÃO</span>
-      </button>
-      <div id="completeFeedback-treinob" class="complete-feedback-box" style="display:none; width: 100%; margin-top: 10px;">
-        ✅ Sessão finalizada e registrada com sucesso!
-      </div>
-    </div>
-      <div id="completeFeedback-treinob" class="complete-feedback-box" style="display:none; width: 100%;">
-        ✅ Treino finalizado e relatório enviado com sucesso para o Coach!
-      </div>
-    </div>
-
-    <!-- Ajuda Contextual do Treino -->
-    <div class="contextual-help-wrap" style="margin-top: 24px; margin-bottom: 80px;">
-      <button type="button" class="btn-contextual-help" onclick="openContextualHelp('treinos')">
-        <span>precisa de ajuda?</span> <u>acesse as instruções</u>
-      </button>
-    </div>
-  </div>
-
-  <!-- ==================== TAB: TREINO C ==================== -->
-  <div id="tab-treinoc" class="tab-content">
-    <div class="session-overall-meta">
-      <span class="meta-item">📍 A Definir</span>
-      <span class="meta-separator">|</span>
-      <span class="meta-item">⏳ ~50 a 60 min</span>
-    </div>
-
-    
-    </div>
-
-    <div style="text-align: center; padding: 32px 16px; color: var(--text-dim); font-size: 0.85rem;">
-      <p>Sessão em formatação pelo treinador.</p>
-    </div>
-
-    <!-- Card Clean de Finalização de Treino -->
-    <div class="workout-finish-clean-card" id="workoutFinishCard-treinoc">
-      <button type="button" class="btn-finish-workout-trigger" id="btnTriggerFinish-treinoc" onclick="openBiometriaSessaoModal('treinoc')">
-        <span class="finish-flag-icon">🏁</span> <span>FINALIZAR SESSÃO</span>
-      </button>
-      <div id="completeFeedback-treinoc" class="complete-feedback-box" style="display:none; width: 100%; margin-top: 10px;">
-        ✅ Sessão finalizada e registrada com sucesso!
-      </div>
-    </div>
-      <div id="completeFeedback-treinoc" class="complete-feedback-box" style="display:none; width: 100%;">
-        ✅ Treino finalizado e relatório enviado com sucesso para o Coach!
-      </div>
-    </div>
-
-    <!-- Ajuda Contextual do Treino -->
-    <div class="contextual-help-wrap" style="margin-top: 24px; margin-bottom: 80px;">
-      <button type="button" class="btn-contextual-help" onclick="openContextualHelp('treinos')">
-        <span>precisa de ajuda?</span> <u>acesse as instruções</u>
-      </button>
-    </div>
-  </div>
-
-
-
-
-  <!-- ==================== TAB: Mural de Recados ==================== -->
-  <div id="tab-recados" class="tab-content">
-
-    <!-- Card de Cabeçalho do Mural -->
-    <div class="coach-bulletin-card" style="margin-bottom: 20px;">
-      <div class="coach-bulletin-header">
-        <div class="coach-bulletin-profile">
-          <img src="Midia/gui_foto.jpg" onerror="this.onerror=null; this.src='Midia/icon-192.png';" alt="Prof. Gui Lemos" class="coach-bulletin-avatar">
-          <div>
-            <div class="coach-bulletin-title">Mural de Recados e Devolutivas</div>
-            <div class="coach-bulletin-meta">Prof. Guilherme Lemos • Boas-vindas</div>
+      <!-- Lista de Comunicados e Recados -->
+      <div style="display:flex; flex-direction:column; gap:16px; margin-bottom: 30px;">
+        
+        <!-- Recado 1: Orientações de Gravação para Análise -->
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 16px; padding: 18px 16px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span style="font-size:1.1rem;">📹</span>
+              <span style="font-size:0.88rem; font-weight:700; color:#fff;">Como Gravar Vídeos para Análise</span>
+            </div>
+            <span style="font-size:0.7rem; color:#38bdf8; background:rgba(56,189,248,0.1); border:1px solid rgba(56,189,248,0.3); padding:3px 8px; border-radius:6px; font-weight:600;">Diretriz Técnica</span>
+          </div>
+          <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.55;">
+            Quando estivermos treinando, você poderá filmar suas execuções para eu avaliar:
+            <ul style="margin:8px 0 0 0; padding-left:18px; color:#cbd5e1;">
+              <li><strong>Enquadramento:</strong> Posicione o celular na diagonal ou de lado, pegando o corpo inteiro.</li>
+              <li><strong>Envio fácil:</strong> Use o botão <em>📹 Enviar Vídeo</em> para mandar direto no meu WhatsApp.</li>
+            </ul>
           </div>
         </div>
-        <span class="coach-bulletin-badge">📢 Ativo</span>
-      </div>
-      <div class="coach-bulletin-body">
-        <strong>👋 Bem-vinda ao seu App, Jean Hilário!</strong><br>
-        Este é o seu espaço exclusivo de treinamento no Domínio Corporal. O primeiro passo é responder à sua <strong>Ficha de Avaliação Inicial</strong>. Assim que você enviar, vou analisar seu histórico e estruturar sua rotina de treinos personalizada com segurança e foco na sua saúde e longevidade!
-      </div>
-    </div>
 
-    <!-- Lista de Comunicados e Recados -->
-    <div style="display:flex; flex-direction:column; gap:16px; margin-bottom: 30px;">
-      
-      <!-- Recado 1: Orientações de Gravação para Análise -->
-      <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 16px; padding: 18px 16px;">
-        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
-          <div style="display:flex; align-items:center; gap:8px;">
-            <span style="font-size:1.1rem;">📹</span>
-            <span style="font-size:0.88rem; font-weight:700; color:#fff;">Como Gravar Vídeos para Análise</span>
+        <!-- Recado 2: Canal Direto de Dúvidas -->
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 16px; padding: 18px 16px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span style="font-size:1.1rem;">💬</span>
+              <span style="font-size:0.88rem; font-weight:700; color:#fff;">Dúvidas e Acompanhamento Direto</span>
+            </div>
+            <span style="font-size:0.7rem; color:#fbbf24; background:rgba(251,191,36,0.1); border:1px solid rgba(251,191,36,0.3); padding:3px 8px; border-radius:6px; font-weight:600;">Comunicação</span>
           </div>
-          <span style="font-size:0.7rem; color:#38bdf8; background:rgba(56,189,248,0.1); border:1px solid rgba(56,189,248,0.3); padding:3px 8px; border-radius:6px; font-weight:600;">Diretriz Técnica</span>
-        </div>
-        <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.55;">
-          Quando estivermos treinando, você poderá filmar suas execuções para eu avaliar:
-          <ul style="margin:8px 0 0 0; padding-left:18px; color:#cbd5e1;">
-            <li><strong>Enquadramento:</strong> Posicione o celular na diagonal ou de lado, pegando o corpo inteiro.</li>
-            <li><strong>Envio fácil:</strong> Use o botão <em>📹 Enviar Vídeo</em> para mandar direto no meu WhatsApp.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Recado 2: Canal Direto de Dúvidas -->
-      <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 16px; padding: 18px 16px;">
-        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
-          <div style="display:flex; align-items:center; gap:8px;">
-            <span style="font-size:1.1rem;">💬</span>
-            <span style="font-size:0.88rem; font-weight:700; color:#fff;">Dúvidas e Acompanhamento Direto</span>
+          <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.55;">
+            Qualquer dúvida sobre os exercícios, cansaço ou dores, é só me mandar mensagem pelo botão do WhatsApp no app que alinhamos tudo na hora!
           </div>
-          <span style="font-size:0.7rem; color:#fbbf24; background:rgba(251,191,36,0.1); border:1px solid rgba(251,191,36,0.3); padding:3px 8px; border-radius:6px; font-weight:600;">Comunicação</span>
         </div>
-        <div style="font-size:0.82rem; color:var(--text-muted); line-height:1.55;">
-          Qualquer dúvida sobre os exercícios, cansaço ou dores, é só me mandar mensagem pelo botão do WhatsApp no app que alinhamos tudo na hora!
-        </div>
+
       </div>
 
-    </div>
-    <!-- Card Clean de Finalização de Treino (Quarta) -->
-    <div class="workout-finish-clean-card" id="workoutFinishCard-quarta">
-      <button type="button" class="btn-finish-workout-trigger" id="btnTriggerFinish-quarta" onclick="openBiometriaSessaoModal('quarta')">
-        <span class="finish-flag-icon">🏁</span> <span>FINALIZAR SESSÃO</span>
-      </button>
-      <div id="completeFeedback-quarta" class="complete-feedback-box" style="display:none; width: 100%; margin-top: 10px;">
-        ✅ Sessão finalizada e registrada com sucesso!
-      </div>
-    </div>
-      <div id="completeFeedback-quarta" class="complete-feedback-box" style="display:none; width: 100%;">
-        ✅ Treino finalizado e relatório enviado com sucesso para o Coach!
-      </div>
-    </div>
+    </div><!-- end #tab-recados -->
 
-  </div><!-- end #tab-recados -->
-
-
-  <!-- ==================== TAB: ANÁLISE DE VÍDEOS ==================== -->
+<!-- ==================== TAB: ANÁLISE DE VÍDEOS ==================== -->
   <div id="tab-analises" class="tab-content">
 
     <!-- HERO: FEEDBACK TÉCNICO E ANÁLISE CINEMÁTICA -->
@@ -5844,10 +5645,7 @@
         <p style="margin-top:8px;"><strong>• Frequência Semanal:</strong> 3 sessões semanais intercaladas (~45 a 60 min), garantindo recuperação neuromuscular e adaptação tecidual ótima.</p>
       </div>
     </div>
-      <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.65; padding: 6px 0;">
-        <p>As diretrizes biomecânicas, cuidados articulares e metas de condicionamento serão publicadas pelo <strong>Prof. Gui Lemos</strong> assim que a sua Ficha de Avaliação Inicial for enviada e revisada.</p>
-      </div>
-    </div>
+
 
 <!-- ==================== SEÇÃO: HISTÓRICO DE AVALIAÇÕES ==================== -->
     <div style="margin: 26px 4px 14px 4px; display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
@@ -7279,8 +7077,7 @@
       </div>
     </div>
   </div>
-    </div>
-  </div>
+  </div><!-- end #mainTrainingView -->
 
   <!-- Modal de Vídeo e Técnica -->
   <div id="videoModal" class="modal-overlay" onclick="handleOverlayClick(event)">
@@ -9490,6 +9287,9 @@ function updateEvolucaoStats() {
         const raw = localStorage.getItem('dominio_jean_student_intake');
         if (raw) data = JSON.parse(raw);
       } catch (e) {}
+      if (!data || Object.keys(data).length === 0) {
+        if (typeof DEFAULT_STUDENT_INTAKE !== 'undefined') data = DEFAULT_STUDENT_INTAKE;
+      }
       const name = data.nome || document.getElementById('athleteProfileName')?.textContent || 'Aluno';
       const weight = parseFloat(data.peso) || null;
       const height = parseFloat(data.altura) || null;
