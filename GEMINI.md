@@ -914,9 +914,31 @@ Para as sessões de CrossFit prescritas especificamente no aplicativo do treinad
 ## 16. LINK DIRETO PARA CHECAGEM DO APP DO ALUNO (OBRIGATÓRIO NAS RESPOSTAS)
 
 - Sempre que criar, atualizar ou editar o aplicativo de qualquer aluno (ou do treinador), **incluir obrigatoriamente na resposta final o link direto clicável** do aplicativo para que o treinador possa abrir e checar imediatamente no navegador (via servidor local `http://localhost:8080/ALUNOS/<PASTA>/<aluno>.html` e link de arquivo [gustavo.html](file:///c:/Users/Gui/Documents/DOMINIO_CORPORAL/ALUNOS/GUSTAVO/gustavo.html)).
+---
 
+## 17. SUÍTE DE TESTES E BLINDAGEM AUTOMATIZADA (PADRÃO OURO)
 
+Para garantir integridade técnica absoluta, estabilidade contínua e prevenção imediata de regressões (como botões que deixam de funcionar, quebras de sintaxe JS ou perda de paridade entre réplicas), o ecossistema Domínio Corporal dispõe de uma **suíte de testes automatizados de blindagem** em Node.js nativo (sem dependências externas pesadas, executada em ~1 segundo).
 
+### 17.1 Os 7 Pilares da Blindagem:
+1. **Compilação e Sintaxe JS (`tests/test_syntax.js`):** Compila 100% dos scripts embutidos e expressões de eventos inline via `node:vm`, prevenindo `SyntaxError`, redeclarações de variáveis ou argumentos mal fechados.
+2. **Integridade de Handlers e Cliques (`tests/test_handlers.js`):** Mapeia todos os atributos `onclick`, `onchange`, `oninput` e `onsubmit` e garante que cada função invocada está rigorosamente declarada no escopo JavaScript do arquivo.
+3. **Correspondência Cards da Rotina e Abas (`tests/test_workout_tabs.js`):** Valida que cada card de treino na home hub aponte para uma aba real (`#tab-*`) existente no DOM e com navegação de retorno válida.
+4. **Integridade Estrutural do DOM (`tests/test_dom_structure.js`):** Garante que subpáginas (como `#evolView-composicao` e `#evolView-tecnica`) sejam irmãs diretas e nunca fiquem aninhadas ou presas indevidamente, e valida a integridade dos modais essenciais.
+5. **Paridade Rigorosa SHA-256 (`tests/test_parity_sha256.js`):** Fiscaliza o cumprimento da Regra 3, assegurando que todas as réplicas dos alunos, treinador e documentação possuam hash SHA-256 rigorosamente idêntico.
+6. **Preservação de Dados Históricos (`tests/test_data_preservation.js`):** Protege contra exclusão acidental de registros corporais, fotos posturais (2026-07-02, 2026-10-05, 2026-10-23) e fichas arquivadas nos perfis.
+7. **Conformidade Canônica de UI e Design (`tests/test_ui_canon.js`):** Valida títulos de seções canônicos, ausência do caractere proibido '&', botão compacto unificado 'Instruções' e presença do dock de timers.
 
+### 17.2 Comandos de Execução:
+- **Execução Global:** `node tests/run_all_tests.js` ou `npm test` ou `.\run_tests.bat`
+- **Execução Modular Rápida:**
+  - Sintaxe: `node tests/run_all_tests.js --only=syntax`
+  - Handlers: `node tests/run_all_tests.js --only=handlers`
+  - Abas: `node tests/run_all_tests.js --only=workout_tabs`
+  - DOM: `node tests/run_all_tests.js --only=dom`
+  - Paridade: `node tests/run_all_tests.js --only=parity`
+  - Dados Históricos: `node tests/run_all_tests.js --only=data`
+  - Diretrizes UI: `node tests/run_all_tests.js --only=ui`
 
-
+### 17.3 Git Hooks Ativos:
+Hooks de `pre-commit` e `pre-push` estão configurados nos repositórios para executar a suíte automaticamente e bloquear qualquer tentativa de commit ou deploy caso alguma asserção falhe.
