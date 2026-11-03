@@ -8437,14 +8437,6 @@
           }
         };
         pill.style.cursor = 'pointer';
-
-        /* OLD_HANDLER */ 
-          e.stopPropagation();
-          handleWorkoutStatusClick(w);
-        };
-        pill.style.cursor = 'pointer';
-
-        const { type, target, count, isDone } = getWorkoutProgress(w);
         if (isDone) {
           pill.className = 'day-status-pill status-done';
           pill.title = 'Concluído! Toque para desmarcar ou reiniciar ciclo';
