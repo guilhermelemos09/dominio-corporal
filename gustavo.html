@@ -5117,6 +5117,19 @@
       transform: translateY(-1px);
     }
 
+    
+    .btn-send-video svg,
+    .btn-send-video-drawer svg {
+      width: 14px !important;
+      height: 14px !important;
+      min-width: 14px !important;
+      max-width: 14px !important;
+      fill: currentColor !important;
+      flex-shrink: 0 !important;
+      display: inline-block !important;
+      vertical-align: middle !important;
+    }
+    
     .btn-send-video-drawer {
       display: inline-flex;
       align-items: center;
@@ -5333,7 +5346,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">2 SÉRIES • 6 REPS (PAUSA 3S) • ⏱️ REST: 60S</div>
+          <div class="ex-volume-badge">2sÉRIES • 6 REPS (PAUSA 3s) • ⏱️ REST: 60s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1 • 6 reps (3s pausa)</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2 • 6 reps (3s pausa)</div>
@@ -5341,8 +5354,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-ext1-scap" onclick="toggleCommentBox('ex-ext1-scap')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-ext1-scap" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Scapular Pull-ups • Gustavo')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-ext1-scap" class="comment-drawer" style="display: none;">
@@ -5382,7 +5399,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">4 SÉRIES • 4-6 SEG (RPE 7-8) • ⏱️ REST: 90S</div>
+          <div class="ex-volume-badge">4sÉRIES • 4-6 SEG (RPE 7-8) • ⏱️ REST: 90s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1 • 5s</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2 • 5s</div>
@@ -5392,8 +5409,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-ext1-fullband" onclick="toggleCommentBox('ex-ext1-fullband')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-ext1-fullband" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Front Lever com Superband • Gustavo')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-ext1-fullband" class="comment-drawer" style="display: none;">
@@ -5421,7 +5442,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 SÉRIES • 6-8 SEG • ⏱️ REST: 90S</div>
+          <div class="ex-volume-badge">3sÉRIES • 6-8 SEG • ⏱️ REST: 90s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1 • 6-8s</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2 • 6-8s</div>
@@ -5430,8 +5451,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-ext1-advtuck" onclick="toggleCommentBox('ex-ext1-advtuck')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-ext1-advtuck" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Advanced Tuck Front Lever • Gustavo')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-ext1-advtuck" class="comment-drawer" style="display: none;">
@@ -5471,7 +5496,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 SÉRIES • 5-6 REPS • ⏱️ REST: 90S</div>
+          <div class="ex-volume-badge">3sÉRIES • 5-6 REPS • ⏱️ REST: 90s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1 • 5 reps</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2 • 5 reps</div>
@@ -5480,8 +5505,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-ext1-dragon" onclick="toggleCommentBox('ex-ext1-dragon')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-ext1-dragon" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Dragon Flag • Gustavo')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-ext1-dragon" class="comment-drawer" style="display: none;">
@@ -5549,7 +5578,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">2 SÉRIES • 12 REPS • ⏱️ REST: 60S</div>
+          <div class="ex-volume-badge">2sÉRIES • 12 REPS • ⏱️ REST: 60s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1 • 12 reps</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2 • 12 reps</div>
@@ -5557,8 +5586,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-ext2-pulldown" onclick="toggleCommentBox('ex-ext2-pulldown')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-ext2-pulldown" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Straight-Arm Pulldown • Gustavo')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-ext2-pulldown" class="comment-drawer" style="display: none;">
@@ -5598,7 +5631,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 SÉRIES • 2 DESCIDAS (5S CADA) • ⏱️ REST: 90S</div>
+          <div class="ex-volume-badge">3sÉRIES • 2 DESCIDAS (5s CADA) • ⏱️ REST: 90s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1 • 2 descidas (5s)</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2 • 2 descidas (5s)</div>
@@ -5607,8 +5640,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-ext2-neg" onclick="toggleCommentBox('ex-ext2-neg')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-ext2-neg" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Front Lever Negativo • Gustavo')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-ext2-neg" class="comment-drawer" style="display: none;">
@@ -5636,7 +5673,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 SÉRIES • 4-5 REPS • ⏱️ REST: 90S</div>
+          <div class="ex-volume-badge">3sÉRIES • 4-5 REPS • ⏱️ REST: 90s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1 • 4-5 reps</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2 • 4-5 reps</div>
@@ -5645,8 +5682,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-ext2-raises" onclick="toggleCommentBox('ex-ext2-raises')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-ext2-raises" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Front Lever Raises • Gustavo')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-ext2-raises" class="comment-drawer" style="display: none;">
@@ -5686,7 +5727,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 SÉRIES • 6-8 REPS • ⏱️ REST: 90S</div>
+          <div class="ex-volume-badge">3sÉRIES • 6-8 REPS • ⏱️ REST: 90s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1 • 6-8 reps</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2 • 6-8 reps</div>
@@ -5695,8 +5736,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-ext2-rows" onclick="toggleCommentBox('ex-ext2-rows')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-ext2-rows" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Tuck Front Lever Rows • Gustavo')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-ext2-rows" class="comment-drawer" style="display: none;">
@@ -14516,7 +14561,7 @@ window.openWelcomeAppModal = function(notifId = null) {
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=205').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=207').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });

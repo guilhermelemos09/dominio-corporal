@@ -5419,6 +5419,19 @@
       transform: translateY(-1px);
     }
 
+    
+    .btn-send-video svg,
+    .btn-send-video-drawer svg {
+      width: 14px !important;
+      height: 14px !important;
+      min-width: 14px !important;
+      max-width: 14px !important;
+      fill: currentColor !important;
+      flex-shrink: 0 !important;
+      display: inline-block !important;
+      vertical-align: middle !important;
+    }
+    
     .btn-send-video-drawer {
       display: inline-flex;
       align-items: center;
@@ -5694,7 +5707,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">2 ROUNDS • 6 MOVIMENTOS • ⏱️ REST: 60S</div>
+          <div class="ex-volume-badge">2 ROUNDS • 6 MOVIMENTOS • ⏱️ REST: 60s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Round 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Round 2</div>
@@ -5702,8 +5715,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-seg-warm" onclick="toggleCommentBox('ex-seg-warm')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-seg-warm" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Warm Up Dinâmico • Segunda')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-seg-warm" class="comment-drawer" style="display: none;">
@@ -5761,8 +5778,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-seg-lpo" onclick="toggleCommentBox('ex-seg-lpo')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-seg-lpo" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Complex LPO • Segunda')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-seg-lpo" class="comment-drawer" style="display: none;">
@@ -5824,8 +5845,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-seg-wod" onclick="toggleCommentBox('ex-seg-wod')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-seg-wod" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('WOD 10 a 1 • Segunda')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-seg-wod" class="comment-drawer" style="display: none;">
@@ -5947,8 +5972,12 @@
         <!-- AÇÕES INFERIORES: ENVIAR VÍDEO E GAVETA DE OBSERVAÇÕES -->
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-ter-cross" onclick="toggleCommentBox('ex-ter-cross')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-ter-cross" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Sessão CrossFit • Terça')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-ter-cross" class="comment-drawer" style="display: none;">
@@ -5988,7 +6017,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 SÉRIES • 20-30S ISOMETRIA LIMPA • ⏱️ REST: 60s</div>
+          <div class="ex-volume-badge">3sÉRIES • 20-30s ISOMETRIA LIMPA • ⏱️ REST: 60s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1 (25s)</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2 (25s)</div>
@@ -5997,8 +6026,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-ter-hs" onclick="toggleCommentBox('ex-ter-hs')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-ter-hs" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Handstand Pós-WOD • Terça')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-ter-hs" class="comment-drawer" style="display: none;">
@@ -6047,8 +6080,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-ter-mob" onclick="toggleCommentBox('ex-ter-mob')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-ter-mob" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Descompressão • Terça')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-ter-mob" class="comment-drawer" style="display: none;">
@@ -6127,8 +6164,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-qua-canoa" onclick="toggleCommentBox('ex-qua-canoa')">
-            <span>💬 Anotar Dados do Relógio (FC, Km, Ritmo)?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-qua-canoa" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Canoagem • Quarta')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-qua-canoa" class="comment-drawer" style="display: none;">
@@ -6179,8 +6220,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-qua-acro" onclick="toggleCommentBox('ex-qua-acro')">
-            <span>💬 Anotar Figuras e Sensações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-qua-acro" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Acroduo • Quarta')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-qua-acro" class="comment-drawer" style="display: none;">
@@ -6228,8 +6273,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-qua-mob" onclick="toggleCommentBox('ex-qua-mob')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-qua-mob" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Descompressão • Quarta')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-qua-mob" class="comment-drawer" style="display: none;">
@@ -6299,7 +6348,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 SÉRIES • MOBILIDADE E CARGA QUADRUPEDAL • ⏱️ REST: 45s</div>
+          <div class="ex-volume-badge">3sÉRIES • MOBILIDADE E CARGA QUADRUPEDAL • ⏱️ REST: 45s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1 (Carga Frontal)</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2 (Carga Lateral e Inversa)</div>
@@ -6308,8 +6357,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-qui-punhos" onclick="toggleCommentBox('ex-qui-punhos')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-qui-punhos" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Aquecimento de Punhos • Quinta')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-qui-punhos" class="comment-drawer" style="display: none;">
@@ -6337,7 +6390,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 SÉRIES • 25S PROTRAÇÃO E ELEVAÇÃO MÁXIMA • ⏱️ REST: 45s</div>
+          <div class="ex-volume-badge">3sÉRIES • 25s PROTRAÇÃO E ELEVAÇÃO MÁXIMA • ⏱️ REST: 45s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1 (25s)</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2 (25s)</div>
@@ -6346,8 +6399,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-qui-escap" onclick="toggleCommentBox('ex-qui-escap')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-qui-escap" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Elevação Escapular • Quinta')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-qui-escap" class="comment-drawer" style="display: none;">
@@ -6387,7 +6444,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">4 SÉRIES • 25-35S ISOMETRIA LIMPA • ⏱️ REST: 60s</div>
+          <div class="ex-volume-badge">4sÉRIES • 25-35s ISOMETRIA LIMPA • ⏱️ REST: 60s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1 (30s)</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2 (30s)</div>
@@ -6397,8 +6454,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-qui-hs-livre" onclick="toggleCommentBox('ex-qui-hs-livre')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-qui-hs-livre" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Handstand Livre • Quinta')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-qui-hs-livre" class="comment-drawer" style="display: none;">
@@ -6426,7 +6487,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">4 SÉRIES • 6-8 PASSOS / PIRUETAS 90° • ⏱️ REST: 60s</div>
+          <div class="ex-volume-badge">4sÉRIES • 6-8 PASSOS / PIRUETAS 90° • ⏱️ REST: 60s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1 (Passos e Taps)</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2 (Pirueta 90°)</div>
@@ -6436,8 +6497,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-qui-piruetas" onclick="toggleCommentBox('ex-qui-piruetas')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-qui-piruetas" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Piruetas • Quinta')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-qui-piruetas" class="comment-drawer" style="display: none;">
@@ -6465,7 +6530,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">4 SÉRIES • 5-8S CADA LADO (ASSISTIDO) • ⏱️ REST: 75s</div>
+          <div class="ex-volume-badge">4sÉRIES • 5-8s CADA LADO (ASSISTIDO) • ⏱️ REST: 75s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1 (Dir / Esq)</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2 (Dir / Esq)</div>
@@ -6475,8 +6540,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-qui-oahs" onclick="toggleCommentBox('ex-qui-oahs')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-qui-oahs" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('One Arm Handstand • Quinta')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-qui-oahs" class="comment-drawer" style="display: none;">
@@ -6504,7 +6573,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">4 SÉRIES • 3-5 REPS COM CONTROLE EXCÊNTRICO • ⏱️ REST: 90s</div>
+          <div class="ex-volume-badge">4sÉRIES • 3-5 REPS COM CONTROLE EXCÊNTRICO • ⏱️ REST: 90s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1 (3-4 reps)</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2 (3-4 reps)</div>
@@ -6514,8 +6583,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-qui-bentpress" onclick="toggleCommentBox('ex-qui-bentpress')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-qui-bentpress" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Bent Arm Press • Quinta')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-qui-bentpress" class="comment-drawer" style="display: none;">
@@ -6555,7 +6628,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 SÉRIES • 12-15 REPS CADA LADO • CADÊNCIA 2011 • ⏱️ REST: 45s</div>
+          <div class="ex-volume-badge">3sÉRIES • 12-15 REPS CADA LADO • CADÊNCIA 2011 • ⏱️ REST: 45s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1 (Dir / Esq)</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2 (Dir / Esq)</div>
@@ -6564,8 +6637,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-qui-panturrilha" onclick="toggleCommentBox('ex-qui-panturrilha')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-qui-panturrilha" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Panturrilha Unilateral • Quinta')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-qui-panturrilha" class="comment-drawer" style="display: none;">
@@ -6593,7 +6670,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 SÉRIES • 15-20 REPS CONTROLADAS • ⏱️ REST: 45s</div>
+          <div class="ex-volume-badge">3sÉRIES • 15-20 REPS CONTROLADAS • ⏱️ REST: 45s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1 (18 reps)</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2 (18 reps)</div>
@@ -6602,8 +6679,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-qui-tibial" onclick="toggleCommentBox('ex-qui-tibial')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-qui-tibial" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Tibial Anterior • Quinta')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-qui-tibial" class="comment-drawer" style="display: none;">
@@ -6643,7 +6724,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">2 SÉRIES • 40S PUNHOS + 40S PUPPY POSE • ⏱️ REST: LIVRE</div>
+          <div class="ex-volume-badge">2sÉRIES • 40s PUNHOS + 40s PUPPY POSE • ⏱️ REST: LIVRE</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1 (Punhos + Puppy)</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2 (Punhos + Puppy)</div>
@@ -6651,8 +6732,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-qui-mob" onclick="toggleCommentBox('ex-qui-mob')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-qui-mob" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Descompressão • Quinta')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-qui-mob" class="comment-drawer" style="display: none;">
@@ -6722,7 +6807,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 SÉRIES • OMBROS, PUNHOS E BÍCEPS DISTAL • ⏱️ REST: 45s</div>
+          <div class="ex-volume-badge">3sÉRIES • OMBROS, PUNHOS E BÍCEPS DISTAL • ⏱️ REST: 45s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1 (Dislocates e Band Pull-aparts)</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2 (Carga de Punhos e False Grip)</div>
@@ -6731,8 +6816,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-sex-mobilidade" onclick="toggleCommentBox('ex-sex-mobilidade')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-sex-mobilidade" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Mobilidade Articular • Sexta')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-sex-mobilidade" class="comment-drawer" style="display: none;">
@@ -6772,7 +6861,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">4 SÉRIES • HOLDS DE 6s A 10s OU NEGATIVAS DE 5s • ⏱️ REST: 90s A 120s</div>
+          <div class="ex-volume-badge">4sÉRIES • HOLDS DE 6s A 10s OU NEGATIVAS DE 5s • ⏱️ REST: 90s A 120s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1 (Hold Técnico)</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2 (Hold Técnico)</div>
@@ -6782,8 +6871,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-sex-frontlever" onclick="toggleCommentBox('ex-sex-frontlever')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-sex-frontlever" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Front Lever • Sexta')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-sex-frontlever" class="comment-drawer" style="display: none;">
@@ -6811,7 +6904,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">4 SÉRIES • 2 A 3 REPETIÇÕES LIMPAS • ⏱️ REST: 2 MIN</div>
+          <div class="ex-volume-badge">4sÉRIES • 2 A 3 REPETIÇÕES LIMPAS • ⏱️ REST: 2 MIN</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1 (2-3 reps)</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2 (2-3 reps)</div>
@@ -6821,8 +6914,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-sex-ringmu" onclick="toggleCommentBox('ex-sex-ringmu')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-sex-ringmu" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Ring Muscle-Up • Sexta')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-sex-ringmu" class="comment-drawer" style="display: none;">
@@ -6860,8 +6957,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-sex-kipmupress" onclick="toggleCommentBox('ex-sex-kipmupress')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-sex-kipmupress" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Kip MU e Press to HS • Sexta')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-sex-kipmupress" class="comment-drawer" style="display: none;">
@@ -6896,7 +6997,7 @@
       <div class="exercise-card">
         <div class="ex-title">
           <span>CROSSFIT</span>
-          <button type="button" class="btn-video" onclick="openVideoModal('CROSSFIT', '<b>Execução:</b> 1. Warm Up Tabata (4 min): 20 segundos de esforço e 10 segundos de pausa alternando 8 séries entre Step up, Worm push up, Muscle clean and press e Shoulder tap.<br>2. Skill de Força (5 rounds a cada 2min 30s): executar 4 Bench press, 4/4 DB step up, 4 Elevação lateral e 5 Tríceps; descansar no tempo restante da janela de 2min 30s.<br>3. WOD EMOM 15 min: a cada virada de minuto, cumprir a meta do bloco e descansar no tempo restante. Minuto 1 (6 Hang clean jerk + 4 Front squat 50/35 kg), Minuto 2 (25 D.U ou 50 S.U + 20 Mountain climber), Minuto 3 (8 Push up + 3 Wall walk), Minuto 4 (8 Box jump over + 8 Toes to bar), Minuto 5 (Rest total). Completar 3 ciclos de 5 minutos.<br><br><b>Cuidados:</b> 1. No Bench Press e LPO, calibrar a pegada e antebraço considerando a pré-exaustão das argolas.<br>2. No Hang Clean Jerk e Front Squat, manter cotovelos altos e coluna neutra; não colapsar a torácica.<br>3. Nos Box Jump Overs, amortecer o pouso flexionando tornozelos e joelhos.<br>4. No Wall Walk, subir até onde houver controle de core e ombros sem quebrar a postura.<br><br><b>Adaptações e Escalas:</b> 1. Carga da barra: ajustar para 40kg ou 35kg se necessário.<br>2. Double Unders: 50 Single Unders.<br>3. Toes to Bar: Hanging Knee Raises se a pegada estiver fatigada.<br><br><b>Base científica:</b> DENSIDADE METABÓLICA E POTÊNCIA INTERMITENTE: A combinação de força estrutural com estímulo glicolítico intermitente em modelo EMOM com pausas programadas otimiza o clearance de lactato, tolerância neuromuscular e ressíntese de fosfocreatina (Powers e Howley, 2018; Glaister, 2005).', '')">
+          <button type="button" class="btn-video" onclick="openVideoModal('CROSSFIT', '<b>Execução:</b> 1. Warm Up Tabata (4 min): 20 segundos de esforço e 10 segundos de pausa alternando 8 séries entre Step up, Worm push up, Muscle clean and press e Shoulder tap.<br>2. Skill de Força (5 rounds a cada 2min 30s): executar 4 Bench press, 4/4 DB step up, 4 Elevação lateral e 5 Tríceps; descansar no tempo restante da janela de 2min 30s.<br>3. WOD EMOM 15 min: a cada virada de minuto, cumprir a meta do bloco e descansar no tempo restante. Minuto 1 (6 Hang clean jerk + 4 Front squat 50/35 kg), Minuto 2 (25 D.U ou 50s.U + 20 Mountain climber), Minuto 3 (8 Push up + 3 Wall walk), Minuto 4 (8 Box jump over + 8 Toes to bar), Minuto 5 (Rest total). Completar 3 ciclos de 5 minutos.<br><br><b>Cuidados:</b> 1. No Bench Press e LPO, calibrar a pegada e antebraço considerando a pré-exaustão das argolas.<br>2. No Hang Clean Jerk e Front Squat, manter cotovelos altos e coluna neutra; não colapsar a torácica.<br>3. Nos Box Jump Overs, amortecer o pouso flexionando tornozelos e joelhos.<br>4. No Wall Walk, subir até onde houver controle de core e ombros sem quebrar a postura.<br><br><b>Adaptações e Escalas:</b> 1. Carga da barra: ajustar para 40kg ou 35kg se necessário.<br>2. Double Unders: 50 Single Unders.<br>3. Toes to Bar: Hanging Knee Raises se a pegada estiver fatigada.<br><br><b>Base científica:</b> DENSIDADE METABÓLICA E POTÊNCIA INTERMITENTE: A combinação de força estrutural com estímulo glicolítico intermitente em modelo EMOM com pausas programadas otimiza o clearance de lactato, tolerância neuromuscular e ressíntese de fosfocreatina (Powers e Howley, 2018; Glaister, 2005).', '')">
             <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
           </button>
         </div>
@@ -6927,7 +7028,7 @@
             <div style="font-size: 0.88rem; font-weight: 800; color: #ffffff; letter-spacing: 0.02em; margin-bottom: 4px;">WOD • EMOM 15 MIN</div>
             <div style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.55;">
               • Minuto 1: 6 Hang clean jerk + 4 Front squat 50/35 kg<br>
-              • Minuto 2: 25 D.U / 50 S.U + 20 Mountain climber<br>
+              • Minuto 2: 25 D.U / 50s.U + 20 Mountain climber<br>
               • Minuto 3: 8 Push up + 3 Wall walk<br>
               • Minuto 4: 8 Box jump over + 8 Toes to bar<br>
               • Minuto 5: Rest
@@ -6948,8 +7049,12 @@
         <!-- AÇÕES INFERIORES: ENVIAR VÍDEO E GAVETA DE OBSERVAÇÕES -->
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-sex-cross" onclick="toggleCommentBox('ex-sex-cross')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-sex-cross" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Sessão CrossFit • Sexta')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-sex-cross" class="comment-drawer" style="display: none;">
@@ -6998,8 +7103,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-sex-descompressao" onclick="toggleCommentBox('ex-sex-descompressao')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-sex-descompressao" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Descompressão Articular • Sexta')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-sex-descompressao" class="comment-drawer" style="display: none;">
@@ -17104,7 +17213,7 @@ function formatVisualAnalysisContent(rawText) {
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=205').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=206').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });

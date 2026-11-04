@@ -4895,6 +4895,19 @@
       line-height: 1.35;
       width: 100%;
     }
+    
+    .btn-send-video svg,
+    .btn-send-video-drawer svg {
+      width: 14px !important;
+      height: 14px !important;
+      min-width: 14px !important;
+      max-width: 14px !important;
+      fill: currentColor !important;
+      flex-shrink: 0 !important;
+      display: inline-block !important;
+      vertical-align: middle !important;
+    }
+    
     .btn-send-video-drawer {
       display: inline-flex;
       align-items: center;
@@ -5118,15 +5131,19 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">1 SÉRIE • 5-6 MIN • ⏱️ REST: LIVRE</div>
+          <div class="ex-volume-badge">1sÉRIE • 5-6 MIN • ⏱️ REST: LIVRE</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Aquecimento 5-6 min</div>
           </div>
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-seg-bike" onclick="toggleCommentBox('ex-seg-bike')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-seg-bike" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Bike Ergométrica • Helenice')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-seg-bike" class="comment-drawer" style="display: none;">
@@ -5154,7 +5171,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">1 SÉRIE • 1 MIN / PÉ • ⏱️ REST: LIVRE</div>
+          <div class="ex-volume-badge">1sÉRIE • 1 MIN / PÉ • ⏱️ REST: LIVRE</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Pé D - 1 min</div>
             <div class="set-pill" onclick="toggleSet(this)">Pé E - 1 min</div>
@@ -5162,8 +5179,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-seg-fascia" onclick="toggleCommentBox('ex-seg-fascia')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-seg-fascia" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Liberação da Fáscia Plantar • Helenice')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-seg-fascia" class="comment-drawer" style="display: none;">
@@ -5191,7 +5212,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">2 SÉRIES • 8 REPS • ⏱️ REST: 60S</div>
+          <div class="ex-volume-badge">2sÉRIES • 8 REPS • ⏱️ REST: 60s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
@@ -5199,8 +5220,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-seg-catcow" onclick="toggleCommentBox('ex-seg-catcow')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-seg-catcow" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Cat-Cow • Helenice')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-seg-catcow" class="comment-drawer" style="display: none;">
@@ -5240,7 +5265,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 SÉRIES • 8-10 REPS • ⏱️ REST: 60S</div>
+          <div class="ex-volume-badge">3sÉRIES • 8-10 REPS • ⏱️ REST: 60s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
@@ -5249,8 +5274,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-seg-boxsquat" onclick="toggleCommentBox('ex-seg-boxsquat')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-seg-boxsquat" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Box Squat • Helenice')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-seg-boxsquat" class="comment-drawer" style="display: none;">
@@ -5278,7 +5307,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 SÉRIES • 10-12 REPS • ⏱️ REST: 60S</div>
+          <div class="ex-volume-badge">3sÉRIES • 10-12 REPS • ⏱️ REST: 60s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
@@ -5287,8 +5316,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-seg-remada" onclick="toggleCommentBox('ex-seg-remada')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-seg-remada" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Remada Apoiada no Banco • Helenice')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-seg-remada" class="comment-drawer" style="display: none;">
@@ -5316,7 +5349,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 SÉRIES • 10-12 REPS (PAUSA 2") • ⏱️ REST: 60S</div>
+          <div class="ex-volume-badge">3sÉRIES • 10-12 REPS (PAUSA 2") • ⏱️ REST: 60s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
@@ -5325,8 +5358,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-seg-bridge" onclick="toggleCommentBox('ex-seg-bridge')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-seg-bridge" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Ponte de Glúteos • Helenice')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-seg-bridge" class="comment-drawer" style="display: none;">
@@ -5354,7 +5391,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 SÉRIES • 12-15 REPS (PAUSA 1") • ⏱️ REST: 60S</div>
+          <div class="ex-volume-badge">3sÉRIES • 12-15 REPS (PAUSA 1") • ⏱️ REST: 60s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
@@ -5363,8 +5400,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-seg-panturrilha" onclick="toggleCommentBox('ex-seg-panturrilha')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-seg-panturrilha" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Panturrilha em Pé • Helenice')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-seg-panturrilha" class="comment-drawer" style="display: none;">
@@ -5404,7 +5445,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">2 SÉRIES • 30" / LADO • ⏱️ REST: 45S</div>
+          <div class="ex-volume-badge">2sÉRIES • 30" / LADO • ⏱️ REST: 45s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Braço D - Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Braço D - Série 2</div>
@@ -5414,8 +5455,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-seg-peitoral" onclick="toggleCommentBox('ex-seg-peitoral')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-seg-peitoral" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Alongamento Peitoral • Helenice')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-seg-peitoral" class="comment-drawer" style="display: none;">
@@ -5443,15 +5488,19 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">1 SÉRIE • 2 MIN (RELAXAMENTO) • ⏱️ REST: LIVRE</div>
+          <div class="ex-volume-badge">1sÉRIE • 2 MIN (RELAXAMENTO) • ⏱️ REST: LIVRE</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Relaxamento 2 min</div>
           </div>
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-seg-childpose" onclick="toggleCommentBox('ex-seg-childpose')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-seg-childpose" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Posição da Criança • Helenice')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-seg-childpose" class="comment-drawer" style="display: none;">
@@ -5524,15 +5573,19 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">1 SÉRIE • 5-6 MIN • ⏱️ REST: LIVRE</div>
+          <div class="ex-volume-badge">1sÉRIE • 5-6 MIN • ⏱️ REST: LIVRE</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Aquecimento 5-6 min</div>
           </div>
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-qua-bike" onclick="toggleCommentBox('ex-qua-bike')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-qua-bike" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Bike Ergométrica • Helenice')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-qua-bike" class="comment-drawer" style="display: none;">
@@ -5560,7 +5613,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">2 SÉRIES • 6-8 REPS / LADO • ⏱️ REST: 60S</div>
+          <div class="ex-volume-badge">2sÉRIES • 6-8 REPS / LADO • ⏱️ REST: 60s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Lado D - Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Lado D - Série 2</div>
@@ -5570,8 +5623,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-qua-toracica" onclick="toggleCommentBox('ex-qua-toracica')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-qua-toracica" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Mobilidade Torácica • Helenice')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-qua-toracica" class="comment-drawer" style="display: none;">
@@ -5599,7 +5656,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">2 SÉRIES • 6-8 REPS / LADO • ⏱️ REST: 60S</div>
+          <div class="ex-volume-badge">2sÉRIES • 6-8 REPS / LADO • ⏱️ REST: 60s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Lado D - Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Lado D - Série 2</div>
@@ -5609,8 +5666,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-qua-birddog" onclick="toggleCommentBox('ex-qua-birddog')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-qua-birddog" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Bird-Dog • Helenice')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-qua-birddog" class="comment-drawer" style="display: none;">
@@ -5650,7 +5711,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 SÉRIES • 10-12 REPS • ⏱️ REST: 60S</div>
+          <div class="ex-volume-badge">3sÉRIES • 10-12 REPS • ⏱️ REST: 60s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
@@ -5659,8 +5720,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-qua-pulley" onclick="toggleCommentBox('ex-qua-pulley')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-qua-pulley" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Puxada Alta no Pulley • Helenice')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-qua-pulley" class="comment-drawer" style="display: none;">
@@ -5688,7 +5753,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 SÉRIES • 10-12 REPS / LADO • ⏱️ REST: 60S</div>
+          <div class="ex-volume-badge">3sÉRIES • 10-12 REPS / LADO • ⏱️ REST: 60s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Lado D - Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Lado D - Série 2</div>
@@ -5700,8 +5765,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-qua-abducao" onclick="toggleCommentBox('ex-qua-abducao')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-qua-abducao" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Abdução de Quadril em Pé • Helenice')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-qua-abducao" class="comment-drawer" style="display: none;">
@@ -5729,7 +5798,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 SÉRIES • 8-10 REPS • ⏱️ REST: 60S</div>
+          <div class="ex-volume-badge">3sÉRIES • 8-10 REPS • ⏱️ REST: 60s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
@@ -5738,8 +5807,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-qua-flexao" onclick="toggleCommentBox('ex-qua-flexao')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-qua-flexao" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Flexão Inclinada na Parede • Helenice')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-qua-flexao" class="comment-drawer" style="display: none;">
@@ -5767,7 +5840,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 SÉRIES • 20-25" SUSTENTAÇÃO • ⏱️ REST: 60S</div>
+          <div class="ex-volume-badge">3sÉRIES • 20-25" SUSTENTAÇÃO • ⏱️ REST: 60s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Série 2</div>
@@ -5776,8 +5849,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-qua-pantisom" onclick="toggleCommentBox('ex-qua-pantisom')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-qua-pantisom" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Panturrilha Isométrica • Helenice')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-qua-pantisom" class="comment-drawer" style="display: none;">
@@ -5817,7 +5894,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">2 SÉRIES • 30" / PERNA • ⏱️ REST: 45S</div>
+          <div class="ex-volume-badge">2sÉRIES • 30" / PERNA • ⏱️ REST: 45s</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Perna D - Série 1</div>
             <div class="set-pill" onclick="toggleSet(this)">Perna D - Série 2</div>
@@ -5827,8 +5904,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-qua-posterior" onclick="toggleCommentBox('ex-qua-posterior')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-qua-posterior" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Alongamento de Isquiotibiais • Helenice')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-qua-posterior" class="comment-drawer" style="display: none;">
@@ -5856,15 +5937,19 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">1 SÉRIE • 2-3 MIN (DESCOMPRESSÃO) • ⏱️ REST: LIVRE</div>
+          <div class="ex-volume-badge">1sÉRIE • 2-3 MIN (DESCOMPRESSÃO) • ⏱️ REST: LIVRE</div>
           <div class="sets-container">
             <div class="set-pill" onclick="toggleSet(this)">Relaxamento 90/90</div>
           </div>
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-qua-descanso90" onclick="toggleCommentBox('ex-qua-descanso90')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-qua-descanso90" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Relaxamento 90/90 • Helenice')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-qua-descanso90" class="comment-drawer" style="display: none;">
@@ -14573,7 +14658,7 @@ window.openWelcomeAppModal = function(notifId = null) {
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=205').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=207').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });

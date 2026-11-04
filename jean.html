@@ -5115,6 +5115,19 @@
       transform: translateY(-1px);
     }
 
+    
+    .btn-send-video svg,
+    .btn-send-video-drawer svg {
+      width: 14px !important;
+      height: 14px !important;
+      min-width: 14px !important;
+      max-width: 14px !important;
+      fill: currentColor !important;
+      flex-shrink: 0 !important;
+      display: inline-block !important;
+      vertical-align: middle !important;
+    }
+  
     .btn-send-video-drawer {
       display: inline-flex;
       align-items: center;
@@ -5385,7 +5398,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">2 séries × 15 reps • Descanso: 45s</div>
+          <div class="ex-volume-badge">2 séries × 15 reps • Descanso: 60s</div>
           <div class="set-pills-row">
             <button type="button" class="set-pill" onclick="toggleSet(this)">1</button>
             <button type="button" class="set-pill" onclick="toggleSet(this)">2</button>
@@ -5393,8 +5406,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-rotacao-externa-no-cabo-manguito" onclick="toggleCommentBox('ex-jean-rotacao-externa-no-cabo-manguito')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-rotacao-externa-no-cabo-manguito" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('ROTAÇÃO EXTERNA NO CABO (MANGUITO) • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-rotacao-externa-no-cabo-manguito" class="comment-drawer" style="display: none;">
@@ -5405,7 +5422,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('ROTAÇÃO EXTERNA NO CABO (MANGUITO) • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -5421,7 +5438,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">2 séries × 20s • Descanso: 45s</div>
+          <div class="ex-volume-badge">2 séries × 20s • Descanso: 60s</div>
           <div class="set-pills-row">
             <button type="button" class="set-pill" onclick="toggleSet(this)">1</button>
             <button type="button" class="set-pill" onclick="toggleSet(this)">2</button>
@@ -5429,8 +5446,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-descompressao-axial-em-dead-hang" onclick="toggleCommentBox('ex-jean-descompressao-axial-em-dead-hang')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-descompressao-axial-em-dead-hang" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('DESCOMPRESSÃO AXIAL EM DEAD HANG • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-descompressao-axial-em-dead-hang" class="comment-drawer" style="display: none;">
@@ -5441,7 +5462,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('DESCOMPRESSÃO AXIAL EM DEAD HANG • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -5457,7 +5478,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">2 séries × 12 reps • Descanso: 45s</div>
+          <div class="ex-volume-badge">2 séries × 12 reps • Descanso: 60s</div>
           <div class="set-pills-row">
             <button type="button" class="set-pill" onclick="toggleSet(this)">1</button>
             <button type="button" class="set-pill" onclick="toggleSet(this)">2</button>
@@ -5465,8 +5486,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-protracao-escapular-na-polia-scap-push" onclick="toggleCommentBox('ex-jean-protracao-escapular-na-polia-scap-push')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-protracao-escapular-na-polia-scap-push" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('PROTRAÇÃO ESCAPULAR NA POLIA (SCAP PUSH) • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-protracao-escapular-na-polia-scap-push" class="comment-drawer" style="display: none;">
@@ -5477,7 +5502,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('PROTRAÇÃO ESCAPULAR NA POLIA (SCAP PUSH) • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -5513,8 +5538,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-supino-reto-com-halteres-semi-neutro" onclick="toggleCommentBox('ex-jean-supino-reto-com-halteres-semi-neutro')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-supino-reto-com-halteres-semi-neutro" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('SUPINO RETO COM HALTERES (SEMI-NEUTRO) • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-supino-reto-com-halteres-semi-neutro" class="comment-drawer" style="display: none;">
@@ -5525,7 +5554,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('SUPINO RETO COM HALTERES (SEMI-NEUTRO) • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -5550,8 +5579,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-supino-inclinado-articulado" onclick="toggleCommentBox('ex-jean-supino-inclinado-articulado')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-supino-inclinado-articulado" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('SUPINO INCLINADO ARTICULADO • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-supino-inclinado-articulado" class="comment-drawer" style="display: none;">
@@ -5562,7 +5595,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('SUPINO INCLINADO ARTICULADO • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -5588,8 +5621,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-elevacao-lateral-na-polia-media" onclick="toggleCommentBox('ex-jean-elevacao-lateral-na-polia-media')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-elevacao-lateral-na-polia-media" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('ELEVAÇÃO LATERAL NA POLIA MÉDIA • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-elevacao-lateral-na-polia-media" class="comment-drawer" style="display: none;">
@@ -5600,7 +5637,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('ELEVAÇÃO LATERAL NA POLIA MÉDIA • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -5625,8 +5662,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-triceps-corda-na-polia-alta" onclick="toggleCommentBox('ex-jean-triceps-corda-na-polia-alta')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-triceps-corda-na-polia-alta" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('TRÍCEPS CORDA NA POLIA ALTA • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-triceps-corda-na-polia-alta" class="comment-drawer" style="display: none;">
@@ -5637,7 +5678,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('TRÍCEPS CORDA NA POLIA ALTA • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -5662,8 +5703,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-triceps-testa-com-halteres-no-banco" onclick="toggleCommentBox('ex-jean-triceps-testa-com-halteres-no-banco')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-triceps-testa-com-halteres-no-banco" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('TRÍCEPS TESTA COM HALTERES NO BANCO • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-triceps-testa-com-halteres-no-banco" class="comment-drawer" style="display: none;">
@@ -5674,7 +5719,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('TRÍCEPS TESTA COM HALTERES NO BANCO • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -5708,8 +5753,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-alongamento-passivo-de-peitoral-e-ombro" onclick="toggleCommentBox('ex-jean-alongamento-passivo-de-peitoral-e-ombro')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-alongamento-passivo-de-peitoral-e-ombro" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('ALONGAMENTO PASSIVO DE PEITORAL E OMBRO • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-alongamento-passivo-de-peitoral-e-ombro" class="comment-drawer" style="display: none;">
@@ -5720,7 +5769,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('ALONGAMENTO PASSIVO DE PEITORAL E OMBRO • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -5774,7 +5823,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 séries × 6 reps por lado (pausa 4s) • Descanso: 45s</div>
+          <div class="ex-volume-badge">3 séries × 6 reps por lado (pausa 4s) • Descanso: 60s</div>
           <div class="set-pills-row">
             <button type="button" class="set-pill" onclick="toggleSet(this)">1</button>
             <button type="button" class="set-pill" onclick="toggleSet(this)">2</button>
@@ -5783,8 +5832,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-bird-dog-perdigueiro" onclick="toggleCommentBox('ex-jean-bird-dog-perdigueiro')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-bird-dog-perdigueiro" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('BIRD-DOG (PERDIGUEIRO) • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-bird-dog-perdigueiro" class="comment-drawer" style="display: none;">
@@ -5795,7 +5848,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('BIRD-DOG (PERDIGUEIRO) • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -5811,7 +5864,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 séries × 20 a 30s por lado • Descanso: 45s</div>
+          <div class="ex-volume-badge">3 séries × 20 a 30s por lado • Descanso: 60s</div>
           <div class="set-pills-row">
             <button type="button" class="set-pill" onclick="toggleSet(this)">1</button>
             <button type="button" class="set-pill" onclick="toggleSet(this)">2</button>
@@ -5820,8 +5873,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-prancha-lateral-com-cotovelo-apoiado" onclick="toggleCommentBox('ex-jean-prancha-lateral-com-cotovelo-apoiado')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-prancha-lateral-com-cotovelo-apoiado" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('PRANCHA LATERAL COM COTOVELO APOIADO • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-prancha-lateral-com-cotovelo-apoiado" class="comment-drawer" style="display: none;">
@@ -5832,7 +5889,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('PRANCHA LATERAL COM COTOVELO APOIADO • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -5848,7 +5905,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 séries × 6 reps de 5s • Descanso: 45s</div>
+          <div class="ex-volume-badge">3 séries × 6 reps de 5s • Descanso: 60s</div>
           <div class="set-pills-row">
             <button type="button" class="set-pill" onclick="toggleSet(this)">1</button>
             <button type="button" class="set-pill" onclick="toggleSet(this)">2</button>
@@ -5857,8 +5914,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-curl-up-modificado" onclick="toggleCommentBox('ex-jean-curl-up-modificado')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-curl-up-modificado" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('CURL-UP MODIFICADO • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-curl-up-modificado" class="comment-drawer" style="display: none;">
@@ -5869,7 +5930,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('CURL-UP MODIFICADO • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -5905,8 +5966,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-z-press-com-halteres-no-solo" onclick="toggleCommentBox('ex-jean-z-press-com-halteres-no-solo')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-z-press-com-halteres-no-solo" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('Z-PRESS COM HALTERES NO SOLO • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-z-press-com-halteres-no-solo" class="comment-drawer" style="display: none;">
@@ -5917,7 +5982,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Z-PRESS COM HALTERES NO SOLO • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -5942,8 +6007,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-pallof-press-no-cabo-anti-rotacao" onclick="toggleCommentBox('ex-jean-pallof-press-no-cabo-anti-rotacao')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-pallof-press-no-cabo-anti-rotacao" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('PALLOF PRESS NO CABO (ANTI-ROTAÇÃO) • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-pallof-press-no-cabo-anti-rotacao" class="comment-drawer" style="display: none;">
@@ -5954,7 +6023,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('PALLOF PRESS NO CABO (ANTI-ROTAÇÃO) • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -5979,8 +6048,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-plank-row-com-halteres" onclick="toggleCommentBox('ex-jean-plank-row-com-halteres')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-plank-row-com-halteres" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('PLANK ROW COM HALTERES • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-plank-row-com-halteres" class="comment-drawer" style="display: none;">
@@ -5991,7 +6064,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('PLANK ROW COM HALTERES • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -6024,8 +6097,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-caminhada-com-inclinacao-zona-2" onclick="toggleCommentBox('ex-jean-caminhada-com-inclinacao-zona-2')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-caminhada-com-inclinacao-zona-2" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('CAMINHADA COM INCLINAÇÃO (ZONA 2) • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-caminhada-com-inclinacao-zona-2" class="comment-drawer" style="display: none;">
@@ -6036,7 +6113,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('CAMINHADA COM INCLINAÇÃO (ZONA 2) • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -6090,7 +6167,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">2 séries × 8 ciclos lentos • Descanso: 45s</div>
+          <div class="ex-volume-badge">2 séries × 8 ciclos lentos • Descanso: 60s</div>
           <div class="set-pills-row">
             <button type="button" class="set-pill" onclick="toggleSet(this)">1</button>
             <button type="button" class="set-pill" onclick="toggleSet(this)">2</button>
@@ -6098,8 +6175,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-cat-cow-segmentado-no-solo" onclick="toggleCommentBox('ex-jean-cat-cow-segmentado-no-solo')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-cat-cow-segmentado-no-solo" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('CAT-COW SEGMENTADO NO SOLO • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-cat-cow-segmentado-no-solo" class="comment-drawer" style="display: none;">
@@ -6110,7 +6191,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('CAT-COW SEGMENTADO NO SOLO • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -6126,7 +6207,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">2 séries × 10 reps • Descanso: 45s</div>
+          <div class="ex-volume-badge">2 séries × 10 reps • Descanso: 60s</div>
           <div class="set-pills-row">
             <button type="button" class="set-pill" onclick="toggleSet(this)">1</button>
             <button type="button" class="set-pill" onclick="toggleSet(this)">2</button>
@@ -6134,8 +6215,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-puxada-escapular-na-barra-fixa" onclick="toggleCommentBox('ex-jean-puxada-escapular-na-barra-fixa')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-puxada-escapular-na-barra-fixa" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('PUXADA ESCAPULAR NA BARRA FIXA • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-puxada-escapular-na-barra-fixa" class="comment-drawer" style="display: none;">
@@ -6146,7 +6231,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('PUXADA ESCAPULAR NA BARRA FIXA • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -6162,7 +6247,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">2 séries × 20s • Descanso: 45s</div>
+          <div class="ex-volume-badge">2 séries × 20s • Descanso: 60s</div>
           <div class="set-pills-row">
             <button type="button" class="set-pill" onclick="toggleSet(this)">1</button>
             <button type="button" class="set-pill" onclick="toggleSet(this)">2</button>
@@ -6170,8 +6255,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-dead-hang-com-respiracao-diafragmatica" onclick="toggleCommentBox('ex-jean-dead-hang-com-respiracao-diafragmatica')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-dead-hang-com-respiracao-diafragmatica" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('DEAD HANG COM RESPIRAÇÃO DIAFRAGMÁTICA • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-dead-hang-com-respiracao-diafragmatica" class="comment-drawer" style="display: none;">
@@ -6182,7 +6271,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('DEAD HANG COM RESPIRAÇÃO DIAFRAGMÁTICA • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -6218,8 +6307,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-puxada-alta-na-polia-com-pegada-neutra" onclick="toggleCommentBox('ex-jean-puxada-alta-na-polia-com-pegada-neutra')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-puxada-alta-na-polia-com-pegada-neutra" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('PUXADA ALTA NA POLIA COM PEGADA NEUTRA • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-puxada-alta-na-polia-com-pegada-neutra" class="comment-drawer" style="display: none;">
@@ -6230,7 +6323,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('PUXADA ALTA NA POLIA COM PEGADA NEUTRA • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -6256,8 +6349,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-remada-articulada-com-apoio-no-peito" onclick="toggleCommentBox('ex-jean-remada-articulada-com-apoio-no-peito')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-remada-articulada-com-apoio-no-peito" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('REMADA ARTICULADA COM APOIO NO PEITO • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-remada-articulada-com-apoio-no-peito" class="comment-drawer" style="display: none;">
@@ -6268,7 +6365,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('REMADA ARTICULADA COM APOIO NO PEITO • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -6293,8 +6390,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-remada-baixa-na-polia-com-triangulo" onclick="toggleCommentBox('ex-jean-remada-baixa-na-polia-com-triangulo')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-remada-baixa-na-polia-com-triangulo" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('REMADA BAIXA NA POLIA COM TRIÂNGULO • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-remada-baixa-na-polia-com-triangulo" class="comment-drawer" style="display: none;">
@@ -6305,7 +6406,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('REMADA BAIXA NA POLIA COM TRIÂNGULO • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -6330,8 +6431,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-crucifixo-inverso-na-maquina" onclick="toggleCommentBox('ex-jean-crucifixo-inverso-na-maquina')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-crucifixo-inverso-na-maquina" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('CRUCIFIXO INVERSO NA MÁQUINA • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-crucifixo-inverso-na-maquina" class="comment-drawer" style="display: none;">
@@ -6342,7 +6447,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('CRUCIFIXO INVERSO NA MÁQUINA • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -6367,8 +6472,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-rosca-biceps-no-banco-inclinado" onclick="toggleCommentBox('ex-jean-rosca-biceps-no-banco-inclinado')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-rosca-biceps-no-banco-inclinado" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('ROSCA BÍCEPS NO BANCO INCLINADO • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-rosca-biceps-no-banco-inclinado" class="comment-drawer" style="display: none;">
@@ -6379,7 +6488,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('ROSCA BÍCEPS NO BANCO INCLINADO • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -6413,8 +6522,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-alongamento-do-grande-dorsal" onclick="toggleCommentBox('ex-jean-alongamento-do-grande-dorsal')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-alongamento-do-grande-dorsal" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('ALONGAMENTO DO GRANDE DORSAL • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-alongamento-do-grande-dorsal" class="comment-drawer" style="display: none;">
@@ -6425,7 +6538,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('ALONGAMENTO DO GRANDE DORSAL • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -6479,7 +6592,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">2 séries × 10 reps por perna • Descanso: 45s</div>
+          <div class="ex-volume-badge">2 séries × 10 reps por perna • Descanso: 60s</div>
           <div class="set-pills-row">
             <button type="button" class="set-pill" onclick="toggleSet(this)">1</button>
             <button type="button" class="set-pill" onclick="toggleSet(this)">2</button>
@@ -6487,8 +6600,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-mobilidade-de-tornozelo-no-degrau" onclick="toggleCommentBox('ex-jean-mobilidade-de-tornozelo-no-degrau')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-mobilidade-de-tornozelo-no-degrau" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('MOBILIDADE DE TORNOZELO NO DEGRAU • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-mobilidade-de-tornozelo-no-degrau" class="comment-drawer" style="display: none;">
@@ -6499,7 +6616,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('MOBILIDADE DE TORNOZELO NO DEGRAU • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -6515,7 +6632,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">2 séries × 10 reps por perna • Descanso: 45s</div>
+          <div class="ex-volume-badge">2 séries × 10 reps por perna • Descanso: 60s</div>
           <div class="set-pills-row">
             <button type="button" class="set-pill" onclick="toggleSet(this)">1</button>
             <button type="button" class="set-pill" onclick="toggleSet(this)">2</button>
@@ -6523,8 +6640,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-ponte-de-gluteo-unilateral-no-solo" onclick="toggleCommentBox('ex-jean-ponte-de-gluteo-unilateral-no-solo')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-ponte-de-gluteo-unilateral-no-solo" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('PONTE DE GLÚTEO UNILATERAL NO SOLO • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-ponte-de-gluteo-unilateral-no-solo" class="comment-drawer" style="display: none;">
@@ -6535,7 +6656,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('PONTE DE GLÚTEO UNILATERAL NO SOLO • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -6551,7 +6672,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">2 séries × 10 a 12 reps • Descanso: 45s</div>
+          <div class="ex-volume-badge">2 séries × 10 a 12 reps • Descanso: 60s</div>
           <div class="set-pills-row">
             <button type="button" class="set-pill" onclick="toggleSet(this)">1</button>
             <button type="button" class="set-pill" onclick="toggleSet(this)">2</button>
@@ -6559,8 +6680,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-agachamento-livre-air-squat" onclick="toggleCommentBox('ex-jean-agachamento-livre-air-squat')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-agachamento-livre-air-squat" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('AGACHAMENTO LIVRE (AIR SQUAT) • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-agachamento-livre-air-squat" class="comment-drawer" style="display: none;">
@@ -6571,7 +6696,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('AGACHAMENTO LIVRE (AIR SQUAT) • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -6607,8 +6732,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-leg-press-45-pelve-travada" onclick="toggleCommentBox('ex-jean-leg-press-45-pelve-travada')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-leg-press-45-pelve-travada" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('LEG PRESS 45° (PELVE TRAVADA) • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-leg-press-45-pelve-travada" class="comment-drawer" style="display: none;">
@@ -6619,7 +6748,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('LEG PRESS 45° (PELVE TRAVADA) • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -6644,8 +6773,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-agachamento-bulgaro-com-halteres" onclick="toggleCommentBox('ex-jean-agachamento-bulgaro-com-halteres')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-agachamento-bulgaro-com-halteres" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('AGACHAMENTO BÚLGARO COM HALTERES • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-agachamento-bulgaro-com-halteres" class="comment-drawer" style="display: none;">
@@ -6656,7 +6789,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('AGACHAMENTO BÚLGARO COM HALTERES • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -6682,8 +6815,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-mesa-ou-cadeira-flexora" onclick="toggleCommentBox('ex-jean-mesa-ou-cadeira-flexora')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-mesa-ou-cadeira-flexora" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('MESA OU CADEIRA FLEXORA • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-mesa-ou-cadeira-flexora" class="comment-drawer" style="display: none;">
@@ -6694,7 +6831,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('MESA OU CADEIRA FLEXORA • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -6719,8 +6856,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-cadeira-extensora" onclick="toggleCommentBox('ex-jean-cadeira-extensora')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-cadeira-extensora" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('CADEIRA EXTENSORA • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-cadeira-extensora" class="comment-drawer" style="display: none;">
@@ -6731,7 +6872,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('CADEIRA EXTENSORA • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -6756,8 +6897,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-cadeira-abdutora" onclick="toggleCommentBox('ex-jean-cadeira-abdutora')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-cadeira-abdutora" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('CADEIRA ABDUTORA • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-cadeira-abdutora" class="comment-drawer" style="display: none;">
@@ -6768,7 +6913,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('CADEIRA ABDUTORA • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -6784,7 +6929,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">4 séries × 15 reps por perna • Descanso: 45s</div>
+          <div class="ex-volume-badge">4 séries × 15 reps por perna • Descanso: 60s</div>
           <div class="set-pills-row">
             <button type="button" class="set-pill" onclick="toggleSet(this)">1</button>
             <button type="button" class="set-pill" onclick="toggleSet(this)">2</button>
@@ -6794,8 +6939,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-panturrilha-unilateral-no-degrau" onclick="toggleCommentBox('ex-jean-panturrilha-unilateral-no-degrau')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-panturrilha-unilateral-no-degrau" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('PANTURRILHA UNILATERAL NO DEGRAU • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-panturrilha-unilateral-no-degrau" class="comment-drawer" style="display: none;">
@@ -6806,7 +6955,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('PANTURRILHA UNILATERAL NO DEGRAU • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -6840,8 +6989,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-alongamento-de-psoas-em-lunge" onclick="toggleCommentBox('ex-jean-alongamento-de-psoas-em-lunge')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-alongamento-de-psoas-em-lunge" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('ALONGAMENTO DE PSOAS EM LUNGE • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-alongamento-de-psoas-em-lunge" class="comment-drawer" style="display: none;">
@@ -6852,7 +7005,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('ALONGAMENTO DE PSOAS EM LUNGE • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -6906,7 +7059,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">3 séries × 8 reps por lado • Descanso: 45s</div>
+          <div class="ex-volume-badge">3 séries × 8 reps por lado • Descanso: 60s</div>
           <div class="set-pills-row">
             <button type="button" class="set-pill" onclick="toggleSet(this)">1</button>
             <button type="button" class="set-pill" onclick="toggleSet(this)">2</button>
@@ -6915,8 +7068,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-deadbug-com-respiracao-diafragmatica" onclick="toggleCommentBox('ex-jean-deadbug-com-respiracao-diafragmatica')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-deadbug-com-respiracao-diafragmatica" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('DEADBUG COM RESPIRAÇÃO DIAFRAGMÁTICA • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-deadbug-com-respiracao-diafragmatica" class="comment-drawer" style="display: none;">
@@ -6927,7 +7084,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('DEADBUG COM RESPIRAÇÃO DIAFRAGMÁTICA • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -6943,7 +7100,7 @@
           </button>
         </div>
         <div class="ex-volume-sets-row">
-          <div class="ex-volume-badge">2 séries × 8 a 10 reps por lado • Descanso: 45s</div>
+          <div class="ex-volume-badge">2 séries × 8 a 10 reps por lado • Descanso: 60s</div>
           <div class="set-pills-row">
             <button type="button" class="set-pill" onclick="toggleSet(this)">1</button>
             <button type="button" class="set-pill" onclick="toggleSet(this)">2</button>
@@ -6951,8 +7108,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-rotacao-toracica-em-4-apoios" onclick="toggleCommentBox('ex-jean-rotacao-toracica-em-4-apoios')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-rotacao-toracica-em-4-apoios" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('ROTAÇÃO TORÁCICA EM 4 APOIOS • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-rotacao-toracica-em-4-apoios" class="comment-drawer" style="display: none;">
@@ -6963,7 +7124,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('ROTAÇÃO TORÁCICA EM 4 APOIOS • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -6987,8 +7148,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-mobilidade-de-quadril-em-90-90" onclick="toggleCommentBox('ex-jean-mobilidade-de-quadril-em-90-90')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-mobilidade-de-quadril-em-90-90" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('MOBILIDADE DE QUADRIL EM 90/90 • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-mobilidade-de-quadril-em-90-90" class="comment-drawer" style="display: none;">
@@ -6999,7 +7164,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('MOBILIDADE DE QUADRIL EM 90/90 • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -7035,8 +7200,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-suitcase-carry-fazendeiro-unilateral" onclick="toggleCommentBox('ex-jean-suitcase-carry-fazendeiro-unilateral')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-suitcase-carry-fazendeiro-unilateral" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('SUITCASE CARRY (FAZENDEIRO UNILATERAL) • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-suitcase-carry-fazendeiro-unilateral" class="comment-drawer" style="display: none;">
@@ -7047,7 +7216,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('SUITCASE CARRY (FAZENDEIRO UNILATERAL) • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -7072,8 +7241,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-remada-no-cabo-em-base-dividida" onclick="toggleCommentBox('ex-jean-remada-no-cabo-em-base-dividida')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-remada-no-cabo-em-base-dividida" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('REMADA NO CABO EM BASE DIVIDIDA • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-remada-no-cabo-em-base-dividida" class="comment-drawer" style="display: none;">
@@ -7084,7 +7257,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('REMADA NO CABO EM BASE DIVIDIDA • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -7109,8 +7282,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-plank-pull-through-com-halter" onclick="toggleCommentBox('ex-jean-plank-pull-through-com-halter')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-plank-pull-through-com-halter" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('PLANK PULL-THROUGH COM HALTER • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-plank-pull-through-com-halter" class="comment-drawer" style="display: none;">
@@ -7121,7 +7298,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('PLANK PULL-THROUGH COM HALTER • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -7146,8 +7323,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-face-pull-com-rotacao-externa" onclick="toggleCommentBox('ex-jean-face-pull-com-rotacao-externa')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-face-pull-com-rotacao-externa" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('FACE PULL COM ROTAÇÃO EXTERNA • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-face-pull-com-rotacao-externa" class="comment-drawer" style="display: none;">
@@ -7158,7 +7339,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('FACE PULL COM ROTAÇÃO EXTERNA • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -7191,8 +7372,12 @@
         </div>
         <div class="ex-bottom-actions">
           <button type="button" class="btn-comment" id="btn-comment-ex-jean-esteira-intervalada-em-inclinacao-hiit" onclick="toggleCommentBox('ex-jean-esteira-intervalada-em-inclinacao-hiit')">
-            <span>💬 Dúvidas ou Observações?</span>
+            <span>💬 Observações</span>
             <span class="comment-dot" id="dot-ex-jean-esteira-intervalada-em-inclinacao-hiit" style="display:none;"></span>
+          </button>
+          <button type="button" class="btn-send-video" onclick="openSendVideoModal('ESTEIRA INTERVALADA EM INCLINAÇÃO (HIIT) • Jean')">
+            <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            <span>Enviar Vídeo</span>
           </button>
         </div>
         <div id="comment-box-ex-jean-esteira-intervalada-em-inclinacao-hiit" class="comment-drawer" style="display: none;">
@@ -7203,7 +7388,7 @@
           <div class="drawer-video-action-box">
             <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do exercício, grave um vídeo e envie diretamente pelo botão abaixo:</div>
             <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('ESTEIRA INTERVALADA EM INCLINAÇÃO (HIIT) • Jean')">
-              <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <svg viewBox="0 0 24 24" style="width:14px; height:14px; min-width:14px; max-width:14px; fill:currentColor; flex-shrink:0;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
               <span>Enviar Vídeo da Execução</span>
             </button>
           </div>
@@ -13626,7 +13811,6 @@ function formatVisualAnalysisContent(rawText) {
 
         presets.innerHTML = `
           <button class="btn-preset ${timerState.simpleTimerDuration===30?'active':''}" onclick="setSimpleTimerExact(30)">30s</button>
-          <button class="btn-preset ${timerState.simpleTimerDuration===45?'active':''}" onclick="setSimpleTimerExact(45)">45s</button>
           <button class="btn-preset ${timerState.simpleTimerDuration===60?'active':''}" onclick="setSimpleTimerExact(60)">60s</button>
           <button class="btn-preset ${timerState.simpleTimerDuration===90?'active':''}" onclick="setSimpleTimerExact(90)">90s</button>
           <button class="btn-preset ${timerState.simpleTimerDuration===120?'active':''}" onclick="setSimpleTimerExact(120)">2 min</button>
@@ -15921,7 +16105,7 @@ window.openWelcomeAppModal = function(notifId = null) {
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=205').then((reg) => {
+        navigator.serviceWorker.register('sw.js?v=207').then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
