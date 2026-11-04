@@ -11483,39 +11483,58 @@ function updateEvolucaoStats() {
     function getStudentBaseProfile() {
       let data = {};
       try {
-        const raw = localStorage.getItem('dominio_jean_student_intake');
+        const storageKey = (typeof DOMINIO_APP_CONFIG !== 'undefined' && DOMINIO_APP_CONFIG.athleteSlug) ? 'dominio_' + DOMINIO_APP_CONFIG.athleteSlug + '_student_intake' : 'dominio_jean_student_intake';
+        const raw = localStorage.getItem(storageKey);
         if (raw) data = JSON.parse(raw);
       } catch (e) {}
       if (!data || Object.keys(data).length === 0) {
         if (typeof DEFAULT_STUDENT_INTAKE !== 'undefined') data = DEFAULT_STUDENT_INTAKE;
       }
-      const name = data.nome || document.getElementById('athleteProfileName')?.textContent || 'Aluno';
-      const weight = parseFloat(data.peso) || null;
-      const height = parseFloat(data.altura) || null;
+      const name = data.nome || document.getElementById('athleteProfileName')?.textContent || 'Jean Hilário';
+      const weight = (data.peso !== undefined && data.peso !== '') ? parseFloat(data.peso) : null;
+      const height = (data.altura !== undefined && data.altura !== '') ? parseFloat(data.altura) : null;
+      const waist = (data.cintura !== undefined && data.cintura !== '') ? parseFloat(data.cintura) : null;
+      const neck = (data.pescoco !== undefined && data.pescoco !== '') ? parseFloat(data.pescoco) : null;
+      const hip = (data.quadril !== undefined && data.quadril !== '') ? parseFloat(data.quadril) : null;
       const bf = (data.gordura !== undefined && data.gordura !== '') ? parseFloat(data.gordura) : null;
       const gender = (data.sexo || 'masculino').toLowerCase();
-      return { name, weight, height, bf, gender };
+      return { name, weight, height, waist, neck, hip, bf, gender };
     }
 
     function getBodyCompHistory() {
+      const storageKey = getBodyCompStorageKey();
       let history = [];
       try {
-        const raw = localStorage.getItem('dominio_jean_body_comp_history');
+        const raw = localStorage.getItem(storageKey);
         if (raw) history = JSON.parse(raw);
       } catch (e) {}
 
-      // Se o histórico estiver vazio, tenta inicializar com o Ponto de Partida da Ficha de Avaliação
+      // Migração de segurança: se o histórico específico estiver vazio, verifica se há dados salvos sob a chave legada
+      if ((!history || history.length === 0) && storageKey !== 'dominio_body_comp_history') {
+        try {
+          const legacy = localStorage.getItem('dominio_body_comp_history');
+          if (legacy) {
+            const parsed = JSON.parse(legacy);
+            if (Array.isArray(parsed) && parsed.length > 0) {
+              history = parsed;
+              try { localStorage.setItem(storageKey, JSON.stringify(history)); } catch (e) {}
+            }
+          }
+        } catch (e) {}
+      }
+
+      // Se o histórico estiver vazio, inicializa com o Ponto de Partida da Ficha de Avaliação (ZERO ESTIMATIVAS)
       if (!history || history.length === 0) {
         const base = getStudentBaseProfile();
-        if (base.weight && base.height) {
+        if (base.weight) {
           const initEntry = {
             id: 'comp_init',
-            date: new Date().toISOString().split('T')[0],
+            date: '2026-10-08',
             weight: base.weight,
-            waist: (base.height > 100) ? Math.round(base.height * 0.49 * 10) / 10 : 80.0,
-            neck: 38.0,
-            hip: null,
-            bfManual: base.bf,
+            waist: base.waist || null,
+            neck: base.neck || null,
+            hip: base.hip || null,
+            bfManual: base.bf || null,
             clothes: 'normais',
             energy: 4,
             notes: 'Ponto de Partida • Ficha Inicial',
@@ -11523,9 +11542,29 @@ function updateEvolucaoStats() {
           };
           history = [initEntry];
           try {
-            localStorage.setItem('dominio_jean_body_comp_history', JSON.stringify(history));
+            localStorage.setItem(storageKey, JSON.stringify(history));
           } catch (e) {}
         }
+      } else {
+        // Sanitiza comp_init para remover qualquer estimativa indevida prévia (87.2 cm, 38.0 cm, etc.)
+        history.forEach(item => {
+          if (item.id === 'comp_init' && item.notes && item.notes.includes('Ficha Inicial')) {
+            const base = getStudentBaseProfile();
+            if (!item.date || item.date >= '2026-11-01') {
+              item.date = '2026-10-08';
+            }
+            if (base.weight) item.weight = base.weight;
+            if (!base.waist && (item.waist === 87.2 || item.waist === 80.0)) {
+              item.waist = null;
+            }
+            if (!base.neck && item.neck === 38.0) {
+              item.neck = null;
+            }
+            if (!base.bf && item.bfManual) {
+              item.bfManual = null;
+            }
+          }
+        });
       }
       history.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
       return history;
@@ -11551,7 +11590,7 @@ function updateEvolucaoStats() {
     function renderBodyCompUI() {
       const history = getBodyCompHistory();
       const base = getStudentBaseProfile();
-      const height = base.height || 170;
+      const height = base.height || 178;
       const gender = base.gender || 'masculino';
 
       // Elementos do Card 1: Ponto de Partida
@@ -11613,28 +11652,29 @@ function updateEvolucaoStats() {
 
       // Card 1: Ponto de Partida
       if (intakeDateBadge) intakeDateBadge.textContent = date0BR || 'Ficha Inicial';
-      if (intakeWeightEl) intakeWeightEl.textContent = `${baseline.weight.toFixed(1)} kg`;
-      if (intakeWaistEl) intakeWaistEl.textContent = `${baseline.waist.toFixed(1)} cm`;
-      const baseWhtr = height ? (baseline.waist / height).toFixed(2) : '--';
+      if (intakeWeightEl) intakeWeightEl.textContent = (baseline.weight !== null && baseline.weight !== undefined) ? `${baseline.weight.toFixed(1)} kg` : '-- kg';
+      if (intakeWaistEl) intakeWaistEl.textContent = (baseline.waist !== null && baseline.waist !== undefined) ? `${baseline.waist.toFixed(1)} cm` : '-- cm';
+      const baseWhtr = (height && baseline.waist !== null && baseline.waist !== undefined) ? (baseline.waist / height).toFixed(2) : '--';
       if (intakeWhtrEl) intakeWhtrEl.textContent = baseWhtr;
       let baseBF = baseline.bfManual || null;
-      if (!baseBF && baseline.neck) {
+      if (!baseBF && baseline.neck && baseline.waist) {
         baseBF = calculateUSNavyBF(gender, height, baseline.waist, baseline.neck, baseline.hip);
       }
       if (intakeBFEl) intakeBFEl.textContent = baseBF ? `${baseBF.toFixed(1)}%` : (base.bf ? `${base.bf.toFixed(1)}%` : '--%');
 
       // Card 2: Informações Atuais
       if (currentDateBadge) currentDateBadge.textContent = (history.length > 1) ? dateLatestBR : 'Última Entrada';
-      if (weightEl) weightEl.textContent = `${latest.weight.toFixed(1)} kg`;
-      if (waistEl) waistEl.textContent = `${latest.waist.toFixed(1)} cm`;
-      const currentWhtr = height ? (latest.waist / height) : null;
+      if (weightEl) weightEl.textContent = (latest.weight !== null && latest.weight !== undefined) ? `${latest.weight.toFixed(1)} kg` : '-- kg';
+      if (waistEl) waistEl.textContent = (latest.waist !== null && latest.waist !== undefined) ? `${latest.waist.toFixed(1)} cm` : '-- cm';
+      const currentWhtr = (height && latest.waist !== null && latest.waist !== undefined) ? (latest.waist / height) : null;
       if (whtrEl) whtrEl.textContent = currentWhtr ? currentWhtr.toFixed(2) : '--';
+
       if (whtrBadgeEl) {
         if (!currentWhtr) {
-          whtrBadgeEl.textContent = 'Meta: < 0.50';
+          whtrBadgeEl.textContent = 'Aguardando medição de cintura';
           whtrBadgeEl.style.color = '#94a3b8';
         } else if (currentWhtr < 0.50) {
-          whtrBadgeEl.textContent = 'Faixa Ideal (< 0.50)';
+          whtrBadgeEl.textContent = 'Ideal (< 0.50)';
           whtrBadgeEl.style.color = 'var(--brand-neon)';
         } else if (currentWhtr <= 0.54) {
           whtrBadgeEl.textContent = 'Atenção Leve (0.50-0.54)';
@@ -11645,10 +11685,10 @@ function updateEvolucaoStats() {
         }
       }
 
-      // % Gordura Atual
+      // % Gordura Atual (SEM ESTIMATIVAS SE NÃO HOUVER DADOS REAIS)
       let currentBF = latest.bfManual || null;
       let bfSource = 'Informado pelo Aluno';
-      if (!currentBF && latest.neck) {
+      if (!currentBF && latest.neck && latest.waist) {
         const navyCalc = calculateUSNavyBF(gender, height, latest.waist, latest.neck, latest.hip);
         if (navyCalc) {
           currentBF = navyCalc;
@@ -11656,56 +11696,71 @@ function updateEvolucaoStats() {
         }
       }
       if (bfEl) bfEl.textContent = currentBF ? `${currentBF.toFixed(1)}%` : '--%';
-      if (bfSubEl) bfSubEl.textContent = currentBF ? bfSource : 'Marinha / Informado';
+      if (bfSubEl) bfSubEl.textContent = currentBF ? bfSource : 'Aguardando aferição';
 
+      // Deltas
       if (deltaWeightEl) {
-        const dW = latest.weight - baseline.weight;
-        const dSign = dW > 0 ? `+${dW.toFixed(1)}` : `${dW.toFixed(1)}`;
-        deltaWeightEl.textContent = (history.length > 1) ? `Δ ${dSign} kg desde início` : `Inicial: ${baseline.weight.toFixed(1)} kg`;
-        deltaWeightEl.style.color = (dW < 0) ? 'var(--brand-neon)' : (dW > 0 ? '#38bdf8' : '#94a3b8');
+        if (baseline.weight !== null && latest.weight !== null && history.length > 1) {
+          const dW = latest.weight - baseline.weight;
+          const dSign = dW > 0 ? `+${dW.toFixed(1)}` : `${dW.toFixed(1)}`;
+          deltaWeightEl.textContent = `Δ ${dSign} kg desde início`;
+          deltaWeightEl.style.color = (dW < 0) ? 'var(--brand-neon)' : (dW > 0 ? '#38bdf8' : '#94a3b8');
+        } else if (baseline.weight !== null) {
+          deltaWeightEl.textContent = `Inicial: ${baseline.weight.toFixed(1)} kg`;
+          deltaWeightEl.style.color = '#94a3b8';
+        } else {
+          deltaWeightEl.textContent = '--';
+        }
       }
+
       if (deltaWaistEl) {
-        const dWaist = latest.waist - baseline.waist;
-        const dSignW = dWaist > 0 ? `+${dWaist.toFixed(1)}` : `${dWaist.toFixed(1)}`;
-        deltaWaistEl.textContent = (history.length > 1) ? `Δ ${dSignW} cm desde início` : `Inicial: ${baseline.waist.toFixed(1)} cm`;
-        deltaWaistEl.style.color = (dWaist < 0) ? 'var(--brand-neon)' : (dWaist > 0 ? '#f43f5e' : '#94a3b8');
+        if (baseline.waist !== null && latest.waist !== null && history.length > 1) {
+          const dWaist = latest.waist - baseline.waist;
+          const dSignW = dWaist > 0 ? `+${dWaist.toFixed(1)}` : `${dWaist.toFixed(1)}`;
+          deltaWaistEl.textContent = `Δ ${dSignW} cm desde início`;
+          deltaWaistEl.style.color = (dWaist < 0) ? 'var(--brand-neon)' : (dWaist > 0 ? '#f43f5e' : '#94a3b8');
+        } else if (baseline.waist !== null) {
+          deltaWaistEl.textContent = `Inicial: ${baseline.waist.toFixed(1)} cm`;
+          deltaWaistEl.style.color = '#94a3b8';
+        } else {
+          deltaWaistEl.textContent = 'Aguardando aferição';
+          deltaWaistEl.style.color = '#94a3b8';
+        }
       }
 
       // Card 3: Comparativo da Evolução e Laudo Master
-      const dWeight = latest.weight - baseline.weight;
-      const dWaistVal = latest.waist - baseline.waist;
-      const jointReliefVal = Math.max(0, (baseline.weight - latest.weight) * 4);
-      const powerGainVal = Math.max(0, ((baseline.weight / latest.weight) - 1) * 100);
+      const hasBothWeights = (baseline.weight !== null && latest.weight !== null);
+      const dWeight = hasBothWeights ? (latest.weight - baseline.weight) : null;
+      const hasBothWaists = (baseline.waist !== null && latest.waist !== null);
+      const dWaistVal = hasBothWaists ? (latest.waist - baseline.waist) : null;
+      const jointReliefVal = (dWeight !== null && dWeight < 0) ? Math.abs(dWeight) * 4 : 0;
+      const powerGainVal = (hasBothWeights && baseline.weight > latest.weight && latest.weight > 0) ? (((baseline.weight / latest.weight) - 1) * 100) : 0;
 
       if (summaryRangeEl) summaryRangeEl.textContent = (history.length > 1) ? `${date0BR} vs. ${dateLatestBR}` : `${date0BR} (Ponto de Partida)`;
 
       const d0 = new Date((baseline.date || '2026-10-08') + 'T12:00:00');
-      const d1 = new Date((latest.date || '2026-10-15') + 'T12:00:00');
+      const d1 = new Date((latest.date || new Date().toISOString().split('T')[0]) + 'T12:00:00');
       const diffMs = Math.max(0, d1 - d0);
       const diffDays = Math.max(1, Math.round(diffMs / (1000 * 60 * 60 * 24)));
       const diffWeeks = diffDays / 7;
-      const ratePerWeek = diffWeeks > 0 ? (Math.abs(dWeight) / diffWeeks).toFixed(1) : '0.0';
+      const ratePerWeek = (diffWeeks > 0 && dWeight !== null) ? (Math.abs(dWeight) / diffWeeks).toFixed(1) : '0.0';
       if (summaryPeriodEl) summaryPeriodEl.textContent = (history.length > 1) ? `${diffDays} dias (~${ratePerWeek} kg/semana)` : `Acompanhamento Iniciado`;
 
-      const formattedDeltaWeight = `${dWeight > 0 ? '+' : ''}${dWeight.toFixed(1)} kg`;
-      const formattedDeltaWaist = `${dWaistVal > 0 ? '+' : ''}${dWaistVal.toFixed(1)} cm`;
-      const formattedJointRelief = `~ -${jointReliefVal.toFixed(1)} kg`;
-      const formattedRelativePower = `+${powerGainVal.toFixed(1)}%`;
+      const formattedDeltaWeight = (dWeight !== null) ? `${dWeight > 0 ? '+' : ''}${dWeight.toFixed(1)} kg` : '-- kg';
+      const formattedDeltaWaist = (dWaistVal !== null) ? `${dWaistVal > 0 ? '+' : ''}${dWaistVal.toFixed(1)} cm` : '-- cm';
+      const formattedJointRelief = jointReliefVal > 0 ? `~ -${jointReliefVal.toFixed(1)} kg` : '-- kg';
+      const formattedRelativePower = powerGainVal > 0 ? `+${powerGainVal.toFixed(1)}%` : '--%';
 
       if (statDeltaWeightEl) {
         statDeltaWeightEl.textContent = formattedDeltaWeight;
-        statDeltaWeightEl.style.color = (dWeight < 0) ? 'var(--brand-neon)' : '#38bdf8';
+        statDeltaWeightEl.style.color = (dWeight !== null && dWeight < 0) ? 'var(--brand-neon)' : '#38bdf8';
       }
       if (statDeltaWaistEl) {
         statDeltaWaistEl.textContent = formattedDeltaWaist;
-        statDeltaWaistEl.style.color = (dWaistVal < 0) ? '#38bdf8' : '#f43f5e';
+        statDeltaWaistEl.style.color = (dWaistVal !== null && dWaistVal < 0) ? '#38bdf8' : (dWaistVal > 0 ? '#f43f5e' : '#94a3b8');
       }
-      if (statJointReliefEl) {
-        statJointReliefEl.textContent = formattedJointRelief;
-      }
-      if (statRelativePowerEl) {
-        statRelativePowerEl.textContent = formattedRelativePower;
-      }
+      if (statJointReliefEl) statJointReliefEl.textContent = formattedJointRelief;
+      if (statRelativePowerEl) statRelativePowerEl.textContent = formattedRelativePower;
 
       // Atualiza Laudo Master
       if (laudoWhtrEl) {
@@ -11717,13 +11772,22 @@ function updateEvolucaoStats() {
       if (laudoJointReliefEl) laudoJointReliefEl.textContent = formattedJointRelief;
       if (laudoRelativePowerEl) laudoRelativePowerEl.textContent = formattedRelativePower;
 
+      // Também sincroniza a Ficha do Atleta no topo da aba Perfil
+      const pWeightEl = document.getElementById('athleteProfileWeight');
+      if (pWeightEl && latest && latest.weight !== null && latest.weight !== undefined) {
+        pWeightEl.textContent = `${latest.weight.toFixed(1)} kg`;
+      }
+      const pBFEl = document.getElementById('athleteProfileBF');
+      if (pBFEl) {
+        pBFEl.textContent = currentBF ? `${currentBF.toFixed(1)}%` : '--%';
+      }
+
       // Atualiza Gráficos, Fotos e Histórico
       renderBodyCompChart(currentBodyCompChartType);
       renderBodyCompHistoryList(history);
       renderUserUploadedPhotosGallery(history);
       renderBodyCompPhotosGallery(latest.photos || baseline.photos || null);
     }
-
     function switchBodyCompChart(type) {
       currentBodyCompChartType = type;
       const tabs = [
@@ -11767,7 +11831,7 @@ function updateEvolucaoStats() {
       const padLeft = 48;
       const padRight = 25;
 
-      const baselineW = history[0].weight;
+      const baselineW = (history[0] && history[0].weight) ? history[0].weight : null;
       let strokeColor = '#38bdf8';
       let unit = 'kg';
 
@@ -11786,20 +11850,29 @@ function updateEvolucaoStats() {
       }
 
       const pointsData = history.map((d) => {
-        let val = 0;
+        let val = null;
         if (type === 'weight') {
-          val = d.weight;
+          val = (d.weight !== null && d.weight !== undefined) ? d.weight : null;
         } else if (type === 'waist') {
-          val = d.waist;
+          val = (d.waist !== null && d.waist !== undefined) ? d.waist : null;
         } else if (type === 'joint') {
-          val = Math.max(0, Math.round((baselineW - d.weight) * 4 * 10) / 10);
+          val = (baselineW !== null && d.weight !== null) ? Math.max(0, Math.round((baselineW - d.weight) * 4 * 10) / 10) : null;
         } else if (type === 'power') {
-          val = Math.max(0, Math.round(((baselineW / d.weight) - 1) * 100 * 10) / 10);
+          val = (baselineW !== null && d.weight !== null && d.weight > 0) ? Math.max(0, Math.round(((baselineW / d.weight) - 1) * 100 * 10) / 10) : null;
         }
         return { val, date: d.date || '' };
       }).filter(p => typeof p.val === 'number' && !isNaN(p.val));
 
-      if (pointsData.length === 0) return;
+      if (pointsData.length === 0) {
+        const msg = (type === 'waist') ? 'Nenhuma medição de cintura registrada ainda.' : 'Nenhum dado disponível para este gráfico.';
+        const tip = (type === 'waist') ? 'Registre sua medida de cintura no próximo check-in!' : 'Adicione medições para visualizar a curva.';
+        container.innerHTML = `
+          <div style="height:190px; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#64748b; font-size:0.8rem; text-align:center;">
+            <span>📈 ${msg}</span>
+            <span style="font-size:0.72rem; margin-top:4px;">${tip}</span>
+          </div>`;
+        return;
+      }
 
       const values = pointsData.map(p => p.val);
       let minVal = Math.min(...values);
@@ -11846,21 +11919,19 @@ function updateEvolucaoStats() {
         const isFirst = (idx === 0);
         const isLast = (idx === points.length - 1);
         const step = (points.length > 12) ? 4 : ((points.length > 7) ? 2 : 1);
-        const showLabel = isFirst || isLast || (idx % step === 0);
 
-        if (showLabel) {
-          const labelPrefix = (type === 'power' && p.val > 0) ? '+' : '';
-          svg += `<text x="${p.x}" y="${p.y - 8}" fill="#ffffff" font-size="9" font-weight="700" text-anchor="middle" font-family="sans-serif">${labelPrefix}${p.val.toFixed(1)} ${unit}</text>`;
-          const dateParts = p.date.split('-');
-          const dateLabel = (dateParts.length === 3) ? `${dateParts[2]}/${dateParts[1]}` : p.date;
-          svg += `<text x="${p.x}" y="${h - 10}" fill="#94a3b8" font-size="8.5" text-anchor="middle" font-family="sans-serif">${dateLabel}</text>`;
+        if (isFirst || isLast || (idx % step === 0)) {
+          const dParts = (p.date || '').split('-');
+          const dLabel = (dParts.length === 3) ? `${dParts[2]}/${dParts[1]}` : p.date;
+          svg += `<text x="${p.x}" y="${h - 10}" fill="#94a3b8" font-size="8.5" text-anchor="middle" font-family="monospace">${dLabel}</text>`;
+          const yOffset = (p.y < padTop + 20) ? 14 : -8;
+          svg += `<text x="${p.x}" y="${p.y + yOffset}" fill="#f1f5f9" font-size="9" font-weight="bold" text-anchor="middle" font-family="monospace">${p.val.toFixed(1)}</text>`;
         }
       });
 
       svg += `</svg>`;
       container.innerHTML = svg;
     }
-
     function renderBodyCompPhotosGallery(photos) {
       const container = document.getElementById('compPhotosGallery');
       if (!container) return;
@@ -11959,8 +12030,8 @@ function updateEvolucaoStats() {
       const newRecord = {
         id: 'comp_foto_' + Date.now(),
         date: dateVal,
-        weight: latest ? latest.weight : (base.weight || 84.0),
-        waist: latest ? latest.waist : (base.waist || 81.0),
+        weight: latest ? latest.weight : (base.weight || null),
+        waist: latest ? latest.waist : (base.waist || null),
         neck: latest ? latest.neck : null,
         hip: latest ? latest.hip : null,
         bfManual: latest ? latest.bfManual : null,
@@ -11974,7 +12045,7 @@ function updateEvolucaoStats() {
       history.push(newRecord);
 
       try {
-        const storageKey = (typeof getBodyCompStorageKey === 'function') ? getBodyCompStorageKey() : 'dominio_jean_body_comp_history';
+        const storageKey = getBodyCompStorageKey();
         localStorage.setItem(storageKey, JSON.stringify(history));
       } catch (e) {
         console.error('Erro ao salvar fotos no localStorage:', e);
@@ -11982,7 +12053,7 @@ function updateEvolucaoStats() {
       }
 
       // Dispara WhatsApp com mensagem concisa e elegante
-      const studentName = base.name || 'Aluno';
+      const studentName = base.name || 'Jean Hilário';
       const dateBR = dateVal.split('-').reverse().join('/');
       let msg = `*Domínio Corporal | Fotos de Progresso*\n`;
       msg += `*Atleta:* ${studentName}\n`;
@@ -12011,9 +12082,6 @@ function updateEvolucaoStats() {
       renderBodyCompUI();
       if (typeof renderPosturalComparisonUI === 'function') {
         renderPosturalComparisonUI();
-      }
-      if (typeof renderUserUploadedPhotosGallery === 'function') {
-        renderUserUploadedPhotosGallery(history);
       }
     }
     function handleFotoPosturalPreview(input, key) {
@@ -12122,19 +12190,17 @@ function formatVisualAnalysisContent(rawText) {
       const reversedSets = photoSets.slice().reverse();
       let html = '<div style="display:flex; flex-direction:column; gap:16px;">';
 
-      reversedSets.forEach(s => {
+      reversedSets.forEach((s, idx) => {
         const dStr = (s.date || '').split('-').reverse().join('/');
-        const wStr = s.weight ? `${s.weight.toFixed(1)} kg` : '--';
-        const waistStr = s.waist ? `${s.waist.toFixed(1)} cm` : '--';
+        const wStr = (s.weight !== null && s.weight !== undefined) ? `${s.weight.toFixed(1)} kg` : '--';
+        const waistStr = (s.waist !== null && s.waist !== undefined) ? `${s.waist.toFixed(1)} cm` : '--';
         const bfStr = s.bfManual ? `${s.bfManual.toFixed(1)}%` : (s.bf ? `${s.bf.toFixed(1)}%` : '--');
 
         let statusBadge = '<span style="font-size:0.68rem; font-weight:700; color:#38bdf8; background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.3); padding:2px 8px; border-radius:6px;">Registro</span>';
-        if (s.date === '2026-07-02') {
+        if (idx === reversedSets.length - 1) {
           statusBadge = '<span style="font-size:0.68rem; font-weight:700; color:#fbbf24; background:rgba(251,191,36,0.12); border:1px solid rgba(251,191,36,0.3); padding:2px 8px; border-radius:6px;">🏁 Ponto de Partida</span>';
-        } else if (s.date === '2026-10-05') {
-          statusBadge = '<span style="font-size:0.68rem; font-weight:700; color:var(--brand-neon); background:rgba(0,255,136,0.12); border:1px solid rgba(0,255,136,0.3); padding:2px 8px; border-radius:6px;">⚡ Recomposição Profunda (-11.6 kg)</span>';
-        } else if (s.date >= '2026-10-23') {
-          statusBadge = '<span style="font-size:0.68rem; font-weight:700; color:#38bdf8; background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.3); padding:2px 8px; border-radius:6px;">🔥 Atual • Consolidação e Densidade</span>';
+        } else if (idx === 0) {
+          statusBadge = '<span style="font-size:0.68rem; font-weight:700; color:var(--brand-neon); background:rgba(0,255,136,0.12); border:1px solid rgba(0,255,136,0.3); padding:2px 8px; border-radius:6px;">🔥 Mais Recente</span>';
         }
 
         const frontImg = s.photos ? s.photos.front : null;
@@ -12151,77 +12217,67 @@ function formatVisualAnalysisContent(rawText) {
                   ${statusBadge}
                 </div>
                 <div style="font-size:0.75rem; color:#94a3b8;">
-                  Peso: <strong style="color:#f1f5f9;">${wStr}</strong> • Cintura: <strong style="color:#f1f5f9;">${waistStr}</strong> • % BF: <strong style="color:var(--brand-neon);">${bfStr}</strong>
+                  ⚖️ ${wStr} &nbsp;•&nbsp; 📏 Cintura: ${waistStr} &nbsp;•&nbsp; ⚡ ${countPhotos} foto(s) anexada(s)
                 </div>
+              </div>
+              <div style="display:flex; gap:6px;">
+                <button type="button" onclick="deleteBodyCompRecord('${s.id}')" style="background:rgba(248,113,113,0.1); border:1px solid rgba(248,113,113,0.25); color:#f87171; font-size:0.70rem; font-weight:700; border-radius:6px; padding:4px 8px; cursor:pointer;">
+                  ✕ Excluir Set
+                </button>
               </div>
             </div>
 
-            <!-- Layout Lado a Lado: Imagens de um lado (sem cortes) e Análise do outro -->
-            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:14px; align-items:stretch;">
-              <!-- COLUNA 1: FOTOS EM VISUALIZAÇÃO INTEGRAL (SEM CORTES) -->
-              <div style="display:flex; flex-direction:column; gap:8px; justify-content:center;">
-                <div style="display:grid; grid-template-columns: ${countPhotos > 1 ? 'repeat(auto-fit, minmax(130px, 1fr))' : '1fr'}; gap:8px;">
-                  ${frontImg ? `
-                    <div style="background:#05070a; border-radius:8px; overflow:hidden; border:1px solid rgba(255,255,255,0.1); text-align:center;">
-                      <a href="${frontImg}" target="_blank" style="display:flex; align-items:center; justify-content:center; min-height:220px; max-height:340px; background:#05070a; text-decoration:none;">
-                        <img src="${frontImg}" alt="Frente ${dStr}" style="max-width:100%; max-height:340px; width:auto; height:auto; object-fit:contain; display:block; margin:0 auto;">
-                      </a>
-                      <div style="padding:4px 6px; text-align:center; font-size:0.68rem; font-weight:800; color:#38bdf8; background:rgba(56,189,248,0.1); letter-spacing:0.02em;">POSTURA FRONTAL</div>
-                    </div>
-                  ` : ''}
-                  ${sideImg ? `
-                    <div style="background:#05070a; border-radius:8px; overflow:hidden; border:1px solid rgba(255,255,255,0.1); text-align:center;">
-                      <a href="${sideImg}" target="_blank" style="display:flex; align-items:center; justify-content:center; min-height:220px; max-height:340px; background:#05070a; text-decoration:none;">
-                        <img src="${sideImg}" alt="Perfil ${dStr}" style="max-width:100%; max-height:340px; width:auto; height:auto; object-fit:contain; display:block; margin:0 auto;">
-                      </a>
-                      <div style="padding:4px 6px; text-align:center; font-size:0.68rem; font-weight:800; color:var(--brand-neon); background:rgba(0,255,136,0.1); letter-spacing:0.02em;">POSTURA LATERAL</div>
-                    </div>
-                  ` : ''}
-                  ${backImg ? `
-                    <div style="background:#05070a; border-radius:8px; overflow:hidden; border:1px solid rgba(255,255,255,0.1); text-align:center;">
-                      <a href="${backImg}" target="_blank" style="display:flex; align-items:center; justify-content:center; min-height:220px; max-height:340px; background:#05070a; text-decoration:none;">
-                        <img src="${backImg}" alt="Costas ${dStr}" style="max-width:100%; max-height:340px; width:auto; height:auto; object-fit:contain; display:block; margin:0 auto;">
-                      </a>
-                      <div style="padding:4px 6px; text-align:center; font-size:0.68rem; font-weight:800; color:#fbbf24; background:rgba(251,191,36,0.1); letter-spacing:0.02em;">POSTURA POSTERIOR</div>
-                    </div>
-                  ` : ''}
-                </div>
-              </div>
-
-              <!-- COLUNA 2: ANÁLISE VISUAL E DIAGNÓSTICO -->
-              <div style="display:flex; flex-direction:column; justify-content:space-between;">
-                ${(s.coachNotes || s.coachAnalysis) ? `
-                  <div style="background:rgba(56,189,248,0.06); border-left:3.5px solid #38bdf8; border-radius:8px; padding:12px 14px; font-size:0.78rem; color:#cbd5e1; height:100%; box-sizing:border-box; display:flex; flex-direction:column;">
-                    <div style="font-size:0.88rem; font-weight:800; color:#38bdf8; margin-bottom:8px; letter-spacing:0.02em;">Análise visual</div>
-                    <div style="flex:1;">
-                      ${formatVisualAnalysisContent(s.coachNotes || s.coachAnalysis)}
-                    </div>
-                    ${s.notes ? `
-                      <div style="margin-top:10px; padding-top:8px; border-top:1px solid rgba(255,255,255,0.08); font-size:0.74rem; color:#94a3b8;">
-                        <strong style="color:#cbd5e1;">Notas do Atleta:</strong> ${s.notes}
-                      </div>
-                    ` : ''}
-                  </div>
+            <!-- Grid de 3 Fotos Integradas -->
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(90px, 1fr)); gap:10px; margin-bottom:10px;">
+              <div style="text-align:center;">
+                <span style="display:block; font-size:0.68rem; font-weight:700; color:#38bdf8; margin-bottom:4px;">1. Frente</span>
+                ${frontImg ? `
+                  <a href="${frontImg}" target="_blank" style="display:flex; align-items:center; justify-content:center; height:180px; border-radius:8px; overflow:hidden; background:#05070a; border:1px solid rgba(255,255,255,0.1); text-decoration:none;">
+                    <img src="${frontImg}" alt="Foto Frente" style="max-width:100%; max-height:180px; width:auto; height:auto; object-fit:contain; display:block; margin:0 auto;">
+                  </a>
                 ` : `
-                  <div style="background:rgba(255,255,255,0.03); border-left:3.5px solid #38bdf8; border-radius:8px; padding:12px 14px; font-size:0.76rem; color:#94a3b8; height:100%; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center;">
-                    <div style="font-size:0.88rem; font-weight:800; color:#38bdf8; margin-bottom:6px; letter-spacing:0.02em;">Análise visual</div>
-                    <p style="margin:0 0 8px 0; color:#cbd5e1;">Aguardando elaboração da análise visual e diagnóstico pelo Prof. Gui Lemos.</p>
-                    ${s.notes ? `
-                      <div style="padding-top:6px; border-top:1px solid rgba(255,255,255,0.08); font-size:0.74rem; color:#94a3b8;">
-                        <strong style="color:#cbd5e1;">Notas do Atleta:</strong> ${s.notes}
-                      </div>
-                    ` : ''}
-                  </div>
+                  <div style="height:180px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.02); border-radius:8px; color:#64748b; font-size:0.72rem;">Sem foto</div>
+                `}
+              </div>
+              <div style="text-align:center;">
+                <span style="display:block; font-size:0.68rem; font-weight:700; color:var(--brand-neon); margin-bottom:4px;">2. Perfil</span>
+                ${sideImg ? `
+                  <a href="${sideImg}" target="_blank" style="display:flex; align-items:center; justify-content:center; height:180px; border-radius:8px; overflow:hidden; background:#05070a; border:1px solid rgba(255,255,255,0.1); text-decoration:none;">
+                    <img src="${sideImg}" alt="Foto Perfil" style="max-width:100%; max-height:180px; width:auto; height:auto; object-fit:contain; display:block; margin:0 auto;">
+                  </a>
+                ` : `
+                  <div style="height:180px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.02); border-radius:8px; color:#64748b; font-size:0.72rem;">Sem foto</div>
+                `}
+              </div>
+              <div style="text-align:center;">
+                <span style="display:block; font-size:0.68rem; font-weight:700; color:#fbbf24; margin-bottom:4px;">3. Costas</span>
+                ${backImg ? `
+                  <a href="${backImg}" target="_blank" style="display:flex; align-items:center; justify-content:center; height:180px; border-radius:8px; overflow:hidden; background:#05070a; border:1px solid rgba(255,255,255,0.1); text-decoration:none;">
+                    <img src="${backImg}" alt="Foto Costas" style="max-width:100%; max-height:180px; width:auto; height:auto; object-fit:contain; display:block; margin:0 auto;">
+                  </a>
+                ` : `
+                  <div style="height:180px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.02); border-radius:8px; color:#64748b; font-size:0.72rem;">Sem foto</div>
                 `}
               </div>
             </div>
+
+            ${s.notes ? `
+              <div style="background:rgba(255,255,255,0.03); border-left:3px solid #38bdf8; padding:8px 10px; border-radius:6px; font-size:0.75rem; color:#cbd5e1; margin-top:8px;">
+                💬 <strong>Notas do Aluno:</strong> ${s.notes}
+              </div>
+            ` : ''}
+
+            ${s.coachNotes ? `
+              <div style="background:rgba(0,255,136,0.06); border-left:3px solid var(--brand-neon); padding:8px 10px; border-radius:6px; font-size:0.75rem; color:#e2e8f0; margin-top:8px;">
+                👑 <strong>Parecer do Treinador:</strong> ${s.coachNotes}
+              </div>
+            ` : ''}
           </div>`;
       });
 
       html += '</div>';
       container.innerHTML = html;
     }
-
     function renderPosturalComparisonUI() {
       const container = document.getElementById('dynamicPosturalComparisonContainer');
       const datesBadge = document.getElementById('compPhotosDatesBadge');
@@ -12427,7 +12483,7 @@ function formatVisualAnalysisContent(rawText) {
       const history = getBodyCompHistory();
       const base = getStudentBaseProfile();
       const height = base.height || 178;
-      const studentName = base.name || 'Gui Lemos';
+      const studentName = base.name || 'Jean Hilário';
 
       if (!history || history.length === 0) {
         container.innerHTML = '<div style="text-align:center; padding:30px; color:#cbd5e1; font-size:0.85rem;">Nenhum dado antropométrico registrado para compilar o laudo.</div>';
@@ -12437,19 +12493,21 @@ function formatVisualAnalysisContent(rawText) {
       const baseline = history[0];
       const latest = history[history.length - 1];
 
-      const dWeight = latest.weight - baseline.weight;
-      const dWaist = latest.waist - baseline.waist;
-      const whtrLatest = height ? (latest.waist / height) : null;
-      const kneeReliefPerStep = Math.max(0, -dWeight * 4);
+      const hasBothWeights = (baseline.weight !== null && latest.weight !== null);
+      const dWeight = hasBothWeights ? (latest.weight - baseline.weight) : null;
+      const hasBothWaists = (baseline.waist !== null && latest.waist !== null);
+      const dWaist = hasBothWaists ? (latest.waist - baseline.waist) : null;
+      const whtrLatest = (height && latest.waist !== null) ? (latest.waist / height) : null;
+      const kneeReliefPerStep = (dWeight !== null && dWeight < 0) ? Math.max(0, -dWeight * 4) : 0;
 
       // Percentuais de gordura
-      const bfBase = baseline.bodyFat !== undefined && baseline.bodyFat !== null ? Number(baseline.bodyFat) : null;
-      const bfLatest = latest.bodyFat !== undefined && latest.bodyFat !== null ? Number(latest.bodyFat) : null;
+      const bfBase = baseline.bfManual !== undefined && baseline.bfManual !== null ? Number(baseline.bfManual) : null;
+      const bfLatest = latest.bfManual !== undefined && latest.bfManual !== null ? Number(latest.bfManual) : null;
       const dBf = (bfBase !== null && bfLatest !== null) ? (bfLatest - bfBase) : null;
 
       // Status RCEst
-      let rcestStatus = 'Faixa Ideal (< 0.50)';
-      let rcestColor = '#00ff88';
+      let rcestStatus = 'Aguardando medição de cintura';
+      let rcestColor = '#94a3b8';
       if (whtrLatest) {
         if (whtrLatest >= 0.55) {
           rcestStatus = 'Alerta Visceral (≥ 0.55)';
@@ -12457,11 +12515,13 @@ function formatVisualAnalysisContent(rawText) {
         } else if (whtrLatest >= 0.50) {
           rcestStatus = 'Atenção Preventiva (0.50-0.54)';
           rcestColor = '#fbbf24';
+        } else {
+          rcestStatus = 'Faixa Ideal (< 0.50)';
+          rcestColor = '#00ff88';
         }
       }
 
-      // Notas e contexto da última aferição
-      const contextNotes = latest.notes || (studentName.toLowerCase().includes('gui') ? 'Tirzepatida 2,5 mg; retorno após 10 dias de pausa no treino' : '');
+      const contextNotes = latest.notes || '';
 
       let html = `
         <!-- HERO MASTER DO LAUDO COM ALTO CONTRASTE -->
@@ -12493,14 +12553,14 @@ function formatVisualAnalysisContent(rawText) {
           <div style="padding: 12px 14px; border-top: 1px solid rgba(255,255,255,0.08);">
             <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(105px, 1fr)); gap:10px; margin-bottom:12px;">
               <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); padding:10px; border-radius:8px;">
-                <div style="font-size:0.72rem; color:#cbd5e1; font-weight:700;">Peso Corporal</div>
-                <div style="font-size:1.15rem; font-weight:900; color:#ffffff;">${latest.weight.toFixed(1)} kg</div>
-                <div style="font-size:0.72rem; font-weight:800; color:${dWeight <= 0 ? 'var(--brand-neon)' : '#fbbf24'};">${dWeight > 0 ? '+' + dWeight.toFixed(1) : dWeight.toFixed(1)} kg</div>
+                <div style="font-size:0.72rem; color:#cbd5e1; font-weight:700;">Peso Atual</div>
+                <div style="font-size:1.15rem; font-weight:900; color:#ffffff;">${latest.weight !== null ? latest.weight.toFixed(1) + ' kg' : '--'}</div>
+                <div style="font-size:0.72rem; font-weight:800; color:${(dWeight !== null && dWeight <= 0) ? 'var(--brand-neon)' : '#38bdf8'};">${dWeight !== null ? (dWeight > 0 ? '+' + dWeight.toFixed(1) : dWeight.toFixed(1)) + ' kg' : '--'}</div>
               </div>
               <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); padding:10px; border-radius:8px;">
                 <div style="font-size:0.72rem; color:#cbd5e1; font-weight:700;">Cintura</div>
-                <div style="font-size:1.15rem; font-weight:900; color:#38bdf8;">${latest.waist.toFixed(1)} cm</div>
-                <div style="font-size:0.72rem; font-weight:800; color:${dWaist <= 0 ? 'var(--brand-neon)' : '#f43f5e'};">${dWaist > 0 ? '+' + dWaist.toFixed(1) : dWaist.toFixed(1)} cm</div>
+                <div style="font-size:1.15rem; font-weight:900; color:var(--brand-neon);">${latest.waist !== null ? latest.waist.toFixed(1) + ' cm' : '--'}</div>
+                <div style="font-size:0.72rem; font-weight:800; color:${(dWaist !== null && dWaist <= 0) ? 'var(--brand-neon)' : '#f43f5e'};">${dWaist !== null ? (dWaist > 0 ? '+' + dWaist.toFixed(1) : dWaist.toFixed(1)) + ' cm' : '--'}</div>
               </div>
               <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); padding:10px; border-radius:8px;">
                 <div style="font-size:0.72rem; color:#cbd5e1; font-weight:700;">% Gordura</div>
@@ -12514,7 +12574,7 @@ function formatVisualAnalysisContent(rawText) {
               </div>
             </div>
             <div style="background:rgba(0,0,0,0.35); border-radius:8px; padding:10px 12px; font-size:0.82rem; color:#f1f5f9; line-height:1.6;">
-              <strong style="color:var(--brand-neon);">Síntese Clínica:</strong> Recomposição corporal de alta qualidade. A redução de <strong>${Math.abs(dWaist).toFixed(1)} cm de cintura</strong> associada à estabilidade de força muscular atesta eliminação de adiposidade visceral periumbilical e preservação integral de massa contrátil.
+              <strong style="color:var(--brand-neon);">Síntese Clínica:</strong> Acompanhamento dinâmico de composição corporal. ${dWaist !== null ? `Variação de <strong>${Math.abs(dWaist).toFixed(1)} cm de cintura</strong> associada à estabilidade de força muscular.` : `Aguardando registro de medidas perimetrais.`}
             </div>
           </div>
         </details>
@@ -12523,7 +12583,7 @@ function formatVisualAnalysisContent(rawText) {
         <div class="comparison-card" style="border-left:4px solid #38bdf8; margin-bottom:14px; background:rgba(255,255,255,0.03);">
           <div class="comparison-card-header">
             <div class="comparison-card-title" style="color:#ffffff; font-weight:900;">2. Status Clínico e Antropométrico</div>
-            <span style="font-size:0.72rem; color:#38bdf8; font-weight:800;">RECOMPOSIÇÃO CORPORAL</span>
+            <span style="font-size:0.72rem; color:#38bdf8; font-weight:800;">ACOMPANHAMENTO</span>
           </div>
           <div style="font-size:0.84rem; color:#f1f5f9; line-height:1.65;">
             <p style="margin:0 0 10px 0;">
@@ -12532,7 +12592,7 @@ function formatVisualAnalysisContent(rawText) {
             <div style="background:rgba(56,189,248,0.1); border:1px solid rgba(56,189,248,0.3); border-radius:10px; padding:12px 14px; margin-bottom:10px;">
               <strong style="color:#38bdf8; font-size:0.86rem;">📏 Regra de Ouro da Cintura: Menos que a Metade da Altura</strong>
               <div style="font-size:0.82rem; color:#f1f5f9; margin-top:4px;">
-                Sua cintura atual mede <strong>${latest.waist.toFixed(1)} cm</strong> para uma altura de <strong>${height} cm</strong> (RCEst = <strong>${whtrLatest ? whtrLatest.toFixed(2) : '--'}</strong>). Meta clínica Ashwell: abaixo de 0.50. Isso assegura baixo risco de acúmulo de gordura periumbilical e preservação da sensibilidade à insulina.
+                ${latest.waist !== null ? `Sua cintura atual mede <strong>${latest.waist.toFixed(1)} cm</strong> para uma altura de <strong>${height} cm</strong> (RCEst = <strong>${whtrLatest ? whtrLatest.toFixed(2) : '--'}</strong>). Meta clínica Ashwell: abaixo de 0.50.` : `Aguardando primeira aferição de cintura para calcular a Relação Cintura-Estatura (RCEst).`}
               </div>
             </div>
             <p style="margin:0; font-size:0.74rem; color:#cbd5e1;">
@@ -12548,63 +12608,16 @@ function formatVisualAnalysisContent(rawText) {
             <span style="font-size:0.72rem; color:var(--brand-neon); font-weight:800;">LEIS DO RENDIMENTO</span>
           </div>
           <div style="font-size:0.84rem; color:#f1f5f9; line-height:1.65;">
-            <div style="background:rgba(0,255,136,0.08); border:1px solid rgba(0,255,136,0.28); border-radius:10px; padding:12px 14px; margin-bottom:10px;">
-              <strong style="color:var(--brand-neon); font-size:0.86rem;">🛡️ Alívio Articular Patelofemoral (Regra de Messier 4:1)</strong>
-              <div style="font-size:0.82rem; color:#f1f5f9; margin-top:4px;">
-                ${kneeReliefPerStep > 0 ? `Cada 1 kg de peso inerte reduzido retira ~4 kg de compressão mecânica a cada passo no joelho. Com a redução acumulada de ${Math.abs(dWeight).toFixed(1)} kg, suas articulações recebem <strong>~${kneeReliefPerStep.toFixed(1)} kg a menos de impacto compressivo por passada</strong> (mais de 40 toneladas a menos ao longo de 10.000 passos diários).` : 'A manutenção da densidade corporal com redução de cintura otimiza o alinhamento patelofemoral nos agachamentos profundos e corridas.'}
-              </div>
-            </div>
-            <div style="background:rgba(251,191,36,0.08); border:1px solid rgba(251,191,36,0.28); border-radius:10px; padding:12px 14px; margin-bottom:10px;">
-              <strong style="color:#fbbf24; font-size:0.86rem;">⚡ Força Relativa e Potência Motora (Zatsiorsky e Kraemer)</strong>
-              <div style="font-size:0.82rem; color:#f1f5f9; margin-top:4px;">
-                Força Relativa = Força Absoluta ÷ Massa Corporal. O tecido adiposo é um lastro passivo que não gera contração. Ao diminuir a circunferência periumbilical, você retira uma carga morta, aumentando instantaneamente sua aceleração em barras fixas, flexões, handstands e manobras gímnicas.
-              </div>
-            </div>
-            <p style="margin:0; font-size:0.74rem; color:#cbd5e1;">
-              <em>Referências: Messier, S. P., et al. (2005). Arthritis e Rheumatism; Zatsiorsky, V. M., e Kraemer, W. J. (2006). Science and Practice of Strength Training.</em>
+            <p style="margin:0 0 10px 0;">
+              <strong>Alívio Articular (Messier 4:1):</strong> Cada 1 kg de gordura inerte reduzida representa ~4 kg de alívio compressivo meniscal e patelofemoral por passada.
+              ${kneeReliefPerStep > 0 ? `<br><span style="color:var(--brand-neon); font-weight:800;">⚡ Alívio cumulativo atual: ~ -${kneeReliefPerStep.toFixed(1)} kg a cada passo dado!</span>` : ''}
             </p>
-          </div>
-        </div>
-
-        <!-- 4. CONTEXTO FARMACOLÓGICO E ROTINA (ALTO CONTRASTE) -->
-        <div class="comparison-card" style="border-left:4px solid #c084fc; margin-bottom:14px; background:rgba(255,255,255,0.03);">
-          <div class="comparison-card-header">
-            <div class="comparison-card-title" style="color:#ffffff; font-weight:900;">4. Contexto de Rotina e Farmacologia</div>
-            <span style="font-size:0.72rem; color:#c084fc; font-weight:800;">ANÁLISE INDIVIDUALIZADA</span>
-          </div>
-          <div style="font-size:0.84rem; color:#f1f5f9; line-height:1.65;">
-            <div style="background:rgba(192,132,252,0.1); border:1px solid rgba(192,132,252,0.3); border-radius:10px; padding:12px 14px; margin-bottom:8px;">
-              <strong style="color:#c084fc; font-size:0.86rem;">💊 Variáveis Relatadas:</strong>
-              <div style="font-size:0.82rem; color:#ffffff; margin-top:4px; font-weight:600;">
-                ${contextNotes}
-              </div>
-            </div>
-            <p style="margin:0 0 6px 0;">
-              <strong>Interpretação Fisiológica:</strong> Pausas de treino de 7 a 10 dias reduzem reservas intramusculares de glicogênio e água intracelular (cada 1g de glicogênio retém ~3g de água), o que pode fazer o peso na balança oscilar temporariamente sem ganho de gordura. O retorno aos estímulos recupera o tônus muscular e volume celular em poucos dias.
-            </p>
-          </div>
-        </div>
-
-        <!-- 5. PARECER DO TREINADOR E DIRETRIZES (ALTO CONTRASTE) -->
-        <div class="comparison-card" style="border-left:4px solid #38bdf8; margin-bottom:14px; background:rgba(255,255,255,0.03);">
-          <div class="comparison-card-header">
-            <div class="comparison-card-title" style="color:#ffffff; font-weight:900;">5. Parecer Técnico • Prof. Gui Lemos</div>
-            <span style="font-size:0.72rem; color:#38bdf8; font-weight:800;">DIRETRIZES TÉCNICAS</span>
-          </div>
-          <div style="font-size:0.84rem; color:#f1f5f9; line-height:1.65;">
-            <ul class="bio-points-list" style="margin:0; padding-left:16px;">
-              <li><strong style="color:#ffffff;">Consolidação de Força de Tração:</strong> Priorizar puxadas estritas nas argolas e barra fixa com ritmo controlado, aproveitando a ótima relação peso-potência.</li>
-              <li><strong style="color:#ffffff;">Progressão de Mobilidade Articular:</strong> Com o centro de gravidade axial estável, aprofundar amplitudes de agachamento profundo e flexibilidade de cadeia posterior.</li>
-              <li><strong style="color:#ffffff;">Proteção de Massa Magra e Hidratação:</strong> Manter aporte proteico fracionado ao longo do dia (1.8 a 2.2 g/kg) e hidratação abundante para suportar a recomposição e plenitude neuromuscular.</li>
-            </ul>
           </div>
         </div>
       `;
 
       container.innerHTML = html;
-      if (typeof renderLaudosHistory === 'function') renderLaudosHistory();
     }
-
     function buildRelatorioComposicaoHTML() {
       const container = document.getElementById('relatorioComposicaoContent');
       if (!container) return;
@@ -12612,7 +12625,7 @@ function formatVisualAnalysisContent(rawText) {
       const history = getBodyCompHistory();
       const base = getStudentBaseProfile();
       const height = base.height || 178;
-      const studentName = base.name || 'Gui Lemos';
+      const studentName = base.name || 'Jean Hilário';
       const todayStr = new Date().toLocaleDateString('pt-BR');
 
       if (!history || history.length === 0) {
@@ -12623,15 +12636,17 @@ function formatVisualAnalysisContent(rawText) {
       const baseline = history[0];
       const latest = history[history.length - 1];
 
-      const dWeight = latest.weight - baseline.weight;
-      const dWaist = latest.waist - baseline.waist;
-      const whtrLatest = height ? (latest.waist / height) : null;
-      const kneeReliefPerStep = Math.max(0, -dWeight * 4);
-      const bfBase = baseline.bodyFat !== undefined && baseline.bodyFat !== null ? Number(baseline.bodyFat) : null;
-      const bfLatest = latest.bodyFat !== undefined && latest.bodyFat !== null ? Number(latest.bodyFat) : null;
+      const hasBothWeights = (baseline.weight !== null && latest.weight !== null);
+      const dWeight = hasBothWeights ? (latest.weight - baseline.weight) : null;
+      const hasBothWaists = (baseline.waist !== null && latest.waist !== null);
+      const dWaist = hasBothWaists ? (latest.waist - baseline.waist) : null;
+      const whtrLatest = (height && latest.waist !== null) ? (latest.waist / height) : null;
+      const kneeReliefPerStep = (dWeight !== null && dWeight < 0) ? Math.max(0, -dWeight * 4) : 0;
+      const bfBase = baseline.bfManual !== undefined && baseline.bfManual !== null ? Number(baseline.bfManual) : null;
+      const bfLatest = latest.bfManual !== undefined && latest.bfManual !== null ? Number(latest.bfManual) : null;
       const dBf = (bfBase !== null && bfLatest !== null) ? (bfLatest - bfBase) : null;
 
-      const contextNotes = latest.notes || (studentName.toLowerCase().includes('gui') ? 'Tirzepatida 2,5 mg; retorno após 10 dias de pausa no treino' : '');
+      const contextNotes = latest.notes || '';
 
       let html = `
         <div class="print-report-wrapper" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #0f172a; line-height: 1.5; padding: 0;">
@@ -12673,17 +12688,17 @@ function formatVisualAnalysisContent(rawText) {
               <tbody>
                 <tr>
                   <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700;">Peso Corporal</td>
-                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1;">${baseline.weight.toFixed(1)} kg</td>
-                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700;">${latest.weight.toFixed(1)} kg</td>
-                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700; color: ${dWeight <= 0 ? '#16a34a' : '#d97706'};">${dWeight > 0 ? '+' + dWeight.toFixed(1) : dWeight.toFixed(1)} kg</td>
-                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1;">Recomposição Fisiológica</td>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1;">${baseline.weight !== null ? baseline.weight.toFixed(1) + ' kg' : '--'}</td>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700;">${latest.weight !== null ? latest.weight.toFixed(1) + ' kg' : '--'}</td>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700; color: ${(dWeight !== null && dWeight <= 0) ? '#16a34a' : '#d97706'};">${dWeight !== null ? (dWeight > 0 ? '+' + dWeight.toFixed(1) : dWeight.toFixed(1)) + ' kg' : '--'}</td>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1;">Acompanhamento Ponderal</td>
                 </tr>
                 <tr>
                   <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700;">Cintura Abdominal</td>
-                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1;">${baseline.waist.toFixed(1)} cm</td>
-                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700;">${latest.waist.toFixed(1)} cm</td>
-                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700; color: ${dWaist <= 0 ? '#16a34a' : '#dc2626'};">${dWaist > 0 ? '+' + dWaist.toFixed(1) : dWaist.toFixed(1)} cm</td>
-                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1;">Redução de Gordura Visceral</td>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1;">${baseline.waist !== null ? baseline.waist.toFixed(1) + ' cm' : '--'}</td>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700;">${latest.waist !== null ? latest.waist.toFixed(1) + ' cm' : '--'}</td>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700; color: ${(dWaist !== null && dWaist <= 0) ? '#16a34a' : '#dc2626'};">${dWaist !== null ? (dWaist > 0 ? '+' + dWaist.toFixed(1) : dWaist.toFixed(1)) + ' cm' : '--'}</td>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1;">Perimetria Abdominal</td>
                 </tr>
                 <tr>
                   <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700;">% de Gordura Corporal</td>
@@ -12694,9 +12709,9 @@ function formatVisualAnalysisContent(rawText) {
                 </tr>
                 <tr>
                   <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700;">RCEst (Cintura / Estatura)</td>
-                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1;">${(baseline.waist / height).toFixed(2)}</td>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1;">${(baseline.waist !== null && height) ? (baseline.waist / height).toFixed(2) : '--'}</td>
                   <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700;">${whtrLatest ? whtrLatest.toFixed(2) : '--'}</td>
-                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700;">${whtrLatest ? ((whtrLatest - (baseline.waist / height))).toFixed(2) : '--'}</td>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700;">${(whtrLatest && baseline.waist !== null) ? ((whtrLatest - (baseline.waist / height))).toFixed(2) : '--'}</td>
                   <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700; color: #16a34a;">${whtrLatest && whtrLatest < 0.50 ? 'Faixa Ideal (< 0.50)' : 'Atenção Preventiva'}</td>
                 </tr>
               </tbody>
@@ -12713,70 +12728,31 @@ function formatVisualAnalysisContent(rawText) {
                 <strong>O que a balança não conta:</strong> O peso bruto afere apenas a atração gravitacional total (músculos, órgãos, ossos, água e gordura). Quando a cintura afina e o peso se mantém ou cai gradualmente, o aluno vivencia o ápice do treinamento resistido: <strong>recomposição corporal</strong>. A gordura periumbilical (lastro passivo inerte) é eliminada enquanto a densidade muscular é preservada.
               </p>
               <p style="margin: 0;">
-                <strong>RCEst (${whtrLatest ? whtrLatest.toFixed(2) : '--'}):</strong> Sua cintura representa menos que a metade da sua altura. Na prática, isso atesta ausência de gordura visceral prejudicial aos órgãos nobres e ótima sensibilidade hormonal.
+                <strong>RCEst (${whtrLatest ? whtrLatest.toFixed(2) : '--'}):</strong> ${whtrLatest ? 'Sua cintura representa menos que a metade da sua altura. Na prática, isso atesta ausência de gordura visceral prejudicial aos órgãos nobres e ótima sensibilidade hormonal.' : 'Aguardando medição de cintura.'}
               </p>
             </div>
           </div>
-
-          <!-- 3. BIOMECÂNICA, ARTICULAÇÕES E RENDIMENTO -->
-          <div class="print-section" style="margin-bottom: 14px;">
-            <div style="font-size: 0.88rem; font-weight: 800; color: #0f172a; text-transform: uppercase; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-bottom: 6px;">
-              3. Implicações Biomecânicas e Esportivas
-            </div>
-            <div style="font-size: 0.8rem; color: #1e293b; line-height: 1.55; text-align: justify;">
-              <p style="margin: 0 0 6px 0;">
-                <strong>Alívio Compressivo nos Joelhos (Regra de Messier 4:1):</strong> Cada 1 kg de sobrecarga inerte reduzida elimina ~4 kg de compressão nos meniscos e cartilagens patelofemorais por passada. ${kneeReliefPerStep > 0 ? `A redução de ${Math.abs(dWeight).toFixed(1)} kg erradica <strong>~${kneeReliefPerStep.toFixed(1)} kg de impacto a cada passo</strong>, blindando a articulação em agachamentos e corridas.` : 'A preservação do peso com redução de cintura otimiza a sustentação articular sem perda de força.'}
-              </p>
-              <p style="margin: 0;">
-                <strong>Força Relativa e Calistenia (Zatsiorsky e Kraemer):</strong> O tecido adiposo não gera contração motora. Reduzir o lastro morto aumenta diretamente a aceleração nos movimentos gímnicos com peso do próprio corpo (barras, flexões, argolas e paradas de mão).
-              </p>
-            </div>
-          </div>
-
-          <!-- 4. CONTEXTO DE ROTINA E FARMACOLOGIA -->
-          ${contextNotes ? `
-          <div class="print-section" style="margin-bottom: 14px;">
-            <div style="font-size: 0.88rem; font-weight: 800; color: #0f172a; text-transform: uppercase; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-bottom: 6px;">
-              4. Contexto de Rotina e Farmacologia
-            </div>
-            <div style="font-size: 0.8rem; color: #1e293b; line-height: 1.5; background: #f8fafc; border-left: 3px solid #0284c7; padding: 8px 12px; border-radius: 4px;">
-              <strong>Observação Registrada:</strong> ${contextNotes}.<br>
-              <span style="font-size: 0.76rem; color: #475569;">Nota Clínica: Pausas transitórias de treino afetam o volume de água intracelular e glicogênio muscular, não refletindo ganho de tecido adiposo. O retorno aos estímulos restaura o tônus em poucos dias.</span>
-            </div>
-          </div>
-          ` : ''}
-
-          <!-- 5. REFERÊNCIAS CIENTÍFICAS E ASSINATURA -->
-          <div class="print-section" style="margin-top: 18px; border-top: 1px solid #cbd5e1; padding-top: 10px; font-size: 0.72rem; color: #475569;">
-            <div style="margin-bottom: 12px;">
-              <strong>Embasamento Científico:</strong> Ashwell e Browning (2012) [RCEst]; Hodgdon e Beckett (1984) [Marinha dos EUA]; Messier et al. (2005) [Sobrecarga Patelofemoral 4:1]; Zatsiorsky e Kraemer (2006) [Força Relativa].
-            </div>
-            <div style="display:flex; justify-content:space-between; align-items:flex-end; padding-top: 10px;">
-              <div>
-                <div style="font-weight: 700; color: #0f172a;">Domínio Corporal • Treinamento de Alta Precisão</div>
-                <div>Metodologia Integrada de Força, Calistenia e Saúde</div>
-              </div>
-              <div style="text-align: right; border-top: 1px solid #0f172a; padding-top: 4px; min-width: 180px;">
-                <div style="font-weight: 800; color: #0f172a;">Prof. Gui Lemos</div>
-                <div style="font-size: 0.68rem; color: #475569;">Treinador e Especialista em Movimento</div>
-              </div>
-            </div>
-          </div>
-
         </div>
       `;
 
       container.innerHTML = html;
     }
-
-    
     // =========================================================================
     // GERENCIAMENTO DA LISTA DE MEDIÇÕES E MODAL DE MEDIÇÃO CORPORAL
     // =========================================================================
     function getBodyCompStorageKey() {
+      if (typeof window !== 'undefined' && window.DC_AUTH && typeof window.DC_AUTH.getActiveAthlete === 'function') {
+        const athlete = window.DC_AUTH.getActiveAthlete();
+        if (athlete && athlete.id) return 'dominio_' + athlete.id.toLowerCase() + '_body_comp_history';
+      }
+      const cfg = (typeof DOMINIO_APP_CONFIG !== 'undefined' && DOMINIO_APP_CONFIG.athleteSlug) ? DOMINIO_APP_CONFIG.athleteSlug : null;
+      if (cfg) return 'dominio_' + cfg + '_body_comp_history';
       const t = (document.title || '').toLowerCase();
-      if (t.includes('gui')) return 'dominio_gui_body_comp_history';
+      if (t.includes('jean')) return 'dominio_jean_body_comp_history';
       if (t.includes('daniela')) return 'dominio_daniela_body_comp_history';
+      if (t.includes('gustavo')) return 'dominio_gustavo_body_comp_history';
+      if (t.includes('helenice')) return 'dominio_helenice_body_comp_history';
+      if (t.includes('gui')) return 'dominio_gui_body_comp_history';
       return 'dominio_body_comp_history';
     }
 
@@ -12937,10 +12913,14 @@ function formatVisualAnalysisContent(rawText) {
     function saveBodyCompRecordFromForm() {
       const dateVal = document.getElementById('add_comp_date')?.value || new Date().toISOString().split('T')[0];
       const weightVal = parseFloat(document.getElementById('add_comp_weight')?.value);
-      const waistVal = parseFloat(document.getElementById('add_comp_waist')?.value);
-      const neckVal = parseFloat(document.getElementById('add_comp_neck')?.value) || null;
-      const hipVal = parseFloat(document.getElementById('add_comp_hip')?.value) || null;
-      const bfVal = parseFloat(document.getElementById('add_comp_bf_manual')?.value) || null;
+      const waistRaw = document.getElementById('add_comp_waist')?.value;
+      const waistVal = (waistRaw && !isNaN(parseFloat(waistRaw))) ? parseFloat(waistRaw) : null;
+      const neckRaw = document.getElementById('add_comp_neck')?.value;
+      const neckVal = (neckRaw && !isNaN(parseFloat(neckRaw))) ? parseFloat(neckRaw) : null;
+      const hipRaw = document.getElementById('add_comp_hip')?.value;
+      const hipVal = (hipRaw && !isNaN(parseFloat(hipRaw))) ? parseFloat(hipRaw) : null;
+      const bfRaw = document.getElementById('add_comp_bf_manual')?.value;
+      const bfVal = (bfRaw && !isNaN(parseFloat(bfRaw))) ? parseFloat(bfRaw) : null;
       const bfMethodVal = document.getElementById('add_comp_bf_method')?.value || null;
       const clothesVal = document.getElementById('add_comp_clothes')?.value || null;
       const energyVal = parseInt(document.getElementById('add_comp_energy')?.value) || null;
@@ -12951,8 +12931,8 @@ function formatVisualAnalysisContent(rawText) {
         document.getElementById('add_comp_weight')?.focus();
         return;
       }
-      if (!waistVal || isNaN(waistVal) || waistVal <= 30 || waistVal > 250) {
-        alert('Por favor, informe uma medida de cintura válida em cm.');
+      if (waistVal !== null && (isNaN(waistVal) || waistVal <= 30 || waistVal > 250)) {
+        alert('Por favor, informe uma medida de cintura válida em cm (ou deixe em branco se não tiver aferido hoje).');
         document.getElementById('add_comp_waist')?.focus();
         return;
       }
@@ -12973,7 +12953,7 @@ function formatVisualAnalysisContent(rawText) {
       };
 
       const history = getBodyCompHistory();
-      const existingIdx = history.findIndex(h => h.date === dateVal);
+      const existingIdx = history.findIndex(h => h.date === dateVal && h.id !== 'comp_init');
       if (existingIdx >= 0) {
         history[existingIdx] = newRecord;
       } else {
@@ -12988,8 +12968,8 @@ function formatVisualAnalysisContent(rawText) {
         console.error('Erro ao salvar no localStorage:', e);
       }
 
-      if (window.DominioDB && typeof DominioDB.salvarMedicao === 'function') {
-        DominioDB.salvarMedicao({
+      if (window.DominioDB && typeof window.DominioDB.salvarMedicao === 'function') {
+        window.DominioDB.salvarMedicao({
           data_medicao: dateVal,
           peso: weightVal,
           cintura: waistVal,
@@ -13010,8 +12990,10 @@ function formatVisualAnalysisContent(rawText) {
 
       closeAddMedicaoModal();
       renderBodyCompUI();
+      if (typeof syncAthleteMetricsFromIntake === 'function') {
+        syncAthleteMetricsFromIntake();
+      }
     }
-
     function deleteBodyCompRecord(id) {
       if (!confirm('Deseja realmente excluir esta medição?')) return;
       let history = getBodyCompHistory();
@@ -13021,8 +13003,10 @@ function formatVisualAnalysisContent(rawText) {
         localStorage.setItem(storageKey, JSON.stringify(history));
       } catch (e) {}
       renderBodyCompUI();
+      if (typeof syncAthleteMetricsFromIntake === 'function') {
+        syncAthleteMetricsFromIntake();
+      }
     }
-
     function openInstrucoesMedidasModal() {
       const modal = document.getElementById('modalInstrucoesMedidas');
       if (modal) modal.classList.add('active');
@@ -13374,10 +13358,27 @@ function formatVisualAnalysisContent(rawText) {
         }
 
         const name = data.nome || 'Jean Hilário';
-        const weightVal = parseFloat(data.peso) || 75.5;
         const heightVal = parseFloat(data.altura) || 178;
-        const bfVal = (data.gordura !== undefined && data.gordura !== '') ? parseFloat(data.gordura) : null;
-        
+        const intakeWeight = (data.peso !== undefined && data.peso !== '') ? parseFloat(data.peso) : null;
+        const intakeBf = (data.gordura !== undefined && data.gordura !== '') ? parseFloat(data.gordura) : null;
+
+        let currentWeight = intakeWeight;
+        let currentBF = intakeBf;
+        try {
+          const hist = getBodyCompHistory();
+          if (hist && hist.length > 0) {
+            const latest = hist[hist.length - 1];
+            if (latest.weight !== null && latest.weight !== undefined) {
+              currentWeight = latest.weight;
+            }
+            if (latest.bfManual !== null && latest.bfManual !== undefined) {
+              currentBF = latest.bfManual;
+            } else if (latest.neck && latest.waist && heightVal) {
+              currentBF = calculateUSNavyBF(data.sexo || 'masculino', heightVal, latest.waist, latest.neck, latest.hip);
+            }
+          }
+        } catch (e) {}
+
         // Atualiza na Ficha do Atleta (tab-perfil)
         const nameEl = document.getElementById('athleteProfileName');
         const pWeightEl = document.getElementById('athleteProfileWeight');
@@ -13385,14 +13386,13 @@ function formatVisualAnalysisContent(rawText) {
         const pBFEl = document.getElementById('athleteProfileBF');
 
         if (nameEl) nameEl.textContent = name;
-        if (pWeightEl) pWeightEl.textContent = weightVal ? `${weightVal.toFixed(1)} kg` : '-- kg';
+        if (pWeightEl) pWeightEl.textContent = currentWeight ? `${currentWeight.toFixed(1)} kg` : '-- kg';
         if (pHeightEl) pHeightEl.textContent = heightVal ? `${Math.round(heightVal)} cm` : '-- cm';
-        if (pBFEl) pBFEl.textContent = bfVal ? `${bfVal.toFixed(1)}%` : '--%';
+        if (pBFEl) pBFEl.textContent = currentBF ? `${currentBF.toFixed(1)}%` : '--%';
       } catch (e) {
         console.error('Erro ao sincronizar métricas da anamnese:', e);
       }
     }
-
     window.sendMedicalReportWhatsApp = function() {
       const studentName = document.getElementById('ass_nome')?.value.trim() || 'Aluno';
       const lesionNotes = document.getElementById('ass_historico_clinico')?.value.trim() || '';
@@ -14276,7 +14276,7 @@ function formatVisualAnalysisContent(rawText) {
               aluno_slug: data.aluno_slug || cfg.athleteSlug,
               data_medicao: data.data_medicao,
               peso: data.peso,
-              cintura: data.cintura,
+              cintura: (data.cintura !== null && data.cintura !== undefined) ? data.cintura : 0,
               pescoco: data.pescoco || null,
               quadril: data.quadril || null,
               bf_pct: data.bf_pct || null,

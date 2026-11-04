@@ -10958,9 +10958,18 @@ function formatVisualAnalysisContent(rawText) {
     // GERENCIAMENTO DA LISTA DE MEDIÇÕES E MODAL DE MEDIÇÃO CORPORAL
     // =========================================================================
     function getBodyCompStorageKey() {
+      if (typeof window !== 'undefined' && window.DC_AUTH && typeof window.DC_AUTH.getActiveAthlete === 'function') {
+        const athlete = window.DC_AUTH.getActiveAthlete();
+        if (athlete && athlete.id) return 'dominio_' + athlete.id.toLowerCase() + '_body_comp_history';
+      }
+      const cfg = (typeof DOMINIO_APP_CONFIG !== 'undefined' && DOMINIO_APP_CONFIG.athleteSlug) ? DOMINIO_APP_CONFIG.athleteSlug : null;
+      if (cfg) return 'dominio_' + cfg + '_body_comp_history';
       const t = (document.title || '').toLowerCase();
-      if (t.includes('gui')) return 'dominio_gui_body_comp_history';
+      if (t.includes('jean')) return 'dominio_jean_body_comp_history';
       if (t.includes('daniela')) return 'dominio_daniela_body_comp_history';
+      if (t.includes('gustavo')) return 'dominio_gustavo_body_comp_history';
+      if (t.includes('helenice')) return 'dominio_helenice_body_comp_history';
+      if (t.includes('gui')) return 'dominio_gui_body_comp_history';
       return 'dominio_body_comp_history';
     }
 
@@ -11121,7 +11130,8 @@ function formatVisualAnalysisContent(rawText) {
     function saveBodyCompRecordFromForm() {
       const dateVal = document.getElementById('add_comp_date')?.value || new Date().toISOString().split('T')[0];
       const weightVal = parseFloat(document.getElementById('add_comp_weight')?.value);
-      const waistVal = parseFloat(document.getElementById('add_comp_waist')?.value);
+      const waistRaw = document.getElementById('add_comp_waist')?.value;
+      const waistVal = (waistRaw && !isNaN(parseFloat(waistRaw))) ? parseFloat(waistRaw) : null;
       const neckVal = parseFloat(document.getElementById('add_comp_neck')?.value) || null;
       const hipVal = parseFloat(document.getElementById('add_comp_hip')?.value) || null;
       const bfVal = parseFloat(document.getElementById('add_comp_bf_manual')?.value) || null;
@@ -11135,8 +11145,8 @@ function formatVisualAnalysisContent(rawText) {
         document.getElementById('add_comp_weight')?.focus();
         return;
       }
-      if (!waistVal || isNaN(waistVal) || waistVal <= 30 || waistVal > 250) {
-        alert('Por favor, informe uma medida de cintura válida em cm.');
+      if (waistVal !== null && (isNaN(waistVal) || waistVal <= 30 || waistVal > 250)) {
+        alert('Por favor, informe uma medida de cintura válida em cm (ou deixe em branco caso não tenha aferido hoje).');
         document.getElementById('add_comp_waist')?.focus();
         return;
       }
@@ -11172,8 +11182,8 @@ function formatVisualAnalysisContent(rawText) {
         console.error('Erro ao salvar no localStorage:', e);
       }
 
-      if (window.DominioDB && typeof DominioDB.salvarMedicao === 'function') {
-        DominioDB.salvarMedicao({
+      if (window.DominioDB && typeof window.DominioDB.salvarMedicao === 'function') {
+        window.DominioDB.salvarMedicao({
           data_medicao: dateVal,
           peso: weightVal,
           cintura: waistVal,
