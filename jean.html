@@ -11567,6 +11567,29 @@ function updateEvolucaoStats() {
         }
       });
 
+      
+      // Garante presença da avaliação postural fotográfica oficial do Jean de 04/11/2026
+      const jeanOfficialPhotoSet = {
+        id: 'comp_jean_20261104',
+        date: '2026-11-04',
+        weight: 75.50,
+        waist: null,
+        neck: null,
+        hip: null,
+        bfManual: null,
+        clothes: 'normais',
+        energy: 4,
+        notes: 'Avaliação Postural Fotográfica Oficial (Frente, Perfil e Costas)',
+        photos: {
+          front: 'Midia/jean_2026-11-04_frente.jpeg',
+          side: 'Midia/jean_2026-11-04_perfil.jpeg',
+          back: 'Midia/jean_2026-11-04_costas.jpeg'
+        }
+      };
+      if (!history.some(item => item.date === '2026-11-04' || item.id === 'comp_jean_20261104')) {
+        history.push(jeanOfficialPhotoSet);
+      }
+    
       history.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
       return history;
     }
@@ -12803,20 +12826,22 @@ function formatVisualAnalysisContent(rawText) {
       }
 
       const baseline = history[0];
-      const latest = targetLaudo ? (history.find(h => h.date === targetLaudo.date) || targetLaudo) : history[history.length - 1];
+      const curWeight = targetLaudo ? targetLaudo.weight : (history[history.length - 1]?.weight);
+      const curWaist = targetLaudo ? targetLaudo.waist : (history[history.length - 1]?.waist);
+      const curBf = targetLaudo ? targetLaudo.bodyFat : (history[history.length - 1]?.bfManual);
 
-      const curWeight = targetLaudo ? targetLaudo.weight : latest.weight;
-      const curWaist = targetLaudo ? targetLaudo.waist : latest.waist;
-      const curBf = targetLaudo ? targetLaudo.bodyFat : (latest.bfManual !== null && latest.bfManual !== undefined ? Number(latest.bfManual) : null);
+      const baseWeight = baseline.weight !== null && baseline.weight !== undefined ? baseline.weight : null;
+      const baseWaist = baseline.waist !== null && baseline.waist !== undefined ? baseline.waist : null;
+      const baseBf = baseline.bfManual !== null && baseline.bfManual !== undefined ? baseline.bfManual : (baseline.bodyFat !== null && baseline.bodyFat !== undefined ? baseline.bodyFat : null);
 
-      const hasBothWeights = (baseline.weight !== null && curWeight !== null && baseline.weight !== undefined && curWeight !== undefined);
-      const dWeight = hasBothWeights ? (curWeight - baseline.weight) : null;
-      const hasBothWaists = (baseline.waist !== null && curWaist !== null && baseline.waist !== undefined && curWaist !== undefined);
-      const dWaist = hasBothWaists ? (curWaist - baseline.waist) : null;
+      const hasBothWeights = (baseWeight !== null && curWeight !== null && baseWeight !== undefined && curWeight !== undefined);
+      const dWeight = hasBothWeights ? (curWeight - baseWeight) : null;
+      const hasBothWaists = (baseWaist !== null && curWaist !== null && baseWaist !== undefined && curWaist !== undefined);
+      const dWaist = hasBothWaists ? (curWaist - baseWaist) : null;
+      const dBf = (baseBf !== null && curBf !== null) ? (curBf - baseBf) : null;
+
       const whtrLatest = (height && curWaist !== null && curWaist !== undefined) ? (curWaist / height) : null;
       const kneeReliefPerStep = (dWeight !== null && dWeight < 0) ? Math.max(0, -dWeight * 4) : 0;
-      const bfBase = baseline.bfManual !== undefined && baseline.bfManual !== null ? Number(baseline.bfManual) : null;
-      const dBf = (bfBase !== null && curBf !== null) ? (curBf - bfBase) : null;
 
       const formatDateBR = (iso) => {
         if (!iso) return '';
@@ -12824,12 +12849,13 @@ function formatVisualAnalysisContent(rawText) {
         return p.length === 3 ? (p[2] + '/' + p[1] + '/' + p[0]) : iso;
       };
 
-      const todayStr = targetLaudo ? (targetLaudo.dateFormatted || formatDateBR(targetLaudo.date)) : (latest.date ? formatDateBR(latest.date) : new Date().toLocaleDateString('pt-BR'));
-      const periodStr = (baseline.date ? formatDateBR(baseline.date) : 'Início') + (baseline.date !== latest.date ? ' até ' + todayStr : ' (Avaliação Inicial)');
+      const todayStr = targetLaudo ? (targetLaudo.dateFormatted || formatDateBR(targetLaudo.date)) : (baseline.date ? formatDateBR(baseline.date) : new Date().toLocaleDateString('pt-BR'));
+      const baseDateStr = baseline.date ? formatDateBR(baseline.date) : 'Início';
+      const periodStr = (baseDateStr !== todayStr) ? `${baseDateStr} até ${todayStr}` : `Avaliação Inicial (${todayStr})`;
 
-      const photos = (targetLaudo && targetLaudo.photos) ? targetLaudo.photos : (latest.photos || {});
-      const photoPerfil = photos.side || '';
+      const photos = (targetLaudo && targetLaudo.photos) ? targetLaudo.photos : {};
       const photoFrente = photos.front || '';
+      const photoPerfil = photos.side || '';
       const photoCostas = photos.back || '';
 
       let whtrStatusText = 'Não calculado (aguardando medida de cintura)';
@@ -12846,6 +12872,44 @@ function formatVisualAnalysisContent(rawText) {
           whtrStatusColor = '#dc2626';
         }
       }
+
+      // Seções customizadas ou padrão
+      const queEstaBomContent = targetLaudo?.queEstaBom || `
+        <p style="margin: 0 0 6px 0;">
+          <strong>Lastro Corporal e Alívio Articular (Messier 4:1):</strong> ${dWeight !== null && dWeight < 0 ? ('Excelente resposta ponderal com redução de ' + Math.abs(dWeight).toFixed(1) + ' kg de lastro inerte. Pela Regra Biomecânica de Messier (4:1), isso representa <strong>' + kneeReliefPerStep.toFixed(1) + ' kg a menos de compressão acumulada nos joelhos e meniscos a cada passada</strong>, preservando a integridade articular durante treinos de impacto e pliometria.') : 'Boa sustentação e estabilidade de peso corporal, mantendo o controle da carga compressiva articular basal sem oscilações deletérias.'}
+        </p>
+        <p style="margin: 0;">
+          <strong>Consistência e Adaptação Neuromuscular:</strong> O atleta demonstra alta disciplina na rotina de treino, permitindo adaptações teciduais contínuas nos tecidos conectivos (tendões e cápsulas articulares) e consolidação da técnica básica nos padrões fundamentais de movimento.
+        </p>`;
+
+      const quePodeMelhorarContent = targetLaudo?.quePodeMelhorar || `
+        <p style="margin: 0 0 6px 0;">
+          <strong>Padrão Ocupacional e Cadeia Anterior Encurtada:</strong> O tempo prolongado em postura sentada no cotidiano tende a induzir encurtamento adaptativo dos flexores do quadril (ilíaco e psoas maior) e protrusão anterior da cabeça com rotação medial de ombros. Foco contínuo na extensão ativa do quadril e descompressão torácica.
+        </p>
+        <p style="margin: 0;">
+          <strong>Estabilidade Lombo-Pélvica sob Carga:</strong> Atenção redobrada para evitar retroversão pélvica precoce (butt wink) nas profundidades máximas do agachamento e manter a ativação de transversos do abdômen e glúteos em movimentos unipodais e suspensos.
+        </p>`;
+
+      const implicacoesTreinoContent = targetLaudo?.implicacoesTreino || `
+        <p style="margin: 0 0 6px 0;">
+          <strong>Força Relativa e Alavanca Ginástica (Zatsiorsky & Kraemer):</strong> O controle rigoroso da gordura inerte passiva potencializa a potência relativa do atleta. Cada grama de peso corporal útil amplifica a relação força/massa, facilitando puxadas em suspensão na barra, apoios em handstand e paradas de mão acrobáticas.
+        </p>
+        <p style="margin: 0;">
+          <strong>Prescrição de Fortalecimento e Mobilidade:</strong> Manter prioridade em puxadas horizontais e verticais para reforço do trapézio médio/inferior e romboides; blocos preparatórios de mobilidade de tornozelo (dorsiflexão) e quadril antes dos blocos de força pesada; e descompressão articular pós-sessão.
+        </p>`;
+
+      const parametrosSaudeContent = targetLaudo?.parametrosSaude || `
+        <p style="margin: 0 0 6px 0;">
+          <strong>Relação Cintura-Estatura (RCEst):</strong> Baseado nas diretrizes epidemiológicas internacionais de Margaret Ashwell (2012), a RCEst é o marcador clínico mais sensível para mensurar adiposidade visceral e risco cardiometabólico. O valor alvo canônico é manter a cintura abaixo da metade da estatura (RCEst < 0.50).
+        </p>
+        <p style="margin: 0;">
+          <strong>Diagnóstico do Atleta:</strong> ${whtrLatest !== null ? ('RCEst atual calculada em <strong>' + whtrLatest.toFixed(2) + '</strong> (' + whtrStatusText + ').') : 'Aguardando registro de cintura para cálculo dinâmico da RCEst.'} A ausência de sobrecarga visceral garante excelente complacência respiratória diafragmática e segurança cardiovascular sob esforço de alta intensidade.
+        </p>`;
+
+      const analise = targetLaudo?.analiseFotos || targetLaudo?.coachAnalysis || {};
+      const frontAnalysis = analise.front || 'Nivelamento satisfatório da cintura escapular (ombros) e alinhamento das cristas ilíacas anterossuperiores (ASIS), sem assimetrias rotacionais patológicas do tronco. Distribuição homogênea do apoio podal bipodal.';
+      const sideAnalysis = analise.side || 'Curvaturas fisiológicas da coluna (cifose torácica e lordose lombar) preservadas dentro dos limites normais funcionais. Pelve em leve neutro-versão, com bom ângulo sacro-horizontal durante a sustentação postural estática.';
+      const backAnalysis = analise.back || 'Simetria de pregas glúteas e contornos dos triângulos de Tales. Escápulas bem ancoradas na grade costal pelo complexo serrátil anterior e romboides, sem sinais de báscula alada estática.';
 
       let html = `
         <div class="print-report-wrapper" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #0f172a; line-height: 1.55; padding: 4px;">
@@ -12887,31 +12951,31 @@ function formatVisualAnalysisContent(rawText) {
               <tbody>
                 <tr>
                   <td style="padding: 7px 10px; border: 1px solid #cbd5e1; font-weight: 700;">Peso Corporal</td>
-                  <td style="padding: 7px 10px; border: 1px solid #cbd5e1;">${baseline.weight !== null && baseline.weight !== undefined ? Number(baseline.weight).toFixed(1) + ' kg' : '--'}</td>
+                  <td style="padding: 7px 10px; border: 1px solid #cbd5e1;">${baseWeight !== null ? Number(baseWeight).toFixed(1) + ' kg' : '--'}</td>
                   <td style="padding: 7px 10px; border: 1px solid #cbd5e1;">${curWeight !== null && curWeight !== undefined ? Number(curWeight).toFixed(1) + ' kg' : '--'}</td>
-                  <td style="padding: 7px 10px; border: 1px solid #cbd5e1; font-weight: 700; color: ${(dWeight !== null && dWeight <= 0) ? '#16a34a' : '#d97706'};">${dWeight !== null ? (dWeight > 0 ? '+' + dWeight.toFixed(1) : dWeight.toFixed(1)) + ' kg' : '--'}</td>
+                  <td style="padding: 7px 10px; border: 1px solid #cbd5e1; font-weight: 700; color: ${(dWeight !== null && dWeight <= 0) ? '#16a34a' : '#d97706'};">${dWeight !== null ? (dWeight > 0 ? '+' + dWeight.toFixed(1) : dWeight.toFixed(1)) + ' kg' : (baseWeight !== null && curWeight !== null && baseWeight === curWeight ? '0.0 kg' : '--')}</td>
                   <td style="padding: 7px 10px; border: 1px solid #cbd5e1;">Acompanhamento Ponderal</td>
                 </tr>
                 <tr>
                   <td style="padding: 7px 10px; border: 1px solid #cbd5e1; font-weight: 700;">Cintura Abdominal</td>
-                  <td style="padding: 7px 10px; border: 1px solid #cbd5e1;">${baseline.waist !== null && baseline.waist !== undefined ? Number(baseline.waist).toFixed(1) + ' cm' : '--'}</td>
+                  <td style="padding: 7px 10px; border: 1px solid #cbd5e1;">${baseWaist !== null ? Number(baseWaist).toFixed(1) + ' cm' : '--'}</td>
                   <td style="padding: 7px 10px; border: 1px solid #cbd5e1;">${curWaist !== null && curWaist !== undefined ? Number(curWaist).toFixed(1) + ' cm' : '--'}</td>
                   <td style="padding: 7px 10px; border: 1px solid #cbd5e1; font-weight: 700; color: #16a34a;">${dWaist !== null ? (dWaist > 0 ? '+' + dWaist.toFixed(1) : dWaist.toFixed(1)) + ' cm' : '--'}</td>
-                  <td style="padding: 7px 10px; border: 1px solid #cbd5e1;">Cicatriz Umbilical (Perimetria)</td>
+                  <td style="padding: 7px 10px; border: 1px solid #cbd5e1;">${curWaist !== null ? 'Cicatriz Umbilical (Perimetria)' : 'Aguardando perimetria'}</td>
                 </tr>
                 <tr>
                   <td style="padding: 7px 10px; border: 1px solid #cbd5e1; font-weight: 700;">% de Gordura Corporal</td>
-                  <td style="padding: 7px 10px; border: 1px solid #cbd5e1;">${bfBase !== null ? Number(bfBase).toFixed(1) + '%' : '--'}</td>
-                  <td style="padding: 7px 10px; border: 1px solid #cbd5e1;">${curBf !== null ? Number(curBf).toFixed(1) + '%' : '--'}</td>
+                  <td style="padding: 7px 10px; border: 1px solid #cbd5e1;">${baseBf !== null ? Number(baseBf).toFixed(1) + '%' : '--'}</td>
+                  <td style="padding: 7px 10px; border: 1px solid #cbd5e1;">${curBf !== null && curBf !== undefined ? Number(curBf).toFixed(1) + '%' : '--'}</td>
                   <td style="padding: 7px 10px; border: 1px solid #cbd5e1; font-weight: 700; color: #16a34a;">${dBf !== null ? (dBf > 0 ? '+' + dBf.toFixed(1) : dBf.toFixed(1)) + '%' : '--'}</td>
-                  <td style="padding: 7px 10px; border: 1px solid #cbd5e1;">Fórmula U.S. Navy (Hodgdon)</td>
+                  <td style="padding: 7px 10px; border: 1px solid #cbd5e1;">${curBf !== null ? 'Bioimpedância / U.S. Navy' : 'Aguardando avaliação'}</td>
                 </tr>
                 <tr>
                   <td style="padding: 7px 10px; border: 1px solid #cbd5e1; font-weight: 700;">RCEst (Cintura / Altura)</td>
-                  <td style="padding: 7px 10px; border: 1px solid #cbd5e1;">${(baseline.waist !== null && baseline.waist !== undefined && height) ? (baseline.waist / height).toFixed(2) : '--'}</td>
-                  <td style="padding: 7px 10px; border: 1px solid #cbd5e1; font-weight: 700;">${whtrLatest ? whtrLatest.toFixed(2) : '--'}</td>
-                  <td style="padding: 7px 10px; border: 1px solid #cbd5e1; font-weight: 700;">--</td>
-                  <td style="padding: 7px 10px; border: 1px solid #cbd5e1; font-weight: 700; color: ${whtrStatusColor};">${whtrLatest ? (whtrLatest < 0.50 ? 'Faixa Ideal (< 0.50)' : 'Atenção Preventiva') : '--'}</td>
+                  <td style="padding: 7px 10px; border: 1px solid #cbd5e1;">${(baseWaist !== null && height) ? (baseWaist / height).toFixed(2) : '--'}</td>
+                  <td style="padding: 7px 10px; border: 1px solid #cbd5e1;">${whtrLatest ? whtrLatest.toFixed(2) : '--'}</td>
+                  <td style="padding: 7px 10px; border: 1px solid #cbd5e1;">--</td>
+                  <td style="padding: 7px 10px; border: 1px solid #cbd5e1; font-weight: 700; color: ${whtrStatusColor};">${whtrLatest ? (whtrLatest < 0.50 ? 'Faixa Ideal (< 0.50)' : 'Atenção Preventiva') : 'Aguardando medida de cintura'}</td>
                 </tr>
               </tbody>
             </table>
@@ -12923,12 +12987,7 @@ function formatVisualAnalysisContent(rawText) {
               2. O Que Está Bom (Pontos Fortes e Conquistas)
             </div>
             <div style="font-size: 0.81rem; color: #14532d; line-height: 1.55;">
-              <p style="margin: 0 0 6px 0;">
-                <strong>Lastro Corporal e Alívio Articular (Messier 4:1):</strong> ${dWeight !== null && dWeight < 0 ? ('Excelente resposta ponderal com redução de ' + Math.abs(dWeight).toFixed(1) + ' kg de lastro inerte. Pela Regra Biomecânica de Messier (4:1), isso representa <strong>' + kneeReliefPerStep.toFixed(1) + ' kg a menos de compressão acumulada nos joelhos e meniscos a cada passada</strong>, preservando a integridade articular durante treinos de impacto e pliometria.') : 'Boa sustentação e estabilidade de peso corporal, mantendo o controle da carga compressiva articular basal sem oscilações deletérias.'}
-              </p>
-              <p style="margin: 0;">
-                <strong>Consistência e Adaptação Neuromuscular:</strong> O atleta demonstra alta disciplina na rotina de treino, permitindo adaptações teciduais contínuas nos tecidos conectivos (tendões e cápsulas articulares) e consolidação da técnica básica nos padrões fundamentais de movimento.
-              </p>
+              ${queEstaBomContent}
             </div>
           </div>
 
@@ -12938,12 +12997,7 @@ function formatVisualAnalysisContent(rawText) {
               3. O Que Pode Melhorar (Focos Posturais e Biomecânicos)
             </div>
             <div style="font-size: 0.81rem; color: #78350f; line-height: 1.55;">
-              <p style="margin: 0 0 6px 0;">
-                <strong>Padrão Ocupacional e Cadeia Anterior Encurtada:</strong> O tempo prolongado em postura sentada no cotidiano tende a induzir encurtamento adaptativo dos flexores do quadril (ilíaco e psoas maior) e protrusão anterior da cabeça com rotação medial de ombros. Foco contínuo na extensão ativa do quadril e descompressão torácica.
-              </p>
-              <p style="margin: 0;">
-                <strong>Estabilidade Lombo-Pélvica sob Carga:</strong> Atenção redobrada para evitar retroversão pélvica precoce (butt wink) nas profundidades máximas do agachamento e manter a ativação de transversos do abdômen e glúteos em movimentos unipodais e suspensos.
-              </p>
+              ${quePodeMelhorarContent}
             </div>
           </div>
 
@@ -12953,12 +13007,7 @@ function formatVisualAnalysisContent(rawText) {
               4. Implicações Diretas no Treino e Prescrição
             </div>
             <div style="font-size: 0.81rem; color: #334155; line-height: 1.55;">
-              <p style="margin: 0 0 6px 0;">
-                <strong>Força Relativa e Alavanca Ginástica (Zatsiorsky & Kraemer):</strong> O controle rigoroso da gordura inerte passiva potencializa a potência relativa do atleta. Cada grama de peso corporal útil amplifica a relação força/massa, facilitando puxadas em suspensão na barra, apoios em handstand e paradas de mão acrobáticas.
-              </p>
-              <p style="margin: 0;">
-                <strong>Prescrição de Fortalecimento e Mobilidade:</strong> Manter prioridade em puxadas horizontais e verticais para reforço do trapézio médio/inferior e romboides; blocos preparatórios de mobilidade de tornozelo (dorsiflexão) e quadril antes dos blocos de força pesada; e descompressão articular pós-sessão.
-              </p>
+              ${implicacoesTreinoContent}
             </div>
           </div>
 
@@ -12968,12 +13017,7 @@ function formatVisualAnalysisContent(rawText) {
               5. Parâmetros Clínicos e de Saúde (RCEst & Adiposidade)
             </div>
             <div style="font-size: 0.81rem; color: #334155; line-height: 1.55;">
-              <p style="margin: 0 0 6px 0;">
-                <strong>Relação Cintura-Estatura (RCEst):</strong> Baseado nas diretrizes epidemiológicas internacionais de Margaret Ashwell (2012), a RCEst é o marcador clínico mais sensível para mensurar adiposidade visceral e risco cardiometabólico. O valor alvo canônico é manter a cintura abaixo da metade da estatura (RCEst < 0.50).
-              </p>
-              <p style="margin: 0;">
-                <strong>Diagnóstico do Atleta:</strong> ${whtrLatest !== null ? ('RCEst atual calculada em <strong>' + whtrLatest.toFixed(2) + '</strong> (' + whtrStatusText + ').') : 'Aguardando registro de cintura para cálculo dinâmico da RCEst.'} A ausência de sobrecarga visceral garante excelente complacência respiratória diafragmática e segurança cardiovascular sob esforço de alta intensidade.
-              </p>
+              ${parametrosSaudeContent}
             </div>
           </div>
 
@@ -12984,9 +13028,9 @@ function formatVisualAnalysisContent(rawText) {
             </div>
             ${(photoFrente || photoPerfil || photoCostas) ? `
               <div style="display: flex; gap: 12px; justify-content: center; align-items: center; margin-bottom: 12px; flex-wrap: wrap;">
-                ${photoFrente ? ('<div style="text-align:center;"><img src="' + photoFrente + '" style="max-height:170px; border-radius:6px; border:1px solid #cbd5e1; object-fit:contain;" alt="Frente"><div style="font-size:0.70rem; color:#64748b; font-weight:700; margin-top:3px;">Plano Frontal</div></div>') : ''}
-                ${photoPerfil ? ('<div style="text-align:center;"><img src="' + photoPerfil + '" style="max-height:170px; border-radius:6px; border:1px solid #cbd5e1; object-fit:contain;" alt="Perfil"><div style="font-size:0.70rem; color:#64748b; font-weight:700; margin-top:3px;">Plano Sagital</div></div>') : ''}
-                ${photoCostas ? ('<div style="text-align:center;"><img src="' + photoCostas + '" style="max-height:170px; border-radius:6px; border:1px solid #cbd5e1; object-fit:contain;" alt="Costas"><div style="font-size:0.70rem; color:#64748b; font-weight:700; margin-top:3px;">Plano Posterior</div></div>') : ''}
+                ${photoFrente ? ('<div style="text-align:center;"><img src="' + photoFrente + '" onerror="if(!this.dataset.tried){this.dataset.tried=1; this.src=this.src.includes(\'../\')?this.src.replace(\'../\',\'\'):(\'../\'+this.getAttribute(\'src\'));}" style="max-height:170px; border-radius:6px; border:1px solid #cbd5e1; object-fit:contain;" alt="Frente"><div style="font-size:0.70rem; color:#64748b; font-weight:700; margin-top:3px;">Plano Frontal</div></div>') : ''}
+                ${photoPerfil ? ('<div style="text-align:center;"><img src="' + photoPerfil + '" onerror="if(!this.dataset.tried){this.dataset.tried=1; this.src=this.src.includes(\'../\')?this.src.replace(\'../\',\'\'):(\'../\'+this.getAttribute(\'src\'));}" style="max-height:170px; border-radius:6px; border:1px solid #cbd5e1; object-fit:contain;" alt="Perfil"><div style="font-size:0.70rem; color:#64748b; font-weight:700; margin-top:3px;">Plano Sagital</div></div>') : ''}
+                ${photoCostas ? ('<div style="text-align:center;"><img src="' + photoCostas + '" onerror="if(!this.dataset.tried){this.dataset.tried=1; this.src=this.src.includes(\'../\')?this.src.replace(\'../\',\'\'):(\'../\'+this.getAttribute(\'src\'));}" style="max-height:170px; border-radius:6px; border:1px solid #cbd5e1; object-fit:contain;" alt="Costas"><div style="font-size:0.70rem; color:#64748b; font-weight:700; margin-top:3px;">Plano Posterior</div></div>') : ''}
               </div>
             ` : `
               <div style="background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px; padding: 12px; margin-bottom: 10px; font-size: 0.78rem; color: #64748b; text-align: center;">
@@ -12995,13 +13039,13 @@ function formatVisualAnalysisContent(rawText) {
             `}
             <div style="font-size: 0.81rem; color: #334155; line-height: 1.55; text-align: justify;">
               <p style="margin: 0 0 6px 0;">
-                <strong>Plano Frontal (Vista Anterior):</strong> Nivelamento satisfatório da cintura escapular (ombros) e alinhamento das cristas ilíacas anterossuperiores (ASIS), sem assimetrias rotacionais patológicas do tronco. Distribuição homogênea do apoio podal bipodal.
+                <strong>Plano Frontal (Vista Anterior):</strong> ${frontAnalysis}
               </p>
               <p style="margin: 0 0 6px 0;">
-                <strong>Plano Sagital (Vista Lateral / Perfil):</strong> Curvaturas fisiológicas da coluna (cifose torácica e lordose lombar) preservadas dentro dos limites normais funcionais. Pelve em leve neutro-versão, com bom ângulo sacro-horizontal durante a sustentação postural estática.
+                <strong>Plano Sagital (Vista Lateral / Perfil):</strong> ${sideAnalysis}
               </p>
               <p style="margin: 0;">
-                <strong>Plano Posterior (Vista Posterior / Costas):</strong> Simetria de pregas glúteas e contornos dos triângulos de Tales. Escápulas bem ancoradas na grade costal pelo complexo serrátil anterior e romboides, sem sinais de báscula alada estática.
+                <strong>Plano Posterior (Vista Posterior / Costas):</strong> ${backAnalysis}
               </p>
             </div>
           </div>
@@ -13321,42 +13365,240 @@ function formatVisualAnalysisContent(rawText) {
       return 'dominio_' + slug + '_body_comp_history';
     }
 
+    function getStudentActiveSlug() {
+      if (typeof window !== 'undefined' && window.currentActiveAthlete) {
+        return window.currentActiveAthlete;
+      }
+      if (typeof DOMINIO_APP_CONFIG !== 'undefined' && DOMINIO_APP_CONFIG.athleteSlug) {
+        return DOMINIO_APP_CONFIG.athleteSlug;
+      }
+      if (typeof getBodyCompStorageKey === 'function') {
+        const k = getBodyCompStorageKey();
+        const m = k.match(/^dominio_([^_]+)_body_comp_history/);
+        if (m) return m[1];
+      }
+      return 'gui';
+    }
+
+
+    const OFFICIAL_LAUDOS_GUI = [
+      {
+        id: 'laudo_gui_20261105',
+        date: '2026-11-05',
+        dateFormatted: '05/11/2026',
+        title: 'Laudo Técnico Oficial • Bioimpedância Tetrapolar e Postura',
+        weight: 84.70,
+        waist: 84.0,
+        neck: 39.0,
+        hip: null,
+        bodyFat: 16.19,
+        jointRelief: 52.4,
+        relativePower: 15.5,
+        photos: {
+          front: 'Midia/Fotos_Posturais/gui_2026-11-05_frente.jpeg',
+          side: 'Midia/Fotos_Posturais/gui_2026-11-05_perfil.jpeg',
+          back: 'Midia/Fotos_Posturais/gui_2026-11-05_costas.jpeg'
+        },
+        notes: 'Bioimpedância Tetrapolar BioSannyX (16.19% BF • 70.99 kg MLG • AF 7.25°) e avaliação postural fotográfica completa.',
+        queEstaBom: '<p style="margin:0 0 6px 0;"><strong>Alívio Articular Cumulativo (Messier 4:1):</strong> A redução total de 13.1 kg de lastro inerte acumulada desde o início representa <strong>52.4 kg a menos de carga compressiva patelofemoral e meniscal a cada passada</strong>, fator decisivo para a longevidade do joelho esquerdo pós-cirúrgico durante aterrissagens e corridas.</p><p style="margin:0;"><strong>Preservação Estrita de Massa Magra e Integridade Celular:</strong> O laudo de Bioimpedância Tetrapolar BioSannyX registrou 70.99 kg de Massa Livre de Gordura (MLG) com Índice de Massa Livre de Gordura (FFMI) de 24.3 kg/m² e Ângulo de Fase celular de 7.25° (> P90), comprovando excelente hidratação intracelular e zero catabolismo proteico sob o protocolo de Tirzepatida.</p>',
+        quePodeMelhorar: '<p style="margin:0 0 6px 0;"><strong>Adiposidade Subcutânea Remanescente:</strong> O tecido adiposo residual concentra-se estritamente na dobra infraumbilical anterior e na borda ilíaca inferior. Manter a taxa hídrica elevada (≥ 3.5 L/dia) e o déficit calórico suave para oxidação dessa reserva localizada.</p><p style="margin:0;"><strong>Mobilidade Articular sob Carga Máxima:</strong> Reforçar a rotina preparatória de flexão dorsal de punhos para estabilização nos apoios invertidos e dorsiflexão de tornozelos para agachamentos profundos.</p>',
+        implicacoesTreino: '<p style="margin:0 0 6px 0;"><strong>Força Relativa e Potência Ginástica Máxima:</strong> Com o lastro inerte reduzido, alavancas e transições nas argolas (Ring Muscle-Up e Kip MU) e paradas de mão (One Arm Handstand e Bent-Arm Press) ganham aceleração e eficiência neuromuscular acentuadas.</p><p style="margin:0;"><strong>Periodização de Treino:</strong> Manter a divisão híbrida com sessões técnicas de Handstand, blocos metabólicos de Crossfit e canoagem, com descompressão articular pós-treino.</p>',
+        parametrosSaude: '<p style="margin:0 0 6px 0;"><strong>Relação Cintura-Estatura (RCEst):</strong> RCEst em <strong>0.49</strong> (84.0 cm / 171 cm), enquadrada na <strong>Faixa Ideal de Baixo Risco Clínico (< 0.50 • Padrão Ashwell)</strong>. Ausência de sobrecarga de gordura visceral profunda, com excelente complacência toracoabdominal e proteção endotelial cardiovascular.</p>',
+        analiseFotos: {
+          front: 'Cintura escapular nivelada com deltoides e peitoral bem definidos em repouso. Formato em V (V-taper) pronunciado, com inserções nítidas do serrátil e transição anatômica suave para a linha de cintura de 84 cm.',
+          side: 'Parede abdominal perfeitamente plana no plano sagital sem abaulamento visceral. Curvaturas fisiológicas da coluna alinhadas em neutro, sem anteversão pélvica excessiva ou hipercifose postural.',
+          back: 'Grande dorsal com inserção ampla e densidade acentuada em todo o bordo costal. Escápulas com excelente adução e depressão estática, sem desalinhamento escapulotorácico ou báscula alada.'
+        }
+      },
+      {
+        id: 'laudo_gui_20261023',
+        date: '2026-10-23',
+        dateFormatted: '23/10/2026',
+        title: 'Laudo Técnico • Consolidação e Densidade Muscular',
+        weight: 87.20,
+        waist: 85.0,
+        neck: 39.0,
+        hip: null,
+        bodyFat: 15.8,
+        jointRelief: 42.4,
+        photos: {
+          front: 'Midia/Fotos_Posturais/gui_2026-10-23_frente.jpeg',
+          side: null,
+          back: null
+        },
+        notes: 'Registro fotográfico – Consolidação, densidade e retorno aos blocos esportivos.'
+      },
+      {
+        id: 'laudo_gui_20261005',
+        date: '2026-10-05',
+        dateFormatted: '05/10/2026',
+        title: 'Laudo Técnico de Recomposição • Marco -11.6 kg',
+        weight: 86.20,
+        waist: 82.0,
+        neck: 39.0,
+        hip: null,
+        bodyFat: 14.6,
+        jointRelief: 46.4,
+        photos: {
+          front: 'Midia/Fotos_Posturais/gui_2026-10-05_frente.jpeg',
+          side: null,
+          back: null
+        },
+        notes: 'Marco de recomposição profunda (-11.6 kg), diminuição de 12 cm de cintura e retorno aos muscle-ups.'
+      },
+      {
+        id: 'laudo_gui_20260702',
+        date: '2026-07-02',
+        dateFormatted: '02/07/2026',
+        title: 'Laudo Técnico Inicial de Admissão e Baseline',
+        weight: 97.80,
+        waist: 94.0,
+        neck: 41.0,
+        hip: null,
+        bodyFat: 23.3,
+        jointRelief: 0.0,
+        photos: {
+          front: 'Midia/Fotos_Posturais/gui_2026-07-02_frente.jpeg',
+          side: null,
+          back: null
+        },
+        notes: 'Ponto de Partida – Bioimpedância inicial e registro de admissão esportiva.'
+      }
+    ];
+
+
+    const OFFICIAL_LAUDOS_JEAN = [
+      {
+        id: 'laudo_jean_20261104',
+        date: '2026-11-04',
+        dateFormatted: '04/11/2026',
+        title: 'Laudo Técnico Oficial • Avaliação Postural Fotográfica',
+        weight: 75.50,
+        waist: null,
+        neck: null,
+        hip: null,
+        bodyFat: null,
+        jointRelief: 0.0,
+        relativePower: 0.0,
+        photos: {
+          front: 'Midia/jean_2026-11-04_frente.jpeg',
+          side: 'Midia/jean_2026-11-04_perfil.jpeg',
+          back: 'Midia/jean_2026-11-04_costas.jpeg'
+        },
+        notes: 'Primeiro registro fotográfico oficial (Frente, Perfil e Costas) para mapeamento biomecânico e alinhamento postural.',
+        queEstaBom: '<p style="margin:0 0 6px 0;"><strong>Estabilidade Ponderal e Estrutura Corporal Eutrófica:</strong> O atleta apresenta peso corporal consistente de 75.5 kg com excelente compleição física basal. A camada subcutânea no tronco e abdômen mantém espessura fina e controlada, sem indícios de retenção hídrica generalizada ou acúmulo excessivo.</p><p style="margin:0;"><strong>Simetria Biacromial e Nivelamento Pélvico:</strong> No plano frontal, observa-se harmonia na altura dos ombros e cristas ilíacas, com base de apoio podal simétrica e boa verticalidade estática.</p>',
+        quePodeMelhorar: '<p style="margin:0 0 6px 0;"><strong>Padrão Ocupacional Sedentário ("Desk Posture"):</strong> A análise do plano sagital evidencia projeção anterior da cabeça em relação à linha média acromial e discreta rotação medial de ombros (protração escapular). Esse padrão é adaptativo e típico de longas horas sentado à mesa diante de telas e computadores.</p><p style="margin:0;"><strong>Encurtamento Adaptativo da Cadeia Anterior:</strong> Tensão nos peitorais menores e flexores profundos do quadril (psoas e ilíaco), com necessidade de reforço da musculatura extensora torácica e dos retratores/depressores escapulares (trapézio inferior e romboides).</p>',
+        implicacoesTreino: '<p style="margin:0 0 6px 0;"><strong>Prioridade no Equilíbrio de Força Puxar / Empurrar:</strong> Ênfase nas puxadas horizontais (remadas com pegada neutra e aberta) e verticais, com sustentação isométrica de pico em retração escapular, restabelecendo o tônus dos romboides e do serrátil anterior.</p><p style="margin:0;"><strong>Mobilidade e Abertura Torácica:</strong> Incorporar rotinas preparatórias de extensão torácica e abertura de peitorais antes dos blocos principais de calistenia, blindando o complexo articular dos ombros.</p>',
+        parametrosSaude: '<p style="margin:0 0 6px 0;"><strong>Relação Cintura-Estatura (RCEst):</strong> Com estatura de 178 cm e peso de 75.5 kg, o IMC de 23.8 kg/m² situa-se confortavelmente na faixa de normalidade funcional. A aferição da circunferência da cintura na cicatriz umbilical permitirá o cálculo preciso da RCEst (meta < 0.50 / cintura < 89 cm), garantindo acompanhamento rigoroso sem estimativas artificiais.</p>',
+        analiseFotos: {
+          front: 'Simetria biacromial preservada com alinhamento clavicular e escapular nivelado. Região epigástrica e parede abdominal sem acúmulo subcutâneo excessivo. Ampla margem construtiva para ganhos de hipertrofia funcional no peitoral e deltoides.',
+          side: 'Plano sagital com anteriorização da linha auditiva à frente do ombro (típica postura sentada ocupacional). Ombros em leve protração com encurtamento de peitoral menor. Curvaturas da coluna torácica e lombar funcionais e preservadas.',
+          back: 'Escápulas estáticas bem posicionadas em repouso, sem sinais de báscula alada evidente. Pilar vertebral alinhado. Espaço anatômico favorável para desenvolvimento e densificação de trapézio médio/inferior e romboides.'
+        }
+      },
+      {
+        id: 'laudo_jean_20261008',
+        date: '2026-10-08',
+        dateFormatted: '08/10/2026',
+        title: 'Laudo Técnico Inicial de Admissão e Anamnese',
+        weight: 75.50,
+        waist: null,
+        neck: null,
+        hip: null,
+        bodyFat: null,
+        jointRelief: 0.0,
+        relativePower: 0.0,
+        photos: null,
+        notes: 'Ficha de avaliação inicial, cadastro clínico e prontuário de admissão esportiva.',
+        queEstaBom: '<p style="margin:0 0 6px 0;"><strong>Início da Rotina de Treinamento:</strong> Admissão do atleta com prontuário de saúde livre de lesões osteoarticulares incapacitantes ou restrições cardiopulmonares prévias.</p>',
+        quePodeMelhorar: '<p style="margin:0 0 6px 0;"><strong>Adaptação e Regularidade:</strong> Criação do hábito motor e consolidação das sessões de treino semanais.</p>',
+        implicacoesTreino: '<p style="margin:0 0 6px 0;"><strong>Fase de Adaptação Anatômica:</strong> Foco em exercícios calistênicos fundamentais e fortalecimento do complexo articular dos ombros e punhos.</p>',
+        parametrosSaude: '<p style="margin:0 0 6px 0;"><strong>Parâmetros Iniciais:</strong> Peso de admissão registrado em 75.5 kg para 178 cm de altura. Sem dados prévios de perimetria.</p>'
+      }
+    ];
+
+    function getOfficialSeededLaudos() {
+      const slug = getStudentActiveSlug();
+      if (slug === 'gui') return OFFICIAL_LAUDOS_GUI;
+      if (slug === 'jean') return OFFICIAL_LAUDOS_JEAN;
+      return [];
+    }
+
     function getLaudosHistory() {
       try {
         const key = (typeof getBodyCompStorageKey === 'function') ? getBodyCompStorageKey() + '_laudos' : 'dominio_body_comp_laudos';
-        let laudos = JSON.parse(localStorage.getItem(key) || 'null');
-        if (Array.isArray(laudos) && laudos.length > 0) return laudos;
+        let savedLaudos = [];
+        try {
+          const raw = localStorage.getItem(key);
+          if (raw) savedLaudos = JSON.parse(raw);
+        } catch(e) {}
+        if (!Array.isArray(savedLaudos)) savedLaudos = [];
 
-        // Se ainda não houver laudos arquivados, inicializa com o Laudo Oficial Inicial de Admissão
-        const base = (typeof getStudentBaseProfile === 'function') ? getStudentBaseProfile() : {};
-        const history = (typeof getBodyCompHistory === 'function') ? getBodyCompHistory() : [];
-        const baseline = (history && history.length > 0) ? history[0] : null;
-        const baseDate = (baseline && baseline.date) ? baseline.date : (base.intakeDate || '2026-10-08');
-        const p = baseDate.split('-');
-        const baseDateFmt = p.length === 3 ? (p[2] + '/' + p[1] + '/' + p[0]) : baseDate;
-        const baseWeight = (baseline && baseline.weight !== null && baseline.weight !== undefined) ? baseline.weight : (base.weight || 75.5);
-        const baseWaist = (baseline && baseline.waist !== null && baseline.waist !== undefined) ? baseline.waist : (base.waist || null);
-        const baseBf = (baseline && baseline.bfManual !== null && baseline.bfManual !== undefined) ? baseline.bfManual : (base.bf || null);
+        const officialLaudos = getOfficialSeededLaudos();
+        const map = new Map();
 
-        const initialLaudo = {
-          id: 'laudo_oficial_inicial',
-          date: baseDate,
-          dateFormatted: baseDateFmt,
-          title: 'Laudo Técnico Inicial de Admissão e Biomecânica',
-          weight: baseWeight,
-          waist: baseWaist,
-          neck: (baseline && baseline.neck) || null,
-          hip: (baseline && baseline.hip) || null,
-          bodyFat: baseBf,
-          jointRelief: 0,
-          relativePower: 0,
-          photos: (baseline && baseline.photos) || null,
-          notes: 'Avaliação inicial de admissão esportiva, prontuário postural e anamnese de saúde.'
-        };
+        // 1. Inicializa com laudos oficiais do atleta
+        officialLaudos.forEach(l => {
+          if (l && l.id) map.set(l.id, Object.assign({}, l));
+        });
 
-        laudos = [initialLaudo];
-        try { localStorage.setItem(key, JSON.stringify(laudos)); } catch(e){}
-        return laudos;
+        // 2. Mescla laudos arquivados em localStorage
+        savedLaudos.forEach(l => {
+          if (!l || !l.id) return;
+          if (map.has(l.id)) {
+            const off = map.get(l.id);
+            map.set(l.id, Object.assign({}, off, l, {
+              photos: (l.photos && (l.photos.front || l.photos.side || l.photos.back)) ? l.photos : off.photos,
+              queEstaBom: l.queEstaBom || off.queEstaBom,
+              quePodeMelhorar: l.quePodeMelhorar || off.quePodeMelhorar,
+              implicacoesTreino: l.implicacoesTreino || off.implicacoesTreino,
+              parametrosSaude: l.parametrosSaude || off.parametrosSaude,
+              analiseFotos: l.analiseFotos || off.analiseFotos
+            }));
+          } else {
+            // Ignora o laudo_oficial_inicial legado se já houver laudos oficiais completos
+            if (l.id === 'laudo_oficial_inicial' && officialLaudos.length > 0) {
+              // não reinsere
+            } else {
+              map.set(l.id, l);
+            }
+          }
+        });
+
+        // 3. Fallback se não houver nenhum laudo (cria admissão a partir do perfil)
+        if (map.size === 0) {
+          const base = (typeof getStudentBaseProfile === 'function') ? getStudentBaseProfile() : {};
+          const history = (typeof getBodyCompHistory === 'function') ? getBodyCompHistory() : [];
+          const baseline = (history && history.length > 0) ? history[0] : null;
+          const baseDate = (baseline && baseline.date) ? baseline.date : (base.intakeDate || '2026-10-08');
+          const p = baseDate.split('-');
+          const baseDateFmt = p.length === 3 ? (p[2] + '/' + p[1] + '/' + p[0]) : baseDate;
+          const baseWeight = (baseline && baseline.weight !== null && baseline.weight !== undefined) ? baseline.weight : (base.weight || 75.5);
+          const baseWaist = (baseline && baseline.waist !== null && baseline.waist !== undefined) ? baseline.waist : (base.waist || null);
+          const baseBf = (baseline && baseline.bfManual !== null && baseline.bfManual !== undefined) ? baseline.bfManual : (base.bf || null);
+
+          const initialLaudo = {
+            id: 'laudo_oficial_inicial',
+            date: baseDate,
+            dateFormatted: baseDateFmt,
+            title: 'Laudo Técnico Inicial de Admissão e Biomecânica',
+            weight: baseWeight,
+            waist: baseWaist,
+            neck: (baseline && baseline.neck) || null,
+            hip: (baseline && baseline.hip) || null,
+            bodyFat: baseBf,
+            jointRelief: 0,
+            relativePower: 0,
+            photos: (baseline && baseline.photos) || null,
+            notes: 'Avaliação inicial de admissão esportiva, prontuário postural e anamnese de saúde.'
+          };
+          map.set(initialLaudo.id, initialLaudo);
+        }
+
+        const combined = Array.from(map.values());
+        combined.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+        try { localStorage.setItem(key, JSON.stringify(combined)); } catch(e){}
+        return combined;
       } catch (e) {
         return [];
       }
