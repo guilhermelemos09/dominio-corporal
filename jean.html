@@ -11562,41 +11562,6 @@ function updateEvolucaoStats() {
         }
       });
 
-      // Garantia permanente dos dados oficiais do Jean (04/11/2026 - Avaliação com 3 fotos e medição)
-      const isJean = storageKey === 'dominio_jean_body_comp_history' || (typeof getStudentBaseProfile === 'function' && (getStudentBaseProfile().name || '').toLowerCase().includes('jean')) || (document.title || '').toLowerCase().includes('jean');
-      if (isJean) {
-        const officialEntry = {
-          id: 'comp_20261104',
-          date: '2026-11-04',
-          weight: 71.5,
-          waist: 80.5,
-          neck: 38.0,
-          hip: null,
-          bfManual: 12.8,
-          clothes: 'shorts',
-          energy: 4,
-          notes: 'Primeiro registro fotográfico e perimetral oficial (Tirzepatida 5mg/sem).',
-          photos: {
-            front: 'Midia/jean_2026-11-04_frente.jpeg',
-            side: 'Midia/jean_2026-11-04_perfil.jpeg',
-            back: 'Midia/jean_2026-11-04_costas.jpeg'
-          }
-        };
-        const nov4Idx = history.findIndex(item => item.date === '2026-11-04');
-        if (nov4Idx === -1) {
-          history.push(officialEntry);
-        } else {
-          history[nov4Idx].weight = 71.5;
-          history[nov4Idx].waist = 80.5;
-          history[nov4Idx].neck = 38.0;
-          history[nov4Idx].bfManual = 12.8;
-          if (!history[nov4Idx].photos || !history[nov4Idx].photos.front) {
-            history[nov4Idx].photos = officialEntry.photos;
-          }
-        }
-        try { localStorage.setItem(storageKey, JSON.stringify(history)); } catch (e) {}
-      }
-
       history.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
       return history;
     }
@@ -12608,7 +12573,7 @@ function formatVisualAnalysisContent(rawText) {
 
             <div style="background:rgba(0,0,0,0.45); border:1px solid rgba(255,255,255,0.1); padding:12px; border-radius:10px;">
               <div style="font-size:0.72rem; color:#94a3b8; font-weight:700; text-transform:uppercase;">Gordura Estimada</div>
-              <div style="font-size:1.30rem; font-weight:900; color:#fbbf24; margin:2px 0;">${bfLatest !== null ? bfLatest.toFixed(1) + '%' : '12.8%'}</div>
+              <div style="font-size:1.30rem; font-weight:900; color:#fbbf24; margin:2px 0;">${bfLatest !== null ? bfLatest.toFixed(1) + '%' : '--'}</div>
               <div style="font-size:0.74rem; font-weight:800; color:#fbbf24;">
                 Fórmula U.S. Navy
                 <span style="font-size:0.68rem; color:#94a3b8; font-weight:500;">(Atlético)</span>
@@ -12617,7 +12582,7 @@ function formatVisualAnalysisContent(rawText) {
 
             <div style="background:rgba(0,0,0,0.45); border:1px solid rgba(255,255,255,0.1); padding:12px; border-radius:10px;">
               <div style="font-size:0.72rem; color:#94a3b8; font-weight:700; text-transform:uppercase;">RCEst (Cintura/Alt)</div>
-              <div style="font-size:1.30rem; font-weight:900; color:${rcestColor}; margin:2px 0;">${whtrLatest ? whtrLatest.toFixed(2) : '0.45'}</div>
+              <div style="font-size:1.30rem; font-weight:900; color:${rcestColor}; margin:2px 0;">${whtrLatest ? whtrLatest.toFixed(2) : '--'}</div>
               <div style="font-size:0.74rem; font-weight:800; color:${rcestColor};">${rcestStatus}</div>
             </div>
           </div>
@@ -12898,20 +12863,20 @@ function formatVisualAnalysisContent(rawText) {
                   <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700;">Cintura Abdominal</td>
                   <td style="padding: 6px 10px; border: 1px solid #cbd5e1;">${baseline.waist !== null ? baseline.waist.toFixed(1) + ' cm' : 'Não registrada'}</td>
                   <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700;">${latest.waist !== null ? latest.waist.toFixed(1) + ' cm' : '--'}</td>
-                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700; color: #16a34a;">${dWaist !== null ? (dWaist > 0 ? '+' + dWaist.toFixed(1) : dWaist.toFixed(1)) + ' cm' : 'Base 80.5 cm'}</td>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700; color: #16a34a;">${dWaist !== null ? (dWaist > 0 ? '+' + dWaist.toFixed(1) : dWaist.toFixed(1)) + ' cm' : '--'}</td>
                   <td style="padding: 6px 10px; border: 1px solid #cbd5e1;">Perimetria Umbilical</td>
                 </tr>
                 <tr>
                   <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700;">% de Gordura Corporal</td>
                   <td style="padding: 6px 10px; border: 1px solid #cbd5e1;">${bfBase !== null ? bfBase.toFixed(1) + '%' : 'Não estimada'}</td>
-                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700;">${bfLatest !== null ? bfLatest.toFixed(1) + '%' : '12.8%'}</td>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700;">${bfLatest !== null ? bfLatest.toFixed(1) + '%' : '--'}</td>
                   <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700; color: #16a34a;">${dBf !== null ? (dBf > 0 ? '+' + dBf.toFixed(1) : dBf.toFixed(1)) + '%' : 'Estável'}</td>
                   <td style="padding: 6px 10px; border: 1px solid #cbd5e1;">Fórmula U.S. Navy (Hodgdon)</td>
                 </tr>
                 <tr>
                   <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700;">RCEst (Cintura / Estatura)</td>
                   <td style="padding: 6px 10px; border: 1px solid #cbd5e1;">${(baseline.waist !== null && height) ? (baseline.waist / height).toFixed(2) : '--'}</td>
-                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700;">${whtrLatest ? whtrLatest.toFixed(2) : '0.45'}</td>
+                  <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700;">${whtrLatest ? whtrLatest.toFixed(2) : '--'}</td>
                   <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700;">--</td>
                   <td style="padding: 6px 10px; border: 1px solid #cbd5e1; font-weight: 700; color: #16a34a;">Faixa Ideal (< 0.50 • Ashwell)</td>
                 </tr>
@@ -13278,19 +13243,7 @@ function formatVisualAnalysisContent(rawText) {
       try {
         const key = (typeof getBodyCompStorageKey === 'function') ? getBodyCompStorageKey() + '_laudos' : 'dominio_jean_body_comp_laudos';
         let laudos = JSON.parse(localStorage.getItem(key) || '[]');
-        if ((!laudos || laudos.length === 0) && key.includes('jean')) {
-          laudos = [{
-            id: 'laudo_20261104',
-            date: '2026-11-04',
-            dateFormatted: '04/11/2026',
-            weight: 71.5,
-            waist: 80.5,
-            neck: 38.0,
-            bodyFat: 12.8,
-            notes: 'Laudo Técnico Oficial • Composição Corporal, Postura e Treino'
-          }];
-          try { localStorage.setItem(key, JSON.stringify(laudos)); } catch (e) {}
-        }
+        
         return laudos;
       } catch (e) {
         return [];
