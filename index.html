@@ -7004,7 +7004,7 @@
           <div class="metric-label">Peso Atual</div>
         </div>
         <div class="metric-summary-card">
-          <div class="metric-value" id="athleteProfileHeight">178 cm</div>
+          <div class="metric-value" id="athleteProfileHeight">171 cm</div>
           <div class="metric-label">Altura</div>
         </div>
         <div class="metric-summary-card">
@@ -11222,7 +11222,7 @@ function updateEvolucaoStats() {
       } catch (e) {}
       const name = data.nome || document.getElementById('athleteProfileName')?.textContent || 'Gui Lemos';
       const weight = parseFloat(data.peso) || parseFloat(document.getElementById('athleteProfileWeight')?.textContent) || 84.0;
-      const height = parseFloat(data.altura) || parseFloat(document.getElementById('athleteProfileHeight')?.textContent) || 178;
+      const height = parseFloat(data.altura) || parseFloat(document.getElementById('athleteProfileHeight')?.textContent) || 171;
       const bf = (data.gordura !== undefined && data.gordura !== '') ? parseFloat(data.gordura) : (parseFloat(document.getElementById('athleteProfileBF')?.textContent) || 13.0);
       const gender = (data.sexo || 'masculino').toLowerCase();
       return { name, weight, height, bf, gender };
@@ -11698,7 +11698,7 @@ function updateEvolucaoStats() {
     function renderBodyCompUI() {
       const history = getBodyCompHistory();
       const base = getStudentBaseProfile();
-      const height = base.height || 178;
+      const height = base.height || 171;
       const gender = base.gender || 'masculino';
 
       // Elementos do Card 1: Ponto de Partida
@@ -12618,8 +12618,8 @@ function formatVisualAnalysisContent(rawText) {
       const kneeReliefPerStep = Math.max(0, -dWeight * 4);
 
       // Percentuais de gordura
-      const bfBase = baseline.bodyFat !== undefined && baseline.bodyFat !== null ? Number(baseline.bodyFat) : null;
-      const bfLatest = latest.bodyFat !== undefined && latest.bodyFat !== null ? Number(latest.bodyFat) : null;
+      const bfBase = (baseline.bodyFat !== undefined && baseline.bodyFat !== null) ? Number(baseline.bodyFat) : ((baseline.bfManual !== undefined && baseline.bfManual !== null) ? Number(baseline.bfManual) : ((baseline.bf !== undefined && baseline.bf !== null) ? Number(baseline.bf) : null));
+      const bfLatest = (latest.bodyFat !== undefined && latest.bodyFat !== null) ? Number(latest.bodyFat) : ((latest.bfManual !== undefined && latest.bfManual !== null) ? Number(latest.bfManual) : ((latest.bf !== undefined && latest.bf !== null) ? Number(latest.bf) : null));
       const dBf = (bfBase !== null && bfLatest !== null) ? (bfLatest - bfBase) : null;
 
       // Status RCEst
@@ -12921,7 +12921,52 @@ function formatVisualAnalysisContent(rawText) {
           </div>
           ` : ''}
 
-          <!-- 5. REFERÊNCIAS CIENTÍFICAS E ASSINATURA -->
+                    <!-- 4. BIOIMPEDÂNCIA TETRAPOLAR CLÍNICA (BIOSANNYX) -->
+          <div class="print-section" style="margin-bottom: 16px;">
+            <div style="font-size: 0.88rem; font-weight: 800; color: #0f172a; text-transform: uppercase; border-bottom: 1px solid #cbd5e1; padding-bottom: 4px; margin-bottom: 8px; display:flex; justify-content:space-between; align-items:center;">
+              <span>4. Laudo de Bioimpedância Tetrapolar Clínica (BioSannyX)</span>
+              <a href="Midia/Fotos_Posturais/C__BioSannyX_resources_app_assets_report_RelatorioCompleto.pdf" target="_blank" class="no-print" style="font-size:0.75rem; font-weight:700; color:#0284c7; text-decoration:none; display:inline-flex; align-items:center; gap:4px; background:#e0f2fe; padding:3px 8px; border-radius:6px;">
+                <span>📄 Ver PDF Original</span> ↗
+              </a>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; margin-bottom: 10px;">
+              <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 10px; text-align: center;">
+                <div style="font-size: 0.68rem; color: #64748b; font-weight: 700; text-transform: uppercase;">Massa Livre de Gordura</div>
+                <div style="font-size: 1.05rem; font-weight: 900; color: #0284c7;">70.99 kg</div>
+                <div style="font-size: 0.68rem; color: #16a34a; font-weight: 700;">83.81% (Adequado)</div>
+              </div>
+              <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 10px; text-align: center;">
+                <div style="font-size: 0.68rem; color: #64748b; font-weight: 700; text-transform: uppercase;">Gordura Corporal</div>
+                <div style="font-size: 1.05rem; font-weight: 900; color: #0f172a;">13.71 kg</div>
+                <div style="font-size: 0.68rem; color: #16a34a; font-weight: 700;">16.19% (Muito Boa)</div>
+              </div>
+              <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 10px; text-align: center;">
+                <div style="font-size: 0.68rem; color: #64748b; font-weight: 700; text-transform: uppercase;">Massa Muscular</div>
+                <div style="font-size: 1.05rem; font-weight: 900; color: #0284c7;">38.26 kg</div>
+                <div style="font-size: 0.68rem; color: #64748b; font-weight: 700;">45.18%</div>
+              </div>
+              <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 10px; text-align: center;">
+                <div style="font-size: 0.68rem; color: #64748b; font-weight: 700; text-transform: uppercase;">Ângulo de Fase</div>
+                <div style="font-size: 1.05rem; font-weight: 900; color: #16a34a;">7.25°</div>
+                <div style="font-size: 0.68rem; color: #16a34a; font-weight: 700;">Percentil > 90</div>
+              </div>
+              <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 10px; text-align: center;">
+                <div style="font-size: 0.68rem; color: #64748b; font-weight: 700; text-transform: uppercase;">Água Corporal (ACT)</div>
+                <div style="font-size: 1.05rem; font-weight: 900; color: #0f172a;">52.3 kg</div>
+                <div style="font-size: 0.68rem; color: #0284c7; font-weight: 700;">61.75% (Hidratação Alta)</div>
+              </div>
+              <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 10px; text-align: center;">
+                <div style="font-size: 0.68rem; color: #64748b; font-weight: 700; text-transform: uppercase;">Gasto Total (GET)</div>
+                <div style="font-size: 1.05rem; font-weight: 900; color: #0f172a;">3076 kcal</div>
+                <div style="font-size: 0.68rem; color: #64748b; font-weight: 700;">Basal: 1796 kcal</div>
+              </div>
+            </div>
+            <div style="font-size: 0.78rem; color: #475569; line-height: 1.5; background: #f8fafc; border-left: 3px solid #0284c7; padding: 8px 12px; border-radius: 4px;">
+              <strong>Parecer Clínico da BIA:</strong> Ângulo de fase de 7.25° atesta integridade das membranas celulares de altíssimo nível (sem catabolismo muscular sistêmico). A massa livre de gordura de 70.99 kg para 1.71m posiciona o FFMI em 24.3 kg/m² (nível atlético superior). Hidratação em 61.75% com alta densidade intracelular.
+            </div>
+          </div>
+
+<!-- 5. REFERÊNCIAS CIENTÍFICAS E ASSINATURA -->
           <div class="print-section" style="margin-top: 18px; border-top: 1px solid #cbd5e1; padding-top: 10px; font-size: 0.72rem; color: #475569;">
             <div style="margin-bottom: 12px;">
               <strong>Embasamento Científico:</strong> Ashwell e Browning (2012) [RCEst]; Hodgdon e Beckett (1984) [Marinha dos EUA]; Messier et al. (2005) [Sobrecarga Patelofemoral 4:1]; Zatsiorsky e Kraemer (2006) [Força Relativa].
@@ -13252,7 +13297,7 @@ function formatVisualAnalysisContent(rawText) {
     }
 
     function openRelatorioComposicaoModal() {
-      saveCurrentLaudoToHistory();
+      if (typeof saveCurrentLaudoToHistory === 'function') saveCurrentLaudoToHistory();
       buildRelatorioComposicaoHTML();
       const modal = document.getElementById('modalRelatorioComposicao');
       if (modal) modal.classList.add('active');
