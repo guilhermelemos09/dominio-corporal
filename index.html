@@ -11301,6 +11301,29 @@ function updateEvolucaoStats() {
           coachAnalysis: {
             front: "O que vemos: Recomposição corporal consolidada mantendo redução de ~10.6 kg de peso corporal e ~9 cm de cintura em relação à entrada inicial. Ombros e tórax mantêm proporção ampla (formato V-taper) com tônus nos deltoides e grande dorsal.\n\nImpacto no treino: Redução média contínua de 42.4 kg de impacto patelofemoral e meniscal a cada passada (Messier et al.). Lastro passivo menor potencializando One Arm Handstand, Bent-Arm Press e argolas.\n\nDiagnóstico: Manter a progressão técnica e o planejamento nutricional sincronizado com os blocos de Crossfit e Handstand, consolidando a força relativa com alta longevidade articular."
           }
+        },
+        {
+          id: 'comp_gui_foto_0511',
+          date: '2026-11-05',
+          weight: 84.70,
+          waist: 84.0,
+          neck: 39.0,
+          hip: null,
+          bfManual: 16.19,
+          clothes: 'folgadas',
+          energy: 5,
+          notes: 'Bioimpedância Tetrapolar BioSannyX (16.19% BF • 70.99 kg MLG • AF 7.25°)',
+          photos: {
+            front: 'Midia/Fotos_Posturais/gui_2026-11-05_frente.jpeg',
+            side: 'Midia/Fotos_Posturais/gui_2026-11-05_perfil.jpeg',
+            back: 'Midia/Fotos_Posturais/gui_2026-11-05_costas.jpeg'
+          },
+          coachNotes: "O que vemos: Recorde de peso corporal do ciclo (84.70 kg, -13.10 kg no total). O laudo da BIA tetrapolar comprova 70.99 kg de massa livre de gordura (FFMI de 24.3 kg/m²), 38.26 kg de massa muscular e Ângulo de Fase excepcional de 7.25° (> P90), confirmando integridade celular máxima e zero catabolismo. Visualmente, o V-taper está nítido, as dorsais continuam densas e largas e a parede abdominal está 100% plana em perfil. O remanescente de gordura subcutânea concentra-se estritamente na dobra infraumbilical.\n\nImpacto no treino: Alívio articular cumulativo de 52.4 kg por passada no joelho esquerdo operado (Regra de Messier 4:1). A relação potência/peso atingiu o ponto ótimo para a sustentação e transições dinâmicas nas argolas (RMU e Kip MU) e paradas de mão (Bent-Arm Press e One Arm Handstand).\n\nDiagnóstico: Consolidação do melhor condicionamento e densidade do ano. Manter déficit moderado (~300 kcal/dia) com ingestão proteica de 1.8 a 2.0 g/kg para buscar a faixa de 13% a 14% de gordura corporal, lapidando a dobra infraumbilical com preservação integral dos 71 kg de massa magra.",
+          coachAnalysis: {
+            front: "Vista Frontal: V-taper evidente e cintura estreita com deltoides e peitoral volumosos. Divisões superiores do abdômen e serráteis visíveis em repouso. Resta apenas fina camada subcutânea infraumbilical.",
+            side: "Vista Lateral (Perfil): Parede abdominal perfeitamente plana, sem projeção visceral. Joelhos em alinhamento neutro e postura ereta, com discreta anteriorização cervical a ser trabalhada com mobilidade torácica.",
+            back: "Vista Posterior (Costas): Grande dorsal ampla desenhando silhueta em 'V' profunda até a cintura pélvica. Escápulas assentadas e flancos laterais secos, com excelente simetria escapuloumeral."
+          }
         }
       ];
 
@@ -11308,7 +11331,7 @@ function updateEvolucaoStats() {
         history = [];
       }
 
-      // Garante a presença e atualização das 3 entradas fotográficas no histórico
+      // Garante a presença e atualização das entradas fotográficas oficiais no histórico
       officialPhotoSets.forEach(set => {
         const existingIdx = history.findIndex(h => h.date === set.date);
         if (existingIdx !== -1) {
@@ -11316,10 +11339,18 @@ function updateEvolucaoStats() {
           history[existingIdx].photos = set.photos;
           history[existingIdx].coachNotes = set.coachNotes;
           if (set.coachAnalysis) history[existingIdx].coachAnalysis = set.coachAnalysis;
+          if (set.weight) history[existingIdx].weight = set.weight;
+          if (set.waist && !history[existingIdx].waist) history[existingIdx].waist = set.waist;
+          if (set.neck && !history[existingIdx].neck) history[existingIdx].neck = set.neck;
+          if (set.bfManual) history[existingIdx].bfManual = set.bfManual;
+          if (set.notes && !history[existingIdx].notes) history[existingIdx].notes = set.notes;
         } else {
           history.push(set);
         }
       });
+      try {
+        localStorage.setItem('dominio_gui_body_comp_history', JSON.stringify(history));
+      } catch (e) {}
 
       // Ordena cronologicamente
       history.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
@@ -11585,6 +11616,23 @@ function updateEvolucaoStats() {
             energy: 5,
             notes: 'Tomando tirzepatida 2,5mg e estava há 10 dias sem treinar',
             photos: null
+          },
+          {
+            id: 'comp_gui_21',
+            date: '2026-11-05',
+            weight: 84.70,
+            waist: 84.0,
+            neck: 39.0,
+            hip: null,
+            bfManual: 16.19,
+            clothes: 'folgadas',
+            energy: 5,
+            notes: 'Bioimpedância Tetrapolar BioSannyX (16.19% BF • 70.99 kg MLG • AF 7.25°)',
+            photos: {
+              front: 'Midia/Fotos_Posturais/gui_2026-11-05_frente.jpeg',
+              side: 'Midia/Fotos_Posturais/gui_2026-11-05_perfil.jpeg',
+              back: 'Midia/Fotos_Posturais/gui_2026-11-05_costas.jpeg'
+            }
           }
         ];
         history = initHistory;
@@ -12258,8 +12306,10 @@ function formatVisualAnalysisContent(rawText) {
           statusBadge = '<span style="font-size:0.68rem; font-weight:700; color:#fbbf24; background:rgba(251,191,36,0.12); border:1px solid rgba(251,191,36,0.3); padding:2px 8px; border-radius:6px;">🏁 Ponto de Partida</span>';
         } else if (s.date === '2026-10-05') {
           statusBadge = '<span style="font-size:0.68rem; font-weight:700; color:var(--brand-neon); background:rgba(0,255,136,0.12); border:1px solid rgba(0,255,136,0.3); padding:2px 8px; border-radius:6px;">⚡ Recomposição Profunda (-11.6 kg)</span>';
-        } else if (s.date >= '2026-10-23') {
-          statusBadge = '<span style="font-size:0.68rem; font-weight:700; color:#38bdf8; background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.3); padding:2px 8px; border-radius:6px;">🔥 Atual • Consolidação e Densidade</span>';
+        } else if (s.date === '2026-10-23') {
+          statusBadge = '<span style="font-size:0.68rem; font-weight:700; color:#38bdf8; background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.3); padding:2px 8px; border-radius:6px;">🔥 Consolidação e Densidade</span>';
+        } else if (s.date >= '2026-11-05') {
+          statusBadge = '<span style="font-size:0.68rem; font-weight:700; color:var(--brand-neon); background:rgba(0,255,136,0.12); border:1px solid rgba(0,255,136,0.3); padding:2px 8px; border-radius:6px;">🎯 Novo Recorde • BIA 16.19% (-13.1 kg)</span>';
         }
 
         const frontImg = s.photos ? s.photos.front : null;
