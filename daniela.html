@@ -5284,6 +5284,9 @@
     }
 
 </style>
+  <!-- Firebase Cloud Firestore SDK (Compat v10) -->
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
 </head>
 <body>
 
@@ -13149,6 +13152,34 @@ function formatVisualAnalysisContent(rawText) {
     const STORAGE_CONFIG_KEY = 'dominio_db_custom_config';
     const SYNC_QUEUE_KEY = 'dominio_db_sync_queue';
 
+    const defaultFirebaseConfig = {
+      apiKey: "AIzaSyDPgUg46urzpdgDtn5fHfzSNs-KNONJ9h8",
+      authDomain: "dominio-corporal.firebaseapp.com",
+      projectId: "dominio-corporal",
+      storageBucket: "dominio-corporal.firebasestorage.app",
+      messagingSenderId: "537599933795",
+      appId: "1:537599933795:web:668f40716ad9d971bea756"
+    };
+
+    let _firestoreInstance = null;
+    function getFirestore() {
+      if (_firestoreInstance) return _firestoreInstance;
+      if (typeof firebase !== 'undefined') {
+        try {
+          if (!firebase.apps.length) {
+            firebase.initializeApp(defaultFirebaseConfig);
+          }
+          _firestoreInstance = firebase.firestore();
+          _firestoreInstance.enablePersistence({ synchronizeTabs: true }).catch(function() {});
+          return _firestoreInstance;
+        } catch (e) {
+          console.warn('[DominioDB] Erro ao conectar ao Firestore:', e);
+        }
+      }
+      return null;
+    }
+
+
     const defaultConfig = {
       provider: 'supabase',
       supabaseUrl: 'https://kqjqnprykjjrfiikzouk.supabase.co',
@@ -13250,6 +13281,81 @@ function formatVisualAnalysisContent(rawText) {
     }
 
     async function dispatchCloud(action, data) {
+      const db = getFirestore();
+      let sentFirebase = false;
+      if (db) {
+        try {
+          const cfg = getConfig();
+          const slug = data.aluno_slug || cfg.athleteSlug || 'gui';
+          if (action === 'salvarTreino') {
+            await db.collection('treinos_logs').add({
+              aluno_slug: slug,
+              dia_id: data.dia_id,
+              data_treino: data.data_treino || new Date().toLocaleDateString('pt-BR'),
+              series_concluidas: data.series_concluidas || 0,
+              total_series: data.total_series || 0,
+              aderencia_pct: data.aderencia_pct || 100,
+              notas_gerais: data.notas_gerais || '',
+              notas_exercicios: data.notas_exercicios || {},
+              created_at: firebase.firestore.FieldValue.serverTimestamp()
+            });
+            sentFirebase = true;
+          } else if (action === 'salvarMedicao') {
+            await db.collection('medicoes_corporais').add({
+              aluno_slug: slug,
+              data_medicao: data.data_medicao,
+              peso: Number(data.peso),
+              cintura: (data.cintura !== null && data.cintura !== undefined) ? Number(data.cintura) : null,
+              pescoco: data.pescoco ? Number(data.pescoco) : null,
+              quadril: data.quadril ? Number(data.quadril) : null,
+              bf_pct: data.bf_pct ? Number(data.bf_pct) : null,
+              rcest: data.rcest ? Number(data.rcest) : null,
+              vestimenta: data.vestimenta || null,
+              energia: data.energia || null,
+              notas: data.notas || null,
+              created_at: firebase.firestore.FieldValue.serverTimestamp()
+            });
+            sentFirebase = true;
+          } else if (action === 'salvarNotaExercicio') {
+            await db.collection('exercicios_notas').add({
+              aluno_slug: slug,
+              exercicio_id: data.exercicio_id,
+              exercicio_nome: data.exercicio_nome || '',
+              nota: data.nota,
+              data_registro: data.data_registro || new Date().toLocaleDateString('pt-BR'),
+              created_at: firebase.firestore.FieldValue.serverTimestamp()
+            });
+            sentFirebase = true;
+          } else if (action === 'salvarAvaliacao') {
+            await db.collection('avaliacoes_anamnese').add({
+              aluno_slug: slug,
+              tipo: data.tipo || 'inicial',
+              respostas: data.respostas || {},
+              created_at: firebase.firestore.FieldValue.serverTimestamp()
+            });
+            sentFirebase = true;
+          } else if (action === 'salvarLaudo') {
+            await db.collection('laudos_evolucao').add({
+              aluno_slug: slug,
+              data_laudo: data.data_laudo,
+              data_formatada: data.data_formatada,
+              titulo: data.titulo,
+              subtitulo: data.subtitulo || '',
+              metricas: data.metricas || {},
+              diagnostico_articular: data.diagnostico_articular || '',
+              diagnostico_forca: data.diagnostico_forca || '',
+              recomendacoes_treino: data.recomendacoes_treino || '',
+              created_at: firebase.firestore.FieldValue.serverTimestamp()
+            });
+            sentFirebase = true;
+          }
+        } catch (errFb) {
+          console.warn('[DominioDB] Erro ao sincronizar com Firestore:', errFb);
+        }
+      }
+      if (sentFirebase) {
+        // Envio prioritário Firestore bem-sucedido!
+      }
       const cfg = getConfig();
       let sentSupabase = false;
       let sentSheets = false;
@@ -13321,7 +13427,7 @@ function formatVisualAnalysisContent(rawText) {
         }
       }
 
-      const ok = (useSupabase && sentSupabase) || (useSheets && sentSheets);
+      const ok = sentFirebase || (useSupabase && sentSupabase) || (useSheets && sentSheets);
       if (!ok) {
         enqueue(action, data);
         return false;
