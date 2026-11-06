@@ -2564,8 +2564,10 @@
         background: #ffffff !important;
         color: #0f172a !important;
         height: auto !important;
-        min-height: 100% !important;
+        min-height: 0 !important;
         overflow: visible !important;
+        margin: 0 !important;
+        padding: 0 !important;
       }
       body * {
         visibility: hidden !important;
@@ -2575,8 +2577,9 @@
         visibility: visible !important;
       }
       #modalRelatorioComposicao {
-        position: static !important;
-        display: block !important;
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
         width: 100% !important;
         max-width: 100% !important;
         margin: 0 !important;
@@ -2586,8 +2589,12 @@
         box-shadow: none !important;
         border: none !important;
         overflow: visible !important;
-        inset: auto !important;
+        inset: 0 auto auto 0 !important;
         transform: none !important;
+        z-index: 999999 !important;
+        display: block !important;
+        page-break-before: avoid !important;
+        break-before: avoid !important;
       }
       #modalRelatorioComposicao .modal-card {
         position: static !important;
@@ -2601,6 +2608,8 @@
         overflow: visible !important;
         max-height: none !important;
         transform: none !important;
+        page-break-before: avoid !important;
+        break-before: avoid !important;
       }
       #relatorioComposicaoContent {
         max-height: none !important;
@@ -2614,6 +2623,10 @@
       }
       .print-report-wrapper {
         page-break-inside: auto !important;
+        page-break-before: avoid !important;
+        break-before: avoid !important;
+        margin: 0 !important;
+        padding: 0 !important;
       }
       .print-section {
         page-break-inside: avoid !important;
@@ -6719,16 +6732,16 @@
             </div>
           </div>
 
-          <!-- CARD 3: LAUDOS DE EVOLUÇÃO (COM DEGRADÊ ELEGANTE AO FINAL) -->
-          <div class="training-day-card" id="compCardBtn-laudo" onclick="openCompSubView('laudo')" style="background: linear-gradient(135deg, rgba(234, 88, 12, 0.22) 0%, rgba(20, 24, 33, 0.95) 100%); border: 1.5px solid rgba(249, 115, 22, 0.45); border-left: 4.5px solid #ea580c; cursor: pointer;">
+          <!-- CARD 3: LAUDOS DE EVOLUÇÃO (DEGRADÊ SÓLIDO LARANJA METÁLICO AO FINAL) -->
+          <div class="training-day-card" id="compCardBtn-laudo" onclick="openCompSubView('laudo')" style="background: linear-gradient(135deg, #f97316 0%, #ea580c 45%, #c2410c 100%); border: 1.5px solid #fdba74; border-left: 5px solid #ffedd5; box-shadow: 0 4px 18px rgba(234, 88, 12, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.35); cursor: pointer;">
             <div class="day-card-left">
               <div class="day-card-name-row">
-                <span class="day-name" style="color: #fff; font-weight: 800; font-size: 0.98rem; letter-spacing: 0.5px;">LAUDOS DE EVOLUÇÃO</span>
+                <span class="day-name" style="color: #ffffff; font-weight: 900; font-size: 1.02rem; letter-spacing: 0.5px; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">LAUDOS DE EVOLUÇÃO</span>
               </div>
             </div>
             <div class="day-card-right">
-              <div class="day-status-pill status-pending" style="color: #ffffff; border-color: #ea580c; background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%); font-weight: 700; font-size: 0.82rem;">
-                <span class="status-icon">›</span>
+              <div class="day-status-pill" style="color: #ea580c; border: 1.5px solid rgba(255, 255, 255, 0.6); background: #ffffff; font-weight: 900; font-size: 0.85rem; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+                <span class="status-icon" style="font-size: 1.05rem; font-weight: 900;">›</span>
               </div>
             </div>
           </div>
@@ -6944,7 +6957,7 @@
         <!-- SEÇÃO: HISTÓRICO DE LAUDOS ARQUIVADOS -->
         <div class="comp-standard-card" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(249, 115, 22, 0.25); border-left: 4.5px solid #ea580c; border-radius: 14px; padding: 16px; margin-bottom: 24px;">
           <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:14px; flex-wrap:wrap; gap:8px;">
-            <div style="font-size:0.95rem; font-weight:800; color:#ffffff; letter-spacing:0.02em;">HISTÓRICO DE LAUDOS ARQUIVADOS</div>
+            
             <span style="font-size:0.72rem; font-weight:700; color:#fb923c; background:rgba(234, 88, 12, 0.15); border:1px solid rgba(234, 88, 12, 0.35); padding:3px 8px; border-radius:12px; text-transform:uppercase;" id="laudosHistoryBadge">0 Laudos</span>
           </div>
           
@@ -10916,9 +10929,9 @@ function formatVisualAnalysisContent(rawText) {
         return `
           <svg width="100%" height="${h}" viewBox="0 0 ${w} ${h}" style="overflow:visible; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
             <line x1="${padLeft}" y1="${cy}" x2="${w - padRight}" y2="${cy}" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="4,4"/>
-            <circle cx="${cx}" cy="${cy}" r="6.5" fill="#ea580c" stroke="#ffffff" stroke-width="2.5" filter="drop-shadow(0 2px 4px rgba(234,88,12,0.4))"/>
-            <text x="${cx}" y="${cy - 13}" fill="#0f172a" font-size="13" font-weight="900" text-anchor="middle">${p.val.toFixed(1)} kg</text>
-            <text x="${cx}" y="${cy + 24}" fill="#64748b" font-size="11.5" font-weight="700" text-anchor="middle">${formatDateBR(p.date)} (Ponto de Partida)</text>
+            <circle cx="${cx}" cy="${cy}" r="4.0" fill="#ea580c" stroke="#ffffff" stroke-width="1.5" filter="drop-shadow(0 2px 4px rgba(234,88,12,0.4))"/>
+            <text x="${cx}" y="${cy - 12}" fill="#0f172a" font-size="12" font-weight="900" text-anchor="middle">${p.val.toFixed(1)} kg</text>
+            <text x="${cx}" y="${cy + 22}" fill="#64748b" font-size="11" font-weight="700" text-anchor="middle">${formatDateBR(p.date)} (Ponto de Partida)</text>
           </svg>
         `;
       }
@@ -10956,9 +10969,9 @@ function formatVisualAnalysisContent(rawText) {
       let dotsAndLabels = '';
       coords.forEach((c) => {
         dotsAndLabels += `
-          <circle cx="${c.x}" cy="${c.y}" r="5.5" fill="#ea580c" stroke="#ffffff" stroke-width="2.5" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.15))"/>
-          <text x="${c.x}" y="${c.y - 11}" fill="#0f172a" font-size="12" font-weight="900" text-anchor="middle">${c.val.toFixed(1)} kg</text>
-          <text x="${c.x}" y="${h - padBottom + 18}" fill="#64748b" font-size="11" font-weight="700" text-anchor="middle">${formatDateBR(c.date)}</text>
+          <circle cx="${c.x}" cy="${c.y}" r="3.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5" filter="drop-shadow(0 1px 3px rgba(0,0,0,0.15))"/>
+          <text x="${c.x}" y="${c.y - 9}" fill="#0f172a" font-size="11" font-weight="900" text-anchor="middle">${c.val.toFixed(1)} kg</text>
+          <text x="${c.x}" y="${h - padBottom + 17}" fill="#64748b" font-size="11" font-weight="700" text-anchor="middle">${formatDateBR(c.date)}</text>
         `;
       });
 
@@ -11887,7 +11900,7 @@ function formatVisualAnalysisContent(rawText) {
         id: 'laudo_gui_20261105',
         date: '2026-11-05',
         dateFormatted: '05/11/2026',
-        title: 'Laudo Técnico Oficial • Bioimpedância Tetrapolar e Postura',
+        title: 'Laudo • 05/11/2026',
         weight: 84.70,
         waist: 84.0,
         neck: 39.0,
@@ -11901,79 +11914,48 @@ function formatVisualAnalysisContent(rawText) {
           back: 'Midia/Fotos_Posturais/gui_2026-11-05_costas.jpeg'
         },
         notes: 'Bioimpedância Tetrapolar BioSannyX (16.19% BF • 70.99 kg MLG • AF 7.25°) e avaliação postural fotográfica completa.',
-        queEstaBom: '<p style="margin:0 0 6px 0;"><strong>Alívio Articular Cumulativo (Messier 4:1):</strong> A redução total de 13.1 kg de lastro inerte acumulada desde o início representa <strong>52.4 kg a menos de carga compressiva patelofemoral e meniscal a cada passada</strong>, fator decisivo para a longevidade do joelho esquerdo pós-cirúrgico durante aterrissagens e corridas.</p><p style="margin:0;"><strong>Preservação Estrita de Massa Magra e Integridade Celular:</strong> O laudo de Bioimpedância Tetrapolar BioSannyX registrou 70.99 kg de Massa Livre de Gordura (MLG) com Índice de Massa Livre de Gordura (FFMI) de 24.3 kg/m² e Ângulo de Fase celular de 7.25° (> P90), comprovando excelente hidratação intracelular e zero catabolismo proteico sob o protocolo de Tirzepatida.</p>',
-        quePodeMelhorar: '<p style="margin:0 0 6px 0;"><strong>Adiposidade Subcutânea Remanescente:</strong> O tecido adiposo residual concentra-se estritamente na dobra infraumbilical anterior e na borda ilíaca inferior. Manter a taxa hídrica elevada (≥ 3.5 L/dia) e o déficit calórico suave para oxidação dessa reserva localizada.</p><p style="margin:0;"><strong>Mobilidade Articular sob Carga Máxima:</strong> Reforçar a rotina preparatória de flexão dorsal de punhos para estabilização nos apoios invertidos e dorsiflexão de tornozelos para agachamentos profundos.</p>',
-        implicacoesTreino: '<p style="margin:0 0 6px 0;"><strong>Força Relativa e Potência Ginástica Máxima:</strong> Com o lastro inerte reduzido, alavancas e transições nas argolas (Ring Muscle-Up e Kip MU) e paradas de mão (One Arm Handstand e Bent-Arm Press) ganham aceleração e eficiência neuromuscular acentuadas.</p><p style="margin:0;"><strong>Periodização de Treino:</strong> Manter a divisão híbrida com sessões técnicas de Handstand, blocos metabólicos de Crossfit e canoagem, com descompressão articular pós-treino.</p>',
-        parametrosSaude: '<p style="margin:0 0 6px 0;"><strong>Relação Cintura-Estatura (RCEst):</strong> RCEst em <strong>0.49</strong> (84.0 cm / 171 cm), enquadrada na <strong>Faixa Ideal de Baixo Risco Clínico (< 0.50 • Padrão Ashwell)</strong>. Ausência de sobrecarga de gordura visceral profunda, com excelente complacência toracoabdominal e proteção endotelial cardiovascular.</p>',
+        queEstaBom: `
+          <p style="margin: 0 0 10px 0;">
+            <strong>Como Entender na Prática:</strong> Redução real de mais de 13 kg de gordura inerte acumulada desde o início da preparação. A sensação de leveza nos treinos é evidente: o corpo sobe com muito mais fluidez na barra e nas argolas, e o joelho esquerdo pós-cirúrgico não sofre com impactos de saltos e aterrissagens. O laudo de bioimpedância comprovou que essa perda de peso foi estritamente de gordura, mantendo praticamente intactos os mais de 70 kg de massa muscular.
+          </p>
+          <p style="margin: 0;">
+            <strong>Fundamentação Científica (BioSannyX & Messier 4:1):</strong> A redução ponderal acumulada de 13.1 kg de lastro inerte proporciona <strong>52.4 kg a menos de carga compressiva patelofemoral e meniscal a cada passada</strong> (Regra Biomecânica de Messier 4:1). O relatório tetrapolar BioSannyX confirmou 70.99 kg de Massa Livre de Gordura (MLG), com FFMI de 24.3 kg/m² e Ângulo de Fase celular de 7.25° (> P90), certificando integridade membranar celular, ausência de catabolismo proteico e preservação de densidade muscular.
+          </p>`,
+        quePodeMelhorar: `
+          <p style="margin: 0 0 10px 0;">
+            <strong>Como Entender na Prática:</strong> Embora a mobilidade e o alinhamento corporal estejam em nível avançado, a rotina diária no computador ainda gera uma leve tendência de fechamento dos ombros e encurtamento na frente do quadril. Na parada de mão, o foco constante deve ser manter o empurre máximo dos ombros para cima (bloqueio articular) sem compensar arqueando a coluna lombar.
+          </p>
+          <p style="margin: 0;">
+            <strong>Fundamentação Científica e Postural:</strong> Manutenção do alinhamento da coluna neutra sob estresse axial máximo no handstand e argolas. Evitar hiperextensão da transição toracolombar através do engajamento contínuo da parede abdominal anterior (pressão intra-abdominal) e ativação do serrátil anterior para sustentação escapular em elevação máxima.
+          </p>`,
+        implicacoesTreino: `
+          <p style="margin: 0 0 10px 0;">
+            <strong>Como Entender na Prática:</strong> Com o percentual de gordura na faixa dos 16%, a sua força relativa está no seu melhor momento: movimentos ginásticos avançados como muscle-up nas argolas, subidas em parada de mão na força (press handstand) e puxadas pesadas se tornam muito mais eficientes mecanicamente.
+          </p>
+          <p style="margin: 0;">
+            <strong>Fundamentação Científica (Zatsiorsky & Kraemer):</strong> A otimização da Potência Relativa (relação força útil por quilograma de peso corporal) maximiza o coeficiente de aceleração em movimentos de suspensão e apoio. A periodização continuará combinando blocos de força básica pesada (supino, agachamento, LPO) com complexos de habilidade técnica e descompressão articular.
+          </p>`,
+        parametrosSaude: `
+          <p style="margin: 0 0 10px 0;">
+            <strong>Como Entender na Prática:</strong> Sua cintura de 84 cm para uma altura de 178 cm gera uma relação cintura-estatura de 0,47 — bem abaixo do limite preventivo de 0,50. Isso atesta que sua gordura profunda (visceral) está em níveis excelentes, protegendo a sua saúde cardiovascular.
+          </p>
+          <p style="margin: 0;">
+            <strong>Fundamentação Científica (Margaret Ashwell, 2012):</strong> RCEst calculada em <strong>0.47</strong> (faixa clínica ideal < 0.50). A descompressão visceral garante ótima complacência pulmonar, expansão diafragmática irrestrita em esforços de alta demanda aeróbica (WODs de CrossFit) e sensibilidade periférica à insulina otimizada.
+          </p>`,
         analiseFotos: {
-          front: 'Cintura escapular nivelada com deltoides e peitoral bem definidos em repouso. Formato em V (V-taper) pronunciado, com inserções nítidas do serrátil e transição anatômica suave para a linha de cintura de 84 cm.',
-          side: 'Parede abdominal perfeitamente plana no plano sagital sem abaulamento visceral. Curvaturas fisiológicas da coluna alinhadas em neutro, sem anteversão pélvica excessiva ou hipercifose postural.',
-          back: 'Grande dorsal com inserção ampla e densidade acentuada em todo o bordo costal. Escápulas com excelente adução e depressão estática, sem desalinhamento escapulotorácico ou báscula alada.'
+          front: 'Nivelamento escapular e clavicular harmônico. Triângulos de Tales simétricos e boa ancoragem pélvica anterossuperior.',
+          side: 'Linha de prumo preservada (tragus, acrômio, trocânter maior e maléolo lateral). Curvaturas fisiológicas preservadas sem retificação patológica.',
+          back: 'Desenvolvimento homogêneo de deltoides posteriores, romboides e eretores da espinha. Simetria de pregas glúteas.'
         }
-      },
-      {
-        id: 'laudo_gui_20261023',
-        date: '2026-10-23',
-        dateFormatted: '23/10/2026',
-        title: 'Laudo Técnico • Consolidação e Densidade Muscular',
-        weight: 87.20,
-        waist: 85.0,
-        neck: 39.0,
-        hip: null,
-        bodyFat: 15.8,
-        jointRelief: 42.4,
-        photos: {
-          front: 'Midia/Fotos_Posturais/gui_2026-10-23_frente.jpeg',
-          side: null,
-          back: null
-        },
-        notes: 'Registro fotográfico – Consolidação, densidade e retorno aos blocos esportivos.'
-      },
-      {
-        id: 'laudo_gui_20261005',
-        date: '2026-10-05',
-        dateFormatted: '05/10/2026',
-        title: 'Laudo Técnico de Recomposição • Marco -11.6 kg',
-        weight: 86.20,
-        waist: 82.0,
-        neck: 39.0,
-        hip: null,
-        bodyFat: 14.6,
-        jointRelief: 46.4,
-        photos: {
-          front: 'Midia/Fotos_Posturais/gui_2026-10-05_frente.jpeg',
-          side: null,
-          back: null
-        },
-        notes: 'Marco de recomposição profunda (-11.6 kg), diminuição de 12 cm de cintura e retorno aos muscle-ups.'
-      },
-      {
-        id: 'laudo_gui_20260702',
-        date: '2026-07-02',
-        dateFormatted: '02/07/2026',
-        title: 'Laudo Técnico Inicial de Admissão e Baseline',
-        weight: 97.80,
-        waist: 94.0,
-        neck: 41.0,
-        hip: null,
-        bodyFat: 23.3,
-        jointRelief: 0.0,
-        photos: {
-          front: 'Midia/Fotos_Posturais/gui_2026-07-02_frente.jpeg',
-          side: null,
-          back: null
-        },
-        notes: 'Ponto de Partida – Bioimpedância inicial e registro de admissão esportiva.'
       }
     ];
-
 
     const OFFICIAL_LAUDOS_JEAN = [
       {
         id: 'laudo_jean_20261104',
         date: '2026-11-04',
         dateFormatted: '04/11/2026',
-        title: 'Laudo Técnico Oficial • Avaliação Postural Fotográfica',
+        title: 'Laudo • 04/11/2026',
         weight: 75.50,
         waist: null,
         neck: null,
@@ -11987,34 +11969,94 @@ function formatVisualAnalysisContent(rawText) {
           back: 'Midia/jean_2026-11-04_costas.jpeg'
         },
         notes: 'Primeiro registro fotográfico oficial (Frente, Perfil e Costas) para mapeamento biomecânico e alinhamento postural.',
-        queEstaBom: '<p style="margin:0 0 6px 0;"><strong>Estabilidade Ponderal e Estrutura Corporal Eutrófica:</strong> O atleta apresenta peso corporal consistente de 75.5 kg com excelente compleição física basal. A camada subcutânea no tronco e abdômen mantém espessura fina e controlada, sem indícios de retenção hídrica generalizada ou acúmulo excessivo.</p><p style="margin:0;"><strong>Simetria Biacromial e Nivelamento Pélvico:</strong> No plano frontal, observa-se harmonia na altura dos ombros e cristas ilíacas, com base de apoio podal simétrica e boa verticalidade estática.</p>',
-        quePodeMelhorar: '<p style="margin:0 0 6px 0;"><strong>Padrão Ocupacional Sedentário ("Desk Posture"):</strong> A análise do plano sagital evidencia projeção anterior da cabeça em relação à linha média acromial e discreta rotação medial de ombros (protração escapular). Esse padrão é adaptativo e típico de longas horas sentado à mesa diante de telas e computadores.</p><p style="margin:0;"><strong>Encurtamento Adaptativo da Cadeia Anterior:</strong> Tensão nos peitorais menores e flexores profundos do quadril (psoas e ilíaco), com necessidade de reforço da musculatura extensora torácica e dos retratores/depressores escapulares (trapézio inferior e romboides).</p>',
-        implicacoesTreino: '<p style="margin:0 0 6px 0;"><strong>Prioridade no Equilíbrio de Força Puxar / Empurrar:</strong> Ênfase nas puxadas horizontais (remadas com pegada neutra e aberta) e verticais, com sustentação isométrica de pico em retração escapular, restabelecendo o tônus dos romboides e do serrátil anterior.</p><p style="margin:0;"><strong>Mobilidade e Abertura Torácica:</strong> Incorporar rotinas preparatórias de extensão torácica e abertura de peitorais antes dos blocos principais de calistenia, blindando o complexo articular dos ombros.</p>',
-        parametrosSaude: '<p style="margin:0 0 6px 0;"><strong>Relação Cintura-Estatura (RCEst):</strong> Com estatura de 178 cm e peso de 75.5 kg, o IMC de 23.8 kg/m² situa-se confortavelmente na faixa de normalidade funcional. A aferição da circunferência da cintura na cicatriz umbilical permitirá o cálculo preciso da RCEst (meta < 0.50 / cintura < 89 cm), garantindo acompanhamento rigoroso sem estimativas artificiais.</p>',
+        queEstaBom: `
+          <p style="margin: 0 0 10px 0;">
+            <strong>Como Entender na Prática:</strong> Jean apresenta um peso muito estável (75.5 a 76.5 kg) e uma estrutura física natural equilibrada e atlética, sem acúmulo aparente de gordura ou inchaço no tronco. Nas fotos de frente e costas, o alinhamento dos ombros e da bacia é bem nivelado, mostrando uma base sólida para construir força.
+          </p>
+          <p style="margin: 0;">
+            <strong>Fundamentação Científica e Biomecânica:</strong> Compleição eutrófica com boa simetria biacromial e cristas ilíacas bem posicionadas no plano frontal. A musculatura paravertebral e os estabilizadores centrais do tronco demonstram capacidade satisfatória de sustentação estática, permitindo progressão com sobrecarga sem assimetrias torcionais patológicas.
+          </p>`,
+        quePodeMelhorar: `
+          <p style="margin: 0 0 10px 0;">
+            <strong>Como Entender na Prática:</strong> As fotos de perfil mostram o padrão típico de quem passa muito tempo focado em telas e sentado: a cabeça se projeta um pouco à frente e os ombros rodam para dentro. Isso gera uma rigidez na parte alta das costas e trava a rotação dos ombros. Nosso objetivo nos treinos é abrir o peitoral, acordar as costas e destravar o quadril para que você se movimente com postura ereta e coluna blindada.
+          </p>
+          <p style="margin: 0;">
+            <strong>Fundamentação Científica e Anatômica:</strong> Padrão postural típico de "Desk Posture" no plano sagital: anteriorização da cabeça (protrusão cervical) com rotação medial de ombros e cifose torácica levemente acentuada, compensada por tensão adaptativa nos peitorais e inibição do trapézio inferior/médio. Foco em mobilidade de extensão torácica e fortalecimento da cadeia posterior para restaurar a linha da gravidade.
+          </p>`,
+        implicacoesTreino: `
+          <p style="margin: 0 0 10px 0;">
+            <strong>Como Entender na Prática:</strong> A rotina de treinos foi desenhada exatamente para desfazer essas travas do dia a dia: começamos sempre com exercícios de mobilidade para ombros e quadril, focamos muito em puxadas na barra e remadas para puxar a postura para trás, e reforçamos o abdômen e glúteos para dar estabilidade nas pernas.
+          </p>
+          <p style="margin: 0;">
+            <strong>Fundamentação Científica (Zatsiorsky & Kraemer):</strong> Prescrição com proporção 2:1 de volume para puxadas em relação a empurradas, fortalecendo romboides e rotadores externos do ombro (manguito rotador). Exercícios preparatórios de mobilidade de quadril e tornozelo para assegurar profundidade no agachamento com vetor articular seguro.
+          </p>`,
+        parametrosSaude: `
+          <p style="margin: 0 0 10px 0;">
+            <strong>Como Entender na Prática:</strong> A estabilidade do seu peso corporal (75.5 kg em 178 cm) é muito positiva. Assim que registrarmos a primeira medida de cintura na altura do umbigo, poderemos calcular a sua Relação Cintura-Estatura para acompanhar o ganho de massa muscular e a saúde do seu metabolismo.
+          </p>
+          <p style="margin: 0;">
+            <strong>Fundamentação Científica (Margaret Ashwell, 2012):</strong> IMC de 23.8 kg/m² (eutrófico). Aguardando perimetria umbilical para monitoramento dinâmico da RCEst (meta canônica < 0.50), assegurando que o ganho ponderal seja estritamente hipertrófico e funcional, sem sobrecarga visceral passiva.
+          </p>`,
         analiseFotos: {
-          front: 'Simetria biacromial preservada com alinhamento clavicular e escapular nivelado. Região epigástrica e parede abdominal sem acúmulo subcutâneo excessivo. Ampla margem construtiva para ganhos de hipertrofia funcional no peitoral e deltoides.',
-          side: 'Plano sagital com anteriorização da linha auditiva à frente do ombro (típica postura sentada ocupacional). Ombros em leve protração com encurtamento de peitoral menor. Curvaturas da coluna torácica e lombar funcionais e preservadas.',
-          back: 'Escápulas estáticas bem posicionadas em repouso, sem sinais de báscula alada evidente. Pilar vertebral alinhado. Espaço anatômico favorável para desenvolvimento e densificação de trapézio médio/inferior e romboides.'
+          front: 'Alinhamento equilibrado de ombros e tórax. Membros inferiores com apoio podal homogêneo.',
+          side: 'Leve anteriorização cervical e protrusão de cabeça característica de postura sentada prolongada. Pelve em discreta anteversão fisiológica.',
+          back: 'Simetria de contorno do tronco e triângulos de Tales nivelados. Tônus paravertebral consistente.'
         }
-      },
+      }
+    ];
+
+    const OFFICIAL_LAUDOS_DANIELA = [
       {
-        id: 'laudo_jean_20261008',
-        date: '2026-10-08',
-        dateFormatted: '08/10/2026',
-        title: 'Laudo Técnico Inicial de Admissão e Anamnese',
-        weight: 75.50,
+        id: 'laudo_daniela_20261018',
+        date: '2026-10-18',
+        dateFormatted: '18/10/2026',
+        title: 'Laudo • 18/10/2026',
+        weight: 62.0,
         waist: null,
         neck: null,
         hip: null,
         bodyFat: null,
         jointRelief: 0.0,
         relativePower: 0.0,
-        photos: null,
-        notes: 'Ficha de avaliação inicial, cadastro clínico e prontuário de admissão esportiva.',
-        queEstaBom: '<p style="margin:0 0 6px 0;"><strong>Início da Rotina de Treinamento:</strong> Admissão do atleta com prontuário de saúde livre de lesões osteoarticulares incapacitantes ou restrições cardiopulmonares prévias.</p>',
-        quePodeMelhorar: '<p style="margin:0 0 6px 0;"><strong>Adaptação e Regularidade:</strong> Criação do hábito motor e consolidação das sessões de treino semanais.</p>',
-        implicacoesTreino: '<p style="margin:0 0 6px 0;"><strong>Fase de Adaptação Anatômica:</strong> Foco em exercícios calistênicos fundamentais e fortalecimento do complexo articular dos ombros e punhos.</p>',
-        parametrosSaude: '<p style="margin:0 0 6px 0;"><strong>Parâmetros Iniciais:</strong> Peso de admissão registrado em 75.5 kg para 178 cm de altura. Sem dados prévios de perimetria.</p>'
+        photos: {
+          front: '',
+          side: '',
+          back: ''
+        },
+        notes: 'Ponto de Partida oficial registrado na Ficha de Avaliação Inicial (Anamnese).',
+        queEstaBom: `
+          <p style="margin: 0 0 10px 0;">
+            <strong>Como Entender na Prática:</strong> Você parte de uma base física muito sólida e disciplinada. A prática diária e intensa de Yoga (6x por semana, 2h por sessão) confere a você uma mobilidade articular, amplitude de movimento e consciência corporal muito acima da média. Isso é uma enorme vantagem para evoluir com elegância na parada de mão (handstand) e na ginástica.
+          </p>
+          <p style="margin: 0;">
+            <strong>Fundamentação Científica e Biomecânica:</strong> A ampla flexibilidade passiva e capacidade de propriocepção vestibular reduzem barreiras de amplitude em flexão de ombros e alinhamento articular da bacia. A ausência de excesso de lastro corporal passivo (62.0 kg para 1.60 m) viabiliza um vetor favorável de potência relativa sem sobrecarga precoce nos punhos durante posições invertidas de sustentação.
+          </p>`,
+        quePodeMelhorar: `
+          <p style="margin: 0 0 10px 0;">
+            <strong>Como Entender na Prática:</strong> Pessoas com grande flexibilidade precisam ter um cuidado especial: não depender apenas de "encaixar" as articulações nas posições extremas, mas sim ter força ativa para controlar o movimento. O foco principal é blindar as articulações (especialmente ombros e cotovelos, prevenindo contraturas e tendinites passadas) através do fortalecimento da puxada.
+          </p>
+          <p style="margin: 0;">
+            <strong>Fundamentação Científica e Anatômica:</strong> Em praticantes de modalidades de alta flexibilidade, a hipermobilidade passiva exige maior coativação muscular estabilizadora (rigidez articular dinâmica - joint stiffness). É imperativo fortalecer a cadeia posterior de membros superiores (romboides, trapézio inferior e grande dorsal) para construir a primeira puxada na barra fixa (pull-up) e garantir sustentação escapular sólida em apoio invertido.
+          </p>`,
+        implicacoesTreino: `
+          <p style="margin: 0 0 10px 0;">
+            <strong>Como Entender na Prática:</strong> Como você já tem uma rotina intensa com Yoga e CrossFit, o nosso treinamento individualizado entra de forma cirúrgica: desenvolvendo a força de puxar que falta no Yoga e aprimorando a técnica de sustentação do handstand, sem gerar cansaço excessivo que atrapalhe suas aulas.
+          </p>
+          <p style="margin: 0;">
+            <strong>Fundamentação Científica (Zatsiorsky & Kraemer):</strong> Prescrição focada em sobrecarga progressiva neuromuscular de puxadas (puxadas na fita/argolas, suspensão escapular e negativas na barra) para ativar unidades motoras de alto limiar sem fadiga metabólica concorrente. Blocos de fortalecimento excêntrico de flexores/extensores de punho para prevenir recidivas de tendinite sob carga compressiva no handstand.
+          </p>`,
+        parametrosSaude: `
+          <p style="margin: 0 0 10px 0;">
+            <strong>Como Entender na Prática:</strong> Seu peso corporal está em ótima faixa para a sua estatura. Assim que realizarmos a primeira medição com fita métrica da cintura, teremos o cálculo exato da relação cintura-estatura para acompanhar a evolução da sua definição e composição corporal.
+          </p>
+          <p style="margin: 0;">
+            <strong>Fundamentação Científica (Margaret Ashwell, 2012):</strong> Acompanhamento ponderal basal de 62.0 kg em 160 cm de estatura. A aferição da perimetria da cintura na altura da cicatriz umbilical possibilitará o cálculo dinâmico da RCEst (meta < 0.50), confirmando baixo risco inflamatório visceral e ótima capacidade aeróbica diafragmática.
+          </p>`,
+        analiseFotos: {
+          front: 'Aguardando envio das fotos posturais oficiais. Mapeamento inicial baseado na ficha de avaliação e histórico de Yoga/Handstand.',
+          side: 'Aguardando envio das fotos posturais oficiais. Mapeamento inicial baseado na ficha de avaliação e histórico de Yoga/Handstand.',
+          back: 'Aguardando envio das fotos posturais oficiais. Mapeamento inicial baseado na ficha de avaliação e histórico de Yoga/Handstand.'
+        }
       }
     ];
 
@@ -12022,6 +12064,7 @@ function formatVisualAnalysisContent(rawText) {
       const slug = getStudentActiveSlug();
       if (slug === 'gui') return OFFICIAL_LAUDOS_GUI;
       if (slug === 'jean') return OFFICIAL_LAUDOS_JEAN;
+      if (slug === 'daniela') return OFFICIAL_LAUDOS_DANIELA;
       return [];
     }
 
@@ -12121,11 +12164,18 @@ function formatVisualAnalysisContent(rawText) {
         return;
       }
 
+      const formatDateBR = (iso) => {
+        if (!iso) return '';
+        const p = iso.split('-');
+        return p.length === 3 ? (p[2] + '/' + p[1]) : iso;
+      };
+
       container.innerHTML = laudos.map(l => {
         const weightStr = (l.weight !== null && l.weight !== undefined) ? (Number(l.weight).toFixed(1) + ' kg') : '--';
         const waistStr = (l.waist !== null && l.waist !== undefined) ? (Number(l.waist).toFixed(1) + ' cm') : '--';
         const bfStr = (l.bodyFat !== null && l.bodyFat !== undefined) ? (Number(l.bodyFat).toFixed(1) + '%') : '--';
-        const laudoTitle = l.title || ('Laudo Técnico • ' + (l.dateFormatted || l.date));
+        const dateDisplay = l.dateFormatted || formatDateBR(l.date) || 'Avaliação';
+        const laudoTitle = 'Laudo • ' + dateDisplay;
 
         return `
         <div class="laudo-history-card" style="background: rgba(255,255,255,0.04); border: 1.5px solid rgba(249, 115, 22, 0.35); border-left: 4.5px solid #ea580c; border-radius: 14px; padding: 16px 18px; display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; transition: all 0.2s ease; box-shadow: 0 4px 16px rgba(0,0,0,0.35);">
@@ -12155,9 +12205,10 @@ function formatVisualAnalysisContent(rawText) {
       if (typeof openRelatorioComposicaoModal === 'function') {
         openRelatorioComposicaoModal(laudoId);
       }
+      window.scrollTo(0, 0);
       setTimeout(function() {
         window.print();
-      }, 250);
+      }, 350);
     };
 
     function openRelatorioComposicaoModal(laudoId) {
