@@ -5686,13 +5686,14 @@
           <div class="day-card-left">
             <div class="day-card-name-row">
               <span class="day-name">QUINTA | HANDSTAND E CROSSFIT</span>
-              <span class="day-today-badge" id="todayBadge-quinta" style="display:inline-flex;">Hoje</span>
+              <span class="day-today-badge" id="todayBadge-quinta" style="display:none;">Hoje</span>
             </div>
             <div class="day-meta-pill">📍 Ginásio e Box CrossFit • ⏱️ ~2h00</div>
           </div>
           <div class="day-card-right">
-            <div class="day-status-pill status-pending" id="statusPill-quinta" onclick="event.stopPropagation(); handleWorkoutStatusClick('quinta')">
-              <span class="status-icon">›</span>
+            <div class="day-status-pill status-completed" id="statusPill-quinta" onclick="event.stopPropagation(); handleWorkoutStatusClick('quinta')">
+              <span class="check-icon">✓</span>
+              <span>Concluído</span>
             </div>
             <div class="day-card-arrow" onclick="event.stopPropagation(); openDayWorkout('quinta')" title="Abrir Treino" aria-label="Abrir Treino">
               <span class="status-icon">›</span>
@@ -5703,10 +5704,10 @@
         <div class="training-day-card" id="dayCard-sexta" role="button" tabindex="0" data-workout-type="dia" onclick="openDayWorkout('sexta')">
           <div class="day-card-left">
             <div class="day-card-name-row">
-              <span class="day-name">SEXTA | A DEFINIR</span>
-              <span class="day-today-badge" id="todayBadge-sexta" style="display:none;">Hoje</span>
+              <span class="day-name">SEXTA | GINÁSTICA E CROSSFIT</span>
+              <span class="day-today-badge" id="todayBadge-sexta" style="display:inline-flex;">Hoje</span>
             </div>
-            <div class="day-meta-pill">📍 Planejamento • ⏱️ A definir</div>
+            <div class="day-meta-pill">📍 Ginásio e Box CrossFit • ⏱️ ~2h15</div>
           </div>
           <div class="day-card-right">
             <div class="day-status-pill status-pending" id="statusPill-sexta" onclick="event.stopPropagation(); handleWorkoutStatusClick('sexta')">
@@ -6222,31 +6223,343 @@
     </div>
   </div><!-- end #tab-quinta -->
 
-    <!-- ==================== TAB: SEXTA (EM ABERTO • A DEFINIR) ==================== -->
+    <!-- ==================== TAB ATIVA: SEXTA (GINÁSTICA E CROSSFIT) ==================== -->
   <div id="tab-sexta" class="tab-content">
 
     <!-- LOCAL E DURAÇÃO DA SESSÃO -->
     <div class="session-overall-meta">
-      <span class="meta-item">📍 A Definir</span>
+      <button type="button" class="btn-orientacoes-popup" onclick="openOrientacoesTreino('sexta')">
+        <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+        <span>ORIENTAÇÕES</span>
+      </button>
       <span class="meta-separator">|</span>
-      <span class="meta-item">⏱️ Em Planejamento</span>
+      <span class="meta-item">📍 Ginásio e Box CrossFit</span>
       <span class="meta-separator">|</span>
-      <span class="meta-item">⏳ Em Aberto</span>
+      <span class="meta-item">⏳ Ginástica no Almoço + CrossFit à Tarde</span>
+      <span class="meta-separator">|</span>
+      <span class="meta-item">⏱️ ~2h15 Total</span>
     </div>
 
-    <!-- DIRETRIZES DA SESSÃO EM ABERTO -->
-    <div class="callout-box" style="border-left: 3.5px solid #64748b; padding: 22px 18px; margin-bottom: 20px; border-radius: 12px; background: rgba(255, 255, 255, 0.03);">
-      <div class="callout-icon" style="font-size:1.5rem;">📋</div>
-      <div>
-        <div class="callout-topic-header" style="color: #ffffff; font-size: 0.98rem; font-weight:800; letter-spacing:0.04em;">SEXTA • SESSÃO EM ABERTO</div>
-        <div style="font-size: 0.85rem; color: #94a3b8; margin-top: 8px; line-height: 1.6;">
-          Os blocos de treino, volumes e cargas desta sessão serão definidos e lançados após a avaliação do rendimento e recuperação dos treinos anteriores da semana.
+    <!-- ==================== SEÇÃO 1: ATIVAÇÃO ==================== -->
+    <div class="section-card sec-aquecimento">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-title">ATIVAÇÃO</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~15 min</span>
+        </div>
+      </div>
+
+      <!-- EXERCÍCIO 1: DANÇA E MOBILIDADE ARTICULAR -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>DANÇA E MOBILIDADE ARTICULAR</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('DANÇA E MOBILIDADE ARTICULAR', '<b>Execução:</b> 1. Coreografia contemporânea suave no solo/tablado servindo de aquecimento cardiovascular suave e lubrificação articular global.<br>2. Rotações articulares controladas (CARs) de punhos e cotovelos sem hiperextensão forçada, aumentando a temperatura do líquido sinovial.<br>3. Ativação suave de serrátil anterior e trapézio inferior em quatro apoios.<br><br><b>Cuidados:</b> Evitar trancos em extensão terminal do cotovelo; manter respiração diafragmática fluida sem apneia.<br><br><b>Base científica:</b> COMPLACÊNCIA VISCOELÁSTICA DO COLÁGENO E REGULAÇÃO DE FLUXO SINOVIAL: O aquecimento dinâmico suave de baixa intensidade eleva a temperatura intramuscular e a síntese de líquido sinovial, restaurando a complacência viscoelástica dos tendões após período de desacostumamento (Bishop, 2003; Neumann, 2016).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • COREO LEVE, PUNHOS E LUBRIFICAÇÃO • ⏱️ REST: LIVRE</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1 (Coreo Leve e Deslocamento)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2 (Mobilidade de Punhos e Cotovelos)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3 (Ativação Escapular em Solo)</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-sex-ativacao" onclick="toggleCommentBox('ex-sex-ativacao')">
+            <span>💬 Dúvidas ou Observações?</span>
+            <span class="comment-dot" id="dot-ex-sex-ativacao" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-sex-ativacao" class="comment-drawer" style="display: none;">
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
+            <span class="save-indicator" id="save-status-ex-sex-ativacao"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-sex-ativacao" placeholder="Escreva aqui sua sensação na dança, temperatura do corpo ou mobilidade..." oninput="saveExerciseNote('ex-sex-ativacao', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira anexar vídeo do aquecimento:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Ativação e Dança • Sexta')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
 
-    <div style="text-align: center; padding: 40px 16px; color: var(--text-dim); font-size: 0.82rem;">
-      <p style="margin: 0;">Aguardando definição técnica de exercícios.</p>
+    <!-- ==================== SEÇÃO 2: HABILIDADES ==================== -->
+    <div class="section-card sec-skills">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-title">HABILIDADES</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~50 min</span>
+        </div>
+      </div>
+
+      <!-- EXERCÍCIO 1: ONE ARM HANDSTAND -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>ONE ARM HANDSTAND</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('ONE ARM HANDSTAND', '<b>Execução:</b> 1. Subir em Handstand livre com pernas em straddle amplo para diminuir a altura do centro de massa e expandir a base de suporte frontal.<br>2. Transferir suavemente o peso e o alinhamento da pelve sobre o braço de base.<br>3. Reduzir gradualmente o suporte da mão livre para a ponta dos dedos (tent-fingers, 2 dedos e depois 1 dedo), sustentando a compressão ativa de 5 a 8 segundos.<br>4. Repetir alternando o braço com controle total.<br><br><b>Cuidados:</b> Manter microflexão imperceptível de segurança no cotovelo de base, sem travamento hiperestendido passivo; acionar bíceps e tríceps em coativação protetora.<br><br><b>Base científica:</b> EQUILÍBRIO MONOPODAL E ESTRATÉGIA DE PRUMO EM CADEIA FECHADA: O straddle reduz a inércia rotacional e desacelera desvios no plano coronal, permitindo que a musculatura de punho e antebraço realize microajustes com menor sobrecarga de cisalhamento no cotovelo (Pozzo et al., 2002; Kerwin e Trewartha, 2001).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">4 SÉRIES • 5s A 8s CADA BRAÇO (TENT-FINGERS) • ⏱️ REST: 90s</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1 (D e E)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2 (D e E)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3 (D e E)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 4 (D e E)</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-sex-onearm" onclick="toggleCommentBox('ex-sex-onearm')">
+            <span>💬 Dúvidas ou Observações?</span>
+            <span class="comment-dot" id="dot-ex-sex-onearm" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-sex-onearm" class="comment-drawer" style="display: none;">
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
+            <span class="save-indicator" id="save-status-ex-sex-onearm"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-sex-onearm" placeholder="Escreva aqui a transferência de peso, estabilidade de tent-fingers ou sensação..." oninput="saveExerciseNote('ex-sex-onearm', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira enviar vídeo do One Arm Handstand:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('One Arm Handstand • Sexta')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXERCÍCIO 2: SEQUÊNCIA NAS ARGOLAS -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>SEQUÊNCIA NAS ARGOLAS</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('SEQUÊNCIA NAS ARGOLAS', '<b>Execução:</b> 1. Executar o Ring Muscle-Up (RMU) estrito ou com balance controlado por falsa pegada segura, puxando a barra das argolas ao esterno e transicionando suavemente com os cotovelos mantidos junto às costelas até a sustentação de apoio.<br>2. Da posição de apoio, controlar a descida lenta para a vela invertida (inverted hang) com abertura ativa de quadril em straddle amplo.<br>3. Apoiar os peitos dos pés nas fitas/cabos verticais das argolas e iniciar a elevação para Press to Handstand, deslizando os pés pelas fitas enquanto os ombros empurram verticalmente até a parada de mãos estabilizada com apoio nos cabos.<br>4. Retornar de forma lenta e excêntrica.<br><br><b>Cuidados:</b> Na transição do RMU, não abrir os cotovelos abruptamente para fora (proteger a inserção do tríceps e bíceps distal); manter contato constante dos pés nos cabos para guiar a subida com segurança.<br><br><b>Base científica:</b> CINEMÁTICA DE TRANSIÇÃO E ESTABILIZAÇÃO GLENOUMERAL NAS ARGOLAS: A transição de suspensão para suporte exige coativação coordenada do manguito rotador e serrátil anterior. O apoio dos pés no cabo durante o Press to Handstand dissipa parte do momento de flexão do ombro, permitindo o refinamento do padrão neuromuscular de subida com segurança articular (Prassas et al., 2002; Bernasconi et al., 2006).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">4 PASSAGENS • RMU + VELA COM ABERTURA + PRESS NO CABO • ⏱️ REST: 2 MIN</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Passagem 1 (Sequência Completa)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Passagem 2 (Sequência Completa)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Passagem 3 (Sequência Completa)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Passagem 4 (Sequência Completa)</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-sex-sequencia" onclick="toggleCommentBox('ex-sex-sequencia')">
+            <span>💬 Dúvidas ou Observações?</span>
+            <span class="comment-dot" id="dot-ex-sex-sequencia" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-sex-sequencia" class="comment-drawer" style="display: none;">
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
+            <span class="save-indicator" id="save-status-ex-sex-sequencia"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-sex-sequencia" placeholder="Escreva aqui a fluidez da sequência, controle da vela ou subida no cabo..." oninput="saveExerciseNote('ex-sex-sequencia', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira enviar vídeo da sequência nas argolas:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Sequência Argolas • Sexta')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXERCÍCIO 3: SUSPENSÃO DESCOMPRESSIVA -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>SUSPENSÃO DESCOMPRESSIVA</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('SUSPENSÃO DESCOMPRESSIVA', '<b>Execução:</b> 1. Em suspensão livre nas argolas ou barra fixa alta, soltar gradualmente todo o peso corporal sem prender a respiração.<br>2. Permitir que a gravidade afaste a cabeça umeral da fossa glenoide e descomprima os tendões do bíceps braquial e tríceps no cotovelo.<br>3. Realizar suaves oscilações laterais da pelve e tornozelos para descompressão lombar conjugada.<br><br><b>Cuidados:</b> Não soltar de forma brusca ao sair da suspensão; apoiar os pés no solo antes de soltar as mãos para evitar trancos articulares.<br><br><b>Base científica:</b> DESCOMPRESSÃO DO ESPAÇO ARTICULAR E NUTRIÇÃO CARTILAGINOSA: A tração axial sustentada reduz a pressão intra-articular e expande o espaço subacromial e a fossa do olécrano, promovendo influxo hidrostático de nutrientes para a cartilagem e aliviando a tensão nos tendões epicondilares e tricipitais (Kirsch, 2012; Neumann, 2016).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • 40s A 50s DE TRAÇÃO AXIAL NAS ARGOLAS • ⏱️ REST: 45s</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1 (Tração Passiva 40s)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2 (Tração com Oscilação Suave 40s)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3 (Tração Ativa Escapular 40s)</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-sex-suspensao" onclick="toggleCommentBox('ex-sex-suspensao')">
+            <span>💬 Dúvidas ou Observações?</span>
+            <span class="comment-dot" id="dot-ex-sex-suspensao" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-sex-suspensao" class="comment-drawer" style="display: none;">
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
+            <span class="save-indicator" id="save-status-ex-sex-suspensao"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-sex-suspensao" placeholder="Escreva aqui sua sensação de alívio nos cotovelos e ombros..." oninput="saveExerciseNote('ex-sex-suspensao', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira enviar dúvida sobre a suspensão:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Suspensão Descompressiva • Sexta')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SEÇÃO 3: CONDICIONAMENTO ==================== -->
+    <div class="section-card sec-cardio">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-title">CONDICIONAMENTO</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~50 min</span>
+        </div>
+      </div>
+
+      <!-- CARD UNIFICADO DE LOUSA DO BOX (CROSSFIT SEXTA-FEIRA) -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>CROSSFIT</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('CROSSFIT', '<b>Execução:</b> 1. Warm Up (2 rounds): 5 Front squat, 5 Good morning, 5 Muscle snatch, 5 Overhead squat e 100 metros de corrida leve para ativação neuromuscular.<br>2. Skill (A cada 1:30 por 10 rounds): Séries de Front squat em pirâmide crescente de intensidade (40% a 65% em blocos duplos). Manter cotovelos altos, peito aberto e empurrar pelos calcanhares.<br>3. WOD (For Time • Time Cap 17 min):<br>• 2 Rounds: 400m Run, 10 Power Snatch (40/30, 30/20 ou 20/15 kg), 20 Box jump.<br>• 2 Rounds: 400m Run, 10 Overhead Squat (40/30 ou 30/20 kg), 20 Box jump over.<br><br><b>Cuidados:</b> 1. No Snatch e Overhead Squat, empurrar o teto com estabilidade escapular ativa e travar o peso sem trancos em hiperextensão no cotovelo.<br>2. No Box Jump e Box Jump Over, saltar na subida e <u>descer obrigatoriamente no passo (step down)</u> para proteger o joelho operado (zero impacto meniscal).<br><br><b>Adaptações e Escalas:</b> 1. Ajustar carga do Snatch/OHS caso sinta o cotovelo azedo (usar 30kg ou 20kg).<br>2. No Box jump over, girar sobre a caixa com calma sem pressa de aterrissagem.<br><br><b>Base científica:</b> GESTÃO DE IMPACTO BIOMECÂNICO E ESTABILIDADE OVERHEAD: A aterrissagem com descida no passo elimina forças de reação do solo que chegam a 4-5x o peso corporal em quedas livres da caixa, blindando o platô tibial e a fibrocartilagem meniscal (Messier et al., 2005). No suporte overhead (Snatch e OHS), o recrutamento do serrátil anterior e trapézio transfere o torque compressivo para a cintura escapular, aliviando o estresse em cisalhamento sobre os ligamentos colaterais e tendões do cotovelo (Kapandji, 2019; Powers e Howley, 2018).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+
+        <!-- ROTEIRO CLEAN DO TREINO (LOUSA DO BOX) -->
+        <div style="margin: 12px 0 16px 0; display: flex; flex-direction: column; gap: 14px;">
+          <div>
+            <div style="font-size: 0.88rem; font-weight: 800; color: #ffffff; letter-spacing: 0.02em; margin-bottom: 4px;">WARM UP • 2 ROUNDS</div>
+            <div style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.55;">
+              • 5 Front squat<br>
+              • 5 Good morning<br>
+              • 5 Muscle snatch<br>
+              • 5 Overhead squat<br>
+              • 100 metros run
+            </div>
+          </div>
+
+          <div>
+            <div style="font-size: 0.88rem; font-weight: 800; color: #ffffff; letter-spacing: 0.02em; margin-bottom: 4px;">SKILL • A CADA 1:30 POR 10 ROUNDS</div>
+            <div style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.55;">
+              Front squat progressivo:<br>
+              • 40% — 5 reps (x2 rounds)<br>
+              • 50% — 5 reps (x2 rounds)<br>
+              • 55% — 5 reps (x2 rounds)<br>
+              • 60% — 5 reps (x2 rounds)<br>
+              • 65% — 5 reps (x2 rounds)
+            </div>
+          </div>
+
+          <div>
+            <div style="font-size: 0.88rem; font-weight: 800; color: #ffffff; letter-spacing: 0.02em; margin-bottom: 4px;">WOD • FOR TIME (TIME CAP 17:00)</div>
+            <div style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.55;">
+              Parte 1 (2 Rounds):<br>
+              • 400m Run<br>
+              • 10 Power Snatch (40/30)(30/20)(20/15)<br>
+              • 20 Box jump (descida no passo)<br><br>
+              Parte 2 (2 Rounds):<br>
+              • 400m Run<br>
+              • 10 Overhead Squat (40/30)(30/20)<br>
+              • 20 Box jump over (descida no passo)
+            </div>
+          </div>
+        </div>
+
+        <!-- PÍLULAS DE CONCLUSÃO ENXUTAS -->
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">CHECK-IN DA SESSÃO • ⏱️ TOTAL ~50 MIN</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Warm-up 2R</div>
+            <div class="set-pill" onclick="toggleSet(this)">Skill Front Squat (10R)</div>
+            <div class="set-pill" onclick="toggleSet(this)">WOD Snatch, OHS e Box (17' Cap) 🏁</div>
+          </div>
+        </div>
+
+        <!-- AÇÕES INFERIORES: GAVETA DE OBSERVAÇÕES -->
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-sex-cross" onclick="toggleCommentBox('ex-sex-cross')">
+            <span>💬 Dúvidas ou Observações?</span>
+            <span class="comment-dot" id="dot-ex-sex-cross" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-sex-cross" class="comment-drawer" style="display: none;">
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
+            <span class="save-indicator" id="save-status-ex-sex-cross"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-sex-cross" placeholder="Escreva aqui seu tempo no WOD, cargas utilizadas ou sensações no cotovelo/joelho..." oninput="saveExerciseNote('ex-sex-cross', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira que o Gui avalie sua execução do Snatch ou OHS:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Sessão CrossFit • Sexta')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SEÇÃO 4: MOBILIDADE ==================== -->
+    <div class="section-card sec-flexibilidade">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-title">MOBILIDADE</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~10 min</span>
+        </div>
+      </div>
+
+      <!-- EXERCÍCIO 1: DESCOMPRESSÃO ARTICULAR -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>DESCOMPRESSÃO ARTICULAR</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('DESCOMPRESSÃO ARTICULAR', '<b>Execução:</b> 1. Liberação e descompressão suave de flexores e extensores de punho/antebraço no solo (40 segundos cada), aliviando as inserções epicondilares do cotovelo.<br>2. Alongamento passivo de grande dorsal e tríceps no banco ou barra fixa com cotovelos apoiados e mãos na nuca.<br>3. Puppy Pose no solo para expansão torácica pós-OHS.<br><br><b>Cuidados:</b> Respiração lenta diafragmática; soltar a musculatura sem tracionar com força excessiva em dor aguda.<br><br><b>Base científica:</b> RECUPERAÇÃO DA HOMEOSTASE MIOFASCIAL: A redução do tônus hiperreativo de antebraço e tríceps pós-esforço metabólico restaura a circulação capilar local e atenua o estresse tendíneo agudo (Cheatham et al., 2015; Neumann, 2016).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • DESCOMPRESSÃO LOMBAR, PUNHOS E COTOVELOS • ⏱️ REST: 30s</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1 (Liberação Miofascial e Extensão de Punhos)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2 (Alongamento Suave de Tríceps e Dorsal)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3 (Puppy Pose Torácica no Solo)</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-sex-descompressao" onclick="toggleCommentBox('ex-sex-descompressao')">
+            <span>💬 Dúvidas ou Observações?</span>
+            <span class="comment-dot" id="dot-ex-sex-descompressao" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-sex-descompressao" class="comment-drawer" style="display: none;">
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
+            <span class="save-indicator" id="save-status-ex-sex-descompressao"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-sex-descompressao" placeholder="Escreva aqui sua sensação de relaxamento, alívio nos cotovelos ou pernas..." oninput="saveExerciseNote('ex-sex-descompressao', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira enviar dúvida sobre a descompressão:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Descompressão Articular • Sexta')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Card Clean de Finalização de Treino (SEXTA) -->
@@ -16635,7 +16948,7 @@ function formatVisualAnalysisContent(rawText) {
         'terca': 'TERÇA | A DEFINIR',
         'quarta': 'QUARTA | A DEFINIR',
         'quinta': 'QUINTA | HANDSTAND E CROSSFIT',
-        'sexta': 'SEXTA | A DEFINIR'
+        'sexta': 'SEXTA | GINÁSTICA E CROSSFIT'
       };
 
       if (bioRecord && bioRecord.dia_nome) {
@@ -16954,6 +17267,15 @@ function formatVisualAnalysisContent(rawText) {
           '• <u><strong style="color:#38bdf8;">One Arm Handstand:</strong></u> Manter pernas abertas em straddle e apoio em tent-fingers por 5 a 8 segundos cada lado, estabilizando a linha do centro de massa.',
           '• <u><strong style="color:#38bdf8;">CrossFit Partner Workout (17h):</strong></u> Divisão 50% das repetições para cada atleta (I go, you go). No Thruster, acelere o quadril para aliviar o ombro; no Devil Press, mantenha a lombar travada e peito alto.',
           '• <u><strong style="color:#38bdf8;">Descompressão Pós-Treino:</strong></u> Suspensão passiva na barra (Protocolo Kirsch 40s) para abertura do espaço subacromial e alívio discal após volume alto de Thrusters e Wall Balls.'
+        ];
+        openTip('', conteudo.join('\n'), '🛡️ ORIENTAÇÕES');
+      } else if (sessao === 'sexta') {
+        const conteudo = [
+          '• <u><strong style="color:#38bdf8;">Cronograma do Dia:</strong></u> Almoço: Dança contemporânea leve (aquecimento) + Ginástica (One Arm Handstand, Sequência RMU com vela e press no cabo, e suspensão). Tarde: Treino completo no Box CrossFit (Front Squat, Snatch, OHS e Box Jumps).',
+          '• <u><strong style="color:#38bdf8;">Cotovelo Azedo (Fisiologia e Proteção):</strong></u> O desconforto após 5 dias sem treino decorre da perda transitória de complacência viscoelástica do colágeno e tendões frente à carga aguda alta de ontem (100 Thrusters, 50 Devil Press e Handstands). Hoje, <strong>evite travar o cotovelo em snap/hiperextensão brusca</strong> em qualquer exercício. Mantenha microflexão de amortecimento.',
+          '• <u><strong style="color:#38bdf8;">Sequência nas Argolas (Almoço):</strong></u> Na transição do RMU, mantenha os cotovelos colados ao corpo. Na descida para a vela invertida, abra o quadril ativamente em straddle e apoie firme os pés nos cabos para guiar a subida do Press to Handstand.',
+          '• <u><strong style="color:#38bdf8;">Snatch e Overhead Squat (Tarde):</strong></u> Empurre o teto acionando escápulas e trapézio superior, travando a carga com a cintura escapular em vez de sobrecarregar os cotovelos.',
+          '• <u><strong style="color:#38bdf8;">Blindagem Meniscal no Box Jump:</strong></u> Salte na subida da caixa, mas <strong>desça obrigatoriamente no passo (step down)</strong> em todos os 20 saltos e 20 jump overs, eliminando o impacto no platô tibial esquerdo.'
         ];
         openTip('', conteudo.join('\n'), '🛡️ ORIENTAÇÕES');
       } else {
