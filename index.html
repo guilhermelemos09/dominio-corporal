@@ -10033,6 +10033,7 @@
 
     window.proceedToOpenDayWorkout = function(dayId, isReviewMode = false) {
       lastActiveDayTab = dayId;
+      try { sessionStorage.setItem('dc_active_view', 'day:' + dayId); } catch(e) {}
       document.body.classList.add('in-dedicated-view', 'in-day-workout');
       document.body.classList.remove('in-view-avaliacao', 'in-view-perfil', 'in-view-timers');
       const topBar = document.getElementById('dedicatedTopBar');
@@ -11065,6 +11066,7 @@ function updateEvolucaoStats() {
     }
 
     function openDedicatedView(sectionId) {
+      try { sessionStorage.setItem('dc_active_view', 'dedicated:' + sectionId); } catch(e) {}
       closeBioModal();
       closeVideoModal();
 
@@ -11134,6 +11136,7 @@ function updateEvolucaoStats() {
     }
 
     function closeDedicatedView(fromPopState = false) {
+      try { sessionStorage.removeItem('dc_active_view'); } catch(e) {}
       if (localStorage.getItem('dominio_assessment_completed') !== 'true') {
         alert('🔒 Para liberar o acesso aos seus treinos, você precisa primeiro preencher e enviar a Ficha de Avaliação.');
         return;
@@ -17118,25 +17121,13 @@ function formatVisualAnalysisContent(rawText) {
       }, { passive: false });
     }
 
-    // Registra Service Worker (PWA Offline)
+    // Registra Service Worker (PWA Offline Seguro - Sem reload intrusivo)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=206').then((reg) => {
-          reg.update();
-        }).catch(err => console.log('SW falhou:', err));
+        navigator.serviceWorker.register('sw.js').catch(err => console.log('[SW] Falha ao registrar:', err));
       });
       navigator.serviceWorker.addEventListener('controllerchange', () => {
-        const cleanUrl = window.location.origin + window.location.pathname + '?v=' + Date.now();
-        window.location.replace(cleanUrl);
-      });
-      const checkUpdate = () => {
-        navigator.serviceWorker.getRegistrations().then(regs => {
-          for (let reg of regs) { reg.update(); }
-        });
-      };
-      window.addEventListener('pageshow', checkUpdate);
-      document.addEventListener('visibilitychange', () => {
-        if (document.visibilityState === 'visible') checkUpdate();
+        console.log('[SW] Controlador atualizado em segundo plano.');
       });
     }
             /* Funções do Popover Flutuante: 💡 Dica | 🔧 Execução | 🛡️ Cuidados | ⚠️ Importante */
@@ -17393,5 +17384,24 @@ Base científica:
       <button type="button" class="tip-popover-ok" onclick="closeTipPopover(event, true)" style="width:100%; padding:10px; border-radius:10px; font-weight:700; font-size:0.86rem; cursor:pointer; background:rgba(56,189,248,0.18); border:1px solid rgba(56,189,248,0.45); color:#38bdf8;">Entendido</button>
     </div>
   </div>
+    // Restaura visão ativa se a página recarregou enquanto o atleta treinava
+    window.addEventListener('DOMContentLoaded', () => {
+      try {
+        const activeView = sessionStorage.getItem('dc_active_view');
+        if (activeView) {
+          if (activeView.startsWith('day:')) {
+            const day = activeView.split(':')[1];
+            if (typeof openDayWorkout === 'function') {
+              setTimeout(() => { openDayWorkout(day); }, 60);
+            }
+          } else if (activeView.startsWith('dedicated:')) {
+            const sec = activeView.split(':')[1];
+            if (typeof openDedicatedView === 'function') {
+              setTimeout(() => { openDedicatedView(sec); }, 60);
+            }
+          }
+        }
+      } catch (e) {}
+    });
 </body>
 </html>
