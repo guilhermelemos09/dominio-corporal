@@ -10359,15 +10359,10 @@
 
         const { type, target, count, isDone } = getWorkoutProgress(w);
 
-        // Se o treino ainda nao foi iniciado (0/N), clicar na pilula tambem abre o treino!
-        // Se ja esta em andamento ou concluido, clicar na pilula avanca/redefine o progresso.
+        // Toque na pílula ou no card abre o treino diretamente com 100% de confiabilidade
         pill.onclick = (e) => {
           e.stopPropagation();
-          if (count === 0 && !isDone) {
-            openDayWorkout(w);
-          } else {
-            handleWorkoutStatusClick(w);
-          }
+          openDayWorkout(w);
         };
         pill.style.cursor = 'pointer';
 
@@ -10635,15 +10630,6 @@
           localStorage.getItem('dominio_' + slug + '_assessment_completed') !== 'true') {
         const modal = document.getElementById('intakeGateModal');
         if (modal) { modal.classList.add('active'); modal.style.display = 'flex'; }
-        return;
-      }
-
-      const { type, target, count, isDone } = getWorkoutProgress(dayId);
-      const tab = document.getElementById('tab-' + dayId);
-      const doneSets = tab ? tab.querySelectorAll('.set-pill.done').length : 0;
-
-      if ((count > 0 || isDone) && doneSets > 0) {
-        openWorkoutSessionPromptModal(dayId, { type, target, count, isDone, doneSets });
         return;
       }
 
