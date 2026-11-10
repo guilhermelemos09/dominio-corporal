@@ -6042,10 +6042,10 @@
         <div class="training-day-card" id="dayCard-terca" role="button" tabindex="0" data-workout-type="dia" onclick="openDayWorkout('terca')">
           <div class="day-card-left">
             <div class="day-card-name-row">
-              <span class="day-name">TERÇA | A DEFINIR</span>
+              <span class="day-name">TERÇA | CROSSFIT: SKILL PULL-UP E WOD</span>
               <span class="day-today-badge" id="todayBadge-terca" style="display:none;">Hoje</span>
             </div>
-            <div class="day-meta-pill">📍 Planejamento • ⏱️ A definir</div>
+            <div class="day-meta-pill">📍 Box CrossFit • ⏱️ ~55 min</div>
           </div>
           <div class="day-card-right">
             <div class="day-status-pill status-pending" id="statusPill-terca" onclick="event.stopPropagation(); handleWorkoutStatusClick('terca')">
@@ -6433,31 +6433,253 @@
     </div>
   </div><!-- end #tab-segunda -->
 
-    <!-- ==================== TAB: TERÇA (EM ABERTO • A DEFINIR) ==================== -->
+    <!-- ==================== TAB: TERÇA (CROSSFIT: SKILL PULL-UP E WOD) ==================== -->
   <div id="tab-terca" class="tab-content">
 
     <!-- LOCAL E DURAÇÃO DA SESSÃO -->
     <div class="session-overall-meta">
-      <span class="meta-item">📍 A Definir</span>
+      <button type="button" class="btn-orientacoes-popup" onclick="openOrientacoesTreino('terca')">
+        <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+        <span>ORIENTAÇÕES</span>
+      </button>
       <span class="meta-separator">|</span>
-      <span class="meta-item">⏱️ Em Planejamento</span>
+      <span class="meta-item">📍 Box CrossFit</span>
       <span class="meta-separator">|</span>
-      <span class="meta-item">⏳ Em Aberto</span>
+      <span class="meta-item">⚡ Skill Pull-Up e WOD em Duplas</span>
+      <span class="meta-separator">|</span>
+      <span class="meta-item">⏱️ ~55 min Total</span>
     </div>
 
-    <!-- DIRETRIZES DA SESSÃO EM ABERTO -->
-    <div class="callout-box" style="border-left: 3.5px solid #64748b; padding: 22px 18px; margin-bottom: 20px; border-radius: 12px; background: rgba(255, 255, 255, 0.03);">
-      <div class="callout-icon" style="font-size:1.5rem;">📋</div>
-      <div>
-        <div class="callout-topic-header" style="color: #ffffff; font-size: 0.98rem; font-weight:800; letter-spacing:0.04em;">TERÇA • SESSÃO EM ABERTO</div>
-        <div style="font-size: 0.85rem; color: #94a3b8; margin-top: 8px; line-height: 1.6;">
-          Os blocos de treino, volumes e cargas desta sessão serão definidos e lançados após a avaliação do rendimento e recuperação dos treinos anteriores da semana.
+    <!-- ==================== SEÇÃO 1: ATIVAÇÃO ==================== -->
+    <div class="section-card sec-aquecimento">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-title">ATIVAÇÃO</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~10 min</span>
+        </div>
+      </div>
+
+      <!-- EXERCÍCIO 1: WARM UP DO BOX -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>WARM UP DO BOX</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('WARM UP DO BOX', '<b>Execução:</b> 1. Executar 2 rounds contínuos com cadência ritmada e foco em preparação articular.<br>2. 8 Beat Swings: suspensão na barra com balanço fluido alternando hollow e arch position com ativação do serrátil anterior e grande dorsal.<br>3. 8 Scapular Pull-Ups: tração escapular pura com cotovelos estendidos, realizando retração e depressão das escápulas no topo.<br>4. 5 Hang Muscle Snatch: barra na posição suspensa acima dos joelhos, extensão tripla potente de tornozelos, joelhos e quadril, mantendo a barra rente ao corpo e virando os cotovelos com velocidade sem agachar.<br>5. 5 Box Step Up ou Box Jump: saltar sobre a caixa amortecendo aterrissagem em flexão suave de joelho ou subir no passo firme.<br><br><b>Cuidados:</b> Nos saltos ou subidas, descer obrigatoriamente no passo controlado (step down) para proteger o menisco do joelho esquerdo; manter pegada firme sem sobrecarregar punhos.<br><br><b>Base científica:</b> POTENCIAÇÃO PÓS-ATIVAÇÃO E ESTABILIDADE ESCAPULAR: O recrutamento antecipado de retratores e depressores escapulares (trapézio inferior e serrátil anterior) otimiza o ritmo escapuloumeral, prevenindo o pinçamento subacromial durante movimentos balísticos de tração (Kibler et al., 2013; Neumann, 2016).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+
+        <!-- ROTEIRO RESUMIDO DO WARM UP -->
+        <div style="margin: 10px 0 14px 0; font-size: 0.82rem; color: #cbd5e1; line-height: 1.55;">
+          • <strong>8 Beat Swings:</strong> balanço rítmico na barra ativando core e escápulas.<br>
+          • <strong>8 Scapular Pull-Ups:</strong> depressão e retração escapular sem flexão de braço.<br>
+          • <strong>5 Hang Muscle Snatch:</strong> aceleração do quadril com barra leve ou técnica.<br>
+          • <strong>5 Box Step Up / Box Jump:</strong> ativação de pernas com aterrissagem suave.
+        </div>
+
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 ROUNDS DINÂMICOS • PREPARAÇÃO ARTICULAR • ⏱️ REST: 30s</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Round 1 (Balanço, Escápulas e Snatch)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Round 2 (Ritmo, Salto e Aceleração)</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-ter-warmup" onclick="toggleCommentBox('ex-ter-warmup')">
+            <span>💬 Dúvidas ou Observações?</span>
+            <span class="comment-dot" id="dot-ex-ter-warmup" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-ter-warmup" class="comment-drawer" style="display: none;">
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
+            <span class="save-indicator" id="save-status-ex-ter-warmup"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-ter-warmup" placeholder="Escreva aqui sua sensação no aquecimento, soltura escapular ou cotovelos..." oninput="saveExerciseNote('ex-ter-warmup', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira anexar vídeo do aquecimento:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Warm Up do Box • Terça')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
 
-    <div style="text-align: center; padding: 40px 16px; color: var(--text-dim); font-size: 0.82rem;">
-      <p style="margin: 0;">Aguardando definição técnica de exercícios.</p>
+    <!-- ==================== SEÇÃO 2: HABILIDADES ==================== -->
+    <div class="section-card sec-skills">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-title">HABILIDADES</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~15 min</span>
+        </div>
+      </div>
+
+      <!-- EXERCÍCIO 1: SKILL DE PULL-UP -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>SKILL DE PULL-UP</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('SKILL DE PULL-UP', '<b>Execução:</b> 1. Estrutura EMOM 15 minutos dividida em 5 ciclos completos de 3 minutos.<br>2. Minuto 1: Executar 6 Strict Pull-Ups com pegada pronada na largura dos ombros, subida estrita puxando os cotovelos para baixo e para trás até o queixo ultrapassar a barra, e descida controlada.<br>3. Minuto 2: Executar de 8 a 10 Kipping Pull-Ups aproveitando a oscilação ritmada entre hollow e arch para impulsionar a subida com economia metabólica.<br>4. Minuto 3: Descanso passivo total (Rest) para restauração dos estoques intramusculares de fosfocreatina.<br><br><b>Cuidados:</b> No Kipping Pull-Up, controlar ativamente a descida na fase de queda; nunca despencar com os cotovelos travados em hiperextensão terminal brusca para não sobrecarregar os epicôndilos e o tendão do bíceps.<br><br><b>Base científica:</b> COORDENAÇÃO INTERMUSCULAR E TRANSIÇÃO ENTRE FORÇA PURA E POTÊNCIA: A combinação sequencial de contrações estritas (alta tensão mecânica e recrutamento de motoneurônios de alto limiar) com repetições balísticas dinâmicas aprimora a tolerância tecidual e a eficiência proprioceptiva da cintura escapular (Zatsiorsky e Kraemer, 2006; Schoenfeld, 2010).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+
+        <!-- ROTEIRO RESUMIDO DA SKILL -->
+        <div style="margin: 10px 0 14px 0; font-size: 0.82rem; color: #cbd5e1; line-height: 1.55;">
+          • <strong>Minuto 1:</strong> 6 Strict Pull-Ups (subida estrita controlada pelo dorsal).<br>
+          • <strong>Minuto 2:</strong> 8 a 10 Kipping Pull-Ups (balanço fluido, sem tranco terminal na queda).<br>
+          • <strong>Minuto 3:</strong> Descanso total (Rest).<br>
+          <em>Volume acumulado: 30 Strict Pull-Ups e 40 a 50 Kipping Pull-Ups (70 a 80 repetições totais).</em>
+        </div>
+
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">EMOM 15 MIN • 5 CICLOS DE 3' • STRICT + KIPPING PULL-UP</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Ciclo 1 (Min 1 a 3: 6 Strict + 8-10 Kipping)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Ciclo 2 (Min 4 a 6: 6 Strict + 8-10 Kipping)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Ciclo 3 (Min 7 a 9: 6 Strict + 8-10 Kipping)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Ciclo 4 (Min 10 a 12: 6 Strict + 8-10 Kipping)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Ciclo 5 (Min 13 a 15: 6 Strict + 8-10 Kipping)</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-ter-skill" onclick="toggleCommentBox('ex-ter-skill')">
+            <span>💬 Dúvidas ou Observações?</span>
+            <span class="comment-dot" id="dot-ex-ter-skill" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-ter-skill" class="comment-drawer" style="display: none;">
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
+            <span class="save-indicator" id="save-status-ex-ter-skill"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-ter-skill" placeholder="Escreva aqui como sentiu os cotovelos, número de reps no kipping ou fadiga de antebraço..." oninput="saveExerciseNote('ex-ter-skill', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira que o Gui avalie seu Kipping ou Strict Pull-Up:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Skill de Pull-Up • Terça')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SEÇÃO 3: CONDICIONAMENTO ==================== -->
+    <div class="section-card sec-cardio">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-title">CONDICIONAMENTO</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~20 min</span>
+        </div>
+      </div>
+
+      <!-- EXERCÍCIO 1: WOD EM DUPLAS -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>WOD EM DUPLAS</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('WOD EM DUPLAS', '<b>Execução:</b> 1. 8 Rounds For Time em duplas no formato alternado (I go, you go) com Time Cap de 16 minutos (4 rounds individuais para você).<br>2. 35 Double Unders (ou 60 Single Unders): saltos contínuos e verticais com giros rápidos de punho próximos à cintura e respiração constante.<br>3. 9 Hang Snatch com Barra: carga recomendada de 30 a 35 kg. Posição inicial suspensa com peito aberto; puxada acelerada pela extensão explosiva do quadril com transição imediata sob a barra.<br>4. 12 Box Jump Over: salto sobre a caixa amortecendo o impacto no topo e passagem ágil para o outro lado.<br>5. 15 DB Hang Snatch: carga recomendada de 14 a 16 kg. Puxada unilateral rápida a partir do quadril, mantendo o halter junto à linha média do tronco e travamento sólido acima da cabeça.<br><br><b>Cuidados:</b> 1. No Box Jump Over, aterrissar com os pés inteiros e realizar a descida estritamente no passo suave (step down), nunca em queda livre ou rebote para trás, blindando o menisco do joelho esquerdo operado.<br>2. Cargas calibradas: não exceder 35 kg na barra nem 16 kg no halter para preservar cotovelos e punhos fadigados pelo EMOM anterior.<br><br><b>Base científica:</b> CAPACIDADE GLICOLÍTICA INTERVALADA E CINÉTICA DE IMPACTO: O formato I go, you go cria uma densidade de esforço anaeróbio e recuperação intermitente que maximiza a potência glicolítica e a remoção de lactato. O step-down em caixas dissipa os picos de forças verticais de reação do solo (GRF), preservando a integridade das cartilagens articulares (Garber et al., 2011; Messier et al., 2005).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+
+        <!-- ROTEIRO DO WOD E CARGAS CANÔNICAS -->
+        <div style="margin: 10px 0 14px 0; font-size: 0.82rem; color: #cbd5e1; line-height: 1.55;">
+          <div style="font-weight: 800; color: #38bdf8; margin-bottom: 4px;">8 ROUNDS FOR TIME • EM DUPLAS (I GO, YOU GO) • TIME CAP 16'</div>
+          • <strong>35 Double Unders</strong> (ou 60 Single Unders).<br>
+          • <strong>9 Hang Snatch com Barra:</strong> Carga calibrada em <strong>30 a 35 kg</strong>.<br>
+          • <strong>12 Box Jump Over:</strong> Subida firme e <strong>descida obrigatória no passo suave (step down)</strong>.<br>
+          • <strong>15 DB Hang Snatch:</strong> Halter calibrado em <strong>14 a 16 kg</strong> com puxada de quadril.<br>
+          <em>Divisão: 4 rounds de trabalho intenso para você e 4 para a dupla (proporção trabalho:descanso 1:1).</em>
+        </div>
+
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">4 ROUNDS INDIVIDUAIS • ⏱️ TIME CAP 16 MIN • CARGAS: 30-35KG / 14-16KG</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Round 1 (35 DU + 9 Snatch + 12 BJO + 15 DB Snatch)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Round 2 (35 DU + 9 Snatch + 12 BJO + 15 DB Snatch)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Round 3 (35 DU + 9 Snatch + 12 BJO + 15 DB Snatch)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Round 4 (35 DU + 9 Snatch + 12 BJO + 15 DB Snatch)</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-ter-wod" onclick="toggleCommentBox('ex-ter-wod')">
+            <span>💬 Dúvidas ou Observações?</span>
+            <span class="comment-dot" id="dot-ex-ter-wod" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-ter-wod" class="comment-drawer" style="display: none;">
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
+            <span class="save-indicator" id="save-status-ex-ter-wod"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-ter-wod" placeholder="Escreva aqui o tempo final do WOD, cargas exatas utilizadas e sensação no joelho..." oninput="saveExerciseNote('ex-ter-wod', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira enviar vídeo do Snatch ou WOD:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('WOD em Duplas • Terça')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SEÇÃO 4: MOBILIDADE ==================== -->
+    <div class="section-card sec-flexibilidade">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-title">MOBILIDADE</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~10 min</span>
+        </div>
+      </div>
+
+      <!-- EXERCÍCIO 1: DESCOMPRESSÃO ARTICULAR E ANTEBRAÇOS -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>DESCOMPRESSÃO ARTICULAR E ANTEBRAÇOS</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('DESCOMPRESSÃO ARTICULAR E ANTEBRAÇOS', '<b>Execução:</b> 1. Suspensão passiva na barra fixa (Protocolo Kirsch 45s) com relaxamento total da cintura escapular e descompressão axial da coluna e espaço subacromial.<br>2. Liberação e alongamento de antebraços no solo: posição de 4 apoios com dedos voltados para trás e palmas firmes no chão, oscilando suavemente o peso do corpo para trás.<br>3. Puppy Pose ou Child Pose com braços estendidos à frente, focando na respiração diafragmática profunda e retorno vagal pós-treino.<br><br><b>Cuidados:</b> Entrar e sair da suspensão apoiando os pés no solo sem saltar; respeitar o limite de conforto articular nos punhos e cotovelos.<br><br><b>Base científica:</b> DESCOMPRESSÃO SUBACROMIAL E MODULAÇÃO PARASSIMPÁTICA: A tração vertical na barra amplia o espaço articular subacromial, aliviando o atrito no tendão supraespinhal. O estímulo de respiração profunda e descompressão fascial acelera a transição para o tônus parassimpático, facilitando a recuperação neuromuscular precoce (Kirsch, 2012; Chaitow, 2014).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • DESCOMPRESSÃO AXIAL, ANTEBRAÇOS E COTOVELOS • ⏱️ REST: 30s</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1 (Suspensão Kirsch 45s na Barra)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2 (Liberação de Antebraços e Flexores de Punho)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3 (Puppy Pose e Respiração Diafragmática)</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-ter-mobilidade" onclick="toggleCommentBox('ex-ter-mobilidade')">
+            <span>💬 Dúvidas ou Observações?</span>
+            <span class="comment-dot" id="dot-ex-ter-mobilidade" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-ter-mobilidade" class="comment-drawer" style="display: none;">
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
+            <span class="save-indicator" id="save-status-ex-ter-mobilidade"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-ter-mobilidade" placeholder="Escreva aqui sua sensação de relaxamento nos cotovelos ou punhos..." oninput="saveExerciseNote('ex-ter-mobilidade', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira enviar dúvida sobre a descompressão:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Descompressão • Terça')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Card Clean de Finalização de Treino (TERÇA) -->
@@ -6466,7 +6688,7 @@
         <span class="finish-flag-icon">🏁</span> <span>FINALIZAR SESSÃO</span>
       </button>
       <div id="completeFeedback-terca" class="complete-feedback-box" style="display:none; width: 100%; margin-top: 10px;">
-        ✅ Sessão finalizada e registrada com sucesso!
+        ✓ Sessão finalizada e registrada com sucesso!
       </div>
     </div>
   </div><!-- end #tab-terca -->
@@ -17467,7 +17689,7 @@ function formatVisualAnalysisContent(rawText) {
 
       const dayNames = {
         'segunda': 'SEGUNDA | CROSSFIT, ARGOLAS E ACRODUO',
-        'terca': 'TERÇA | A DEFINIR',
+        'terca': 'TERÇA | CROSSFIT: SKILL PULL-UP E WOD',
         'quarta': 'QUARTA | A DEFINIR',
         'quinta': 'QUINTA | A DEFINIR',
         'sexta': 'SEXTA | A DEFINIR'
@@ -17779,6 +18001,17 @@ function formatVisualAnalysisContent(rawText) {
           '• <u><strong style="color:#38bdf8;">Descompressão Pós-Treino:</strong></u> Suspensão passiva na barra ou argolas (Protocolo Kirsch 45s) para tração axial descompressiva após os agachamentos com barra e impacto do WOD.'
         ];
         openTip('', conteudo.join('\n'), '🛡️ ORIENTAÇÕES');
+      } else if (sessao === 'terca') {
+        const conteudo = [
+          '• <u><strong style="color:#38bdf8;">Estratégia e Estímulo da Terça:</strong></u> Volume alto de puxada e pegada (grip). O EMOM acumula de 70 a 80 barras (30 strict + 40-50 kipping), seguido por um WOD em duplas com Snatches que exigem extensão potente do quadril para não sobrecarregar antebraço e trapézio.',
+          '• <u><strong style="color:#38bdf8;">Kilagem Recomendada no WOD:</strong></u><br>' +
+          '  - <strong>Hang Snatch com Barra: 30 a 35 kg</strong> (evitar subir para 40-50 kg hoje para não sobrecarregar os cotovelos e punhos fadigados pelo EMOM).<br>' +
+          '  - <strong>DB Hang Snatch: 14 a 16 kg</strong> (manter puxada acelerada pela extensão tripla do quadril, sem puxar na força bruta do braço).',
+          '• <u><strong style="color:#38bdf8;">Blindagem de Cotovelos e Punhos:</strong></u> No Kipping Pull-Up, controlar a descida suave sem tranco terminal na hiperextensão articular para poupar o tendão distal do bíceps e epicôndilos. Nos snatches, pegada com gancho (hook grip) firme e recepção estável.',
+          '• <u><strong style="color:#38bdf8;">Proteção Meniscal no Box Jump Over:</strong></u> Descida 100% no passo (step down suave) para amortecer as forças de impacto e cisalhamento sobre o menisco do joelho esquerdo.',
+          '• <u><strong style="color:#38bdf8;">Descompressão Pós-Treino:</strong></u> Suspensão passiva (Protocolo Kirsch 45s) e liberação miofascial dos antebraços para neutralizar a hipertonia e prevenir epicondilite.'
+        ];
+        openTip('', conteudo.join('\n'), '🛡️ ORIENTAÇÕES');
       } else {
         openTip('', '• Sessão em aberto. Aguardando definição técnica dos blocos de treino.', '🛡️ ORIENTAÇÕES');
       }
@@ -17795,9 +18028,10 @@ function formatVisualAnalysisContent(rawText) {
         },
         'terca': {
           title: 'Foco do Treino • Terça-feira',
-          text: `• BOX CROSSFIT CONCLUÍDO: 120 repetições de empurrar carga realizadas com sucesso.
-• AUTOREGULAÇÃO BIOMECÂNICA: Decisão de transferir a ginástica pesada para quarta com frescor neural.
-• REGENERAÇÃO ATIVA: Descanso noturno e restauração dos motoneurônios para rendimento máximo.`
+          text: `• SKILL DE PULL-UP: 30 Strict Pull-Ups para força estrita e 40-50 Kipping Pull-Ups com ritmo contínuo.
+• CONDICIONAMENTO METABÓLICO: 4 rounds intensos no formato I go, you go com Time Cap de 16'.
+• CALIBRAGEM DE CARGA: Hang Snatch a 30-35 kg e DB Snatch a 14-16 kg para ciclagem rápida.
+• BLINDAGEM ARTICULAR: Step-down no Box Jump Over e amortecimento excêntrico no kipping para preservar cotovelos e menisco.`
         },
         'quarta': {
           title: 'Foco do Treino • Quarta-feira',
@@ -17843,15 +18077,15 @@ Base científica:
           category: '⚠️ Importante'
         },
         'terca': {
-          title: 'Balanço da Terça-feira | Autoregulação',
-          text: `• Box Feito com Sucesso: 120 repetições de empurrar carga (Supino 60kg, flexões e Z-Press 15kg) e WOD com 30kg descendo da caixa no passo para blindar o joelho.
-• Decisão Inteligente: O treino de ginástica artística pesada foi transferido para quarta-feira (17h–19h no Ginásio EEFERP), quando seu corpo estará zerado e descansado.
-• Noite Livre: Descanso em casa, videogame e boa alimentação para diminuir o cansaço e recuperar os músculos.
+          title: 'Orientações e Cargas • Terça-feira',
+          text: `• Cargas no WOD: Manter 30 a 35 kg na barra e 14 a 16 kg no halter. Cargas superiores sobrecarregam cotovelos e punhos pós-EMOM.
+• Joelho e Menisco: No Box Jump Over, subida explosiva e descida exclusivamente no passo (step down), sem impacto de queda para trás.
+• Barra Fixa: Manter ativação dorsal na queda do kipping, sem despencar esticado.
 
 Base científica:
-• Fadiga Central e Gestão de Carga Neural: Após 120 repetições concêntricas de membros superiores e acidose metabólica no WOD, os motoneurônios do tríceps e deltóide entram em período refratário.
-• Princípio da Autoregulação Biomecânica: Empilhar parada de mãos de alta alavanca e BMU na mesma noite elevaria o risco articular no ombro direito operado. A compensação na quarta com frescor neural assegura rendimento técnico máximo.`,
-          category: '✅ Sessão Concluída'
+• Preservação Meniscal: O impacto em queda livre gera picos de cisalhamento sobre a fibrocartilagem meniscal lateral. O passo controlado dissipa 100% dessa energia (Messier, 2005).
+• Potência Cíclica: Cargas submáximas (30-35 kg) no Hang Snatch preservam a velocidade da barra e a potência da extensão tripla do quadril (Garhammer, 1993).`,
+          category: '🛡️ Importante'
         },
         'quarta': {
           title: 'Balanço da Quarta-feira | Box CrossFit',
