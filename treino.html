@@ -4606,58 +4606,93 @@
       flex-wrap: wrap;
       margin-bottom: 2px;
     }
+    .athlete-actions-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 10px;
+      margin-bottom: 2px;
+    }
     .athlete-highlight-card .sober-action-btn {
       display: inline-flex;
       align-items: center;
-      gap: 6.5px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.16);
+      justify-content: center;
+      gap: 8px;
+      background: #11141a;
+      border: 1.5px solid rgba(255, 255, 255, 0.16);
       color: #ffffff;
-      padding: 7px 14px;
-      border-radius: 10px;
-      font-size: 0.78rem;
-      font-weight: 700;
+      padding: 12px 10px;
+      border-radius: 12px;
+      font-size: 0.94rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
       font-family: inherit;
       cursor: pointer;
-      transition: all 0.15s ease;
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
       user-select: none;
       -webkit-tap-highlight-color: transparent;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
-    .athlete-highlight-card .sober-action-btn:hover {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: rgba(0, 255, 136, 0.35);
-      color: #ffffff;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+    .athlete-highlight-card .sober-action-btn.btn-athlete-perfil {
+      background: linear-gradient(135deg, rgba(0, 255, 136, 0.14) 0%, rgba(17, 20, 26, 0.95) 100%);
+      border-color: rgba(0, 255, 136, 0.40);
     }
-    .athlete-highlight-card .sober-action-btn:active {
-      transform: scale(0.97);
-      background: rgba(255, 255, 255, 0.16);
+    .athlete-highlight-card .sober-action-btn.btn-athlete-perfil svg {
+      fill: var(--brand-neon);
+      width: 17px;
+      height: 17px;
     }
-    .athlete-highlight-card .sober-action-btn.active {
-      background: rgba(0, 255, 136, 0.1);
-      border-color: rgba(0, 255, 136, 0.45);
-    }
-    .athlete-highlight-card .sober-action-btn svg {
-      width: 14px;
-      height: 14px;
-      fill: #ffffff;
-      opacity: 0.95;
-    }
-    .athlete-highlight-card .sober-action-btn .arrow-indicator {
-      font-size: 0.74rem;
-      font-weight: 800;
-      opacity: 0.9;
-      margin-left: 2px;
+    .athlete-highlight-card .sober-action-btn.btn-athlete-perfil .arrow-indicator {
       color: var(--brand-neon);
+      font-size: 0.9rem;
+      font-weight: 900;
+    }
+    .athlete-highlight-card .sober-action-btn.btn-athlete-perfil:hover {
+      border-color: var(--brand-neon);
+      box-shadow: 0 4px 16px rgba(0, 255, 136, 0.3);
+      transform: translateY(-2px);
+    }
+    .athlete-highlight-card .sober-action-btn.btn-athlete-metas {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.14) 0%, rgba(17, 20, 26, 0.95) 100%);
+      border-color: rgba(56, 189, 248, 0.40);
+    }
+    .athlete-highlight-card .sober-action-btn.btn-athlete-metas svg {
+      fill: #38bdf8;
+      width: 17px;
+      height: 17px;
+    }
+    .athlete-highlight-card .sober-action-btn.btn-athlete-metas .arrow-indicator {
+      color: #38bdf8;
+      font-size: 0.9rem;
+      font-weight: 900;
       transition: transform 0.2s ease;
+    }
+    .athlete-highlight-card .sober-action-btn.btn-athlete-metas:hover {
+      border-color: #38bdf8;
+      box-shadow: 0 4px 16px rgba(56, 189, 248, 0.3);
+      transform: translateY(-2px);
     }
     .athlete-highlight-card .sober-action-btn.active .arrow-indicator {
       transform: rotate(180deg);
     }
-
-    /* Drawer de Metas dentro do Aurora Glass */
+    .athlete-highlight-card .sober-action-btn:active {
+      transform: scale(0.97);
+    }
+    @media (max-width: 480px) {
+      .athlete-actions-row {
+        gap: 6px;
+      }
+      .athlete-highlight-card .sober-action-btn {
+        padding: 10px 6px;
+        font-size: 0.85rem;
+        gap: 6px;
+      }
+      .athlete-highlight-card .sober-action-btn svg {
+        width: 15px;
+        height: 15px;
+      }
+    }
     .athlete-highlight-card .metas-drawer {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -5966,7 +6001,83 @@
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
     }
 
-</style>
+
+    /* ===================================================
+       COMPOSIÇÃO CORPORAL: PADRÃO LARANJA METÁLICO CANÔNICO
+       =================================================== */
+    #evolView-composicao #compCardBtn-laudo,
+    .training-day-card#compCardBtn-laudo {
+      background: linear-gradient(135deg, #fb923c 0%, #f97316 35%, #ea580c 70%, #c2410c 100%) !important;
+      border: 1.5px solid #fdba74 !important;
+      border-left: 5.5px solid #ffedd5 !important;
+      box-shadow: 0 6px 22px rgba(234, 88, 12, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.45) !important;
+      cursor: pointer !important;
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    #evolView-composicao #compCardBtn-laudo:hover,
+    .training-day-card#compCardBtn-laudo:hover {
+      background: linear-gradient(135deg, #fdba74 0%, #fb923c 35%, #f97316 70%, #ea580c 100%) !important;
+      border-color: #ffffff !important;
+      box-shadow: 0 8px 28px rgba(249, 115, 22, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+      transform: translateY(-2px);
+    }
+    #evolView-composicao #compCardBtn-laudo .day-name {
+      color: #ffffff !important;
+      font-weight: 900 !important;
+      font-size: 1.05rem !important;
+      letter-spacing: 0.04em !important;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+    }
+    #evolView-composicao #compCardBtn-laudo .day-status-pill {
+      background: #ffffff !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.8) !important;
+      color: #ea580c !important;
+      font-weight: 900 !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) !important;
+    }
+    #evolView-composicao #compCardBtn-laudo .day-status-pill .status-icon {
+      color: #ea580c !important;
+      font-weight: 900 !important;
+      font-size: 1.1rem !important;
+    }
+
+    /* Outros botões / cards na página de Composição Corporal (Antropometria e Fotos Posturais) */
+    #evolView-composicao #compCardBtn-grafico,
+    #evolView-composicao #compCardBtn-fotos,
+    .training-day-card#compCardBtn-grafico,
+    .training-day-card#compCardBtn-fotos {
+      background: linear-gradient(90deg, rgba(234, 88, 12, 0.12) 0%, rgba(234, 88, 12, 0.03) 40%, rgba(17, 20, 26, 0.95) 100%), #11141a !important;
+      border: 1.5px solid rgba(249, 115, 22, 0.35) !important;
+      border-left: 4.5px solid #ea580c !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+      cursor: pointer !important;
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    #evolView-composicao #compCardBtn-grafico:hover,
+    #evolView-composicao #compCardBtn-fotos:hover,
+    .training-day-card#compCardBtn-grafico:hover,
+    .training-day-card#compCardBtn-fotos:hover {
+      background: linear-gradient(90deg, rgba(234, 88, 12, 0.18) 0%, rgba(234, 88, 12, 0.06) 45%, rgba(22, 27, 34, 0.95) 100%), #161b22 !important;
+      border-color: rgba(249, 115, 22, 0.6) !important;
+      border-left-color: #f97316 !important;
+      box-shadow: 0 6px 18px rgba(234, 88, 12, 0.25) !important;
+      transform: translateY(-2px);
+    }
+    #evolView-composicao #compCardBtn-grafico .day-name,
+    #evolView-composicao #compCardBtn-fotos .day-name {
+      color: #ffffff !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.03em !important;
+    }
+    #evolView-composicao #compCardBtn-grafico .day-status-pill,
+    #evolView-composicao #compCardBtn-fotos .day-status-pill {
+      color: #fb923c !important;
+      border: 1px solid rgba(249, 115, 22, 0.45) !important;
+      background: rgba(234, 88, 12, 0.15) !important;
+      font-weight: 800 !important;
+    }
+
+  </style>
   <!-- Firebase Cloud Firestore SDK (Compat v10) -->
   <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
@@ -6020,15 +6131,15 @@
 
       <!-- Linha 2: Botões Sóbrios de Ação (Perfil do Aluno + Metas) -->
       <div class="athlete-actions-row">
-        <button type="button" class="sober-action-btn" onclick="openDedicatedView('perfil')" title="Abrir Perfil do Aluno">
+        <button type="button" class="sober-action-btn btn-athlete-perfil" onclick="openDedicatedView('perfil')" title="Abrir Perfil do Atleta">
           <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-          <span>Perfil do Aluno</span>
+          <span>PERFIL</span>
           <span class="arrow-indicator">↗</span>
         </button>
 
-        <button type="button" class="sober-action-btn" id="btnToggleMetas" onclick="toggleMetasDrawer()" title="Ver Tópicos e Metas do Ciclo">
-          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
-          <span>Metas</span>
+        <button type="button" class="sober-action-btn btn-athlete-metas" id="btnToggleMetas" onclick="toggleMetasDrawer()" title="Ver Tópicos e Metas do Ciclo">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4 1.79 4 4 4zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+          <span>METAS</span>
           <span class="arrow-indicator" id="metasArrow">▾</span>
         </button>
       </div>
@@ -10414,7 +10525,7 @@
     };
 
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '2026-11-10-v203-restore-slogan';
+    const APP_BUILD_VERSION = '2026-11-10-v204-athlete-tools-orange-laudos';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
