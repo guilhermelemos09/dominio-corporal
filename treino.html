@@ -24,6 +24,10 @@
   <link rel="apple-touch-icon" sizes="512x512" href="Midia/icon-512.png">
   <link rel="shortcut icon" href="Midia/favicon.png">
 
+  <!-- Leaflet.js para Mapa Esportivo Dark (Cardio e GPS) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+
   <!-- Fonte Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -5581,6 +5585,330 @@
       box-shadow: 0 4px 16px rgba(234, 88, 12, 0.2);
     }
 
+    /* ============================================================ */
+    /* MÓDULO CARDIO E CONDICIONAMENTO (DARK CYBER GLASS CORAL)   */
+    /* ============================================================ */
+    .tool-pill.pill-cardio {
+      border-color: rgba(244, 63, 94, 0.35);
+    }
+    .tool-pill.pill-cardio svg {
+      fill: #f43f5e;
+    }
+    .tool-pill.pill-cardio:hover {
+      background: rgba(244, 63, 94, 0.18);
+      border-color: #f43f5e;
+      color: #f43f5e;
+      transform: translateY(-1px);
+    }
+    .cardio-hero-card {
+      background: linear-gradient(135deg, rgba(244, 63, 94, 0.12) 0%, rgba(20, 24, 33, 0.95) 100%), #11141a;
+      border: 1px solid rgba(244, 63, 94, 0.3);
+      border-left: 4.5px solid #f43f5e;
+      border-radius: var(--radius-lg, 16px);
+      padding: 16px 18px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+    }
+    .cardio-header-title {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .cardio-header-sub {
+      font-size: 0.82rem;
+      color: #cbd5e1;
+      line-height: 1.45;
+    }
+    .cardio-week-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .cardio-stat-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 8px 10px;
+      text-align: center;
+    }
+    .cardio-stat-label {
+      font-size: 0.68rem;
+      color: #94a3b8;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 3px;
+    }
+    .cardio-stat-val {
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: #f43f5e;
+    }
+
+    /* Seletor de Esportes */
+    .cardio-sports-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    @media (max-width: 480px) {
+      .cardio-sports-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .cardio-sport-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1.5px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 10px 6px;
+      color: #cbd5e1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cardio-sport-btn:hover {
+      background: rgba(244, 63, 94, 0.08);
+      border-color: rgba(244, 63, 94, 0.4);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+    .cardio-sport-btn.active {
+      background: linear-gradient(135deg, rgba(244, 63, 94, 0.22) 0%, rgba(225, 29, 72, 0.38) 100%), #1a0f14;
+      border-color: #f43f5e;
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(244, 63, 94, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+    .cardio-sport-icon {
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+    .cardio-sport-name {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    /* Seletor de Ambiente */
+    .cardio-env-toggle-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .cardio-env-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1.5px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 10px 14px;
+      color: #cbd5e1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .cardio-env-btn.active {
+      background: rgba(56, 189, 248, 0.12);
+      border-color: #38bdf8;
+      color: #ffffff;
+      box-shadow: 0 3px 12px rgba(56, 189, 248, 0.25);
+    }
+
+    /* Painel do Treino Ativo */
+    .cardio-active-panel {
+      background: #0d1117;
+      border: 1.5px solid rgba(244, 63, 94, 0.35);
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 16px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
+      text-align: center;
+    }
+    .cardio-timer-display {
+      font-size: 3.2rem;
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+      color: #ffffff;
+      letter-spacing: -1px;
+      margin: 8px 0;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+    .cardio-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 16px 0;
+    }
+    .cardio-metric-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 12px 6px;
+    }
+    .cardio-metric-title {
+      font-size: 0.70rem;
+      color: #94a3b8;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+    .cardio-metric-value {
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: #ffffff;
+      white-space: nowrap;
+    }
+    .cardio-metric-unit {
+      font-size: 0.70rem;
+      color: #f43f5e;
+      font-weight: 700;
+    }
+
+    /* Mapa Leaflet Dark */
+    #cardioMapContainer {
+      position: relative;
+      height: 280px;
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 14px 0;
+      border: 1.5px solid rgba(244, 63, 94, 0.3);
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+    }
+    #cardioMap {
+      width: 100%;
+      height: 100%;
+      background: #090c10;
+    }
+    .cardio-gps-status {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 1000;
+      background: rgba(13, 17, 23, 0.88);
+      border: 1px solid rgba(244, 63, 94, 0.4);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 5px 12px;
+      border-radius: 20px;
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    /* Ergômetro Painel */
+    .cardio-erg-input-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1.5px solid rgba(244, 63, 94, 0.25);
+      border-radius: 14px;
+      padding: 16px;
+      margin: 14px 0;
+      text-align: left;
+    }
+    .cardio-quick-add-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .cardio-quick-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .cardio-quick-btn:hover {
+      background: rgba(244, 63, 94, 0.2);
+      border-color: #f43f5e;
+    }
+
+    /* Botões de Ação do Treino */
+    .cardio-action-btn-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .btn-cardio-start {
+      width: 100%;
+      background: linear-gradient(135deg, #f43f5e 0%, #e11d48 50%, #be123c 100%);
+      border: 1.5px solid #fda4af;
+      color: #ffffff;
+      padding: 16px;
+      border-radius: 14px;
+      font-size: 1.15rem;
+      font-weight: 900;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(244, 63, 94, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+    }
+    .btn-cardio-start:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 26px rgba(244, 63, 94, 0.6);
+    }
+    .btn-cardio-pause {
+      flex: 1;
+      background: rgba(251, 191, 36, 0.15);
+      border: 1.5px solid #fbbf24;
+      color: #fbbf24;
+      padding: 14px;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 900;
+      cursor: pointer;
+    }
+    .btn-cardio-finish {
+      flex: 1;
+      background: linear-gradient(135deg, #f43f5e 0%, #be123c 100%);
+      border: 1.5px solid #fda4af;
+      color: #ffffff;
+      padding: 14px;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(244, 63, 94, 0.35);
+    }
+    .cardio-history-card {
+      background: #11141a;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-left: 4.5px solid #f43f5e;
+      border-radius: 14px;
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    }
+
 </style>
   <!-- Firebase Cloud Firestore SDK (Compat v10) -->
   <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
@@ -5794,11 +6122,6 @@
       </div>
 
       <!-- Link Contextual: Precisa de Ajuda? Acesse as Instruções -->
-      <div class="contextual-help-wrap" style="margin-top: 18px; margin-bottom: 24px;">
-        <button type="button" class="btn-contextual-help" onclick="openContextualHelp('home')">
-          <span>precisa de ajuda?</span> <u>acesse as instruções</u>
-        </button>
-      </div>
     </div>
 
 
@@ -6104,13 +6427,6 @@
         ✅ Sessão finalizada e registrada com sucesso!
       </div>
     </div>
-
-    <!-- Ajuda Contextual do Treino -->
-    <div class="contextual-help-wrap" style="margin-top: 24px; margin-bottom: 80px;">
-      <button type="button" class="btn-contextual-help" onclick="openContextualHelp('treinos')">
-        <span>precisa de ajuda?</span> <u>acesse as instruções</u>
-      </button>
-    </div>
   </div><!-- end #tab-segunda -->
 
     <!-- ==================== TAB: TERÇA (EM ABERTO • A DEFINIR) ==================== -->
@@ -6148,13 +6464,6 @@
       <div id="completeFeedback-terca" class="complete-feedback-box" style="display:none; width: 100%; margin-top: 10px;">
         ✅ Sessão finalizada e registrada com sucesso!
       </div>
-    </div>
-
-    <!-- Ajuda Contextual do Treino -->
-    <div class="contextual-help-wrap" style="margin-top: 24px; margin-bottom: 80px;">
-      <button type="button" class="btn-contextual-help" onclick="openContextualHelp('treinos')">
-        <span>precisa de ajuda?</span> <u>acesse as instruções</u>
-      </button>
     </div>
   </div><!-- end #tab-terca -->
 
@@ -6194,13 +6503,6 @@
         ✅ Sessão finalizada e registrada com sucesso!
       </div>
     </div>
-
-    <!-- Ajuda Contextual do Treino -->
-    <div class="contextual-help-wrap" style="margin-top: 24px; margin-bottom: 80px;">
-      <button type="button" class="btn-contextual-help" onclick="openContextualHelp('treinos')">
-        <span>precisa de ajuda?</span> <u>acesse as instruções</u>
-      </button>
-    </div>
   </div><!-- end #tab-quarta -->
 
     <!-- ==================== TAB: QUINTA (EM ABERTO • A DEFINIR) ==================== -->
@@ -6239,13 +6541,6 @@
         ✅ Sessão finalizada e registrada com sucesso!
       </div>
     </div>
-
-    <!-- Ajuda Contextual do Treino -->
-    <div class="contextual-help-wrap" style="margin-top: 24px; margin-bottom: 80px;">
-      <button type="button" class="btn-contextual-help" onclick="openContextualHelp('treinos')">
-        <span>precisa de ajuda?</span> <u>acesse as instruções</u>
-      </button>
-    </div>
   </div><!-- end #tab-quinta -->
 
     <!-- ==================== TAB: SEXTA (EM ABERTO • A DEFINIR) ==================== -->
@@ -6283,13 +6578,6 @@
       <div id="completeFeedback-sexta" class="complete-feedback-box" style="display:none; width: 100%; margin-top: 10px;">
         ✅ Sessão finalizada e registrada com sucesso!
       </div>
-    </div>
-
-    <!-- Ajuda Contextual do Treino -->
-    <div class="contextual-help-wrap" style="margin-top: 24px; margin-bottom: 80px;">
-      <button type="button" class="btn-contextual-help" onclick="openContextualHelp('treinos')">
-        <span>precisa de ajuda?</span> <u>acesse as instruções</u>
-      </button>
     </div>
   </div><!-- end #tab-sexta -->
 
@@ -7062,13 +7350,6 @@
       </div>
     </div><!-- end #analysisView-exercicios -->
 
-    <!-- Ajuda Contextual da Página de Análise de Vídeos -->
-    <div class="contextual-help-wrap" style="margin-top: 24px; margin-bottom: 30px;">
-      <button type="button" class="btn-contextual-help" onclick="openContextualHelp('analises')">
-        <span>precisa de ajuda?</span> <u>acesse as instruções</u>
-      </button>
-    </div>
-
   </div>
 
 
@@ -7525,7 +7806,176 @@
     </div>
   </div>
 
-    <!-- ==================== TAB: EVOLUÇÃO, CONSISTÊNCIA E MÉTRICAS ==================== -->
+    <!-- ==================== TAB: CARDIO E CONDICIONAMENTO ==================== -->
+  <div id="tab-cardio" class="tab-content">
+    
+    <!-- Hero Header e Resumo Semanal -->
+    <div class="cardio-hero-card">
+      <div class="cardio-header-title">
+        <span>⚡</span> <span>CARDIO E CONDICIONAMENTO</span>
+      </div>
+      <div class="cardio-header-sub">
+        Rastreamento esportivo inteligente para corrida, ciclismo, remo, natação e caminhada.
+      </div>
+      <div class="cardio-week-stats-grid">
+        <div class="cardio-stat-box">
+          <div class="cardio-stat-label">Distância Semanal</div>
+          <div class="cardio-stat-val" id="cardioWeekDist">0.0 km</div>
+        </div>
+        <div class="cardio-stat-box">
+          <div class="cardio-stat-label">Tempo Acumulado</div>
+          <div class="cardio-stat-val" id="cardioWeekTime">0 min</div>
+        </div>
+        <div class="cardio-stat-box">
+          <div class="cardio-stat-label">Gasto Semanal</div>
+          <div class="cardio-stat-val" id="cardioWeekKcal">0 kcal</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Painel de Configuração Pré-Treino (visível quando parado) -->
+    <div id="cardioSetupPanel">
+      
+      <!-- Seletor de Modalidade Esportiva (5 Opções) -->
+      <div style="font-size:0.8rem; font-weight:800; color:#94a3b8; text-transform:uppercase; margin-bottom:8px; letter-spacing:0.04em;">
+        Selecione a Modalidade:
+      </div>
+      <div class="cardio-sports-grid">
+        <button type="button" class="cardio-sport-btn active" id="btnSport-corrida" onclick="selectCardioSport('corrida')">
+          <span class="cardio-sport-icon">🏃‍♂️</span>
+          <span class="cardio-sport-name">Corrida</span>
+        </button>
+        <button type="button" class="cardio-sport-btn" id="btnSport-ciclismo" onclick="selectCardioSport('ciclismo')">
+          <span class="cardio-sport-icon">🚴‍♂️</span>
+          <span class="cardio-sport-name">Ciclismo</span>
+        </button>
+        <button type="button" class="cardio-sport-btn" id="btnSport-remo" onclick="selectCardioSport('remo')">
+          <span class="cardio-sport-icon">🚣‍♂️</span>
+          <span class="cardio-sport-name">Remo</span>
+        </button>
+        <button type="button" class="cardio-sport-btn" id="btnSport-natacao" onclick="selectCardioSport('natacao')">
+          <span class="cardio-sport-icon">🏊‍♂️</span>
+          <span class="cardio-sport-name">Natação</span>
+        </button>
+        <button type="button" class="cardio-sport-btn" id="btnSport-caminhada" onclick="selectCardioSport('caminhada')">
+          <span class="cardio-sport-icon">🚶‍♂️</span>
+          <span class="cardio-sport-name">Caminhada</span>
+        </button>
+      </div>
+
+      <!-- Seletor de Ambiente (Ao Ar Livre vs Ergômetro) -->
+      <div style="font-size:0.8rem; font-weight:800; color:#94a3b8; text-transform:uppercase; margin-bottom:8px; letter-spacing:0.04em;">
+        Ambiente de Execução:
+      </div>
+      <div class="cardio-env-toggle-wrap">
+        <button type="button" class="cardio-env-btn active" id="btnEnv-ar_livre" onclick="selectCardioEnv('ar_livre')">
+          <span>🌳</span> <span>Ao Ar Livre (GPS)</span>
+        </button>
+        <button type="button" class="cardio-env-btn" id="btnEnv-ergometro" onclick="selectCardioEnv('ergometro')">
+          <span>🏋️‍♂️</span> <span>Ergômetro (Indoor)</span>
+        </button>
+      </div>
+
+      <!-- Botão Iniciar Atividade -->
+      <button type="button" class="btn-cardio-start" onclick="startCardioActivity()">
+        <span>🚀</span> <span>INICIAR ATIVIDADE</span>
+      </button>
+
+    </div>
+
+    <!-- Painel de Treino Ativo (visível quando em andamento) -->
+    <div id="cardioActivePanel" class="cardio-active-panel" style="display:none;">
+      
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+        <span id="cardioActiveSportBadge" style="font-size:0.82rem; font-weight:900; color:#f43f5e; text-transform:uppercase; letter-spacing:0.05em; display:flex; align-items:center; gap:6px;">
+          🏃‍♂️ CORRIDA • AO AR LIVRE
+        </span>
+        <span id="cardioActiveStatusBadge" style="font-size:0.75rem; font-weight:800; color:#00ff88; background:rgba(0,255,136,0.12); border:1px solid rgba(0,255,136,0.3); padding:2px 8px; border-radius:12px;">
+          ● GRAVANDO
+        </span>
+      </div>
+
+      <!-- Cronômetro Digital Principal -->
+      <div class="cardio-timer-display" id="cardioLiveTimer">00:00:00</div>
+
+      <!-- Grid de 3 Métricas Vitais Esportivas -->
+      <div class="cardio-metrics-grid">
+        <div class="cardio-metric-card">
+          <div class="cardio-metric-title">Distância</div>
+          <div class="cardio-metric-value" id="cardioLiveDist">0.00</div>
+          <div class="cardio-metric-unit" id="cardioLiveDistUnit">km</div>
+        </div>
+        <div class="cardio-metric-card">
+          <div class="cardio-metric-title" id="cardioLivePaceTitle">Pace Médio</div>
+          <div class="cardio-metric-value" id="cardioLivePace">--'--"</div>
+          <div class="cardio-metric-unit" id="cardioLivePaceUnit">/km</div>
+        </div>
+        <div class="cardio-metric-card">
+          <div class="cardio-metric-title">Calorias</div>
+          <div class="cardio-metric-value" id="cardioLiveKcal">0</div>
+          <div class="cardio-metric-unit">kcal</div>
+        </div>
+      </div>
+
+      <!-- Container do Mapa (Modo Ao Ar Livre com GPS) -->
+      <div id="cardioMapWrap" style="display:block;">
+        <div id="cardioMapContainer">
+          <div id="cardioMap"></div>
+          <div class="cardio-gps-status" id="cardioGpsStatus">
+            <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#00ff88;"></span>
+            <span id="cardioGpsStatusText">Buscando sinal GPS...</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Painel do Ergômetro (Modo Indoor / Esteira / Remo) -->
+      <div id="cardioErgWrap" class="cardio-erg-input-box" style="display:none;">
+        <label style="display:block; font-size:0.82rem; font-weight:800; color:#ffffff; margin-bottom:6px;">
+          Distância do Painel do Aparelho (km ou metros):
+        </label>
+        <div style="display:flex; gap:10px; align-items:center;">
+          <input type="number" step="0.01" id="cardioErgDistInput" placeholder="Ex: 5.00" oninput="updateErgManualDist(this.value)" style="flex:1; background:#090c10; border:1px solid rgba(244,63,94,0.4); color:#ffffff; font-size:1.25rem; font-weight:900; padding:10px 14px; border-radius:10px; outline:none;" />
+          <span style="font-size:0.95rem; font-weight:800; color:#f43f5e;" id="cardioErgUnitLabel">km</span>
+        </div>
+        <div class="cardio-quick-add-bar">
+          <span style="font-size:0.75rem; color:#94a3b8; font-weight:700; align-self:center;">Atalhos:</span>
+          <button type="button" class="cardio-quick-btn" onclick="addErgDist(0.1)">+100m</button>
+          <button type="button" class="cardio-quick-btn" onclick="addErgDist(0.5)">+500m</button>
+          <button type="button" class="cardio-quick-btn" onclick="addErgDist(1.0)">+1 km</button>
+          <button type="button" class="cardio-quick-btn" onclick="addErgDist(5.0)">+5 km</button>
+        </div>
+      </div>
+
+      <!-- Barra de Controle do Treino -->
+      <div class="cardio-action-btn-row">
+        <button type="button" class="btn-cardio-pause" id="btnCardioPause" onclick="togglePauseCardioActivity()">
+          <span>⏸️</span> <span id="cardioPauseBtnText">Pausar</span>
+        </button>
+        <button type="button" class="btn-cardio-finish" onclick="finishCardioActivity()">
+          <span>⏹️</span> <span>Finalizar</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Seção: Histórico de Cardios Realizados -->
+    <div style="margin-top: 26px;">
+      <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:12px;">
+        <h3 style="font-size: 1.05rem; font-weight: 800; color: #fff; margin: 0; letter-spacing: -0.01em;">
+          📋 Histórico de Atividades
+        </h3>
+        <span style="font-size: 0.72rem; font-weight: 700; color: #f43f5e; background: rgba(244, 63, 94, 0.1); border: 1px solid rgba(244, 63, 94, 0.25); padding: 3px 8px; border-radius: 12px; text-transform: uppercase;" id="cardioHistoryBadge">0 Sessões</span>
+      </div>
+
+      <div id="cardioHistoryList" style="display:flex; flex-direction:column; gap:10px; margin-bottom:40px;">
+        <!-- Preenchido dinamicamente por renderCardioHistory() -->
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ==================== TAB: EVOLUÇÃO, CONSISTÊNCIA E MÉTRICAS ==================== -->
   <div id="tab-evolucao" class="tab-content">
 
     <!-- ==================== HUB DA CENTRAL DE EVOLUÇÃO (GRADE DE APP) ==================== -->
@@ -8253,14 +8703,6 @@
         <span>GERAR LAUDO DE BIOMETRIA E PERFORMANCE</span>
       </button>
 
-    </div>
-
-  
-    <!-- Ajuda Contextual da Página de Evolução -->
-    <div class="contextual-help-wrap" style="margin-top: 24px; margin-bottom: 40px;">
-      <button type="button" class="btn-contextual-help" onclick="openContextualHelp('evolucao')">
-        <span>precisa de ajuda?</span> <u>acesse as instruções</u>
-      </button>
     </div>
   </div>
 
@@ -9067,6 +9509,87 @@
           </span>
           <span style="font-size: 0.68rem; font-weight: 600; color: #94a3b8;">Ver marcações e anotações como foram enviadas</span>
         </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal de Conclusão e Resumo da Atividade Cardio -->
+  <div id="cardioSummaryModal" class="modal-overlay" onclick="if(event.target === this) closeCardioSummaryModal();">
+    <div class="modal-card" onclick="event.stopPropagation();" style="max-width: 500px;">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:36px; height:36px; border-radius:10px; background:rgba(244,63,94,0.12); border:1px solid rgba(244,63,94,0.3); display:flex; align-items:center; justify-content:center; font-size:1.25rem;">
+            <span id="modalCardioIcon">🏃‍♂️</span>
+          </div>
+          <div>
+            <h3 style="margin:0; font-size:1.02rem; color:#fff;" id="modalCardioTitle">Treino Concluído!</h3>
+            <span style="font-size:0.75rem; color:#f43f5e; font-weight:700;" id="modalCardioSubtitle">Resumo Oficial da Atividade</span>
+          </div>
+        </div>
+        <button class="btn-close" type="button" onclick="closeCardioSummaryModal()" aria-label="Fechar">&times;</button>
+      </div>
+
+      <div class="modal-body" style="padding: 20px; line-height:1.55;">
+        <!-- Card de Resumo de Estatísticas -->
+        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(244,63,94,0.3); border-radius:14px; padding:16px; margin-bottom:16px;">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; text-align:center;">
+            <div>
+              <div style="font-size:0.72rem; color:#94a3b8; font-weight:700; text-transform:uppercase;">Distância</div>
+              <div style="font-size:1.35rem; font-weight:900; color:#ffffff;" id="modalCardioDist">0.00 km</div>
+            </div>
+            <div>
+              <div style="font-size:0.72rem; color:#94a3b8; font-weight:700; text-transform:uppercase;">Duração</div>
+              <div style="font-size:1.35rem; font-weight:900; color:#ffffff;" id="modalCardioTime">00:00:00</div>
+            </div>
+            <div>
+              <div style="font-size:0.72rem; color:#94a3b8; font-weight:700; text-transform:uppercase;" id="modalCardioPaceLabel">Ritmo / Pace</div>
+              <div style="font-size:1.2rem; font-weight:900; color:#f43f5e;" id="modalCardioPace">--'--"</div>
+            </div>
+            <div>
+              <div style="font-size:0.72rem; color:#94a3b8; font-weight:700; text-transform:uppercase;">Gasto Calórico</div>
+              <div style="font-size:1.2rem; font-weight:900; color:#fbbf24;" id="modalCardioKcal">0 kcal</div>
+            </div>
+          </div>
+
+          <!-- Destaque Biomecânico (Regra de Messier 4:1) para Corrida -->
+          <div id="modalCardioArticularRelief" style="display:none; margin-top:14px; padding-top:12px; border-top:1px dashed rgba(255,255,255,0.1); font-size:0.8rem; color:#cbd5e1; line-height:1.45;">
+            🛡️ <strong style="color:var(--brand-neon);">Impacto Articular Poupado:</strong>
+            <span id="modalCardioArticularText">Seus joelhos foram poupados de sobrecarga compressiva graças à evolução da sua composição corporal.</span>
+          </div>
+        </div>
+
+        <!-- Seletor de Esforço Percebido (PSE 1 a 10) -->
+        <div style="margin-bottom:16px;">
+          <label style="display:block; font-size:0.82rem; font-weight:800; color:#ffffff; margin-bottom:8px;">
+            Qual foi o seu nível de esforço? (PSE de 1 a 10):
+          </label>
+          <div style="display:grid; grid-template-columns:repeat(10, 1fr); gap:4px;" id="cardioPseGrid">
+            <!-- 1 a 10 gerados dinamicamente -->
+          </div>
+          <div style="font-size:0.75rem; color:#94a3b8; margin-top:6px; text-align:center;" id="cardioPseDesc">
+            Selecione o nível de intensidade percebida
+          </div>
+        </div>
+
+        <!-- Campo de Notas -->
+        <div style="margin-bottom:18px;">
+          <label style="display:block; font-size:0.82rem; font-weight:800; color:#ffffff; margin-bottom:6px;">
+            Anotações do Treino (Opcional):
+          </label>
+          <input type="text" id="cardioNotesInput" placeholder="Ex: Foco em cadência, sensação leve nas pernas..." style="width:100%; box-sizing:border-box; background:#090c10; border:1px solid rgba(255,255,255,0.15); color:#ffffff; font-size:0.85rem; padding:10px 12px; border-radius:10px; outline:none;" />
+        </div>
+
+        <!-- Ações do Modal -->
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <button type="button" onclick="saveCardioActivity()" style="width:100%; background:linear-gradient(135deg, #00ff88 0%, #00cc6a 100%); color:#000000; font-weight:900; font-size:1rem; border:none; border-radius:12px; padding:14px; cursor:pointer; box-shadow:0 4px 16px rgba(0,255,136,0.3); display:flex; align-items:center; justify-content:center; gap:8px;">
+            <span>💾</span> <span>Salvar Atividade</span>
+          </button>
+
+          <button type="button" onclick="shareCardioWhatsApp()" style="width:100%; background:rgba(37,211,102,0.14); border:1.5px solid #25d366; color:#25d366; font-weight:800; font-size:0.92rem; border-radius:12px; padding:12px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px;">
+            <span>💬</span> <span>Compartilhar no WhatsApp</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -11071,12 +11594,14 @@ function updateEvolucaoStats() {
       closeVideoModal();
 
       document.body.classList.add('in-dedicated-view');
-      document.body.classList.remove('in-view-avaliacao', 'in-view-perfil', 'in-view-timers', 'in-day-workout');
+      document.body.classList.remove('in-view-avaliacao', 'in-view-perfil', 'in-view-timers',
+        'in-view-cardio', 'in-view-cardio', 'in-day-workout');
       document.body.classList.add('in-view-' + sectionId);
       const topBar = document.getElementById('dedicatedTopBar');
       if (topBar) topBar.style.display = 'flex';
 
       const titles = {
+        'cardio': 'Cardio e Condicionamento',
         'timers': 'Timers',
         'analises': 'Análise de Vídeos',
         'recados': 'Mural de Recados',
@@ -11104,6 +11629,12 @@ function updateEvolucaoStats() {
 
       if (sectionId === 'analises' && typeof closeAnalysisCategoryView === 'function') {
         closeAnalysisCategoryView();
+      }
+
+      if (sectionId === 'cardio') {
+        const backBtn = document.getElementById('btnDedicatedBack');
+        if (backBtn) backBtn.innerHTML = '‹ Voltar';
+        if (typeof initCardioUI === 'function') initCardioUI();
       }
 
       if (sectionId === 'timers') {
@@ -17371,7 +17902,640 @@ Base científica:
       }
     };
 
-  </script>
+    // =========================================================================
+    // MOTOR CARDIO, GPS TRACKER E ERGÔMETRO INTELIGENTE
+    // =========================================================================
+    let currentCardioSport = 'corrida';
+    let currentCardioEnv = 'ar_livre';
+    let cardioIsActive = false;
+    let cardioIsPaused = false;
+    let cardioStartTime = 0;
+    let cardioElapsedTime = 0;
+    let cardioTimerInterval = null;
+    let cardioGpsWatchId = null;
+    let cardioCoordinates = [];
+    let cardioTotalMeters = 0;
+    let cardioLeafletMap = null;
+    let cardioUserMarker = null;
+    let cardioPathPolyline = null;
+    let cardioSelectedPse = 7;
+    let lastGpsPosition = null;
+
+    const CARDIO_SPORTS_META = {
+      corrida: { name: 'Corrida', icon: '🏃‍♂️', paceTitle: 'Pace Médio', paceUnit: '/km', factorKcal: 1.036 },
+      ciclismo: { name: 'Ciclismo', icon: '🚴‍♂️', paceTitle: 'Velocidade', paceUnit: 'km/h', factorKcal: 0.45 },
+      remo: { name: 'Remo', icon: '🚣‍♂️', paceTitle: 'Split Médio', paceUnit: '/500m', factorKcal: 0.85 },
+      natacao: { name: 'Natação', icon: '🏊‍♂️', paceTitle: 'Ritmo Médio', paceUnit: '/100m', factorKcal: 3.5 },
+      caminhada: { name: 'Caminhada', icon: '🚶‍♂️', paceTitle: 'Pace Médio', paceUnit: '/km', factorKcal: 0.75 }
+    };
+
+    window.initCardioUI = function() {
+      selectCardioSport(currentCardioSport);
+      selectCardioEnv(currentCardioEnv);
+      renderCardioWeekStats();
+      renderCardioHistory();
+      renderCardioPseButtons();
+    };
+
+    window.selectCardioSport = function(sport) {
+      if (!CARDIO_SPORTS_META[sport]) sport = 'corrida';
+      currentCardioSport = sport;
+
+      document.querySelectorAll('.cardio-sport-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.id === 'btnSport-' + sport);
+      });
+
+      const meta = CARDIO_SPORTS_META[sport];
+      const paceTitleEl = document.getElementById('cardioLivePaceTitle');
+      const paceUnitEl = document.getElementById('cardioLivePaceUnit');
+      const ergUnitLabel = document.getElementById('cardioErgUnitLabel');
+
+      if (paceTitleEl) paceTitleEl.textContent = meta.paceTitle;
+      if (paceUnitEl) paceUnitEl.textContent = meta.paceUnit;
+      if (ergUnitLabel) {
+        ergUnitLabel.textContent = (sport === 'remo' || sport === 'natacao') ? 'm (metros)' : 'km';
+      }
+
+      updateCardioActiveBadge();
+    };
+
+    window.selectCardioEnv = function(env) {
+      currentCardioEnv = env;
+      const btnArLivre = document.getElementById('btnEnv-ar_livre');
+      const btnErg = document.getElementById('btnEnv-ergometro');
+      if (btnArLivre) btnArLivre.classList.toggle('active', env === 'ar_livre');
+      if (btnErg) btnErg.classList.toggle('active', env === 'ergometro');
+
+      const mapWrap = document.getElementById('cardioMapWrap');
+      const ergWrap = document.getElementById('cardioErgWrap');
+      if (mapWrap) mapWrap.style.display = (env === 'ar_livre') ? 'block' : 'none';
+      if (ergWrap) ergWrap.style.display = (env === 'ergometro') ? 'block' : 'none';
+
+      updateCardioActiveBadge();
+    };
+
+    function updateCardioActiveBadge() {
+      const el = document.getElementById('cardioActiveSportBadge');
+      if (el) {
+        const meta = CARDIO_SPORTS_META[currentCardioSport];
+        const envLabel = currentCardioEnv === 'ar_livre' ? 'AO AR LIVRE' : 'ERGÔMETRO';
+        el.innerHTML = `${meta.icon} ${meta.name.toUpperCase()} • ${envLabel}`;
+      }
+    }
+
+    function calculateHaversineMeters(lat1, lon1, lat2, lon2) {
+      const R = 6371000;
+      const toRad = deg => (deg * Math.PI) / 180;
+      const dLat = toRad(lat2 - lat1);
+      const dLon = toRad(lon2 - lon1);
+      const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      return R * c;
+    }
+
+    window.startCardioActivity = function() {
+      cardioIsActive = true;
+      cardioIsPaused = false;
+      cardioStartTime = Date.now();
+      cardioElapsedTime = 0;
+      cardioTotalMeters = 0;
+      cardioCoordinates = [];
+      lastGpsPosition = null;
+
+      // Sons de início
+      if (typeof playTone === 'function') {
+        playTone(880, 150, 'triangle');
+        setTimeout(() => playTone(1760, 450, 'square'), 200);
+      }
+
+      document.getElementById('cardioSetupPanel').style.display = 'none';
+      document.getElementById('cardioActivePanel').style.display = 'block';
+
+      updateCardioDisplay(0, 0);
+
+      // Inicia timer
+      if (cardioTimerInterval) clearInterval(cardioTimerInterval);
+      cardioTimerInterval = setInterval(() => {
+        if (!cardioIsPaused) {
+          cardioElapsedTime++;
+          updateCardioDisplay(cardioElapsedTime, cardioTotalMeters);
+        }
+      }, 1000);
+
+      // Se Ao Ar Livre: Iniciar GPS e Mapa
+      if (currentCardioEnv === 'ar_livre') {
+        startGpsTracking();
+      }
+    };
+
+    function startGpsTracking() {
+      const statusText = document.getElementById('cardioGpsStatusText');
+      if (statusText) statusText.textContent = 'Adquirindo sinal GPS...';
+
+      initOrResetLeafletMap();
+
+      if ('geolocation' in navigator) {
+        cardioGpsWatchId = navigator.geolocation.watchPosition(
+          (pos) => {
+            const lat = pos.coords.latitude;
+            const lon = pos.coords.longitude;
+            const accuracy = Math.round(pos.coords.accuracy || 10);
+
+            if (statusText) {
+              statusText.textContent = `Sinal GPS Ativo (±${accuracy}m)`;
+            }
+
+            if (!cardioIsPaused) {
+              if (lastGpsPosition) {
+                const dist = calculateHaversineMeters(lastGpsPosition.lat, lastGpsPosition.lon, lat, lon);
+                // Filtra ruído mínimo de 2.5m e velocidades impossíveis (> 120 km/h)
+                if (dist >= 2.5 && dist < 100) {
+                  cardioTotalMeters += dist;
+                  cardioCoordinates.push([lat, lon]);
+                  updateLeafletPath(lat, lon);
+                }
+              } else {
+                cardioCoordinates.push([lat, lon]);
+                updateLeafletPath(lat, lon);
+              }
+              lastGpsPosition = { lat, lon };
+            }
+          },
+          (err) => {
+            if (statusText) statusText.textContent = 'GPS Indisponível (Modo Sensor Manual)';
+            console.warn('GPS Error:', err);
+          },
+          { enableHighAccuracy: true, maximumAge: 1000, timeout: 15000 }
+        );
+      }
+    }
+
+    function initOrResetLeafletMap() {
+      try {
+        if (typeof L === 'undefined') return;
+        if (!cardioLeafletMap) {
+          cardioLeafletMap = L.map('cardioMap', { zoomControl: false, attributionControl: false }).setView([-23.5505, -46.6333], 16);
+          // Camada Dark Matter
+          L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            maxZoom: 19
+          }).addTo(cardioLeafletMap);
+
+          cardioPathPolyline = L.polyline([], {
+            color: '#f43f5e',
+            weight: 5,
+            opacity: 0.9,
+            smoothFactor: 1
+          }).addTo(cardioLeafletMap);
+        } else {
+          cardioPathPolyline.setLatLngs([]);
+          if (cardioUserMarker) {
+            cardioLeafletMap.removeLayer(cardioUserMarker);
+            cardioUserMarker = null;
+          }
+          setTimeout(() => cardioLeafletMap.invalidateSize(), 200);
+        }
+      } catch (e) {
+        console.warn('Erro ao inicializar mapa Leaflet:', e);
+      }
+    }
+
+    function updateLeafletPath(lat, lon) {
+      try {
+        if (!cardioLeafletMap || typeof L === 'undefined') return;
+        if (!cardioUserMarker) {
+          const icon = L.divIcon({
+            className: 'cardio-pulse-marker',
+            html: '<div style="width:16px;height:16px;background:#00ff88;border:3px solid #ffffff;border-radius:50%;box-shadow:0 0 12px #00ff88;"></div>',
+            iconSize: [16, 16],
+            iconAnchor: [8, 8]
+          });
+          cardioUserMarker = L.marker([lat, lon], { icon }).addTo(cardioLeafletMap);
+        } else {
+          cardioUserMarker.setLatLng([lat, lon]);
+        }
+        if (cardioPathPolyline) {
+          cardioPathPolyline.addLatLng([lat, lon]);
+        }
+        cardioLeafletMap.panTo([lat, lon], { animate: true });
+      } catch (e) {}
+    }
+
+    window.togglePauseCardioActivity = function() {
+      cardioIsPaused = !cardioIsPaused;
+      const btn = document.getElementById('btnCardioPause');
+      const text = document.getElementById('cardioPauseBtnText');
+      const badge = document.getElementById('cardioActiveStatusBadge');
+
+      if (cardioIsPaused) {
+        if (text) text.textContent = 'Retomar';
+        if (badge) {
+          badge.textContent = '⏸ PAUSADO';
+          badge.style.color = '#fbbf24';
+          badge.style.borderColor = 'rgba(251,191,36,0.3)';
+          badge.style.background = 'rgba(251,191,36,0.12)';
+        }
+      } else {
+        if (text) text.textContent = 'Pausar';
+        if (badge) {
+          badge.textContent = '● GRAVANDO';
+          badge.style.color = '#00ff88';
+          badge.style.borderColor = 'rgba(0,255,136,0.3)';
+          badge.style.background = 'rgba(0,255,136,0.12)';
+        }
+      }
+    };
+
+    window.updateErgManualDist = function(val) {
+      let num = parseFloat(val) || 0;
+      if (currentCardioSport === 'remo' || currentCardioSport === 'natacao') {
+        cardioTotalMeters = num;
+      } else {
+        cardioTotalMeters = num * 1000;
+      }
+      updateCardioDisplay(cardioElapsedTime, cardioTotalMeters);
+    };
+
+    window.addErgDist = function(amountKm) {
+      const input = document.getElementById('cardioErgDistInput');
+      let current = parseFloat(input?.value) || 0;
+      if (currentCardioSport === 'remo' || currentCardioSport === 'natacao') {
+        current += (amountKm * 1000);
+      } else {
+        current += amountKm;
+      }
+      if (input) input.value = current.toFixed(2);
+      updateErgManualDist(current);
+    };
+
+    function formatCardioTime(seconds) {
+      const h = Math.floor(seconds / 3600);
+      const m = Math.floor((seconds % 3600) / 60);
+      const s = seconds % 60;
+      if (h > 0) {
+        return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+      }
+      return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+    }
+
+    function calculateCardioPaceStr(sport, seconds, meters) {
+      if (meters <= 10 || seconds <= 2) return "--'--\"";
+      const km = meters / 1000;
+
+      if (sport === 'ciclismo') {
+        const hours = seconds / 3600;
+        const kmh = km / hours;
+        return kmh.toFixed(1);
+      }
+
+      if (sport === 'remo') {
+        // Split por 500m
+        const splits = meters / 500;
+        const secPerSplit = seconds / splits;
+        const sm = Math.floor(secPerSplit / 60);
+        const ss = Math.round(secPerSplit % 60);
+        return `${sm}'${ss.toString().padStart(2, '0')}"`;
+      }
+
+      if (sport === 'natacao') {
+        // Ritmo por 100m
+        const splits = meters / 100;
+        const secPerSplit = seconds / splits;
+        const sm = Math.floor(secPerSplit / 60);
+        const ss = Math.round(secPerSplit % 60);
+        return `${sm}'${ss.toString().padStart(2, '0')}"`;
+      }
+
+      // Corrida / Caminhada (Pace min/km)
+      const secPerKm = seconds / km;
+      const pm = Math.floor(secPerKm / 60);
+      const ps = Math.round(secPerKm % 60);
+      if (pm >= 60) return "--'--\"";
+      return `${pm}'${ps.toString().padStart(2, '0')}"`;
+    }
+
+    function calculateCardioKcal(sport, seconds, meters) {
+      const athleteWeight = (typeof getStudentBaseProfile === 'function') ? (getStudentBaseProfile().weight || 75) : 75;
+      const km = meters / 1000;
+      const meta = CARDIO_SPORTS_META[sport] || CARDIO_SPORTS_META.corrida;
+
+      if (km > 0.05) {
+        return Math.round(km * athleteWeight * meta.factorKcal);
+      }
+      // Fallback por tempo se parado
+      const hours = seconds / 3600;
+      return Math.round(hours * athleteWeight * 6);
+    }
+
+    function updateCardioDisplay(seconds, meters) {
+      const timerEl = document.getElementById('cardioLiveTimer');
+      const distEl = document.getElementById('cardioLiveDist');
+      const distUnitEl = document.getElementById('cardioLiveDistUnit');
+      const paceEl = document.getElementById('cardioLivePace');
+      const kcalEl = document.getElementById('cardioLiveKcal');
+
+      if (timerEl) timerEl.textContent = formatCardioTime(seconds);
+
+      const isMetersSport = (currentCardioSport === 'remo' || currentCardioSport === 'natacao') && currentCardioEnv === 'ergometro';
+      if (distEl) {
+        distEl.textContent = isMetersSport ? Math.round(meters).toString() : (meters / 1000).toFixed(2);
+      }
+      if (distUnitEl) {
+        distUnitEl.textContent = isMetersSport ? 'm' : 'km';
+      }
+
+      if (paceEl) {
+        paceEl.textContent = calculateCardioPaceStr(currentCardioSport, seconds, meters);
+      }
+
+      if (kcalEl) {
+        kcalEl.textContent = calculateCardioKcal(currentCardioSport, seconds, meters);
+      }
+    }
+
+    window.finishCardioActivity = function() {
+      if (cardioTimerInterval) clearInterval(cardioTimerInterval);
+      if (cardioGpsWatchId) navigator.geolocation.clearWatch(cardioGpsWatchId);
+
+      // Prepara Modal de Resumo
+      const meta = CARDIO_SPORTS_META[currentCardioSport];
+      const km = (cardioTotalMeters / 1000);
+      const isMeters = (currentCardioSport === 'remo' || currentCardioSport === 'natacao') && currentCardioEnv === 'ergometro';
+
+      document.getElementById('modalCardioIcon').textContent = meta.icon;
+      document.getElementById('modalCardioTitle').textContent = `${meta.name} Concluída!`;
+      document.getElementById('modalCardioSubtitle').textContent = currentCardioEnv === 'ar_livre' ? 'Treino Ao Ar Livre com GPS' : 'Treino em Ergômetro / Indoor';
+
+      document.getElementById('modalCardioDist').textContent = isMeters ? `${Math.round(cardioTotalMeters)} m` : `${km.toFixed(2)} km`;
+      document.getElementById('modalCardioTime').textContent = formatCardioTime(cardioElapsedTime);
+      document.getElementById('modalCardioPaceLabel').textContent = meta.paceTitle;
+      document.getElementById('modalCardioPace').textContent = `${calculateCardioPaceStr(currentCardioSport, cardioElapsedTime, cardioTotalMeters)} ${meta.paceUnit}`;
+      document.getElementById('modalCardioKcal').textContent = `${calculateCardioKcal(currentCardioSport, cardioElapsedTime, cardioTotalMeters)} kcal`;
+
+      // Cálculo de alívio articular (Messier 4:1) para corrida
+      const articularBox = document.getElementById('modalCardioArticularRelief');
+      const articularText = document.getElementById('modalCardioArticularText');
+      if (articularBox && articularText) {
+        if (currentCardioSport === 'corrida' && km >= 0.5) {
+          const hist = (typeof getBodyCompHistory === 'function') ? getBodyCompHistory() : [];
+          if (hist.length > 1) {
+            const lostKg = Math.max(0, hist[0].weight - hist[hist.length - 1].weight);
+            if (lostKg > 0.3) {
+              const passosEst = Math.round(km * 1250);
+              const totalToneladas = ((lostKg * 4 * passosEst) / 1000).toFixed(1);
+              articularText.textContent = `Por ter reduzido ${lostKg.toFixed(1)} kg de lastro inerte, seus joelhos e meniscos foram poupados de aproximadamente ~${totalToneladas} toneladas de sobrecarga compressiva nesta corrida!`;
+              articularBox.style.display = 'block';
+            } else {
+              articularBox.style.display = 'none';
+            }
+          } else {
+            articularBox.style.display = 'none';
+          }
+        } else {
+          articularBox.style.display = 'none';
+        }
+      }
+
+      const modal = document.getElementById('cardioSummaryModal');
+      if (modal) modal.classList.add('active');
+    };
+
+    window.closeCardioSummaryModal = function() {
+      const modal = document.getElementById('cardioSummaryModal');
+      if (modal) modal.classList.remove('active');
+
+      // Reseta painel para tela de início
+      cardioIsActive = false;
+      cardioIsPaused = false;
+      document.getElementById('cardioSetupPanel').style.display = 'block';
+      document.getElementById('cardioActivePanel').style.display = 'none';
+      renderCardioWeekStats();
+      renderCardioHistory();
+    };
+
+    function renderCardioPseButtons() {
+      const grid = document.getElementById('cardioPseGrid');
+      if (!grid) return;
+      grid.innerHTML = '';
+      for (let i = 1; i <= 10; i++) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.textContent = i;
+        btn.style.cssText = `background: ${i === cardioSelectedPse ? '#f43f5e' : 'rgba(255,255,255,0.06)'}; color: #ffffff; border: 1px solid ${i === cardioSelectedPse ? '#fda4af' : 'rgba(255,255,255,0.15)'}; padding: 8px 0; border-radius: 8px; font-weight: 900; font-size: 0.9rem; cursor: pointer;`;
+        btn.onclick = () => selectCardioPse(i);
+        grid.appendChild(btn);
+      }
+    }
+
+    window.selectCardioPse = function(pse) {
+      cardioSelectedPse = pse;
+      renderCardioPseButtons();
+      const descEl = document.getElementById('cardioPseDesc');
+      const descs = {
+        1: '1 • Muito Leve (Recuperação)',
+        2: '2 • Leve (Ritmo de Conversa)',
+        3: '3 • Moderado Leve',
+        4: '4 • Moderado (Confortável)',
+        5: '5 • Moderado Firme',
+        6: '6 • Ritmo Alvo Sustentável',
+        7: '7 • Intenso (Limiar Aeróbico)',
+        8: '8 • Muito Intenso (Ritmo Forte)',
+        9: '9 • Quase Máximo (Exaustão)',
+        10: '10 • Esforço Máximo Absoluto'
+      };
+      if (descEl) descEl.textContent = descs[pse] || `PSE ${pse}`;
+    };
+
+    window.saveCardioActivity = async function() {
+      const athleteSlug = (typeof currentActiveAthlete !== 'undefined' ? currentActiveAthlete : (typeof DOMINIO_APP_CONFIG !== 'undefined' ? DOMINIO_APP_CONFIG.athleteSlug : 'gui')) || 'gui';
+      const meta = CARDIO_SPORTS_META[currentCardioSport];
+      const km = (cardioTotalMeters / 1000);
+      const kcal = calculateCardioKcal(currentCardioSport, cardioElapsedTime, cardioTotalMeters);
+      const paceStr = calculateCardioPaceStr(currentCardioSport, cardioElapsedTime, cardioTotalMeters);
+      const notes = document.getElementById('cardioNotesInput')?.value || '';
+      const now = new Date();
+
+      const newActivity = {
+        id: 'cardio_' + Date.now(),
+        aluno_slug: athleteSlug,
+        modalidade: currentCardioSport,
+        ambiente: currentCardioEnv,
+        distancia_km: parseFloat(km.toFixed(2)),
+        distancia_metros: Math.round(cardioTotalMeters),
+        tempo_segundos: cardioElapsedTime,
+        tempo_formatado: formatCardioTime(cardioElapsedTime),
+        pace_formatado: `${paceStr} ${meta.paceUnit}`,
+        calorias: kcal,
+        pse: cardioSelectedPse,
+        notas: notes,
+        data_hora: now.toISOString(),
+        data_formatada: now.toLocaleDateString('pt-BR'),
+        rota_resumo: cardioCoordinates.slice(0, 50) // Amostra de coordenadas
+      };
+
+      // Salva no LocalStorage
+      const storageKey = `dominio_${athleteSlug}_cardio_logs`;
+      let logs = [];
+      try {
+        const raw = localStorage.getItem(storageKey);
+        if (raw) logs = JSON.parse(raw);
+      } catch (e) {}
+      logs.unshift(newActivity);
+      try {
+        localStorage.setItem(storageKey, JSON.stringify(logs));
+      } catch (e) {}
+
+      // Sincroniza com Cloud Firestore
+      try {
+        if (typeof firebase !== 'undefined' && firebase.firestore) {
+          const db = firebase.firestore();
+          await db.collection('cardio_logs').doc(newActivity.id).set(newActivity);
+          console.log('Cardio salvo no Cloud Firestore com sucesso!');
+        }
+      } catch (err) {
+        console.warn('Erro ao salvar cardio no Firestore (salvo localmente):', err);
+      }
+
+      alert('✅ Atividade salva e sincronizada com sucesso no seu histórico!');
+      closeCardioSummaryModal();
+    };
+
+    window.shareCardioWhatsApp = function() {
+      const meta = CARDIO_SPORTS_META[currentCardioSport];
+      const km = (cardioTotalMeters / 1000).toFixed(2);
+      const time = formatCardioTime(cardioElapsedTime);
+      const pace = `${calculateCardioPaceStr(currentCardioSport, cardioElapsedTime, cardioTotalMeters)} ${meta.paceUnit}`;
+      const kcal = calculateCardioKcal(currentCardioSport, cardioElapsedTime, cardioTotalMeters);
+      const envName = currentCardioEnv === 'ar_livre' ? 'Ao Ar Livre (GPS)' : 'Ergômetro (Indoor)';
+      const notes = document.getElementById('cardioNotesInput')?.value || '';
+
+      let msg = `*${meta.icon} ${meta.name.toUpperCase()} CONCLUÍDA • DOMÍNIO CORPORAL*\n`;
+      msg += `Ambiente: ${envName}\n`;
+      msg += `📍 Distância: ${km} km\n`;
+      msg += `⏱️ Duração: ${time}\n`;
+      msg += `⚡ ${meta.paceTitle}: ${pace}\n`;
+      msg += `🔥 Gasto: ${kcal} kcal • PSE: ${cardioSelectedPse}/10\n`;
+      if (notes) msg += `📝 Notas: ${notes}\n`;
+      msg += `\nTreino registrado pelo app oficial!`;
+
+      const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
+    };
+
+    function renderCardioWeekStats() {
+      const athleteSlug = (typeof currentActiveAthlete !== 'undefined' ? currentActiveAthlete : (typeof DOMINIO_APP_CONFIG !== 'undefined' ? DOMINIO_APP_CONFIG.athleteSlug : 'gui')) || 'gui';
+      const storageKey = `dominio_${athleteSlug}_cardio_logs`;
+      let logs = [];
+      try {
+        const raw = localStorage.getItem(storageKey);
+        if (raw) logs = JSON.parse(raw);
+      } catch (e) {}
+
+      let totalKm = 0;
+      let totalSeconds = 0;
+      let totalKcal = 0;
+
+      // Filtra últimos 7 dias
+      const sevenDaysAgo = Date.now() - (7 * 24 * 60 * 60 * 1000);
+      logs.forEach(l => {
+        const d = new Date(l.data_hora || l.id.replace('cardio_', '')).getTime();
+        if (d >= sevenDaysAgo) {
+          totalKm += (l.distancia_km || 0);
+          totalSeconds += (l.tempo_segundos || 0);
+          totalKcal += (l.calorias || 0);
+        }
+      });
+
+      const distEl = document.getElementById('cardioWeekDist');
+      const timeEl = document.getElementById('cardioWeekTime');
+      const kcalEl = document.getElementById('cardioWeekKcal');
+
+      if (distEl) distEl.textContent = `${totalKm.toFixed(1)} km`;
+      if (timeEl) timeEl.textContent = `${Math.round(totalSeconds / 60)} min`;
+      if (kcalEl) kcalEl.textContent = `${totalKcal} kcal`;
+    }
+
+    function renderCardioHistory() {
+      const athleteSlug = (typeof currentActiveAthlete !== 'undefined' ? currentActiveAthlete : (typeof DOMINIO_APP_CONFIG !== 'undefined' ? DOMINIO_APP_CONFIG.athleteSlug : 'gui')) || 'gui';
+      const storageKey = `dominio_${athleteSlug}_cardio_logs`;
+      let logs = [];
+      try {
+        const raw = localStorage.getItem(storageKey);
+        if (raw) logs = JSON.parse(raw);
+      } catch (e) {}
+
+      const container = document.getElementById('cardioHistoryList');
+      const badge = document.getElementById('cardioHistoryBadge');
+      if (badge) badge.textContent = logs.length === 1 ? '1 Sessão' : `${logs.length} Sessões`;
+      if (!container) return;
+
+      if (logs.length === 0) {
+        container.innerHTML = `
+          <div style="background: rgba(255,255,255,0.02); border: 1px dashed rgba(244,63,94,0.3); border-radius: 12px; padding: 22px 16px; text-align: center; color: #94a3b8; font-size: 0.88rem;">
+            <p style="margin: 0 0 4px 0; color: #e2e8f0; font-weight: 700;">Nenhuma atividade aeróbica registrada ainda.</p>
+            <p style="margin: 0; font-size: 0.82rem; color: #94a3b8;">Escolha sua modalidade acima e inicie seu treino ao ar livre ou no ergômetro!</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = logs.map(l => {
+        const meta = CARDIO_SPORTS_META[l.modalidade] || CARDIO_SPORTS_META.corrida;
+        const envLabel = l.ambiente === 'ar_livre' ? 'Ao Ar Livre (GPS)' : 'Ergômetro (Indoor)';
+        return `
+          <div class="cardio-history-card">
+            <div style="display:flex; flex-direction:column; gap:4px;">
+              <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                <span style="font-size:1.15rem;">${meta.icon}</span>
+                <span style="font-size:0.95rem; font-weight:900; color:#ffffff;">${meta.name.toUpperCase()}</span>
+                <span style="font-size:0.68rem; font-weight:800; color:#f43f5e; background:rgba(244,63,94,0.12); border:1px solid rgba(244,63,94,0.3); padding:2px 7px; border-radius:6px;">
+                  ${envLabel}
+                </span>
+                <span style="font-size:0.75rem; color:#94a3b8;">${l.data_formatada || ''}</span>
+              </div>
+              <div style="font-size:0.82rem; color:#cbd5e1; margin-top:2px;">
+                <strong style="color:#ffffff;">${l.distancia_km} km</strong> em <strong style="color:#ffffff;">${l.tempo_formatado}</strong> • Ritmo: <strong style="color:#f43f5e;">${l.pace_formatado}</strong> • PSE: <strong style="color:#fbbf24;">${l.pse}/10</strong>
+              </div>
+              ${l.notas ? `<div style="font-size:0.75rem; color:#94a3b8; font-style:italic;">"${l.notas}"</div>` : ''}
+            </div>
+            <div>
+              <button type="button" onclick="deleteCardioLog('${l.id}')" title="Excluir Registro" style="background:transparent; border:none; color:#f43f5e; font-size:1rem; cursor:pointer; padding:6px; opacity:0.7;">
+                🗑️
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    window.deleteCardioLog = async function(id) {
+      if (!confirm('Deseja excluir este registro de cardio?')) return;
+      const athleteSlug = (typeof currentActiveAthlete !== 'undefined' ? currentActiveAthlete : (typeof DOMINIO_APP_CONFIG !== 'undefined' ? DOMINIO_APP_CONFIG.athleteSlug : 'gui')) || 'gui';
+      const storageKey = `dominio_${athleteSlug}_cardio_logs`;
+      let logs = [];
+      try {
+        const raw = localStorage.getItem(storageKey);
+        if (raw) logs = JSON.parse(raw);
+      } catch (e) {}
+
+      logs = logs.filter(l => l.id !== id);
+      try {
+        localStorage.setItem(storageKey, JSON.stringify(logs));
+      } catch (e) {}
+
+      try {
+        if (typeof firebase !== 'undefined' && firebase.firestore) {
+          await firebase.firestore().collection('cardio_logs').doc(id).delete();
+        }
+      } catch (e) {}
+
+      renderCardioWeekStats();
+      renderCardioHistory();
+    };
+
+
+    </script>
         <!-- Modal Flutuante de Orientações Técnicas (Execução / Cuidados / Importante / Foco) -->
   <div id="tipPopoverOverlay" class="modal-overlay" onclick="closeTipPopover(event)" style="z-index: 30000 !important;">
     <div class="modal-card" style="max-width: 440px; border-radius: 16px; border: 1px solid rgba(56, 189, 248, 0.45); padding: 18px 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.9), 0 0 25px rgba(56,189,248,0.2);" onclick="event.stopPropagation();">
