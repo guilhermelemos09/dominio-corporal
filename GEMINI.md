@@ -942,3 +942,19 @@ Para garantir integridade técnica absoluta, estabilidade contínua e prevençã
 
 ### 17.3 Git Hooks Ativos:
 Hooks de `pre-commit` e `pre-push` estão configurados nos repositórios para executar a suíte automaticamente e bloquear qualquer tentativa de commit ou deploy caso alguma asserção falhe.
+
+---
+
+## 18. PRESCRIÇÃO E CALIBRAGEM DE CARGAS DE CROSSFIT (TREINO DO TREINADOR GUI)
+
+Sempre que o treinador Gui enviar um treino de CrossFit da lousa do box para inclusão na sua rotina:
+
+1. **Alerta Imediato do Estímulo-Alvo:**
+   - Explicar com clareza a intenção fisiológica de cada bloco (Skill/Força vs. WOD/Metabólico).
+   - Alertar expressamente para **não inflar a carga no WOD** em blocos de alta repetição (15 a 20+ reps por estação ou AMRAPs de 12 a 20 minutos).
+
+2. **Indicação Objetiva de Cargas e Quilagens Recomendadas:**
+   - Indicar faixas exatas de kg para cada movimento da lousa:
+     - **Skill e Força:** Carga progressiva desafiadora (ex: Back Squat 70-85 kg, Front Squat 65-80 kg), com pausas completas (2 a 3 min) para recrutamento neural sem fadiga ácida precoce.
+     - **WOD (Metabólico e Cadência):** Cargas calibradas para permitir séries *unbroken* (direto) ou no máximo em 2 blocos rápidos (ex: Wallball 6 a 8 kg em AMRAPs longos; Dumbbells de Step Up / Thruster 12 a 16 kg; Kettlebell Swing 16 a 20 kg; Snatch / Clean no WOD 30 a 35 kg).
+   - Proteger a integridade articular (joelho esquerdo operado com descida no passo; cotovelos com microflexão) e poupar estamina neuromuscular para os blocos de **Habilidades (Handstand, Sequência nas Argolas)** e práticas de **AcroDuo e Dança**.

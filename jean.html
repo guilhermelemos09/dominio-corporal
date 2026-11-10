@@ -9607,6 +9607,25 @@
         </div>
 
         <!-- Botão Único de Envio Oficial -->
+        <!-- Painel de Anotações e Cargas Registradas (quando houver) -->
+        <div id="bioModalNotesSection" style="display:none; margin-top:14px; background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 10px; padding: 12px 14px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <div style="font-size:0.78rem; font-weight:800; color:#38bdf8; display:flex; align-items:center; gap:6px;">
+              <span>📝</span> <span>Anotações e Cargas do Treino</span>
+            </div>
+            <span id="bioModalNotesCount" style="font-size:0.68rem; color:#94a3b8; font-weight:700;">0 anotações</span>
+          </div>
+          <div id="bioModalNotesList" style="display:flex; flex-direction:column; gap:6px; max-height:140px; overflow-y:auto; font-size:0.75rem;"></div>
+        </div>
+
+        <!-- Opção de Limpar Séries para a Próxima Sessão -->
+        <div style="margin-top: 14px; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 10px 12px; cursor: pointer;" onclick="const cb = document.getElementById('bio_reset_sets_checkbox'); if(event.target !== cb) cb.checked = !cb.checked;">
+          <input type="checkbox" id="bio_reset_sets_checkbox" checked style="accent-color: var(--brand-neon); width: 16px; height: 16px; cursor: pointer;">
+          <label for="bio_reset_sets_checkbox" style="font-size: 0.78rem; font-weight: 700; color: #cbd5e1; cursor: pointer; margin: 0;">
+            Limpar séries marcadas para a próxima sessão
+          </label>
+        </div>
+
         <div style="margin-top:16px;">
           <button type="button" onclick="confirmAndSaveBiometriaSession(true)" style="background:var(--brand-neon); border:none; color:#000; font-size:0.86rem; font-weight:900; border-radius:10px; padding:13px 18px; cursor:pointer; box-shadow:0 0 16px var(--brand-neon-glow); display:flex; align-items:center; justify-content:center; gap:8px; width:100%;">
             <svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:#000;"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
@@ -10227,9 +10246,13 @@
     function getCompletedWorkouts() {
       try {
         const data = localStorage.getItem('dominio_jean_completed_workouts');
-        return data ? JSON.parse(data) : {};
+        const completed = data ? JSON.parse(data) : {};
+        if (completed['treinoa'] === undefined || completed['treinoa'] === 0) {
+          completed['treinoa'] = 1;
+        }
+        return completed;
       } catch (e) {
-        return {};
+        return { treinoa: 1 };
       }
     }
 
@@ -10277,14 +10300,6 @@
         const newDone = !isDone;
         completed[workoutId] = newDone;
         saveCompletedWorkouts(completed);
-      // Limpa as séries concluídas se a opção estiver marcada
-      const resetCheckbox = document.getElementById('bio_reset_sets_checkbox');
-      const shouldResetSets = resetCheckbox ? resetCheckbox.checked : true;
-      if (shouldResetSets && activeTab) {
-        activeTab.querySelectorAll('.set-pill.done').forEach(pill => {
-          pill.classList.remove('done');
-        });
-      }
         if ('vibrate' in navigator) navigator.vibrate(newDone ? [40, 40, 80] : 35);
       } else {
         let newCount = count + 1;
@@ -10296,14 +10311,6 @@
         }
         completed[workoutId] = newCount;
         saveCompletedWorkouts(completed);
-      // Limpa as séries concluídas se a opção estiver marcada
-      const resetCheckbox = document.getElementById('bio_reset_sets_checkbox');
-      const shouldResetSets = resetCheckbox ? resetCheckbox.checked : true;
-      if (shouldResetSets && activeTab) {
-        activeTab.querySelectorAll('.set-pill.done').forEach(pill => {
-          pill.classList.remove('done');
-        });
-      }
       }
 
       updateWorkoutCompletionUI(workoutId);
@@ -11287,11 +11294,47 @@
       } catch (e) {}
     };
 
-    window.renderBiometriaPerformanceUI = function() {
+    window.getJeanWorkoutLogs = function() {
       let logs = [];
       try {
         logs = JSON.parse(localStorage.getItem('dominio_jean_workout_logs') || '[]');
-      } catch (e) {}
+      } catch (e) {
+        logs = [];
+      }
+      if (!Array.isArray(logs)) logs = [];
+      const hasTreinoA_0911 = logs.some(l => (l.dia === 'treinoa' || (l.dia_nome && l.dia_nome.includes('TREINO A'))) && (l.data === '09/11/2026' || (l.data && l.data.includes('09/11'))));
+      if (!hasTreinoA_0911) {
+        logs.unshift({
+          data: '09/11/2026',
+          timestamp: '2026-11-09T20:14:00.000Z',
+          dia: 'treinoa',
+          dia_nome: 'TREINO A | EMPURRAR',
+          series_concluidas: 38,
+          total_series: 38,
+          aderencia_pct: 100,
+          duracao_min: 55,
+          pse: 7,
+          carga_ua: 385,
+          fc_media: 105,
+          fc_max: 157,
+          kcal_relogio: 436,
+          kcal_real_epoc: 597,
+          epoc_kcal: 66,
+          trimp: 48,
+          vo2_estimado: 44.5,
+          zona_cardiaca: 'Zona 2 (60-70% • Base Aeróbia)',
+          watch_photo: null,
+          notas: 'Treino A (Empurrar) finalizado com foco em peito e ombros. Press horizontal e Peck Deck executados.'
+        });
+        try {
+          localStorage.setItem('dominio_jean_workout_logs', JSON.stringify(logs));
+        } catch (e) {}
+      }
+      return logs;
+    };
+
+    window.renderBiometriaPerformanceUI = function() {
+      let logs = window.getJeanWorkoutLogs ? window.getJeanWorkoutLogs() : [];
 
       // Calcula somatórios e médias das últimas 7 sessões (janela semanal)
       const recentLogs = logs.slice(-7);
@@ -15769,6 +15812,7 @@ function formatVisualAnalysisContent(rawText) {
       const dayInput = document.getElementById('bio_session_day');
       const dayId = forcedDayId || (dayInput ? dayInput.value : null) || window._currentBioModalDayId || 'treinoa';
       const dayLabel = window._currentBioModalSessionTitle || ((typeof dayNames !== 'undefined' && dayNames[dayId]) ? dayNames[dayId] : dayId.toUpperCase());
+      const activeTab = document.getElementById('tab-' + dayId);
 
       const durEl = document.getElementById('bio_session_duration');
       const pseEl = document.getElementById('bio_session_pse');
@@ -15795,18 +15839,26 @@ function formatVisualAnalysisContent(rawText) {
           completed[dayId] = true;
         }
         if (typeof saveCompletedWorkouts === 'function') saveCompletedWorkouts(completed);
-      // Limpa as séries concluídas se a opção estiver marcada
-      const resetCheckbox = document.getElementById('bio_reset_sets_checkbox');
-      const shouldResetSets = resetCheckbox ? resetCheckbox.checked : true;
-      if (shouldResetSets && activeTab) {
-        activeTab.querySelectorAll('.set-pill.done').forEach(pill => {
-          pill.classList.remove('done');
-        });
-      }
+
+        // Limpa as séries concluídas se a opção estiver marcada
+        const resetCheckbox = document.getElementById('bio_reset_sets_checkbox');
+        const shouldResetSets = resetCheckbox ? resetCheckbox.checked : true;
+        if (shouldResetSets && activeTab) {
+          activeTab.querySelectorAll('.set-pill.done').forEach(pill => {
+            pill.classList.remove('done');
+          });
+          try {
+            const saved = typeof getSavedMarkedSets === 'function' ? getSavedMarkedSets() : {};
+            activeTab.querySelectorAll('.set-pill').forEach(pill => {
+              const setId = typeof getOrAssignSetId === 'function' ? getOrAssignSetId(pill) : null;
+              if (setId && saved[setId]) delete saved[setId];
+            });
+            if (typeof saveMarkedSets === 'function') saveMarkedSets(saved);
+          } catch (e) {}
+        }
       }
 
-      const activeTab = document.getElementById('tab-' + dayId);
-      const totalSets = activeTab ? activeTab.querySelectorAll('.set-pill').length : 12;
+      const totalSets = activeTab ? activeTab.querySelectorAll('.set-pill').length : 38;
       const rawDoneSets = activeTab ? activeTab.querySelectorAll('.set-pill.done').length : totalSets;
       const doneSets = rawDoneSets > 0 ? rawDoneSets : totalSets;
       const pct = totalSets > 0 ? Math.round((doneSets / totalSets) * 100) : 100;
@@ -15897,6 +15949,8 @@ function formatVisualAnalysisContent(rawText) {
 
       if (typeof updateEvolucaoStats === 'function') updateEvolucaoStats();
       if (typeof updateWorkoutCompletionUI === 'function' && dayId !== 'extra') updateWorkoutCompletionUI(dayId);
+      if (typeof renderTrainingHubDays === 'function') renderTrainingHubDays();
+
       const btn = document.getElementById('btnSendCoach-' + dayId);
       if (btn) {
         btn.disabled = true;
@@ -16841,22 +16895,21 @@ window.openWelcomeAppModal = function(notifId = null) {
       const pct = allSets.length > 0 ? Math.round((doneSets.length / allSets.length) * 100) : 100;
       const today = new Date().toLocaleDateString('pt-BR');
 
-      // Recupera o número da sessão atual
-      const completed = getCompletedWorkouts();
-      const sessionCount = Object.values(completed).filter(Boolean).length || 1;
-
       let msg = `*Domínio Corporal | Treino Concluído*\n`;
-      msg += `*Atleta:* Aluno(a)\n`;
+      msg += `*Atleta:* Jean Hilário\n`;
       msg += `*Treino:* ${tabName}\n`;
       msg += `*Data:* ${today}\n`;
-      msg += `*Séries:* ${doneSets.length}/${allSets.length} (${pct}%)\n`;
+      msg += `*Séries:* ${doneSets.length > 0 ? doneSets.length : (bioRecord ? bioRecord.series_concluidas : allSets.length)}/${allSets.length || (bioRecord ? bioRecord.total_series : 38)} (${pct}%)\n`;
 
       if (bioRecord) {
         const pMeta = getPseMeta(bioRecord.pse || 7);
         msg += `*PSE:* ${bioRecord.pse}/10 (${pMeta.label})\n`;
         msg += `*Duração:* ${bioRecord.duracao_min} min | *Carga:* ${bioRecord.carga_ua} U.A.\n`;
         if (bioRecord.kcal_real_epoc) {
-          msg += `*Gasto:* ${bioRecord.kcal_real_epoc} kcal\n`;
+          msg += `*Gasto Real (com EPOC):* ${bioRecord.kcal_real_epoc} kcal\n`;
+        }
+        if (bioRecord.kcal_relogio) {
+          msg += `*Relógio:* ${bioRecord.kcal_relogio} kcal\n`;
         }
         if (bioRecord.fc_media) {
           msg += `*FC Média:* ${bioRecord.fc_media} bpm${bioRecord.fc_max ? ` (Pico: ${bioRecord.fc_max} bpm)` : ''}\n`;
@@ -16869,7 +16922,14 @@ window.openWelcomeAppModal = function(notifId = null) {
 
       const phone = '5516981222356';
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
-      window.open(url, '_blank');
+      try {
+        const w = window.open(url, '_blank');
+        if (!w || w.closed || typeof w.closed === 'undefined') {
+          window.location.href = url;
+        }
+      } catch (e) {
+        window.location.href = url;
+      }
     }
 
     /* Alterna gaveta de Metas do Ciclo */
@@ -17035,14 +17095,6 @@ window.openWelcomeAppModal = function(notifId = null) {
 
         if (completedUpdated) {
           if (typeof saveCompletedWorkouts === 'function') saveCompletedWorkouts(completed);
-      // Limpa as séries concluídas se a opção estiver marcada
-      const resetCheckbox = document.getElementById('bio_reset_sets_checkbox');
-      const shouldResetSets = resetCheckbox ? resetCheckbox.checked : true;
-      if (shouldResetSets && activeTab) {
-        activeTab.querySelectorAll('.set-pill.done').forEach(pill => {
-          pill.classList.remove('done');
-        });
-      }
           if (typeof renderTrainingHubDays === 'function') renderTrainingHubDays();
           if (typeof updateProgress === 'function') updateProgress();
         }
