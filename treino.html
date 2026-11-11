@@ -6711,10 +6711,10 @@
         <div class="training-day-card" id="dayCard-quarta" role="button" tabindex="0" data-workout-type="dia" onclick="openDayWorkout('quarta')">
           <div class="day-card-left">
             <div class="day-card-name-row">
-              <span class="day-name">QUARTA | A DEFINIR</span>
+              <span class="day-name">QUARTA | GINÁSTICA: ARGOLAS E HANDSTAND</span>
               <span class="day-today-badge" id="todayBadge-quarta" style="display:none;">Hoje</span>
             </div>
-            <div class="day-meta-pill">📍 Planejamento • ⏱️ A definir</div>
+            <div class="day-meta-pill">📍 Box CrossFit • ⏱️ ~1h40 Total</div>
           </div>
           <div class="day-card-right">
             <div class="day-status-pill status-pending" id="statusPill-quarta" onclick="event.stopPropagation(); handleWorkoutStatusClick('quarta')">
@@ -7329,31 +7329,362 @@
     </div>
   </div><!-- end #tab-terca -->
 
-    <!-- ==================== TAB: QUARTA (EM ABERTO • A DEFINIR) ==================== -->
+    <!-- ==================== TAB: QUARTA (GINÁSTICA: ARGOLAS E HANDSTAND) ==================== -->
   <div id="tab-quarta" class="tab-content">
 
     <!-- LOCAL E DURAÇÃO DA SESSÃO -->
     <div class="session-overall-meta">
-      <span class="meta-item">📍 A Definir</span>
+      <button type="button" class="btn-orientacoes-popup" onclick="openOrientacoesTreino('quarta')">
+        <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+        <span>ORIENTAÇÕES</span>
+      </button>
       <span class="meta-separator">|</span>
-      <span class="meta-item">⏱️ Em Planejamento</span>
+      <span class="meta-item">📍 Box CrossFit</span>
       <span class="meta-separator">|</span>
-      <span class="meta-item">⏳ Em Aberto</span>
+      <span class="meta-item">⚡ Ginástica: Kip nas Argolas e Handstand</span>
+      <span class="meta-separator">|</span>
+      <span class="meta-item">⏱️ ~1h40 Total</span>
     </div>
 
-    <!-- DIRETRIZES DA SESSÃO EM ABERTO -->
-    <div class="callout-box" style="border-left: 3.5px solid #64748b; padding: 22px 18px; margin-bottom: 20px; border-radius: 12px; background: rgba(255, 255, 255, 0.03);">
-      <div class="callout-icon" style="font-size:1.5rem;">📋</div>
-      <div>
-        <div class="callout-topic-header" style="color: #ffffff; font-size: 0.98rem; font-weight:800; letter-spacing:0.04em;">QUARTA • SESSÃO EM ABERTO</div>
-        <div style="font-size: 0.85rem; color: #94a3b8; margin-top: 8px; line-height: 1.6;">
-          Os blocos de treino, volumes e cargas desta sessão serão definidos e lançados após a avaliação do rendimento e recuperação dos treinos anteriores da semana.
+    <!-- ==================== SEÇÃO 1: ATIVAÇÃO ==================== -->
+    <div class="section-card sec-aquecimento">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-title">ATIVAÇÃO</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~18 min</span>
+        </div>
+      </div>
+
+      <!-- EXERCÍCIO 1: PREPARAÇÃO ARTICULAR E TÉRMICA -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>PREPARAÇÃO ARTICULAR E TÉRMICA</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('PREPARAÇÃO ARTICULAR E TÉRMICA', '<b>Execução:</b> 1. CARs e mobilizações dinâmicas de punhos em 4 apoios com palmas e dorsos no chão, alternando oscilações circulares lentas e sustentação em extensão.<br>2. Aquecimento térmico de cotovelos com elástico fino: 20 repetições de rosca bíceps leve com cotovelos colados ao tronco e 20 repetições de tríceps pushdown, irrigando as inserções tendíneas dos epicôndilos sem gerar fadiga mecânica.<br>3. Passagens de ombro com bastão em pegada média e abertura de tórax na postura Puppy Pose por 45 segundos.<br><br><b>Cuidados:</b> Movimentar os cotovelos sem trancos; manter a respiração diafragmática fluida e evitar forçar o punho em dor aguda.<br><br><b>Base científica:</b> FLUXO SANGUÍNEO PERITENDÍNEO E COMPLACÊNCIA CAPSULAR: O aquecimento dinâmico com elástico em cadência suave aumenta a viscosidade sinovial e a temperatura dos tendões braquial e bíceps, atenuando a rigidez excêntrica e o risco de estresse em epicôndilos durante os movimentos de suspensão (Neumann, 2016; Magnusson et al., 2008).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+
+        <div style="margin: 10px 0 14px 0; font-size: 0.82rem; color: #cbd5e1; line-height: 1.55;">
+          • <strong>Punhos em 4 Apoios:</strong> oscilações controladas em flexão e extensão (palmas e dorsos).<br>
+          • <strong>Cotovelos com Elástico:</strong> 20 roscas leves e 20 extensões de tríceps para aquecimento articular.<br>
+          • <strong>Passagens de Bastão e Puppy Pose:</strong> mobilidade escapular e abertura torácica.
+        </div>
+
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 PASSAGENS • PUNHOS, COTOVELOS E ESCÁPULAS • ⏱️ REST: 30s</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1 (CARs de Punhos e 4 Apoios)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2 (Aquecimento Térmico com Elástico)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3 (Bastão e Abertura Torácica)</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-qua-ativacao-articular" onclick="toggleCommentBox('ex-qua-ativacao-articular')">
+            <span>💬 Dúvidas ou Observações?</span>
+            <span class="comment-dot" id="dot-ex-qua-ativacao-articular" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-qua-ativacao-articular" class="comment-drawer" style="display: none;">
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
+            <span class="save-indicator" id="save-status-ex-qua-ativacao-articular"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-qua-ativacao-articular" placeholder="Escreva aqui a sensação nos cotovelos ou punhos no aquecimento..." oninput="saveExerciseNote('ex-qua-ativacao-articular', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira anexar vídeo do aquecimento:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Preparação Articular • Quarta')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXERCÍCIO 2: LINHA GINÁSTICA E CORE -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>LINHA GINÁSTICA E CORE</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('LINHA GINÁSTICA E CORE', '<b>Execução:</b> 1. Hollow Body Hold no solo: pernas unidas estendidas, pontas de pés firmes, retroversão pélvica colando a lombar ao solo e braços alinhados às orelhas (sustentação de 25s).<br>2. Transição imediata para Arch Body Hold (Super homem reverso): elevação simultânea de peito e pernas mantendo glúteos e paravertebrais ativos (sustentação de 25s).<br>3. Pike Tucks de compressão sentado no solo com pernas estendidas e palmas das mãos apoiadas à frente dos joelhos, elevando as pernas em contração concêntrica de abdômen (8 repetições controladas).<br><br><b>Cuidados:</b> Não desconectar a região lombar do solo durante o hollow; manter escápulas ativas sem sobrecarregar a cervical.<br><br><b>Base científica:</b> COATIVAÇÃO DE CORE E TENSÃO RECÍPROCA NA LINHA GINÁSTICA: A estabilidade do complexo lombopélvico em posições de canoa (hollow) e arco (arch) estabelece a base de transmissão de torque entre tronco e membros superiores necessária para suportes nas argolas e alinhamento do Handstand (McGill, 2010; Bernasconi et al., 2006).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • HOLLOW 25s + ARCH 25s + PIKE COMPRESSÃO • ⏱️ REST: 45s</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1 (Hollow 25s, Arch 25s e Pike 8r)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2 (Hollow 25s, Arch 25s e Pike 8r)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3 (Hollow 25s, Arch 25s e Pike 8r)</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-qua-ativacao-core" onclick="toggleCommentBox('ex-qua-ativacao-core')">
+            <span>💬 Dúvidas ou Observações?</span>
+            <span class="comment-dot" id="dot-ex-qua-ativacao-core" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-qua-ativacao-core" class="comment-drawer" style="display: none;">
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
+            <span class="save-indicator" id="save-status-ex-qua-ativacao-core"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-qua-ativacao-core" placeholder="Escreva aqui suas impressões na linha de hollow ou compressão..." oninput="saveExerciseNote('ex-qua-ativacao-core', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira enviar vídeo da postura de hollow:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Linha Ginástica • Quarta')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
 
-    <div style="text-align: center; padding: 40px 16px; color: var(--text-dim); font-size: 0.82rem;">
-      <p style="margin: 0;">Aguardando definição técnica de exercícios.</p>
+    <!-- ==================== SEÇÃO 2: HABILIDADES ==================== -->
+    <div class="section-card sec-skills">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-title">HABILIDADES</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~45 min</span>
+        </div>
+      </div>
+
+      <!-- EXERCÍCIO 1: SEQUÊNCIA NAS ARGOLAS: KIP E PRESS HANDSTAND -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>SEQUÊNCIA NAS ARGOLAS: KIP E PRESS HANDSTAND</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('SEQUÊNCIA NAS ARGOLAS: KIP E PRESS HANDSTAND', '<b>Execução:</b> 1. Entrada com pegada firme nas argolas médias sobre tatame seguro.<br>2. Fase 1 (Kip to Support): executar a subida em kip rítmico acelerando com o quadril e finalizando no apoio estrito com anéis voltados 45 graus para fora (RTO Support Hold).<br>3. Fase 2 (Vela Straddle): descer de forma lenta e excêntrica invertendo a pelve até a posição de vela invertida (inverted hang) com abertura ativa de pernas em straddle amplo.<br>4. Fase 3 (Apoio no Cabo e Elevação em Kip/Press): posicionar firmemente os peitos dos pés apoiados nas fitas verticais das argolas e disparar a subida em kip técnico com flexão dos braços (Bent Arm Press), impulsionando o quadril para cima da linha dos ombros.<br>5. Fase 4 (Handstand nas Argolas): deslizar os pés subindo pelas fitas enquanto os ombros empurram em elevação escapular máxima e os cotovelos travam em lockout sólido, sustentando a parada de mãos por 3 a 5 segundos.<br>6. Fase 5: retorno excêntrico lento e controlado.<br><br><b>Cuidados:</b> Manter pressão contínua dos pés contra os cabos para direcionar a subida e não sobrecarregar as cápsulas dos ombros; descer sempre de forma assistida no tatame.<br><br><b>Base científica:</b> CINEMÁTICA DE CADEIA FECHADA GUIADA EM ARGOLAS: O uso das fitas verticais como apoio propulsor reduz o momento de inércia e o torque extensor excessivo nos deltoides anteriores, permitindo que o sistema neuromuscular consolide a coordenação motora de elevação pélvica e empurre escapular em superfície instável (Prassas et al., 2002; Sands et al., 2003).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+
+        <!-- ROTEIRO DA SEQUÊNCIA -->
+        <div style="margin: 10px 0 14px 0; font-size: 0.82rem; color: #cbd5e1; line-height: 1.55;">
+          • <strong>1. Kip to Support:</strong> impulsão rítmica de quadril para o apoio estável (RTO).<br>
+          • <strong>2. Vela Straddle:</strong> descida excêntrica controlada e abertura ampla de pernas.<br>
+          • <strong>3. Apoio nos Cabos:</strong> peitos dos pés firmes nas fitas verticais.<br>
+          • <strong>4. Elevação e Bent Arm Press:</strong> empurre pélvico vertical guiado pelas fitas.<br>
+          • <strong>5. Handstand no Topo:</strong> lockout de cotovelos, elevação escapular e sustentação de 3 a 5s.
+        </div>
+
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">5 PASSAGENS TÉCNICAS • SISTEMA NERVOSO FRESCO • ⏱️ REST: 2 A 3 MIN</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Passagem 1 (Kip, Vela Straddle e Apoio no Cabo)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Passagem 2 (Elevação Pélvica e Subida para HS)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Passagem 3 (Fixação no Topo e Sustentação 3-5s)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Passagem 4 (Controle de Alinhamento e Descida Lenta)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Passagem 5 (Sequência Completa Consolidada)</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-qua-argolas-kip-press" onclick="toggleCommentBox('ex-qua-argolas-kip-press')">
+            <span>💬 Dúvidas ou Observações?</span>
+            <span class="comment-dot" id="dot-ex-qua-argolas-kip-press" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-qua-argolas-kip-press" class="comment-drawer" style="display: none;">
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
+            <span class="save-indicator" id="save-status-ex-qua-argolas-kip-press"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-qua-argolas-kip-press" placeholder="Escreva aqui se conseguiu subir para o Handstand, sensação no apoio dos cabos ou estabilidade..." oninput="saveExerciseNote('ex-qua-argolas-kip-press', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Envie o vídeo da sua tentativa para avaliação biomecânica detalhada:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Sequência nas Argolas: Kip e Press Handstand • Quarta')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXERCÍCIO 2: HANDSTAND E EQUILÍBRIO LIVRE -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>HANDSTAND E EQUILÍBRIO LIVRE</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('HANDSTAND E EQUILÍBRIO LIVRE', '<b>Execução:</b> 1. Entrada suave em parada de mãos no solo ou em manjotas baixas/médias sem chute excessivo.<br>2. Empilhamento ósseo (bone stacking): punho, cotovelo e ombro rigorosamente na mesma linha vertical da gravidade, com elevação e protração ativa das escápulas.<br>3. Sustentação de 12 a 20 segundos mantendo glúteos compactados, pelve neutra e olhar direcionado entre as mãos.<br>4. Testar variações: sustentação em pernas unidas, straddle estrito e transferência de peso unilateral (tentativas controladas de One-Arm Croc sustentando de 3 a 5 segundos descolando sutilmente a mão de apoio).<br><br><b>Cuidados:</b> Não quebrar na lombar (evitar hiperlordose em banana); sair da parada com controle sem bater os calcanhares no chão.<br><br><b>Base científica:</b> INTEGRAÇÃO PROPRIOCEPTIVA E BONE STACKING: O alinhamento das articulações de suporte sobre a vertical gravitacional transfere as forças de cisalhamento para a compressão óssea passiva, diminuindo a demanda metabólica dos deltoides e ampliando a capacidade de sustentação temporal (Latash, 2008; Kerwin et al., 2006).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">5 SÉRIES • SUSTENTAÇÃO LIVRE 12-20s + ONE-ARM CROC DRILLS • ⏱️ REST: 90s</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1 (Empilhamento Ósseo e Linha Retilínea 15s)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2 (Sustentação Livre e Straddle 15s)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3 (Transferência de Peso Unilateral 3-5s)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 4 (Transferência de Peso Unilateral 3-5s)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 5 (Sustentação Máxima com Alinhamento Estrito)</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-qua-handstand-livre" onclick="toggleCommentBox('ex-qua-handstand-livre')">
+            <span>💬 Dúvidas ou Observações?</span>
+            <span class="comment-dot" id="dot-ex-qua-handstand-livre" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-qua-handstand-livre" class="comment-drawer" style="display: none;">
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
+            <span class="save-indicator" id="save-status-ex-qua-handstand-livre"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-qua-handstand-livre" placeholder="Escreva aqui seus tempos de sustentação, firmeza no empilhamento ou sensações no One-Arm Croc..." oninput="saveExerciseNote('ex-qua-handstand-livre', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Envie seu vídeo do Handstand ou One-Arm Croc:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Handstand e Equilíbrio Livre • Quarta')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SEÇÃO 3: FORTALECIMENTO ==================== -->
+    <div class="section-card sec-forca">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-title">FORTALECIMENTO</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~25 min</span>
+        </div>
+      </div>
+
+      <!-- EXERCÍCIO 1: PROGRESSÕES DE PRESS TO HANDSTAND -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>PROGRESSÕES DE PRESS TO HANDSTAND</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('PROGRESSÕES DE PRESS TO HANDSTAND', '<b>Execução:</b> 1. Executar repetições excêntricas lentas de Press to Handstand na parede ou subidas com pés elevados no caixote (3 a 4 repetições por série).<br>2. Posição inicial: mãos firmes no solo com dedos abertos na largura dos ombros, iniciando a inclinação do tronco à frente com elevação das escápulas.<br>3. Puxar o quadril ativamente para cima por meio da flexão e compressão abdominal profunda em straddle aberto.<br>4. Na descida excêntrica, controlar a trajetória em 5 a 6 segundos com pernas afastadas até encostar suavemente os pés no solo ou na caixa.<br><br><b>Cuidados:</b> Manter a protração escapular constante sem colapsar os ombros; não deixar os cotovelos dobrarem durante a descida.<br><br><b>Base científica:</b> ADAPTAÇÃO EXCÊNTRICA E TORQUE EM ALAVANCA LONGA: O treinamento excêntrico do Press to Handstand gera picos de tensão mecânica na musculatura escapuloumeral e nos flexores de quadril, promovendo hipertrofia sarcomérica em série e aprimorando a capacidade de produção de força em amplitudes angulares críticas (Schoenfeld, 2010; Bernasconi et al., 2006).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">4 SÉRIES • 3 A 4 REPS EXCÊNTRICAS / PÉS NA CAIXA • ⏱️ REST: 90s</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1 (3 Reps com Pés no Caixote / Solo)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2 (3 Negativas Lentas de Press Handstand)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3 (3 Negativas Lentas de Press Handstand)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 4 (3 Negativas Lentas de Press Handstand)</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-qua-press-progressions" onclick="toggleCommentBox('ex-qua-press-progressions')">
+            <span>💬 Dúvidas ou Observações?</span>
+            <span class="comment-dot" id="dot-ex-qua-press-progressions" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-qua-press-progressions" class="comment-drawer" style="display: none;">
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
+            <span class="save-indicator" id="save-status-ex-qua-press-progressions"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-qua-press-progressions" placeholder="Escreva aqui como sentiu a compressão ou a descida excêntrica..." oninput="saveExerciseNote('ex-qua-press-progressions', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Envie o vídeo do seu Press to Handstand:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Progressões de Press to Handstand • Quarta')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXERCÍCIO 2: COMPRESSÃO DE CORE E MANGUITO POSTERIOR -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>COMPRESSÃO DE CORE E MANGUITO POSTERIOR</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('COMPRESSÃO DE CORE E MANGUITO POSTERIOR', '<b>Execução:</b> 1. L-Sit sustentado no solo ou nas manjotas por 15 a 20 segundos com pernas unidas em ponta e depressão escapular máxima (ou Straddle Leg Lifts sentado no solo por 10 reps estritas).<br>2. Transição direta para as argolas baixas: 10 repetições de Ring Face Pulls ou Ring Rows com rotação externa a 90 graus (cadência controlada 2-1-2), acionando romboides, trapézio médio/inferior e manguito rotador posterior.<br>3. Descanso passivo de 60 segundos entre séries.<br><br><b>Cuidados:</b> Não permitir elevação anterior dos ombros no L-Sit; manter o cotovelo alinhado e sem compensações no manguito rotador.<br><br><b>Base científica:</b> EQUILÍBRIO ARTICULAR ANTEROPOSTERIOR E PREVENÇÃO DE PINÇAMENTO: O reforço seletivo dos rotadores externos do ombro e depressores escapulares neutraliza a tendência de rotação interna causada por exercícios de compressão e puxadas cíclicas, estabilizando o centro de rotação da cabeça umeral (Reinold et al., 2009; Kibler et al., 2013).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • L-SIT 15s + RING FACE PULLS 10 REPS • ⏱️ REST: 60s</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1 (L-Sit 15s + Ring Face Pulls 10 reps)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2 (L-Sit 15s + Ring Face Pulls 10 reps)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3 (L-Sit 15s + Ring Face Pulls 10 reps)</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-qua-core-manguito" onclick="toggleCommentBox('ex-qua-core-manguito')">
+            <span>💬 Dúvidas ou Observações?</span>
+            <span class="comment-dot" id="dot-ex-qua-core-manguito" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-qua-core-manguito" class="comment-drawer" style="display: none;">
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
+            <span class="save-indicator" id="save-status-ex-qua-core-manguito"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-qua-core-manguito" placeholder="Escreva aqui a sensação no L-Sit ou nos rotadores de ombro..." oninput="saveExerciseNote('ex-qua-core-manguito', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Envie vídeo da execução do L-Sit ou Face Pull:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Core e Manguito Posterior • Quarta')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SEÇÃO 4: MOBILIDADE ==================== -->
+    <div class="section-card sec-flexibilidade">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-title">MOBILIDADE</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~12 min</span>
+        </div>
+      </div>
+
+      <!-- EXERCÍCIO 1: DESCOMPRESSÃO ARTICULAR E PREVENÇÃO DE COTOVELO -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>DESCOMPRESSÃO ARTICULAR E PREVENÇÃO DE COTOVELO</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('DESCOMPRESSÃO ARTICULAR E PREVENÇÃO DE COTOVELO', '<b>Execução:</b> 1. Suspensão passiva na barra fixa (Protocolo Kirsch 45s a 1 min) com apoio sutil dos pés no chão para alívio da tração axial, relaxamento escapular e abertura do espaço subacromial.<br>2. Liberação e alongamento de antebraços, bíceps braquial e braquiorradial no solo: apoiar as mãos com dedos voltados para trás e oscilar o peso corporal suavemente.<br>3. Child Pose (Postura da Criança) ou Puppy Pose com braços estendidos à frente, focando na respiração diafragmática nasal lenta (10 ciclos de 4s inspirando e 6s expirando) para restauração do tônus vagal pós-esforço.<br><br><b>Cuidados:</b> Entrar e sair da suspensão passiva suavemente sem impactos; não forçar ângulos articulares de dor aguda.<br><br><b>Base científica:</b> DESCOMPRESSÃO AXIAL E MODULAÇÃO PARASSIMPÁTICA: A tração vertical na barra amplia o espaço articular subacromial, aliviando o atrito no tendão supraespinhal. O estímulo de respiração profunda e descompressão fascial acelera a transição para o tônus parassimpático, facilitando a recuperação neuromuscular precoce (Kirsch, 2012; Chaitow, 2014).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • DESCOMPRESSÃO AXIAL, COTOVELOS E VOLTA À CALMA • ⏱️ REST: 30s</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1 (Suspensão Kirsch 45s na Barra Fixa)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2 (Liberação de Bíceps e Antebraço no Solo)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3 (Child Pose e Respiração Diafragmática 10c)</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-qua-descompressao" onclick="toggleCommentBox('ex-qua-descompressao')">
+            <span>💬 Dúvidas ou Observações?</span>
+            <span class="comment-dot" id="dot-ex-qua-descompressao" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-qua-descompressao" class="comment-drawer" style="display: none;">
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
+            <span class="save-indicator" id="save-status-ex-qua-descompressao"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-qua-descompressao" placeholder="Escreva aqui sua sensação de alívio nos ombros, cotovelos ou punhos..." oninput="saveExerciseNote('ex-qua-descompressao', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira enviar feedback ou dúvida sobre a descompressão:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Descompressão • Quarta')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Card Clean de Finalização de Treino (QUARTA) -->
@@ -7362,7 +7693,7 @@
         <span class="finish-flag-icon">🏁</span> <span>FINALIZAR SESSÃO</span>
       </button>
       <div id="completeFeedback-quarta" class="complete-feedback-box" style="display:none; width: 100%; margin-top: 10px;">
-        ✅ Sessão finalizada e registrada com sucesso!
+        ✓ Sessão finalizada e registrada com sucesso!
       </div>
     </div>
   </div><!-- end #tab-quarta -->
@@ -18400,7 +18731,7 @@ function formatVisualAnalysisContent(rawText) {
       const dayNames = {
         'segunda': 'SEGUNDA | CROSSFIT, ARGOLAS E ACRODUO',
         'terca': 'TERÇA | CROSSFIT: SKILL PULL-UP E WOD',
-        'quarta': 'QUARTA | A DEFINIR',
+        'quarta': 'QUARTA | GINÁSTICA: ARGOLAS E HANDSTAND',
         'quinta': 'QUINTA | A DEFINIR',
         'sexta': 'SEXTA | A DEFINIR'
       };
@@ -18727,6 +19058,15 @@ function formatVisualAnalysisContent(rawText) {
           '• <u><strong style="color:#38bdf8;">Descompressão Pós-Treino:</strong></u> Suspensão passiva (Protocolo Kirsch 45s) e liberação miofascial dos antebraços para neutralizar a hipertonia e prevenir epicondilite.'
         ];
         openTip('', conteudo.join('\n'), '🛡️ ORIENTAÇÕES');
+      } else if (sessao === 'quarta') {
+        const conteudo = [
+          '• <u><strong style="color:#38bdf8;">Cronograma da Sessão (1h40min):</strong></u> Treino de Ginástica no Box focado em qualidade neural e refinamento técnico: 18 min de ativação térmica e core, 45 min de habilidades (Kip nas argolas para Press Handstand e Handstand livre/manjotas), 25 min de fortalecimento e alavancas (Press to Handstand e L-Sit/manguito) e 12 min de descompressão.',
+          '• <u><strong style="color:#38bdf8;">Sequência nas Argolas (Kip e Press Handstand):</strong></u> Suba em kip dinâmico para o suporte (RTO). Na descida, controle a transição para vela invertida em straddle amplo. Ao posicionar os pés nos cabos, use a pressão dos pés para guiar a subida em Bent Arm Press, focando em elevar o quadril antes de travar os braços no lockout vertical.',
+          '• <u><strong style="color:#38bdf8;">Proteção de Cotovelos e Bíceps:</strong></u> Após o volume alto de puxadas e snatches de ontem, faça o aquecimento térmico com elástico com rigor (roscas e tríceps leves). Na sequência de argolas, descanse 2 a 3 minutos completos entre tentativas para não forçar os cotovelos sob fadiga.',
+          '• <u><strong style="color:#38bdf8;">Handstand e One-Arm Croc:</strong></u> Busque o empilhamento ósseo (bone stacking) punho-cotovelo-ombro. Nas transferências unilaterais, mantenha o centro de massa centralizado sobre a mão de apoio por 3 a 5 segundos sem torção pélvica.',
+          '• <u><strong style="color:#38bdf8;">Descompressão Pós-Treino:</strong></u> Protocolo Kirsch na barra fixa por 45s a 1 min e soltura no solo para drenar a tensão nos antebraços e restabelecer o tônus vagal.'
+        ];
+        openTip('', conteudo.join('\n'), '🛡️ ORIENTAÇÕES');
       } else {
         openTip('', '• Sessão em aberto. Aguardando definição técnica dos blocos de treino.', '🛡️ ORIENTAÇÕES');
       }
@@ -18750,11 +19090,10 @@ function formatVisualAnalysisContent(rawText) {
         },
         'quarta': {
           title: 'Foco do Treino • Quarta-feira',
-          text: `• SESSÃO NO BOX CONCLUÍDA: Treino realizado no Box CrossFit por gestão de tempo.
-• WARM UP: 2 rounds de Hollow rocks, Arch rocks, V-ups alternados e Beat swings.
-• SKILL EMOM 12': 5 Strict Pull-overs adaptados no Min 1 e 10 Toes-to-Bar no Min 2.
-• WOD FOR TIME: 30-20-10 T2B, DB Box Step Up (15kg) e DB Devil Press (15kg) com Time Cap de 18'.
-• PRESERVAÇÃO: Descida controlada no passo (step-down) para zero impacto meniscal.`
+          text: `• SEQUÊNCIA NAS ARGOLAS: Kip to support, descida excêntrica para vela straddle e subida no cabo para Handstand.
+• PARADA DE MÃOS LIVRE: Empilhamento ósseo, sustentação de 12-20s e transferências para One-Arm Croc.
+• FORTALECIMENTO DE ALAVANCAS: Negativas de Press to Handstand na parede e compressão em L-Sit.
+• BLINDAGEM DE COTOVELO: Aquecimento térmico com elástico, recuperação neural de 2-3 min entre passagens e descompressão Kirsch.`
         },
         'quinta': {
           title: 'Foco do Treino • Quinta-feira',
@@ -18803,15 +19142,15 @@ Base científica:
           category: '🛡️ Importante'
         },
         'quarta': {
-          title: 'Balanço da Quarta-feira | Box CrossFit',
-          text: `• Box Feito com Sucesso: Ajuste ágil de rotina por tempo. Treino metabólico e de tração executado no Box.
-• Adaptação Biomecânica Perfeita: Substituição de strict T2B por strict pull-over no Min 1 do EMOM protegeu a alavanca de puxada mantendo o estímulo estrito de grande dorsal e core.
-• Cargas no WOD: 15 kg nos DB Box Step Ups e DB Devil Press. Step-down indispensável para preservar o menisco lateral.
+          title: 'Orientações de Ginástica • Quarta-feira',
+          text: `• Gestão de Cotovelo: Não pule o aquecimento térmico com elástico. O volume de puxada de ontem exige vascularização prévia dos epicôndilos.
+• Subida nas Argolas: Apoie firmemente os peitos dos pés nas fitas verticais. A força do press vem da impulsão pélvica associada à tração nos cabos, poupando os ombros de torque excessivo.
+• Bone Stacking: No Handstand, concentre-se em empilhar punho, cotovelo e ombro sem arqueamento lombar.
 
 Base científica:
-• Cadeia Cinética Fechada e Puxada Estrita: O strict pull-over recruta dorsais e peitoral sob momento controlado, reduzindo forças de cisalhamento anterior na cabeça umeral operada.
-• Dissipação de Impacto: A descida controlada da caixa dissipa as forças de reação do solo, blindando o platô tibial esquerdo.`,
-          category: '✅ Sessão Concluída'
+• Transmissão de Torque e Apoio Guiado: O apoio nos cabos estabiliza o centro de gravidade em cadeia cinemática fechada, permitindo consolidar o padrão motor da parada de mãos nas argolas com menor sobrecarga articular (Prassas, 2002; Sands, 2003).
+• Descompressão Subacromial: A tração vertical pós-treino amplia o espaço subacromial e previne inflamações de tendão por pinçamento (Kirsch, 2012).`,
+          category: '🛡️ Importante'
         },
         'quinta': {
           title: 'Orientações e Cronograma de Quinta-feira',
