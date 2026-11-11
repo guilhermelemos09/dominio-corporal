@@ -6168,6 +6168,403 @@
       border-color: rgba(56, 189, 248, 0.35) !important;
     }
 
+  
+    /* ===================================================
+       CENTRAL DE RECORDES: PADRÃO VERMELHO / FLAME METÁLICO
+       =================================================== */
+    #evolView-recordes .recordes-action-banner {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: linear-gradient(135deg, #f43f5e 0%, #e11d48 45%, #be123c 100%) !important;
+      color: #ffffff !important;
+      border: 1.5px solid #fecdd3 !important;
+      padding: 14px 18px !important;
+      border-radius: 14px !important;
+      font-size: 0.95rem !important;
+      font-weight: 800 !important;
+      cursor: pointer !important;
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      box-shadow: 0 6px 22px rgba(225, 29, 72, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.45) !important;
+      margin-top: 14px;
+      margin-bottom: 16px;
+      text-align: left;
+    }
+    #evolView-recordes .recordes-action-banner:hover {
+      background: linear-gradient(135deg, #fb7185 0%, #f43f5e 45%, #e11d48 100%) !important;
+      border-color: #ffffff !important;
+      box-shadow: 0 8px 28px rgba(244, 63, 94, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+      transform: translateY(-2px);
+    }
+    #evolView-recordes .recordes-action-banner:active {
+      transform: scale(0.98);
+    }
+    .recordes-action-banner-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      flex-shrink: 0;
+    }
+    .recordes-action-banner-icon svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+    .recordes-action-banner-text {
+      flex: 1;
+      min-width: 0;
+    }
+    .recordes-action-title {
+      font-size: 1rem;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: 0.04em;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    }
+    .recordes-action-sub {
+      font-size: 0.77rem;
+      color: #ffe4e6;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+    .recordes-action-arrow {
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: #ffffff;
+      padding-left: 6px;
+    }
+
+    /* Hero Card Recordes */
+    .recordes-hero-card {
+      background: linear-gradient(90deg, rgba(225, 29, 72, 0.14) 0%, rgba(225, 29, 72, 0.03) 45%, rgba(17, 20, 26, 0.95) 100%), #0e1117 !important;
+      border: 1px solid rgba(244, 63, 94, 0.30) !important;
+      border-left: 4.5px solid #e11d48 !important;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.55), 0 0 16px rgba(225, 29, 72, 0.08) !important;
+    }
+    .recordes-badge {
+      background: rgba(244, 63, 94, 0.15) !important;
+      color: #f43f5e !important;
+      border-color: rgba(244, 63, 94, 0.35) !important;
+    }
+    .recordes-hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .recordes-hero-chip {
+      background: rgba(244, 63, 94, 0.12);
+      border: 1px solid rgba(244, 63, 94, 0.30);
+      color: #fda4af;
+      padding: 3px 9px;
+      border-radius: 8px;
+      font-size: 0.74rem;
+      font-weight: 700;
+    }
+
+    /* Cards de Categorias no Hub de Recordes */
+    #evolView-recordes .training-day-card {
+      background: linear-gradient(90deg, rgba(225, 29, 72, 0.12) 0%, rgba(225, 29, 72, 0.03) 40%, rgba(17, 20, 26, 0.95) 100%), #11141a !important;
+      border: 1.5px solid rgba(244, 63, 94, 0.35) !important;
+      border-left: 4.5px solid #e11d48 !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+      cursor: pointer !important;
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    #evolView-recordes .training-day-card:hover {
+      background: linear-gradient(90deg, rgba(225, 29, 72, 0.18) 0%, rgba(225, 29, 72, 0.06) 45%, rgba(22, 27, 34, 0.95) 100%), #161b22 !important;
+      border-color: rgba(244, 63, 94, 0.6) !important;
+      border-left-color: #f43f5e !important;
+      box-shadow: 0 6px 18px rgba(225, 29, 72, 0.25) !important;
+      transform: translateY(-2px);
+    }
+    #evolView-recordes .training-day-card .day-name {
+      color: #ffffff !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.03em !important;
+    }
+    #evolView-recordes .training-day-card .day-status-pill {
+      color: #f43f5e !important;
+      border: 1px solid rgba(244, 63, 94, 0.45) !important;
+      background: rgba(225, 29, 72, 0.15) !important;
+      font-weight: 800 !important;
+    }
+
+    /* Grids e Cards de Movimento PR */
+    .pr-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+      margin-bottom: 24px;
+    }
+    .pr-item-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1.5px solid rgba(244, 63, 94, 0.25);
+      border-left: 4px solid #e11d48;
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+      transition: all 0.2s ease;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
+    }
+    .pr-item-card:hover {
+      border-color: rgba(244, 63, 94, 0.55);
+      background: rgba(255, 255, 255, 0.05);
+      transform: translateY(-1px);
+    }
+    .pr-item-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .pr-item-title {
+      font-size: 0.96rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+    .pr-item-badge {
+      font-size: 0.70rem;
+      font-weight: 800;
+      color: #f43f5e;
+      background: rgba(244, 63, 94, 0.12);
+      border: 1px solid rgba(244, 63, 94, 0.3);
+      padding: 2px 7px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+    .pr-item-value-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .pr-item-value {
+      font-size: 1.55rem;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .pr-item-rel {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #f43f5e;
+    }
+    .pr-item-meta {
+      font-size: 0.76rem;
+      color: #94a3b8;
+      line-height: 1.4;
+    }
+    .pr-item-notes {
+      font-size: 0.74rem;
+      color: #cbd5e1;
+      background: rgba(244, 63, 94, 0.06);
+      border-left: 2px solid #f43f5e;
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+    .pr-item-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-top: 4px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 8px;
+    }
+    .btn-pr-action {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #cbd5e1;
+      padding: 5px 11px;
+      border-radius: 8px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.15s ease;
+    }
+    .btn-pr-action:hover {
+      background: rgba(244, 63, 94, 0.15);
+      border-color: rgba(244, 63, 94, 0.4);
+      color: #ffffff;
+    }
+    .btn-mini-add-pr {
+      background: linear-gradient(135deg, #f43f5e 0%, #e11d48 50%, #be123c 100%);
+      border: 1px solid #fecdd3;
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(225, 29, 72, 0.35);
+      transition: all 0.15s ease;
+    }
+    .btn-mini-add-pr:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(244, 63, 94, 0.45);
+    }
+
+    /* Calculadora de % PR */
+    .pr-calc-container {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .pr-calc-header-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1.5px solid rgba(244, 63, 94, 0.3);
+      border-radius: 14px;
+      padding: 16px 18px;
+    }
+    .pr-calc-input-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .pr-calc-select, .pr-calc-input, .pr-modal-input {
+      width: 100%;
+      background: #11141a;
+      border: 1.5px solid rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      padding: 9px 12px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+    .pr-calc-select:focus, .pr-calc-input:focus, .pr-modal-input:focus {
+      border-color: #f43f5e;
+      box-shadow: 0 0 10px rgba(244, 63, 94, 0.25);
+    }
+    .pr-calc-quick-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .pr-quick-chip {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(244, 63, 94, 0.25);
+      color: #cbd5e1;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .pr-quick-chip:hover, .pr-quick-chip.active {
+      background: rgba(244, 63, 94, 0.18);
+      border-color: #f43f5e;
+      color: #ffffff;
+    }
+
+    /* Plate Math Visualizer */
+    .pr-plate-math-card {
+      background: #0d1117;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .plate-visual-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 8px 0;
+    }
+    .plate-badge {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      font-weight: 900;
+      color: #ffffff;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    }
+    .plate-25 { background: #dc2626; width: 34px; height: 60px; font-size: 0.72rem; }
+    .plate-20 { background: #2563eb; width: 32px; height: 56px; font-size: 0.72rem; }
+    .plate-15 { background: #eab308; width: 30px; height: 50px; font-size: 0.70rem; color: #000; }
+    .plate-10 { background: #16a34a; width: 28px; height: 44px; font-size: 0.68rem; }
+    .plate-5  { background: #ffffff; width: 24px; height: 38px; font-size: 0.65rem; color: #000; }
+    .plate-25fractional { background: #1f2937; border: 1px solid #475569; width: 22px; height: 32px; font-size: 0.60rem; }
+
+    /* Percentage Table */
+    .pr-calc-table-wrap {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1.5px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      padding: 14px 16px;
+    }
+    .pr-percentage-table {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .pr-percentage-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 9px 12px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: background 0.15s ease;
+    }
+    .pr-percentage-row:hover {
+      background: rgba(244, 63, 94, 0.08);
+      border-color: rgba(244, 63, 94, 0.3);
+    }
+    .pr-pct-pct {
+      font-size: 0.92rem;
+      font-weight: 900;
+      color: #f43f5e;
+      width: 55px;
+    }
+    .pr-pct-load {
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: #ffffff;
+      flex: 1;
+      text-align: center;
+    }
+    .pr-pct-plates {
+      font-size: 0.74rem;
+      color: #cbd5e1;
+      width: 140px;
+      text-align: right;
+    }
+    .pr-pct-repdesc {
+      font-size: 0.70rem;
+      color: #94a3b8;
+      display: block;
+    }
+
   </style>
   <!-- Firebase Cloud Firestore SDK (Compat v10) -->
   <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
@@ -6217,7 +6614,7 @@
     <div class="athlete-highlight-card" id="athleteHighlightCard">
       <!-- Linha 1: Nome Completo do Aluno em Destaque -->
       <div class="athlete-name-row">
-        <h2 class="athlete-full-name" onclick="openDedicatedView('perfil')" title="Abrir Perfil do Aluno">GUILHERME DE PAULA LEMOS</h2>
+        <h2 class="athlete-full-name" onclick="openDedicatedView('perfil')" title="Abrir Perfil">GUILHERME DE PAULA LEMOS</h2>
       </div>
 
       <!-- Linha 2: Botões Sóbrios de Ação (Perfil do Aluno + Metas) -->
@@ -8840,143 +9237,204 @@
 
     <!-- ==================== SUBPÁGINA: CENTRAL DE RECORDES ==================== -->
     <div id="evolView-recordes" class="evolucao-view-pane" style="display:none;">
+      
+      <!-- NAVEGAÇÃO DE RETORNO PRINCIPAL -->
       <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
         <button type="button" class="btn-back-workout" onclick="closeEvolucaoView()">
           ← Voltar para Evolução
         </button>
       </div>
 
-      <div class="evolucao-hero">
+      <!-- HERO: CENTRAL DE RECORDES -->
+      <div class="evolucao-hero recordes-hero-card" id="recordesHeroCard">
         <div class="evolucao-title">
-          <span>💪 Central de Recordes (PR)</span>
-          <span class="evolucao-badge-delta" style="background:rgba(244,63,94,0.15); color:#f43f5e; border-color:rgba(244,63,94,0.3);">Recordes Pessoais</span>
+          <span>🏆 Central de Recordes Pessoais (PR)</span>
+          <span class="evolucao-badge-delta recordes-badge">Alta Performance</span>
         </div>
         <p style="font-size:0.8rem; color:var(--text-muted); margin:6px 0 0;">
-          Histórico e registro de cargas máximas (1RM), repetições máximas e melhores tempos.
+          Quadro de marcas máximas (1RM), repetições ininterruptas, benchmarks clássicos de CrossFit e calculadora de cargas de treino.
         </p>
+        <div class="recordes-hero-chips">
+          <span class="recordes-hero-chip">🏋️ 1RM e Cargas</span>
+          <span class="recordes-hero-chip">🤸 Ginásticos Unbroken</span>
+          <span class="recordes-hero-chip">⚡ Benchmarks e Metcons</span>
+          <span class="recordes-hero-chip">📊 Calculadora de %</span>
+        </div>
+      </div>
 
-        <div class="metrics-summary-grid">
-          <div class="metric-summary-card">
-            <div class="metric-value" style="color:#f43f5e;">1RM</div>
-            <div class="metric-label">Carga Máxima</div>
+      <!-- BANNER DE AÇÃO PRIMÁRIA: REGISTRAR NOVO RECORDE -->
+      <button type="button" class="recordes-action-banner" id="recordesActionBanner" onclick="openAddPrModal()">
+        <div class="recordes-action-banner-icon">
+          <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+        </div>
+        <div class="recordes-action-banner-text">
+          <div class="recordes-action-title">REGISTRAR NOVO RECORDE (PR)</div>
+          <div class="recordes-action-sub">Atualize sua carga de 1RM, repetições máximas ou tempo de WOD</div>
+        </div>
+        <span class="recordes-action-arrow">›</span>
+      </button>
+
+      <!-- HUB DE CATEGORIAS DE RECORDES (ESTILO TRAINING-DAY-CARD) -->
+      <div id="recordesHubMenu" class="training-days-list" style="margin-top: 14px; margin-bottom: 24px; display: flex; flex-direction: column; gap: 10px;">
+        
+        <!-- CARD 1: LPO E FORÇA BRUTA -->
+        <div class="training-day-card" id="recordesCardBtn-lpo" onclick="openRecordesSubView('lpo')">
+          <div class="day-card-left">
+            <div class="day-card-name-row">
+              <span class="recordes-card-title">LEVANTAMENTO DE PESO (1RM)</span>
+            </div>
           </div>
-          <div class="metric-summary-card">
-            <div class="metric-value" style="color:var(--brand-neon);">Max Reps</div>
-            <div class="metric-label">Resistência</div>
+          <div class="day-card-right">
+            <div class="day-status-pill status-pending">
+              <span class="status-icon">›</span>
+            </div>
           </div>
-          <div class="metric-summary-card">
-            <div class="metric-value" style="color:#38bdf8;">PR Tempo</div>
-            <div class="metric-label">Isometrias e WODs</div>
+        </div>
+
+        <!-- CARD 2: GINÁSTICOS E CALISTENIA -->
+        <div class="training-day-card" id="recordesCardBtn-ginasticos" onclick="openRecordesSubView('ginasticos')">
+          <div class="day-card-left">
+            <div class="day-card-name-row">
+              <span class="recordes-card-title">GINÁSTICOS E CALISTENIA</span>
+            </div>
           </div>
-          <div class="metric-summary-card">
-            <div class="metric-value" style="color:#fbbf24;">Gímnico</div>
-            <div class="metric-label">Alavancas de Força</div>
+          <div class="day-card-right">
+            <div class="day-status-pill status-pending">
+              <span class="status-icon">›</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3: BENCHMARKS E WODS -->
+        <div class="training-day-card" id="recordesCardBtn-benchmarks" onclick="openRecordesSubView('benchmarks')">
+          <div class="day-card-left">
+            <div class="day-card-name-row">
+              <span class="recordes-card-title">BENCHMARKS DE CROSSFIT</span>
+            </div>
+          </div>
+          <div class="day-card-right">
+            <div class="day-status-pill status-pending">
+              <span class="status-icon">›</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 4: CALCULADORA DE CARGAS % -->
+        <div class="training-day-card" id="recordesCardBtn-calculadora" onclick="openRecordesSubView('calculadora')">
+          <div class="day-card-left">
+            <div class="day-card-name-row">
+              <span class="recordes-card-title">CALCULADORA DE CARGAS E PERCENTUAIS (%)</span>
+            </div>
+          </div>
+          <div class="day-card-right">
+            <div class="day-status-pill status-pending">
+              <span class="status-icon">›</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ==================== SUBPÁGINA 1: LPO ==================== -->
+      <div id="recordesSubView-lpo" style="display:none;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; padding: 4px 0;">
+          <button type="button" class="btn-back-workout" onclick="closeRecordesSubView()">
+            ← Voltar para Recordes
+          </button>
+          <button type="button" class="btn-mini-add-pr" onclick="openAddPrModal('lpo')">
+            + Adicionar 1RM
+          </button>
+        </div>
+        <div class="pr-cards-grid" id="prGridLpo">
+          <!-- Renderizado dinamicamente via renderAllRecordesUI -->
+        </div>
+      </div>
+
+      <!-- ==================== SUBPÁGINA 2: GINÁSTICOS ==================== -->
+      <div id="recordesSubView-ginasticos" style="display:none;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; padding: 4px 0;">
+          <button type="button" class="btn-back-workout" onclick="closeRecordesSubView()">
+            ← Voltar para Recordes
+          </button>
+          <button type="button" class="btn-mini-add-pr" onclick="openAddPrModal('ginasticos')">
+            + Adicionar Skill
+          </button>
+        </div>
+        <div class="pr-cards-grid" id="prGridGinasticos">
+          <!-- Renderizado dinamicamente via renderAllRecordesUI -->
+        </div>
+      </div>
+
+      <!-- ==================== SUBPÁGINA 3: BENCHMARKS ==================== -->
+      <div id="recordesSubView-benchmarks" style="display:none;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; padding: 4px 0;">
+          <button type="button" class="btn-back-workout" onclick="closeRecordesSubView()">
+            ← Voltar para Recordes
+          </button>
+          <button type="button" class="btn-mini-add-pr" onclick="openAddPrModal('benchmarks')">
+            + Registrar Benchmark
+          </button>
+        </div>
+        <div class="pr-cards-grid" id="prGridBenchmarks">
+          <!-- Renderizado dinamicamente via renderAllRecordesUI -->
+        </div>
+      </div>
+
+      <!-- ==================== SUBPÁGINA 4: CALCULADORA ==================== -->
+      <div id="recordesSubView-calculadora" style="display:none;">
+        <div style="display:flex; align-items:center; justify-content:flex-start; margin-bottom:14px; padding: 4px 0;">
+          <button type="button" class="btn-back-workout" onclick="closeRecordesSubView()">
+            ← Voltar para Recordes
+          </button>
+        </div>
+        
+        <div class="pr-calc-container">
+          <!-- Bloco Seletor e Input de Carga -->
+          <div class="pr-calc-header-card">
+            <div style="font-size:0.84rem; font-weight:900; color:#f43f5e; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:6px;">
+              ⚡ Prescrição e Cargas de Treino
+            </div>
+            <div style="font-size:0.84rem; color:#cbd5e1; line-height:1.45; margin-bottom:12px;">
+              Selecione um exercício gravado nos seus PRs ou digite qualquer carga de 1RM para calcular instantaneamente todas as faixas percentuais e o peso exato de anilhas por lado na barra de 20kg:
+            </div>
+            
+            <div class="pr-calc-input-row">
+              <div style="flex:1; min-width:180px;">
+                <label style="display:block; font-size:0.74rem; font-weight:700; color:#94a3b8; margin-bottom:4px;">EXERCÍCIO DE REFERÊNCIA</label>
+                <select id="prCalcExerciseSelect" class="pr-calc-select" onchange="handlePrCalcExerciseChange(this.value)">
+                  <!-- Opções preenchidas dinamicamente -->
+                </select>
+              </div>
+              <div style="width:130px;">
+                <label style="display:block; font-size:0.74rem; font-weight:700; color:#94a3b8; margin-bottom:4px;">1RM BASE (KG)</label>
+                <input type="number" id="prCalcBaseWeight" class="pr-calc-input" value="100" min="20" max="400" step="2.5" oninput="calculatePrPercentages(parseFloat(this.value))">
+              </div>
+            </div>
+
+            <!-- Botões de Acesso Rápido a Movimentos -->
+            <div class="pr-calc-quick-chips" id="prCalcQuickChips">
+              <!-- Chips rápidos gerados dinamicamente -->
+            </div>
+          </div>
+
+          <!-- Card de Anilhas na Barra (Plate Math) -->
+          <div class="pr-plate-math-card" id="prPlateMathCard">
+            <!-- Visual de anilhas para a carga selecionada -->
+          </div>
+
+          <!-- Tabela de Percentuais (50% a 95%) -->
+          <div class="pr-calc-table-wrap">
+            <div style="font-size:0.88rem; font-weight:900; color:#fff; margin-bottom:10px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:6px;">
+              <span>TABELA DE PERCENTUAIS (1RM)</span>
+              <span style="font-size:0.72rem; font-weight:700; color:#f43f5e; background:rgba(244,63,94,0.12); padding:3px 8px; border-radius:6px; border:1px solid rgba(244,63,94,0.3);">Barra Olímpica 20 kg</span>
+            </div>
+            <div class="pr-percentage-table" id="prPercentageTable">
+              <!-- Linhas geradas dinamicamente -->
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- SEÇÃO 1: CARGAS MÁXIMAS (1RM) -->
-      <div class="comparison-card" style="margin-top:14px; border-left:3.5px solid #f43f5e;">
-        <div class="comparison-card-header">
-          <div class="comparison-card-title">🏋️ Cargas Máximas (1RM)</div>
-          <span style="font-size:0.75rem; color:#f43f5e; font-weight:700;">Força Pura</span>
-        </div>
-        <p style="font-size:0.78rem; color:var(--text-muted); margin-bottom:12px;">
-          Estimativas e marcas máximas para uma única repetição limpa:
-        </p>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:10px;">
-          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px;">
-            <div style="font-size:0.72rem; color:var(--text-muted); margin-bottom:2px;">Back Squat</div>
-            <div style="font-size:1.1rem; font-weight:800; color:#fff;">80 kg</div>
-            <div style="font-size:0.68rem; color:#f43f5e;">8 reps • Semana LPO (13/10)</div>
-          </div>
-          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px;">
-            <div style="font-size:0.72rem; color:var(--text-muted); margin-bottom:2px;">Deadlift</div>
-            <div style="font-size:1.1rem; font-weight:800; color:#fff;">-- kg</div>
-            <div style="font-size:0.68rem; color:#f43f5e;">1RM a registrar</div>
-          </div>
-          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px;">
-            <div style="font-size:0.72rem; color:var(--text-muted); margin-bottom:2px;">Supino Reto</div>
-            <div style="font-size:1.1rem; font-weight:800; color:#fff;">-- kg</div>
-            <div style="font-size:0.68rem; color:#f43f5e;">1RM a registrar</div>
-          </div>
-          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px;">
-            <div style="font-size:0.72rem; color:var(--text-muted); margin-bottom:2px;">Strict Press</div>
-            <div style="font-size:1.1rem; font-weight:800; color:#fff;">-- kg</div>
-            <div style="font-size:0.68rem; color:#f43f5e;">1RM a registrar</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- SEÇÃO 2: REPETIÇÕES MÁXIMAS (MAX REPS) -->
-      <div class="comparison-card" style="margin-top:14px; border-left:3.5px solid var(--brand-neon);">
-        <div class="comparison-card-header">
-          <div class="comparison-card-title">⚡ Repetições Máximas (Unbroken)</div>
-          <span style="font-size:0.75rem; color:var(--brand-neon); font-weight:700;">Resistência Muscular</span>
-        </div>
-        <p style="font-size:0.78rem; color:var(--text-muted); margin-bottom:12px;">
-          Maior número de repetições consecutivas sem quebrar a série:
-        </p>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:10px;">
-          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px;">
-            <div style="font-size:0.72rem; color:var(--text-muted); margin-bottom:2px;">Strict Pull-Up</div>
-            <div style="font-size:1.1rem; font-weight:800; color:#fff;">-- reps</div>
-            <div style="font-size:0.68rem; color:var(--brand-neon);">Sem impulso</div>
-          </div>
-          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px;">
-            <div style="font-size:0.72rem; color:var(--text-muted); margin-bottom:2px;">Ring Dips</div>
-            <div style="font-size:1.1rem; font-weight:800; color:#fff;">-- reps</div>
-            <div style="font-size:0.68rem; color:var(--brand-neon);">Argolas</div>
-          </div>
-          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px;">
-            <div style="font-size:0.72rem; color:var(--text-muted); margin-bottom:2px;">Flexões (Push-ups)</div>
-            <div style="font-size:1.1rem; font-weight:800; color:#fff;">-- reps</div>
-            <div style="font-size:0.68rem; color:var(--brand-neon);">Solo</div>
-          </div>
-          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px;">
-            <div style="font-size:0.72rem; color:var(--text-muted); margin-bottom:2px;">Toes to Bar (T2B)</div>
-            <div style="font-size:1.1rem; font-weight:800; color:#fff;">-- reps</div>
-            <div style="font-size:0.68rem; color:var(--brand-neon);">Pés na barra</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- SEÇÃO 3: TEMPOS MÁXIMOS E ISOMETRIAS -->
-      <div class="comparison-card" style="margin-top:14px; border-left:3.5px solid #38bdf8;">
-        <div class="comparison-card-header">
-          <div class="comparison-card-title">⏱️ Tempos Máximos e Isometrias</div>
-          <span style="font-size:0.75rem; color:#38bdf8; font-weight:700;">Sustentação</span>
-        </div>
-        <p style="font-size:0.78rem; color:var(--text-muted); margin-bottom:12px;">
-          Tempos de sustentação isométrica e recordes de referência:
-        </p>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); gap:10px;">
-          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px;">
-            <div style="font-size:0.72rem; color:var(--text-muted); margin-bottom:2px;">Handstand Livre</div>
-            <div style="font-size:1.1rem; font-weight:800; color:#fff;">> 10s</div>
-            <div style="font-size:0.68rem; color:#38bdf8;">Sem apoio</div>
-          </div>
-          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px;">
-            <div style="font-size:0.72rem; color:var(--text-muted); margin-bottom:2px;">One-Arm Croc (Manjota)</div>
-            <div style="font-size:1.1rem; font-weight:800; color:#fff;">7s</div>
-            <div style="font-size:0.68rem; color:#38bdf8;">1 braço</div>
-          </div>
-          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px;">
-            <div style="font-size:0.72rem; color:var(--text-muted); margin-bottom:2px;">L-Sit Isométrico</div>
-            <div style="font-size:1.1rem; font-weight:800; color:#fff;">-- s</div>
-            <div style="font-size:0.68rem; color:#38bdf8;">Paralelas</div>
-          </div>
-          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px;">
-            <div style="font-size:0.72rem; color:var(--text-muted); margin-bottom:2px;">Prancha Ventral</div>
-            <div style="font-size:1.1rem; font-weight:800; color:#fff;">-- s</div>
-            <div style="font-size:0.68rem; color:#38bdf8;">Hollow body</div>
-          </div>
-        </div>
-      </div>
-
-      <div style="margin-top:14px; padding:10px 12px; background:rgba(255,255,255,0.03); border:1px dashed rgba(255,255,255,0.15); border-radius:12px; text-align:center; font-size:0.76rem; color:var(--text-muted);">
-        💡 <strong>Módulo em Expansão:</strong> Em breve você poderá adicionar seus novos movimentos personalizados e registrar cada recorde com data e histórico de evolução!
-      </div>
     </div>
 
     <!-- ==================== SUBPÁGINA: BIOMETRIA E PERFORMANCE ==================== -->
@@ -10616,7 +11074,7 @@
     };
 
     // Limpeza forçada de caches legados para garantir que novidades apareçam imediatamente
-    const APP_BUILD_VERSION = '2026-11-10-v205-tecnica-blue-theme';
+    const APP_BUILD_VERSION = '2026-11-11-v206-recordes-crossfit-system';
     if (localStorage.getItem('dominio_build_ver') !== APP_BUILD_VERSION) {
       localStorage.setItem('dominio_build_ver', APP_BUILD_VERSION);
       if ('caches' in window) {
@@ -11165,8 +11623,13 @@
           if (typeof DominioDB.syncExistingLocalDataToCloud === 'function') DominioDB.syncExistingLocalDataToCloud();
         }
       }
+      if (viewId === 'recordes') {
+        if (typeof closeRecordesSubView === 'function') closeRecordesSubView(true);
+        if (typeof renderAllRecordesUI === 'function') renderAllRecordesUI();
+      }
       if (viewId === 'tecnica') {
         if (typeof closeAnalysisCategoryView === 'function') closeAnalysisCategoryView(true);
+      if (typeof closeRecordesSubView === 'function') closeRecordesSubView(true);
       }
       if (viewId === 'relatorio' && typeof updateEvolucaoStats === 'function') {
         updateEvolucaoStats();
@@ -18128,10 +18591,15 @@ function formatVisualAnalysisContent(rawText) {
     // Registra Service Worker (PWA Offline Seguro - Sem reload intrusivo)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js').catch(err => console.log('[SW] Falha ao registrar:', err));
+        navigator.serviceWorker.register('sw.js?v=20261111-v206').catch(err => console.log('[SW] Falha ao registrar:', err));
       });
+      let refreshing = false;
       navigator.serviceWorker.addEventListener('controllerchange', () => {
-        console.log('[SW] Controlador atualizado em segundo plano.');
+        if (!refreshing) {
+          refreshing = true;
+          console.log('[SW] Nova versão detectada! Recarregando aplicação...');
+          window.location.reload();
+        }
       });
     }
             /* Funções do Popover Flutuante: 💡 Dica | 🔧 Execução | 🛡️ Cuidados | ⚠️ Importante */
@@ -19020,7 +19488,424 @@ Base científica:
     };
 
 
-    </script>
+    
+    /* ===================================================
+       SISTEMA CANÔNICO DE RECORDES PESSOAIS (PR) E WODS
+       =================================================== */
+    const DEFAULT_ATHLETE_PRS = {
+      'gui': {
+        lpo: [
+          { id: 'bs', name: 'Back Squat', value: '100 kg', reps: '1RM Estimada (80kg x 8 reps)', date: '13/10/2026', notes: 'Semana LPO • Sem dor patelar no joelho', category: 'lpo', baseWeight: 100 },
+          { id: 'fs', name: 'Front Squat', value: '85 kg', reps: '1RM', date: '05/10/2026', notes: 'Cotovelos altos, postura limpa', category: 'lpo', baseWeight: 85 },
+          { id: 'dl', name: 'Deadlift (Levantamento Terra)', value: '140 kg', reps: '1RM', date: '28/09/2026', notes: 'Tração neutra, coluna lombossacra travada', category: 'lpo', baseWeight: 140 },
+          { id: 'bp', name: 'Supino Reto (Bench Press)', value: '90 kg', reps: '1RM', date: '15/09/2026', notes: 'Retração escapular firme', category: 'lpo', baseWeight: 90 },
+          { id: 'sp', name: 'Strict Press (Desenvolvimento)', value: '55 kg', reps: '1RM', date: '18/09/2026', notes: 'Tronco rígido sem arco lombar', category: 'lpo', baseWeight: 55 },
+          { id: 'pp', name: 'Push Press', value: '70 kg', reps: '1RM', date: '22/09/2026', notes: 'Dip curto e explosão de quadril', category: 'lpo', baseWeight: 70 },
+          { id: 'cj', name: 'Clean e Jerk (Arremesso)', value: '75 kg', reps: '1RM', date: '10/10/2026', notes: 'Recebimento estável em Split Jerk', category: 'lpo', baseWeight: 75 },
+          { id: 'sn', name: 'Snatch (Arranco)', value: '60 kg', reps: '1RM', date: '08/10/2026', notes: 'Power Snatch veloz com lockout firme', category: 'lpo', baseWeight: 60 }
+        ],
+        ginasticos: [
+          { id: 'bf_pullup', name: 'Butterfly Pull-Up', value: '11 reps', detail: 'Série ininterrupta (unbroken) • 20s', date: '07/10/2026', notes: 'Cadência de 1.15s, passagem fluida sob a barra' },
+          { id: 'strict_pullup', name: 'Strict Pull-Up', value: '14 reps', detail: 'Peso corporal estrito sem impulso', date: '25/09/2026', notes: 'Queixo acima da barra, extensão completa' },
+          { id: 'strict_rmu', name: 'Strict Ring Muscle-Up', value: '1 rep', detail: 'Retorno de 2 anos • Argolas Altas', date: '02/10/2026', notes: 'False grip seguro sem dor no supraespinhal' },
+          { id: 'bar_mu', name: 'Bar Muscle-Up (BMU)', value: '4 reps', detail: 'Unbroken na barra fixa', date: '12/10/2026', notes: 'Transição simultânea de cotovelos' },
+          { id: 'hs_walk', name: 'Handstand Walk (Caminhada)', value: '10 metros', detail: 'Solo ininterrupto', date: '01/10/2026', notes: 'Controle de passos e prumo' },
+          { id: 'hs_hold', name: 'Handstand Hold Livre', value: '12 segundos', detail: 'Parada de mão livre sem apoio', date: '08/10/2026', notes: 'Bone stacking e empuxo escapular 180°' },
+          { id: 'croc_hold', name: 'One-Arm Croc (Bengalas)', value: '7 segundos', detail: 'Sustentação unilateral na manjota', date: '01/10/2026', notes: '1 braço cravado sem rotação de pelve' },
+          { id: 'lsit', name: 'L-Sit Isométrico', value: '25 segundos', detail: 'Paralelas com pernas estendidas', date: '20/09/2026', notes: 'Depressão escapular ativa e ponta de pés' }
+        ],
+        benchmarks: [
+          { id: 'fran', name: 'FRAN', value: '3:45', detail: '21-15-9: Thrusters (43 kg) + Pull-ups', type: 'For Time', badge: 'Rx', date: '15/09/2026', notes: 'Thrusters unbroken na primeira rodada' },
+          { id: 'grace', name: 'GRACE', value: '2:50', detail: '30 Clean e Jerks (60 kg)', type: 'For Time', badge: 'Rx', date: '10/08/2026', notes: 'Singles rápidos a cada 5 segundos' },
+          { id: 'isabel', name: 'ISABEL', value: '2:38', detail: '30 Snatches (60 kg)', type: 'For Time', badge: 'Rx', date: '04/08/2026', notes: 'Power snatch com boa mecânica' },
+          { id: 'cindy', name: 'CINDY', value: '22 rounds + 8 reps', detail: '20 min AMRAP: 5 Pull-ups, 10 Push-ups, 15 Squats', type: 'AMRAP', badge: 'Rx', date: '18/07/2026', notes: 'Pace constante de 50s por round' },
+          { id: 'murph', name: 'MURPH', value: '41:15', detail: '1.6km Corrida, 100 Pull-ups, 200 Push-ups, 300 Squats, 1.6km Corrida', type: 'For Time', badge: 'Rx (Sem Colete)', date: '25/05/2026', notes: 'Partição 5-10-15 nos ginásticos' },
+          { id: 'row2k', name: 'Remo 2.000m (Concept2)', value: '6:58', detail: 'Pace médio: 1:44.5/500m • Drag Factor 125', type: 'Time Trial', badge: 'Potência Aeróbica', date: '14/09/2026', notes: 'Sprint final nos últimos 300m' },
+          { id: 'run5k', name: 'Corrida 5 km', value: '21:30', detail: 'Pace médio: 4:18 min/km', type: 'Endurance', badge: 'Outdoor', date: '12/08/2026', notes: 'Passada ritmada, respiração 2:2' }
+        ]
+      }
+    };
+
+    function getAthletePrs(athleteSlug) {
+      const slug = athleteSlug || window.currentActiveAthlete || 'gui';
+      try {
+        const stored = localStorage.getItem('dc_athlete_prs_' + slug);
+        if (stored) return JSON.parse(stored);
+      } catch (e) {}
+      return DEFAULT_ATHLETE_PRS[slug] || DEFAULT_ATHLETE_PRS['gui'];
+    }
+
+    function saveAthletePrs(slug, data) {
+      try {
+        localStorage.setItem('dc_athlete_prs_' + slug, JSON.stringify(data));
+      } catch (e) {}
+    }
+
+    function openRecordesSubView(viewId) {
+      if (typeof pushAppHistoryState === 'function') pushAppHistoryState('recordesSubView', { viewId }, 'recordes-' + viewId);
+      const hubMenu = document.getElementById('recordesHubMenu');
+      const heroCard = document.getElementById('recordesHeroCard');
+      const actionBanner = document.getElementById('recordesActionBanner');
+
+      if (hubMenu) hubMenu.style.display = 'none';
+      if (heroCard) heroCard.style.display = 'none';
+      if (actionBanner) actionBanner.style.display = 'none';
+
+      const viewIds = ['lpo', 'ginasticos', 'benchmarks', 'calculadora'];
+      viewIds.forEach(id => {
+        const el = document.getElementById('recordesSubView-' + id);
+        if (el) {
+          el.style.display = (id === viewId) ? 'block' : 'none';
+        }
+      });
+
+      if (viewId === 'calculadora') {
+        renderPrCalculator();
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function closeRecordesSubView(fromPopState = false) {
+      if (!fromPopState && typeof popAppHistoryState === 'function' && popAppHistoryState('recordesSubView')) return;
+      const hubMenu = document.getElementById('recordesHubMenu');
+      const heroCard = document.getElementById('recordesHeroCard');
+      const actionBanner = document.getElementById('recordesActionBanner');
+
+      const viewIds = ['lpo', 'ginasticos', 'benchmarks', 'calculadora'];
+      viewIds.forEach(id => {
+        const el = document.getElementById('recordesSubView-' + id);
+        if (el) el.style.display = 'none';
+      });
+
+      if (hubMenu) hubMenu.style.display = 'flex';
+      if (heroCard) heroCard.style.display = 'block';
+      if (actionBanner) actionBanner.style.display = 'flex';
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderAllRecordesUI() {
+      const slug = window.currentActiveAthlete || 'gui';
+      const prs = getAthletePrs(slug);
+
+      // 1. Render LPO
+      const lpoGrid = document.getElementById('prGridLpo');
+      if (lpoGrid && prs.lpo) {
+        lpoGrid.innerHTML = prs.lpo.map(item => {
+          return `
+          <div class="pr-item-card">
+            <div class="pr-item-top">
+              <span class="pr-item-title">${item.name}</span>
+              <span class="pr-item-badge">1RM</span>
+            </div>
+            <div class="pr-item-value-row">
+              <span class="pr-item-value">${item.value}</span>
+              <span class="pr-item-rel">🔥 PR Oficial</span>
+            </div>
+            <div class="pr-item-meta">
+              <strong>Base:</strong> ${item.reps || '1RM'} • 📅 ${item.date}
+            </div>
+            ${item.notes ? `<div class="pr-item-notes">${item.notes}</div>` : ''}
+            <div class="pr-item-actions">
+              <button type="button" class="btn-pr-action" onclick="jumpToPrCalculator('${item.baseWeight || 100}', '${item.name}')">
+                📊 Calcular %
+              </button>
+              <button type="button" class="btn-pr-action" onclick="openAddPrModal('lpo', '${item.name}', '${item.value}')">
+                ✏️ Atualizar
+              </button>
+            </div>
+          </div>`;
+        }).join('');
+      }
+
+      // 2. Render Ginásticos
+      const ginGrid = document.getElementById('prGridGinasticos');
+      if (ginGrid && prs.ginasticos) {
+        ginGrid.innerHTML = prs.ginasticos.map(item => {
+          return `
+          <div class="pr-item-card">
+            <div class="pr-item-top">
+              <span class="pr-item-title">${item.name}</span>
+              <span class="pr-item-badge">Skill</span>
+            </div>
+            <div class="pr-item-value-row">
+              <span class="pr-item-value">${item.value}</span>
+              <span class="pr-item-rel">⚡ Unbroken</span>
+            </div>
+            <div class="pr-item-meta">
+              ${item.detail} • 📅 ${item.date}
+            </div>
+            ${item.notes ? `<div class="pr-item-notes">${item.notes}</div>` : ''}
+            <div class="pr-item-actions">
+              <button type="button" class="btn-pr-action" onclick="openAddPrModal('ginasticos', '${item.name}', '${item.value}')">
+                ✏️ Atualizar
+              </button>
+            </div>
+          </div>`;
+        }).join('');
+      }
+
+      // 3. Render Benchmarks
+      const benchGrid = document.getElementById('prGridBenchmarks');
+      if (benchGrid && prs.benchmarks) {
+        benchGrid.innerHTML = prs.benchmarks.map(item => {
+          return `
+          <div class="pr-item-card">
+            <div class="pr-item-top">
+              <span class="pr-item-title">${item.name}</span>
+              <span class="pr-item-badge">${item.badge || 'Rx'}</span>
+            </div>
+            <div class="pr-item-value-row">
+              <span class="pr-item-value">${item.value}</span>
+              <span class="pr-item-rel">⏱️ ${item.type || 'For Time'}</span>
+            </div>
+            <div class="pr-item-meta">
+              ${item.detail} • 📅 ${item.date}
+            </div>
+            ${item.notes ? `<div class="pr-item-notes">${item.notes}</div>` : ''}
+            <div class="pr-item-actions">
+              <button type="button" class="btn-pr-action" onclick="openAddPrModal('benchmarks', '${item.name}', '${item.value}')">
+                ✏️ Atualizar
+              </button>
+            </div>
+          </div>`;
+        }).join('');
+      }
+
+      // Initialize Calculator Selector
+      initPrCalcSelector();
+    }
+
+    function initPrCalcSelector() {
+      const slug = window.currentActiveAthlete || 'gui';
+      const prs = getAthletePrs(slug);
+      const sel = document.getElementById('prCalcExerciseSelect');
+      const chipsWrap = document.getElementById('prCalcQuickChips');
+
+      if (sel && prs.lpo) {
+        sel.innerHTML = prs.lpo.map(item => {
+          return `<option value="${item.baseWeight || 100}">${item.name} (${item.value})</option>`;
+        }).join('');
+      }
+
+      if (chipsWrap && prs.lpo) {
+        chipsWrap.innerHTML = prs.lpo.slice(0, 5).map(item => {
+          return `<button type="button" class="pr-quick-chip" onclick="jumpToPrCalculator('${item.baseWeight || 100}', '${item.name}')">${item.name}</button>`;
+        }).join('');
+      }
+    }
+
+    function handlePrCalcExerciseChange(weightVal) {
+      const num = parseFloat(weightVal) || 100;
+      const inp = document.getElementById('prCalcBaseWeight');
+      if (inp) inp.value = num;
+      calculatePrPercentages(num);
+    }
+
+    function jumpToPrCalculator(baseWeight, exName) {
+      openRecordesSubView('calculadora');
+      const inp = document.getElementById('prCalcBaseWeight');
+      if (inp) inp.value = parseFloat(baseWeight) || 100;
+
+      const sel = document.getElementById('prCalcExerciseSelect');
+      if (sel) {
+        for (let opt of sel.options) {
+          if (opt.text.toLowerCase().includes(exName.toLowerCase())) {
+            sel.value = opt.value;
+            break;
+          }
+        }
+      }
+      calculatePrPercentages(parseFloat(baseWeight) || 100);
+    }
+
+    function renderPrCalculator() {
+      const inp = document.getElementById('prCalcBaseWeight');
+      const val = inp ? (parseFloat(inp.value) || 100) : 100;
+      calculatePrPercentages(val);
+    }
+
+    function calculatePrPercentages(base1RM) {
+      const table = document.getElementById('prPercentageTable');
+      const plateCard = document.getElementById('prPlateMathCard');
+      if (!table) return;
+
+      const pcts = [
+        { pct: 95, reps: '1-2 reps', desc: 'Carga de Choque / Potência Neural' },
+        { pct: 90, reps: '2-3 reps', desc: 'Força Máxima Absoluta' },
+        { pct: 85, reps: '3-5 reps', desc: 'Força Pura e Recrutamento Motor' },
+        { pct: 80, reps: '5-6 reps', desc: 'Hipertrofia Funcional e Tensão' },
+        { pct: 75, reps: '6-8 reps', desc: 'Faixa Ótima de Volume' },
+        { pct: 70, reps: '8-10 reps', desc: 'Acúmulo Metabólico' },
+        { pct: 65, reps: '10-12 reps', desc: 'Resistência de Força' },
+        { pct: 60, reps: '12-15 reps', desc: 'Velocidade e Técnica' },
+        { pct: 50, reps: '15+ reps', desc: 'Aquecimento / Warm-up Específico' }
+      ];
+
+      table.innerHTML = pcts.map(row => {
+        const load = (base1RM * (row.pct / 100));
+        const roundedLoad = Math.round(load * 2) / 2; // Arredonda para 0.5 kg
+        const perSide = Math.max(0, (roundedLoad - 20) / 2);
+        const platesStr = perSide > 0 ? (perSide.toFixed(1) + ' kg / lado') : 'Barra pura';
+
+        return `
+        <div class="pr-percentage-row">
+          <div class="pr-pct-pct">${row.pct}%</div>
+          <div class="pr-pct-load">${roundedLoad.toFixed(1)} kg</div>
+          <div class="pr-pct-plates">
+            <strong style="color:#ffffff;">${platesStr}</strong>
+            <span class="pr-pct-repdesc">${row.reps} • ${row.desc}</span>
+          </div>
+        </div>`;
+      }).join('');
+
+      // Plate breakdown for 1RM
+      if (plateCard) {
+        const totalLoad = Math.round(base1RM * 2) / 2;
+        const sideWeight = Math.max(0, (totalLoad - 20) / 2);
+        const plates = calculateBarbellPlates(sideWeight);
+
+        plateCard.innerHTML = `
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px;">
+            <span style="font-size:0.84rem; font-weight:800; color:#fff;">MONTAR NA BARRA (20 kg) PARA ${totalLoad.toFixed(1)} kg:</span>
+            <span style="font-size:0.75rem; color:#f43f5e; font-weight:800;">${sideWeight.toFixed(1)} kg em cada lado</span>
+          </div>
+          <div class="plate-visual-row">
+            <span style="font-size:0.75rem; font-weight:800; color:#94a3b8; margin-right:4px;">BARRA [ 20 ] +</span>
+            ${plates.map(p => `<div class="plate-badge ${p.cssClass}"><span>${p.weight}</span><span style="font-size:0.55rem;">kg</span></div>`).join('')}
+          </div>
+        `;
+      }
+    }
+
+    function calculateBarbellPlates(sideWeight) {
+      let rem = sideWeight;
+      const available = [
+        { weight: 25, cssClass: 'plate-25' },
+        { weight: 20, cssClass: 'plate-20' },
+        { weight: 15, cssClass: 'plate-15' },
+        { weight: 10, cssClass: 'plate-10' },
+        { weight: 5,  cssClass: 'plate-5' },
+        { weight: 2.5, cssClass: 'plate-25fractional' }
+      ];
+      const result = [];
+      available.forEach(p => {
+        while (rem >= p.weight) {
+          result.push(p);
+          rem -= p.weight;
+          rem = Math.round(rem * 10) / 10;
+        }
+      });
+      return result;
+    }
+
+    // Modal PR Functions
+    function openAddPrModal(category = 'lpo', exerciseName = '', prefillValue = '') {
+      const modal = document.getElementById('modalAddPr');
+      const catSelect = document.getElementById('prInputCategory');
+      const exInput = document.getElementById('prInputExercise');
+      const valInput = document.getElementById('prInputValue');
+      const dateInput = document.getElementById('prInputDate');
+      const notesInput = document.getElementById('prInputNotes');
+
+      if (catSelect) catSelect.value = category;
+      if (exInput) exInput.value = exerciseName || '';
+      if (valInput) valInput.value = prefillValue || '';
+      if (notesInput) notesInput.value = '';
+
+      if (dateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.value = today;
+      }
+
+      handlePrCategoryChange(category);
+
+      if (modal) modal.style.display = 'flex';
+    }
+
+    function closeAddPrModal(e, force = false) {
+      if (force || e.target.id === 'modalAddPr') {
+        const modal = document.getElementById('modalAddPr');
+        if (modal) modal.style.display = 'none';
+      }
+    }
+
+    function handlePrCategoryChange(cat) {
+      const label = document.getElementById('prInputValueLabel');
+      const inp = document.getElementById('prInputValue');
+      if (!label || !inp) return;
+
+      if (cat === 'lpo') {
+        label.textContent = 'CARGA MÁXIMA (KG)';
+        inp.placeholder = 'Ex: 105 kg';
+      } else if (cat === 'ginasticos') {
+        label.textContent = 'REPETIÇÕES OU TEMPO';
+        inp.placeholder = 'Ex: 15 reps, 20s, 10m';
+      } else {
+        label.textContent = 'TEMPO OU ROUNDS';
+        inp.placeholder = 'Ex: 3:35 (For Time), 22 rounds';
+      }
+    }
+
+    function handleSavePr(e) {
+      e.preventDefault();
+      const slug = window.currentActiveAthlete || 'gui';
+      const prs = getAthletePrs(slug);
+
+      const cat = document.getElementById('prInputCategory')?.value || 'lpo';
+      const name = document.getElementById('prInputExercise')?.value.trim();
+      const val = document.getElementById('prInputValue')?.value.trim();
+      const dateVal = document.getElementById('prInputDate')?.value || '';
+      const notes = document.getElementById('prInputNotes')?.value.trim() || '';
+
+      if (!name || !val) return;
+
+      const dateParts = dateVal.split('-');
+      const formattedDate = dateParts.length === 3 ? (dateParts[2] + '/' + dateParts[1] + '/' + dateParts[0]) : 'Hoje';
+
+      if (!prs[cat]) prs[cat] = [];
+
+      // Extrai peso base numérico se for LPO
+      const baseNum = parseFloat(val.replace(',', '.').replace(/[^0-9.]/g, '')) || 100;
+
+      // Verifica se já existe o movimento
+      const existingIdx = prs[cat].findIndex(item => item.name.toLowerCase() === name.toLowerCase());
+      const newItem = {
+        id: 'pr_' + Date.now(),
+        name: name,
+        value: val.includes('kg') || val.includes('rep') || val.includes(':') ? val : (cat === 'lpo' ? val + ' kg' : val),
+        date: formattedDate,
+        notes: notes,
+        category: cat,
+        baseWeight: baseNum
+      };
+
+      if (cat === 'lpo') {
+        newItem.reps = '1RM';
+      } else if (cat === 'ginasticos') {
+        newItem.detail = val.includes('m') ? 'Distância contínua' : (val.includes('s') ? 'Sustentação isométrica' : 'Série unbroken');
+      } else {
+        newItem.type = val.includes(':') ? 'For Time' : 'AMRAP';
+        newItem.badge = 'Rx';
+        newItem.detail = name;
+      }
+
+      if (existingIdx !== -1) {
+        prs[cat][existingIdx] = newItem;
+      } else {
+        prs[cat].unshift(newItem);
+      }
+
+      saveAthletePrs(slug, prs);
+      renderAllRecordesUI();
+      closeAddPrModal(null, true);
+
+      // Toast feedback
+      alert('🏆 Recorde Pessoal (PR) registrado com sucesso!');
+    }
+
+  </script>
         <!-- Modal Flutuante de Orientações Técnicas (Execução / Cuidados / Importante / Foco) -->
   <div id="tipPopoverOverlay" class="modal-overlay" onclick="closeTipPopover(event)" style="z-index: 30000 !important;">
     <div class="modal-card" style="max-width: 440px; border-radius: 16px; border: 1px solid rgba(56, 189, 248, 0.45); padding: 18px 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.9), 0 0 25px rgba(56,189,248,0.2);" onclick="event.stopPropagation();">
@@ -19033,5 +19918,84 @@ Base científica:
       <button type="button" class="tip-popover-ok" onclick="closeTipPopover(event, true)" style="width:100%; padding:10px; border-radius:10px; font-weight:700; font-size:0.86rem; cursor:pointer; background:rgba(56,189,248,0.18); border:1px solid rgba(56,189,248,0.45); color:#38bdf8;">Entendido</button>
     </div>
   </div>
+
+  <!-- ==================== MODAL: REGISTRAR NOVO RECORDE (PR) ==================== -->
+  <div id="modalAddPr" class="modal-overlay" onclick="closeAddPrModal(event)" style="z-index: 30000 !important; display:none;">
+    <div class="modal-card" style="max-width: 480px; border-radius: 16px; border: 1.5px solid rgba(244, 63, 94, 0.45); padding: 20px 22px; box-shadow: 0 10px 40px rgba(0,0,0,0.9), 0 0 25px rgba(244,63,94,0.25);" onclick="event.stopPropagation();">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 14px;">
+        <span style="font-size:0.78rem; font-weight:900; letter-spacing:0.5px; text-transform:uppercase; color:#f43f5e; display:flex; align-items:center; gap:6px;">
+          <span>🏆</span> <span>REGISTRAR NOVO RECORDE (PR)</span>
+        </span>
+        <button type="button" onclick="closeAddPrModal(event, true)" style="background:transparent; border:none; color:#94a3b8; font-size:1.5rem; cursor:pointer; line-height:1; padding:4px 8px;">✕</button>
+      </div>
+
+      <form id="formAddPr" onsubmit="handleSavePr(event)" style="display:flex; flex-direction:column; gap:12px;">
+        <div>
+          <label style="display:block; font-size:0.74rem; font-weight:700; color:#cbd5e1; margin-bottom:4px;">CATEGORIA</label>
+          <select id="prInputCategory" class="pr-modal-input" onchange="handlePrCategoryChange(this.value)" required>
+            <option value="lpo">🏋️ Levantamento de Peso (1RM)</option>
+            <option value="ginasticos">🤸 Ginásticos e Calistenia (Reps / Tempo)</option>
+            <option value="benchmarks">⚡ Benchmarks e WODs (Tempo / Rounds)</option>
+          </select>
+        </div>
+
+        <div>
+          <label style="display:block; font-size:0.74rem; font-weight:700; color:#cbd5e1; margin-bottom:4px;">EXERCÍCIO OU MOVIMENTO</label>
+          <input type="text" id="prInputExercise" class="pr-modal-input" placeholder="Ex: Back Squat, Strict Pull-Up, Fran..." required list="prExerciseDatalist">
+          <datalist id="prExerciseDatalist">
+            <option value="Back Squat">
+            <option value="Front Squat">
+            <option value="Deadlift">
+            <option value="Supino Reto">
+            <option value="Strict Press">
+            <option value="Push Press">
+            <option value="Snatch (Arranco)">
+            <option value="Clean e Jerk (Arremesso)">
+            <option value="Strict Pull-Up">
+            <option value="Butterfly Pull-Up">
+            <option value="Ring Muscle-Up">
+            <option value="Bar Muscle-Up">
+            <option value="Handstand Walk">
+            <option value="Handstand Hold Livre">
+            <option value="One-Arm Croc">
+            <option value="L-Sit Isométrico">
+            <option value="FRAN">
+            <option value="GRACE">
+            <option value="ISABEL">
+            <option value="CINDY">
+            <option value="MURPH">
+            <option value="Remo 2.000m">
+            <option value="Corrida 5 km">
+          </datalist>
+        </div>
+
+        <div style="display:flex; gap:10px;">
+          <div style="flex:1;">
+            <label style="display:block; font-size:0.74rem; font-weight:700; color:#cbd5e1; margin-bottom:4px;" id="prInputValueLabel">MARCA / RESULTADO</label>
+            <input type="text" id="prInputValue" class="pr-modal-input" placeholder="Ex: 105 kg, 15 reps, 3:35" required>
+          </div>
+          <div style="width:140px;">
+            <label style="display:block; font-size:0.74rem; font-weight:700; color:#cbd5e1; margin-bottom:4px;">DATA DO RECORDE</label>
+            <input type="date" id="prInputDate" class="pr-modal-input" required>
+          </div>
+        </div>
+
+        <div>
+          <label style="display:block; font-size:0.74rem; font-weight:700; color:#cbd5e1; margin-bottom:4px;">DETALHES OU OBSERVAÇÕES (OPCIONAL)</label>
+          <input type="text" id="prInputNotes" class="pr-modal-input" placeholder="Ex: Cinto LPO, sem elástico, PR de 5kg a mais, 21-15-9 unbroken...">
+        </div>
+
+        <div style="display:flex; gap:10px; margin-top:8px;">
+          <button type="button" onclick="closeAddPrModal(event, true)" style="flex:1; padding:11px; border-radius:10px; font-weight:700; font-size:0.86rem; cursor:pointer; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.15); color:#94a3b8;">
+            Cancelar
+          </button>
+          <button type="submit" style="flex:2; padding:11px; border-radius:10px; font-weight:900; font-size:0.90rem; cursor:pointer; background:linear-gradient(135deg, #f43f5e 0%, #e11d48 50%, #be123c 100%); border:1px solid #fecdd3; color:#ffffff; box-shadow:0 4px 14px rgba(225,29,72,0.4);">
+            SALVAR RECORDE (PR)
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
 </body>
 </html>
