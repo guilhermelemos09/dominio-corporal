@@ -4634,44 +4634,41 @@
       -webkit-tap-highlight-color: transparent;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
-    .athlete-highlight-card .sober-action-btn.btn-athlete-perfil {
-      background: linear-gradient(135deg, rgba(0, 255, 136, 0.14) 0%, rgba(17, 20, 26, 0.95) 100%);
-      border-color: rgba(0, 255, 136, 0.40);
-    }
-    .athlete-highlight-card .sober-action-btn.btn-athlete-perfil svg {
-      fill: var(--brand-neon);
-      width: 17px;
-      height: 17px;
-    }
-    .athlete-highlight-card .sober-action-btn.btn-athlete-perfil .arrow-indicator {
-      color: var(--brand-neon);
-      font-size: 0.9rem;
-      font-weight: 900;
-    }
-    .athlete-highlight-card .sober-action-btn.btn-athlete-perfil:hover {
-      border-color: var(--brand-neon);
-      box-shadow: 0 4px 16px rgba(0, 255, 136, 0.3);
-      transform: translateY(-2px);
-    }
+    .athlete-highlight-card .sober-action-btn.btn-athlete-perfil,
     .athlete-highlight-card .sober-action-btn.btn-athlete-metas {
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.14) 0%, rgba(17, 20, 26, 0.95) 100%);
-      border-color: rgba(56, 189, 248, 0.40);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(22, 27, 36, 0.96) 100%);
+      border: 1.5px solid rgba(255, 255, 255, 0.18);
+      color: #f1f5f9;
     }
+    .athlete-highlight-card .sober-action-btn.btn-athlete-perfil svg,
     .athlete-highlight-card .sober-action-btn.btn-athlete-metas svg {
-      fill: #38bdf8;
+      fill: #cbd5e1;
       width: 17px;
       height: 17px;
+      transition: fill 0.2s ease;
     }
+    .athlete-highlight-card .sober-action-btn.btn-athlete-perfil .arrow-indicator,
     .athlete-highlight-card .sober-action-btn.btn-athlete-metas .arrow-indicator {
-      color: #38bdf8;
+      color: #94a3b8;
       font-size: 0.9rem;
       font-weight: 900;
-      transition: transform 0.2s ease;
+      transition: transform 0.2s ease, color 0.2s ease;
     }
+    .athlete-highlight-card .sober-action-btn.btn-athlete-perfil:hover,
     .athlete-highlight-card .sober-action-btn.btn-athlete-metas:hover {
-      border-color: #38bdf8;
-      box-shadow: 0 4px 16px rgba(56, 189, 248, 0.3);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.14) 0%, rgba(32, 40, 54, 0.98) 100%);
+      border-color: rgba(255, 255, 255, 0.40);
+      color: #ffffff;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.18);
       transform: translateY(-2px);
+    }
+    .athlete-highlight-card .sober-action-btn.btn-athlete-perfil:hover svg,
+    .athlete-highlight-card .sober-action-btn.btn-athlete-metas:hover svg {
+      fill: #ffffff;
+    }
+    .athlete-highlight-card .sober-action-btn.btn-athlete-perfil:hover .arrow-indicator,
+    .athlete-highlight-card .sober-action-btn.btn-athlete-metas:hover .arrow-indicator {
+      color: #ffffff;
     }
     .athlete-highlight-card .sober-action-btn.active .arrow-indicator {
       transform: rotate(180deg);
@@ -11248,6 +11245,7 @@
     window.handleAppBackNavigation = function() {
       // 1. Prioridade Máxima: Modais e Popovers Abertos
       const modalChecks = [
+        { id: 'modalAddPr', close: () => { if (typeof closeAddPrModal === 'function') closeAddPrModal(null, true); } },
         { id: 'tipPopoverOverlay', close: () => { const el = document.getElementById('tipPopoverOverlay'); if (el) el.style.display = 'none'; } },
         { id: 'devolutivaTreinoModal', close: () => { if (typeof closeDevolutivaModal === 'function') closeDevolutivaModal(true); } },
         { id: 'welcomeAppModal', close: () => { if (typeof closeWelcomeAppModal === 'function') closeWelcomeAppModal(true); } },
@@ -18922,15 +18920,11 @@ function formatVisualAnalysisContent(rawText) {
     // Registra Service Worker (PWA Offline Seguro - Sem reload intrusivo)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js?v=20261111-v206').catch(err => console.log('[SW] Falha ao registrar:', err));
+        navigator.serviceWorker.register('sw.js').catch(err => console.log('[SW] Falha ao registrar:', err));
       });
       let refreshing = false;
       navigator.serviceWorker.addEventListener('controllerchange', () => {
-        if (!refreshing) {
-          refreshing = true;
-          console.log('[SW] Nova versão detectada! Recarregando aplicação...');
-          window.location.reload();
-        }
+        console.log('[SW] Controlador atualizado em segundo plano.');
       });
     }
             /* Funções do Popover Flutuante: 💡 Dica | 🔧 Execução | 🛡️ Cuidados | ⚠️ Importante */
