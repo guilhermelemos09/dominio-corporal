@@ -6562,6 +6562,15 @@
       display: block;
     }
 
+      .recordes-card-title,
+    .analysis-card-title {
+      font-family: inherit;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 0.98rem;
+      letter-spacing: 0.5px;
+      line-height: 1.35;
+    }
   </style>
   <!-- Firebase Cloud Firestore SDK (Compat v10) -->
   <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
@@ -8736,22 +8745,7 @@
       </div>
 
       <!-- INTERFACE COMPLETA DE ANÁLISES TÉCNICAS E VÍDEOS -->
-      <!-- HERO: FEEDBACK TÉCNICO -->
-    <div class="analysis-hero-card">
-      <div class="analysis-hero-img-wrap" onclick="window.open('Midia/gui_analisando_handstand.jpg', '_blank')" style="cursor: pointer;" title="Toque para ampliar foto">
-        <img src="Midia/gui_analise_blend.jpg" onerror="this.onerror=null; this.src='Midia/gui_foto.jpg';" alt="Prof. Gui Lemos analisando movimento">
-      </div>
-      <div class="analysis-hero-body">
-        <div class="analysis-hero-title">Feedback Técnico</div>
-        <div class="analysis-hero-desc">
-          Mapeamento biomecânico para identificar compensações e prescrever ajustes precisos na sua execução.
-        </div>
-        <div class="analysis-hero-chips">
-          <span class="analysis-hero-chip">📐 Biomecânica</span>
-          <span class="analysis-hero-chip">⚡ Ajustes</span>
-          <span class="analysis-hero-chip">🎯 Educativos</span>
-        </div>
-      </div>
+      
     </div>
 
     <!-- BOTÃO DE ENVIO DE VÍDEO SIMPLIFICADO -->
@@ -8760,31 +8754,45 @@
     </button>
 
     <!-- HUB DE CATEGORIAS DE ANÁLISES (ESTILO CARDS DE TREINO) -->
-    <div id="analysisHubMenu" class="training-days-list" style="margin-top: 14px; margin-bottom: 24px;">
+    <div id="analysisHubMenu" class="training-days-list" style="margin-top: 14px; margin-bottom: 24px; display: flex; flex-direction: column; gap: 10px;">
       
-      <!-- CARD 1: HABILIDADES -->
+      <!-- CARD 1: HABILIDADES INDIVIDUAIS -->
       <div class="training-day-card" id="analysisCardBtn-habilidades" onclick="openAnalysisCategoryView('habilidades')" style="border-left: 4.5px solid #0284c7; cursor: pointer;">
         <div class="day-card-left">
           <div class="day-card-name-row">
-            <span class="day-name" style="color: #fff; font-weight: 800; letter-spacing: 0.5px;">HABILIDADES</span>
+            <span class="analysis-card-title" style="color: #fff; font-weight: 800; font-size: 0.98rem; letter-spacing: 0.5px;">HABILIDADES INDIVIDUAIS</span>
           </div>
         </div>
         <div class="day-card-right">
-          <div class="day-status-pill status-pending">
+          <div class="day-status-pill status-pending" style="color: #38bdf8; border-color: rgba(56, 189, 248, 0.4); background: rgba(2, 132, 199, 0.12); font-size: 0.82rem;">
             <span class="status-icon">›</span>
           </div>
         </div>
       </div>
 
-      <!-- CARD 2: EXECUÇÃO DE EXERCÍCIOS -->
-      <div class="training-day-card" id="analysisCardBtn-exercicios" onclick="openAnalysisCategoryView('exercicios')" style="border-left: 4.5px solid #0284c7; cursor: pointer;">
+      <!-- CARD 2: COMPARATIVOS -->
+      <div class="training-day-card" id="analysisCardBtn-comparativos" onclick="openAnalysisCategoryView('comparativos')" style="border-left: 4.5px solid #0284c7; cursor: pointer;">
         <div class="day-card-left">
           <div class="day-card-name-row">
-            <span class="day-name" style="color: #fff; font-weight: 800; letter-spacing: 0.5px;">EXECUÇÃO DE EXERCÍCIOS</span>
+            <span class="analysis-card-title" style="color: #fff; font-weight: 800; font-size: 0.98rem; letter-spacing: 0.5px;">COMPARATIVOS</span>
           </div>
         </div>
         <div class="day-card-right">
-          <div class="day-status-pill status-pending">
+          <div class="day-status-pill status-pending" style="color: #38bdf8; border-color: rgba(56, 189, 248, 0.4); background: rgba(2, 132, 199, 0.12); font-size: 0.82rem;">
+            <span class="status-icon">›</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3: EXECUÇÃO DE EXERCÍCIOS -->
+      <div class="training-day-card" id="analysisCardBtn-exercicios" onclick="openAnalysisCategoryView('exercicios')" style="border-left: 4.5px solid #0284c7; cursor: pointer;">
+        <div class="day-card-left">
+          <div class="day-card-name-row">
+            <span class="analysis-card-title" style="color: #fff; font-weight: 800; font-size: 0.98rem; letter-spacing: 0.5px;">EXECUÇÃO DE EXERCÍCIOS</span>
+          </div>
+        </div>
+        <div class="day-card-right">
+          <div class="day-status-pill status-pending" style="color: #38bdf8; border-color: rgba(56, 189, 248, 0.4); background: rgba(2, 132, 199, 0.12); font-size: 0.82rem;">
             <span class="status-icon">›</span>
           </div>
         </div>
@@ -9502,66 +9510,127 @@
       </div>
     </div><!-- end #analysisView-exercicios -->
 
-      <!-- MARCOS HISTÓRICOS DE PROGRESSÃO TÉCNICA -->
-      <div style="margin-top: 36px; margin-bottom: 24px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
-        <div style="font-size: 1.05rem; font-weight: 800; color: #fff; letter-spacing: -0.01em; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
-          <div style="display:flex; align-items:center; gap:8px;">
-            <span>🤸 MARCOS DE PROGRESSÃO TÉCNICA</span>
-          </div>
-          <span style="font-size: 0.72rem; font-weight: 700; color: #38bdf8; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.35); padding: 2px 7px; border-radius: 6px;">Avançado</span>
-        </div>
-        <p style="font-size:0.8rem; color:var(--text-muted); margin:0 0 14px;">
-          Comparativo cronológico de ganho motor, alavancas gímnicas e segurança articular (Início vs. Atual).
-        </p>
-        <!-- MARCO 1: HANDSTAND e MANJOTA -->
-      <div class="comparison-card" style="margin-top:14px; border-left:3.5px solid #38bdf8;">
-        <div class="comparison-card-header">
-          <div class="comparison-card-title">1. Parada de Mãos (Handstand) e Alavancas na Manjota</div>
-          <span style="font-size:0.75rem; color:#38bdf8; font-weight:700;">Domínio Gravitacional</span>
-        </div>
-        <div style="font-size:0.82rem; line-height:1.6; color:#cbd5e1;">
-          <div style="padding:8px 12px; background:rgba(255,255,255,0.03); border-radius:8px; margin-bottom:8px;">
-            <strong style="color:#94a3b8;">📅 Ponto de Partida:</strong> Dificuldade em manter a linha axilar aberta sem hiperlordose lombar compensatória; fadiga precoce de punhos; sem sustentação unilateral na manjota.
-          </div>
-          <div style="padding:8px 12px; background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.25); border-radius:8px;">
-            <strong style="color:#38bdf8;">🚀 Estado Atual:</strong> Handstand alinhado em *bone stacking* por mais de 10s livre; subida contínua em força pura (Press Handstand); sustentação firme em **One-Arm Croc por 7 segundos** com apenas 1 braço sem giro de pelve.
-          </div>
-        </div>
+    <!-- ==================== SUBPÁGINA: COMPARATIVOS ==================== -->
+    <div id="analysisView-comparativos" style="display:none;">
+
+      <!-- Barra Superior de Navegação -->
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; padding: 6px 0; border-bottom: 1px solid var(--border-subtle);">
+        <button type="button" class="btn-back-workout" onclick="closeAnalysisCategoryView()">
+          ← Voltar para Menu de Técnica
+        </button>
+        <span style="font-weight: 800; font-size: 0.92rem; color: #fff; letter-spacing: 0.5px;">COMPARATIVOS</span>
       </div>
 
-      <!-- MARCO 2: STRICT RMU e TRANSICÕES -->
-      <div class="comparison-card" style="border-left:3.5px solid #0284c7;">
-        <div class="comparison-card-header">
-          <div class="comparison-card-title">2. Ring Muscle-Up Livre (Argolas Altas) e Transição</div>
-          <span style="font-size:0.75rem; color:#38bdf8; font-weight:700;">Potência Escapular</span>
-        </div>
-        <div style="font-size:0.82rem; line-height:1.6; color:#cbd5e1;">
-          <div style="padding:8px 12px; background:rgba(255,255,255,0.03); border-radius:8px; margin-bottom:8px;">
-            <strong style="color:#94a3b8;">📅 Ponto de Partida:</strong> 2 anos sem realizar Ring Muscle-Up livre devido ao receio de desaceleração abrupta no ombro direito operado; transição dependente de impulso de quadril.
+      <!-- BANNER DE AÇÃO: NOVO COMPARATIVO -->
+      <button type="button" class="analysis-upload-banner" onclick="openSendVideoModal('Comparativo de Dois Vídeos')" style="margin-top: 6px; margin-bottom: 16px;">
+        <span>+ SOLICITAR NOVO COMPARATIVO</span>
+      </button>
+
+      <!-- LISTA DE COMPARATIVOS ATIVOS -->
+      <div class="comparativos-list" style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px;">
+
+        <!-- COMPARATIVO 1: HANDSTAND -->
+        <div class="comparativo-card" style="background: var(--card-bg, #11141a); border: 1.5px solid rgba(56, 189, 248, 0.35); border-left: 4.5px solid #0284c7; border-radius: 14px; padding: 16px 18px; box-shadow: 0 4px 18px rgba(0,0,0,0.5);">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom: 12px; flex-wrap: wrap; gap: 6px;">
+            <div style="font-size: 1.02rem; font-weight: 800; color: #ffffff;">Parada de Mãos (Handstand Livre)</div>
+            <span style="font-size: 0.72rem; font-weight: 800; color: #38bdf8; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.3); padding: 3px 8px; border-radius: 6px;">Evolução de 6 Meses</span>
           </div>
-          <div style="padding:8px 12px; background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.25); border-radius:8px;">
-            <strong style="color:#38bdf8;">🚀 Estado Atual:</strong> Retorno pleno com **1x Strict RMU Livre no topo** + 2x Inverted Candle Kips sem auxílio de elástico, mantendo depressão escapular ativa e zero dor no supraespinhal.
+
+          <!-- GRID DE DOIS VÍDEOS LADO A LADO -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-bottom: 14px;">
+            
+            <!-- VÍDEO 1: PONTO DE PARTIDA -->
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 12px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 8px;">
+                <span style="font-size:0.75rem; font-weight:800; color:#94a3b8; text-transform:uppercase;">📅 Ponto de Partida</span>
+                <span style="font-size:0.72rem; color:#64748b; font-weight:600;">Início</span>
+              </div>
+              <div style="position:relative; width:100%; aspect-ratio:16/9; background:#000; border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,0.08); margin-bottom:8px;">
+                <span style="font-size:1.8rem; margin-bottom:4px;">📹</span>
+                <span style="font-size:0.72rem; color:#94a3b8; font-weight:600;">Vídeo Inicial</span>
+              </div>
+              <div style="font-size:0.78rem; color:#cbd5e1; line-height:1.45;">
+                <strong style="color:#f87171;">Compensação:</strong> Fechamento axilar precoce e hiperlordose lombar compensatória para manter o equilíbrio.
+              </div>
+            </div>
+
+            <!-- VÍDEO 2: ESTADO ATUAL -->
+            <div style="background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 10px; padding: 12px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 8px;">
+                <span style="font-size:0.75rem; font-weight:800; color:#38bdf8; text-transform:uppercase;">🚀 Estado Atual</span>
+                <span style="font-size:0.72rem; color:#38bdf8; font-weight:700;">Consolidado</span>
+              </div>
+              <div style="position:relative; width:100%; aspect-ratio:16/9; background:#000; border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; border:1px solid rgba(56,189,248,0.25); margin-bottom:8px;">
+                <span style="font-size:1.8rem; margin-bottom:4px;">✨</span>
+                <span style="font-size:0.72rem; color:#38bdf8; font-weight:600;">Vídeo da Evolução</span>
+              </div>
+              <div style="font-size:0.78rem; color:#cbd5e1; line-height:1.45;">
+                <strong style="color:#38bdf8;">Ajuste Conquistado:</strong> Bone stacking anatômico com empurrão ativo, abertura completa do ângulo escápulo-umeral e sustentação superior a 10s.
+              </div>
+            </div>
+
+          </div>
+
+          <!-- DIAGNÓSTICO DO COACH -->
+          <div style="padding: 10px 12px; background: rgba(56, 189, 248, 0.08); border-radius: 8px; font-size: 0.8rem; color: #e2e8f0; line-height: 1.5; border-left: 3px solid #38bdf8;">
+            <strong style="color:#38bdf8;">Análise Biomecânica Comparativa:</strong> A ativação do serrátil anterior eliminou o cisalhamento glenoumeral e permitiu o empilhamento ósseo perfeito, poupando a musculatura estabilizadora e aumentando a eficiência energética.
           </div>
         </div>
+
+        <!-- COMPARATIVO 2: RING MUSCLE-UP -->
+        <div class="comparativo-card" style="background: var(--card-bg, #11141a); border: 1.5px solid rgba(56, 189, 248, 0.35); border-left: 4.5px solid #0284c7; border-radius: 14px; padding: 16px 18px; box-shadow: 0 4px 18px rgba(0,0,0,0.5);">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom: 12px; flex-wrap: wrap; gap: 6px;">
+            <div style="font-size: 1.02rem; font-weight: 800; color: #ffffff;">Strict Ring Muscle-Up (Argolas)</div>
+            <span style="font-size: 0.72rem; font-weight: 800; color: #38bdf8; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.3); padding: 3px 8px; border-radius: 6px;">Evolução Pós-Cirúrgica</span>
+          </div>
+
+          <!-- GRID DE DOIS VÍDEOS LADO A LADO -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-bottom: 14px;">
+            
+            <!-- VÍDEO 1: PONTO DE PARTIDA -->
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 12px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 8px;">
+                <span style="font-size:0.75rem; font-weight:800; color:#94a3b8; text-transform:uppercase;">📅 Ponto de Partida</span>
+                <span style="font-size:0.72rem; color:#64748b; font-weight:600;">Retorno</span>
+              </div>
+              <div style="position:relative; width:100%; aspect-ratio:16/9; background:#000; border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,0.08); margin-bottom:8px;">
+                <span style="font-size:1.8rem; margin-bottom:4px;">📹</span>
+                <span style="font-size:0.72rem; color:#94a3b8; font-weight:600;">Vídeo Inicial</span>
+              </div>
+              <div style="font-size:0.78rem; color:#cbd5e1; line-height:1.45;">
+                <strong style="color:#f87171;">Compensação:</strong> Receio de desaceleração no ombro operado; transição dependente de kiping e cotovelos projetados lateralmente.
+              </div>
+            </div>
+
+            <!-- VÍDEO 2: ESTADO ATUAL -->
+            <div style="background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 10px; padding: 12px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 8px;">
+                <span style="font-size:0.75rem; font-weight:800; color:#38bdf8; text-transform:uppercase;">🚀 Estado Atual</span>
+                <span style="font-size:0.72rem; color:#38bdf8; font-weight:700;">Conquistado</span>
+              </div>
+              <div style="position:relative; width:100%; aspect-ratio:16/9; background:#000; border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; border:1px solid rgba(56,189,248,0.25); margin-bottom:8px;">
+                <span style="font-size:1.8rem; margin-bottom:4px;">✨</span>
+                <span style="font-size:0.72rem; color:#38bdf8; font-weight:600;">Vídeo da Evolução</span>
+              </div>
+              <div style="font-size:0.78rem; color:#cbd5e1; line-height:1.45;">
+                <strong style="color:#38bdf8;">Ajuste Conquistado:</strong> Transição lenta e estrita por cima das tiras, cotovelos junto ao tronco, ombro estável em rotação externa e zero dor.
+              </div>
+            </div>
+
+          </div>
+
+          <!-- DIAGNÓSTICO DO COACH -->
+          <div style="padding: 10px 12px; background: rgba(56, 189, 248, 0.08); border-radius: 8px; font-size: 0.8rem; color: #e2e8f0; line-height: 1.5; border-left: 3px solid #38bdf8;">
+            <strong style="color:#38bdf8;">Análise Biomecânica Comparativa:</strong> O fortalecimento da falsa pegada associado à depressão escapular ativa permitiu que o vetor de força atuasse paralelo ao eixo do úmero, neutralizando o cisalhamento sobre o tendão do supraespinhal.
+          </div>
+        </div>
+
       </div>
 
-      <!-- MARCO 3: PORTAGEM DE FORÇA -->
-      <div class="comparison-card" style="border-left:3.5px solid #c084fc;">
-        <div class="comparison-card-header">
-          <div class="comparison-card-title">3. Portagem Acrobática de Força (Press no Ombro)</div>
-          <span style="font-size:0.75rem; color:#c084fc; font-weight:700;">Estabilidade Dinâmica</span>
-        </div>
-        <div style="font-size:0.82rem; line-height:1.6; color:#cbd5e1;">
-          <div style="padding:8px 12px; background:rgba(255,255,255,0.03); border-radius:8px; margin-bottom:8px;">
-            <strong style="color:#94a3b8;">📅 Ponto de Partida:</strong> Desconforto em sustentações pesadas acima de 58 kg; instabilidade na sincronia de subida com a base.
-          </div>
-          <div style="padding:8px 12px; background:rgba(192,132,252,0.08); border:1px solid rgba(192,132,252,0.25); border-radius:8px;">
-            <strong style="color:#c084fc;">🚀 Estado Atual:</strong> Press Handstand impecável sobre as clavículas do parceiro sustentando **86 kg**, com centro de massa rigorosamente vertical e descida excêntrica macia.
-          </div>
-        </div>
-      </div>
-      </div>
-    </div>
+    </div><!-- end #analysisView-comparativos -->
+  
+
+      
 
     <!-- ==================== SUBPÁGINA: CENTRAL DE RECORDES ==================== -->
     <div id="evolView-recordes" class="evolucao-view-pane" style="display:none;">
@@ -9573,22 +9642,7 @@
         </button>
       </div>
 
-      <!-- HERO: CENTRAL DE RECORDES -->
-      <div class="evolucao-hero recordes-hero-card" id="recordesHeroCard">
-        <div class="evolucao-title">
-          <span>🏆 Central de Recordes Pessoais (PR)</span>
-          <span class="evolucao-badge-delta recordes-badge">Alta Performance</span>
-        </div>
-        <p style="font-size:0.8rem; color:var(--text-muted); margin:6px 0 0;">
-          Quadro de marcas máximas (1RM), repetições ininterruptas, benchmarks clássicos de CrossFit e calculadora de cargas de treino.
-        </p>
-        <div class="recordes-hero-chips">
-          <span class="recordes-hero-chip">🏋️ 1RM e Cargas</span>
-          <span class="recordes-hero-chip">🤸 Ginásticos Unbroken</span>
-          <span class="recordes-hero-chip">⚡ Benchmarks e Metcons</span>
-          <span class="recordes-hero-chip">📊 Calculadora de %</span>
-        </div>
-      </div>
+      
 
       <!-- BANNER DE AÇÃO PRIMÁRIA: REGISTRAR NOVO RECORDE -->
       <button type="button" class="recordes-action-banner" id="recordesActionBanner" onclick="openAddPrModal()">
@@ -9605,57 +9659,57 @@
       <!-- HUB DE CATEGORIAS DE RECORDES (ESTILO TRAINING-DAY-CARD) -->
       <div id="recordesHubMenu" class="training-days-list" style="margin-top: 14px; margin-bottom: 24px; display: flex; flex-direction: column; gap: 10px;">
         
-        <!-- CARD 1: LPO E FORÇA BRUTA -->
-        <div class="training-day-card" id="recordesCardBtn-lpo" onclick="openRecordesSubView('lpo')">
+        <!-- CARD 1: LEVANTAMENTO DE PESO (1RM) -->
+        <div class="training-day-card" id="recordesCardBtn-lpo" onclick="openRecordesSubView('lpo')" style="border-left: 4.5px solid #f43f5e; cursor: pointer;">
           <div class="day-card-left">
             <div class="day-card-name-row">
-              <span class="recordes-card-title">LEVANTAMENTO DE PESO (1RM)</span>
+              <span class="recordes-card-title" style="color: #fff; font-weight: 800; font-size: 0.98rem; letter-spacing: 0.5px;">LEVANTAMENTO DE PESO (1RM)</span>
             </div>
           </div>
           <div class="day-card-right">
-            <div class="day-status-pill status-pending">
+            <div class="day-status-pill status-pending" style="color: #f43f5e; border-color: rgba(244, 63, 94, 0.4); background: rgba(244, 63, 94, 0.12); font-size: 0.82rem;">
               <span class="status-icon">›</span>
             </div>
           </div>
         </div>
 
         <!-- CARD 2: GINÁSTICOS E CALISTENIA -->
-        <div class="training-day-card" id="recordesCardBtn-ginasticos" onclick="openRecordesSubView('ginasticos')">
+        <div class="training-day-card" id="recordesCardBtn-ginasticos" onclick="openRecordesSubView('ginasticos')" style="border-left: 4.5px solid #f43f5e; cursor: pointer;">
           <div class="day-card-left">
             <div class="day-card-name-row">
-              <span class="recordes-card-title">GINÁSTICOS E CALISTENIA</span>
+              <span class="recordes-card-title" style="color: #fff; font-weight: 800; font-size: 0.98rem; letter-spacing: 0.5px;">GINÁSTICOS E CALISTENIA</span>
             </div>
           </div>
           <div class="day-card-right">
-            <div class="day-status-pill status-pending">
+            <div class="day-status-pill status-pending" style="color: #f43f5e; border-color: rgba(244, 63, 94, 0.4); background: rgba(244, 63, 94, 0.12); font-size: 0.82rem;">
               <span class="status-icon">›</span>
             </div>
           </div>
         </div>
 
-        <!-- CARD 3: BENCHMARKS E WODS -->
-        <div class="training-day-card" id="recordesCardBtn-benchmarks" onclick="openRecordesSubView('benchmarks')">
+        <!-- CARD 3: BENCHMARKS DE CROSSFIT -->
+        <div class="training-day-card" id="recordesCardBtn-benchmarks" onclick="openRecordesSubView('benchmarks')" style="border-left: 4.5px solid #f43f5e; cursor: pointer;">
           <div class="day-card-left">
             <div class="day-card-name-row">
-              <span class="recordes-card-title">BENCHMARKS DE CROSSFIT</span>
+              <span class="recordes-card-title" style="color: #fff; font-weight: 800; font-size: 0.98rem; letter-spacing: 0.5px;">BENCHMARKS DE CROSSFIT</span>
             </div>
           </div>
           <div class="day-card-right">
-            <div class="day-status-pill status-pending">
+            <div class="day-status-pill status-pending" style="color: #f43f5e; border-color: rgba(244, 63, 94, 0.4); background: rgba(244, 63, 94, 0.12); font-size: 0.82rem;">
               <span class="status-icon">›</span>
             </div>
           </div>
         </div>
 
-        <!-- CARD 4: CALCULADORA DE CARGAS % -->
-        <div class="training-day-card" id="recordesCardBtn-calculadora" onclick="openRecordesSubView('calculadora')">
+        <!-- CARD 4: CALCULADORA DE CARGAS E PERCENTUAIS (%) -->
+        <div class="training-day-card" id="recordesCardBtn-calculadora" onclick="openRecordesSubView('calculadora')" style="border-left: 4.5px solid #f43f5e; cursor: pointer;">
           <div class="day-card-left">
             <div class="day-card-name-row">
-              <span class="recordes-card-title">CALCULADORA DE CARGAS E PERCENTUAIS (%)</span>
+              <span class="recordes-card-title" style="color: #fff; font-weight: 800; font-size: 0.98rem; letter-spacing: 0.5px;">CALCULADORA DE CARGAS E PERCENTUAIS (%)</span>
             </div>
           </div>
           <div class="day-card-right">
-            <div class="day-status-pill status-pending">
+            <div class="day-status-pill status-pending" style="color: #f43f5e; border-color: rgba(244, 63, 94, 0.4); background: rgba(244, 63, 94, 0.12); font-size: 0.82rem;">
               <span class="status-icon">›</span>
             </div>
           </div>
@@ -11286,6 +11340,7 @@
 
       const viewHabilidades = document.getElementById('analysisView-habilidades');
       const viewExercicios = document.getElementById('analysisView-exercicios');
+      const viewComparativos = document.getElementById('analysisView-comparativos');
       if ((viewHabilidades && viewHabilidades.style.display === 'block') ||
           (viewExercicios && viewExercicios.style.display === 'block')) {
         if (typeof closeAnalysisCategoryView === 'function') {
@@ -11956,6 +12011,14 @@
         if (typeof closeRecordesSubView === 'function') closeRecordesSubView(true);
         if (typeof renderAllRecordesUI === 'function') renderAllRecordesUI();
       }
+      const barTitle = document.getElementById('dedicatedBarTitle');
+      if (barTitle) {
+        if (viewId === 'tecnica') barTitle.textContent = 'Progressão Técnica';
+        else if (viewId === 'composicao') barTitle.textContent = 'Composição Corporal';
+        else if (viewId === 'recordes') barTitle.textContent = 'Central de Recordes';
+        else if (viewId === 'relatorio') barTitle.textContent = 'Relatórios de Evolução';
+      }
+
       if (viewId === 'tecnica') {
         if (typeof closeAnalysisCategoryView === 'function') closeAnalysisCategoryView(true);
       if (typeof closeRecordesSubView === 'function') closeRecordesSubView(true);
