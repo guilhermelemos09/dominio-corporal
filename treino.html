@@ -6735,10 +6735,10 @@
         <div class="training-day-card" id="dayCard-quinta" role="button" tabindex="0" data-workout-type="dia" onclick="openDayWorkout('quinta')">
           <div class="day-card-left">
             <div class="day-card-name-row">
-              <span class="day-name">QUINTA | A DEFINIR</span>
+              <span class="day-name">QUINTA | DANÇA E REGENERAÇÃO ATIVA</span>
               <span class="day-today-badge" id="todayBadge-quinta" style="display:none;">Hoje</span>
             </div>
-            <div class="day-meta-pill">📍 Planejamento • ⏱️ A definir</div>
+            <div class="day-meta-pill">📍 Ginásio e Escola • ⏱️ ~2h15 Total</div>
           </div>
           <div class="day-card-right">
             <div class="day-status-pill status-pending" id="statusPill-quinta" onclick="event.stopPropagation(); handleWorkoutStatusClick('quinta')">
@@ -7656,31 +7656,167 @@
     </div>
   </div><!-- end #tab-quarta -->
 
-    <!-- ==================== TAB: QUINTA (EM ABERTO • A DEFINIR) ==================== -->
+    <!-- ==================== TAB: QUINTA (DANÇA E REGENERAÇÃO ATIVA) ==================== -->
   <div id="tab-quinta" class="tab-content">
 
     <!-- LOCAL E DURAÇÃO DA SESSÃO -->
     <div class="session-overall-meta">
-      <span class="meta-item">📍 A Definir</span>
+      <button type="button" class="btn-orientacoes-popup" onclick="openOrientacoesTreino('quinta')">
+        <svg viewBox="0 0 24 24" style="width:14px; height:14px; fill:currentColor;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+        <span>ORIENTAÇÕES</span>
+      </button>
       <span class="meta-separator">|</span>
-      <span class="meta-item">⏱️ Em Planejamento</span>
+      <span class="meta-item">📍 Ginásio EEFERP e Escola de Dança</span>
       <span class="meta-separator">|</span>
-      <span class="meta-item">⏳ Em Aberto</span>
+      <span class="meta-item">⚡ Dança Contemporânea + Regeneração</span>
+      <span class="meta-separator">|</span>
+      <span class="meta-item">⏱️ ~2h15 Total</span>
     </div>
 
-    <!-- DIRETRIZES DA SESSÃO EM ABERTO -->
-    <div class="callout-box" style="border-left: 3.5px solid #64748b; padding: 22px 18px; margin-bottom: 20px; border-radius: 12px; background: rgba(255, 255, 255, 0.03);">
-      <div class="callout-icon" style="font-size:1.5rem;">📋</div>
-      <div>
-        <div class="callout-topic-header" style="color: #ffffff; font-size: 0.98rem; font-weight:800; letter-spacing:0.04em;">QUINTA • SESSÃO EM ABERTO</div>
-        <div style="font-size: 0.85rem; color: #94a3b8; margin-top: 8px; line-height: 1.6;">
-          Os blocos de treino, volumes e cargas desta sessão serão definidos e lançados após a avaliação do rendimento e recuperação dos treinos anteriores da semana.
+    <!-- ==================== SEÇÃO 1: HABILIDADES ==================== -->
+    <div class="section-card sec-skills">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-title">HABILIDADES</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~1h30 Total</span>
+        </div>
+      </div>
+
+      <!-- EXERCÍCIO 1: DANÇA CONTEMPORÂNEA -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>DANÇA CONTEMPORÂNEA</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('DANÇA CONTEMPORÂNEA', '<b>Execução:</b> 1. Sessão 1 (12h às 13h no Ginásio EEFERP): aquecimento orgânico articular, exploração de floorwork macio, transferências corporais em espiral e deslocamentos sem sobrecarga nos membros superiores.<br>2. Sessão 2 (18h30 às 19h30 na Escola de Dança): nível intermediário com foco em sequências coreográficas, fluidez de movimento, consciência espacial e ritmo sem impactos duros.<br><br><b>Cuidados:</b> Evitar quedas ou apoios bruscos sobre os cotovelos no chão; usar rolagens de tronco e passagens suaves sem torque excessivo nos punhos.<br><br><b>Base científica:</b> FLUIDEZ MOTORA E REGENERAÇÃO ATIVA: A prática de dança em intensidade submáxima promove circulação sanguínea peritendínea e modulação proprioceptiva sem dano mecânico às fibras musculares, acelerando a drenagem de metabólitos e restabelecendo o tônus neuromuscular (Garber et al., 2011; Latash, 2008).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+
+        <div style="margin: 10px 0 14px 0; font-size: 0.82rem; color: #cbd5e1; line-height: 1.55;">
+          • <strong>12h00 às 13h00 (Ginásio EEFERP):</strong> Dança Contemporânea, floorwork e mobilidade orgânica.<br>
+          • <strong>18h30 às 19h30 (Escola de Dança):</strong> Dança Contemporânea Intermediária e sequências coreográficas.<br>
+          <em>Objetivo do dia: soltar o corpo sem carga de empurre ou puxada nos braços.</em>
+        </div>
+
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">2 SESSÕES • FLUIDEZ E CONSCIÊNCIA CORPORAL • ZERO IMPACTO</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Aula 1 (Ginásio EEFERP - 12h às 13h)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Aula 2 (Escola de Dança - 18h30 às 19h30)</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-qui-danca" onclick="toggleCommentBox('ex-qui-danca')">
+            <span>💬 Dúvidas ou Observações?</span>
+            <span class="comment-dot" id="dot-ex-qui-danca" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-qui-danca" class="comment-drawer" style="display: none;">
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
+            <span class="save-indicator" id="save-status-ex-qui-danca"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-qui-danca" placeholder="Escreva aqui suas sensações corporais nas aulas de dança..." oninput="saveExerciseNote('ex-qui-danca', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Caso queira anexar vídeo das aulas de dança:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Dança Contemporânea • Quinta')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
 
-    <div style="text-align: center; padding: 40px 16px; color: var(--text-dim); font-size: 0.82rem;">
-      <p style="margin: 0;">Aguardando definição técnica de exercícios.</p>
+    <!-- ==================== SEÇÃO 2: MOBILIDADE ==================== -->
+    <div class="section-card sec-flexibilidade">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <div class="section-title">MOBILIDADE</div>
+        </div>
+        <div class="session-meta-chips">
+          <span class="meta-chip meta-chip-time">⏱️ ~45 min (Janela 13h-14h)</span>
+        </div>
+      </div>
+
+      <!-- EXERCÍCIO 1: SOLTURA DE QUADRIL E STRADDLE -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>SOLTURA DE QUADRIL E STRADDLE</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('SOLTURA DE QUADRIL E STRADDLE', '<b>Execução:</b> 1. Executado na janela de 1 hora livre no ginásio (13h às 14h), aproveitando o corpo aquecido da dança.<br>2. Straddle no solo: sentado com pernas abertas no limite confortável, realizar inclinações lentas para os lados e à frente, sustentando cada posição por 45 a 60 segundos com respiração diafragmática profunda.<br>3. Posição 90/90 de quadril alternando rotação interna e externa suave (10 transições lentas para cada lado).<br>4. Ponte de solo suave ou abertura passiva de cadeia anterior apoiando no tatame sem forçar punhos.<br><br><b>Cuidados:</b> Não realizar solavancos nos adutores; manter respiração nasal calma para relaxamento dos fusos neuromusculares.<br><br><b>Base científica:</b> AMPLITUDE PASSIVA E ECONOMIA DE ENERGIA NO PRESS: O ganho de flexibilidade nos adutores e isquiotibiais em straddle reduz a resistência passiva ao avanço da bacia sobre a linha dos ombros, tornando o Press to Handstand e o alinhamento de One-Arm Croc muito mais eficientes mecanicamente para a sessão de sexta (Schoenfeld, 2010; Neumann, 2016).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">3 SÉRIES • ABERTURA EM STRADDLE, 90/90 E PONTE SUAVE • ⏱️ REST: 45s</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Série 1 (Straddle no Solo e Inclinações Frontais)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 2 (Mobilidade 90/90 e Rotadores de Quadril)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Série 3 (Abertura de Cadeia Anterior e Ponte Suave)</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-qui-soltura-quadril" onclick="toggleCommentBox('ex-qui-soltura-quadril')">
+            <span>💬 Dúvidas ou Observações?</span>
+            <span class="comment-dot" id="dot-ex-qui-soltura-quadril" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-qui-soltura-quadril" class="comment-drawer" style="display: none;">
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
+            <span class="save-indicator" id="save-status-ex-qui-soltura-quadril"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-qui-soltura-quadril" placeholder="Escreva aqui a sensação de abertura no straddle ou soltura de quadril..." oninput="saveExerciseNote('ex-qui-soltura-quadril', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Envie vídeo da sua mobilidade em straddle:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Soltura de Quadril e Straddle • Quinta')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXERCÍCIO 2: BLINDAGEM E REGENERAÇÃO DO COTOVELO -->
+      <div class="exercise-card">
+        <div class="ex-title">
+          <span>BLINDAGEM E REGENERAÇÃO DO COTOVELO</span>
+          <button type="button" class="btn-video" onclick="openVideoModal('BLINDAGEM E REGENERAÇÃO DO COTOVELO', '<b>Execução:</b> 1. Liberação miofascial com bolinha ou massagem suave no ventre muscular do braquiorradial, bíceps braquial e tríceps (focar no meio da musculatura para soltar pontos-gatilho, sem apertar diretamente o osso ou o tendão inflamado).<br>2. Suspensão passiva na barra fixa (Protocolo Kirsch 45s a 1 min) com pés apoiados sutilmente no solo para tração axial descompressiva da coluna e espaço subacromial.<br>3. Aplicação de compressa fria / gelo por 15 a 20 minutos no cotovelo ao final da rotina.<br><br><b>Cuidados:</b> Zero exercícios de flexão, supino ou barra hoje; permitir repouso mecânico aos tendões para recuperar 100% para o treino de sexta.<br><br><b>Base científica:</b> CESSAÇÃO DE MICROTRAUMA E REGENERAÇÃO COLÁGENA: O tendão em sobrecarga inflamatória necessita de uma janela de 24 a 48 horas livre de tensão excêntrica de alta intensidade para restaurar o balanço proteico e atenuar a hiperalgesia periférica dos mecanorreceptores (Magnusson et al., 2008; Kirsch, 2012).', '')">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> <span>Instruções</span>
+          </button>
+        </div>
+
+        <div class="ex-volume-sets-row">
+          <div class="ex-volume-badge">PROTOCOLO DE RECUPERAÇÃO • MIOFASCIAL + SUSPENSÃO + GELO</div>
+          <div class="sets-container">
+            <div class="set-pill" onclick="toggleSet(this)">Passo 1 (Liberação no Ventre Muscular do Bíceps/Antebraço)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Passo 2 (Suspensão Kirsch 45s na Barra com Pés Apoiados)</div>
+            <div class="set-pill" onclick="toggleSet(this)">Passo 3 (Crioterapia / Gelo 15-20 min)</div>
+          </div>
+        </div>
+        <div class="ex-bottom-actions">
+          <button type="button" class="btn-comment" id="btn-comment-ex-qui-regeneracao-cotovelo" onclick="toggleCommentBox('ex-qui-regeneracao-cotovelo')">
+            <span>💬 Dúvidas ou Observações?</span>
+            <span class="comment-dot" id="dot-ex-qui-regeneracao-cotovelo" style="display:none;"></span>
+          </button>
+        </div>
+        <div id="comment-box-ex-qui-regeneracao-cotovelo" class="comment-drawer" style="display: none;">
+          <div class="comment-header" style="display: flex; justify-content: flex-end; margin-bottom: 4px;">
+            <span class="save-indicator" id="save-status-ex-qui-regeneracao-cotovelo"></span>
+          </div>
+          <textarea class="comment-textarea" id="note-ex-qui-regeneracao-cotovelo" placeholder="Escreva aqui como o cotovelo reagiu à liberação, suspensão ou gelo..." oninput="saveExerciseNote('ex-qui-regeneracao-cotovelo', this.value)"></textarea>
+          <div class="drawer-video-action-box">
+            <div class="drawer-video-action-text">Envie feedback sobre a recuperação do cotovelo:</div>
+            <button type="button" class="btn-send-video-drawer" onclick="openSendVideoModal('Regeneração do Cotovelo • Quinta')">
+              <svg viewBox="0 0 24 24" style="width:13px; height:13px; fill:currentColor;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              <span>Enviar Vídeo</span>
+              <span style="font-size:0.85rem; margin-left:2px;">↗</span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Card Clean de Finalização de Treino (QUINTA) -->
@@ -7689,7 +7825,7 @@
         <span class="finish-flag-icon">🏁</span> <span>FINALIZAR SESSÃO</span>
       </button>
       <div id="completeFeedback-quinta" class="complete-feedback-box" style="display:none; width: 100%; margin-top: 10px;">
-        ✅ Sessão finalizada e registrada com sucesso!
+        ✓ Sessão finalizada e registrada com sucesso!
       </div>
     </div>
   </div><!-- end #tab-quinta -->
@@ -18745,7 +18881,7 @@ function formatVisualAnalysisContent(rawText) {
         'segunda': 'SEGUNDA | CROSSFIT, ARGOLAS E ACRODUO',
         'terca': 'TERÇA | CROSSFIT: SKILL PULL-UP E WOD',
         'quarta': 'QUARTA | ARGOLAS E CROSSFIT: HSPU E COMPLEX',
-        'quinta': 'QUINTA | A DEFINIR',
+        'quinta': 'QUINTA | DANÇA E REGENERAÇÃO ATIVA',
         'sexta': 'SEXTA | A DEFINIR'
       };
 
@@ -19078,6 +19214,14 @@ function formatVisualAnalysisContent(rawText) {
           '• <u><strong style="color:#38bdf8;">Descompressão Pós-Treino:</strong></u> Suspensão Kirsch na barra fixa (45s a 1 min) e liberação de antebraço/tríceps para dissipar a tensão acumulada.'
         ];
         openTip('', conteudo.join('\n'), '🛡️ ORIENTAÇÕES');
+      } else if (sessao === 'quinta') {
+        const conteudo = [
+          '• <u><strong style="color:#38bdf8;">Estratégia e Regeneração da Quinta:</strong></u> Após o acúmulo de puxadas da terça (75 barras) e empurres pesados da quarta (supino, HSPU e complex), os tendões do cotovelo precisam de repouso mecânico. A meta de hoje é fluidez, mobilidade de pernas e regeneração ativa.',
+          '• <u><strong style="color:#38bdf8;">Dança Contemporânea (2 Sessões):</strong></u> Use as aulas no ginásio (12h-13h) e na escola (18h30-19h30) para soltura articular e circulação. Evite quedas ou apoios bruscos sobre os cotovelos no chão.',
+          '• <u><strong style="color:#38bdf8;">Janela de 1h Livre (13h às 14h):</strong></u> Dedique este bloco para abrir o quadril no solo (straddle amplo e rotações 90/90), diminuindo a resistência muscular para o Press Handstand e OAH de sexta-feira.',
+          '• <u><strong style="color:#38bdf8;">Protocolo do Cotovelo:</strong></u> Liberação com massagem suave no ventre muscular do bíceps e antebraço (nunca apertar em cima do osso/tendão dolorido), suspensão passiva Kirsch na barra por 45s a 1 min e gelo por 15-20 min.'
+        ];
+        openTip('', conteudo.join('\n'), '🛡️ ORIENTAÇÕES');
       } else {
         openTip('', '• Sessão em aberto. Aguardando definição técnica dos blocos de treino.', '🛡️ ORIENTAÇÕES');
       }
@@ -19108,11 +19252,10 @@ function formatVisualAnalysisContent(rawText) {
         },
         'quinta': {
           title: 'Foco do Treino • Quinta-feira',
-          text: `• CRONOGRAMA DO DIA: 12h-13h Contemporâneo | 13h-14h Ginástica | 18h30-19h30 Contemporâneo Intermediário.
-• HANDSTAND DA SEMANA (13h-14h): Parada de mãos com empilhamento ósseo (stacking) punho-cotovelo-ombro na gravidade.
-• MANJOTA e CONTROLE: Sustentação na manjota, Press to Handstand estrito e One-Arm Croc.
-• FORTALECIMENTO: HSPU com cadência excêntrica de 2-3s e remadas de compensação escapular.
-• DANÇA CONTEMPORÂNEA: Floorwork macio e giros sem pivô forçado no joelho esquerdo.`
+          text: `• DANÇA CONTEMPORÂNEA: Duas aulas suaves focadas em fluidez, consciência motora e soltura articular.
+• REGENERAÇÃO ATIVA: Zero empurres pesados ou barras hoje para permitir a restauração dos tendões do cotovelo.
+• MOBILIDADE DE STRADDLE: Trabalho profundo de adutores e quadril preparando o Press Handstand de sexta.
+• BLINDAGEM DE COTOVELO: Liberação no ventre muscular, suspensão Kirsch e gelo para zerar a inflamação.`
         },
         'sexta': {
           title: 'Foco do Treino • Sexta-feira',
@@ -19164,15 +19307,15 @@ Base científica:
           category: '🛡️ Importante'
         },
         'quinta': {
-          title: 'Orientações e Cronograma de Quinta-feira',
-          text: `• Rotina do Dia: 12h–13h Dança Contemporânea | 13h–14h Ginástica (Handstand) | 18h30–19h30 Contemporâneo Intermediário.
-• Handstand na Manjota (13h–14h): Mantenha sempre o empurrão do solo/blocos para afastar os ombros das orelhas. Desça antes da perda de alinhamento para blindar o supraespinhal.
-• Dança Contemporânea: No trabalho de chão (12h e 18h30), transfira carga pelas escápulas e bordo lateral das coxas, sem pancada direta de patela no solo e sem torções em pivô.
+          title: 'Orientações de Recuperação • Quinta-feira',
+          text: `• Repouso dos Braços: Nada de nadar forte ou fazer flexões/barras hoje. Treinar braço hoje comprometeria o treino nobre de ginástica de sexta.
+• Cuidado no Floorwork: Na dança contemporânea, apoie antebraços ou role suavemente sem descarregar impacto no cotovelo azedo.
+• Protocolo de Gelo: Aplicar compressa fria no cotovelo por 15-20 min ao final da tarde.
 
 Base científica:
-• Elevação Escapular no Handstand (Kapandji): Serrátil anterior ativo mantém o espaço subacromial amplo no ombro direito.
-• Cinemática em Solo: Contato contínuo com solo distribui pressão hidrostática sinovial, poupando a fibrocartilagem meniscal.`,
-          category: '⚠️ Importante'
+• Regeneração Tendínea: A restauração da matriz extracelular do tendão exige repouso mecânico de alta tensão para atenuar a resposta inflamatória tecidual (Magnusson, 2008).
+• Amplitude e Alavanca: Aumentar a flexibilidade em straddle hoje otimiza o braço de momento para o Press Handstand e OAH amanhã (Neumann, 2016).`,
+          category: '🛡️ Importante'
         },
         'sexta': {
           title: 'Orientações para a Sessão de Argolas',
