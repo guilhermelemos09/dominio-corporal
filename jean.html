@@ -5,6 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Domínio Corporal • Jean Hilário</title>
 
+  <!-- Auto-Update e Limpeza Imediata de Cache -->
+  <script>
+    (function() {
+      const CURRENT_APP_VERSION = 'v226';
+      const storedVersion = localStorage.getItem('dominio_app_installed_version');
+      if (storedVersion !== CURRENT_APP_VERSION) {
+        if ('caches' in window) {
+          caches.keys().then(function(names) {
+            names.forEach(function(name) { caches.delete(name); });
+          });
+        }
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.getRegistrations().then(function(regs) {
+            regs.forEach(function(r) { r.unregister(); });
+          });
+        }
+        localStorage.setItem('dominio_app_installed_version', CURRENT_APP_VERSION);
+      }
+    })();
+  </script>
+
   <!-- Cache Control Meta Tags -->
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
@@ -17219,7 +17240,7 @@ window.openWelcomeAppModal = function(notifId = null) {
     // Registra Service Worker (PWA Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        const swFile = window.location.pathname.includes('/JEAN') ? '../sw.js?v=225' : 'sw.js?v=225'; navigator.serviceWorker.register(swFile).then((reg) => {
+        const swFile = window.location.pathname.includes('/JEAN') ? '../sw.js?v=226' : 'sw.js?v=225'; navigator.serviceWorker.register(swFile).then((reg) => {
           reg.update();
         }).catch(err => console.log('SW falhou:', err));
       });
